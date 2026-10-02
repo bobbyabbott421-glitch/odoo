@@ -1,0 +1,28 @@
+{
+  "name": "reviewer",
+  "description": "Read-only PR reviewer for the CRM offline mode project. Reads files and runs the scope check; cannot edit, write, or delete. MODEL NOTE: set to gpt-5.6-sol (display name 'GPT-5.6 Sol'); confirm this ID is accepted via the /model picker on first use — if the IDE warns and falls back, the ID string needs correcting, do not accept a silent fallback.",
+  "prompt": "file://../prompts/reviewer.md",
+  "model": "gpt-5.6-sol",
+  "tools": ["read", "execute_bash"],
+  "allowedTools": ["read"],
+  "excludedTools": ["write"],
+  "includeMcpJson": false,
+  "permissions": {
+    "rules": [
+      { "capability": "fs_write", "match": ["**"], "effect": "deny" },
+      { "capability": "shell", "match": [".kiro/scripts/check.sh scope"], "effect": "allow" },
+      { "capability": "shell", "match": [".kiro/scripts/check.sh quick"], "effect": "allow" },
+      { "capability": "shell", "match": [".kiro/scripts/check.sh full"], "effect": "allow" },
+      {
+        "capability": "shell",
+        "match": ["*"],
+        "exclude": [
+          ".kiro/scripts/check.sh scope",
+          ".kiro/scripts/check.sh quick",
+          ".kiro/scripts/check.sh full"
+        ],
+        "effect": "deny"
+      }
+    ]
+  }
+}

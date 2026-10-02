@@ -1,0 +1,15 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Enforce crm write scope",
+      "trigger": "PreToolUse",
+      "matcher": "fs_write|str_replace|fs_append",
+      "action": {
+        "type": "command",
+        "command": "bash .kiro/hooks/guard_write_scope.sh",
+        "timeout": 15
+      }
+    }
+  ]
+}

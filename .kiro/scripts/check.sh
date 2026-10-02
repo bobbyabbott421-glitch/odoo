@@ -18,8 +18,14 @@ section() { echo; echo "== $1"; }
 result() { if [ "$1" -eq 0 ]; then echo "PASS"; else echo "FAIL"; FAIL=1; fi; }
 
 scope() {
+  # Untracked (never-added) files are invisible to `git diff`; list them explicitly.
+  # Fast: same enumeration `git status` uses. NUL-free paths assumed (repo convention).
+  UNTRACKED_ALL=$(git ls-files --others --exclude-standard)
+  UNTRACKED_CRM=$(printf '%s\n' "$UNTRACKED_ALL" | grep '^addons/crm/' || true)
+
   section "Scope 1 (row 2): files changed outside addons/crm/ (excluding .kiro/)"
-  out=$(git diff --name-only "$BASE_SHA"..HEAD | grep -v '^addons/crm/' | grep -v '^\.kiro/' || true)
+  out=$( { git diff --name-only "$BASE_SHA"; printf '%s\n' "$UNTRACKED_ALL"; } \
+         | sed '/^$/d' | sort -u | grep -v '^addons/crm/' | grep -v '^\.kiro/' || true)
   [ -n "$out" ] && echo "$out"; [ -z "$out" ]; result $?
 
   section "Scope 2 (row 3): requirements.txt or security/ changed"
@@ -27,11 +33,24 @@ scope() {
   [ -n "$out" ] && echo "$out"; [ -z "$out" ]; result $?
 
   section "Scope 3 (row 4): new offline machinery added in addons/crm/"
-  out=$(git diff "$BASE_SHA"..HEAD -- addons/crm ':(exclude,glob)addons/crm/**/*.md' | grep '^+' | grep -iE 'indexeddb|serviceworker|navigator\.locks|caches\.open' || true)
+  # Diff base->working tree (drops ..HEAD) to include staged+unstaged edits to tracked files,
+  # then also grep the content of untracked files under addons/crm/ (excluding .md).
+  out=$( { git diff "$BASE_SHA" -- addons/crm ':(exclude,glob)addons/crm/**/*.md' | grep '^+'
+           printf '%s\n' "$UNTRACKED_CRM" | grep -v '\.md$' | while IFS= read -r f; do
+             [ -n "$f" ] && [ -f "$f" ] && sed 's/^/+/' "$f"
+           done
+         } | grep -iE 'indexeddb|serviceworker|navigator\.locks|caches\.open' || true)
   [ -n "$out" ] && echo "$out"; [ -z "$out" ]; result $?
 
   section "Scope 4 (row 13): only() or debug() in .test.js files"
-  out=$(grep -rnE '(^|[^A-Za-z0-9_])(only|debug)\(' addons/crm/static/tests --include='*.test.js' || true)
+  # Working-tree grep already covers tracked + untracked under static/tests. Also scan any
+  # untracked *.test.js elsewhere under addons/crm/ so a stray test file can't slip through.
+  stray=$(printf '%s\n' "$UNTRACKED_CRM" | grep '\.test\.js$' | grep -v '^addons/crm/static/tests/' || true)
+  out=$( { grep -rnE '(^|[^A-Za-z0-9_])(only|debug)\(' addons/crm/static/tests --include='*.test.js'
+           [ -n "$stray" ] && printf '%s\n' "$stray" | while IFS= read -r f; do
+             [ -n "$f" ] && [ -f "$f" ] && grep -nE '(^|[^A-Za-z0-9_])(only|debug)\(' "$f" | sed "s|^|$f:|"
+           done
+         } || true)
   [ -n "$out" ] && echo "$out"; [ -z "$out" ]; result $?
 
   section "Scope 5 (row 11): existing test files modified, deleted, or renamed (only tests/__init__.py may change)"
