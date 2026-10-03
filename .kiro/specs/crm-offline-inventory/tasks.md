@@ -44,7 +44,7 @@ This spec produces exactly **one** file: `addons/crm/static/src/mobile/offline_i
   - _Requirements: 5.1, 5.2, 5.3, 5.4_
 
 - [x] 5. Capture the eight known PART 2 defect entry points as classified rows (no fixes)
-  - Ensure each of these appears as a classified row with a justification and no proposed fix: post-save rainbowman lookup; email/phone force-save propagation; team switcher group probe and manage-teams navigation; lead-generation dropdown module and access probes; recurring-revenue progress aggregate group probe; predictive-scoring tooltip as TWO rows (the lookup call = SKIP, the tooltip button = DISABLE); CRM activity-menu entry; chatter on the lead form (classified DISABLE: not a QUEUE write and not a lead `mail.activity`, read-only offline and must not raise).
+  - Ensure each of these appears as a classified row with a justification and no proposed fix: post-save rainbowman lookup; email/phone force-save propagation; team switcher group probe and manage-teams navigation; lead-generation dropdown module and access probes; recurring-revenue progress aggregate group probe; predictive-scoring tooltip as three server-touching DISABLE rows (the pre-lookup record.save, the prepare_pls_tooltip_data lookup = DISABLE because it recomputes probability server-side, and the post-lookup record.load) plus a DISABLE row per pls_tooltip_button widget control; CRM activity-menu entry; chatter on the lead form (classified DISABLE: not a QUEUE write and not a lead `mail.activity`, read-only offline and must not raise).
   - _Requirements: 8.1, 8.2, 8.3, 8.4, 8.5, 8.6, 8.7, 8.8, 8.9_
 
 - [x] 6. Assemble the surface-grouped inventory table(s)
