@@ -38,6 +38,24 @@ Behavior in another addon is changed by extending it from within `crm`:
 - Frontend assets are picked up by the manifest's existing `assets` globs under
   `web.assets_backend`, `web.assets_unit_tests`, and `web.assets_tests`.
 
+## Spec lifecycle discipline
+
+- Create and check out the numbered feature branch from its declared parent before any
+  task writes files.
+- Treat requirements, design, tasks, and implementation as one synchronized contract.
+  When source inspection or review changes a classification, path, line number, count,
+  or expected behavior, update every affected spec document before marking the work done.
+  A completed task list must not preserve assumptions contradicted by the final artifact.
+- Spec files under `.kiro/specs/` are ignored by Odoo's gitignore. Re-stage every spec
+  artifact with `git add -f` after task execution and again immediately before committing.
+- Before committing, inspect both tracked and untracked changes against the feature's parent.
+  Do not rely on `git diff` alone to find new files; pair it with `git status --short`.
+- Before opening a PR, review the final artifact from scratch against the parent branch and
+  the current spec. Re-run counts and source-line checks rather than relying on task reports.
+- PR descriptions must distinguish expected staged-program failures from regressions. For
+  example, an acceptance check intentionally deferred to a later numbered spec is reported
+  as an explicit deviation, not presented as a passing check.
+
 ## Rules live elsewhere
 
 - Hard limits (no version/dependency/build-tooling changes, the addons/crm write

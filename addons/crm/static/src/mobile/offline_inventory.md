@@ -111,9 +111,11 @@ so anything that needs a server round-trip to resolve its arguments cannot be qu
 
 | file | line | call | classification | justification |
 | --- | --- | --- | --- | --- |
+| addons/crm/static/src/views/crm_form/crm_pls_tooltip_button.js | 45 | await this.props.record.save() | DISABLE | PART 2 item 6: saves pending changes to the server before the recompute; needs a server round-trip. |
 | addons/crm/static/src/views/crm_form/crm_pls_tooltip_button.js | 51 | orm.call("crm.lead","prepare_pls_tooltip_data",[resId]) | DISABLE | PART 2 item 6: recomputes probability server-side (comment at :50), a server write — not advisory; unavailable offline. |
 | addons/crm/static/src/views/crm_form/crm_pls_tooltip_button.js | 57 | await this.props.record.load() | DISABLE | PART 2 item 6: reloads the record from the server after the recompute; needs a server round-trip. |
-| addons/crm/static/src/views/crm_form/crm_pls_tooltip_button.js | 78 | registry.category("view_widgets").add("pls_tooltip_button",...) | DISABLE | PART 2 item 6: the tooltip button's interactive element must be disabled offline. |
+| addons/crm/views/crm_lead_views.xml | 99 | &lt;widget name="pls_tooltip_button"&gt; (AI-switch block) | DISABLE | PART 2 item 6: the tooltip button control; its interactive element must be disabled offline (widget registered at crm_pls_tooltip_button.js:78). |
+| addons/crm/views/crm_lead_views.xml | 131 | &lt;widget name="pls_tooltip_button"&gt; (alt layout block) | DISABLE | PART 2 item 6: the tooltip button control; its interactive element must be disabled offline (widget registered at crm_pls_tooltip_button.js:78). |
 
 ### Team switcher (control panel)
 
@@ -143,7 +145,8 @@ so anything that needs a server round-trip to resolve its arguments cannot be qu
 
 | file | line | call | classification | justification |
 | --- | --- | --- | --- | --- |
-| addons/crm/static/src/activity_menu_patch.js | 39 | action.loadAction("crm.crm_lead_action_my_activities") (→ doAction :45) | DISABLE | PART 2 item 7: navigation to the my-activities action; unreachable offline. |
+| addons/crm/static/src/activity_menu_patch.js | 39 | action.loadAction("crm.crm_lead_action_my_activities") | DISABLE | PART 2 item 7: loads the my-activities action definition from the server; unreachable offline. |
+| addons/crm/static/src/activity_menu_patch.js | 45 | action.doAction(action, {...}) | DISABLE | PART 2 item 7: navigates to the my-activities action; unreachable offline. |
 
 ### Chatter (lead form)
 
@@ -164,6 +167,7 @@ so anything that needs a server round-trip to resolve its arguments cannot be qu
 | addons/crm/models/crm_team.py | 211 | action_assign_leads() | DISABLE | Server-side lead-assignment engine; unavailable offline. |
 | addons/crm/models/crm_team.py | 762 | action_open_opportunities() | DISABLE | Navigation to an action; unavailable offline. |
 | addons/crm/models/crm_team.py | 770 | action_open_unassigned_opportunities() | DISABLE | Navigation to an action; unavailable offline. |
+| addons/crm/models/crm_team.py | 783 | action_primary_channel_button() | DISABLE | Reached from the sales_team kanban (addons/sales_team/views/crm_team_views.xml:132, type="object"); returns action_open_opportunities() — navigation unavailable offline. |
 | addons/crm/views/crm_team_views.xml | 144 | button action_assign_leads type="object" | DISABLE | Server-side assignment; unavailable offline. |
 | addons/crm/views/crm_team_views.xml | 207 | button action_open_opportunities type="object" | DISABLE | Navigation; unavailable offline. |
 | addons/crm/views/crm_team_views.xml | 276 | a action_open_unassigned_opportunities type="object" | DISABLE | Navigation; unavailable offline. |
@@ -243,9 +247,9 @@ are the source of truth). Every data row carries exactly one classification.
 | --- | --- |
 | QUEUE | 3 |
 | SKIP | 6 |
-| DISABLE | 68 |
+| DISABLE | 72 |
 
-Per-class total: 3 + 6 + 68 = **77**.
+Per-class total: 3 + 6 + 72 = **81**.
 
 ### Per-surface subtotals
 
@@ -257,14 +261,14 @@ Per-class total: 3 + 6 + 68 = **77**.
 | Lead methods (crm.lead, button-reachable) | 7 |
 | Lead form — other header/stat/inline buttons | 9 |
 | Lead list / opportunities list — header & row buttons | 5 |
-| Predictive-scoring tooltip (lead form widget) | 3 |
+| Predictive-scoring tooltip (lead form widget) | 5 |
 | Team switcher (control panel) | 3 |
 | Lead-generation dropdown (control panel) | 5 |
 | Recurring-revenue progress aggregate (kanban column) | 1 |
-| Activity menu (systray) | 1 |
+| Activity menu (systray) | 2 |
 | Chatter (lead form) | 1 |
 | Share target (webclient) | 1 |
-| Team views & dashboard (crm.team buttons + manage-teams nav) | 13 |
+| Team views & dashboard (crm.team buttons + manage-teams nav) | 14 |
 | Settings (res.config.settings) | 3 |
 | Related-record navigation (partner / lost reason / campaign) | 4 |
 | Wizards (transient-model apply buttons) | 4 |
@@ -272,7 +276,7 @@ Per-class total: 3 + 6 + 68 = **77**.
 | Out-of-scope analytic/other views (register-only) | 8 |
 | forecast_kanban crm-owned per-call rows | 3 |
 
-Per-surface total: 3 + 1 + 1 + 7 + 9 + 5 + 3 + 3 + 5 + 1 + 1 + 1 + 1 + 13 + 3 + 4 + 4 + 1 + 8 + 3 = **77**.
+Per-surface total: 3 + 1 + 1 + 7 + 9 + 5 + 5 + 3 + 5 + 1 + 2 + 1 + 1 + 14 + 3 + 4 + 4 + 1 + 8 + 3 = **81**.
 
 The two "Out-of-scope analytic/other views (hybrid rule)" sub-groups are reported
 separately above: the register-only arch-record rows (8) and the forecast_kanban
@@ -282,7 +286,7 @@ crm-owned per-call rows (3), 11 together.
 
 total rows = QUEUE + SKIP + DISABLE
 
-77 = 3 + 6 + 68
+81 = 3 + 6 + 72
 
 ## Boundary note
 
