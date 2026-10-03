@@ -61,13 +61,13 @@ so anything that needs a server round-trip to resolve its arguments cannot be qu
 | --- | --- | --- | --- | --- |
 | addons/crm/static/src/views/crm_kanban/crm_kanban_model.js | 29 | checkRainbowmanMessage(orm, effect, movedLeads[0].resId) after drag-move | SKIP | PART 2 item 1: advisory rainbowman after kanban stage move; skipped offline, not queued. |
 
-### Mark-won (lead form button + method)
+### Mark-won (Won button)
 
 | file | line | call | classification | justification |
 | --- | --- | --- | --- | --- |
-| addons/crm/views/crm_lead_views.xml | 10 | button name="action_set_won_rainbowman" type="object" (Won) | QUEUE | Offline mark-won queues action_set_won (crm_lead.py:1057) to optimistically show the lead won; it must NOT queue action_set_won_rainbowman, because replaying that would run the rainbowman lookup PART 3a forbids. |
+| addons/crm/views/crm_lead_views.xml | 10 | button name="action_set_won_rainbowman" type="object" (Won) | DISABLE | The button calls action_set_won_rainbowman; queuing that method verbatim would run the rainbowman lookup on replay, which PART 3a forbids. The offline mark-won path is the separate action_set_won row (crm_lead.py:1057). |
 
-*Note: action_set_won:1057 = QUEUE (the offline path); action_set_won_rainbowman:1089 = DISABLE (queuing it would replay the forbidden rainbowman lookup). Both py methods are itemized once, in the Lead methods surface below, to avoid double-counting.*
+*Note: the Won button's own call (action_set_won_rainbowman:1089) is DISABLE because replaying it would fire the forbidden rainbowman lookup. The offline mark-won path is action_set_won:1057 = QUEUE. Both py methods are itemized once in the Lead methods surface below.*
 
 ### Lead methods (crm.lead, button-reachable)
 
@@ -245,11 +245,11 @@ are the source of truth). Every data row carries exactly one classification.
 
 | classification | count |
 | --- | --- |
-| QUEUE | 3 |
+| QUEUE | 2 |
 | SKIP | 6 |
-| DISABLE | 72 |
+| DISABLE | 73 |
 
-Per-class total: 3 + 6 + 72 = **81**.
+Per-class total: 2 + 6 + 73 = **81**.
 
 ### Per-surface subtotals
 
@@ -257,7 +257,7 @@ Per-class total: 3 + 6 + 72 = **81**.
 | --- | --- |
 | Lead form — save & stage change | 3 |
 | Pipeline kanban — stage drag | 1 |
-| Mark-won (lead form button + method) | 1 |
+| Mark-won (Won button) | 1 |
 | Lead methods (crm.lead, button-reachable) | 7 |
 | Lead form — other header/stat/inline buttons | 9 |
 | Lead list / opportunities list — header & row buttons | 5 |
@@ -286,7 +286,7 @@ crm-owned per-call rows (3), 11 together.
 
 total rows = QUEUE + SKIP + DISABLE
 
-81 = 3 + 6 + 72
+81 = 2 + 6 + 73
 
 ## Boundary note
 

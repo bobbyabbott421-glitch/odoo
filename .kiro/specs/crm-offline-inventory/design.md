@@ -120,7 +120,7 @@ The **client-resolvable gate** runs within step 1: a QUEUE candidate whose argum
 - **Team switcher group probe** → SKIP (advisory group read); **manage-teams navigation** → DISABLE (navigation to an offline-unavailable action).
 - **Lead-generation dropdown module and access probes** → DISABLE (module install / access probes gating unavailable UI).
 - **Recurring-revenue progress aggregate group probe** → SKIP (advisory aggregate read).
-- **Predictive-scoring tooltip** → two rows: the **lookup call** → SKIP (advisory read; PART 2 item 6); the **tooltip button** → DISABLE (PART 2 item 6).
+- **Predictive-scoring tooltip** → three server-touching rows, all DISABLE (PART 2 item 6): the pre-lookup `record.save()`, the `prepare_pls_tooltip_data` **lookup call** (DISABLE because it recomputes probability server-side — a write, not an advisory read), and the post-lookup `record.load()`; plus a DISABLE row for each `pls_tooltip_button` widget control.
 - **CRM activity-menu entry** → DISABLE (navigation to an offline-unavailable action).
 - **Chatter on the lead form** → DISABLE (not a QUEUE write and not a lead `mail.activity`; read-only offline, must not raise an uncaught error; PART 2 item 8).
 

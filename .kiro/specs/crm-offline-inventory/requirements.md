@@ -106,7 +106,7 @@ This feature produces a single Markdown inventory document that enumerates and c
 3. THE Inventory SHALL capture the team switcher group probe and the manage-teams navigation as classified Rows.
 4. THE Inventory SHALL capture the lead-generation dropdown module and access probes as classified Rows.
 5. THE Inventory SHALL capture the recurring-revenue progress aggregate group probe as a classified Row.
-6. THE Inventory SHALL capture the predictive-scoring tooltip as TWO classified Rows: the lookup call as a SKIP Row (advisory read) and the tooltip button as a DISABLE Row.
+6. THE Inventory SHALL capture the predictive-scoring tooltip with its three server-touching calls each as a DISABLE Row — the pre-lookup `record.save()`, the `prepare_pls_tooltip_data` lookup (DISABLE because it recomputes probability server-side, a write, not an advisory read), and the post-lookup `record.load()` — plus a DISABLE Row for each `pls_tooltip_button` widget control.
 7. THE Inventory SHALL capture the CRM activity-menu entry as a classified Row.
 8. THE Inventory SHALL capture the chatter on the lead form as a DISABLE-classified Row (it is neither a QUEUE write on `crm.lead`, `crm.stage`, or `crm.team` nor a lead `mail.activity`, so by the ordered rule it is DISABLE: read-only offline and must not raise an uncaught error).
 9. THE Inventory SHALL record each known-defect entry point as a classified Row only, containing no fix.
