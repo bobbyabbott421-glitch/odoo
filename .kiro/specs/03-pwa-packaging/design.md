@@ -378,7 +378,7 @@ and scope checks. Mapping each requirement to its verification:
 | 11.1 only Allowed_Files change | three-file boundary + `check.sh scope` |
 | 11.2 no version bump | manifest untouched (spec 08 owns bump) |
 | 11.3 no new dependency | `requirements.txt`/`depends` untouched + `check.sh scope` |
-| 11.4 passes check.sh quick + full | run `check.sh quick` and `check.sh full` |
+| 11.4 verified by check.sh quick + full; all scope checks and all five test commands pass; row 5 (version) is an expected failure until spec 08 | run `check.sh quick` and `check.sh full` |
 
 Language note (Req 10.2): the test environment and the served HTTP request both run in
 `en_US`, so `_("My Pipeline")`/`_("New Lead")` evaluate to the literal English strings.
@@ -393,7 +393,11 @@ Run through `.kiro/scripts/check.sh` only (do not retype the underlying commands
   offline machinery, `only()`/`debug()` in tests, modified existing test files) plus the
   new `TestCrmOffline` Python class and the desktop JS unit tests.
 - `check.sh full` — the above plus inventory and manifest-version checks and all five test
-  commands; run before the PR and for final results.
+  commands; run before the PR and for final results. All scope checks and all five test
+  commands MUST pass. The acceptance row 5 check (crm manifest version bumped one minor
+  increment) is an EXPECTED failure for spec 03: the version bump is deferred to spec 08,
+  so `full` reports that one row as failing while every test command passes. This is not a
+  regression and does not block spec 03.
 
 Spec 03 owns no acceptance-gate rows (per `spec-plan.md`); rows 2, 3, 4, 11, 13 are
 enforced on every spec by `check.sh scope` and the Stop hook. Report the script output

@@ -41,6 +41,7 @@ spec 08.
 - [x] 4. Verify through `.kiro/scripts/check.sh`
   - Run checks ONLY through `.kiro/scripts/check.sh`; do not retype the underlying commands. Run `.kiro/scripts/check.sh quick` first (scope gate + the new `TestCrmOffline` Python class + desktop JS unit tests), then `.kiro/scripts/check.sh full` (adds inventory and manifest-version checks and all five test commands) before the PR and for final results.
   - New files under `.kiro/` are gitignored by Odoo, so `git add -f` the spec artifacts; the Stop hook runs `check.sh scope`.
+  - All scope checks and all five test commands MUST pass. The acceptance row 5 check in `full` mode (crm manifest version bumped one minor increment) is an EXPECTED failure for spec 03 — the version bump is deferred to spec 08 — so `full` reports that one row as failing while every test command passes; this is not a regression and does not block the spec.
   - Report the script output verbatim. If it fails for an environment reason (a path, the database), say so rather than working around it. Do not bump the manifest version (spec 08 owns it) and do not claim any acceptance-gate rows (spec 03 owns none).
   - _Requirements: 11.1, 11.2, 11.3, 11.4_
 

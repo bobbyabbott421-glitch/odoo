@@ -1,5 +1,6 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 import json
+import mimetypes
 
 from odoo import _
 from odoo.addons.crm.controllers.webmanifest import WebManifest as CrmWebManifest
@@ -48,12 +49,17 @@ class TestCrmOffline(HttpCase, TestCrmCommon):
                 "New shortcuts must match the parent entry's key shape",
             )
 
-        # Each icons entry has the parent's sub-shape.
+        # Each icons entry has the parent's sub-shape and the crm icon value.
         for shortcut in (pipeline, new_lead):
             self.assertEqual(len(shortcut['icons']), 1)
             icon = shortcut['icons'][0]
             self.assertEqual(set(icon), {'sizes', 'src', 'type'})
             self.assertEqual(icon['sizes'], '100x100')
+            self.assertEqual(icon['src'], '/crm/static/description/icon.png')
+            self.assertEqual(
+                icon['type'],
+                mimetypes.guess_type(icon['src'])[0] or 'image/png',
+            )
             self.assertTrue(icon['type'])
             # The icon path is openable (de-slash the leading '/').
             with file_open(icon['src'].removeprefix('/')):

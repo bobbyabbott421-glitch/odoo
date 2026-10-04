@@ -241,4 +241,8 @@ file and dependency boundaries, so that it does not take on work owned by other 
    the version bump to spec 08.
 3. THE spec 03 implementation SHALL add no Python or JavaScript dependency and SHALL leave
    `requirements.txt` and the addon `depends` list unchanged.
-4. THE spec 03 implementation SHALL pass Check_Script in both `quick` and `full` modes.
+4. THE spec 03 implementation SHALL be verified by running Check_Script in both `quick`
+   and `full` modes, with all scope checks and all five test commands passing. The
+   acceptance row 5 check in `full` mode (crm manifest version bumped one minor increment)
+   is an EXPECTED failure for spec 03, because the version bump is deferred to spec 08; it
+   is not a regression and does not block this spec.
