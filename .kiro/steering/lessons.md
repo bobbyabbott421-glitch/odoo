@@ -87,3 +87,38 @@ PR review exposed API and testing pitfalls that later specs must avoid:
   `OfflinePlugin` or `UIPlugin` independently. The shared hook is the only CRM code that reads
   the private `_ormToSync()` signal; parked entries remain queued, and pending creates without
   a server `resId` remain deferred to spec 07's create-flow handling.
+
+## Lessons from spec 03
+
+Spec 03 added the CRM PWA manifest shortcuts and seeded the shared `test_crm_offline.py`
+(class `TestCrmOffline`). Generation and PR review surfaced a spec-contract wording trap
+and a few extension/parity habits later specs must keep:
+
+- Until spec 08 bumps the manifest version, `check.sh full` is EXPECTED to fail exactly one
+  thing: acceptance row 5 (crm manifest version bumped one minor increment). Every spec
+  before 08 therefore MUST phrase its verification as "`check.sh quick` and `check.sh full`
+  are run; all five test commands and all scope checks pass; acceptance row 5 (version bump)
+  is expected to fail until spec 08." NEVER write "check.sh full passes" (or "all acceptance
+  rows pass") as an acceptance criterion in requirements, design, or tasks before spec 08 —
+  that is self-contradictory with the frozen `1.9` version and was the one blocking review
+  finding on PR #5. Report the row-5 failure as an explicit, expected deviation, not a
+  regression.
+- When extending a framework method, call `super()` first and only append; assert the
+  parent's result is preserved by capturing it DYNAMICALLY at test time (instantiate the
+  parent controller / call `super()`), never by hardcoding the expected parent list. A
+  hardcoded baseline passes even when the parent silently changes.
+- When you reproduce a parent's data shape (dict keys, nested sub-dict keys, literal values
+  such as the icon `sizes`), assert the shape EXACTLY: the full key set at each level, plus
+  the concrete `src` value and the derived field (`type` via `mimetypes.guess_type(src)[0]
+  or 'image/png'`), not just "a value is present". The first review pass under-asserted the
+  icon `src`/`type`; add those equality checks up front.
+- Keep `sudo()` to the exact scope the parent uses and no wider — here, only the
+  `ir.model.data` xmlid lookup. Prove the privilege boundary with a fresh non-admin user
+  (a `sales_team.group_sale_salesman`), never `admin`, which masks access-rights gaps. An
+  over-elevated or admin-only path passes as admin and breaks for the real user.
+- `test_crm_offline.py` is the single shared Python test module for specs 04–08. Append new
+  classes/methods to it; it is already imported in `addons/crm/tests/__init__.py`. Do not
+  create a second CRM offline Python test module, and do not re-add the import.
+- The only existing test file any spec may edit is `addons/crm/tests/__init__.py` (to add an
+  import). End it with a trailing newline when appending, so the next spec's import diff
+  stays a clean one-line addition.
