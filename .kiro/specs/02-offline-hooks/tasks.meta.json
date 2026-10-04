@@ -1,0 +1,62 @@
+{
+  "pbtResults": {},
+  "executionHistory": {
+    "1. Implement the `useCrmOffline()` hook": [
+      {
+        "executionId": "ff247ee4-7fde-4784-a6fa-d9c032be1b46",
+        "chatSessionId": "sess_e7d5a267-3283-40c9-9074-10b93b157f24",
+        "timestamp": 1791069524858
+      },
+      {
+        "executionId": "ff247ee4-7fde-4784-a6fa-d9c032be1b46",
+        "chatSessionId": "sess_e7d5a267-3283-40c9-9074-10b93b157f24",
+        "timestamp": 1791069530235
+      },
+      {
+        "executionId": "ff247ee4-7fde-4784-a6fa-d9c032be1b46",
+        "chatSessionId": "sess_e7d5a267-3283-40c9-9074-10b93b157f24",
+        "timestamp": 1791069604598
+      }
+    ],
+    "2.1 Create the probe component and test scaffolding": [
+      {
+        "executionId": "ff247ee4-7fde-4784-a6fa-d9c032be1b46",
+        "chatSessionId": "sess_e7d5a267-3283-40c9-9074-10b93b157f24",
+        "timestamp": 1791069524883
+      },
+      {
+        "executionId": "ff247ee4-7fde-4784-a6fa-d9c032be1b46",
+        "chatSessionId": "sess_e7d5a267-3283-40c9-9074-10b93b157f24",
+        "timestamp": 1791069607043
+      }
+    ],
+    "2.2 Cover read members and queued-write/scheduling cases": [
+      {
+        "executionId": "ff247ee4-7fde-4784-a6fa-d9c032be1b46",
+        "chatSessionId": "sess_e7d5a267-3283-40c9-9074-10b93b157f24",
+        "timestamp": 1791069524909
+      }
+    ],
+    "2.9 Pair every test block across both presets": [
+      {
+        "executionId": "ff247ee4-7fde-4784-a6fa-d9c032be1b46",
+        "chatSessionId": "sess_e7d5a267-3283-40c9-9074-10b93b157f24",
+        "timestamp": 1791069524935
+      }
+    ],
+    "3. Verify scope and run checks": [
+      {
+        "executionId": "ff247ee4-7fde-4784-a6fa-d9c032be1b46",
+        "chatSessionId": "sess_e7d5a267-3283-40c9-9074-10b93b157f24",
+        "timestamp": 1791069524956
+      }
+    ],
+    "4. Final checkpoint - Ensure all tests pass": [
+      {
+        "executionId": "ff247ee4-7fde-4784-a6fa-d9c032be1b46",
+        "chatSessionId": "sess_e7d5a267-3283-40c9-9074-10b93b157f24",
+        "timestamp": 1791069524974
+      }
+    ]
+  }
+}
