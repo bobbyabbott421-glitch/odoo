@@ -36,4 +36,5 @@ their final proof is the acceptance report after spec 08.
 ## Status
 
 - Spec 01: merged into `kiro/00-setup`.
-- Specs 02–08: not started.
+- Spec 02: merged into `kiro/00-setup`.
+- Specs 03–08: not started.

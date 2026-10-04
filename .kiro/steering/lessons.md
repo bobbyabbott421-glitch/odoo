@@ -42,3 +42,48 @@ bookkeeping mistakes that these rules exist to prevent in every inventory or swe
 - After adding, removing, splitting, reclassifying, or replacing any row, recount from the
   table itself. Per-class counts and per-surface subtotals MUST independently sum to the same
   total before review.
+
+## Lessons from spec 02
+
+Spec 02 added the shared CRM offline hook. Spec generation, implementation, validation, and
+PR review exposed API and testing pitfalls that later specs must avoid:
+
+- Every `.kiro/specs/<name>/.config.kiro` MUST have a unique `specId`. Before creating a new
+  spec, compare its id with every existing spec config; generate a new UUID instead of copying
+  one from an earlier spec. Duplicate ids collide in Kiro's spec and task tracking.
+- This tree uses OWL 3. A test component that accepts no props omits a props declaration; a
+  component that accepts props uses `useProps(...)`. Do not add OWL 2-style `static props` or
+  `static defaultProps`, which OWL 3 rejects.
+- Desktop/mobile presets and online/offline connectivity are independent test dimensions.
+  When a requirement says a predicate works online and offline under both presets, pair the
+  desktop and mobile tests and assert both connectivity states inside each preset.
+- Use `mockOffline()` only when the behavior under test needs RPCs to fail. It installs a
+  catch-all RPC response that returns 502 while offline and can turn unrelated background
+  calls such as `/mail/store` into timing-dependent failures. For signal-only tests, drive
+  `OfflinePlugin.setOffline(...)` directly and restore the online state before the test ends.
+- Mounting even a small probe component can start framework services that resolve mail models.
+  If the mock server reports a missing model such as `discuss.channel`, register the existing
+  mail test models with `defineMailModels()` rather than mocking individual RPC responses.
+- Test `isAvailableOffline` in the framework's real order: call `setAvailableOffline(...)`
+  while online, switch the plugin offline, await `getVisitedStatus()`, and then assert cached
+  availability. The plugin's `_visited` map is populated only during the offline transition;
+  an online form lookup may legitimately return `undefined`.
+- Review coverage branch by branch, not only statement by statement. Predicate tests must
+  exercise empty and non-empty state, matching and non-matching model/id, parked
+  `extras.error` entries, the no-argument form, and defensive branches such as a non-array
+  `args[0]`.
+- A thin pass-through wrapper test must prove the complete contract: every positional
+  argument, kwargs, options metadata, return value, and expected thrown error. For
+  `scheduleORM`, patch `window.isSecureContext` with `patchWithCleanup(...)` to verify that
+  `NonSecureContextError` propagates unchanged.
+- Do not generate optional property-based-test tasks unless the repository already provides
+  an approved property-testing facility. Adding a JavaScript property-testing package would
+  violate the no-new-dependencies constraint; express the properties as deterministic
+  example and edge-case tests instead.
+- Run `check.sh scope` after changing comments as well as executable code. Its prohibited
+  offline-machinery scan examines source text, including comments, so comments in CRM files
+  must not introduce forbidden primitive names merely to describe framework internals.
+- Later mobile CRM components consume `useCrmOffline()` instead of resolving
+  `OfflinePlugin` or `UIPlugin` independently. The shared hook is the only CRM code that reads
+  the private `_ormToSync()` signal; parked entries remain queued, and pending creates without
+  a server `resId` remain deferred to spec 07's create-flow handling.
