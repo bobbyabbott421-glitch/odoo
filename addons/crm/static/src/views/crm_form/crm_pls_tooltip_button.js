@@ -4,6 +4,7 @@ import { localization } from "@web/core/l10n/localization";
 import { registry } from '@web/core/registry';
 import { usePopover } from "@web/core/popover/popover_hook";
 import { useService } from "@web/core/utils/hooks";
+import { useCrmOffline } from "@crm/mobile/crm_offline_hooks";
 
 
 export class CrmPlsTooltip extends Component {
@@ -27,6 +28,7 @@ export class CrmPlsTooltipButton extends Component {
 
     setup() {
         super.setup();
+        this.crmOffline = useCrmOffline();
         this.orm = useService("orm");
         this.ui = useService("ui");
         this.popover = usePopover(CrmPlsTooltip, {
@@ -37,6 +39,13 @@ export class CrmPlsTooltipButton extends Component {
     }
 
     async onClickPlsTooltipButton(ev) {
+        // Offline the <button> is disabled by the framework (click/keyboard/
+        // hotkey). This guard covers the programmatic path: the save,
+        // prepare_pls_tooltip_data recompute and reload all need the server and
+        // have no offline fallback, so a direct call offline must do nothing.
+        if (this.crmOffline.isOffline()) {
+            return;
+        }
         const tooltipButtonEl = ev.currentTarget;
         if (this.popover.isOpen) {
             this.popover.close();

@@ -1,6 +1,8 @@
 import { registry } from "@web/core/registry";
 import { ShareTargetItem } from "@web/webclient/share_target/share_target_item";
-import { onWillStart } from "@odoo/owl";
+import { onWillStart, status, useOnChange } from "@odoo/owl";
+import { useCrmOffline } from "@crm/mobile/crm_offline_hooks";
+import { ConnectionLostError } from "@web/core/network/rpc";
 import { _t } from "@web/core/l10n/translation";
 
 export class CrmShareTargetItem extends ShareTargetItem {
@@ -10,17 +12,55 @@ export class CrmShareTargetItem extends ShareTargetItem {
 
     setup() {
         super.setup();
+        this.crmOffline = useCrmOffline();
         this.teamsDomain = [["company_id", "in", [this.currentCompany.id, false]]];
         onWillStart(() => this.updateTeams());
+        // Offline the team list cannot be fetched; on reconnect, run the skipped
+        // lookup exactly once so the selector populates with no other action.
+        useOnChange(
+            () => [this.crmOffline.isOffline()],
+            (isOffline) => {
+                if (!isOffline && this._teamsProbeSkipped) {
+                    this._teamsProbeSkipped = false;
+                    this.updateTeams();
+                }
+            },
+            { initialRun: false }
+        );
+    }
+
+    get isOffline() {
+        return this.crmOffline.isOffline();
     }
 
     async updateTeams() {
-        this.state.teams = await this.orm
-            .webSearchRead("crm.team", this.teamsDomain, {
+        // The team lookup is a server round-trip with no offline fallback; skip
+        // it offline (render the item disabled, see template) and remember to run
+        // it once on reconnect.
+        if (this.crmOffline.isOffline()) {
+            this._teamsProbeSkipped = true;
+            return;
+        }
+        let records;
+        try {
+            ({ records } = await this.orm.webSearchRead("crm.team", this.teamsDomain, {
                 specification: { id: {}, display_name: {} },
-                context: this.context
-            })
-            .then(({ records }) => records);
+                context: this.context,
+            }));
+        } catch (e) {
+            // Connection dropped mid-fetch: re-arm so the next reconnect retries,
+            // and swallow (no unhandled rejection). Any other error propagates.
+            if (e instanceof ConnectionLostError) {
+                this._teamsProbeSkipped = true;
+                return;
+            }
+            throw e;
+        }
+        // Guard against a component torn down while the fetch was in flight.
+        if (status(this) === "destroyed") {
+            return;
+        }
+        this.state.teams = records;
         this.state.selected_team = this.state.teams.length
             ? this.state.teams[0]
             : false;
