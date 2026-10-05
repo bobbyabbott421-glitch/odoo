@@ -122,3 +122,59 @@ and a few extension/parity habits later specs must keep:
 - The only existing test file any spec may edit is `addons/crm/tests/__init__.py` (to add an
   import). End it with a trailing newline when appending, so the next spec's import diff
   stays a clean one-line addition.
+
+## Lessons from spec 04
+
+Spec 04 fixed offline form-save / mark-won correctness. It took three PR-review passes to
+land; these rules exist so later specs get the offline-write and optimistic-display details
+right the first time.
+
+- Know exactly what the framework queues offline, and what it does NOT. The web offline
+  layer only falls back to the queue for the record's own `save` (`web_save`), `delete`
+  (`web_unlink`), and `archive`/`unarchive`. A `type="object"` button call (and any other
+  bare `orm.call`) has NO offline fallback — offline it just raises `ConnectionLostError`.
+  Separately, a button WITHOUT `data-available-offline` is disabled at runtime by the
+  framework's selector pass. So making a control work offline needs BOTH: the
+  `data-available-offline` attribute on the interactive element AND an explicit
+  `scheduleORM(model, method, args, kwargs, { extras })` in the handler (the handler also
+  replaces the online server call). Neither half alone is enough.
+- Never queue a call whose arguments need a server id the record does not have yet. A record
+  with no `resId` (`record.isNew` — a brand-new record, OR one created offline whose
+  `web_save` create is itself still queued) cannot be the target of a follow-up queued call:
+  the queue replays verbatim with no id remapping, so the id would have to come from another
+  queued call, which is forbidden. Check `record.isNew` BEFORE saving (not after), so the
+  blocked click queues NOTHING at all — not even the offline create a `save()` would enqueue.
+  Surface a clear notification instead; do not silently no-op.
+- When intercepting a view button, mirror the base controller's own order: `save()` first,
+  stop if it returns `false` (invalid/failed save — the button must do nothing, exactly as
+  online), and only then perform the action. Capture `const saved = await record.save()` and
+  branch on `saved === false`; do not assume the save succeeded.
+- Optimistic ("display-only") record values: there is NO public API that updates a record
+  without dirtying it. `record.update()` routes through `_update()` and sets `dirty = true`
+  + populates `_changes`, which would queue a spurious extra `web_save` on the next
+  save/leave. Use the framework's own cohesive helper `record._applyValues({ ... })` followed
+  by `this.model.notify()` — it folds the values into `_values`, `data`, `_textValues`,
+  `_initialTextValues` and the eval context together, leaving `_changes` untouched. Do NOT
+  hand-write the individual private fields (`_values`/`data`/`_textValues`/`_setEvalContext`)
+  separately; that is what the first implementation did and review rejected it for a
+  cohesive helper.
+- Test fixtures (Hoot mock models) MUST declare each field with the SAME type as production.
+  Spec 04 first modelled `crm.lead.won_status` as `fields.Char` when production is
+  `fields.Selection` (crm_lead.py); the mismatch hid where the eval-context value really
+  comes from (`data` for a Selection) and produced a misleading rationale. The Hoot mock
+  framework supports `fields.Selection({ selection: [...] })` — use it; match the real
+  field types so the test exercises the real code path.
+- Queue assertions must check the WHOLE queue's state, not just "my call isn't there". For a
+  path that must queue nothing, assert `_ormToSync()` is empty (or unchanged in size and
+  content), not merely that one method is absent — otherwise a stray `web_save` slips
+  through (this was a blocking review finding). Replay tests must do a REAL reconnect
+  (`mockOffline()` + `WebClient` + `setOffline(false)` + `runAllTimers()`) and assert on what
+  the mock SERVER received (arrival order, last-write-wins value), not just the queued
+  entries. For a rejected replay, assert the parked entry's `extras.error` INCLUDES the
+  server's actual error text and that the systray surfaces that text (its `data-tooltip`),
+  not merely that some error exists.
+- (Carried forward, were missing from earlier lessons.) New files under `.kiro/` are ignored
+  by Odoo's gitignore, so always `git add -f` them when staging or committing — do this
+  automatically, never stop to ask. And never deviate from a decision already agreed with the
+  user (an approved spec, a chosen approach, a named file set) without asking first; if source
+  inspection shows the agreed plan is wrong, raise it and get agreement before changing course.

@@ -38,4 +38,5 @@ their final proof is the acceptance report after spec 08.
 - Spec 01: merged into `kiro/00-setup`.
 - Spec 02: merged into `kiro/00-setup`.
 - Spec 03: merged into `kiro/00-setup`.
-- Specs 04–08: not started.
+- Spec 04: merged into `kiro/00-setup`.
+- Specs 05–08: not started.
