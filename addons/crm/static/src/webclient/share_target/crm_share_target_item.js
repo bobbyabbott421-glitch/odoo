@@ -1,6 +1,7 @@
 import { registry } from "@web/core/registry";
 import { ShareTargetItem } from "@web/webclient/share_target/share_target_item";
-import { onWillStart } from "@odoo/owl";
+import { onWillStart, useOnChange } from "@odoo/owl";
+import { useCrmOffline } from "@crm/mobile/crm_offline_hooks";
 import { _t } from "@web/core/l10n/translation";
 
 export class CrmShareTargetItem extends ShareTargetItem {
@@ -10,11 +11,35 @@ export class CrmShareTargetItem extends ShareTargetItem {
 
     setup() {
         super.setup();
+        this.crmOffline = useCrmOffline();
         this.teamsDomain = [["company_id", "in", [this.currentCompany.id, false]]];
         onWillStart(() => this.updateTeams());
+        // Offline the team list cannot be fetched; on reconnect, run the skipped
+        // lookup exactly once so the selector populates with no other action.
+        useOnChange(
+            () => [this.crmOffline.isOffline()],
+            (isOffline) => {
+                if (!isOffline && this._teamsProbeSkipped) {
+                    this._teamsProbeSkipped = false;
+                    this.updateTeams();
+                }
+            },
+            { initialRun: false }
+        );
+    }
+
+    get isOffline() {
+        return this.crmOffline.isOffline();
     }
 
     async updateTeams() {
+        // The team lookup is a server round-trip with no offline fallback; skip
+        // it offline (render the item disabled, see template) and remember to run
+        // it once on reconnect.
+        if (this.crmOffline.isOffline()) {
+            this._teamsProbeSkipped = true;
+            return;
+        }
         this.state.teams = await this.orm
             .webSearchRead("crm.team", this.teamsDomain, {
                 specification: { id: {}, display_name: {} },
