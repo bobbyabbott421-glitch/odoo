@@ -111,8 +111,17 @@ and only proceeds `if (saved !== false)`): IF the save returns `false` (e.g. an 
 empty required field makes the save fail) THEN the system SHALL NOT queue `action_set_won`,
 SHALL NOT set the optimistic won display, and SHALL return `false` so the button does not
 proceed (matching the online behavior where an invalid-field save is rejected and the
-button does nothing). ONLY WHEN the save succeeds (`saved !== false`) does the system queue
-exactly ONE additional call — `scheduleORM("crm.lead", "action_set_won", [[resId]],
+button does nothing). IF the save succeeds (`saved !== false`) BUT the record has no server
+id (`record.isNew` — a brand-new opportunity, OR a lead created offline and not yet synced)
+THEN the system SHALL NOT queue `action_set_won`, SHALL NOT set the optimistic won display,
+and SHALL block the click with a warning notification ("Sync this opportunity before marking
+it won") and return `false`. Rationale: the queue replays calls verbatim with no id
+remapping, so `action_set_won`'s id would have to come from another queued call (the offline
+create), which is forbidden; the control cannot be statically disabled per-record
+offline-only without changing online behavior, since the framework's `SELECTORS_TO_DISABLE`
+pass keys on the presence of the static `data-available-offline` attribute, not a dynamic
+expression. ONLY WHEN the save succeeds AND the record has a server id does the system queue
+exactly ONE additional call — `scheduleORM("crm.lead", "action_set_won", [[record.resId]],
 {context}, {extras})` — and set the optimistic won display, and in that case it SHALL queue
 NO rainbowman call (`get_rainbowman_message` / `action_set_won_rainbowman` MUST NOT be
 queued or issued). The resulting offline queue order (`web_save` then `action_set_won`, in
@@ -121,11 +130,14 @@ then the button executes), which relates to the queue-ordering invariant in 3.8.
 is no pending edit, `record.save()` returns early (a non-`false` result) and queues nothing,
 so only the `action_set_won` entry is present.
 
-2.6 WHEN the connection is offline AND the "Won" button is clicked THEN the system SHALL
-show the lead as won optimistically by setting `probability = 100` and `won_status =
-'won'` for display, written directly to `record.data` and `record._values` (the
-`_commitSave` pattern), NOT via `record.update()`; it SHALL NOT set `stage_id` offline
-(the server resolves the won stage via `_stage_find`).
+2.6 WHEN the connection is offline AND the "Won" button is clicked on a record WITH a server
+id THEN the system SHALL show the lead as won optimistically by setting `probability = 100`
+and `won_status = 'won'` for display via the framework's `record._applyValues({ probability:
+100, won_status: 'won' })` followed by `this.model.notify()` — which folds the values into
+the committed baseline (`_values`), the reactive `data`, `_textValues`, `_initialTextValues`,
+and the eval context together, leaving `_changes` untouched so the record stays non-dirty —
+NOT via `record.update()` (which would populate `_changes` and dirty the record); it SHALL
+NOT set `stage_id` offline (the server resolves the won stage via `_stage_find`).
 
 2.7 WHEN the connection is offline AND the lead has been marked won AND the user then
 saves or leaves the form THEN the system SHALL NOT queue any additional `web_save`
@@ -231,6 +243,10 @@ END FOR
 // proceed). Only on a successful save is a preceding web_save queued iff
 // there was a pending edit, then exactly one action_set_won, no rainbowman,
 // optimistic won shown, and no extra web_save carrying probability/won_status.
+// If the saved record still has no server id (record.isNew — a new or
+// offline-created lead), the won action cannot be queued (its id would come
+// from another queued call); the click is blocked with a warning notification
+// and nothing is queued.
 FOR ALL X WHERE isBugCondition(X) AND X.action = MARK_WON DO
   result ← F'(X)
   IF result.saved = FALSE THEN
@@ -238,6 +254,13 @@ FOR ALL X WHERE isBugCondition(X) AND X.action = MARK_WON DO
     ASSERT count(queued_calls(result), ("crm.lead","action_set_won",[[resId]])) = 0
        AND no_rainbowman_call(result)
        AND result.record.won_status != 'won'
+       AND result.returnValue = FALSE
+  ELSE IF result.record.isNew THEN
+    // No server id: cannot queue (no id remapping). Blocked with a notification.
+    ASSERT count(queued_calls(result), ("crm.lead","action_set_won",*)) = 0
+       AND no_rainbowman_call(result)
+       AND result.record.won_status != 'won'
+       AND warning_notification_shown(result)
        AND result.returnValue = FALSE
   ELSE
     ASSERT count(queued_calls(result), ("crm.lead","action_set_won",[[resId]])) = 1
@@ -317,9 +340,12 @@ BOTH the desktop and mobile presets:
   `runAllTimers()`); the non-`ConnectionLost` error re-schedules the entry with
   `extras.error` (parked, still in `_ormToSync` with `extras.error` set). Assert the entry
   is shown in the existing offline systray as an error (the `[data-icon='error']` /
-  `.text-danger` entry, per the existing systray test). With the systray dropdown open at
-  that point, assert the parked entry is surfaced ONLY through the framework systray and no
-  CRM-specific error dialog or toast was raised: no `.modal` and no danger notification
+  `.text-danger` entry, per the existing systray test). Assert the parked entry carries the
+  SERVER's error, not merely some error: its `extras.error` INCLUDES "Server rejected the
+  write", and the systray error element's `data-tooltip` (bound to `element.error ??
+  element.displayName` in `offline_systray.xml`) INCLUDES it. With the systray dropdown open
+  at that point, assert the parked entry is surfaced ONLY through the framework systray and
+  no CRM-specific error dialog or toast was raised: no `.modal` and no danger notification
   (`.o_notification_bar.bg-danger`) appear — `expect('.modal').toHaveCount(0)` and
   `expect('.o_notification_bar.bg-danger').toHaveCount(0)`. These are the real framework
   DOM selectors: a danger toast renders `o_notification_bar bg-danger`
@@ -339,8 +365,16 @@ BOTH the desktop and mobile presets:
   lead is NOT shown as won (`won_status` is not 'won', the Won button is still visible).
   This proves the offline Won branch mirrors the base controller's `saved !== false` guard,
   so an invalid-field save offline matches online (the save is rejected and the button does
-  nothing). The test clears a required field to force `record.save() === false`; the
-  implementer confirms which field is required from the `crm.lead` form view. (2.5)
+  nothing). The test clears the required `name` field to force `record.save() === false`.
+  (2.5)
+- AC-J12: Offline, mount `crm_form` as a NEW opportunity (no `resId`, so `record.isNew` is
+  true — equivalently a lead created offline and not yet synced), set a valid `name`, and
+  click "Won"; assert NOTHING is queued (no `action_set_won` / `action_set_won_rainbowman`
+  anywhere in the queue — asserted across the whole queue, since there is no `resId` to key
+  on) and the lead is NOT shown as won (`won_status` is not 'won', the Won button is still
+  visible), and a warning notification ("Sync this opportunity before marking it won")
+  appears. This proves the `record.isNew` guard: a record whose id would come from another
+  queued call is never queued. (2.5)
 
 Python — appended to class `TestCrmOffline` in `addons/crm/tests/test_crm_offline.py`:
 

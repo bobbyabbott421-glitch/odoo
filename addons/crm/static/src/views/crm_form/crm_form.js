@@ -1,5 +1,7 @@
 import { checkRainbowmanMessage } from "@crm/views/check_rainbowman_message";
+import { _t } from "@web/core/l10n/translation";
 import { registry } from "@web/core/registry";
+import { useService } from "@web/core/utils/hooks";
 import { formView } from "@web/views/form/form_view";
 import { getScheduleORMExtras } from "@web/model/relational_model/utils";
 
@@ -70,14 +72,23 @@ class CrmFormModel extends formView.Model {
 }
 
 class CrmFormController extends formView.Controller {
+    setup() {
+        super.setup(...arguments);
+        // Used only by the offline mark-won path to explain why a never-synced
+        // opportunity cannot be marked won offline.
+        this.notification = useService("notification");
+    }
+
     /**
      * Offline mark-won interception.
      *
      * The "Won" button (`action_set_won_rainbowman`) calls a server-only method
      * that recomputes the rainbowman message and has no offline queue fallback.
      * Offline, we intercept the click, queue the queueable `action_set_won`
-     * instead, and show the lead won optimistically. Online (and for every other
-     * button) we defer to the base controller unchanged.
+     * instead, and show the lead won optimistically. A record with no server id
+     * cannot be queued (its id would come from another queued call), so offline
+     * we block the click with a notification and queue nothing. Online (and for
+     * every other button) we defer to the base controller unchanged.
      *
      * @override
      */
@@ -87,7 +98,6 @@ class CrmFormController extends formView.Controller {
             clickParams.name === "action_set_won_rainbowman"
         ) {
             const record = this.model.root;
-            const resId = record.resId;
             // Save first, mirroring the base controller which captures
             // `saved = await record.save(...)` and only proceeds `if (saved !== false)`.
             // A pending offline edit is thereby queued as a web_save BEFORE the won
@@ -101,33 +111,40 @@ class CrmFormController extends formView.Controller {
             if (saved === false) {
                 return false;
             }
+            // A record with no server id (a brand-new opportunity, or one created
+            // offline and not yet synced) MUST NOT queue action_set_won: its id would
+            // have to come from another queued call, which the framework replays
+            // verbatim with no id remapping. Block the click with a clear notification
+            // and queue nothing (the control cannot be statically disabled per-record
+            // offline-only without changing online behavior, since the framework's
+            // disable pass keys on attribute presence, not a dynamic expression).
+            if (record.isNew) {
+                this.notification.add(
+                    _t("Sync this opportunity before marking it won."),
+                    { type: "warning" }
+                );
+                return false;
+            }
             // Queue exactly one queueable call (NOT the rainbowman variant).
             this.model.offlinePlugin.scheduleORM(
                 "crm.lead",
                 "action_set_won",
-                [[resId]],
+                [[record.resId]],
                 { context: record.context },
                 { extras: getScheduleORMExtras(this.model, [record]) }
             );
-            // Optimistic won WITHOUT dirtying the record (the _commitSave pattern):
-            // write to the reactive data AND mirror into the committed baseline so no
-            // later diff treats these as a change (dirty stays false, _changes empty).
-            // Reassign both objects (as _commitSave does with `this.data = {...}`) so
-            // the form re-renders — the Won button hides and the "Won" ribbon shows.
-            // Do NOT use record.update() (which would populate _changes), and do NOT
-            // set stage_id (the server resolves the won stage via _stage_find).
-            record._values = { ...record._values, probability: 100, won_status: "won" };
-            record.data = { ...record.data, probability: 100, won_status: "won" };
-            // won_status is a Char field, whose eval-context value is taken from
-            // _textValues (not data), so mirror it there too — otherwise the view's
-            // `invisible` modifiers keep evaluating the stale "pending" value.
-            record._textValues = { ...record._textValues, won_status: "won" };
-            // Refresh the record's eval context so the view's modifiers re-evaluate
-            // against the optimistic values, then notify the model so the form
-            // re-renders (the Won button's `invisible` hides it and the "Won" ribbon's
-            // `invisible` shows it). Without these the modifiers keep the stale
-            // (pre-won) eval context and the view does not reflect the optimistic won.
-            record._setEvalContext();
+            // Optimistic won WITHOUT dirtying the record. `_applyValues` folds the
+            // values into the committed baseline (_values), the reactive data,
+            // _textValues and _initialTextValues, and refreshes the eval context — all
+            // together — so the record stays non-dirty (_changes untouched) and the
+            // view's `invisible` modifiers re-evaluate (the Won button hides and the
+            // "Won" ribbon shows). This is the framework's own cohesive mechanism for
+            // applying server-shaped values without marking the record dirty (used by
+            // relational_model/static_list on reload); it is preferred over writing the
+            // private fields independently. Do NOT use record.update() (which would
+            // populate _changes), and do NOT set stage_id (the server resolves the won
+            // stage via _stage_find on replay).
+            record._applyValues({ probability: 100, won_status: "won" });
             this.model.notify();
             // Halt the normal button execution so action_set_won_rainbowman is never
             // issued.

@@ -1,5 +1,6 @@
 import { Component, xml } from "@odoo/owl";
 import { animationFrame, expect, queryAllTexts, runAllTimers, test } from "@odoo/hoot";
+import { queryAttribute } from "@odoo/hoot-dom";
 import { defineMailModels } from "@mail/../tests/mail_test_helpers";
 import {
     contains,
@@ -388,7 +389,14 @@ class Spec04Lead extends models.Model {
     active = fields.Boolean();
     planned_revenue = fields.Float({ string: "Revenue" });
     probability = fields.Float({ string: "Probability" });
-    won_status = fields.Char({ string: "Won status" });
+    won_status = fields.Selection({
+        string: "Won status",
+        selection: [
+            ["won", "Won"],
+            ["lost", "Lost"],
+            ["pending", "Pending"],
+        ],
+    });
     email_from = fields.Char({ string: "Email" });
     phone = fields.Char({ string: "Phone" });
     partner_email_update = fields.Boolean();
@@ -916,6 +924,74 @@ test("AC-J11: offline Won with invalid required field queues nothing (desktop)",
 test.tags("mobile");
 test("AC-J11: offline Won with invalid required field queues nothing (mobile)", testAcJ11OfflineWonInvalidSave);
 
+// AC-J12 (Req 2.5): offline, on a NEW opportunity with no server id (equally a
+// lead created offline and not yet synced — both have no resId), clicking "Won"
+// must queue NOTHING: action_set_won's id would have to come from another queued
+// call, which the framework replays verbatim with no id remapping. The controller
+// blocks the click with a notification and the lead is not shown as won.
+async function testAcJ12OfflineWonNewRecord() {
+    const setSaveOffline = failWebSaveWhenOffline();
+    // Mount a NEW record (no resId): record.isNew is true. Seed defaults via the
+    // context so the record is a valid active opportunity and the Won button
+    // renders (its invisible modifier is `won_status == 'won' or type == 'lead'
+    // or not active`); a valid required `name` makes the save itself succeed,
+    // isolating the no-server-id guard.
+    let controller;
+    patchWithCleanup(registry.category("views").get("crm_form").Controller.prototype, {
+        setup() {
+            super.setup(...arguments);
+            controller = this;
+        },
+    });
+    await mountView({
+        type: "form",
+        resModel: "crm.lead",
+        arch: spec04FormArch,
+        context: {
+            default_name: "Brand New Lead",
+            default_type: "opportunity",
+            default_active: true,
+            default_won_status: "pending",
+            default_probability: 10,
+        },
+    });
+
+    setOffline(true);
+    setSaveOffline(true);
+    await animationFrame();
+
+    // Sanity: the record genuinely has no server id, and the Won button rendered.
+    expect(controller.model.root.isNew).toBe(true);
+    expect(`button[name="action_set_won_rainbowman"]`).toHaveCount(1);
+
+    await contains(`button[name="action_set_won_rainbowman"]`).click();
+    await animationFrame();
+
+    // Nothing queued for the won action anywhere in the queue (there is no resId
+    // to key on, so assert across the whole queue, not just a resId match).
+    expect(spec04QueuedValues().filter((v) => v.method === "action_set_won").length).toBe(0);
+    expect(
+        spec04QueuedValues().filter((v) => v.method === "action_set_won_rainbowman").length
+    ).toBe(0);
+    // The lead is NOT shown as won; the Won button is still visible.
+    const record = controller.model.root;
+    expect(record.data.won_status).not.toBe("won");
+    expect(`button[name="action_set_won_rainbowman"]`).toHaveCount(1);
+    // A notification explains why (the control cannot be statically disabled
+    // per-record offline-only without changing online behavior).
+    expect(`.o_notification`).toHaveCount(1);
+    expect(queryAllTexts`.o_notification_content`.join(" ")).toInclude(
+        "Sync this opportunity before marking it won"
+    );
+    setOffline(false);
+}
+
+test.tags("desktop");
+test("AC-J12: offline Won on a new (no-id) opportunity queues nothing (desktop)", testAcJ12OfflineWonNewRecord);
+
+test.tags("mobile");
+test("AC-J12: offline Won on a new (no-id) opportunity queues nothing (mobile)", testAcJ12OfflineWonNewRecord);
+
 // ===========================================================================
 // Task 6 — Row 8 queue-semantics tests (AC-J8, AC-J9, both presets).
 // These drive a REAL replay through the framework rather than only inspecting
@@ -1024,17 +1100,24 @@ async function testAcJ9ParkedOnRejection() {
     await runAllTimers();
     await animationFrame();
 
-    // The entry is parked (re-scheduled with extras.error, still queued).
+    // The entry is parked (re-scheduled), carrying the server's error message —
+    // not merely some error. _syncORM stores `e.data.name + " - " + e.data.message`
+    // for an RPCError, so extras.error contains the server message verbatim.
     const parked = Object.values(offline._ormToSync()).map((e) => e.value);
     expect(parked.length).toBe(1);
-    expect(Boolean(parked[0].extras.error)).toBe(true);
+    expect(parked[0].extras.error).toInclude("Server rejected the write");
 
     // It is surfaced in the existing offline systray as an error (reusing the
     // existing systray test's DOM assertions), and NO CRM-specific error UI shows.
     expect(`.o_menu_systray .o_nav_entry [data-icon='error']`).toHaveCount(1);
     await contains(`.o_menu_systray .o_nav_entry [data-icon='error']`).click();
     expect(`.o-dropdown--menu .o-dropdown-item [data-icon='error']`).toHaveCount(1);
-    expect(`.o-dropdown--menu .o-dropdown-item div.text-danger`).toHaveCount(1);
+    const errorEntry = `.o-dropdown--menu .o-dropdown-item div.text-danger`;
+    expect(errorEntry).toHaveCount(1);
+    // The systray shows the server error as the entry's tooltip (offline_systray.xml
+    // binds data-tooltip to `element.error ?? element.displayName`), so the parked
+    // server message is what the user sees.
+    expect(queryAttribute(errorEntry, "data-tooltip")).toInclude("Server rejected the write");
     // The parked entry is surfaced ONLY through the framework systray: no
     // CRM-specific error UI appears. A bespoke CRM error dialog or toast would
     // show as a modal or a danger notification, so assert neither is present.

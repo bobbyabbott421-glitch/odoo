@@ -317,12 +317,15 @@ reuse the exact extras shape record.js uses for its own `scheduleORM` fallbacks:
 Override `beforeExecuteActionButton(clickParams)` (the method becomes `async`, and the
 non-won branches `return` the `super` call unchanged):
 
+The controller also overrides `setup()` to acquire the notification service
+(`this.notification = useService("notification")`), used only by the new-record guard
+below.
+
 ```
 async beforeExecuteActionButton(clickParams) {
     if (this.model.offlinePlugin.isOffline()
         && clickParams.name === "action_set_won_rainbowman") {
         const record = this.model.root;
-        const resId = record.resId;
         // Save first, mirroring the base controller's online save-before-button:
         // the base formView.Controller captures `saved = await record.save(...)`
         // and only proceeds `if (saved !== false)`. Replicate that guard: a pending
@@ -336,20 +339,31 @@ async beforeExecuteActionButton(clickParams) {
         if (saved === false) {
             return false;
         }
+        // No server id (brand-new opportunity, or one created offline and not yet
+        // synced): the won call cannot be queued because its id would have to come
+        // from another queued call (the offline create), and the queue replays
+        // verbatim with no id remapping. Block the click with a notification and
+        // queue nothing.
+        if (record.isNew) {
+            this.notification.add(
+                _t("Sync this opportunity before marking it won."),
+                { type: "warning" },
+            );
+            return false;
+        }
         // Queue exactly one queueable call (NOT the rainbowman variant).
         this.model.offlinePlugin.scheduleORM(
             "crm.lead",
             "action_set_won",
-            [[resId]],
+            [[record.resId]],
             { context: record.context },
             { extras: getScheduleORMExtras(this.model, [record]) },
         );
-        // Optimistic won WITHOUT dirtying (the _commitSave pattern):
-        // write to the reactive data AND mirror into the committed baseline.
-        record.data.probability = 100;
-        record.data.won_status = "won";
-        record._values.probability = 100;
-        record._values.won_status = "won";
+        // Optimistic won WITHOUT dirtying — the framework's own _applyValues folds
+        // the values into the committed baseline, data, textValues and eval context
+        // together, leaving _changes untouched.
+        record._applyValues({ probability: 100, won_status: "won" });
+        this.model.notify();
         // Do NOT set stage_id (server resolves the won stage via _stage_find).
         // Stop the normal button execution so the server call never happens.
         return false;
@@ -404,20 +418,41 @@ other button) we call and return `super.beforeExecuteActionButton(clickParams)` 
 preserving the online save-before-button behavior and the online `action_set_won_rainbowman`
 call.
 
-**Why optimistic-won does not dirty the record.** `record.data` is the reactive object, so
-writing `probability`/`won_status` into it updates the won ribbon and hides the Won button
-(its `invisible="won_status == 'won' or ..."`). Mirroring the same values into
-`record._values` makes them the committed baseline — the `_commitSave` pattern
-(`record.js:1375-1390`: `this._values = markRaw({ ...this._values, ...this._changes })`,
-`this.data = { ...this._values }`, `this.dirty = false`). Because the values are written to
-both `data` and `_values` (and NOT via `record.update()`, which would populate
-`this._changes`), no later diff treats them as a change: `dirty` stays false and
-`_changes` stays empty, so no extra `web_save` carrying `probability`/`won_status` is
-queued when the user saves or leaves the form.
+**Why the `record.isNew` guard (no server id).** The queue replays each call verbatim with
+no id remapping between calls, so a queued `action_set_won` must carry a concrete server id
+in `args[0]`. A record with no server id (`record.isNew` — a brand-new opportunity, or one
+created offline whose create is itself still queued) has no such id: offline, `_offlineSave`
+queues the create with `args[0] = []` and never assigns a server id (`record.js:1391-1401`),
+so `record.resId` stays `undefined`. Queuing `action_set_won([[undefined]])` would be
+unresolvable on replay. The control cannot be statically disabled per-record offline-only
+from inside `addons/crm` without changing online behavior: the framework's
+`SELECTORS_TO_DISABLE` pass keys on the *presence* of the static `data-available-offline`
+attribute, not a dynamic expression, and the button's `invisible` modifier cannot read
+offline state. So the controller blocks the click with a warning notification ("Sync this
+opportunity before marking it won") and queues nothing. Online is unaffected (the whole
+branch is gated on `isOffline()`), so online a new record still saves and then marks won
+through the normal `action_set_won_rainbowman` flow.
 
-**Why one call, no id remapping.** `action_set_won` takes `[[resId]]` with a concrete
-server id (the lead was loaded online, so `record.resId` is real), a client-resolvable
-argument list — safe to queue verbatim per the framework's no-id-remapping replay. The
+**Why optimistic-won does not dirty the record (`_applyValues`).** The optimistic values are
+applied with `record._applyValues({ probability: 100, won_status: "won" })` followed by
+`this.model.notify()`. `_applyValues` (`record.js:478-493`) parses the given server-shaped
+values and folds them into `_values` (the committed baseline), the reactive `data`,
+`_textValues`, and `_initialTextValues`, then calls `_setEvalContext()` — all together —
+WITHOUT touching `_changes`. So `dirty` stays false and `_changes` stays empty: no extra
+`web_save` carrying `probability`/`won_status` is queued when the user later saves or leaves
+the form, and the view's `invisible` modifiers re-evaluate against the committed values (the
+Won button hides, the "Won" ribbon shows). This is the framework's own cohesive mechanism
+for applying committed values without dirtying a record — it is used by `relational_model`
+and `static_list` when applying reloaded server values — and is preferred over writing the
+private fields (`_values`, `data`, `_textValues`, eval context) independently. There is no
+public display-only API for this: `record.update()` routes through `_update()`, which sets
+`this.dirty = true` and populates `_changes` (`record.js:1561-1563`), which is exactly what
+must be avoided.
+
+**Why one call, no id remapping.** `action_set_won` takes `[[record.resId]]` with a concrete
+server id. The new-record guard above guarantees `record.resId` is a real server id by the
+time this runs (a record visited online, or already synced), so the argument list is
+client-resolvable — safe to queue verbatim per the framework's no-id-remapping replay. The
 rainbowman variant is never queued or issued.
 
 ### Row 8 — queue semantics (no queue changes)
@@ -509,6 +544,14 @@ FOR ALL X WHERE isBugCondition(X) DO
          AND no_rainbowman_call(result)
          AND result.record.won_status != 'won'
          AND result.returnValue = FALSE
+    ELSE IF result.record.isNew THEN
+      // No server id (new or offline-created): cannot queue (no id remapping),
+      // blocked with a warning notification, nothing queued
+      ASSERT count(queued_calls(result), ("crm.lead","action_set_won",*)) = 0
+         AND no_rainbowman_call(result)
+         AND result.record.won_status != 'won'
+         AND warning_notification_shown(result)
+         AND result.returnValue = FALSE
     ELSE
       ASSERT count(queued_calls(result), ("crm.lead","action_set_won",[[resId]])) = 1
          AND (X.hasPendingEdit
@@ -554,6 +597,11 @@ after the fix. The gated conditions are textually identical to today when `!isOf
 JavaScript, appended to `crm_offline.test.js`, each paired desktop + mobile. Mobile-preset
 coverage is required for any new mobile-affecting path; both presets run.
 
+The spec-04 mock `crm.lead` fixture defines `won_status` as `fields.Selection` with the
+production options (`[['won','Won'],['lost','Lost'],['pending','Pending']]`) to match
+production (`crm_lead.py:224`), so selection values resolve from `record.data` exactly as in
+production and the optimistic-won `_applyValues` update is exercised faithfully.
+
 - **AC-J1** (Req 3.1): online, mount `crm_form`, change `stage_id`, save; `onRpc` asserts
   `get_rainbowman_message` IS called.
 - **AC-J2** (Req 2.1): offline (`setOffline(true)`), mount `crm_form`, change `stage_id`,
@@ -566,16 +614,17 @@ coverage is required for any new mobile-affecting path; both presets run.
 - **AC-J5** (Req 2.4): offline, mount `crm_form`; assert the Won button is NOT disabled
   (no `disabled` / `o_disabled_offline` after the offline pass), proving
   `data-available-offline` keeps it clickable.
-- **AC-J6** (Req 2.5, 2.6, 2.7): offline, click "Won"; assert exactly one queued
-  `action_set_won` entry for that lead via `_ormToSync()`, and NO `get_rainbowman_message`
-  / `action_set_won_rainbowman` RPC fired; assert `record.data.probability === 100` and
-  `record.data.won_status === "won"`; additionally assert the rendered DOM reflects won —
-  the Won button is now HIDDEN (its `invisible="won_status == 'won' ..."` modifier hides it
-  once `won_status` is 'won') and the won state is displayed (the `web_ribbon` "Won"
-  ribbon, with `invisible="won_status != 'won'"`, becomes visible), proving the optimistic
-  update reaches the view and not just the record object; then save/leave and assert no
-  additional `web_save` carrying `probability` or `won_status` is queued (record not
-  dirty).
+- **AC-J6** (Req 2.5, 2.6, 2.7): offline, click "Won" on a record WITH a server id; assert
+  exactly one queued `action_set_won` entry for that lead via `_ormToSync()`, and NO
+  `get_rainbowman_message` / `action_set_won_rainbowman` RPC fired; assert
+  `record.data.probability === 100` and `record.data.won_status === "won"` (applied via
+  `record._applyValues`); additionally assert the rendered DOM reflects won — the Won button
+  is now HIDDEN (its `invisible="won_status == 'won' ..."` modifier hides it once
+  `won_status` is 'won') and the won state is displayed (the `web_ribbon` "Won" ribbon, with
+  `invisible="won_status != 'won'"`, becomes visible), proving the optimistic update reaches
+  the view and not just the record object; assert `record.dirty === false`; then save/leave
+  and assert no additional `web_save` carrying `probability` or `won_status` is queued
+  (record not dirty).
 - **AC-J7** (Req 3.3): online, click "Won"; `onRpc` asserts `action_set_won_rainbowman`
   IS called.
 - **AC-J8** (Req 3.8): drive a REAL replay through the framework rather than only
@@ -601,10 +650,15 @@ coverage is required for any new mobile-affecting path; both presets run.
   replay fires), go back online (`setOffline(false)`) and let the replay run (advance
   timers with `runAllTimers()`); the non-`ConnectionLost` error re-schedules the entry
   with `extras.error` (parked, still in `_ormToSync` with `extras.error` set). Assert the
-  entry is shown in the existing offline systray as an error (the `[data-icon='error']` /
-  `.text-danger` entry, per the existing systray test). With the systray dropdown open at
-  that point, assert the parked entry is surfaced ONLY through the framework systray and no
-  CRM-specific error dialog or toast is raised: no `.modal` and no danger notification
+  parked entry carries the SERVER's error, not merely some error: `extras.error` INCLUDES
+  "Server rejected the write" (`_syncORM` stores `e.data.name + " - " + e.data.message` for
+  an `RPCError`). Assert the entry is shown in the existing offline systray as an error (the
+  `[data-icon='error']` / `.text-danger` entry, per the existing systray test), and that the
+  systray error element's `data-tooltip` INCLUDES "Server rejected the write"
+  (`offline_systray.xml` binds `data-tooltip` to `element.error ?? element.displayName`). With
+  the systray dropdown open at that point, assert the parked entry is surfaced ONLY through
+  the framework systray and no CRM-specific error dialog or toast is raised: no `.modal` and
+  no danger notification
   (`.o_notification_bar.bg-danger`) appear — `expect('.modal').toHaveCount(0)` and
   `expect('.o_notification_bar.bg-danger').toHaveCount(0)`. These are the real framework
   DOM selectors (a danger toast renders `o_notification_bar bg-danger` per
@@ -625,14 +679,22 @@ coverage is required for any new mobile-affecting path; both presets run.
   'won', the Won button still visible). This proves the offline Won branch mirrors the base
   controller's `saved !== false` guard, so an invalid-field save offline matches online
   (the save is rejected and the button does nothing). The test makes a required field
-  invalid — e.g. clears a required field — to force `record.save() === false`; the
-  implementer confirms which field is required from the `crm.lead` form view.
+  invalid — the required `name` field — to force `record.save() === false`.
+- **AC-J12** (Req 2.5): offline, mount `crm_form` as a NEW opportunity (no `resId`, so
+  `record.isNew` is true — equivalently a lead created offline and not yet synced), set a
+  valid `name`, and click "Won"; assert NOTHING is queued (no `action_set_won` /
+  `action_set_won_rainbowman` anywhere in the queue — asserted across the whole queue, since
+  there is no `resId` to key on), the lead is NOT shown as won (`won_status` is not 'won',
+  the Won button still visible), and a warning notification ("Sync this opportunity before
+  marking it won", `.o_notification`) appears. This proves the `record.isNew` guard: a
+  record whose server id would come from another queued call is never queued.
 
 Edge/guard coverage reuses the existing patterns (empty queue, parked `extras.error`,
 model/id matching) already present in the file; new paths added by this spec (the two
 gates, the controller override's offline+won success branch, its `saved === false`
-early-return branch, and its online/other-button `super` branch) are each exercised by at
-least one new test for ≥80% statement coverage of the changed JS.
+early-return branch, its `record.isNew` notify-and-return branch, and its online/other-button
+`super` branch) are each exercised by at least one new test for ≥80% statement coverage of
+the changed JS.
 
 ### Property-Based Tests
 
