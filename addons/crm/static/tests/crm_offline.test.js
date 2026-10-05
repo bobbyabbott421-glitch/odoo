@@ -692,10 +692,11 @@ test("AC-J4: queued offline web_save carries email_from/phone (mobile)", testAcJ
 // ===========================================================================
 // Task 5 — JS fix-side suite (both presets). AC-J1 / AC-J4 / AC-J7 are the
 // preservation tests appended in task 2 above; the remaining fix-side ACs
-// (AC-J2, AC-J3, AC-J5, AC-J6, AC-J10, AC-J11) follow. These exercise the two
-// offline rainbowman gates and the offline-Won controller path (its save-first
-// step, its saved===false early return, and its queue+optimistic-won success
-// branch), plus the online/other-button super branch (covered by AC-J1/J7).
+// (AC-J2, AC-J3, AC-J5, AC-J6, AC-J10, AC-J11, AC-J12, AC-J12b) follow. These
+// exercise the two offline rainbowman gates and the offline-Won controller path
+// (its record.isNew notify-and-return branch BEFORE save, its save-first step,
+// its saved===false early return, and its queue+optimistic-won success branch),
+// plus the online/other-button super branch (covered by AC-J1/J7).
 // ===========================================================================
 
 /**
@@ -830,7 +831,8 @@ async function testAcJ6OfflineWon() {
     const record = getController().model.root;
     expect(record.data.probability).toBe(100);
     expect(record.data.won_status).toBe("won");
-    // Not dirty: the optimistic values were written to data AND _values.
+    // Not dirty: the optimistic values were applied via record._applyValues
+    // (committed baseline + data + textValues + eval context, _changes untouched).
     expect(record.dirty).toBe(false);
 
     // The DOM reflects won: the Won button is hidden and the "Won" ribbon shows.
@@ -964,15 +966,16 @@ async function testAcJ12OfflineWonNewRecord() {
     expect(controller.model.root.isNew).toBe(true);
     expect(`button[name="action_set_won_rainbowman"]`).toHaveCount(1);
 
+    // Before the click: the queue is empty.
+    expect(spec04QueuedValues().length).toBe(0);
+
     await contains(`button[name="action_set_won_rainbowman"]`).click();
     await animationFrame();
 
-    // Nothing queued for the won action anywhere in the queue (there is no resId
-    // to key on, so assert across the whole queue, not just a resId match).
-    expect(spec04QueuedValues().filter((v) => v.method === "action_set_won").length).toBe(0);
-    expect(
-        spec04QueuedValues().filter((v) => v.method === "action_set_won_rainbowman").length
-    ).toBe(0);
+    // The click queues NOTHING AT ALL: the isNew guard runs BEFORE record.save(),
+    // so not even the offline create a save would enqueue is added. Assert the
+    // WHOLE queue is empty, not just that no won call was queued.
+    expect(spec04QueuedValues().length).toBe(0);
     // The lead is NOT shown as won; the Won button is still visible.
     const record = controller.model.root;
     expect(record.data.won_status).not.toBe("won");
@@ -991,6 +994,71 @@ test("AC-J12: offline Won on a new (no-id) opportunity queues nothing (desktop)"
 
 test.tags("mobile");
 test("AC-J12: offline Won on a new (no-id) opportunity queues nothing (mobile)", testAcJ12OfflineWonNewRecord);
+
+// AC-J12b (Req 2.5): an opportunity CREATED offline and not yet synced still has
+// no server id, so clicking "Won" must leave its queued create entry untouched
+// and add no entry — the isNew guard (before save) applies equally once the
+// record exists only as a queued create.
+async function testAcJ12bOfflineWonOfflineCreatedRecord() {
+    const setSaveOffline = failWebSaveWhenOffline();
+    let controller;
+    patchWithCleanup(registry.category("views").get("crm_form").Controller.prototype, {
+        setup() {
+            super.setup(...arguments);
+            controller = this;
+        },
+    });
+    await mountView({
+        type: "form",
+        resModel: "crm.lead",
+        arch: spec04FormArch,
+        context: {
+            default_name: "Offline Created Lead",
+            default_type: "opportunity",
+            default_active: true,
+            default_won_status: "pending",
+            default_probability: 10,
+        },
+    });
+
+    // Create the record OFFLINE: saving while offline queues exactly one web_save
+    // create (args[0] === []); the record keeps no server id (isNew stays true).
+    setOffline(true);
+    setSaveOffline(true);
+    await animationFrame();
+    await controller.model.root.save();
+    await animationFrame();
+
+    const createBefore = spec04QueuedValues().filter((v) => v.method === "web_save");
+    expect(createBefore.length).toBe(1); // the offline create
+    expect(createBefore[0].args[0]).toEqual([]); // a create, no id
+    expect(controller.model.root.isNew).toBe(true);
+    const queueSizeBefore = spec04QueuedValues().length;
+
+    // Now click "Won": the isNew guard blocks it, queuing nothing new.
+    await contains(`button[name="action_set_won_rainbowman"]`).click();
+    await animationFrame();
+
+    // No won call queued, and the queue is unchanged (same size, same create entry).
+    expect(spec04QueuedValues().filter((v) => v.method === "action_set_won").length).toBe(0);
+    expect(spec04QueuedValues().length).toBe(queueSizeBefore);
+    const createAfter = spec04QueuedValues().filter((v) => v.method === "web_save");
+    expect(createAfter.length).toBe(1);
+    expect(createAfter[0].args).toEqual(createBefore[0].args); // unchanged
+    // Not shown won; the warning explains why.
+    expect(controller.model.root.data.won_status).not.toBe("won");
+    expect(`.o_notification`).toHaveCount(1);
+    expect(queryAllTexts`.o_notification_content`.join(" ")).toInclude(
+        "Sync this opportunity before marking it won"
+    );
+    setOffline(false);
+}
+
+test.tags("desktop");
+test("AC-J12b: offline Won on an offline-created opportunity adds nothing (desktop)", testAcJ12bOfflineWonOfflineCreatedRecord);
+
+test.tags("mobile");
+test("AC-J12b: offline Won on an offline-created opportunity adds nothing (mobile)", testAcJ12bOfflineWonOfflineCreatedRecord);
 
 // ===========================================================================
 // Task 6 — Row 8 queue-semantics tests (AC-J8, AC-J9, both presets).

@@ -326,6 +326,19 @@ async beforeExecuteActionButton(clickParams) {
     if (this.model.offlinePlugin.isOffline()
         && clickParams.name === "action_set_won_rainbowman") {
         const record = this.model.root;
+        // No server id (brand-new opportunity, or one created offline and not yet
+        // synced): the won call cannot be queued because its id would have to come
+        // from another queued call (the offline create), and the queue replays
+        // verbatim with no id remapping. Check this BEFORE saving, so the click
+        // queues NOTHING at all (not even the offline create a save would enqueue).
+        // Block it with a notification and return false.
+        if (record.isNew) {
+            this.notification.add(
+                _t("Sync this opportunity before marking it won."),
+                { type: "warning" },
+            );
+            return false;
+        }
         // Save first, mirroring the base controller's online save-before-button:
         // the base formView.Controller captures `saved = await record.save(...)`
         // and only proceeds `if (saved !== false)`. Replicate that guard: a pending
@@ -337,18 +350,6 @@ async beforeExecuteActionButton(clickParams) {
         // controller, where an invalid-field save is rejected and the button does
         // not proceed. With no pending changes, _save returns true early (non-false).
         if (saved === false) {
-            return false;
-        }
-        // No server id (brand-new opportunity, or one created offline and not yet
-        // synced): the won call cannot be queued because its id would have to come
-        // from another queued call (the offline create), and the queue replays
-        // verbatim with no id remapping. Block the click with a notification and
-        // queue nothing.
-        if (record.isNew) {
-            this.notification.add(
-                _t("Sync this opportunity before marking it won."),
-                { type: "warning" },
-            );
             return false;
         }
         // Queue exactly one queueable call (NOT the rainbowman variant).
@@ -428,10 +429,12 @@ unresolvable on replay. The control cannot be statically disabled per-record off
 from inside `addons/crm` without changing online behavior: the framework's
 `SELECTORS_TO_DISABLE` pass keys on the *presence* of the static `data-available-offline`
 attribute, not a dynamic expression, and the button's `invisible` modifier cannot read
-offline state. So the controller blocks the click with a warning notification ("Sync this
-opportunity before marking it won") and queues nothing. Online is unaffected (the whole
-branch is gated on `isOffline()`), so online a new record still saves and then marks won
-through the normal `action_set_won_rainbowman` flow.
+offline state. So the controller checks `record.isNew` BEFORE calling `record.save()` and,
+when true, blocks the click with a warning notification ("Sync this opportunity before
+marking it won") and queues nothing — not even the offline `web_save` create that saving
+would otherwise enqueue. Online is unaffected (the whole branch is gated on `isOffline()`),
+so online a new record still saves and then marks won through the normal
+`action_set_won_rainbowman` flow.
 
 **Why optimistic-won does not dirty the record (`_applyValues`).** The optimistic values are
 applied with `record._applyValues({ probability: 100, won_status: "won" })` followed by
@@ -537,20 +540,22 @@ FOR ALL X WHERE isBugCondition(X) DO
   result := fixedCode(X)
   IF X.action IN {FORM_SAVE, KANBAN_MOVE} THEN
     ASSERT no_rainbowman_call(result) AND write_is_queued(result) AND no_error(result)
-  ELSE  // MARK_WON — saved := await record.save() runs first (saved !== false guard)
-    IF result.saved = FALSE THEN
-      // Invalid/failed save (e.g. invalid required field): button does not proceed
-      ASSERT count(queued_calls(result), ("crm.lead","action_set_won",[[resId]])) = 0
-         AND no_rainbowman_call(result)
-         AND result.record.won_status != 'won'
-         AND result.returnValue = FALSE
-    ELSE IF result.record.isNew THEN
-      // No server id (new or offline-created): cannot queue (no id remapping),
-      // blocked with a warning notification, nothing queued
-      ASSERT count(queued_calls(result), ("crm.lead","action_set_won",*)) = 0
+  ELSE  // MARK_WON — record.isNew is checked FIRST, before record.save()
+    IF record_before.isNew THEN
+      // No server id (new or offline-created): checked BEFORE save, so NOTHING is
+      // queued (not even the offline create a save would enqueue); blocked with a
+      // warning notification; nothing saved
+      ASSERT queued_calls_added(result) = []   // whole queue unchanged
          AND no_rainbowman_call(result)
          AND result.record.won_status != 'won'
          AND warning_notification_shown(result)
+         AND result.returnValue = FALSE
+    ELSE IF result.saved = FALSE THEN
+      // Record HAS an id but the save failed (e.g. invalid required field): button
+      // does not proceed
+      ASSERT count(queued_calls(result), ("crm.lead","action_set_won",[[resId]])) = 0
+         AND no_rainbowman_call(result)
+         AND result.record.won_status != 'won'
          AND result.returnValue = FALSE
     ELSE
       ASSERT count(queued_calls(result), ("crm.lead","action_set_won",[[resId]])) = 1
@@ -681,20 +686,26 @@ production and the optimistic-won `_applyValues` update is exercised faithfully.
   (the save is rejected and the button does nothing). The test makes a required field
   invalid — the required `name` field — to force `record.save() === false`.
 - **AC-J12** (Req 2.5): offline, mount `crm_form` as a NEW opportunity (no `resId`, so
-  `record.isNew` is true — equivalently a lead created offline and not yet synced), set a
-  valid `name`, and click "Won"; assert NOTHING is queued (no `action_set_won` /
-  `action_set_won_rainbowman` anywhere in the queue — asserted across the whole queue, since
-  there is no `resId` to key on), the lead is NOT shown as won (`won_status` is not 'won',
-  the Won button still visible), and a warning notification ("Sync this opportunity before
-  marking it won", `.o_notification`) appears. This proves the `record.isNew` guard: a
-  record whose server id would come from another queued call is never queued.
+  `record.isNew` is true), set a valid `name`, and click "Won"; assert the WHOLE offline
+  queue is empty after the click (`_ormToSync()` has no entries — not just no
+  `action_set_won`, but also no `web_save` create, because the `record.isNew` guard runs
+  BEFORE `record.save()`), the lead is NOT shown as won (`won_status` is not 'won', the Won
+  button still visible), and a warning notification ("Sync this opportunity before marking it
+  won", `.o_notification`) appears. This proves the `record.isNew` guard preflights the save
+  so nothing — not even a create — is queued.
+- **AC-J12b** (Req 2.5): offline, mount `crm_form` as a new opportunity and SAVE it offline
+  first (queuing exactly one `web_save` create with `args[0] === []`; the record keeps no
+  server id, so `record.isNew` stays true), then click "Won"; assert the existing create
+  entry is unchanged and NO entry is added (same queue size, no `action_set_won`), the lead
+  is NOT shown as won, and the warning notification appears. This proves the guard applies
+  equally once the record exists only as a queued offline create.
 
 Edge/guard coverage reuses the existing patterns (empty queue, parked `extras.error`,
 model/id matching) already present in the file; new paths added by this spec (the two
-gates, the controller override's offline+won success branch, its `saved === false`
-early-return branch, its `record.isNew` notify-and-return branch, and its online/other-button
-`super` branch) are each exercised by at least one new test for ≥80% statement coverage of
-the changed JS.
+gates, the controller override's `record.isNew` notify-and-return branch checked BEFORE save,
+its offline+won success branch, its `saved === false` early-return branch, and its
+online/other-button `super` branch) are each exercised by at least one new test for ≥80%
+statement coverage of the changed JS.
 
 ### Property-Based Tests
 

@@ -98,6 +98,22 @@ class CrmFormController extends formView.Controller {
             clickParams.name === "action_set_won_rainbowman"
         ) {
             const record = this.model.root;
+            // A record with no server id (a brand-new opportunity, or one created
+            // offline and not yet synced) MUST NOT be marked won offline: action_set_won
+            // needs a concrete id, which would have to come from another queued call,
+            // and the framework replays the queue verbatim with no id remapping. Check
+            // this BEFORE saving, so the click queues NOTHING at all (not even the
+            // offline create a save would enqueue). Block it with a clear notification
+            // and return false (the control cannot be statically disabled per-record
+            // offline-only without changing online behavior, since the framework's
+            // disable pass keys on attribute presence, not a dynamic expression).
+            if (record.isNew) {
+                this.notification.add(
+                    _t("Sync this opportunity before marking it won."),
+                    { type: "warning" }
+                );
+                return false;
+            }
             // Save first, mirroring the base controller which captures
             // `saved = await record.save(...)` and only proceeds `if (saved !== false)`.
             // A pending offline edit is thereby queued as a web_save BEFORE the won
@@ -109,20 +125,6 @@ class CrmFormController extends formView.Controller {
             // and return false — matching the base controller's rejection of an
             // invalid-field save. With no pending changes, save returns true early.
             if (saved === false) {
-                return false;
-            }
-            // A record with no server id (a brand-new opportunity, or one created
-            // offline and not yet synced) MUST NOT queue action_set_won: its id would
-            // have to come from another queued call, which the framework replays
-            // verbatim with no id remapping. Block the click with a clear notification
-            // and queue nothing (the control cannot be statically disabled per-record
-            // offline-only without changing online behavior, since the framework's
-            // disable pass keys on attribute presence, not a dynamic expression).
-            if (record.isNew) {
-                this.notification.add(
-                    _t("Sync this opportunity before marking it won."),
-                    { type: "warning" }
-                );
                 return false;
             }
             // Queue exactly one queueable call (NOT the rainbowman variant).
