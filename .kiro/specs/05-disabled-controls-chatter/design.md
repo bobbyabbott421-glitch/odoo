@@ -272,10 +272,13 @@ issued; a dropped-then-resolved fetch after destroy writes no state.
 One row per DISABLE/SKIP inventory surface. Mechanism ∈ {framework auto-disable (button),
 CRM guard, framework view/menu fallback, spec 04}. Each in-scope row carries an AC ID and a
 paired desktop/mobile test (one exception stays desktop-only per KL-3). For a surface the
-framework disables, one test exercises a `<button>` of that surface's name/type — on the
-surface's REAL view where crm owns/can mount it, or on a crm.lead REPLICA form for the
-register-only settings/related/wizard surfaces (see the surface table and KL below). Offline:
-disabled + no RPC; online: enabled.
+framework disables (the T-B-* tests), the framework `<button>`-disable rule is proven on a
+SYNTHETIC/REPLICA arch — a minimal `<form>`/`<list>` built in the test carrying a `<button>`
+of that surface's name/type; none of these render the surface's production view (see the
+`<button>` surfaces section and KL below). Offline: disabled + no RPC; online: enabled. The
+tests that exercise a real production view/component are only the ones named as such —
+T-A-lead (the lead-form automated-probability `<a>` on the real `crm_form`) and T-A-share
+(the real share-target item) — not any T-B-* test.
 
 ### Primary controls (PART 2 items 3–8)
 
