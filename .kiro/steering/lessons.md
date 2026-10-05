@@ -178,3 +178,97 @@ right the first time.
   automatically, never stop to ask. And never deviate from a decision already agreed with the
   user (an approved spec, a chosen approach, a named file set) without asking first; if source
   inspection shows the agreed plan is wrong, raise it and get agreement before changing course.
+
+## Lessons from spec 05
+
+Spec 05 made six CRM controls honest offline and fixed the lead-form chatter. It took three
+PR-review passes; these rules exist so later specs get offline-control, test-wiring, and
+spec-honesty details right the first time.
+
+### Offline control-disable mechanics
+
+- The framework's offline pass disables ONLY `<button>` (offline_plugin.js:48
+  `SELECTORS_TO_DISABLE`). `<a type="object">` / `<a type="action">` view buttons render as
+  `<a>` via `ViewButton` and stay clickable offline; the call then fails with a
+  `ConnectionLostError` that web's `lostConnectionHandler` (offline_error.js, sequence 98)
+  swallows silently — no dialog, no notification, nothing queued.
+- A control on a view CRM does not own cannot be guarded without adding a `js_class` to a
+  foreign view (forbidden). Record it as an explicit known limitation and prove the framework
+  behavior on a REPLICA arch (a minimal `<form>`/`<list>` built in the test), labelled as a
+  replica — never claim it exercises the real view.
+- A disabled `<button>` blocks click, keyboard and hotkey but NOT a direct programmatic call.
+  Any handler reachable in code (e.g. a tooltip/widget method) needs its own offline early
+  return in addition to the framework disable.
+- Non-button controls (a `<div>`/`<span>` with `t-custom-click`, a `DropdownItem`) are never
+  framework-disabled; add an explicit offline guard in their handler.
+
+### Reading the offline signal
+
+- Do not trust a single `isOffline()` read. `setOffline(true)` is async, and any
+  `RPC:RESPONSE` that is not a `ConnectionLostError` flips the signal back online
+  (offline_plugin.js:96) — including mid-way through an offline reopen (cache-served reads
+  trigger a response). Guard with BOTH: skip when offline AND wrap the call in a try/catch
+  for `ConnectionLostError`.
+- When you skip offline, mark the work skipped and refetch on reconnect through the SAME
+  guarded method (e.g. `this.load`), never `super.load` directly — so a drop mid-refetch is
+  caught and re-armed instead of surfacing unhandled.
+
+### Skipped SKIP probes (reconnect re-probe)
+
+- Hold the probe result in a reactive owl `signal` (owl exports `signal`/`proxy`, NOT
+  `reactive`) so a value set on reconnect re-renders with no other user action.
+- Re-run the skipped probe once with `useOnChange(() => [isOffline()], cb, { initialRun:
+  false })`.
+- After an `await` in the reconnect callback, check `status(this) !== "destroyed"` before
+  writing state.
+- Add a `.catch` that re-arms the skipped flag ONLY for `ConnectionLostError` and rethrows
+  everything else.
+
+### Tests must depend on production wiring
+
+- A test that still passes with the production wiring removed does not count. Never register a
+  component in the test with `{ force: true }`; rely on the production registry entry. Never
+  set or clear a production flag (e.g. `_teamsProbeSkipped`) by hand; arm it through a real
+  production method (e.g. `onCompanyChange` offline). Never patch `OfflinePlugin.setOffline`;
+  drive connectivity through the `setOffline` helper.
+- Run one removal check per fix: delete the production `useOnChange` / `Renderer` registration
+  / `try/catch`, confirm the test fails, then restore. (In spec 05 removing `useOnChange` made
+  the reconnect lookup never fire — `search:1`/`search:2` → `Received: []`.)
+
+### Expected-error discipline
+
+- Never declare an error as "expected" just to go green. In spec 05 the `/mail/store`
+  connection error WAS the bug (an unhandled rejection from an un-awaited `load()`); the fix
+  was to swallow it, not to allow it. Declare only errors the framework legitimately produces
+  (e.g. the cached-record `web_read` refetch on an offline reopen), with EXACT messages via
+  `expect.errors(n)` + `verifyErrors`, as web's own
+  `window_action.test.js` "[Offline] navigate through window actions" does.
+
+### Hoot harness facts
+
+- mail's `start()` already mounts a `WebClient` — do not mount a second one (duplicated
+  chatters). Seed `MockServer`/`pyEnv` data only after the server exists. The app must exist
+  before calling `setOffline`.
+- `location.reload()` cannot be patched; test the install path by making its RPC fail rather
+  than reaching the reload.
+- To reopen a cached record offline, open it online first with the SAME action + `res_id`,
+  then `doAction` it again offline.
+- A `check.sh quick` run takes ~20s; if one is still running near 2 minutes, stop and report
+  (a page-reloading test once caused ~20-minute runs and stalled the turn).
+
+### Honesty of comments, spec text, and task state
+
+- A comment or spec claim must not exceed what the test does. If a test says it presses Enter
+  or `alt+c`, it must send those keys (not call the handler directly). A coverage table must
+  name only tests that EXIST and say "replica" wherever the arch is synthetic.
+- Never write "confirmed with the user" for something that was not; use "approved in spec
+  review" only when true.
+- Keep a tasks.md item UNTICKED while its test is red. Draft-preservation / abort claims
+  belong to the specific test that exercises them, named as such.
+
+### Process
+
+- When a time-box is reached (e.g. two `check.sh quick` runs per issue) and the test is still
+  red, STOP and show the log — do not rewrite the test to bypass the production wiring.
+- Do not use sub-agents for test-fix loops; their network errors and stalls cost two failed
+  turns and ~68 credits in this spec.
