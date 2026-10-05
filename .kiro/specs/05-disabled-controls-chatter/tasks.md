@@ -95,11 +95,14 @@ JS; never `only()`/`debug()`.
         wraps `attachmentUploader.uploadFile` (no-op offline) for the dropzone, and a
         `useOnChange({ initialRun:false })` reconnect `load`. Unsaved-lead drop is KL-2 (one
         ordinary create queued, no upload) — not blocked, by design.
-  - [x] 7.2 Tests T-CH: open lead ONLINE (messages load) → set offline → REOPEN lead: cached
-        messages shown, no unhandled rejection, composer closed and Enter posts nothing with
-        draft preserved; SAVED-lead drop → no upload and no queue entry; UNSAVED-lead drop → exactly
-        one create queued and no upload, no error (KL-2); Send/Log disabled; reconnect → thread
-        data/messages load; online test that another model's chatter is unchanged.
+  - [x] 7.2 Tests T-CH: open lead ONLINE (messages load) → type a DRAFT into the composer →
+        set offline → REOPEN lead: cached messages shown, no unhandled rejection, composer
+        closed and Enter posts nothing; reconnect → the draft is still preserved (visible when
+        the composer reopens); SAVED-lead drop → no upload and no queue entry; UNSAVED-lead drop
+        → exactly one create queued and no upload, no error (KL-2); Send/Log disabled; reconnect
+        → thread data/messages load; an online test that the uploader wrap DELEGATES to the
+        original uploader online (no-op only offline); an online test that another model's
+        chatter is unchanged.
 
 - [x] 8. `<a type=...>` controls + activity-report row click
   - [x] 8.1 GUARD the lead-form automated-probability link (Fix 7a): in
@@ -108,10 +111,12 @@ JS; never `only()`/`debug()`.
         nav, no visual change). Online unchanged.
   - [x] 8.2 Test T-A-lead (paired): offline click → no RPC and no queue entry; online works.
   - [x] 8.3 KNOWN LIMITATION tests (KL-1; no code — these controls are intentionally not
-        guarded): T-A-team-obj, T-A-team-act, T-A-campaign, T-A-report (paired, one control
-        per surface): offline click → no navigation, no error dialog/notification,
-        `_ormToSync()` unchanged; online → it works. (Uses `mockOffline()` so the RPC actually
-        fails and `lostConnectionHandler` runs.)
+        guarded). The real foreign-owned controls cannot be mounted from a crm-owned test
+        without a js_class on a foreign view, so these run on REPLICA arches: T-A-known
+        (`<a type=object>`), T-A-action (`<a type=action>`), T-A-rowclick (list row-open)
+        (paired): offline click → no navigation, no error dialog/notification, `_ormToSync()`
+        unchanged; online → it works. (Uses `mockOffline()` so the RPC actually fails and
+        `lostConnectionHandler` runs.) The replicas stand in for crm.team/utm/activity-report.
 
 - [x] 9. Share target (Fix 7c, AC-A-2)
   - [x] 9.1 `useCrmOffline()` in `crm_share_target_item.js`; offline skip `webSearchRead` and
@@ -121,10 +126,15 @@ JS; never `only()`/`debug()`.
         read runs once; online → issued.
 
 - [x] 10. Framework-pass `<button>` surfaces + out-of-scope views (AC-OV-1..3)
-  - [x] 10.1 Tests T-B-leadform, T-B-leadlist, T-B-team, T-B-settings, T-B-related, T-B-wizard:
-        one real `<button>` per surface — offline disabled + no RPC; online enabled.
+  - [x] 10.1 Tests of the framework `<button>`-disable rule — offline disabled + no RPC;
+        online enabled. REAL views: T-B-leadform, T-B-leadmethods, T-B-meeting (crm.lead
+        crm_form), T-B-team (crm.team form), T-B-leadlist (crm_list). REPLICA views (a
+        crm.lead crm_form carrying a `<button>` of the surface's name, NOT the real view):
+        T-B-settings-replica, T-B-related-replica, T-B-wizard-replica.
   - [x] 10.2 Tests T-OV-view (action_plugin.js:1308 fallback), T-OV-menu (menu_providers.js:39
-        filter), T-OV-switcher (disabled view-switcher buttons): one test each.
+        filter), T-OV-switcher (disabled view-switcher buttons): one test each. T-OV-view is
+        paired desktop+mobile; T-OV-menu and T-OV-switcher stay desktop-only (KL-3, with the
+        per-test reason stated there).
 
 - [x] 11. Full verification
   - Run `.kiro/scripts/check.sh quick` then `.kiro/scripts/check.sh full`.
@@ -154,8 +164,10 @@ JS; never `only()`/`debug()`.
   cannot be mounted from a crm-owned test without a js_class on a foreign view; KL-1 is
   proven on replica arches by T-A-known / T-A-action / T-A-rowclick. The lead-form
   automated-probability control is guarded and tested on its real crm_form (T-A-lead).
-- Task 10 (framework-pass): T-OV-view/T-OV-switcher/T-OV-menu and T-B-leadlist are
-  desktop-only (KL-3, row-12 deviation); the preset-independent mechanism is also covered on
-  mobile by the paired `<button>`-surface tests and T-A-* on both presets.
+- Task 10 (framework-pass): T-OV-view is now PAIRED desktop+mobile; T-OV-switcher, T-OV-menu
+  and T-B-leadlist remain desktop-only (KL-3, row-12 deviation, each with a stated per-test
+  reason — T-B-leadlist because the mobile list renders no per-row selection checkbox to reveal
+  the header button). The preset-independent mechanism is also covered on mobile by the paired
+  `<button>`-surface tests (including the replica tests) and T-A-* / T-OV-view on both presets.
 - Deviations recorded in design.md Known Limitations: KL-1, KL-2, KL-3, KL-4, KL-5, and the
   row-5 version bump.

@@ -115,14 +115,23 @@ before the probes, so after reconnect the first open still probes and renders it
 the three navigations with an early offline return: the install confirm body (before
 `button_immediate_install`), `redirectToImport` (before import `doAction`), `requestAccess`
 (before install-request `doAction`). The "Generate" `<button accesskey="c">` is
-framework-disabled offline, neutralising click/keyboard/accesskey. **AC-LG-1..2.**
+framework-disabled offline; a REAL DOM click on the disabled button fires nothing,
+so the module-state `search_read` is never issued offline (the test exercises a real
+click, not a programmatic handler call). NOTE: `toggleDropdown` also contains a
+`checkAccessRight`/`has_access` probe, but it runs only for dropdown elements that
+carry a `model` property. NONE of the shipped `dropdownContentElements` declare
+`model` (each gates on `hasAccess` from `user.isAdmin` or a literal `true`), so that
+branch is UNREACHABLE for the shipped UI — it is a defensive guard, not an asserted
+path, and there is no `has_access` spy. **AC-LG-1..2.**
 
 ### 3. Recurring-revenue aggregate (`crm_column_progress.js` + template)
 
 `setup()`: `this.crmOffline = useCrmOffline()`. Hold `showRecurringRevenue` in a reactive `signal`: `this._showRecurringRevenue = signal(false)` (owl exports `signal`/`proxy`, NOT `reactive`), exposed via `get showRecurringRevenue() { return this._showRecurringRevenue(); }` so crm_column_progress.xml references are unchanged except the single `t-if` swap below. `onWillStart`: probe only when
 online AND `recurring_revenue_sum_field` set; else skip and set `_rrProbeSkipped`. Online: `this._showRecurringRevenue.set(await user.hasGroup(...))`. Add a
 getter `get displayRecurringRevenue() { return !this.crmOffline.isOffline() &&
-this.state.showRecurringRevenue; }`. In `crm_column_progress.xml`, change the block's
+this.showRecurringRevenue; }` (reads the `showRecurringRevenue` getter, which
+returns the reactive `_showRecurringRevenue()` signal — there is no
+`this.state.showRecurringRevenue`). In `crm_column_progress.xml`, change the block's
 `t-if="this.showRecurringRevenue"` to `t-if="this.displayRecurringRevenue"` so BOTH the
 value and the `<b>MRR</b>` label hide offline; the standard aggregate zero is untouched.
 `getRecurringRevenueGroupAggregate` also returns `{}` when `!displayRecurringRevenue`.
@@ -175,7 +184,7 @@ The composer-paste upload uses the composer's OWN uploader instance, not the cha
 is covered by closing the composer (so the Composer never mounts offline), NOT by the
 uploader wrap. This is the one subtlety: the chatter-uploader wrap covers the DROP; the
 composer-close covers PASTE + typing + Enter. Both are reachable from the subclass; neither
-needs a global patch. (Confirmed with the user before coding.)
+needs a global patch. (Approved in spec review.)
 
 Spec 06 note: the chatter's activity controls (schedule activity, mark done, activity list)
 are mail-owned and belong to PART 3b / spec 06. Spec 06 will decide QUEUE vs DISABLE per
@@ -256,8 +265,11 @@ loads once; online → issued.
 
 One row per DISABLE/SKIP inventory surface. Mechanism ∈ {framework auto-disable (button),
 CRM guard, framework view/menu fallback, spec 04}. Each in-scope row carries an AC ID and a
-paired desktop/mobile test. For a surface the framework disables, one test with a real
-control from that surface (offline disabled + no RPC; online enabled).
+paired desktop/mobile test (two exceptions stay desktop-only per KL-3). For a surface the
+framework disables, one test exercises a `<button>` of that surface's name/type — on the
+surface's REAL view where crm owns/can mount it, or on a crm.lead REPLICA form for the
+register-only settings/related/wizard surfaces (see the surface table and KL below). Offline:
+disabled + no RPC; online: enabled.
 
 ### Primary controls (PART 2 items 3–8)
 
@@ -302,24 +314,37 @@ nothing queued) — not the real view wiring. The table names the tests that ACT
 | crm_activity_report_views.xml:31 list action=action_open_lead (row click) — represented by replica | DISABLE | KL-1 framework silent-fail, replica list row-open | AC-A-1-known | T-A-rowclick |
 | crm_share_target_item.js:19 webSearchRead(crm.team) | DISABLE | CRM guard + reconnect (Fix 7c), real share-target item | AC-A-2 | T-A-share |
 
-### `<button>` / `<a>` surfaces proven by the framework pass (one real-control test each)
+### `<button>` surfaces proven by the framework pass
 
-| surface (inventory) | mechanism | AC/test |
-| --- | --- | --- |
-| Mark-won (Won button) | spec 04 (owned there) | — (spec 04) |
-| Lead form other header/stat/inline `<button>`s (:12/:14/:16/:33/:42/:213/:226) | framework button-disable | T-B-leadform (one `<button>`) |
-| Lead list / opportunities list `<button>`s (:323/:324/:710/:711/:760) | framework button-disable | T-B-leadlist (one) |
-| Team views `<button>`s (crm_team_views.xml:144/:207) | framework button-disable | T-B-team (one) |
-| Settings `<button>`s (res_config_settings_views.xml:16/:47/:64) | framework button-disable | T-B-settings (one) |
-| Related-record nav `<button>`s (res_partner_views.xml:12; crm_lost_reason_views.xml:22; utm_campaign_views.xml:37) | framework button-disable | T-B-related (one) |
-| Wizard apply `<button>`s (4) | framework button-disable | T-B-wizard (one) |
-| Lead methods (7, button-reachable) | proven via their view buttons above | covered by T-B-leadform/leadlist/team |
-| forecast_kanban per-call rows (3) | DISABLE view; forecast unreachable | AC-OV-1 (T-OV-view) |
-| Out-of-scope analytic/other views (register-only, 8) | framework view/menu fallback | AC-OV-1..3 (T-OV-view, T-OV-menu, T-OV-switcher) |
+Row 7 is proven by exercising the framework's offline `<button>`-disable mechanism, which is
+model-independent. Two kinds of coverage:
+- **REAL views** — the test mounts the surface's actual view with its real button:
+  T-B-leadform (crm.lead crm_form), T-B-leadmethods / T-B-meeting (crm.lead crm_form),
+  T-B-team (crm.team form), T-B-leadlist (crm_list).
+- **REPLICA views** — the test mounts a crm.lead crm_form carrying a `<button>` with the
+  surface's name; it proves the framework rule applies to such a button but does NOT render
+  the surface's real view. These are the settings / related-record / wizard surfaces, whose
+  real views are register-only DISABLE rows in the inventory.
+
+| surface (inventory) | mechanism | AC/test | real or replica |
+| --- | --- | --- | --- |
+| Mark-won (Won button) | spec 04 (owned there) | — (spec 04) | — |
+| Lead form other header/stat/inline `<button>`s (:12/:14/:16/:33/:42/:213/:226) | framework button-disable | T-B-leadform | REAL (crm_form) |
+| Lead list / opportunities list `<button>`s (:323/:324/:710/:711/:760) | framework button-disable | T-B-leadlist | REAL (crm_list) |
+| Team views `<button>`s (crm_team_views.xml:144/:207) | framework button-disable | T-B-team | REAL (crm.team form) |
+| Settings `<button>`s (res_config_settings_views.xml:16/:47/:64) | framework button-disable | T-B-settings-replica | REPLICA |
+| Related-record nav `<button>`s (res_partner_views.xml:12; crm_lost_reason_views.xml:22; utm_campaign_views.xml:37) | framework button-disable | T-B-related-replica | REPLICA |
+| Wizard apply `<button>`s (4) | framework button-disable | T-B-wizard-replica | REPLICA |
+| Lead methods (7, button-reachable) | proven via their view buttons above | covered by T-B-leadform/leadlist/team | REAL |
+| forecast_kanban per-call rows (3) | DISABLE view; forecast unreachable | AC-OV-1 (T-OV-view) | — |
+| Out-of-scope analytic/other views (register-only, 8) | framework view/menu fallback | AC-OV-1..3 (T-OV-view, T-OV-menu, T-OV-switcher) | — |
 
 > Only one inventory row is assigned to another spec: **Mark-won (Won button) → spec 04
 > (merged)**. No row is deferred to a LATER spec. Confirmed with the user (Open Question 2):
 > every other DISABLE/SKIP row is proven by a test here, not by the framework guarantee alone.
+> For the register-only settings / related-record / wizard rows the proof is a REPLICA-button
+> test (T-B-*-replica) that exercises the framework disable rule, not the real view; this
+> distinction is stated explicitly rather than claiming real-view coverage.
 
 ### QUEUE rows (not this spec)
 
@@ -335,15 +360,20 @@ RPCs to actually fail (chatter rejection, `<a>` click RPC). `defineMailModels()`
 that resolve mail models. Tests assert what the USER sees (disabled control, hidden
 value/label, visible facet/messages, reconnect appearance) plus the RPC spy, not only
 internal flags. Each DISABLE test proves offline-disabled-and-no-RPC AND
-online-enabled-and-working. Each SKIP test proves no-RPC-offline AND an online test that the
-probe IS issued. Reconnect tests assert the dependent UI appears with no other user action.
+online-enabled-and-working (on the real view, or on a replica button for the register-only
+settings/related/wizard surfaces). Each SKIP test proves no-RPC-offline AND an online test
+that the probe IS issued. Reconnect tests assert the dependent UI appears with no other user action.
 ≥80% statement coverage on new JS paths; a test per new path. No `only()`/`debug()`. No
 property-based tests.
 
-Named test groups (each desktop+mobile): T-TS-skip, T-TS-disable, T-TS-facet, T-LG-probe,
-T-LG-nav, T-RR, T-PLS, T-AM, T-CH, T-A-lead, T-A-known, T-A-action, T-A-rowclick, T-A-share,
-T-B-leadform, T-B-leadlist, T-B-team, T-B-settings, T-B-related, T-B-wizard, T-OV-view,
-T-OV-menu, T-OV-switcher.
+Named test groups, each PAIRED desktop+mobile unless noted: T-TS-skip, T-TS-disable,
+T-TS-facet, T-LG-probe, T-LG-nav, T-RR, T-PLS, T-AM, T-AM-fallthrough, T-CH (mobile is the
+KL-4 mounted-instance variant), T-A-lead, T-A-known, T-A-action, T-A-rowclick, T-A-share,
+T-B-leadform, T-B-leadmethods, T-B-meeting, T-B-team, T-B-settings-replica,
+T-B-related-replica, T-B-wizard-replica, T-OV-view. DESKTOP-ONLY (KL-3): T-OV-switcher,
+T-OV-menu, T-B-leadlist. The reconnect-probe error-handling unit tests (T-TS-reconnect-error,
+T-RR-reconnect-error, T-A-share-error) and the chatter deterministic/uploader tests are also
+paired desktop+mobile.
 
 Chatter specifics (T-CH): open the lead ONLINE first (messages load), then set offline and
 REOPEN the lead; assert the previously loaded messages are still shown (AC-CH-1), no
@@ -363,17 +393,31 @@ Both resolved:
 
 ## Known Limitations
 
-- **KL-3 — desktop-only framework-chrome tests (acceptance row 12 deviation).** Row 12
-  wants new JS tests to pass under both presets. Four tests assert desktop-only control-panel
-  chrome and are therefore registered `test.tags("desktop")` only, mirroring the framework's
-  own offline switcher/list tests (web/.../window_action.test.js, which are desktop-only):
-  T-OV-view and T-OV-switcher (the inline `.o_switch_view` buttons and the view fallback are a
-  desktop surface; mobile renders the switcher as a dropdown), T-OV-menu (the `/`-namespace
-  command palette is a desktop surface), and T-B-leadlist (inline list row-selection chrome).
-  The framework-disable MECHANISM they rely on is preset-independent and is additionally
-  covered on mobile by the paired `<button>`-surface tests (T-B-leadform/meeting/team/settings/
-  related/wizard) and by T-A-* on both presets. T-CH's mobile variant is the mounted-instance
-  form (KL-4) rather than the desktop WebClient-reopen flow. These are the row-12 deviations.
+- **KL-3 — three desktop-only framework-chrome tests (acceptance row 12 deviation).** Row 12
+  wants new JS tests to pass under both presets. T-OV-view is paired across both presets (it
+  drives only `mockOffline()`/`WebClient`/`doAction`, which render in both). THREE tests
+  remain registered `test.tags("desktop")` only, each for a concrete reason:
+    - **T-OV-switcher** asserts the inline control-panel view-switcher `<button>`
+      (`.o_cp_switch_buttons .o_graph`). On a small screen the control panel renders the
+      view switcher as a dropdown, not the inline `.o_cp_switch_buttons` buttons, so the exact
+      selector the test asserts does not exist on mobile. The framework-disable MECHANISM it
+      proves (a view type unavailable offline gets its switcher control disabled) is
+      preset-independent.
+    - **T-OV-menu** asserts the `/`-namespace command palette (`press(control+k)` →
+      `.o_command_palette`). The command palette is a desktop surface; the small-screen UI has
+      no equivalent `/`-namespace palette to open, so the test cannot be expressed on mobile in
+      one attempt.
+    - **T-B-leadlist** reveals the list header `<button>` by ticking a row-selection checkbox
+      (`.o_data_row .o_list_record_selector input`). The mobile list renders NO per-row
+      selection checkbox column, so the header button it asserts cannot be revealed on mobile;
+      the framework-disable MECHANISM is preset-independent.
+  All three mirror the framework's own offline switcher/menu/list tests
+  (web/.../window_action.test.js and the menu-provider tests, which are desktop-only). The
+  MECHANISMS they rely on are preset-independent and are additionally covered on mobile by the
+  paired `<button>`-surface tests (T-B-leadform/leadmethods/meeting/team/settings-replica/
+  related-replica/wizard-replica) and by T-A-* and T-OV-view on both presets. T-CH's mobile
+  variant is the mounted-instance form (KL-4) rather than the desktop WebClient-reopen flow.
+  These three (plus KL-4) are the row-12 deviations.
 
 - **KL-4 — T-CH mobile is the mounted-instance variant.** The desktop T-CH tests reopen the
   cached lead through a WebClient action offline (the faithful "reopen offline" flow). The

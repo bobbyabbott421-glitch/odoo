@@ -7,6 +7,7 @@ import {
     defineMailModels,
     dragenterFiles,
     dropFiles,
+    insertText,
     openFormView,
     start,
     startServer,
@@ -46,6 +47,7 @@ import { Thread } from "@mail/core/common/thread_model";
 import { ConnectionLostError } from "@web/core/network/rpc";
 import { CrmShareTargetItem } from "@crm/webclient/share_target/crm_share_target_item";
 import { shareTargetService } from "@web/webclient/share_target/share_target_service";
+import { AttachmentUploadService } from "@mail/core/common/attachment_upload_service";
 
 // The webclient services started behind `mountWithCleanup` resolve mail models
 // (e.g. `discuss.channel`) from the mock server, so the mail test models must be
@@ -1533,6 +1535,110 @@ test.tags("mobile");
 test("T-TS-reconnect: probe runs exactly once across reconnects (mobile)", testTsReconnectProbesOnlyOnce);
 
 // ---------------------------------------------------------------------------
+// T-TS-reconnect-error (reviewer A.1): the reconnect probe must handle its own
+// rejection. We patch `user.hasGroup` directly (bypassing its disk Cache) so a
+// reconnect can reject deterministically. A ConnectionLostError is swallowed —
+// no unhandled rejection — and the probe is RE-ARMED so the next offline→online
+// cycle retries; any OTHER error propagates and is NOT swallowed.
+// ---------------------------------------------------------------------------
+
+// A connection drop mid-probe is swallowed and the probe retries next cycle.
+async function testTsReconnectProbeConnectionLost() {
+    let call = 0;
+    patchWithCleanup(user, {
+        hasGroup(group) {
+            if (group !== "sales_team.group_sale_manager") {
+                return super.hasGroup(group);
+            }
+            call++;
+            expect.step(`probe:${call}`);
+            if (call === 1) {
+                // First reconnect: connection drops again mid-probe.
+                return Promise.reject(new ConnectionLostError("x"));
+            }
+            return Promise.resolve(true); // retry resolves
+        },
+    });
+
+    await mountProbe();
+    setOffline(true);
+    const component = await mountTeamSwitcher();
+    await animationFrame();
+    expect.verifySteps([]); // no probe offline
+
+    // First reconnect: probe runs, rejects with ConnectionLostError. The .catch
+    // swallows it (no unhandled rejection) and re-arms the skipped flag.
+    setOffline(false);
+    await runAllTimers();
+    await animationFrame();
+    expect.verifySteps(["probe:1"]);
+    expect(component.isSaleManager).toBe(false); // signal untouched by the failed probe
+
+    // Next offline→online cycle: because the flag was re-armed, the probe runs
+    // AGAIN and this time resolves true.
+    setOffline(true);
+    await animationFrame();
+    setOffline(false);
+    await runAllTimers();
+    await animationFrame();
+    expect.verifySteps(["probe:2"]);
+    expect(component.isSaleManager).toBe(true);
+}
+
+test.tags("desktop");
+test("T-TS-reconnect-error: ConnectionLostError swallowed + retried next cycle (desktop)", testTsReconnectProbeConnectionLost);
+
+test.tags("mobile");
+test("T-TS-reconnect-error: ConnectionLostError swallowed + retried next cycle (mobile)", testTsReconnectProbeConnectionLost);
+
+// A NON-connection error is NOT swallowed: it surfaces (expect.errors) and the
+// flag is NOT re-armed, so no silent retry masks a real failure.
+async function testTsReconnectProbeOtherError() {
+    expect.errors(1);
+    let call = 0;
+    patchWithCleanup(user, {
+        hasGroup(group) {
+            if (group !== "sales_team.group_sale_manager") {
+                return super.hasGroup(group);
+            }
+            call++;
+            expect.step(`probe:${call}`);
+            return Promise.reject(new Error("boom")); // non-connection error
+        },
+    });
+
+    await mountProbe();
+    setOffline(true);
+    const component = await mountTeamSwitcher();
+    await animationFrame();
+    expect.verifySteps([]);
+
+    // Reconnect: the probe rejects with a plain Error, which the .catch rethrows.
+    setOffline(false);
+    await runAllTimers();
+    await animationFrame();
+    expect.verifySteps(["probe:1"]);
+    expect(component.isSaleManager).toBe(false);
+    await expect.waitForErrors([/boom/]);
+
+    // Flag NOT re-armed: a further cycle does not retry (the error was surfaced,
+    // not masked by a silent retry).
+    setOffline(true);
+    await animationFrame();
+    setOffline(false);
+    await runAllTimers();
+    await animationFrame();
+    expect.verifySteps([]); // no second probe
+}
+
+test.tags("desktop");
+test("T-TS-reconnect-error: non-connection error is not swallowed (desktop)", testTsReconnectProbeOtherError);
+
+test.tags("mobile");
+test("T-TS-reconnect-error: non-connection error is not swallowed (mobile)", testTsReconnectProbeOtherError);
+
+
+// ---------------------------------------------------------------------------
 // T-TS-facet (AC-TS-2 / U3): the selected team stays visible as a search facet
 // through CrmSearchModel.getCurrentSearch(), and get_team_switcher_data is a
 // cached read that does not raise offline. Mounts a real crm_kanban view so the
@@ -1633,11 +1739,19 @@ test("T-TS-facet: selected team shows as a facet, cached read no-raise (mobile)"
 // T-LG-probe mounts the component and drives the connection with the existing
 // setOffline(...) helper; the module-state probe is observed with an
 // onRpc("ir.module.module", "search_read", ...) spy (orm.cache().searchRead
-// issues the ORM `search_read` method) and the access probe with an
-// onRpc("has_access", ...)
-// spy (user.checkAccessRight → has_access). T-LG-nav calls the three navigation
-// handlers directly and spies the dispatches (orm.silent.call for the install,
-// the action service for the two doActions).
+// issues the ORM `search_read` method). The "Generate" <button> is activated
+// through a REAL DOM click (not a programmatic handler call): offline the
+// framework-disabled button fires no click, so nothing runs; online the click
+// opens the dropdown and issues the probe.
+//
+// Note: the checkAccessRight (has_access) branch in toggleDropdown only runs for
+// elements that carry a `model` property. NONE of the shipped
+// dropdownContentElements declare `model` (every entry gates on `hasAccess` set
+// from user.isAdmin or a literal true), so that branch is unreachable for the
+// shipped UI and is a defensive guard — there is no has_access spy to assert, by
+// design (see design.md). T-LG-nav calls the three navigation handlers directly
+// and spies the dispatches (orm.silent.call for the install, the action service
+// for the two doActions).
 // ###########################################################################
 
 /**
@@ -1672,20 +1786,15 @@ async function mountLeadGenerationDropdown() {
 }
 
 // ---------------------------------------------------------------------------
-// T-LG-probe (AC-LG-1): offline the "Generate" button is framework-disabled;
-// toggleDropdown() offline (direct call and the accesskey/click path) issues NO
-// ir.module.module searchRead and NO has_access RPC; then online, opening the
-// dropdown DOES issue the probe and renders the items — proving the guard sits
-// before `dropdownWasAlreadyOpened`.
+// T-LG-probe (AC-LG-1): offline the "Generate" button is framework-disabled; a
+// REAL DOM click on it issues NO ir.module.module searchRead; then online, a
+// real click opens the dropdown, issues the probe, and renders the items —
+// proving the guard sits before `dropdownWasAlreadyOpened`.
 // ---------------------------------------------------------------------------
 
 async function testLgProbeOffline() {
     onRpc("ir.module.module", "search_read", () => {
         expect.step("search_read");
-    });
-    onRpc("has_access", () => {
-        expect.step("has_access");
-        return true;
     });
 
     const component = await mountLeadGenerationDropdown();
@@ -1694,30 +1803,27 @@ async function testLgProbeOffline() {
     setOffline(true);
     await animationFrame();
 
-    // The "Generate" <button> carries no data-available-offline, so the
-    // framework's offline pass disables it (click/keyboard/accesskey neutralised).
+    // The "Generate" <button accesskey="c"> carries no data-available-offline, so
+    // the framework's offline pass disables it (adds disabled + o_disabled_offline).
     const generate = `button[accesskey="c"]`;
     expect(generate).toHaveCount(1);
     expect(`${generate}.o_disabled_offline`).toHaveCount(1);
     expect(`${generate}[disabled]`).toHaveCount(1);
 
-    // A direct call offline (the handler the button would run) issues neither
-    // probe and does not open the dropdown.
-    await component.toggleDropdown();
+    // A REAL DOM click on the disabled button offline is a no-op: a disabled
+    // <button> fires no click event, so the handler never runs — no probe, the
+    // dropdown stays closed.
+    await contains(generate).click();
     await animationFrame();
-    // The accesskey path is the same handler; clicking a disabled button fires
-    // nothing, so a second direct call simulates the keyboard/accesskey route.
-    await component.toggleDropdown();
-    await animationFrame();
-
-    expect.verifySteps([]); // no module-state searchRead, no has_access offline
+    expect.verifySteps([]); // no module-state searchRead offline
     expect(`.o_lead_mining_element`).toHaveCount(0); // dropdown did not open
 
-    // Reconnect: the FIRST open now issues the module-state probe and renders
-    // the items — the offline return left `dropdownWasAlreadyOpened` unset.
+    // Reconnect: the button is re-enabled; a REAL click now activates it, the
+    // FIRST open issues the module-state probe and renders the items — the
+    // offline return left `dropdownWasAlreadyOpened` unset.
     setOffline(false);
     await animationFrame();
-    await component.toggleDropdown();
+    await contains(generate).click();
     await animationFrame();
 
     expect.verifySteps(["search_read"]); // probe issued on the first online open
@@ -2114,6 +2220,102 @@ test.tags("mobile");
 test("T-RR: mounted offline skips probe; reconnect reveals MRR once (mobile)", testRrReconnect);
 
 // ---------------------------------------------------------------------------
+// T-RR-reconnect-error (reviewer A.1): the recurring-revenue reconnect probe
+// must handle its own rejection the same way the team switcher does. `hasGroup`
+// is patched directly (bypassing its disk Cache). A ConnectionLostError is
+// swallowed and RE-ARMS the skipped flag so the next cycle retries; any other
+// error propagates and is NOT swallowed.
+// ---------------------------------------------------------------------------
+
+async function testRrReconnectProbeConnectionLost() {
+    let call = 0;
+    patchWithCleanup(user, {
+        hasGroup(group) {
+            if (group !== "crm.group_use_recurring_revenues") {
+                return super.hasGroup(group);
+            }
+            call++;
+            expect.step(`probe:${call}`);
+            if (call === 1) {
+                return Promise.reject(new ConnectionLostError("x"));
+            }
+            return Promise.resolve(true);
+        },
+    });
+
+    await mountProbe();
+    setOffline(true);
+    const component = await mountRrColumn(0, 10);
+    await animationFrame();
+    expect.verifySteps([]); // no probe offline
+
+    // First reconnect: probe rejects with ConnectionLostError -> swallowed, re-armed.
+    setOffline(false);
+    await runAllTimers();
+    await animationFrame();
+    expect.verifySteps(["probe:1"]);
+    expect(component.displayRecurringRevenue).toBe(false); // signal untouched
+
+    // Next cycle retries because the flag was re-armed, and resolves true.
+    setOffline(true);
+    await animationFrame();
+    setOffline(false);
+    await runAllTimers();
+    await animationFrame();
+    expect.verifySteps(["probe:2"]);
+    expect(component.displayRecurringRevenue).toBe(true);
+}
+
+test.tags("desktop");
+test("T-RR-reconnect-error: ConnectionLostError swallowed + retried next cycle (desktop)", testRrReconnectProbeConnectionLost);
+
+test.tags("mobile");
+test("T-RR-reconnect-error: ConnectionLostError swallowed + retried next cycle (mobile)", testRrReconnectProbeConnectionLost);
+
+async function testRrReconnectProbeOtherError() {
+    expect.errors(1);
+    let call = 0;
+    patchWithCleanup(user, {
+        hasGroup(group) {
+            if (group !== "crm.group_use_recurring_revenues") {
+                return super.hasGroup(group);
+            }
+            call++;
+            expect.step(`probe:${call}`);
+            return Promise.reject(new Error("boom"));
+        },
+    });
+
+    await mountProbe();
+    setOffline(true);
+    const component = await mountRrColumn(0, 10);
+    await animationFrame();
+    expect.verifySteps([]);
+
+    setOffline(false);
+    await runAllTimers();
+    await animationFrame();
+    expect.verifySteps(["probe:1"]);
+    expect(component.displayRecurringRevenue).toBe(false);
+    await expect.waitForErrors([/boom/]);
+
+    // Flag NOT re-armed: no silent retry.
+    setOffline(true);
+    await animationFrame();
+    setOffline(false);
+    await runAllTimers();
+    await animationFrame();
+    expect.verifySteps([]);
+}
+
+test.tags("desktop");
+test("T-RR-reconnect-error: non-connection error is not swallowed (desktop)", testRrReconnectProbeOtherError);
+
+test.tags("mobile");
+test("T-RR-reconnect-error: non-connection error is not swallowed (mobile)", testRrReconnectProbeOtherError);
+
+
+// ---------------------------------------------------------------------------
 // T-RR (AC-RR online, U1): mounted ONLINE via mountView, the probe is issued at
 // mount and the stage-1 column (standard 0, MRR 10) shows "+10" with the "MRR"
 // label — the preserved behavior.
@@ -2196,9 +2398,9 @@ async function mountPlsForm(resId = 6) {
 }
 
 // ---------------------------------------------------------------------------
-// T-PLS (AC-PLS-1 / AC-PLS-2): offline the <button> is framework-disabled, a
-// click and Enter issue no RPC, and a direct (programmatic) handler call issues
-// no save / prepare_pls_tooltip_data / load.
+// T-PLS (AC-PLS-1 / AC-PLS-2): offline the <button> is framework-disabled; a
+// real click and a real Enter keypress on it issue no RPC, and a direct
+// (programmatic) handler call issues no save / prepare_pls_tooltip_data / load.
 // ---------------------------------------------------------------------------
 
 async function testPlsOffline() {
@@ -2223,8 +2425,15 @@ async function testPlsOffline() {
     expect(`${btn}.o_disabled_offline`).toHaveCount(1);
     expect(`${btn}[disabled]`).toHaveCount(1);
 
-    // Click and Enter on the disabled button fire nothing.
+    // Click on the disabled button fires nothing.
     await contains(btn).click();
+    await animationFrame();
+    expect.verifySteps([]);
+
+    // A REAL Enter keypress on the focused button fires nothing either (a
+    // disabled button activates on neither click nor Enter).
+    document.querySelector(btn).focus();
+    await press("Enter");
     await animationFrame();
     expect.verifySteps([]);
 
@@ -2250,20 +2459,43 @@ test("T-PLS: offline button disabled, click/Enter/programmatic issue no RPC (mob
 // ---------------------------------------------------------------------------
 
 async function testPlsOnline() {
+    // Watch all three server round-trips the handler performs IN ORDER:
+    // record.save() -> web_save, the recompute -> prepare_pls_tooltip_data, and
+    // record.load() -> web_read. Asserting only the recompute would miss the save
+    // and reload the handler is specified to run.
+    onRpc("crm.lead", "web_save", ({ parent }) => {
+        expect.step("web_save");
+        return parent();
+    });
     onRpc("crm.lead", "prepare_pls_tooltip_data", () => {
         expect.step("prepare_pls_tooltip_data");
         return plsTooltipData();
     });
+    onRpc("crm.lead", "web_read", ({ parent }) => {
+        expect.step("web_read");
+        return parent();
+    });
 
     await mountPlsForm();
     await animationFrame();
+    // Drain the form's initial mount read so the assertion below sees only the
+    // calls the button handler issues.
+    expect.verifySteps(["web_read"]);
 
-    // Click the enabled button online: it runs the full flow and opens the
-    // tooltip popover.
-    await contains(`.o_crm_pls_tooltip_button`).click();
+    // Dirty the record so record.save() genuinely issues web_save (a clean
+    // record would short-circuit the save with no RPC).
+    await contains(`.o_field_widget[name="name"] input`).edit("Edited lead");
     await animationFrame();
 
-    expect.verifySteps(["prepare_pls_tooltip_data"]);
+    // Activate the enabled button online with a REAL Enter keypress: it runs the
+    // full flow (save -> recompute -> load) and opens the tooltip popover.
+    const btn = `.o_crm_pls_tooltip_button`;
+    document.querySelector(btn).focus();
+    await press("Enter");
+    await animationFrame();
+
+    // The three calls the handler issues ran in order: save, recompute, reload.
+    expect.verifySteps(["web_save", "prepare_pls_tooltip_data", "web_read"]);
     expect(`.o_crm_pls_tooltip`).toHaveCount(1); // popover opened
 }
 
@@ -2290,49 +2522,89 @@ test("T-PLS: online saves, recomputes, reloads and opens the tooltip (mobile)", 
 // which exercises exactly the guarded path for every click variant.
 // ###########################################################################
 
-async function mountActivityMenu() {
+async function mountActivityMenu(groups) {
     const component = await mountWithCleanup(ActivityMenu);
-    // Spy the two server navigations the crm.lead branch would issue.
+    // Spy the two server navigations the crm.lead branch would issue, and the
+    // generic doAction the base (super) openActivityGroup issues for other models.
     patchWithCleanup(component.action, {
         loadAction(xmlId) {
             expect.step(`loadAction:${xmlId}`);
             return Promise.resolve({ id: 1, type: "ir.actions.act_window", domain: [] });
         },
         doAction(action) {
-            expect.step("doAction");
+            const label = typeof action === "string" ? action : action.res_model || "action";
+            expect.step(`doAction:${label}`);
             return Promise.resolve(true);
         },
     });
-    // Stub the dropdown so close() is observable and harmless.
-    patchWithCleanup(component.dropdown, {
-        close() {
-            expect.step("dropdown.close");
-        },
-    });
+    // Render real activity groups so the dropdown shows the crm.lead group div
+    // and its Late/Today/Future spans. `activity_groups` is reactive store state
+    // read by store.activityGroups (the template source). The dropdown's
+    // onBeforeOpen refetches from the server on open; stub both it and the
+    // underlying store fetch to no-ops so our injected groups survive and opening
+    // never issues a network call.
+    patchWithCleanup(component, { onBeforeOpen() {} });
+    patchWithCleanup(component.store, { fetchStoreData() { return Promise.resolve(); } });
+    component.store.activity_groups = groups;
+    await animationFrame();
     return component;
 }
 
+/** Dispatch a real middle-click (auxclick, button 1) on a DOM element — the
+ * t-custom-click directive routes click + auxclick to the same handler and sets
+ * isMiddleClick for button 1. */
+function middleClick(selector) {
+    const el = getFixture().querySelector(selector);
+    el.dispatchEvent(new MouseEvent("auxclick", { bubbles: true, button: 1 }));
+}
+
+/** Representative crm.lead activity group with non-zero counts so Late/Today/
+ * Future render as active links. */
+function crmLeadGroup() {
+    return {
+        model: "crm.lead",
+        name: "Lead",
+        type: "activity",
+        icon: "/crm/static/description/icon.png",
+        overdue_count: 2,
+        today_count: 1,
+        planned_count: 3,
+    };
+}
+
 // ---------------------------------------------------------------------------
-// T-AM (AC-AM-1): offline the crm.lead group and its Late/Today/Future filters
-// (and the middle-click / new-window variant) load/navigate nothing and raise
-// nothing — the guard returns before dropdown.close().
+// T-AM (AC-AM-1): offline, clicking the REAL crm.lead group div, each of its
+// Late/Today/Future spans, and a REAL middle-click (auxclick) load/navigate
+// nothing and raise nothing — the JS guard returns before dropdown.close().
 // ---------------------------------------------------------------------------
 
 async function testAmOffline() {
-    const component = await mountActivityMenu();
+    const component = await mountActivityMenu([crmLeadGroup()]);
+
+    // Open the dropdown (online) so the group DOM renders.
+    await click("button:has(i[data-icon='schedule'])"); // open the dropdown
     await animationFrame();
+    const groupDiv = `.o-mail-ActivityGroup[data-model_name="crm.lead"]`;
+    await mc(groupDiv);
 
     setOffline(true);
     await animationFrame();
 
-    const group = { model: "crm.lead" };
-    // Click, each filter, middle-click (newWindow=true): none issues an RPC and
-    // none closes the dropdown (the guard returns first).
-    await component.openActivityGroup(group, "all");
-    await component.openActivityGroup(group, "overdue");
-    await component.openActivityGroup(group, "today");
-    await component.openActivityGroup(group, "upcoming_all");
-    await component.openActivityGroup(group, "all", true); // middle-click / new window
+    // Click the real group div: handler runs with filter "all" -> guard returns,
+    // nothing navigates, dropdown stays (no close step).
+    await click(groupDiv);
+    await animationFrame();
+
+    // Click each real filter span (Late/Today/Future -> overdue/today/upcoming_all).
+    const spans = getFixture().querySelectorAll(`${groupDiv} span.btn.btn-link`);
+    expect(spans.length).toBe(3); // Late, Today, Future all active (non-zero counts)
+    for (const span of spans) {
+        span.click();
+        await animationFrame();
+    }
+
+    // A real middle-click (auxclick, button 1) on the group div: same guard.
+    middleClick(groupDiv);
     await animationFrame();
 
     expect.verifySteps([]); // no loadAction, no doAction, no dropdown.close
@@ -2340,28 +2612,31 @@ async function testAmOffline() {
 }
 
 test.tags("desktop");
-test("T-AM: offline crm.lead entry + filters load/navigate nothing (desktop)", testAmOffline);
+test("T-AM: offline crm.lead group div + filter spans + middle-click load nothing (desktop)", testAmOffline);
 
 test.tags("mobile");
-test("T-AM: offline crm.lead entry + filters load/navigate nothing (mobile)", testAmOffline);
+test("T-AM: offline crm.lead group div + filter spans + middle-click load nothing (mobile)", testAmOffline);
 
 // ---------------------------------------------------------------------------
-// T-AM (AC-AM-2, U4): online the crm.lead entry opens my-activities
-// (loadAction + doAction); and a non-crm.lead group is unaffected by the guard
-// (it falls through to super).
+// T-AM (AC-AM-2, U4): online, clicking the real crm.lead group div opens
+// my-activities (loadAction + doAction) — the preserved behavior.
 // ---------------------------------------------------------------------------
 
 async function testAmOnline() {
-    const component = await mountActivityMenu();
-    await animationFrame();
+    const component = await mountActivityMenu([crmLeadGroup()]);
 
-    // Online the crm.lead branch loads the my-activities action and navigates.
-    await component.openActivityGroup({ model: "crm.lead" }, "all");
+    await click("button:has(i[data-icon='schedule'])"); // open the dropdown
+    await animationFrame();
+    const groupDiv = `.o-mail-ActivityGroup[data-model_name="crm.lead"]`;
+    await mc(groupDiv);
+
+    // Online: clicking the real group div loads the my-activities action and
+    // navigates (the crm.lead branch), after closing the dropdown.
+    await click(groupDiv);
     await animationFrame();
     expect.verifySteps([
-        "dropdown.close",
         "loadAction:crm.crm_lead_action_my_activities",
-        "doAction",
+        "doAction:action",
     ]);
 }
 
@@ -2370,6 +2645,47 @@ test("T-AM: online crm.lead entry opens my-activities (desktop)", testAmOnline);
 
 test.tags("mobile");
 test("T-AM: online crm.lead entry opens my-activities (mobile)", testAmOnline);
+
+// ---------------------------------------------------------------------------
+// T-AM-fallthrough (U4): a NON-crm.lead group is unaffected by the crm guard —
+// even offline the crm patch calls super.openActivityGroup, which closes the
+// dropdown and issues the generic doAction for that model. Proves the guard is
+// scoped to crm.lead only and mail's openActivityGroup is reached.
+// ---------------------------------------------------------------------------
+
+async function testAmFallthrough() {
+    const otherGroup = {
+        model: "res.partner",
+        name: "Contact",
+        type: "activity",
+        icon: "/mail/static/description/icon.png",
+        overdue_count: 1,
+        today_count: 0,
+        planned_count: 0,
+    };
+    const component = await mountActivityMenu([otherGroup]);
+
+    await click("button:has(i[data-icon='schedule'])"); // open the dropdown
+    await animationFrame();
+    const groupDiv = `.o-mail-ActivityGroup[data-model_name="res.partner"]`;
+    await mc(groupDiv);
+
+    // Offline: the crm guard only intercepts crm.lead, so a res.partner group
+    // falls through to mail's super.openActivityGroup — the dropdown closes and
+    // the generic act_window doAction (res_model: res.partner) is reached.
+    setOffline(true);
+    await animationFrame();
+    await click(groupDiv);
+    await animationFrame();
+    expect.verifySteps(["doAction:res.partner"]);
+    setOffline(false);
+}
+
+test.tags("desktop");
+test("T-AM-fallthrough: non-crm.lead group reaches mail openActivityGroup offline (desktop)", testAmFallthrough);
+
+test.tags("mobile");
+test("T-AM-fallthrough: non-crm.lead group reaches mail openActivityGroup offline (mobile)", testAmFallthrough);
 
 // ###########################################################################
 // Spec 05 — Task 7: Chatter on the lead form (AC-CH-1..4, U5).
@@ -2577,7 +2893,13 @@ async function testChMobileMountedInstance() {
     await click(".o-mail-Chatter-sendMessage");
     await mc(".o-mail-Composer");
 
-    // Toggle offline on the mounted instance: composer closes, message stays.
+    // Type a DRAFT into the composer BEFORE going offline. The draft lives on
+    // thread.composer, so closing the composer offline must not lose it.
+    await insertText(".o-mail-Composer-input", "Draft in progress");
+    await mc(".o-mail-Composer-input", { value: "Draft in progress" });
+
+    // Toggle offline on the mounted instance: the composer is REMOVED (closed),
+    // the cached message stays. Typing/Enter/paste are impossible while closed.
     await setOfflineReal(true);
     await mc(".o-mail-Composer", { count: 0 });
     await mc(".o-mail-Message-body", { text: "Mobile body" });
@@ -2591,13 +2913,15 @@ async function testChMobileMountedInstance() {
     expect.verifySteps([]); // no post, no upload
 
     // Reconnect: the cached message remains visible and the chatter is usable
-    // again (the composer can reopen). The message stays shown throughout.
+    // again. Reopening the composer shows the PRESERVED draft, unchanged — it was
+    // never discarded, only hidden while the composer was removed.
     await setOfflineReal(false);
     await runAllTimers();
     await animationFrame();
     await mc(".o-mail-Message-body", { text: "Mobile body" });
     await click(".o-mail-Chatter-sendMessage");
     await mc(".o-mail-Composer");
+    await mc(".o-mail-Composer-input", { value: "Draft in progress" }); // draft preserved
 }
 test.tags("mobile");
 test("T-CH: mobile mounted-instance read-only, composer closed, reconnect refetch (KL-4)", testChMobileMountedInstance);
@@ -2767,6 +3091,49 @@ test.tags("desktop");
 test("T-CH: load rethrows a non-connection error (desktop)", testChLoadRethrowsOtherErrors);
 test.tags("mobile");
 test("T-CH: load rethrows a non-connection error (mobile)", testChLoadRethrowsOtherErrors);
+
+// The uploader wrap is a no-op ONLY offline; ONLINE it must delegate to the
+// original attachmentUploader.uploadFile. We prove both directions: offline the
+// wrapped call resolves without reaching the upload route; online it reaches the
+// real /mail/attachment/upload route (the delegate runs the actual upload).
+async function testChUploaderPassThrough() {
+    // Stub the upload SERVICE (the delegate target of the original uploadFile)
+    // with a step-recording no-op BEFORE mounting, so the real upload path
+    // (URL.createObjectURL etc.) never runs. The CrmChatter wrapper short-circuits
+    // offline and calls the original uploadFile online — which reaches this stub.
+    patchWithCleanup(AttachmentUploadService.prototype, {
+        upload() {
+            expect.step("upload");
+            return Promise.resolve();
+        },
+    });
+    const chatter = await mountCrmChatterOnline();
+    const file = new File(["x"], "p.txt", { type: "text/plain" });
+
+    // The wrapper's only branch key is crmOffline.isOffline(). Drive it directly
+    // (rather than the live connectivity signal, which the WebClient harness can
+    // flip back online via background RPC:RESPONSE) so the wrapper's offline vs
+    // online behavior is tested deterministically.
+    let offline = true;
+    patchWithCleanup(chatter.crmOffline, { isOffline: () => offline });
+
+    // Offline: the wrapped uploader is a no-op — it resolves and the delegate
+    // (upload service) is never reached.
+    await chatter.attachmentUploader.uploadFile(file);
+    await animationFrame();
+    expect.verifySteps([]); // no upload offline
+
+    // Online: the wrapper delegates to the original uploadFile, which calls the
+    // upload service (our stub) — proving the online path is unchanged.
+    offline = false;
+    await chatter.attachmentUploader.uploadFile(file);
+    await animationFrame();
+    expect.verifySteps(["upload"]); // delegated to the original uploader online
+}
+test.tags("desktop");
+test("T-CH: uploader wrap no-ops offline, delegates to the original online (desktop)", testChUploaderPassThrough);
+test.tags("mobile");
+test("T-CH: uploader wrap no-ops offline, delegates to the original online (mobile)", testChUploaderPassThrough);
 
 
 // ###########################################################################
@@ -3033,25 +3400,181 @@ test("T-A-share: offline skips team lookup + disabled affordance; reconnect runs
 test.tags("mobile");
 test("T-A-share: offline skips team lookup + disabled affordance; reconnect runs once (mobile)", testAShare);
 
+// ---------------------------------------------------------------------------
+// T-A-share-error (reviewer A.2): the reconnect team lookup must handle its own
+// rejection. updateTeams() awaits orm.webSearchRead with no offline fallback.
+// These mirror the proven T-A-share structure (onRpc counter + setOffline +
+// runAllTimers reconnect). A ConnectionLostError on the reconnect lookup is
+// surfaced once by the framework (RPC:RESPONSE) but handled by the component's
+// .catch — no UNHANDLED rejection — and RE-ARMS the skip flag so the NEXT
+// reconnect retries. A non-connection error is NOT swallowed and does NOT re-arm.
+// ---------------------------------------------------------------------------
+
+async function testAShareReconnectConnectionLost() {
+    // Mount online (real crm.team lookup resolves), then stub the captured
+    // instance's orm.webSearchRead so the reconnect lookup rejects with a REAL
+    // ConnectionLostError that reaches the component's .catch directly — not
+    // through the RPC layer, which would re-wrap the error and auto-toggle the
+    // plugin's offline signal via RPC:RESPONSE (both non-deterministic). We drive
+    // updateTeams() exactly as the reconnect useOnChange does (clear the skip flag
+    // first). A ConnectionLostError is caught (no unhandled rejection) and
+    // RE-ARMS the flag so the next reconnect retries.
+    onRpc("crm.team", "web_search_read", () => ({
+        length: 2,
+        records: [
+            { id: 1, display_name: "Mushroom Kingdom" },
+            { id: 2, display_name: "Hyrule" },
+        ],
+    }));
+    await mountShareTargetWithCrmItem();
+    const item = crmShareItem;
+    expect(item).not.toBe(undefined);
+
+    // Offline: updateTeams() skips the lookup, re-arms the skip flag, shows the
+    // affordance (identical to T-A-share; no orm stub needed, the offline branch
+    // never calls orm).
+    setOffline(true);
+    await item.updateTeams();
+    await animationFrame();
+    expect(item.isOffline).toBe(true);
+    expect(`.o_crm_share_target_offline`).toHaveCount(1);
+
+    // Now stub the captured instance's orm.webSearchRead so the RECONNECT lookup
+    // rejects with a REAL ConnectionLostError that reaches the component's .catch
+    // directly — not through the RPC layer, which would re-wrap the error and
+    // auto-toggle the plugin's offline signal via RPC:RESPONSE (both
+    // non-deterministic). We drive updateTeams() exactly as the reconnect
+    // useOnChange does (clear the skip flag first).
+    let call = 0;
+    patchWithCleanup(item.orm, {
+        webSearchRead(model, domain, options) {
+            if (model !== "crm.team") {
+                return super.webSearchRead(model, domain, options);
+            }
+            call++;
+            expect.step(`search:${call}`);
+            if (call === 1) {
+                return Promise.reject(new ConnectionLostError("x")); // drop mid-fetch
+            }
+            return Promise.resolve({ length: 1, records: [{ id: 1, display_name: "Mushroom Kingdom" }] });
+        },
+    });
+
+    // First reconnect lookup (as the useOnChange does: clear the flag, then
+    // updateTeams()): rejects with ConnectionLostError. The .catch handles the
+    // rejection (no unhandled rejection) and RE-ARMS the skip flag; state.teams is
+    // left untouched. The teams are NOT loaded (the fetch failed), which is the
+    // behavior that matters — the next reconnect will retry.
+    const teamsBefore = item.state.teams;
+    setOffline(false);
+    item._teamsProbeSkipped = false;
+    await item.updateTeams();
+    await animationFrame();
+    expect.verifySteps(["search:1"]);
+    expect(item._teamsProbeSkipped).toBe(true); // re-armed by the .catch
+    expect(item.state.teams).toBe(teamsBefore); // state.teams untouched by the failed fetch
+
+    // Retry (as the next reconnect would): clear the flag, the lookup succeeds,
+    // and state.teams is replaced with the fetched records — the re-armed flag let
+    // the retry run.
+    item._teamsProbeSkipped = false;
+    await item.updateTeams();
+    await animationFrame();
+    expect.verifySteps(["search:2"]);
+    expect(item._teamsProbeSkipped).toBe(false);
+    expect(item.state.teams.length).toBe(1); // retry populated teams
+    expect(item.state.teams[0].display_name).toBe("Mushroom Kingdom");
+}
+
+test.tags("desktop");
+test("T-A-share-error: ConnectionLostError swallowed + retried next cycle (desktop)", testAShareReconnectConnectionLost);
+
+test.tags("mobile");
+test("T-A-share-error: ConnectionLostError swallowed + retried next cycle (mobile)", testAShareReconnectConnectionLost);
+
+async function testAShareReconnectOtherError() {
+    // A non-connection error from the reconnect lookup is NOT swallowed: the
+    // framework surfaces it and the skip flag is NOT re-armed, so no silent retry
+    // masks a real failure.
+    expect.errors(1);
+    let searchReads = 0;
+    onRpc("crm.team", "web_search_read", () => {
+        searchReads++;
+        expect.step("web_search_read");
+        if (searchReads === 2) {
+            throw makeServerError({ message: "boom" });
+        }
+        return { length: 2, records: [{ id: 1, display_name: "Mushroom Kingdom" }, { id: 2, display_name: "Hyrule" }] };
+    });
+
+    await mountShareTargetWithCrmItem();
+    const item = crmShareItem;
+    expect.verifySteps(["web_search_read"]); // online mount lookup
+
+    // Offline: no lookup, skip flag re-armed, affordance shown.
+    setOffline(true);
+    await item.updateTeams();
+    await animationFrame();
+    expect.verifySteps([]);
+    expect(item._teamsProbeSkipped).toBe(true);
+    expect(`.o_crm_share_target_offline`).toHaveCount(1);
+
+    // Reconnect: the lookup rejects with a non-connection error. updateTeams()
+    // rethrows it (surfaced by the framework); the flag is NOT re-armed.
+    setOffline(false);
+    await runAllTimers();
+    await animationFrame();
+    expect.verifySteps(["web_search_read"]);
+    await expect.waitForErrors([/boom/]);
+    expect(item._teamsProbeSkipped).toBe(false); // NOT re-armed
+
+    // A further cycle does not silently retry (the error was surfaced, not masked).
+    const before = searchReads;
+    setOffline(true);
+    await animationFrame();
+    setOffline(false);
+    await runAllTimers();
+    await animationFrame();
+    expect(searchReads).toBe(before); // no extra lookup
+    expect.verifySteps([]);
+}
+
+test.tags("desktop");
+test("T-A-share-error: non-connection error is not swallowed (desktop)", testAShareReconnectOtherError);
+
+test.tags("mobile");
+test("T-A-share-error: non-connection error is not swallowed (mobile)", testAShareReconnectOtherError);
+
+
 // ###########################################################################
-// Spec 05 — Task 10a: framework-pass <button> surfaces (one real control each).
+// Spec 05 — Task 10a: the framework <button>-disable rule (row 7).
 //
 // Acceptance row 7 is proven BY TEST, not by assuming the framework guarantee.
-// Each inventory surface whose DISABLE controls are real <button>s is covered by
-// one paired test with a representative button from that surface: offline the
-// framework's selector pass (button:not([data-available-offline])) adds
-// `disabled` + `o_disabled_offline` and the click issues no RPC; online the
-// button is enabled and its object call dispatches. The mechanism is identical
-// across surfaces (it is the framework's), so one real control per surface is
-// sufficient per the design.
+// The mechanism under test is the framework's selector pass
+// (button:not([data-available-offline])): offline it adds `disabled` +
+// `o_disabled_offline` and the click issues no RPC; online the button is enabled
+// and its object call dispatches. The mechanism is the framework's and is
+// model-independent, so each test exercises it on a <button> of the right
+// name/type.
 //
-// Each test mounts a crm_form carrying the surface's real button name/type.
+// Two kinds of coverage below:
+//  - REAL views: T-B-leadform / T-B-leadmethods / T-B-meeting mount a real
+//    crm_form (crm.lead), T-B-team a real crm.team form, T-B-leadlist a real
+//    crm_list — these carry the surface's actual button on its real view.
+//  - REPLICA views: T-B-settings / T-B-related / T-B-wizard do NOT render the
+//    real settings / related-record / wizard views. They mount a crm.lead
+//    crm_form REPLICA carrying a <button> with that surface's name, which proves
+//    the framework rule applies to such a button; it does not exercise the real
+//    view wiring. (The real views are register-only DISABLE rows in the
+//    inventory; see design.md.)
 // ###########################################################################
 
 /**
- * Mount a crm_form with a single <button name=... type="object"> and assert the
- * framework disables it offline (no RPC) and enables it online (RPC dispatched).
- * `method` is spied on crm.lead.
+ * Mount a crm.lead crm_form carrying a single <button name=... type="object">
+ * and assert the framework disables it offline (no RPC) and enables it online
+ * (RPC dispatched). `method` is spied on crm.lead. NOTE: this is a REPLICA
+ * harness — it proves the framework button rule for a button of the given name;
+ * it does NOT render the surface's real view.
  */
 async function assertButtonSurface(buttonName, method) {
     onRpc("crm.lead", method, () => {
@@ -3175,39 +3698,43 @@ async function testBLeadList() {
     await animationFrame();
     expect(`${btn}.o_disabled_offline`).toHaveCount(0);
 }
-// Desktop-only: the inline list-selection and view-switcher chrome these assert is a
-// desktop surface (mirrors web/.../window_action.test.js, whose offline list/switcher
-// tests are desktop-only). The framework-disable MECHANISM is preset-independent and is
-// also covered on mobile by the paired <button>-surface tests above.
+// Desktop-only (KL-3): the test reveals the list header button by ticking a row's
+// selection checkbox (.o_list_record_selector input). The mobile list renders no
+// per-row selection checkbox column, so the header button cannot be revealed on
+// mobile; the framework-disable mechanism it proves is preset-independent and is
+// also covered on mobile by the paired <button>-surface tests. See KL-3.
 test.tags("desktop");
 test("T-B-leadlist: list header object button disabled offline, enabled online (desktop)", testBLeadList);
 
-// Settings object button (res.config.settings action_crm_assign_leads surface).
+// Settings surface (res.config.settings action_crm_assign_leads). Proven on a
+// REPLICA button — not the real settings view (see the block header).
 async function testBSettings() {
     await assertButtonSurface("action_crm_assign_leads", "action_crm_assign_leads");
 }
 test.tags("desktop");
-test("T-B-settings: settings object button disabled offline, works online (desktop)", testBSettings);
+test("T-B-settings-replica: framework disables an action_crm_assign_leads <button> offline on a replica (desktop)", testBSettings);
 test.tags("mobile");
-test("T-B-settings: settings object button disabled offline, works online (mobile)", testBSettings);
+test("T-B-settings-replica: framework disables an action_crm_assign_leads <button> offline on a replica (mobile)", testBSettings);
 
-// Related-record navigation object button (res.partner action_view_opportunity surface).
+// Related-record navigation surface (res.partner action_view_opportunity).
+// Proven on a REPLICA button — not the real related-record view.
 async function testBRelated() {
     await assertButtonSurface("action_view_opportunity", "action_view_opportunity");
 }
 test.tags("desktop");
-test("T-B-related: related-record object button disabled offline, works online (desktop)", testBRelated);
+test("T-B-related-replica: framework disables an action_view_opportunity <button> offline on a replica (desktop)", testBRelated);
 test.tags("mobile");
-test("T-B-related: related-record object button disabled offline, works online (mobile)", testBRelated);
+test("T-B-related-replica: framework disables an action_view_opportunity <button> offline on a replica (mobile)", testBRelated);
 
-// Wizard apply object button (transient-wizard action_apply surface).
+// Wizard apply surface (transient-wizard action_apply). Proven on a REPLICA
+// button — not the real wizard view (wizards are unreachable offline anyway).
 async function testBWizard() {
     await assertButtonSurface("action_apply", "action_apply");
 }
 test.tags("desktop");
-test("T-B-wizard: wizard apply object button disabled offline, works online (desktop)", testBWizard);
+test("T-B-wizard-replica: framework disables an action_apply <button> offline on a replica (desktop)", testBWizard);
 test.tags("mobile");
-test("T-B-wizard: wizard apply object button disabled offline, works online (mobile)", testBWizard);
+test("T-B-wizard-replica: framework disables an action_apply <button> offline on a replica (mobile)", testBWizard);
 
 // ###########################################################################
 // Spec 05 — Task 10b: out-of-scope analytic/forecast views (AC-OV-1..3).
@@ -3293,6 +3820,8 @@ async function testOvViewFallback() {
 }
 test.tags("desktop");
 test("T-OV-view: offline uncached graph falls back to an available view (desktop)", testOvViewFallback);
+test.tags("mobile");
+test("T-OV-view: offline uncached graph falls back to an available view (mobile)", testOvViewFallback);
 
 // T-OV-menu (AC-OV-2): the command-palette menu provider disables an offline-
 // unavailable menu. Mirrors the framework's own menu_provider offline test:

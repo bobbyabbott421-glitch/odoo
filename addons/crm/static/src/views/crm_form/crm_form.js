@@ -179,9 +179,14 @@ class CrmFormController extends formView.Controller {
  * path succeeding:
  *  - load(): mail's Chatter.load() awaits thread.fetchThreadData(), whose
  *    non-messages fetchStoreData rejects offline; load() is called un-awaited,
- *    so that rejection would surface unhandled. Skip the fetch offline (cached
- *    messages already in the store stay visible) and remember it was skipped so
- *    the reconnect handler runs it once.
+ *    so that rejection would surface unhandled. Our override is async and, when
+ *    offline, early-returns after setting `_loadSkipped = true` (cached messages
+ *    already in the store stay visible). When online it awaits super.load() in a
+ *    try/catch: a ConnectionLostError (the signal can flap online for ~a frame
+ *    mid-reopen) is swallowed and re-arms `_loadSkipped`; any other error
+ *    propagates. On reconnect the useOnChange below refetches once by calling the
+ *    guarded `this.load` (not `super.load`), so a drop mid-refetch re-arms again
+ *    rather than throwing.
  *  - toggleComposer(): closing/forbidding the composer offline removes the
  *    <Composer> entirely (chatter.xml renders it only while composerType is
  *    truthy), which kills typing, Enter-to-send and composer paste-upload in one

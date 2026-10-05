@@ -225,9 +225,12 @@ Each item carries an AC ID referenced by design.md's coverage table and tasks.md
 - **U3** `crm_search_model.js` facet behavior (`applySearch`/`getCurrentSearch`) is preserved;
   `get_team_switcher_data` must not raise offline (cached read, :142).
 - **U4** Non-`crm.lead` activity-menu entries keep mail's behavior.
-- **U5** Every existing test passes unmodified. No existing test file is edited; this spec
-  adds no Python test, so `addons/crm/tests/__init__.py` is NOT touched. Named existing tests
-  that exercise these surfaces: `crm_team_switcher.test.js`, `crm_offline.test.js`.
+- **U5** Every existing test passes unmodified. No PRE-EXISTING test file is edited: this
+  spec's new JS tests are APPENDED to `addons/crm/static/tests/crm_offline.test.js`, which was
+  CREATED by spec 02 (it is not a pre-existing framework test file, and appending to it is not
+  editing someone else's test). This spec adds no Python test, so
+  `addons/crm/tests/__init__.py` is NOT touched. A pre-existing test that already exercises one
+  of these surfaces is `crm_team_switcher.test.js` (left untouched).
 
 ## Impact
 

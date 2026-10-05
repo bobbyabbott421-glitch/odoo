@@ -4,6 +4,7 @@ import { _t } from "@web/core/l10n/translation";
 import { user } from "@web/core/user";
 import { useService } from "@web/core/utils/hooks";
 import { useCrmOffline } from "@crm/mobile/crm_offline_hooks";
+import { ConnectionLostError } from "@web/core/network/rpc";
 
 import { Component, onWillStart, signal, status, useOnChange } from "@odoo/owl";
 
@@ -43,11 +44,23 @@ export class TeamSwitcher extends Component {
             (isOffline) => {
                 if (!isOffline && this._managerProbeSkipped) {
                     this._managerProbeSkipped = false;
-                    user.hasGroup("sales_team.group_sale_manager").then((v) => {
-                        if (status(this) !== "destroyed") {
-                            this._isSaleManager.set(v);
-                        }
-                    });
+                    user
+                        .hasGroup("sales_team.group_sale_manager")
+                        .then((v) => {
+                            if (status(this) !== "destroyed") {
+                                this._isSaleManager.set(v);
+                            }
+                        })
+                        .catch((e) => {
+                            // Connection dropped again mid-probe: re-arm so the
+                            // next reconnect retries, and swallow (no unhandled
+                            // rejection). Any other error propagates.
+                            if (e instanceof ConnectionLostError) {
+                                this._managerProbeSkipped = true;
+                                return;
+                            }
+                            throw e;
+                        });
                 }
             },
             { initialRun: false }

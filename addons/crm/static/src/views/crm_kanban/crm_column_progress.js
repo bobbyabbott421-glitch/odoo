@@ -3,6 +3,7 @@ import { user } from "@web/core/user";
 import { RottingColumnProgress } from "@mail/js/rotting_mixin/rotting_column_progress";
 import { _t } from "@web/core/l10n/translation";
 import { useCrmOffline } from "@crm/mobile/crm_offline_hooks";
+import { ConnectionLostError } from "@web/core/network/rpc";
 
 export class CrmColumnProgress extends RottingColumnProgress {
     static template = "crm.ColumnProgress";
@@ -42,11 +43,23 @@ export class CrmColumnProgress extends RottingColumnProgress {
                     this.props.progressBarState.progressAttributes.recurring_revenue_sum_field
                 ) {
                     this._rrProbeSkipped = false;
-                    user.hasGroup("crm.group_use_recurring_revenues").then((v) => {
-                        if (status(this) !== "destroyed") {
-                            this._showRecurringRevenue.set(v);
-                        }
-                    });
+                    user
+                        .hasGroup("crm.group_use_recurring_revenues")
+                        .then((v) => {
+                            if (status(this) !== "destroyed") {
+                                this._showRecurringRevenue.set(v);
+                            }
+                        })
+                        .catch((e) => {
+                            // Connection dropped again mid-probe: re-arm so the
+                            // next reconnect retries, and swallow (no unhandled
+                            // rejection). Any other error propagates.
+                            if (e instanceof ConnectionLostError) {
+                                this._rrProbeSkipped = true;
+                                return;
+                            }
+                            throw e;
+                        });
                 }
             },
             { initialRun: false }
