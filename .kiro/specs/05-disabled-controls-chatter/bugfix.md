@@ -131,8 +131,13 @@ Each item carries an AC ID referenced by design.md's coverage table and tasks.md
 
 **Bug 2 — Lead-generation dropdown.**
 - **AC-LG-1** Offline, `toggleDropdown` returns BEFORE setting `dropdownWasAlreadyOpened`,
-  so neither probe is issued (via accesskey, direct call, or any path), and the first open
-  AFTER reconnect still issues the probes and renders the items.
+  so the module-state `search_read` probe is not issued, and the first open AFTER reconnect
+  still issues it and renders the items. The test activates the Generate button through the
+  REAL `alt+c` hotkey chord (the hotkey plugin rewrites `accesskey="c"` to `data-hotkey="c"`
+  and skips the disabled button offline). NOTE: `toggleDropdown`'s `checkAccessRight`
+  (`has_access`) call runs only for dropdown elements carrying a `model` property; NONE of the
+  shipped `dropdownContentElements` carry `model`, so that branch is UNREACHABLE for the
+  shipped UI — it is a defensive guard, and no test drives it (there is no `has_access` spy).
 - **AC-LG-2** Offline, the install confirm (`button_immediate_install`), `redirectToImport`
   (import `doAction`), and `requestAccess` (install-request `doAction`) are each guarded so a
   direct call offline triggers none of them.
@@ -216,10 +221,12 @@ Each item carries an AC ID referenced by design.md's coverage table and tasks.md
 
 ### Unchanged Behavior (Regression Prevention)
 
-- **U1** Online, every probe/lookup/navigation/fetch is still issued (team manager probe,
-  lead-gen `ir.module.module` searchRead + `checkAccessRight`, recurring-revenue probe, PLS
+- **U1** Online, every probe/lookup/navigation/fetch the shipped UI issues is still issued
+  (team manager probe, lead-gen `ir.module.module` searchRead, recurring-revenue probe, PLS
   save/recompute/reload, activity-menu `loadAction`/`doAction`, chatter thread-data fetch,
-  the `<a>` controls, the share-target `webSearchRead`).
+  the `<a>` controls, the share-target `webSearchRead`). The lead-gen `checkAccessRight`
+  branch is a defensive guard that the shipped elements never reach (no element carries
+  `model`), so it is not among the issued probes and is not tested.
 - **U2** Desktop is unchanged; all new behavior is gated on offline state. Online rendering of
   every `<a>` control is byte-for-byte unchanged (row 10).
 - **U3** `crm_search_model.js` facet behavior (`applySearch`/`getCurrentSearch`) is preserved;
