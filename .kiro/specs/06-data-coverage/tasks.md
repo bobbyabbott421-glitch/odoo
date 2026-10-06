@@ -63,6 +63,13 @@ The manifest `version` stays `1.9` here (the bump is spec 08).
     the existing files (anything beyond `crm_form.scss` or the inline `` xml`...` `` template).
     Do NOT create a new file; any file outside the allowed-files list needs explicit user
     approval first.
+  - SIZE-GUARD EXCEPTION (review round 1, APPROVED by the user): as built, `crm_form.js`
+    grew by ~497 added lines (288 → 785), OVER the ~300-added guard; the stop-rule was not
+    applied during initial implementation. The user accepted this as a documented exception
+    — the constraint that matters, NO new file, holds (the frozen allowed-files list is
+    honoured), and `CrmChatter` is the cohesive home for all this behaviour. See the design
+    "Size-guard exception" subsection for the per-file as-built numbers. `activity_menu_patch.js`
+    (+211) and `crm_form.scss` (+20) stay within the guard.
   - _Requirements: 15.1, 15.2_
 
 - [x] 2. 3c — Offline partner-field: verify-and-prove the framework forbids create (NO CRM code)
@@ -97,19 +104,30 @@ The manifest `version` stays `1.9` here (the bump is spec 08).
   - Ensure all tests pass, ask the user if questions arise.
 
 - [x] 4. 3b — Mobile-only offline activity scheduling (schedule / log a call)
-  - [x] 4.1 Implement `patch(store, { scheduleActivity })` + the inline schedule-sheet component in `activity_menu_patch.js`
-    - Patch mail's `store.scheduleActivity` (`store_service_patch.js:106`): when
-      `isSmall() && offline`, open the inline-`` xml`...` `` bottom-sheet OWL component via the
-      framework bottom sheet (`useService("bottom_sheet")` / `BottomSheetPlugin.add`) instead
-      of the `mail.activity.schedule` wizard; otherwise early-return to `super`.
-    - The sheet reads activity types ASYNC in `setup`/`onWillStart` by awaiting the plugin's
-      `searchMany2XRecords` over `"mail.activity.type"`, stores them in a reactive `signal`
-      list, and renders DISABLED (or hidden) when the resolved list is empty.
-    - On submit, build and enqueue exactly
+  - [x] 4.1 Implement the `CrmChatter.scheduleActivity()` override + the inline schedule-sheet component (AS BUILT)
+    - AS BUILT (review round 1 — NOT a global store patch): the schedule swap is a
+      **component-method override of `scheduleActivity()` on `CrmChatter`** (`crm_form.js`).
+      Mail's chatter Activity button calls `this.scheduleActivity` (`chatter_patch.js:507`);
+      the override opens the inline-`` xml`...` `` bottom-sheet via `usePlugin(BottomSheetPlugin)`
+      and queues `activity_schedule` when `isSmall() && offline` for a crm lead; otherwise it
+      falls through to `super.scheduleActivity()` (the normal `mail.activity.schedule` wizard).
+      Uses the plugin API (`useCrmOffline` / `usePlugin`), NO legacy `env.services.offline`
+      bridge, NO global `Store.prototype` patch. The schedule-sheet OWL component is defined and
+      EXPORTED in `activity_menu_patch.js` and imported by `crm_form.js`.
+    - The ACTIVITY TYPES are resolved by `CrmChatter.scheduleActivity()` (NOT by the sheet) via
+      `_schedulableTypes()` — the shared `many2x_mail.activity.type` cache intersected with the
+      prefetch's non-meeting allow-list (`_schedulableTypeIds`, keyed per OfflinePlugin) — and
+      passed to the sheet as a plain `activityTypes` prop; a meeting-category type is never
+      offered (Requirement 11.1). If the schedulable set is empty the override returns without
+      opening the sheet (the button is disabled in that state anyway).
+    - On submit, enqueue exactly
       `scheduleORM("crm.lead", "activity_schedule", [[leadId]], { activity_type_id, summary, date_deadline, user_id })`
-      — no `ir.model` id, no onchange, no transient wizard. "Log a call" is the same call with
-      a Call-type `activity_type_id`.
-    - _Requirements: 3.2, 3.3, 3.4, 3.5, 3.6, 12.4; Property 1_
+      with systray `extras` (`actionName`, `displayName`) — no `ir.model` id, no onchange, no
+      transient wizard. "Log a call" is the same call with a Call-type `activity_type_id`.
+    - NO-SERVER-ID GUARD (review round 1): when `isSmall() && offline` but the lead has no
+      server id, the override RETURNS WITHOUT calling super (super would save the unsaved
+      record and queue a lead create) — queues nothing.
+    - _Requirements: 3.2, 3.3, 3.4, 3.5, 3.6, 4.1, 4.2, 11.1, 12.4; Property 1_
   - [x] 4.2 Implement the `data-available-offline` set/remove wiring for the Activity button in `crm_form.js`
     - In `CrmChatter` `onMounted`/`onPatched`, set `data-available-offline` on
       `.o-mail-Chatter-activity` only when `isSmall() && offline && !record.isNew && the lead
@@ -135,9 +153,10 @@ The manifest `version` stays `1.9` here (the bump is spec 08).
       submit, and assert the queued `activity_type_id` equals the Call type's id. State
       explicitly in the test: the Call type is identified by choice/id, never by matching a
       translated string.
-    - Removal check: delete the `data-available-offline` wiring on `.o-mail-Chatter-activity`
-      and/or the patched `store.scheduleActivity` `scheduleORM` call, confirm the test fails,
-      restore.
+    - Removal check: stub `CrmChatter._syncActivityOfflineAttr` to a no-op (so the
+      `data-available-offline` wiring on `.o-mail-Chatter-activity` is never set), confirm the
+      button stays framework-disabled offline and nothing queues, restore. (As built the
+      scheduleORM lives in `CrmChatter.scheduleActivity()`, not a global store patch.)
     - _Requirements: 3.1, 3.2, 3.3, 3.4, 3.5; Property 1_
   - [x] 4.5 Write the 3b empty-cache-disable JS test (paired desktop/mobile) in `crm_offline.test.js`
     - Mobile + offline with NO cached activity type (the awaited search returns `[]`):
@@ -296,9 +315,11 @@ The manifest `version` stays `1.9` here (the bump is spec 08).
       the entry is parked with the server's actual error text (observed at its first
       appearance, server called exactly once), the framework offline systray classifies the
       CRM entry and surfaces that raw text WITHOUT crashing, and NO CRM-specific error UI
-      appears. Per KL-B the in-memory chatter row is observable only transiently on reconnect
-      (the framework reloads its queue), so long-term in-memory row persistence is NOT
-      asserted; the systray is the durable honest surface. KL-B is flagged for Step 10.
+      appears, and the server is called EXACTLY ONCE (not re-sent). Per KL-B (observed, cause
+      not established) the parked entry is observable in the in-memory queue only transiently
+      with the chatter mounted, and BOTH the chatter row and the systray read that same
+      in-memory map — neither is claimed durable — so long-term in-memory persistence is NOT
+      asserted. KL-B is flagged for Step 10 manual validation.
     - _Requirements: 1.5, 9.3, 9.10; Property 8, Property 8b_
   - [x] 8.7 Write the 3b reconcile-on-reconnect JS test + removal check in `crm_offline.test.js`
     - Real reconnect (`mockOffline()` + `WebClient` + `doAction(80)` + `setOffline(false)` +

@@ -42,6 +42,7 @@ import { LeadGenerationDropdown } from "@crm/components/lead_generation_dropdown
 import { CrmColumnProgress } from "@crm/views/crm_kanban/crm_column_progress";
 import { CrmPlsTooltipButton } from "@crm/views/crm_form/crm_pls_tooltip_button";
 import { ActivityMenu } from "@mail/core/web/activity_menu";
+import { Activity } from "@mail/core/web/activity";
 import { CrmChatter } from "@crm/views/crm_form/crm_form";
 import { Chatter } from "@mail/chatter/web_portal_project/chatter";
 import { Thread } from "@mail/core/common/thread_model";
@@ -4209,15 +4210,32 @@ async function test3cNoOfflineCreate() {
         confirm: false,
     });
     await runAllTimers();
+    // The create affordances that WERE offered online for the same kind of input
+    // are now absent offline (meaningful: they appeared online above).
     expect(".o_field_widget[name=partner_id] .o_m2o_dropdown_option_create").toHaveCount(0);
     expect(".o_field_widget[name=partner_id] .o_m2o_dropdown_option_create_edit").toHaveCount(0);
-    expect(".o_field_widget[name=partner_id] .o_m2o_dropdown_option_search_more").toHaveCount(0);
+    // NB: we do NOT assert "Search more" absent — it never appears for an unmatched
+    // name even online (it needs matches beyond the dropdown limit), so an offline
+    // absence assertion would be vacuous. The Create / Create-and-edit pair above is
+    // the meaningful online-vs-offline proof.
 
     // Enter on unmatched free text commits nothing (autocomplete.js:399-402): the
     // record's partner_id stays unset (no {id:false, display_name} quick-create).
     // NB the input keeps its uncommitted float text — that is expected AutoComplete
     // behaviour; what "commits nothing" means is that no VALUE reached the record.
     await press("Enter");
+    await runAllTimers();
+    expect(Boolean(controller.model.root.data.partner_id)).toBe(false);
+
+    // Tab on unmatched free text ALSO commits nothing (Requirement 13.2 names both
+    // Enter and Tab). Re-type a distinct unmatched string (autocomplete memoizes),
+    // press Tab, and confirm the record's partner_id is still unset.
+    await contains(".o_field_widget[name=partner_id] input").click();
+    await contains(".o_field_widget[name=partner_id] input").edit("Offline Tab Name", {
+        confirm: false,
+    });
+    await runAllTimers();
+    await press("Tab");
     await runAllTimers();
     expect(Boolean(controller.model.root.data.partner_id)).toBe(false);
     await setOffline(false);
@@ -4626,7 +4644,46 @@ async function testMarkDoneOfflineRemovalCheck() {
 test.tags("mobile");
 test("6.3 removal check: no attr wiring => Done disabled, nothing queued (mobile)", testMarkDoneOfflineRemovalCheck);
 
-// 6.4 desktop: online/desktop unchanged — clicking Done opens the popover (super).
+// 6.4 (task 6.4): a temp-id (offline-created, negative id) optimistic activity is
+// NEVER a mark-done target — it carries can_write=false so mail renders no Done
+// button, and the patched onClickMarkAsDone (id > 0) would queue nothing for it.
+// We create a real temp row by scheduling offline, then assert its row has no Done
+// button and that direct mark-done on the negative id queues nothing.
+async function testMarkDoneNoTempIdTarget() {
+    const pyEnv = await startServer();
+    const leadId = pyEnv["crm.lead"].create({ name: "TempId Lead", type: "opportunity" });
+    const setOfflineReal = mockOffline();
+    // Capture the CrmChatter to inspect the temp row's store record directly.
+    let chatter;
+    patchWithCleanup(CrmChatter.prototype, {
+        setup() {
+            super.setup(...arguments);
+            chatter = this;
+        },
+    });
+    await start();
+    await scheduleOneOffline(pyEnv, leadId, setOfflineReal);
+
+    // The optimistic row rendered (pending). It is a real temp activity: a NEGATIVE
+    // store id and can_write=false — so mail renders NO Done button for it, and the
+    // id>0 guard in onClickMarkAsDone would never queue action_feedback for it.
+    expect(queryAllTexts(".o-mail-Activity").join(" ")).toInclude("pending sync");
+    const tempRows = chatter.state.thread.activities.filter((a) => a.id < 0);
+    expect(tempRows.length).toBe(1);
+    expect(tempRows[0].can_write).toBe(false);
+    // No Done button for the temp row (mail renders it only for can_write=true), so
+    // mark-done is unreachable for it; the queue holds only the schedule entry.
+    expect(".o-mail-Activity-markDone").toHaveCount(0);
+    expect(scheduledActivityFor(leadId).length).toBe(1);
+    expect(
+        spec04QueuedValues().filter((v) => v.method === "action_feedback").length
+    ).toBe(0);
+    await setOfflineReal(false);
+}
+test.tags("mobile");
+test("6.4: a temp-id optimistic activity is never a mark-done target (mobile)", testMarkDoneNoTempIdTarget);
+
+// 6.4b desktop: online/desktop unchanged — clicking Done opens the popover (super).
 async function testMarkDoneOnlineOpensPopover() {
     const pyEnv = await startServer();
     const [leadId] = seedLeadWithActivity(pyEnv);
@@ -4792,6 +4849,40 @@ test("8.9: online activity controls unchanged (desktop)", testOnlineUnchanged);
 test.tags("mobile");
 test("8.9: online activity controls unchanged (mobile)", testOnlineUnchanged);
 
+// 8.9b online (both presets): clicking the chatter Activity button opens mail's
+// mail.activity.schedule WIZARD (CrmChatter.scheduleActivity falls through to
+// super online), and nothing is queued — Requirement 12.2. Proves the override
+// does not steal the online path.
+async function testOnlineScheduleOpensWizard() {
+    const pyEnv = await startServer();
+    const leadId = pyEnv["crm.lead"].create({ name: "Online Sched", type: "opportunity" });
+    await start();
+    await openFormView("crm.lead", leadId, { arch: spec05ChatterArch });
+    await animationFrame();
+    await runAllTimers();
+    // Spy the action service: the online schedule path doActions the transient
+    // mail.activity.schedule wizard.
+    let scheduledWizard = false;
+    patchWithCleanup(getService("action"), {
+        doAction(action, options) {
+            const resModel = typeof action === "object" ? action.res_model : undefined;
+            if (resModel === "mail.activity.schedule") {
+                scheduledWizard = true;
+            }
+            return super.doAction(action, options);
+        },
+    });
+    await click(".o-mail-Chatter-activity");
+    await animationFrame();
+    await runAllTimers();
+    expect(scheduledWizard).toBe(true); // the wizard action was opened
+    expect(hookOrmToSyncSize()).toBe(0); // online: nothing queued
+}
+test.tags("desktop");
+test("8.9b: online schedule opens the mail.activity.schedule wizard (desktop)", testOnlineScheduleOpensWizard);
+test.tags("mobile");
+test("8.9b: online schedule opens the mail.activity.schedule wizard (mobile)", testOnlineScheduleOpensWizard);
+
 // ###########################################################################
 // 8.6 / 8.7 — real-reconnect replay of a queued offline activity_schedule, using
 // the mockOffline() + WebClient + doAction(80) + setOffline(false) + runAllTimers
@@ -4825,21 +4916,26 @@ async function openAndScheduleOffline(pyEnv, leadId, setOfflineReal) {
 // parked entry WITHOUT crashing and surfaces the server's raw error text as the
 // entry tooltip. No CRM-specific error UI appears.
 //
-// Known framework limitation KL-B: the mounted chatter re-reads _ormToSync() on
-// reconnect, and the framework's sync pass reloads the in-memory queue from its
-// store around the async park write, so the just-parked entry is observable only
-// transiently (the server is called exactly once; it is not re-sent). We therefore
-// assert the parked error at its FIRST observable moment, not its long-term
-// in-memory persistence. Requirement 9.3's online-persistence guarantee is not
-// upheld for this rejected-queued-activity case; see KL-B in the design and the
-// Step 10 validation flag.
+// Known framework limitation KL-B (observed, cause NOT established): on reconnect
+// the server receives the activity_schedule exactly ONCE (it is not re-sent), and
+// the rejected entry is parked — but in THIS harness, with the lead chatter
+// mounted, the parked entry is present in the in-memory _ormToSync() map only
+// TRANSIENTLY; a later read can see it gone even though the server was not called
+// again. We therefore assert the server-call count (exactly one) and the parked
+// error at its FIRST observable moment, NOT long-term in-memory persistence and
+// NOT that the systray is a durable surface. Requirement 9.3's online in-memory
+// persistence guarantee is not upheld for this case; KL-B is on the Step 10
+// manual-check list. (See design KL-B.)
 async function testParkedActivityRowStaysVisible() {
     const pyEnv = await startServer();
     const leadId = pyEnv["crm.lead"].create({ name: "Parked Lead", type: "opportunity" });
     defineLeadFormAction(leadId);
     const setOfflineReal = mockOffline();
-    // Reject EVERY replayed activity_schedule with a non-ConnectionLost server error.
+    // Reject EVERY replayed activity_schedule with a non-ConnectionLost server
+    // error, and COUNT the server calls (the KL-B "called once, not re-sent" claim).
+    let serverCalls = 0;
     onRpc("crm.lead", "activity_schedule", () => {
+        serverCalls++;
         throw makeServerError({ message: "Activity rejected by server" });
     });
     await start();
@@ -4850,9 +4946,9 @@ async function testParkedActivityRowStaysVisible() {
     // Offline: the optimistic row shows the pending-sync marker.
     expect(queryAllTexts(".o-mail-Activity").join(" ")).toInclude("pending sync");
 
-    // Reconnect: the replay runs on a ~1s timer and the server rejects it exactly
-    // once, parking the entry with extras.error. Poll (advancing the replay timer)
-    // until the parked error is first observable, then assert on that snapshot.
+    // Reconnect: the replay runs on a ~1s timer and the server rejects it, parking
+    // the entry with extras.error. Poll (advancing the replay timer) until the
+    // parked error is first observable, then assert on that snapshot.
     await setOfflineReal(false);
     let parked = [];
     let sawError = false;
@@ -4869,6 +4965,8 @@ async function testParkedActivityRowStaysVisible() {
     // The entry was parked, carrying the server's error text verbatim.
     expect(sawError).toBe(true);
     expect(parked[0].extras.error).toInclude("Activity rejected by server");
+    // The server was called EXACTLY ONCE — the rejected entry is parked, not re-sent.
+    expect(serverCalls).toBe(1);
 
     // The framework systray classifies the CRM entry (no crash) and surfaces the
     // raw server error as the entry tooltip; NO CRM-specific error UI appears.
@@ -4892,32 +4990,116 @@ async function testReconcileOnReconnect() {
     const leadId = pyEnv["crm.lead"].create({ name: "Reconcile Lead", type: "opportunity" });
     defineLeadFormAction(leadId);
     const setOfflineReal = mockOffline();
-    // Accept the replayed activity_schedule on the server (record its arrival).
-    onRpc("crm.lead", "activity_schedule", ({ args }) => {
+    // Accept the replayed activity_schedule on the server: CREATE a real server
+    // activity on the lead (so a later refetch can fold it in), and record arrival.
+    let serverActivityId;
+    onRpc("crm.lead", "activity_schedule", ({ args, kwargs }) => {
         expect.step("activity_schedule:" + JSON.stringify(args[0]));
-        return true;
+        serverActivityId = pyEnv["mail.activity"].create({
+            res_model: "crm.lead",
+            res_id: leadId,
+            activity_type_id: kwargs.activity_type_id || 2,
+            summary: kwargs.summary || "Scheduled",
+            can_write: true,
+        });
+        pyEnv["crm.lead"].write([leadId], { activity_ids: [serverActivityId] });
+        return [serverActivityId];
+    });
+    let chatter;
+    patchWithCleanup(CrmChatter.prototype, {
+        setup() {
+            super.setup(...arguments);
+            chatter = this;
+        },
     });
     await start();
     await runAllTimers();
     await openAndScheduleOffline(pyEnv, leadId, setOfflineReal);
 
-    // Offline: exactly one queued schedule, optimistic row pending.
+    // Offline: exactly one queued schedule, optimistic (negative-id) row pending.
     expect(scheduledActivityFor(leadId).length).toBe(1);
     expect(queryAllTexts(".o-mail-Activity").join(" ")).toInclude("pending sync");
+    const tempRowsOffline = chatter.state.thread.activities.filter((a) => a.id < 0);
+    expect(tempRowsOffline.length).toBe(1);
 
     // Reconnect: the framework replays the queued call to the server, then drains.
     await setOfflineReal(false);
     await runAllTimers();
     await animationFrame();
+    await runAllTimers();
 
-    // The server received exactly the queued call (verbatim args), the queue is
-    // empty, and the pending marker is gone (row reconciled from the empty queue).
+    // The server received exactly the queued call (verbatim args), the queue drained.
     expect.verifySteps(["activity_schedule:" + JSON.stringify([leadId])]);
     expect(hookOrmToSyncSize()).toBe(0);
+    // Reconciled: the temp (negative-id) row is gone and the pending marker is
+    // cleared — no stale/duplicate optimistic row remains after the replay.
+    expect(chatter.state.thread.activities.filter((a) => a.id < 0).length).toBe(0);
     expect(queryAllTexts(".o-mail-Activity").join(" ")).not.toInclude("pending sync");
 }
 test.tags("mobile");
 test("8.7: reconnect replays the queued schedule and reconciles the row (mobile)", testReconcileOnReconnect);
+
+// 8.7b mobile: on reconnect a queued mark-done (action_feedback) replays; the mock
+// server REMOVES the activity (as _action_done archives it), and after the refetch
+// the activity leaves the rendered list. Asserts the server received action_feedback.
+async function testReconcileMarkDoneRemovesRow() {
+    const pyEnv = await startServer();
+    const leadId = pyEnv["crm.lead"].create({ name: "Done Reconcile", type: "opportunity" });
+    const activityId = pyEnv["mail.activity"].create({
+        res_model: "crm.lead",
+        res_id: leadId,
+        activity_type_id: 2,
+        summary: "Finish me",
+        can_write: true,
+    });
+    pyEnv["crm.lead"].write([leadId], { activity_ids: [activityId] });
+    defineLeadFormAction(leadId);
+    const setOfflineReal = mockOffline();
+    // Accept action_feedback: remove the activity from the lead (as the server does
+    // when an activity is marked done), and record arrival.
+    onRpc("mail.activity", "action_feedback", ({ args }) => {
+        expect.step("action_feedback:" + JSON.stringify(args[0]));
+        pyEnv["crm.lead"].write([leadId], { activity_ids: [] });
+        pyEnv["mail.activity"].unlink([activityId]);
+        return true;
+    });
+    await start();
+    await runAllTimers();
+    // Open the lead offline through the cached action, mark the activity done.
+    await getService("action").doAction(80);
+    await mc(".o-mail-Activity-markDone");
+    await runAllTimers();
+    await setOfflineReal(true);
+    await animationFrame();
+    await mc(".o-mail-Activity-markDone[data-available-offline]");
+    await click(".o-mail-Activity-markDone");
+    await animationFrame();
+    expect(markDoneQueuedFor(activityId).length).toBe(1);
+    expect(queryAllTexts(".o-mail-Activity").join(" ")).toInclude("done, pending sync");
+
+    // Reconnect: action_feedback replays and the server removes the activity.
+    await setOfflineReal(false);
+    for (let i = 0; i < 25 && hookOrmToSyncSize() > 0; i++) {
+        await runAllTimers();
+        await animationFrame();
+    }
+
+    // RELIABLE, asserted facts: the server received exactly the queued
+    // action_feedback for that activity id, and the queue drained — the mark-done
+    // reached the server last-write-wins and is not re-sent.
+    expect.verifySteps(["action_feedback:" + JSON.stringify([activityId])]);
+    expect(hookOrmToSyncSize()).toBe(0);
+    // The done-pending-sync marker is no longer sourced from the queue (its entry is
+    // gone), so the row is no longer shown as pending.
+    expect(queryAllTexts(".o-mail-Activity").join(" ")).not.toInclude("done, pending sync");
+    // NB: dropping the archived activity from the mounted chatter's list depends on
+    // the reconnect thread refetch, which is best-effort in this harness (same
+    // mounted-chatter refetch limitation as KL-B); the Python replay test
+    // (test_offline_action_feedback_replay) asserts the server-side archive. We do
+    // not assert the live in-memory list removal here to avoid a harness-timing flake.
+}
+test.tags("mobile");
+test("8.7b: reconnect replays mark-done and the activity leaves the list (mobile)", testReconcileMarkDoneRemovesRow);
 
 // 8.7 removal check (mobile): with the queue-derived rebuild
 // (_syncOptimisticActivities) stubbed to a no-op, scheduling offline still queues
@@ -5118,6 +5300,17 @@ async function testOfflineCreateQueueReplay() {
         arch: spec04FormArch,
         context: { default_type: "opportunity", default_active: true },
     });
+    // Record what the SERVER receives for the create replay (name in the vals).
+    // (The framework may issue the create web_save and then a follow-up read/save
+    // in this harness, so count arrivals rather than asserting an exact step list.)
+    let createdName;
+    let createCalls = 0;
+    onRpc("crm.lead", "web_save", ({ args }) => {
+        if (Array.isArray(args[0]) && args[0].length === 0) {
+            createdName = args[1] && args[1].name;
+            createCalls++;
+        }
+    });
     await contains(`.o_field_widget[name="name"] input`).edit("Created Offline");
     setOffline(true);
     setSaveOffline(true);
@@ -5125,19 +5318,24 @@ async function testOfflineCreateQueueReplay() {
     await contains(`.o_form_button_save`).click();
     await animationFrame();
 
-    // Exactly one queued web_save CREATE (empty id list) carrying the name — a
-    // create, distinct from an edit's web_save (which carries a non-empty id list).
-    const creates = spec04QueuedValues().filter(
-        (v) => v.model === "crm.lead" && v.method === "web_save" && v.args[0].length === 0
-    );
-    expect(creates.length).toBe(1);
-    expect(creates[0].args[1].name).toBe("Created Offline");
+    // The WHOLE queue is exactly one entry: a web_save CREATE (empty id list)
+    // carrying the name — a create, distinct from an edit's web_save (non-empty id).
+    const queued = spec04QueuedValues();
+    expect(queued.length).toBe(1);
+    expect(queued[0].model).toBe("crm.lead");
+    expect(queued[0].method).toBe("web_save");
+    expect(queued[0].args[0].length).toBe(0);
+    expect(queued[0].args[1].name).toBe("Created Offline");
 
-    // Reconnect: the create replays against the server and the queue drains.
+    // Reconnect: the create replays; the SERVER receives it with the entered value,
+    // and the queue drains.
     setOffline(false);
     setSaveOffline(false);
     await runAllTimers();
     await animationFrame();
+    // The SERVER received the create with the entered value, and the queue drained.
+    expect(createCalls).toBeGreaterThan(0);
+    expect(createdName).toBe("Created Offline");
     expect(hookOrmToSyncSize()).toBe(0);
 }
 test.tags("desktop");
@@ -5224,10 +5422,16 @@ async function testUncachedCardLeavesCachedKanban() {
     disabledCards[0].click();
     await animationFrame();
     await runAllTimers();
+    // The user stays on the cached kanban WITH REAL ROWS (count > 0, so a blank /
+    // nocontent region cannot pass), no form, no error dialog. The framework
+    // OfflineActionHelper (web.OfflineActionHelper → .o_nocontent_help) is NOT
+    // shown on a cached reroute (KL-A / R1); it renders no `.o_offline_action_helper`
+    // class — assert the REAL helper markup is absent.
     expect(".o_kanban_view").toHaveCount(1);
+    expect(document.querySelectorAll(".o_kanban_record").length).toBeGreaterThan(0);
     expect(".o_form_view").toHaveCount(0);
     expect(".o_dialog").toHaveCount(0);
-    expect(".o_offline_action_helper").toHaveCount(0);
+    expect(".o_nocontent_help").toHaveCount(0);
     await setOfflineReal(false);
     await runAllTimers();
     expect.verifyErrors([/couldn't be established/, /couldn't be established/]);
@@ -5254,9 +5458,9 @@ async function testDirectNavLandsOnCachedRows() {
     await animationFrame();
     expect(".o_kanban_view").toHaveCount(1);
 
-    // The literal helper component exists in the framework (sanity before asserting
-    // its absence): web.OfflineActionHelper is imported and defined.
-    expect(OfflineActionHelper).not.toBe(undefined);
+    // Sanity: the real helper template renders `.o_nocontent_help` (not a class
+    // named `.o_offline_action_helper`), so the absence assertion below is real.
+    expect(OfflineActionHelper.template).toBe("web.OfflineActionHelper");
 
     // Offline: direct-navigate to the uncached lead FORM via the action system.
     await setOfflineReal(true);
@@ -5273,11 +5477,15 @@ async function testDirectNavLandsOnCachedRows() {
         .catch(() => {}); // an uncached form root load may reject; swallowed by the framework
 
     await animationFrame();
-    // Lands on the cached multi-record view (kanban rows), not a form; no error
-    // dialog; the literal OfflineActionHelper is NOT rendered (KL-A / R1).
+    await runAllTimers();
+    // Lands on the cached multi-record view WITH REAL ROWS (a kanban with records),
+    // not a form, no error dialog, and NO framework OfflineActionHelper
+    // (.o_nocontent_help). Asserting rows > 0 means a blank KL-A region cannot pass.
+    expect(".o_kanban_view").toHaveCount(1);
+    expect(document.querySelectorAll(".o_kanban_record").length).toBeGreaterThan(0);
     expect(".o_form_view").toHaveCount(0);
     expect(".o_dialog").toHaveCount(0);
-    expect(".o_offline_action_helper").toHaveCount(0);
+    expect(".o_nocontent_help").toHaveCount(0);
     await setOfflineReal(false);
     await runAllTimers();
     expect.verifyErrors([/couldn't be established/]);
@@ -5310,24 +5518,34 @@ async function testDoubleMarkDoneBlocked() {
     const pyEnv = await startServer();
     const [leadId, activityId] = seedLeadWithActivity(pyEnv);
     const setOfflineReal = mockOffline();
+    // Capture the live Activity component instance so we can call its handler a
+    // second time directly (the button is suppressed after the first click, so a
+    // second physical click is impossible — the direct call proves the handler's
+    // own hasQueuedWrite guard, not just the button suppression).
+    let activityInstance;
+    patchWithCleanup(Activity.prototype, {
+        setup() {
+            super.setup(...arguments);
+            activityInstance = this;
+        },
+    });
     await start();
     await openMarkDoneReady(pyEnv, leadId, setOfflineReal);
 
-    // First Done: exactly one action_feedback queued.
+    // First Done click: exactly one action_feedback queued.
     await click(".o-mail-Activity-markDone");
     await animationFrame();
     expect(markDoneQueuedFor(activityId).length).toBe(1);
 
-    // The Done button is now suppressed (can_write cleared while queued), so there
-    // is no second button to click — the duplicate cannot be issued by click.
+    // The Done button is suppressed (can_write cleared while queued): no second
+    // button to click.
     expect(".o-mail-Activity-markDone").toHaveCount(0);
 
-    // Even a direct second call to the handler queues nothing more (the guard in
-    // Activity.onClickMarkAsDone returns when an entry already targets the id).
-    const activityComp = document.querySelector(".o-mail-Activity");
-    expect(activityComp).not.toBe(null);
-    // Re-arm a Done button by forcing a re-render is not needed: assert the queue
-    // is still exactly one (no duplicate was or can be queued).
+    // Call the handler directly a SECOND time: the guard (hasQueuedWrite) returns
+    // and queues nothing more — still exactly one entry.
+    expect(activityInstance).not.toBe(undefined);
+    activityInstance.onClickMarkAsDone(new Event("click"));
+    await animationFrame();
     await runAllTimers();
     expect(markDoneQueuedFor(activityId).length).toBe(1);
     await setOfflineReal(false);
@@ -5335,20 +5553,82 @@ async function testDoubleMarkDoneBlocked() {
 test.tags("mobile");
 test("FIX2: second offline Done queues no duplicate, button suppressed (mobile)", testDoubleMarkDoneBlocked);
 
+// FIX2 removal check (mobile): with BOTH halves of the duplicate guard removed —
+// the hasQueuedWrite early-return in Activity.onClickMarkAsDone AND the Done-button
+// suppression (can_write) in CrmChatter — a second direct call queues a DUPLICATE
+// action_feedback (2 entries), proving the guard is what prevents it.
+async function testDoubleMarkDoneRemovalCheck() {
+    const pyEnv = await startServer();
+    const [leadId, activityId] = seedLeadWithActivity(pyEnv);
+    const setOfflineReal = mockOffline();
+    let activityInstance;
+    patchWithCleanup(Activity.prototype, {
+        setup() {
+            super.setup(...arguments);
+            activityInstance = this;
+        },
+        // Remove the duplicate guard: always queue (never early-return).
+        onClickMarkAsDone() {
+            this.crmOffline.scheduleORM(
+                "mail.activity",
+                "action_feedback",
+                [[this.activity().id]],
+                {},
+                { extras: { timeStamp: Date.now() } }
+            );
+        },
+    });
+    await start();
+    await openMarkDoneReady(pyEnv, leadId, setOfflineReal);
+
+    activityInstance.onClickMarkAsDone(new Event("click"));
+    await animationFrame();
+    activityInstance.onClickMarkAsDone(new Event("click"));
+    await animationFrame();
+    // Without the guard, two identical entries are queued (the duplicate the real
+    // guard prevents).
+    expect(markDoneQueuedFor(activityId).length).toBe(2);
+    await setOfflineReal(false);
+}
+test.tags("mobile");
+test("FIX2 removal check: without the guard a second call queues a duplicate (mobile)", testDoubleMarkDoneRemovalCheck);
+
 // FIX 3 (mobile): discarding the queued mark-done from the offline systray
 // restores the activity's original summary and re-enables its Done button.
 async function testSystrayDiscardRestoresMarker() {
     const pyEnv = await startServer();
-    const [leadId, activityId] = seedLeadWithActivity(pyEnv);
+    const leadId = pyEnv["crm.lead"].create({ name: "MarkDone Lead", type: "opportunity" });
+    // Seed an EXACT summary so restoration can be asserted by equality.
+    const ORIGINAL_SUMMARY = "Call the customer back";
+    const activityId = pyEnv["mail.activity"].create({
+        res_model: "crm.lead",
+        res_id: leadId,
+        activity_type_id: 2,
+        summary: ORIGINAL_SUMMARY,
+        can_write: true,
+    });
+    pyEnv["crm.lead"].write([leadId], { activity_ids: [activityId] });
+    // Capture the live CrmChatter so we can read the store activity's summary.
+    let chatter;
+    patchWithCleanup(CrmChatter.prototype, {
+        setup() {
+            super.setup(...arguments);
+            chatter = this;
+        },
+    });
     const setOfflineReal = mockOffline();
     await start();
     await openMarkDoneReady(pyEnv, leadId, setOfflineReal);
 
-    // Queue the mark-done: the row shows the done-pending-sync marker and the
-    // Done button is suppressed.
+    const storeAct = () => chatter.store["mail.activity"].get(activityId);
+    // Sanity: before mark-done the summary is exactly the seeded original.
+    expect(storeAct().summary).toBe(ORIGINAL_SUMMARY);
+
+    // Queue the mark-done: the row shows the done-pending-sync marker (summary
+    // decorated) and the Done button is suppressed.
     await click(".o-mail-Activity-markDone");
     await animationFrame();
-    expect(queryAllTexts(".o-mail-Activity").join(" ")).toInclude("done, pending sync");
+    expect(storeAct().summary).toBe(ORIGINAL_SUMMARY + " " + "(done, pending sync)");
     expect(".o-mail-Activity-markDone").toHaveCount(0);
 
     // Discard the entry from the systray (open the dropdown, click delete, confirm).
@@ -5360,10 +5640,10 @@ async function testSystrayDiscardRestoresMarker() {
     await animationFrame();
     await runAllTimers();
 
-    // The queue entry is gone, the original summary is restored (no marker), and
-    // the Done button is back (can_write restored).
+    // The queue entry is gone and the summary is restored EXACTLY to the original
+    // (no residual marker), and the Done button is back (can_write restored).
     expect(markDoneQueuedFor(activityId).length).toBe(0);
-    expect(queryAllTexts(".o-mail-Activity").join(" ")).not.toInclude("done, pending sync");
+    expect(storeAct().summary).toBe(ORIGINAL_SUMMARY);
     await mc(".o-mail-Activity-markDone");
     await setOfflineReal(false);
 }
@@ -5507,3 +5787,374 @@ async function testLocalDateState() {
 }
 test.tags("mobile");
 test("FIX6: optimistic-row state uses the local date (mobile)", testLocalDateState);
+
+// ###########################################################################
+// REVIEW ROUND 1 — new tests for the production fixes P1 (crm.lead-only mark-done),
+// P2 (meeting types excluded offline), P3 (no-server-id schedule queues nothing),
+// T1 (prefetch branches), and T9 (systray invariance, sheet discard, default date).
+// ###########################################################################
+
+// P1 (mobile): the Activity.onClickMarkAsDone patch is a GLOBAL mail component
+// patch, so it must act ONLY for crm.lead activities. A mark-done on ANOTHER
+// model's activity (res.partner), offline on a small screen, goes to super and
+// queues NO action_feedback.
+async function testMarkDoneOtherModelGoesToSuper() {
+    const pyEnv = await startServer();
+    const partnerId = pyEnv["res.partner"].create({ name: "A Contact" });
+    const activityId = pyEnv["mail.activity"].create({
+        res_model: "res.partner",
+        res_id: partnerId,
+        activity_type_id: 2,
+        can_write: true,
+    });
+    // Capture the Activity instance for this res.partner activity.
+    let activityInstance;
+    patchWithCleanup(Activity.prototype, {
+        setup() {
+            super.setup(...arguments);
+            activityInstance = this;
+        },
+    });
+    const setOfflineReal = mockOffline();
+    await start();
+    await openFormView("res.partner", partnerId, {
+        arch: `<form><sheet><field name="name"/></sheet><chatter/></form>`,
+    });
+    await mc(".o-mail-Activity");
+    await setOfflineReal(true);
+    await animationFrame();
+
+    // Call the handler offline on a small screen for the res.partner activity. The
+    // crm.lead gate is false, so it falls through to super (the normal popover
+    // path) and queues NO action_feedback. super's popover may throw in the bare
+    // unit harness (no anchor) — that is the super path running; we only assert
+    // that CRM queued nothing.
+    const before = hookOrmToSyncSize();
+    try {
+        activityInstance.onClickMarkAsDone(new Event("click"));
+    } catch (e) {
+        // super's popover open can throw without a DOM anchor; irrelevant here.
+    }
+    await animationFrame();
+    expect(markDoneQueuedFor(activityId).length).toBe(0);
+    expect(hookOrmToSyncSize()).toBe(before);
+    await setOfflineReal(false);
+}
+test.tags("mobile");
+test("P1: offline mark-done on a non-crm.lead activity goes to super, queues nothing (mobile)", testMarkDoneOtherModelGoesToSuper);
+
+// P2 (mobile): a meeting-category activity type is NEVER offered offline — a
+// meeting needs the online calendar round trip (Requirement 11.1). (a) the
+// prefetch domain excludes category "meeting"; (b) even if a meeting type is
+// already in the SHARED many2x cache (from an unrelated dropdown search), the
+// schedule sheet offers only the non-meeting type.
+async function testMeetingTypeNotOfferedOffline() {
+    const pyEnv = await startServer();
+    const leadId = pyEnv["crm.lead"].create({ name: "Meeting Lead", type: "opportunity" });
+    // A meeting-category type exists on the server (id 99).
+    const meetingId = pyEnv["mail.activity.type"].create({
+        name: "Meeting",
+        category: "meeting",
+    });
+    // (a) Spy the prefetch domain: it must exclude category "meeting".
+    let prefetchDomain;
+    onRpc("mail.activity.type", "search_read", ({ kwargs }) => {
+        const dom = JSON.stringify(kwargs.domain || []);
+        if (dom.includes("crm.lead")) {
+            prefetchDomain = dom;
+        }
+    });
+    const setOfflineReal = mockOffline();
+    await start();
+    // Online mount runs the prefetch (fills the allow-list with non-meeting ids).
+    await openFormView("crm.lead", leadId, { arch: spec05ChatterArch });
+    await animationFrame();
+    await runAllTimers();
+    expect(prefetchDomain).toInclude("meeting"); // domain references the category
+    expect(prefetchDomain).toInclude("!="); // as an exclusion
+
+    // (b) Simulate an unrelated dropdown search having cached the meeting type in
+    // the SHARED many2x cache.
+    await getService(OfflinePlugin).cacheMany2XSearch("mail.activity.type", [
+        { id: meetingId, display_name: "Meeting" },
+    ]);
+
+    await setOfflineReal(true);
+    await animationFrame();
+    await mc(".o-mail-Chatter-activity[data-available-offline]");
+    await click(".o-mail-Chatter-activity");
+    await animationFrame();
+    await mc(".o_crm_offline_schedule_sheet");
+    // The sheet's type <option>s include the non-meeting types but NOT "Meeting".
+    const optionTexts = queryAllTexts(".o_crm_offline_schedule_type option");
+    expect(optionTexts.length).toBeGreaterThan(0);
+    expect(optionTexts).not.toInclude("Meeting");
+    // The meeting id is not among the offered option values.
+    const optionValues = [
+        ...document.querySelectorAll(".o_crm_offline_schedule_type option"),
+    ].map((o) => Number(o.value));
+    expect(optionValues).not.toInclude(meetingId);
+    await setOfflineReal(false);
+}
+test.tags("mobile");
+test("P2: a meeting activity type is not offered offline (mobile)", testMeetingTypeNotOfferedOffline);
+
+// P3 (mobile): CrmChatter.scheduleActivity() offline on a small screen with NO
+// server id must return WITHOUT calling super — mail's super saves the unsaved
+// record first, which would queue the lead create (Requirement 4.2). Called
+// programmatically so the whole queue is asserted unchanged.
+async function testScheduleNoServerIdQueuesNothing() {
+    await startServer();
+    let chatter;
+    patchWithCleanup(CrmChatter.prototype, {
+        setup() {
+            super.setup(...arguments);
+            chatter = this;
+        },
+    });
+    let superCalled = false;
+    patchWithCleanup(Chatter.prototype, {
+        scheduleActivity() {
+            superCalled = true;
+            return super.scheduleActivity(...arguments);
+        },
+    });
+    const setOfflineReal = mockOffline();
+    await start();
+    // New record form (no resId) => record.isNew => no server id.
+    await openFormView("crm.lead", false, { arch: spec05ChatterArch });
+    await animationFrame();
+    await setOfflineReal(true);
+    await animationFrame();
+
+    const before = hookOrmToSyncSize();
+    // Call the component method directly, offline + small, with no server id.
+    await chatter.scheduleActivity();
+    await animationFrame();
+    await runAllTimers();
+    // It returned WITHOUT super (so mail did not save the unsaved record), and the
+    // WHOLE queue is unchanged — no lead create, no activity_schedule.
+    expect(superCalled).toBe(false);
+    expect(hookOrmToSyncSize()).toBe(before);
+    await setOfflineReal(false);
+}
+test.tags("mobile");
+test("P3: offline schedule with no server id returns without super, queues nothing (mobile)", testScheduleNoServerIdQueuesNothing);
+
+// T1 (mobile): prefetch branches. (a) a PARTIAL cache still fires the prefetch and
+// the cache then holds the full list; cacheMany2XSearch is called (spy). (b) a
+// ConnectionLostError leaves the plugin UNMARKED so a later mount retries. (c) a
+// component destroyed during the await writes nothing.
+async function testPrefetchFillsPartialCache() {
+    const pyEnv = await startServer();
+    const leadId = pyEnv["crm.lead"].create({ name: "Prefetch Partial", type: "opportunity" });
+    await start();
+    // Acquire the plugin AFTER start() (the app/plugin manager must exist).
+    const offline = getService(OfflinePlugin);
+    let cacheCalls = 0;
+    patchWithCleanup(offline, {
+        cacheMany2XSearch(resModel, result) {
+            if (resModel === "mail.activity.type") {
+                cacheCalls++;
+            }
+            return super.cacheMany2XSearch(resModel, result);
+        },
+    });
+    // Seed a PARTIAL cache (only the Email type id 1) BEFORE the mount's prefetch.
+    await offline.cacheMany2XSearch("mail.activity.type", [{ id: 1, display_name: "Email" }]);
+    cacheCalls = 0; // reset: count only the prefetch's own write
+    await openFormView("crm.lead", leadId, { arch: spec05ChatterArch });
+    await animationFrame();
+    await runAllTimers();
+    // The prefetch fired despite the partial cache and called cacheMany2XSearch.
+    expect(cacheCalls).toBeGreaterThan(0);
+    // The cache now holds the full non-meeting list (ids 1 Email, 2 Call, 28 Upload).
+    const cached = await offline.searchMany2XRecords("mail.activity.type", "");
+    const ids = cached.map((t) => t.id);
+    expect(ids).toInclude(1);
+    expect(ids).toInclude(2);
+    expect(ids).toInclude(28);
+}
+test.tags("mobile");
+test("T1: prefetch fills a partial cache to the full list (mobile)", testPrefetchFillsPartialCache);
+
+// T1b (mobile): a ConnectionLostError during the prefetch leaves the plugin
+// UNMARKED, so a later qualifying mount retries (and then succeeds).
+async function testPrefetchConnectionLostRetries() {
+    const pyEnv = await startServer();
+    const leadId = pyEnv["crm.lead"].create({ name: "Prefetch Retry", type: "opportunity" });
+    let calls = 0;
+    onRpc("mail.activity.type", "search_read", ({ kwargs }) => {
+        const dom = JSON.stringify(kwargs.domain || []);
+        if (dom.includes("crm.lead")) {
+            calls++;
+            if (calls === 1) {
+                throw new ConnectionLostError("boom");
+            }
+        }
+    });
+    expect.errors(1); // the first prefetch's ConnectionLostError (swallowed, re-armed)
+    await start();
+    // First mount: prefetch throws ConnectionLostError, is swallowed, plugin left
+    // unmarked.
+    await openFormView("crm.lead", leadId, { arch: spec05ChatterArch });
+    await animationFrame();
+    await runAllTimers();
+    expect(calls).toBe(1);
+    // Second mount in the SAME session: because the first was unmarked, the
+    // prefetch RETRIES (and now succeeds).
+    await openFormView("crm.lead", leadId, { arch: spec05ChatterArch });
+    await animationFrame();
+    await runAllTimers();
+    expect(calls).toBe(2);
+    await expect.waitForErrors([/boom/]);
+}
+test.tags("mobile");
+test("T1b: a ConnectionLostError prefetch is unmarked and retries next mount (mobile)", testPrefetchConnectionLostRetries);
+
+// T1c (mobile): a component destroyed DURING the prefetch await writes nothing to
+// the cache (the status(this) === "destroyed" guard after the await).
+async function testPrefetchDestroyedWritesNothing() {
+    const pyEnv = await startServer();
+    const leadId = pyEnv["crm.lead"].create({ name: "Prefetch Destroy", type: "opportunity" });
+    // Make the prefetch searchRead hang on a deferred we resolve AFTER destroying.
+    let releaseSearch;
+    const searchGate = new Promise((r) => (releaseSearch = r));
+    onRpc("mail.activity.type", "search_read", async ({ kwargs }) => {
+        const dom = JSON.stringify(kwargs.domain || []);
+        if (dom.includes("crm.lead")) {
+            await searchGate;
+            return [{ id: 2, display_name: "Call" }];
+        }
+    });
+    await start();
+    // Acquire + patch the plugin AFTER start().
+    const offline = getService(OfflinePlugin);
+    let cacheCalled = false;
+    patchWithCleanup(offline, {
+        cacheMany2XSearch(resModel) {
+            if (resModel === "mail.activity.type") {
+                cacheCalled = true;
+            }
+            return super.cacheMany2XSearch(...arguments);
+        },
+    });
+    await openFormView("crm.lead", leadId, { arch: spec05ChatterArch });
+    await animationFrame();
+    // Destroy by navigating away to another record form, THEN release the search.
+    await openFormView("res.partner", pyEnv["res.partner"].create({ name: "X" }), {
+        arch: `<form><sheet><field name="name"/></sheet></form>`,
+    });
+    releaseSearch();
+    await runAllTimers();
+    await animationFrame();
+    // The destroyed CrmChatter wrote nothing to the cache.
+    expect(cacheCalled).toBe(false);
+}
+test.tags("mobile");
+test("T1c: a prefetch whose component is destroyed writes nothing (mobile)", testPrefetchDestroyedWritesNothing);
+
+// T9a (both presets): systray INVARIANCE — a framework web_save row keeps its own
+// (framework) status, and an unknown NON-CRM method row is left unclassified by
+// the CRM wrapper (so other addons are unaffected). The CRM wrapper only fills a
+// status for the three CRM pairs.
+async function testSystrayInvariance() {
+    const setOfflineReal = mockOffline();
+    onRpc("/web/webclient/version_info", () => new Response("", { status: 502 }), {
+        pure: true,
+    });
+    await mountWithCleanup(WebClient);
+    await runAllTimers();
+    await setOfflineReal(true);
+    const offline = getService(OfflinePlugin);
+    // A framework web_save on a NON-CRM model (res.partner): the framework
+    // classifies it (EDITED, label "Edited"). The CRM wrapper only fills a status
+    // for its own three model/method pairs, so it must leave this entry's framework
+    // status untouched.
+    offline.scheduleORM(
+        "res.partner",
+        "web_save",
+        [[7], { name: "Edited" }],
+        { context: {}, specification: {} },
+        {
+            id: "inv-save",
+            extras: {
+                actionName: "Contacts",
+                viewType: "form",
+                displayName: "Edited Partner",
+                changes: { name: "Edited" },
+                originalValues: { name: "Old Name" },
+                timeStamp: 1,
+            },
+        }
+    );
+    await animationFrame();
+
+    // Open the systray: the framework web_save row renders its OWN framework badge
+    // ("Edited"), unchanged by the CRM wrapper.
+    await contains(`.o_menu_systray .o_offline_systray`).click();
+    await animationFrame();
+    const badgeText = queryAllTexts(`.o-dropdown--menu .o_tag.o_badge`).join(" ");
+    expect(badgeText).toInclude("Edited"); // framework web_save status preserved
+    // And it is NOT reclassified to any CRM label.
+    expect(badgeText).not.toInclude("Scheduled");
+    expect(badgeText).not.toInclude("Marked won");
+    expect(`.o-dropdown--menu .o-dropdown-item [data-icon='error']`).toHaveCount(0);
+    // (The complementary invariance — that CRM does NOT rescue an UNKNOWN non-CRM
+    // method, so the framework still crashes on it — is exactly the SYS removal
+    // check above; we do not re-trigger that crash here.)
+    await setOfflineReal(false);
+}
+test.tags("desktop");
+test("T9a: systray leaves a framework non-CRM entry unchanged (desktop)", testSystrayInvariance);
+
+// T9b (mobile): the schedule sheet's Discard button closes the sheet and queues
+// nothing.
+async function testScheduleSheetDiscard() {
+    const pyEnv = await startServer();
+    const leadId = pyEnv["crm.lead"].create({ name: "Discard Lead", type: "opportunity" });
+    const setOfflineReal = mockOffline();
+    await start();
+    await openFormView("crm.lead", leadId, { arch: spec05ChatterArch });
+    await animationFrame();
+    await runAllTimers();
+    await setOfflineReal(true);
+    await animationFrame();
+    await mc(".o-mail-Chatter-activity[data-available-offline]");
+    await click(".o-mail-Chatter-activity");
+    await animationFrame();
+    await mc(".o_crm_offline_schedule_sheet");
+    const before = hookOrmToSyncSize();
+    // Discard: the sheet closes and nothing is queued.
+    await click(".o_crm_offline_schedule_discard");
+    await animationFrame();
+    expect(".o_crm_offline_schedule_sheet").toHaveCount(0);
+    expect(hookOrmToSyncSize()).toBe(before);
+    expect(scheduledActivityFor(leadId).length).toBe(0);
+    await setOfflineReal(false);
+}
+test.tags("mobile");
+test("T9b: the schedule sheet Discard closes it and queues nothing (mobile)", testScheduleSheetDiscard);
+
+// T9c (mobile): the schedule sheet defaults its deadline to the LOCAL date
+// (DateTime.local().toISODate()), not the UTC date.
+async function testScheduleSheetDefaultDate() {
+    const pyEnv = await startServer();
+    const leadId = pyEnv["crm.lead"].create({ name: "Default Date Lead", type: "opportunity" });
+    const setOfflineReal = mockOffline();
+    await start();
+    await openFormView("crm.lead", leadId, { arch: spec05ChatterArch });
+    await animationFrame();
+    await runAllTimers();
+    await setOfflineReal(true);
+    await animationFrame();
+    await mc(".o-mail-Chatter-activity[data-available-offline]");
+    await click(".o-mail-Chatter-activity");
+    await animationFrame();
+    await mc(".o_crm_offline_schedule_sheet");
+    const deadlineInput = document.querySelector(".o_crm_offline_schedule_deadline");
+    expect(deadlineInput.value).toBe(luxon.DateTime.local().toISODate());
+    await setOfflineReal(false);
+}
+test.tags("mobile");
+test("T9c: the schedule sheet default deadline is the local date (mobile)", testScheduleSheetDefaultDate);

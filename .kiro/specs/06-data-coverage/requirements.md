@@ -50,9 +50,11 @@ file, `.config.kiro`, or manifest is created or modified by this requirements do
   server, parks rejected entries in the offline systray with `extras.error`. Consumed as-is.
 - **Small_Screen_Gate**: The predicate `useCrmOffline().isSmall() && useCrmOffline().isOffline()`
   that gates every 3b behaviour change; false on desktop and false online.
-- **Schedule_Sheet**: The inline-template OWL bottom-sheet component (hosted in
-  `activity_menu_patch.js`) that collects activity type, summary, deadline, and assignee and
-  builds the queued `activity_schedule` call.
+- **Schedule_Sheet**: The inline-template OWL bottom-sheet component (defined/exported in
+  `activity_menu_patch.js`, opened by `CrmChatter.scheduleActivity()`) that collects activity
+  type (from the `activityTypes` prop it is given — the SCHEDULABLE non-meeting types),
+  summary, and a local-date deadline. It has NO assignee control; the queued call's `user_id`
+  is set implicitly to the current user by the submit callback.
 - **Chatter_Activity_Button**: Mail's chatter "Activity" `<button>`
   (`.o-mail-Chatter-activity`, `chatter.xml:25`), whose click reaches the
   `CrmChatter.scheduleActivity()` component override (not a global store patch).
@@ -80,10 +82,13 @@ file, `.config.kiro`, or manifest is created or modified by this requirements do
   tables `many2x_mail.activity.type` and `many2x_res.partner`, populated automatically for
   visible relational fields on records visited online. Consumed as-is.
 - **Activity_Type_Prefetch**: The CRM_Offline_System behaviour, run on `CrmChatter` mount
-  online-mobile only, that reads the activity types applicable to `crm.lead` (an unlimited
-  searchRead over domain `['|', ('res_model', '=', false), ('res_model', '=', 'crm.lead')]`,
-  fields `id` and `display_name`, returning the full applicable list) and feeds them to the
-  existing `many2x_mail.activity.type` Many2x_Cache via
+  online-mobile only, that reads the SCHEDULABLE activity types applicable to `crm.lead` — an
+  unlimited searchRead over domain
+  `['&', '|', ('res_model', '=', false), ('res_model', '=', 'crm.lead'), ('category', '!=', 'meeting')]`,
+  fields `id`, `display_name`, and `category` — EXCLUDING `meeting`-category types (a meeting
+  needs the online calendar round trip). It records the resulting non-meeting ids as the
+  per-plugin schedulable allow-list and feeds `{id, display_name}` to the existing
+  `many2x_mail.activity.type` Many2x_Cache via
   `offlinePlugin.cacheMany2XSearch("mail.activity.type", result)`. It exists because the
   framework otherwise never caches `mail.activity.type` for a crm lead, or caches only a
   partial ~7-result list via the autocomplete (BLOCKING-DEFECT: the schedule control would
@@ -150,9 +155,10 @@ interfaces. Maps design Property 1.
 1. WHILE the Small_Screen_Gate is true AND the lead has a Server_Id AND the Many2x_Cache for `mail.activity.type` is non-empty, THE CRM_Offline_System SHALL set `data-available-offline` on the Chatter_Activity_Button so the framework re-enables it.
 2. WHILE the Small_Screen_Gate is true, WHEN a user clicks the re-enabled Chatter_Activity_Button, THE CRM_Offline_System SHALL open the Schedule_Sheet instead of the `mail.activity.schedule` wizard.
 3. WHEN a user submits the Schedule_Sheet, THE CRM_Offline_System SHALL enqueue exactly `scheduleORM("crm.lead", "activity_schedule", [[leadId]], { activity_type_id, summary, date_deadline, user_id })` with no `ir.model` id, no onchange, and no transient wizard.
-4. THE Schedule_Sheet SHALL offer activity types read only from the `mail.activity.type` Many2x_Cache, resolved by awaiting the async search before the control is shown.
+4. THE Schedule_Sheet SHALL offer only the SCHEDULABLE activity types `CrmChatter.scheduleActivity()` passes to it (resolved by awaiting the async cache search before the sheet opens): the `mail.activity.type` Many2x_Cache intersected with the prefetch's non-meeting allow-list.
 5. WHEN a user logs a call, THE CRM_Offline_System SHALL enqueue the same `activity_schedule` call with a Call-type `activity_type_id`, producing a pending Call-type activity rather than a completed call record.
-6. WHEN the Many2x_Cache for `mail.activity.type` resolves empty, THE CRM_Offline_System SHALL leave the Chatter_Activity_Button disabled and SHALL NOT present the Schedule_Sheet with an empty selector.
+6. WHEN the schedulable (non-meeting) cached-type set resolves empty, THE CRM_Offline_System SHALL leave the Chatter_Activity_Button disabled and SHALL NOT present the Schedule_Sheet with an empty selector.
+7. THE CRM_Offline_System SHALL NOT offer a `meeting`-category activity type in the Schedule_Sheet offline (a meeting needs the online calendar round trip, Requirement 11.1): the Activity_Type_Prefetch domain excludes `category = 'meeting'`, and because the `mail.activity.type` Many2x_Cache stores only `{id, display_name}` (so `category` does not survive it) and is shared, the sheet offers only the ids in the prefetch's non-meeting allow-list even if a meeting type is already cached by an unrelated dropdown search.
 
 ### Requirement 4: No schedule or queue without a server id
 
@@ -185,6 +191,7 @@ analysis. Maps design Property 1.
 6. WHILE an `action_feedback` entry is already queued for an activity, THE CRM_Offline_System SHALL enqueue no second `action_feedback` for that activity (a repeated click or direct call queues nothing more), avoiding a duplicate that would fail on replay.
 7. WHILE an `action_feedback` entry is queued for an activity, THE CRM_Offline_System SHALL suppress that activity's Activity_Done_Button (clear its `can_write`), and SHALL restore the button when the entry leaves the Offline_Queue.
 8. THE CRM_Offline_System SHALL carry systray metadata (`extras.actionName`, `extras.displayName`) on the queued `action_feedback` so the offline systray shows a named row.
+9. THE CRM_Offline_System's `Activity.onClickMarkAsDone` patch SHALL take the offline queue branch ONLY for an activity whose `res_model` is `crm.lead`; for an activity of any other model it SHALL fall through to `super` (the normal popover path) and queue nothing — the patch is on the global mail `Activity` component, so it must be scoped to crm.lead. (The Done button is re-enabled offline only inside `CrmChatter`, i.e. only on a crm lead's chatter.)
 
 ### Requirement 6: No mark-done on a pending (offline-created) activity
 
@@ -244,7 +251,7 @@ Maps design Property 8.
 
 1. THE CRM_Offline_System SHALL carry the Pending_Marker text in a rendered field (the row's `summary`) translated via `_t(...)`, with no mail-template change.
 2. THE CRM_Offline_System SHALL derive the Pending_Marker from the matching Offline_Queue entry and SHALL NOT write it destructively onto the stored record.
-3. IF the matching Offline_Queue entry is parked with `extras.error`, THEN THE CRM_Offline_System SHALL surface the parked entry (with the server's error text) in the offline systray for manual retry AND SHALL surface the translated needs-retry Pending_Marker on the affected row while that entry is observable; for a queued activity call the systray is the durable honest surface and the in-memory chatter row is best-effort (see design KL-B — the framework may reload its queue and flicker the row out of the in-memory view on reconnect, even though the entry remains parked in the store and the systray).
+3. IF the matching Offline_Queue entry is parked with `extras.error`, THEN THE CRM_Offline_System SHALL surface the parked entry (with the server's error text) in the offline systray for manual retry AND SHALL surface the translated needs-retry Pending_Marker on the affected row while that entry is observable. For a queued activity call on reconnect, the OBSERVED guarantees are: the server is called exactly once (not re-sent), and the parked entry carrying the server's error text is observable at its first appearance. KL-B (observed, cause NOT established): with the chatter mounted, BOTH the chatter row and the systray read the same in-memory `_ormToSync()` map, so the parked entry is observable only transiently; NEITHER is claimed durable, and online in-memory persistence of the needs-retry row is NOT guaranteed for this case (flagged for Step 10 manual validation).
 4. WHEN the matching Offline_Queue entry leaves the queue after a successful replay, THE CRM_Offline_System SHALL remove the Pending_Marker and restore the original rendered text.
 5. WHEN the thread is refetched through the guarded `CrmChatter.load`, THE CRM_Offline_System SHALL recompute every marker from the Offline_Queue so no stale marker remains.
 6. THE CRM_Offline_System SHALL keep the offline systray as the only error surface and SHALL add no CRM-specific error dialog, banner, or second error store.

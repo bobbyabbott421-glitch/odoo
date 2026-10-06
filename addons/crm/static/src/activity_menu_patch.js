@@ -168,11 +168,19 @@ patch(Activity.prototype, {
         const activity = this.activity();
         const id = activity && activity.id;
         if (
+            activity &&
+            activity.res_model === "crm.lead" &&
             this.crmOffline.isSmall() &&
             this.crmOffline.isOffline() &&
             typeof id === "number" &&
             id > 0
         ) {
+            // Scoped to crm.lead activities only. `Activity.prototype` is a global
+            // mail component, so this patch runs for every model's activity; the
+            // offline branch must act ONLY for a crm.lead activity (the Done button
+            // is re-enabled offline exclusively inside CrmChatter — crm_form.js —
+            // but a direct/programmatic call on another model must still go to
+            // super). Any non-crm.lead activity falls through to super unchanged.
             // Double mark-done guard: if an action_feedback is ALREADY queued for
             // this activity, queue NOTHING (a duplicate would fail on replay). The
             // Done button also loses data-available-offline while queued (see

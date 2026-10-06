@@ -443,8 +443,10 @@ and extends `mail` and `web` only from the CRM side (no `partner_autocomplete` i
     other method is untouched, so no other addon's systray behaviour changes. This is the
     sanctioned cross-addon mechanism (JS `patch()` of an existing component); the systray stays
     the single queued-change / error surface — CRM adds no dialog, banner, toast, or second
-    store. See also **KL-B** (a rejected activity entry is durably surfaced by this systray even
-    though the in-memory chatter row is only transient).
+    store. See also **KL-B** (a rejected activity entry is surfaced in this systray without
+    crashing; but both the systray and the chatter row read the same in-memory queue, so the
+    parked entry is observable only transiently in the mounted-chatter harness — neither is
+    claimed durable).
 - **Small-screen gate:** every 3b behaviour is gated on `useCrmOffline().isSmall()`
   (`crm_offline_hooks.js`, which reads `UIPlugin.isSmall`) AND `isOffline()`, so desktop and
   all online paths are byte-for-byte unchanged.
@@ -513,7 +515,7 @@ so the sheet component can use classes styled in `crm_form.scss`. `CrmChatter` (
 |---|---|---|
 | `CrmChatter` | `crm_form.js:202` (guarded `load` `:245`) | Hosts the queue-derived optimistic-row logic and pending/errored markers, the `data-available-offline` set+remove wiring on the two mail buttons, and the guarded reconnect refetch; already owns the guarded `load` and the thread. (The schedule-sheet component itself lives in `activity_menu_patch.js`.) |
 | `CrmFormRenderer` | `crm_form.js:276` | Unchanged job: swaps in `CrmChatter` as today. The optimistic-row and schedule/mark-done behaviour does **not** live here |
-| Schedule-sheet component (inline `xml\`...\``) | hosted in `activity_menu_patch.js` | The OWL bottom-sheet component (type select, summary, deadline, assignee + submit) with its async many2x cache read; styled via classes in `crm_form.scss`. Opened by the patched `store.scheduleActivity` |
+| Schedule-sheet component (inline `xml\`...\``) | defined/exported in `activity_menu_patch.js` | The OWL bottom-sheet component: a type `<select>` (populated from the `activityTypes` prop passed in by `CrmChatter.scheduleActivity()` — the sheet does NOT read the cache itself), a summary text input, and a local-date deadline input, plus Discard / Schedule buttons. It has NO assignee control; `user_id` is set implicitly to the current user when the submit callback builds the queued call. Styled via classes in `crm_form.scss`. Opened by `CrmChatter.scheduleActivity()` |
 | `CrmChatter.scheduleActivity()` override | `crm_form.js` (component method; mail calls it at `chatter_patch.js:507`) | Swaps the `mail.activity.schedule` wizard for the inline-xml bottom sheet (`usePlugin(BottomSheetPlugin)`) + `scheduleORM` when `isSmall() && offline` for a crm lead; else `super.scheduleActivity()`. Uses the plugin API (no legacy service bridge, no global store patch). Reached from mail's `.o-mail-Chatter-activity` button (`chatter.xml:25`), re-enabled offline via option (A) by `CrmChatter`'s own wiring. The schedule-sheet component it opens is defined/exported in `activity_menu_patch.js` |
 | `patch(Activity.prototype /* component */, { onClickMarkAsDone })` | `activity.js:145`; hosted in `activity_menu_patch.js` | **Bypasses the popover:** when `isSmall() && offline` and the activity has a real server id and is not pending, queues `action_feedback` directly (no popover, no `fetchNewMessages`); else `super` (opens the popover). Reached from `.o-mail-Activity-markDone` (`activity.xml:66`), re-enabled offline via option (A) by `CrmChatter`'s wiring in `crm_form.js`. `markAsDone` is not patched |
 | `mail.activity` (`_inherit`) | `addons/crm/models/mail_activity.py` | Python side of the activity extension (already `_inherit`, already imported) |
@@ -545,24 +547,29 @@ file** — hosted in `activity_menu_patch.js` (alongside the two activity patche
 in the existing `crm_form.scss` (both are loaded by the same `web.assets_backend` glob
 `crm/static/src/**`, so the component can use classes styled in `crm_form.scss`). On small
 screens it is presented as a
-**bottom sheet** via the framework bottom-sheet (`useService("bottom_sheet")` /
-`BottomSheetPlugin.add`). It captures:
+**bottom sheet** via the framework bottom-sheet plugin (`usePlugin(BottomSheetPlugin)` in
+`CrmChatter`, which opens the sheet). It captures:
 
-- **activity type** — chosen from the many2x cache (`many2x_mail.activity.type`);
+- **activity type** — chosen from a `<select>` populated by the `activityTypes` prop that
+  `CrmChatter.scheduleActivity()` passes in (the SCHEDULABLE, non-meeting types — the shared
+  `many2x_mail.activity.type` cache intersected with the prefetch allow-list; see P2 / KL
+  meeting-exclusion). The sheet does NOT read the cache itself;
 - **summary** — free text;
-- **deadline** — defaulting to today;
-- **assignee** — defaulting to the current user.
+- **deadline** — defaulting to the LOCAL date (`luxon.DateTime.local().toISODate()`, not UTC).
 
+There is **no assignee control**; `user_id` is set **implicitly to the current user**
+(`user.userId`) when the submit callback in `CrmChatter.scheduleActivity()` builds the call.
 From those it builds exactly:
 `scheduleORM("crm.lead", "activity_schedule", [[leadId]], { activity_type_id, summary,
 date_deadline, user_id })`.
 
-Because `searchMany2XRecords` is **async** (`offline_plugin.js:311`), the component reads the
-cache in `setup`/`onWillStart` (`await` the plugin's search over `"mail.activity.type"`),
-stores the result in a reactive `signal` list, and renders the control **disabled** (or
-hidden) when the resolved list is empty. The schedule control is shown/enabled only when
-`isSmall() && offline && cachedTypes.length > 0`; otherwise mail's own
-(framework-disabled) button remains.
+Because `searchMany2XRecords` is **async** (`offline_plugin.js:311`), the ASYNC cache read is
+done by `CrmChatter.scheduleActivity()` BEFORE opening the sheet (and by
+`_refreshCachedActivityTypes` for the gate); the sheet itself receives a resolved array. The
+schedule control is shown/enabled only when `isSmall() && offline && the lead has a server id
+&& the schedulable (non-meeting) cached-type set is non-empty`; otherwise mail's own
+(framework-disabled) button remains, and `CrmChatter.scheduleActivity()` falls through to
+`super` (online/desktop) or returns without queuing (offline, no server id).
 
 ### How the schedule / mark-done controls stay usable offline — option comparison
 
@@ -1316,12 +1323,15 @@ no conflict dialog.
 A parked (errored) replay is surfaced for manual retry and never silently dropped. For a
 queued **record-write** (spec 04 `web_save`, AC-J9) the parked entry stays in the queue and
 its optimistic row stays visible and errored. For a queued **activity** call
-(`activity_schedule` / `action_feedback`) the durable honest surface is the framework offline
-**systray**, which — thanks to the CRM systray-classification patch — renders the parked entry
-with its label and the server's raw error text **without crashing**; the in-memory chatter row
-derived from the queue is best-effort and may flicker out of view while the framework reloads
-its queue on reconnect (**KL-B**). Either way the change is never shown as synced and never
-silently discarded.
+(`activity_schedule` / `action_feedback`), the server is called exactly once (not re-sent) and
+the parked entry — carrying the server's raw error text — is surfaced in the framework offline
+**systray** (which, thanks to the CRM systray-classification patch, renders it **without
+crashing**). Both the in-memory chatter row AND the systray read the same in-memory
+`_ormToSync()` map, so in the mounted-chatter harness the parked entry is observable only
+**transiently** (see **KL-B** — observed, cause not established); neither surface is claimed
+durable, and Requirement 9.3's online in-memory persistence is NOT guaranteed for this case.
+What IS guaranteed: the change is never shown as synced, never silently discarded, and the
+server is not re-sent.
 
 **Property 8b (systray never crashes on a queued CRM call): Validates Requirement 9.10.** Every
 `model/method` CRM can queue (`crm.lead/activity_schedule`, `mail.activity/action_feedback`,
@@ -1508,38 +1518,44 @@ spec 08's pipeline test. KL-A is flagged for Step 10 validation.
 silently dropped" (Requirement 9.3 / Property 8): a parked activity row should stay visible
 and honest online after reconnect.
 
-**What actually happens.** When a queued `crm.lead/activity_schedule` (or
-`mail.activity/action_feedback`) replay is REJECTED on reconnect, the framework parks the
-entry correctly: `_syncORM` (`offline_plugin.js:457-468`) re-schedules it with `extras.error`
-set, and the entry persists in IndexedDB. The offline **systray** surfaces the raw server
-error (verified — see the systray tests and the systray-classification fix below). **But**
-every `_syncORM` pass begins with `_updateScheduledORMList()` (`offline_plugin.js:445`), which
-REPLACES the in-memory `_ormToSync()` map with the store's current contents, and the park is
-an asynchronous store write. With the lead form (and therefore `CrmChatter`) mounted, the
-chatter's `_ormToSync()` subscriptions drive extra reactive passes during the reconnect, so
-the just-parked entry is observable in the in-memory map **only transiently** — between the
-park write and the next reload it momentarily reads empty. Instrumentation confirmed the root
-cause is NOT a lost write or a re-send: the mock server received the `activity_schedule`
-exactly once (`serverCalls=1`, `syncPasses=1`), and at the parked instant the map holds the
-entry with the server's error text; a subsequent pass then reloads it away in memory.
+**What was OBSERVED (facts, in the Hoot harness).** When a queued
+`crm.lead/activity_schedule` replay is REJECTED on reconnect with the lead form (and therefore
+`CrmChatter`) mounted:
+- The mock server receives the `activity_schedule` **exactly once** — it is not re-sent
+  (asserted by `serverCalls === 1` in test `8.6`).
+- Immediately after the rejection the parked entry (carrying the server's error text) IS
+  present in the in-memory `_ormToSync()` map; test `8.6` observes it at that first moment.
+- A later read of the in-memory map can show the entry **gone** even though the server was not
+  called again — so the parked entry is observable in the in-memory map only **transiently** in
+  this harness.
 
-**Consequence for the design.** Requirement 9.3's **online-persistence** claim ("the optimistic
-activity row stays visible and shows needs-retry after reconnect") is **NOT guaranteed** for a
-rejected queued *activity* call while the chatter is mounted — the parked entry (and therefore
-the needs-retry row derived from it) can flicker out of the in-memory view even though it
-remains in the store and in the systray. The queued *record-write* path (spec 04 `web_save`,
-AC-J9) does not exhibit this because no mounted component re-reads the queue mid-reconnect.
+**What was NOT established.** The CAUSE of the transient disappearance is **not** established.
+A plausible mechanism is that each `_syncORM` pass begins with `_updateScheduledORMList()`
+(`offline_plugin.js:445`), which replaces the in-memory map from the store around the async
+park write — but this was NOT proven (the CRM chatter's queue subscription only re-runs
+`_syncOptimisticActivities`, not `_syncORM`, so the extra-reactive-passes theory in the earlier
+draft was wrong). The behaviour is recorded as observed, cause open.
 
-**Why it is not fixed here.** The reload-replaces-memory behaviour is in `offline_plugin.js`
-(`addons/web/`, **forbidden** to change). A CRM-side workaround would mean a second queue
-mirror or a conflict/merge layer — both explicitly banned by `constraints.md`.
+**Honest consequence for the design.** Requirement 9.3's **online in-memory persistence** claim
+("the optimistic activity row stays visible and shows needs-retry after reconnect") is **NOT
+guaranteed** for a rejected queued *activity* call while the chatter is mounted. We do **not**
+claim the systray is a "durable" surface either: the systray reads the SAME in-memory
+`_ormToSync()` map, so it is subject to the same transient disappearance; its being driven by
+reactive reads does not make it authoritative over the store. The only durable record is the
+offline store (IndexedDB) itself, which `addons/crm/` must not reach into. The queued
+*record-write* path (spec 04 `web_save`, AC-J9) was not observed to exhibit this.
 
-**What spec 06 proves instead.** Test `8.6` asserts the reliably-observable facts: the entry
-IS parked with the server's exact error text (observed at its first appearance), the framework
-systray classifies the CRM entry and surfaces that raw text **without crashing**, and NO
-CRM-specific error UI appears. It does **not** assert long-term in-memory persistence of the
-row. KL-B is flagged for Step 10 validation (manual check on a device: the systray retry
-entry is the durable surface; the chatter row is best-effort).
+**Why it is not fixed here.** The queue/replay machinery is in `offline_plugin.js`
+(`addons/web/`, **forbidden** to change). A CRM-side workaround would need a second queue mirror
+or a conflict/merge layer — both banned by `constraints.md`.
+
+**What spec 06 proves instead.** Test `8.6` asserts only the reliably-observable facts: the
+server is called exactly once; the entry IS parked with the server's exact error text at its
+first observable moment; the framework systray classifies the CRM entry and surfaces that raw
+text **without crashing**; and NO CRM-specific error UI appears. It does **not** assert
+long-term in-memory persistence of the row and does **not** claim systray durability. KL-B is
+flagged for **Step 10 manual validation** on a real device (confirm that, after a rejected
+offline activity reconnect, the user still has a retry path).
 
 ---
 
@@ -1778,21 +1794,30 @@ frozen allowed set in `constraints.md`.) The pieces land as follows:
   bottom-sheet layout, the schedule-sheet fields, and the pending/needs-retry/done marker
   styling.
 
-### Per-file line estimate (added lines, estimated conservatively)
+### Per-file line counts — AS BUILT (measured vs the `kiro/00-setup` base)
 
-| File | Current | What it gains | Added lines | Final size |
+| File | Base | Added (net) | Final | Within ~300-added guard? |
 |---|---|---|---|---|
-| `activity_menu_patch.js` | ~70 | the two activity patches (`store.scheduleActivity`, `Activity.onClickMarkAsDone`) + the inline-template schedule-sheet component (async `onWillStart` many2x read over `"mail.activity.type"` into a reactive `signal`, building the `scheduleORM("crm.lead","activity_schedule",[[leadId]],{...})` call) + the `patch(OfflineSystray.prototype, { setup })` systray-classification wrapper (~35 lines: the `CRM_SYSTRAY_STATUS` map and the per-instance `groupEntries` wrap for the three CRM `model/method` pairs) | **~185–235** | ~255–305 |
-| `crm_form.js` | ~288 | `CrmChatter`'s queue-derived optimistic-row logic (subscribe to `_ormToSync()`, rebuild rows on mount + every queue change, the `key → negId` map, the server-matching `state` rule, the derived pending / needs-retry / done-pending-sync markers), the `data-available-offline` set+remove wiring on both mail buttons, and the **activity-type cache prefetch** (on-mount, online-mobile-only guarded read + `cacheMany2XSearch`, with the spec-05 skip/try-catch/re-arm pattern, ~20–35 lines). (No 3c `Field` patch — dropped.) | **~105–150** | ~393–438 |
-| `crm_form.scss` | ~5 | bottom-sheet layout, schedule-sheet fields, pending/needs-retry/done marker styling | **~25–45** | ~30–50 |
+| `activity_menu_patch.js` | 70 | +211 | 281 | yes |
+| `crm_form.js` | 288 | +497 | 785 | **NO — exceeds (documented exception, below)** |
+| `crm_form.scss` | ~5 | +20 | ~25 | yes |
 
-The guard measures the lines **added** to each file, not the final size. `crm_form.js`
-starts at 288 lines, so ~105–150 **added** lines (including the modest ~20–35-line
-activity-type prefetch, and no 3c `Field` patch) is **still under the ~300-added guard**, even
-though the final file exceeds 300 total; `activity_menu_patch.js` grows by ~185–235 added
-lines (now including the ~35-line `OfflineSystray` classification patch) to a final
-~255–305 total; the **added** count stays within the ~300-added guard (final total ~291 as
-built). Keep each added block small and clearly
+### Size-guard exception (APPROVED by the user, review round 1)
+
+`crm_form.js` grew by **~497 added lines** (288 → 785), **over the ~300-added guard**, and the
+stop-rule was not applied during initial implementation. The user has **accepted this as a
+documented exception**: the constraint that actually matters — **no new file** (the frozen
+allowed-files list in `constraints.md` is honoured) — holds, and `CrmChatter` is the correct,
+cohesive home for the queue-derived optimistic-row logic, the markers, the guarded
+reconnect/refetch, the `data-available-offline` wiring on both mail buttons, the activity-type
+prefetch, and the `CrmChatter.scheduleActivity()` override (all of which must live on the lead
+chatter component). The round-1 fixes (crm.lead-only mark-done scope, meeting-type exclusion
+with its allow-list, the record-keyed marker/can_write WeakMap, the no-server-id schedule
+guard, and the narrowed queue signature) added further lines. The file stays readable: each
+block is small and commented, and the logic is one component's concern. `activity_menu_patch.js`
+(+211) and `crm_form.scss` (+20) remain within the guard.
+
+The guard measures lines **added** to each file. Keep each added block small and clearly
 commented so the files stay readable.
 
 ### The size guard (decide / stop at these points)

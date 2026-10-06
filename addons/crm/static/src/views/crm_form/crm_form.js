@@ -210,6 +210,26 @@ class CrmFormController extends formView.Controller {
 // the plugin instance (NOT a module-level boolean) so it does not leak between
 // Hoot tests, which each get a fresh plugin.
 const _activityTypePrefetched = new WeakSet();
+// 3b meeting-exclusion: the SCHEDULABLE (non-"meeting") activity-type ids the
+// prefetch resolved, keyed PER OfflinePlugin instance. A meeting-category type
+// needs the online calendar round trip (action_create_calendar_event; Requirement
+// 11.1), so it must never be offered offline. The many2x cache stores only
+// {id, display_name} (offline_plugin.js _encryptAndFormat), so category does NOT
+// survive it; and the cache is SHARED, so an unrelated dropdown search may already
+// have put a meeting type in it. We therefore keep the prefetch's own allow-list
+// of non-meeting ids here (derived in-memory, per session, NOT a second persistent
+// cache) and intersect the shared cache against it wherever types are offered.
+const _schedulableTypeIds = new WeakMap();
+// 3b marker/Done-button restore: the ORIGINAL summary and can_write of a SERVER
+// activity we decorate (for a queued mark-done) must survive a remount and a
+// refetch. We key the originals by the shared mail.store `mail.activity` RECORD
+// (a WeakMap, so a dropped record is GC'd), NOT a per-component Map: a per-component
+// Map is lost when the CrmChatter unmounts, so a new chatter would capture the
+// ALREADY-decorated summary as the "original" and double the marker (and never
+// restore can_write). Keyed by the record, any CrmChatter restores the true
+// original. The WeakMap holds { summary, canWrite } captured the first time the
+// record is decorated.
+const _activityMarkerOriginals = new WeakMap();
 
 export class CrmChatter extends Chatter {
     setup() {
@@ -262,15 +282,9 @@ export class CrmChatter extends Chatter {
         this._offlinePlugin = usePlugin(OfflinePlugin);
         this._bottomSheet = usePlugin(BottomSheetPlugin);
         this.orm = useService("orm");
-        // 3b fix: originals of server-activity summaries we decorated with a
-        // marker, keyed by activity id, owned by THIS component (not a field on
-        // the shared store record) so we can restore them when the queue entry
-        // leaves (e.g. discarded from the systray).
-        this._markerOriginals = new Map();
-        // 3b fix: originals of can_write we cleared to suppress a Done button while
-        // its mark-done is queued (prevents a duplicate action_feedback), restored
-        // when the entry leaves the queue.
-        this._doneWriteOriginals = new Map();
+        // (Marker/can_write originals of decorated SERVER activities live in the
+        // module-level `_activityMarkerOriginals` WeakMap keyed by the store record,
+        // so they survive this component unmounting/remounting — see P4.)
         onMounted(() => this._refreshCachedActivityTypes());
         onMounted(() => this._prefetchActivityTypes());
         // 3b: keep data-available-offline on the chatter Activity button in sync
@@ -278,7 +292,7 @@ export class CrmChatter extends Chatter {
         // types cached). onPatched re-evaluates so the attribute TRACKS the gate;
         // when the gate turns false the attribute is REMOVED and the framework
         // re-disables the bare <button>. Both halves of the spec-05 rule: this
-        // attribute + the scheduleORM in the patched store.scheduleActivity.
+        // attribute + the scheduleORM in CrmChatter.scheduleActivity().
         onMounted(() => this._syncActivityOfflineAttr());
         onPatched(() => this._syncActivityOfflineAttr());
         // 3b optimistic activity rows: rebuilt from the offline queue (not held
@@ -314,17 +328,34 @@ export class CrmChatter extends Chatter {
     }
 
     async _refreshCachedActivityTypes() {
-        // Read the EXISTING many2x cache (works offline and online); the gate
-        // needs this known offline, when the prefetch has not run this session.
-        const cached = await this._offlinePlugin.searchMany2XRecords(
-            "mail.activity.type",
-            ""
-        );
+        // Count the SCHEDULABLE cached types (cache ∩ prefetch allow-list, so a
+        // meeting type sitting in the shared cache is never counted). The gate
+        // needs this known offline.
+        const count = await this._schedulableCachedCount();
         if (status(this) === "destroyed") {
             return;
         }
-        this._hasCachedActivityTypes.set(!!(cached && cached.length));
+        this._hasCachedActivityTypes.set(count > 0);
         this._syncActivityOfflineAttr();
+    }
+
+    /** The schedulable (non-meeting) activity types available offline: the shared
+     *  many2x cache intersected with the prefetch's allow-list for this plugin.
+     *  When the prefetch has not run this session the allow-list is unknown, so
+     *  NOTHING is schedulable (a meeting type must never leak via the shared
+     *  cache). Returns [{ id, display_name }]. */
+    async _schedulableTypes() {
+        const allowed = _schedulableTypeIds.get(this._offlinePlugin);
+        if (!allowed || !allowed.size) {
+            return [];
+        }
+        const cached =
+            (await this._offlinePlugin.searchMany2XRecords("mail.activity.type", "")) || [];
+        return cached.filter((t) => allowed.has(t.id));
+    }
+
+    async _schedulableCachedCount() {
+        return (await this._schedulableTypes()).length;
     }
 
     // Map a queue key to a STABLE negative temp id (so the same queued schedule
@@ -350,8 +381,21 @@ export class CrmChatter extends Chatter {
     // A stable signature of the queue: each entry's key plus whether it is parked
     // (extras.error). Changes when an entry is added, removed, OR parked in place,
     // so the optimistic-row sync re-runs on a rejection even if the count is equal.
+    // Narrowed to the entries THIS lead's rows derive from — the lead's own
+    // activity_schedule entries and any mail.activity/action_feedback entries — so
+    // an unrelated addon's queued write does not churn this chatter's reconciliation.
     _queueSignature() {
+        const thread = this.state.thread;
+        const leadId = thread && thread.model === "crm.lead" ? thread.id : false;
         return this._queueEntries()
+            .filter(
+                (e) =>
+                    (e.model === "crm.lead" &&
+                        e.method === "activity_schedule" &&
+                        Array.isArray(e.args?.[0]) &&
+                        e.args[0].includes(leadId)) ||
+                    (e.model === "mail.activity" && e.method === "action_feedback")
+            )
             .map((e) => e.key + ":" + (e.extras && e.extras.error ? "1" : "0"))
             .sort()
             .join("|");
@@ -386,20 +430,16 @@ export class CrmChatter extends Chatter {
                 const marker = doneErrors[act.id]
                     ? _t("(needs retry)")
                     : _t("(done, pending sync)");
+                // Decorate the summary AND suppress the Done button (clear can_write)
+                // while the action_feedback is queued, so a second click cannot queue
+                // a duplicate. Both originals are captured once in the record-keyed
+                // WeakMap and restored when the entry leaves the queue.
                 this._applyActivityMarker(act, marker);
-                // Double mark-done guard (attribute half): while an action_feedback
-                // is queued for this activity, suppress its Done button so a second
-                // click cannot queue a duplicate. mail renders the Done button only
-                // for can_write=true, so clearing can_write removes the button
-                // (strictly stronger than removing data-available-offline). The
-                // original can_write is restored when the entry leaves the queue.
-                this._suppressDoneButton(act);
-            } else if (act.id > 0 && this._markerOriginals.has(act.id)) {
+            } else if (act.id > 0 && _activityMarkerOriginals.has(act)) {
                 // The entry that decorated this server activity is gone (replayed
                 // OR discarded from the systray): restore its original summary and
                 // its Done button, and forget the stored originals.
                 this._restoreActivityMarker(act);
-                this._restoreDoneButton(act);
             }
         }
 
@@ -453,42 +493,42 @@ export class CrmChatter extends Chatter {
         }
     }
 
-    // Append a translated marker to a server activity's rendered summary. The
-    // original summary is kept in this component's _markerOriginals Map (NOT a
-    // field on the shared store record), keyed by activity id, so it can be
-    // restored when the queue entry leaves (replayed or discarded).
+    // Capture a decorated server activity's TRUE originals (summary + can_write)
+    // ONCE, in the module WeakMap keyed by the store record — so a remount (new
+    // CrmChatter) restores the real original instead of capturing the already
+    // decorated summary / false can_write as the "original" and doubling the
+    // marker. Returns the stored originals.
+    _activityOriginals(act) {
+        if (!_activityMarkerOriginals.has(act)) {
+            _activityMarkerOriginals.set(act, {
+                summary: act.summary || "",
+                canWrite: act.can_write,
+            });
+        }
+        return _activityMarkerOriginals.get(act);
+    }
+
+    // Decorate a server activity's rendered summary with a translated marker AND
+    // suppress its Done button (clear can_write) while its action_feedback is
+    // queued — mail renders Done only for can_write=true, so this prevents a
+    // duplicate action_feedback. Both originals come from the record-keyed WeakMap,
+    // so the marker is applied from the TRUE original (never doubled) across
+    // remounts.
     _applyActivityMarker(act, marker) {
-        if (!this._markerOriginals.has(act.id)) {
-            this._markerOriginals.set(act.id, act.summary || "");
-        }
-        const original = this._markerOriginals.get(act.id);
-        act.summary = (original + " " + marker).trim();
-    }
-
-    // Restore a previously-decorated server activity's original summary and drop
-    // the stored original (the queue entry that justified the marker is gone).
-    _restoreActivityMarker(act) {
-        const original = this._markerOriginals.get(act.id);
-        if (original !== undefined) {
-            act.summary = original;
-        }
-        this._markerOriginals.delete(act.id);
-    }
-
-    // Suppress a server activity's Done button while its action_feedback is queued
-    // (mail renders Done only for can_write=true). Original can_write kept in a
-    // component Map, restored when the entry leaves the queue.
-    _suppressDoneButton(act) {
-        if (!this._doneWriteOriginals.has(act.id)) {
-            this._doneWriteOriginals.set(act.id, act.can_write);
-        }
+        const original = this._activityOriginals(act);
+        act.summary = (original.summary + " " + marker).trim();
         act.can_write = false;
     }
 
-    _restoreDoneButton(act) {
-        if (this._doneWriteOriginals.has(act.id)) {
-            act.can_write = this._doneWriteOriginals.get(act.id);
-            this._doneWriteOriginals.delete(act.id);
+    // Restore a previously-decorated server activity's original summary AND Done
+    // button, and forget the stored originals (its queue entry is gone — replayed
+    // or discarded from the systray).
+    _restoreActivityMarker(act) {
+        const original = _activityMarkerOriginals.get(act);
+        if (original !== undefined) {
+            act.summary = original.summary;
+            act.can_write = original.canWrite;
+            _activityMarkerOriginals.delete(act);
         }
     }
 
@@ -554,15 +594,28 @@ export class CrmChatter extends Chatter {
      * through to super (the normal wizard path).
      */
     async scheduleActivity() {
-        const leadId = this._leadServerId();
-        if (!(leadId && this.crmOffline.isSmall() && this.crmOffline.isOffline())) {
+        const smallOffline = this.crmOffline.isSmall() && this.crmOffline.isOffline();
+        if (!smallOffline) {
+            // Online / desktop: the normal mail.activity.schedule wizard.
             return super.scheduleActivity(...arguments);
         }
-        // Activity types come from the framework many2x cache (primed by the
-        // prefetch). The Activity button is only enabled offline when the cache is
-        // non-empty, so this path is normally reached with types; guard anyway.
-        const activityTypes =
-            (await this._offlinePlugin.searchMany2XRecords("mail.activity.type", "")) || [];
+        const leadId = this._leadServerId();
+        if (!leadId) {
+            // Offline, small screen, but NO server id (a new lead, or one whose
+            // own web_save create is still queued). Return WITHOUT super: mail's
+            // super.scheduleActivity saves the unsaved record first
+            // (chatter_patch.js:507-518), which would queue the lead create — a
+            // follow-up offline that depends on an id the server has not assigned
+            // (Requirement 4.2). Queue nothing. The Activity button is already
+            // disabled in this state (no data-available-offline), so this guards a
+            // direct/programmatic call.
+            return;
+        }
+        // Schedulable activity types = the shared many2x cache intersected with the
+        // prefetch's non-meeting allow-list (meeting types need the online calendar
+        // round trip and are never offered offline). The Activity button is only
+        // enabled offline when this set is non-empty; guard anyway.
+        const activityTypes = await this._schedulableTypes();
         if (status(this) === "destroyed" || !activityTypes.length) {
             return;
         }
@@ -626,10 +679,20 @@ export class CrmChatter extends Chatter {
         }
         let result;
         try {
+            // Exclude the "meeting" category server-side: a meeting activity needs
+            // the online calendar round trip and must be unreachable offline
+            // (Requirement 11.1). Also read `category` so the allow-list is derived
+            // from the authoritative server value, not a guess.
             result = await this.orm.searchRead(
                 "mail.activity.type",
-                ["|", ["res_model", "=", false], ["res_model", "=", "crm.lead"]],
-                ["id", "display_name"]
+                [
+                    "&",
+                    "|",
+                    ["res_model", "=", false],
+                    ["res_model", "=", "crm.lead"],
+                    ["category", "!=", "meeting"],
+                ],
+                ["id", "display_name", "category"]
             );
         } catch (e) {
             if (e instanceof ConnectionLostError) {
@@ -642,9 +705,20 @@ export class CrmChatter extends Chatter {
             return;
         }
         _activityTypePrefetched.add(this._offlinePlugin);
-        await this._offlinePlugin.cacheMany2XSearch("mail.activity.type", result);
+        // Record the schedulable (non-meeting) ids for this plugin so the sheet and
+        // the gate can intersect the SHARED many2x cache against them (the cache may
+        // already hold a meeting type cached by an unrelated dropdown search).
+        _schedulableTypeIds.set(
+            this._offlinePlugin,
+            new Set(result.map((t) => t.id))
+        );
+        // The cache stores only {id, display_name}; drop category before caching.
+        await this._offlinePlugin.cacheMany2XSearch(
+            "mail.activity.type",
+            result.map((t) => ({ id: t.id, display_name: t.display_name }))
+        );
         if (status(this) !== "destroyed") {
-            this._hasCachedActivityTypes.set(result.length > 0);
+            this._hasCachedActivityTypes.set(this._schedulableCachedCount() > 0);
             this._syncActivityOfflineAttr();
         }
     }
@@ -664,7 +738,14 @@ export class CrmChatter extends Chatter {
             return;
         }
         try {
-            return await super.load(thread, requestList);
+            const res = await super.load(thread, requestList);
+            // A refetch replaces thread.activities with fresh server rows. Re-run
+            // the queue-derived reconciliation so any still-queued mark-done
+            // re-decorates its (new) server-activity row and any temp rows are
+            // rebuilt — no stale marker, no duplicate row — against the refetched
+            // activities.
+            this._syncOptimisticActivities();
+            return res;
         } catch (e) {
             if (e instanceof ConnectionLostError) {
                 this._loadSkipped = true;
