@@ -202,3 +202,91 @@ class TestCrmOffline(HttpCase, TestCrmCommon):
         self.assertEqual(lead.won_status, 'won')
         self.assertTrue(lead.stage_id.is_won, "the lead must land in a won stage")
         self.assertEqual(lead.probability, 100)
+
+    # ------------------------------------------------------------------
+    # Spec 06 — Offline data coverage: replay the queued offline calls
+    # through the real ORM to prove server-side correctness, tying the JS
+    # "what is queued" assertions (3a/3b) to the Python "what the server does".
+    # ------------------------------------------------------------------
+
+    def test_offline_activity_schedule_replay(self):
+        """Req 3.3 / 10.1 (Property 1, 7): applying the exact queued
+        `activity_schedule` call on a lead through the ORM yields a `mail.activity`
+        linked to that lead carrying the queued arguments (type, summary, deadline,
+        assignee, res_model/res_id)."""
+        lead = self.env['crm.lead'].create({
+            'name': 'Schedule Replay Lead',
+            'type': 'opportunity',
+            'team_id': self.sales_team_1.id,
+        })
+        call_type = self.env.ref('mail.mail_activity_data_call')
+        user = self.env.user
+
+        # Replay the queued kwargs verbatim (the JS sheet queues exactly these:
+        # activity_type_id, summary, date_deadline, user_id).
+        activities = self.env['crm.lead'].browse(lead.id).activity_schedule(
+            activity_type_id=call_type.id,
+            summary='Call the lead',
+            date_deadline='2026-01-15',
+            user_id=user.id,
+        )
+
+        self.assertEqual(len(activities), 1, "exactly one activity is created")
+        activity = activities
+        self.assertEqual(activity.res_model, 'crm.lead')
+        self.assertEqual(activity.res_id, lead.id)
+        self.assertEqual(activity.activity_type_id, call_type)
+        self.assertEqual(activity.summary, 'Call the lead')
+        self.assertEqual(str(activity.date_deadline), '2026-01-15')
+        self.assertEqual(activity.user_id, user)
+        # The activity is linked back onto the lead's activities.
+        self.assertIn(activity, lead.activity_ids)
+
+    def test_offline_action_feedback_replay(self):
+        """Req 5.4 / 10.3 (Property 1, 7): applying the queued mark-done
+        `action_feedback` on [[activityId]] marks the activity done — it is removed
+        from the lead's pending activities and a mail.message is posted on the
+        lead, exactly as the online Done path produces."""
+        lead = self.env['crm.lead'].create({
+            'name': 'Mark Done Replay Lead',
+            'type': 'opportunity',
+            'team_id': self.sales_team_1.id,
+        })
+        call_type = self.env.ref('mail.mail_activity_data_call')
+        activity = self.env['mail.activity'].create({
+            'res_model_id': self.env['ir.model']._get_id('crm.lead'),
+            'res_id': lead.id,
+            'activity_type_id': call_type.id,
+            'summary': 'Call to close',
+            'user_id': self.env.user.id,
+        })
+        self.assertIn(activity, lead.activity_ids)
+        messages_before = len(lead.message_ids)
+
+        # Replay the queued call exactly: action_feedback on [[activityId]].
+        self.env['mail.activity'].browse(activity.id).action_feedback()
+
+        # The activity is consumed (deleted/archived — no longer in activity_ids)...
+        self.assertNotIn(activity.id, lead.activity_ids.ids)
+        self.assertFalse(activity.exists() and activity.active)
+        # ...and a message was posted on the lead recording the done activity.
+        self.assertGreater(
+            len(lead.message_ids), messages_before,
+            "marking the activity done posts a message on the lead",
+        )
+
+    def test_offline_websave_create_replay(self):
+        """Req 1.2 / 1.3 (Property 7): applying the queued offline `web_save`
+        CREATE for a lead through the ORM yields a server lead carrying the entered
+        values. Distinct from the existing edit-sync test (that one writes an
+        existing lead; this one creates a new one from an empty id list)."""
+        # The queued create is web_save with an empty id list and a values dict
+        # (what the framework enqueues for a brand-new record's save).
+        leads = self.env['crm.lead'].web_save(
+            {'name': 'Created Offline', 'type': 'opportunity'}, {}
+        )
+        # web_save returns the saved record(s) specification; fetch the record.
+        self.assertTrue(leads, "web_save create returns the new record")
+        created = self.env['crm.lead'].search([('name', '=', 'Created Offline')])
+        self.assertEqual(len(created), 1, "exactly one lead was created")
+        self.assertEqual(created.type, 'opportunity')
