@@ -275,8 +275,8 @@ spec-honesty details right the first time.
 
 ## Lessons from spec 06
 
-Spec 06 added the offline data-coverage work (3a/3b/3c) and took two PR-review rounds. These
-rules capture the traps that round 2 exposed so later specs avoid them.
+Spec 06 added the offline data-coverage work (3a/3b/3c) and took four PR-review rounds. These
+rules capture the traps those rounds exposed so later specs avoid them.
 
 ### Async gate values
 
@@ -307,13 +307,18 @@ rules capture the traps that round 2 exposed so later specs avoid them.
   confirm the test goes red (it did: 125/1), then restore. If a test passes both ways, it
   proves nothing.
 
-### Mounted-chatter reconnect fold-in is best-effort (KL-B) — assert the server, not the DOM
+### Reconnect fold-in: assert the server; drive the real refetch yourself to assert the DOM
 
-- For a replayed schedule/mark-done, assert the authoritative mock SERVER state
-  (`MockServer.env[model].browse(id)` → fields; `.length` for existence) plus the drained
-  queue and the cleared marker. Do NOT assert the live in-memory row fold-in/removal on the
-  already-mounted chatter — it depends on the reconnect refetch and flakes. `browse(id)` is the
+- Always assert the authoritative mock SERVER state (`MockServer.env[model].browse(id)` → fields;
+  `.length` for existence) plus the drained queue and the cleared marker. `browse(id)` is the
   reliable read in this harness (not `search_count`, which was not confirmed available).
+- Do NOT rely on the AUTOMATIC reconnect refetch to fold the server row into the mounted chatter
+  — the connectivity-driven refetch is timing-dependent and flakes (KL-B). But the rendered
+  fold-in CAN be proven reliably by driving the guarded refetch yourself: call
+  `chatter.load(thread, chatter.initialRequestList)` with the REAL `fetchThreadData` (no stub)
+  after reconnect, then assert the server row renders exactly once and the temp row is gone
+  (round 4 did this; stable over 5 runs). The remaining gap — the reconnect HANDLER invoking
+  `load()` on its own — stays a Step 10 manual check.
 
 ### Positive super-path assertions, no blanket try/catch
 
@@ -343,3 +348,56 @@ rules capture the traps that round 2 exposed so later specs avoid them.
   API first (read the plugin in full), and if it is absent, STOP and report options + a
   recommendation rather than reaching into private fields or adding forbidden machinery. The user
   decides; record the outcome as a named known limitation.
+### Test the guard, not the absent button (rounds 3-4)
+
+- A guard that is only reachable programmatically — a temp-id / no-server-id mark-done or
+  schedule — needs a test that CALLS the handler directly (capture the component instance, call
+  `onClickMarkAsDone`/`scheduleActivity`) and asserts the effect (no popover opened via a spied
+  `markDonePopover.open`, nothing queued, no RPC). "No Done button renders" proves the template,
+  not the guard: a direct call could still fall through to `super` (a server path).
+
+### An offline-created overlay needs the attribute on EVERY button (round 3)
+
+- A control the framework renders while OFFLINE (a new bottom sheet) is a bare `<button>` the
+  offline selector pass will disable. Put `data-available-offline` on EVERY button it owns,
+  including Discard/Cancel — not just the confirm button. The test asserts both the attribute is
+  present AND the element is not `[disabled]` / `.o_disabled_offline`, before clicking.
+
+### A stub must not replace the code under test (rounds 3-4)
+
+- Stubbing `fetchThreadData` to hand-mutate the store, or stubbing anything the assertion then
+  "proves", makes the test a seam test, not a real-path test. Prefer the real path: let the mock
+  server's own fetch run (`super.fetchThreadData(...)`) so `thread.activities` is genuinely
+  replaced. A stub is acceptable only for a sibling that is NOT under test (e.g. `_syncORM`
+  replay, to keep entries queued while `load()` reconciles) — and the test must say so. Never
+  write "REAL" or "replaces thread.activities" in a comment/design/requirement describing a
+  synthetic setup; if it is synthetic, call it a seam test and add a separate real-path test (or
+  a Step 10 item).
+
+### Spy the production subscription, don't hand-call the effect (round 4)
+
+- To prove a reactive effect runs (or does not) for a given input, SPY the method as invoked by
+  the production `useOnChange`/`computed` callback and count the runs across the input change —
+  do not call the reconcile by hand. A hand-call proves the method works, not that the
+  subscription fires it for the right inputs. (Round 4: `_syncOptimisticActivities` — zero extra
+  runs for another lead's / another model's queued entry, exactly one for this lead's.)
+
+### A self-scoping test needs a record NOT already in the affected state (round 4)
+
+- To prove "an unrelated write does not mark X", seed an ORDINARY record that is NOT already
+  marked/pending, trigger only the unrelated write, and assert X's exact rendered state is
+  unchanged. If X is already pending from an earlier step, "count unchanged" proves nothing.
+
+### Claims may state only what the test asserts; sweep the loaded words before the PR (rounds 3-4)
+
+- A test name, comment, requirement, and design line may claim only what the test actually
+  checks. Before each PR, grep the spec and tests for "real", "paired", "folded in", and
+  "exactly once" and confirm each is backed by an assertion; narrow or rename otherwise
+  (round 4: a desktop-only test claimed "paired"; a synthetic refetch claimed "REAL"; a parked
+  test's function name claimed the row "stays visible" when only the systray error was asserted).
+
+### Put the removal check in the PR for every strengthened test (rounds 3-4)
+
+- For each [RC] test, run the real removal check (re-inject the bug, confirm exactly that test
+  goes red, restore) and record the result in the PR description — which wiring was removed and
+  which test failed. A strengthened assertion without a stated removal check is unproven.

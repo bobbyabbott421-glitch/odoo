@@ -40,8 +40,7 @@ their final proof is the acceptance report after spec 08.
 - Spec 03: merged into `kiro/00-setup`.
 - Spec 04: merged into `kiro/00-setup`.
 - Spec 05: merged into `kiro/00-setup`.
-- Spec 06: implemented on `kiro/06-data-coverage`; PR #8 open, NOT yet merged (do not mark
-  merged until the merge actually lands).
+- Spec 06: merged into `kiro/00-setup`.
 - Specs 07–08: not started.
 
 ## Row 9 (acceptance) — not met literally in spec 06; carried forward
@@ -83,3 +82,9 @@ a Step 10 manual check on a real device/PWA:
   edit" / **"Search more"** entry; **Tab** (and Enter) on unmatched free text commits no
   quick-create value; and `partner_autocomplete`'s own company-autocomplete suggestions offer no
   offline create path either.
+- **Reconnect-triggered mounted-chatter refetch** (requirement 10.4): the 8.7/T1b tests drive
+  `CrmChatter.load()` BY HAND to prove the refetch+reconcile logic; the reconnect HANDLER that
+  calls `load()` on its own when the connection returns (the `useOnChange(isOffline)` →
+  `this.load(...)` path) is not exercised end-to-end by a unit test. Confirm manually that, with
+  the lead chatter mounted, reconnecting on a real device refetches the thread once and folds in
+  the replayed server activity without a duplicate or a stale pending row.
