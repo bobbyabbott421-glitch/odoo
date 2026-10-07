@@ -17,9 +17,6 @@
     }
 }
 
-// Pending / needs-retry / done-pending-sync markers are carried in the activity
-// row's rendered summary text (translatable, no mail-template change); this is a
-// light visual cue only.
-.o-mail-Activity.o_crm_offline_pending {
-    opacity: 0.85;
-}
+// Pending / needs-retry / done-pending-sync state is carried entirely in the
+// activity row's rendered summary text (translatable, no mail-template change and
+// no extra class on the row). No separate CSS rule is needed for it.

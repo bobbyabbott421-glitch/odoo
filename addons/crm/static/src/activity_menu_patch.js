@@ -111,6 +111,7 @@ export class CrmActivityScheduleSheet extends Component {
             </div>
             <div class="d-flex justify-content-end gap-2 mt-3">
                 <button class="btn btn-secondary o_crm_offline_schedule_discard"
+                        data-available-offline="1"
                         t-on-click="() => this.props.close()">Discard</button>
                 <button class="btn btn-primary o_crm_offline_schedule_confirm"
                         data-available-offline="1" t-on-click="() => this.onConfirm()">
@@ -167,11 +168,24 @@ patch(Activity.prototype, {
     onClickMarkAsDone(ev) {
         const activity = this.activity();
         const id = activity && activity.id;
-        if (
+        const crmLeadOffline =
             activity &&
             activity.res_model === "crm.lead" &&
             this.crmOffline.isSmall() &&
-            this.crmOffline.isOffline() &&
+            this.crmOffline.isOffline();
+        if (crmLeadOffline && !(typeof id === "number" && id > 0)) {
+            // Offline, small screen, a crm.lead activity WITHOUT a real server id
+            // (a temp/optimistic row created offline, or an id the server has not
+            // assigned yet). It cannot be a mark-done target: action_feedback would
+            // replay against a non-existent id. Return early WITHOUT super — super
+            // opens the mark-done popover, whose confirm calls action_feedback +
+            // fetchNewMessages (server paths) that have no offline fallback. Queue
+            // nothing. (mail renders no Done button for a temp row's can_write=false,
+            // so this guards a direct/programmatic call.)
+            return;
+        }
+        if (
+            crmLeadOffline &&
             typeof id === "number" &&
             id > 0
         ) {

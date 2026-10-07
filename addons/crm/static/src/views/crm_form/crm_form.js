@@ -275,10 +275,13 @@ export class CrmChatter extends Chatter {
         // (crm views declare no activity_type_id field, and the chatter's
         // activities arrive via the mail store, not the relational model). So we
         // prime that EXISTING cache once per session with one unlimited searchRead
-        // over the same domain the schedule wizard uses. Gated on 'has not run this
-        // session' (per plugin instance) rather than 'cache empty', so it fills a
-        // partial cache too. Never offline, never on desktop; one background RPC on
-        // mobile online. ConnectionLostError is swallowed and left unmarked to retry.
+        // over the schedule wizard's base domain ANDed with a meeting-category
+        // exclusion (NOT the wizard domain unchanged — a meeting needs the online
+        // calendar round trip and must be unreachable offline; see
+        // _prefetchActivityTypes). Gated on 'has not run this session' (per plugin
+        // instance) rather than 'cache empty', so it fills a partial cache too.
+        // Never offline, never on desktop; one background RPC on mobile online.
+        // ConnectionLostError is swallowed and left unmarked to retry.
         this._offlinePlugin = usePlugin(OfflinePlugin);
         this._bottomSheet = usePlugin(BottomSheetPlugin);
         this.orm = useService("orm");

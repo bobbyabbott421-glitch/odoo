@@ -3,8 +3,13 @@
 Spec 06 of the CRM offline project. Scope: PART 3 of the brief only — **3a** (leads /
 stages / teams: verify and prove, do not reimplement), **3b** (activities on a lead:
 schedule / log a call / mark done offline), **3c** (contact lookup / the lead's partner
-field), and acceptance **row 9** (an uncached lead opened offline falls through to the
-framework's offline action helper). It does **not** cover PART 4 (the mobile pipeline,
+field), and acceptance **row 9** (reaching an uncached lead offline). Row 9's literal wording
+("shows the offline action helper") is **NOT met** by the framework and is accepted-and-
+documented as **KL-A**: on a reroute to a cached view the user lands on the cached rows (helper
+absent), and when nothing is cached the region is **blank** (no helper, no form, no error). The
+explanation UI for a tapped-uncached lead is **carried forward** to spec 07 (the mobile lead
+card) and asserted by spec 08 (the pipeline/tour). See the row-9 section under 3a and KL-A. It
+does **not** cover PART 4 (the mobile pipeline,
 lead card, and quick-create components — specs 07–08), the browser tour (spec 08), or the
 manifest version bump (spec 08).
 
@@ -234,7 +239,13 @@ corrected here and the corrected citation is authoritative.
   activity has a real server id and is not itself pending, queues
   `scheduleORM("mail.activity", "action_feedback", [[this.id]], {})` directly (no popover, no
   `fetchNewMessages`, no feedback) and updates optimistic state; otherwise it calls `super`
-  (opens the popover as today). All these are `patch()`-points reachable from a crm-side
+  (opens the popover as today). **Temp-id early-return (C1):** when it IS a crm.lead activity
+  and `isSmall() && offline` but the activity has NO real server id (a temp/optimistic row, or
+  an id the server has not assigned), the patch RETURNS EARLY — it does **not** fall through to
+  `super`, because `super` opens the mark-done popover whose confirm runs `action_feedback` +
+  `fetchNewMessages` (server paths with no offline fallback); it queues nothing (a temp id
+  could not be replayed anyway). Only a non-crm.lead activity, or an online/desktop click,
+  falls through to `super`. All these are `patch()`-points reachable from a crm-side
   `patch()`; swapping behaviour there (not at the button) keeps the online/desktop path
   byte-for-byte unchanged.
 - **The optimistic row renders through unchanged mail components.** `thread.activities =
@@ -540,9 +551,9 @@ so the sheet component can use classes styled in `crm_form.scss`. `CrmChatter` (
 |---|---|---|
 | `CrmChatter` | `crm_form.js:202` (guarded `load` `:245`) | Hosts the queue-derived optimistic-row logic and pending/errored markers, the `data-available-offline` set+remove wiring on the two mail buttons, and the guarded reconnect refetch; already owns the guarded `load` and the thread. (The schedule-sheet component itself lives in `activity_menu_patch.js`.) |
 | `CrmFormRenderer` | `crm_form.js:276` | Unchanged job: swaps in `CrmChatter` as today. The optimistic-row and schedule/mark-done behaviour does **not** live here |
-| Schedule-sheet component (inline `xml\`...\``) | defined/exported in `activity_menu_patch.js` | The OWL bottom-sheet component: a type `<select>` (populated from the `activityTypes` prop passed in by `CrmChatter.scheduleActivity()` — the sheet does NOT read the cache itself), a summary text input, and a local-date deadline input, plus Discard / Schedule buttons. It has NO assignee control; `user_id` is set implicitly to the current user when the submit callback builds the queued call. Styled via classes in `crm_form.scss`. Opened by `CrmChatter.scheduleActivity()` |
+| Schedule-sheet component (inline `xml\`...\``) | defined/exported in `activity_menu_patch.js` | The OWL bottom-sheet component: a type `<select>` (populated from the `activityTypes` prop passed in by `CrmChatter.scheduleActivity()` — the sheet does NOT read the cache itself), a summary text input, and a local-date deadline input, plus Discard / Schedule buttons. BOTH buttons carry `data-available-offline` (C2) — they are bare `<button>`s rendered while offline, so without the attribute the framework's offline selector pass would disable them; the sheet opens only offline, so Discard must stay clickable. It has NO assignee control; `user_id` is set implicitly to the current user when the submit callback builds the queued call. Styled via classes in `crm_form.scss`. Opened by `CrmChatter.scheduleActivity()` |
 | `CrmChatter.scheduleActivity()` override | `crm_form.js` (component method; mail calls it at `chatter_patch.js:507`) | Swaps the `mail.activity.schedule` wizard for the inline-xml bottom sheet (`usePlugin(BottomSheetPlugin)`) + `scheduleORM` when `isSmall() && offline` for a crm lead; else `super.scheduleActivity()`. Uses the plugin API (no legacy service bridge, no global store patch). Reached from mail's `.o-mail-Chatter-activity` button (`chatter.xml:25`), re-enabled offline via option (A) by `CrmChatter`'s own wiring. The schedule-sheet component it opens is defined/exported in `activity_menu_patch.js` |
-| `patch(Activity.prototype /* component */, { onClickMarkAsDone })` | `activity.js:145`; hosted in `activity_menu_patch.js` | **Bypasses the popover:** when `isSmall() && offline` and the activity has a real server id and is not pending, queues `action_feedback` directly (no popover, no `fetchNewMessages`); else `super` (opens the popover). Reached from `.o-mail-Activity-markDone` (`activity.xml:66`), re-enabled offline via option (A) by `CrmChatter`'s wiring in `crm_form.js`. `markAsDone` is not patched |
+| `patch(Activity.prototype /* component */, { onClickMarkAsDone })` | `activity.js:145`; hosted in `activity_menu_patch.js` | **Bypasses the popover:** when `isSmall() && offline` and the activity has a real server id and is not pending, queues `action_feedback` directly (no popover, no `fetchNewMessages`); when it is a crm.lead activity offline/small with NO server id it RETURNS EARLY without `super` (C1 — a temp id can't be a mark-done target and `super`'s popover is a server path); else `super` (opens the popover). Reached from `.o-mail-Activity-markDone` (`activity.xml:66`), re-enabled offline via option (A) by `CrmChatter`'s wiring in `crm_form.js`. `markAsDone` is not patched |
 | `mail.activity` (`_inherit`) | `addons/crm/models/mail_activity.py` | Python side of the activity extension (already `_inherit`, already imported) |
 
 ### Why the chatter, not the renderer, hosts the offline-activity logic
@@ -970,15 +981,26 @@ applicable to `crm.lead` and feed them to the existing cache via
 already holds some types** — this is what fixes the partial-cache hole (a user who used the
 ~7-result dropdown once still gets the full list).
 
-- **The read** uses the SAME domain the schedule wizard uses
-  (`mail_activity_schedule.py:78`): `['|', ('res_model', '=', false), ('res_model', '=',
-  'crm.lead')]`, fields `['id', 'display_name']` — an unlimited `searchRead` /
-  `web_search_read` via the orm, returning the FULL list of types matching the domain (NOT
-  the ~7-result autocomplete page, so the cache ends up complete).
+- **The read** takes the schedule wizard's base domain (`mail_activity_schedule.py:78`,
+  `['|', ('res_model', '=', false), ('res_model', '=', 'crm.lead')]`) and ANDs a
+  meeting-category exclusion onto it — the FULL domain is
+  `['&', '|', ('res_model', '=', false), ('res_model', '=', 'crm.lead'), ('category', '!=', 'meeting')]`
+  — because a meeting activity needs the online calendar round trip and must be unreachable
+  offline (Requirement 11.1). It reads fields `['id', 'display_name', 'category']` (category is
+  read so the non-meeting allow-list is derived from the authoritative server value), as an
+  unlimited `searchRead` / `web_search_read` via the orm, returning the FULL schedulable list
+  matching the domain (NOT the ~7-result autocomplete page, so the cache ends up complete).
+  So the prefetch does NOT use the wizard domain unchanged; the cached schedulable set is the
+  wizard's set MINUS meeting-category types. The exact domain and fields are asserted by the
+  P2 test.
+- **The allow-list** of non-meeting ids returned by the read is recorded in a session-scoped
+  `WeakMap` keyed by the `OfflinePlugin` instance (`_schedulableTypeIds`); the schedulable set
+  offered anywhere is the shared many2x cache INTERSECTED with this allow-list (see KL-C).
 - **The write** is `offlinePlugin.cacheMany2XSearch("mail.activity.type", result)`, where
   `cacheMany2XSearch(resModel, result)` expects `result` as `[{ id, display_name }, ...]`
-  (`offline_plugin.js:296`). So the orm read's `['id','display_name']` rows are handed through
-  unchanged.
+  (`offline_plugin.js:296`). The cache stores only `{id, display_name}`, so `category` is
+  STRIPPED from each row before caching (it survives only in the in-memory allow-list, not the
+  cache).
 
 **Constraints.**
 
@@ -1783,9 +1805,12 @@ connectivity states where a predicate depends on connectivity.
   test cannot mount it. Mount the crm lead **form view** with `partner_id` rendered by the
   **generic** many2one widget (NO `widget` attribute) and `res.partner` **defined in the
   mock**. **Offline**, type an unmatched name and assert **no**
-  `.o_m2o_dropdown_option_create` / `.o_m2o_dropdown_option_create_edit` /
-  `.o_m2o_dropdown_option_search_more` entry appears, and that pressing **Enter / Tab**
-  commits nothing (no `{ id: false, display_name }`; the field value stays unchanged / empty).
+  `.o_m2o_dropdown_option_create` / `.o_m2o_dropdown_option_create_edit` entry appears, and
+  that pressing **Enter / Tab** commits nothing (no `{ id: false, display_name }`; the field
+  value stays unchanged / empty). ("Search more" is NOT asserted absent: it never appears for
+  an UNMATCHED name even online — it needs matches beyond the dropdown limit — so an
+  offline-absence check would be vacuous. The meaningful proof is the Create / Create-and-edit
+  pair, which DO appear online for the same input and are absent offline.)
   **Online**, the same input offers Create / Create and edit. State plainly in the test
   comment that these tests **PROVE THE FRAMEWORK'S behaviour** (the create / create-edit /
   search-more suggestions are built online-only, `relational_utils.js:450`; the `quickCreate`

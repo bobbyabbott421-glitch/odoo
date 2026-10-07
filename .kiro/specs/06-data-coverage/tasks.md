@@ -81,10 +81,12 @@ The manifest `version` stays `1.9` here (the bump is spec 08).
     - Mount the crm lead form view with `partner_id` rendered by the GENERIC many2one widget
       (NO `widget` attribute) and `res.partner` DEFINED in the mock. OFFLINE: type an
       unmatched name and assert NO `.o_m2o_dropdown_option_create` /
-      `.o_m2o_dropdown_option_create_edit` / `.o_m2o_dropdown_option_search_more` entry
-      appears, AND pressing Enter/Tab commits nothing (no `{ id: false, display_name }`; the
-      field value stays unchanged / empty). ONLINE: the same input offers Create / Create and
-      edit. Pair desktop and mobile presets and assert both connectivity states.
+      `.o_m2o_dropdown_option_create_edit` entry appears, AND pressing Enter/Tab commits
+      nothing (no `{ id: false, display_name }`; the field value stays unchanged / empty).
+      ("Search more" is NOT asserted absent — it never appears for an unmatched name even
+      online, so an offline-absence check would be vacuous; the Create / Create-and-edit pair
+      is the meaningful online-vs-offline proof.) ONLINE: the same input offers Create / Create
+      and edit. Pair desktop and mobile presets and assert both connectivity states.
     - State PLAINLY in the test comment: these tests PROVE THE FRAMEWORK'S behaviour (action
       suggestions built online-only, `relational_utils.js:450`; the `quickCreate` commit
       reachable only from one of those, `:515`; Enter/Tab commits nothing,
@@ -115,7 +117,10 @@ The manifest `version` stays `1.9` here (the bump is spec 08).
       falls through to `super.scheduleActivity()` (the normal `mail.activity.schedule` wizard).
       Uses the plugin API (`useCrmOffline` / `usePlugin`), NO legacy `env.services.offline`
       bridge, NO global `Store.prototype` patch. The schedule-sheet OWL component is defined and
-      EXPORTED in `activity_menu_patch.js` and imported by `crm_form.js`.
+      EXPORTED in `activity_menu_patch.js` and imported by `crm_form.js`. BOTH sheet buttons
+      (Schedule AND Discard) carry `data-available-offline` (C2) — they are bare `<button>`s
+      rendered while offline, so without the attribute the framework's offline selector pass
+      would disable them; the sheet opens only offline, so Discard must stay clickable.
     - The ACTIVITY TYPES are resolved by `CrmChatter.scheduleActivity()` (NOT by the sheet) via
       `_schedulableTypes()` — the shared `many2x_mail.activity.type` cache intersected with the
       prefetch's non-meeting allow-list (`_schedulableTypeIds`, keyed per OfflinePlugin) — and
@@ -183,12 +188,19 @@ The manifest `version` stays `1.9` here (the bump is spec 08).
   - [x] 4.8 Implement the activity-type cache prefetch in `CrmChatter` (`crm_form.js`)
     - On mount, WHEN `online && isSmall() && the lead has a server id` AND the prefetch has NOT
       yet run this page session for this `OfflinePlugin` instance: issue ONE unlimited `orm`
-      `searchRead` of `mail.activity.type` with domain
-      `['|', ('res_model', '=', false), ('res_model', '=', 'crm.lead')]` and fields
-      `['id', 'display_name']` (the full applicable list, NOT the ~7-result autocomplete),
-      then pass the result to `offlinePlugin.cacheMany2XSearch("mail.activity.type", result)`
-      — feed the EXISTING framework many2x cache; add no new cache. Run it even when the cache
-      already holds some types (fixing the partial-cache hole).
+      `searchRead` of `mail.activity.type` with the FULL domain
+      `['&', '|', ('res_model', '=', false), ('res_model', '=', 'crm.lead'), ('category', '!=', 'meeting')]`
+      (the wizard's base domain ANDed with a meeting-category exclusion — a meeting needs the
+      online calendar round trip, Requirement 11.1) and fields
+      `['id', 'display_name', 'category']` (the full applicable list, NOT the ~7-result
+      autocomplete; `category` is read so the non-meeting allow-list is derived from the
+      authoritative server value). Record the resulting non-meeting ids as the per-plugin
+      schedulable allow-list (`_schedulableTypeIds`, a session-scoped `WeakMap` — see KL-C),
+      then pass `{id, display_name}` (category STRIPPED, since the cache stores only
+      id+display_name) to `offlinePlugin.cacheMany2XSearch("mail.activity.type", result)` —
+      feed the EXISTING framework many2x cache; add no new cache. Run it even when the cache
+      already holds some types (fixing the partial-cache hole). The exact domain and fields are
+      asserted by the P2 test.
     - Track "has run" with a module-scoped `WeakSet` keyed by the `OfflinePlugin` instance
       (obtained via `useCrmOffline()` / `usePlugin(OfflinePlugin)`), NOT a module-level flag (a
       module-level flag leaks between Hoot tests). A SUCCESSFUL prefetch adds the plugin
@@ -223,7 +235,10 @@ The manifest `version` stays `1.9` here (the bump is spec 08).
       `scheduleORM("mail.activity", "action_feedback", [[activityId]], {})` directly — no
       popover, no `fetchNewMessages`, no feedback; otherwise `super` (opens the popover as
       today).
-    - Guard: an activity without a server id (temp negative id) queues nothing.
+    - Guard (C1): for a crm.lead activity offline on a small screen WITHOUT a real server id
+      (temp negative id), RETURN EARLY — queue nothing AND do NOT fall through to `super`
+      (super opens the popover, whose confirm runs action_feedback + fetchNewMessages, server
+      paths with no offline fallback). Only non-crm.lead or online/desktop clicks reach super.
     - _Requirements: 5.2, 5.3, 6.1, 6.3, 12.3, 12.4; Property 1, Property 4_
   - [x] 6.2 Implement the `data-available-offline` set/remove wiring for the Done button in `crm_form.js`
     - In `CrmChatter` `onMounted`/`onPatched`, set `data-available-offline` on
