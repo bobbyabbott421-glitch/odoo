@@ -1080,6 +1080,39 @@ class CrmLead(models.Model):
             leads.write({'stage_id': won_stage_id.id, 'probability': 100})
         return True
 
+    def action_log_call(self, activity_type_id, summary, note, user_id):
+        """ Log a past call on the lead: create the activity and mark it
+        done in the same server call (architecture.md §3.3 "Log a call"),
+        so the whole thing is a single scheduleORM entry the offline queue
+        can replay verbatim -- the queue never chains two calls together
+        or remaps an id from one call into the next (architecture.md §2).
+        No sudo: `mail.activity.create()` still enforces the caller's
+        access to this lead, so an offline user is held to the same
+        rights as online. `note` becomes the done-feedback, matching what
+        logging a call online leaves in the chatter: one done note, no
+        activity left open.
+
+        VAL-DATA-020: "Log a call" means a *call*, not whatever activity
+        type a stale client sends -- the queue replays this verbatim with
+        no second chance to fix it (architecture.md §2), so the server
+        side enforces the invariant the UI is supposed to guarantee
+        instead of trusting it. Reading the type's category needs no
+        extra access: `mail.activity.type` is readable by every internal
+        user, the same group that can log a call at all. """
+        self.ensure_one()
+        activity_type = self.env['mail.activity.type'].browse(activity_type_id)
+        if activity_type.category != 'phonecall':
+            raise UserError(_("Logging a call requires a Call activity type."))
+        activity = self.env['mail.activity'].create({
+            'res_model_id': self.env['ir.model']._get_id('crm.lead'),
+            'res_id': self.id,
+            'activity_type_id': activity_type_id,
+            'summary': summary,
+            'user_id': user_id,
+            'date_deadline': fields.Date.context_today(self),
+        })
+        return activity.action_feedback(feedback=note)
+
     def action_set_automated_probability(self):
         """ Update the automated probability and align probability to that value """
         self.ensure_one()

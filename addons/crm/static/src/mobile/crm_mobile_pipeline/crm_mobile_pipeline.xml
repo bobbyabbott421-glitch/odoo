@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <!-- VAL-MOBILE-003: name, lead count, revenue sum, prev/next. The
+         whole header stays visible while the stage's cards scroll
+         underneath it (position-sticky, like the native per-column
+         header it replaces; crm_kanban_renderer.xml hides that one for
+         the active group so the two don't double up). Both buttons carry
+         `data-available-offline`: stepping between already-fetched
+         group metadata (name/count/revenue, see crm_mobile_pipeline.js)
+         never needs a round trip, online or offline. -->
+    <t t-name="crm.CrmMobilePipeline">
+        <div class="o_crm_mobile_pipeline_header position-sticky top-0 z-2 d-flex align-items-center gap-2 px-2 py-2 bg-view border-bottom">
+            <button type="button"
+                class="o_crm_mobile_pipeline_prev btn btn-light p-2"
+                data-available-offline=""
+                t-att-disabled="!this.props.hasPrev"
+                t-on-click="() => this.props.onPrev()"
+            >
+                <i class="oi" data-icon="arrow_left" role="img" aria-label="Previous stage" title="Previous stage"/>
+            </button>
+            <div class="o_crm_mobile_pipeline_info flex-grow-1 min-w-0 text-center">
+                <div class="o_crm_mobile_pipeline_title fw-bold text-truncate" t-out="this.props.group.displayName"/>
+                <div class="o_crm_mobile_pipeline_meta d-flex align-items-center justify-content-center gap-2 small text-muted">
+                    <span class="o_crm_mobile_pipeline_count" t-out="this.props.group.count"/>
+                    <t t-if="this.groupAggregate">
+                        <AnimatedNumber
+                            value="this.groupAggregate.value"
+                            title="this.groupAggregate.title"
+                            duration="0"
+                            currencies="this.groupAggregate.currencies"
+                        />
+                    </t>
+                    <!-- VAL-MOBILE-002/010: this stage's own queued,
+                         unsynced lead creates (see crm_mobile_pipeline.js's
+                         pendingCreateCount), read through the shared
+                         hooks module, hidden when 0, same as the
+                         revenue total above. -->
+                    <span t-if="this.pendingCreateCount"
+                        class="o_crm_mobile_pipeline_pending_count badge text-bg-warning"
+                        t-out="this.pendingCreateCount + ' pending'"
+                    />
+                </div>
+            </div>
+            <button type="button"
+                class="o_crm_mobile_pipeline_next btn btn-light p-2"
+                data-available-offline=""
+                t-att-disabled="!this.props.hasNext"
+                t-on-click="() => this.props.onNext()"
+            >
+                <i class="oi" data-icon="arrow_right" role="img" aria-label="Next stage" title="Next stage"/>
+            </button>
+            <!-- VAL-MOBILE-009: the mobile pipeline's quick-create control.
+                 A plain button without `data-available-offline` would be
+                 disabled offline by the framework's own
+                 `SELECTORS_TO_DISABLE` (AGENTS.md §2 "Offline-availability
+                 attribute"), tagged here because the sheet it opens must
+                 stay reachable offline (VAL-MOBILE-010). -->
+            <button type="button"
+                class="o_crm_mobile_pipeline_add btn btn-primary p-2"
+                data-available-offline=""
+                t-on-click="(ev) => this.props.onQuickCreate(ev)"
+            >
+                <i class="oi" data-icon="add" role="img" aria-label="New Lead" title="New Lead"/>
+            </button>
+        </div>
+    </t>
+
+</templates>
