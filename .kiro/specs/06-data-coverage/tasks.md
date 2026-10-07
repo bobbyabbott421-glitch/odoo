@@ -75,7 +75,7 @@ The manifest `version` stays `1.9` here (the bump is spec 08).
   - _Requirements: 15.1, 15.2_
 
 - [x] 2. 3c — Offline partner-field: verify-and-prove the framework forbids create (NO CRM code)
-  - [x] 2.1 Write the 3c partner-create-forbidden + lookup JS tests (paired desktop/mobile) in `crm_offline.test.js`
+  - [x] 2.1 Write the 3c partner-create-forbidden + lookup JS tests (DESKTOP-ONLY — see note) in `crm_offline.test.js`
     - 3c adds NO CRM runtime code — the create path is already closed by the framework
       offline. This task writes verify-and-prove tests only; there is nothing to implement.
     - Mount the crm lead form view with `partner_id` rendered by the GENERIC many2one widget
@@ -86,7 +86,11 @@ The manifest `version` stays `1.9` here (the bump is spec 08).
       ("Search more" is NOT asserted absent — it never appears for an unmatched name even
       online, so an offline-absence check would be vacuous; the Create / Create-and-edit pair
       is the meaningful online-vs-offline proof.) ONLINE: the same input offers Create / Create
-      and edit. Pair desktop and mobile presets and assert both connectivity states.
+      and edit. These 3c tests are **DESKTOP-ONLY** (both connectivity states asserted on the
+      desktop preset, via `mockOffline`): on a small screen the generic many2one renders its
+      options through `web.KanbanMany2One`, which needs a `res.partner` `card` template a
+      minimal unit mock lacks. The real `res_partner_many2one` widget and the mobile rendering
+      are confirmed in the Step 10 manual check, not here.
     - State PLAINLY in the test comment: these tests PROVE THE FRAMEWORK'S behaviour (action
       suggestions built online-only, `relational_utils.js:450`; the `quickCreate` commit
       reachable only from one of those, `:515`; Enter/Tab commits nothing,

@@ -645,8 +645,12 @@ needed ones usable offline:
   (`usePlugin(BottomSheetPlugin).add(...)`, opened programmatically — it needs no DOM anchor in
   mail's template) and queue via `scheduleORM` (plugin API, no legacy service bridge). When any
   gate condition is false (desktop, online, no server id, or no cached types), **do not** set
-  the attribute, so the framework leaves the button disabled, and the override falls through to
-  `super.scheduleActivity()`. The queued entry carries systray `extras` (`actionName`,
+  the attribute, so the framework leaves the button disabled. If the override is nevertheless
+  invoked (a direct/programmatic call), it falls through to `super.scheduleActivity()` ONLY
+  when online/desktop; OFFLINE with no server id OR no schedulable cached types it **returns
+  without calling `super`** (a safe no-op — `super` would reach the server-only wizard, which
+  has no offline fallback), queueing nothing. The queued entry carries systray `extras`
+  (`actionName`,
   `displayName` = lead + summary) so the offline systray shows a named row, not a bare badge.
   *(This replaces the earlier global `Store.prototype` patch — the override is confined to the
   crm lead chatter and uses the plugin API.)*

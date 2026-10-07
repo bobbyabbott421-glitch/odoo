@@ -610,8 +610,12 @@ export class CrmChatter extends Chatter {
      * for THIS crm lead, open the inline bottom-sheet and QUEUE one verbatim
      * activity_schedule call instead — confined to the crm lead form, using the
      * plugin API (useCrmOffline + the BottomSheetPlugin), with no legacy service
-     * bridge and no global store patch. Online / desktop / no cached types fall
-     * through to super (the normal wizard path).
+     * bridge and no global store patch. Online / desktop fall through to super (the
+     * normal wizard path). Offline with no server id, or offline with no schedulable
+     * cached types, this RETURNS without calling super (a safe no-op) — super would
+     * reach the server-only wizard, which has no offline fallback; the Activity
+     * button is already framework-disabled in those states, so this guards a
+     * direct/programmatic call.
      */
     async scheduleActivity() {
         const smallOffline = this.crmOffline.isSmall() && this.crmOffline.isOffline();

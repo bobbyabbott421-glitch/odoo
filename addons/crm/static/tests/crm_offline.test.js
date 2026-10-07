@@ -4167,7 +4167,10 @@ const spec06PartnerFormArch = `
 
 // AC-13.1 / AC-13.2 / AC-13.4: online the create affordances ARE offered; offline
 // (via mockOffline, so the name search genuinely fails) typing an unmatched name
-// offers no Create / Create and edit / Search more entry and Enter commits no value.
+// offers no Create / Create and edit entry and Enter/Tab commits no value. ("Search
+// more" is NOT asserted absent — it never appears for an unmatched name even online,
+// so an offline-absence check would be vacuous; the Create / Create-and-edit pair is
+// the meaningful online-vs-offline proof.)
 async function test3cNoOfflineCreate() {
     const setOffline = mockOffline();
     // Capture the form controller so we can assert the COMMITTED record value
@@ -4848,6 +4851,63 @@ async function testOptimisticRowRemovalCheck() {
 test.tags("mobile");
 test("8.5 removal check: no rebuild => no optimistic row (mobile)", testOptimisticRowRemovalCheck);
 
+// 8.5b (mobile): an UNRELATED queued lead web_save must NOT mark the lead's own
+// server activity pending. Seed a plain SERVER activity (no schedule queued), queue
+// ONLY a lead web_save, and assert the activity's rendered summary is EXACTLY its
+// original (no "(pending sync)"), its can_write is still true, and its Done button
+// still renders. The pending marker is derived from the activity's OWN action_feedback
+// queue entry (Requirement 8.5), never from a lead write.
+async function testUnrelatedLeadWriteDoesNotMarkActivity() {
+    const pyEnv = await startServer();
+    const leadId = pyEnv["crm.lead"].create({ name: "Scope Lead", type: "opportunity" });
+    const ORIGINAL_SUMMARY = "Keep me unmarked";
+    const activityId = pyEnv["mail.activity"].create({
+        res_model: "crm.lead",
+        res_id: leadId,
+        activity_type_id: 2,
+        summary: ORIGINAL_SUMMARY,
+        can_write: true,
+    });
+    pyEnv["crm.lead"].write([leadId], { activity_ids: [activityId] });
+    let chatter;
+    patchWithCleanup(CrmChatter.prototype, {
+        setup() {
+            super.setup(...arguments);
+            chatter = this;
+        },
+    });
+    const setOfflineReal = mockOffline();
+    await start();
+    await openFormView("crm.lead", leadId, { arch: spec05ChatterArch });
+    await animationFrame();
+    await runAllTimers();
+    await mc(".o-mail-Activity-markDone");
+    await setOfflineReal(true);
+    await animationFrame();
+
+    const storeAct = () => chatter.store["mail.activity"].get(activityId);
+    // Baseline: the activity is undecorated and writable, Done button rendered.
+    expect(storeAct().summary).toBe(ORIGINAL_SUMMARY);
+    expect(storeAct().can_write).toBe(true);
+    await mc(".o-mail-Activity-markDone[data-available-offline]");
+
+    // Queue ONLY an unrelated lead web_save (no action_feedback for this activity).
+    scheduleWrite("crm.lead", [leadId], { timeStamp: 5 });
+    await animationFrame();
+    chatter._syncOptimisticActivities();
+    await animationFrame();
+
+    // The activity is UNCHANGED: exact original summary (no marker), can_write still
+    // true, Done button still rendered — a lead write never marks it pending.
+    expect(storeAct().summary).toBe(ORIGINAL_SUMMARY);
+    expect(storeAct().can_write).toBe(true);
+    expect(queryAllTexts(".o-mail-Activity").join(" ")).not.toInclude("pending sync");
+    expect(".o-mail-Activity-markDone").toHaveCount(1);
+    await setOfflineReal(false);
+}
+test.tags("mobile");
+test("8.5b: an unrelated lead write does not mark the activity pending (mobile)", testUnrelatedLeadWriteDoesNotMarkActivity);
+
 // 8.8 desktop: desktop offline leaves the Activity + Done buttons framework-
 // disabled (CrmChatter sets no data-available-offline on desktop).
 async function testDesktopStillDisabled() {
@@ -4860,16 +4920,28 @@ async function testDesktopStillDisabled() {
     await runAllTimers();
     await setOfflineReal(true);
     await animationFrame();
+    // Both controls EXIST (count 1) and are FRAMEWORK-DISABLED offline on desktop:
+    // no data-available-offline, plus the framework's disabled attribute and
+    // o_disabled_offline class from its offline selector pass.
     expect(".o-mail-Chatter-activity").toHaveCount(1);
     expect(".o-mail-Chatter-activity[data-available-offline]").toHaveCount(0);
+    expect(".o-mail-Chatter-activity").toHaveClass("o_disabled_offline");
+    expect(".o-mail-Chatter-activity[disabled]").toHaveCount(1);
+    expect(".o-mail-Activity-markDone").toHaveCount(1);
     expect(".o-mail-Activity-markDone[data-available-offline]").toHaveCount(0);
+    expect(".o-mail-Activity-markDone").toHaveClass("o_disabled_offline");
+    expect(".o-mail-Activity-markDone[disabled]").toHaveCount(1);
     await setOfflineReal(false);
 }
 test.tags("desktop");
 test("8.8: desktop offline keeps activity controls framework-disabled", testDesktopStillDisabled);
 
-// 8.9 online (both presets): mark-done opens the popover (super path) and nothing
-// is queued — the offline branch is taken only when isSmall() && offline.
+// 8.9 online (both presets): clicking Done REACHES SUPER — the mark-done popover
+// opens — and nothing is queued (the offline branch is taken only when isSmall()
+// && offline). This asserts only that the CRM patch does not steal the online
+// path; the popover's own Done -> action_feedback + fetchNewMessages is unchanged
+// mail behaviour, covered by mail's own suite (Requirement 12.3), not re-asserted
+// here.
 async function testOnlineUnchanged() {
     const pyEnv = await startServer();
     const [leadId] = seedLeadWithActivity(pyEnv);
@@ -4965,7 +5037,15 @@ async function openAndScheduleOffline(pyEnv, leadId, setOfflineReal) {
 // NOT that the systray is a durable surface. Requirement 9.3's online in-memory
 // persistence guarantee is not upheld for this case; KL-B is on the Step 10
 // manual-check list. (See design KL-B.)
-async function testParkedActivityRowStaysVisible() {
+//
+// SCOPE OF THIS TEST: it proves the entry PARKS (extras.error carries the server's
+// text, server called exactly once) and the systray surfaces that error without
+// crashing. It does NOT assert that the rendered activity row stays visible with
+// the needs-retry text after reconnect (that in-memory row is only transiently
+// observable here — KL-B). The needs-retry ROW TEXT is asserted by FIX4
+// (testParkInPlaceRefreshesMarker), which parks the entry in place and checks the
+// row shows "needs retry".
+async function testRejectedActivityParksAndSystrayShowsError() {
     const pyEnv = await startServer();
     const leadId = pyEnv["crm.lead"].create({ name: "Parked Lead", type: "opportunity" });
     defineLeadFormAction(leadId);
@@ -5018,7 +5098,7 @@ async function testParkedActivityRowStaysVisible() {
     expect(`.o_notification_bar.bg-danger`).toHaveCount(0);
 }
 test.tags("mobile");
-test("8.6: a rejected activity replay parks and the systray shows its error (mobile)", testParkedActivityRowStaysVisible);
+test("8.6: a rejected activity replay parks and the systray shows its error (mobile)", testRejectedActivityParksAndSystrayShowsError);
 
 // 8.7 mobile: on a SUCCESSFUL reconnect the queued activity_schedule replays, the
 // server receives it, the queue drains, and the optimistic row's pending marker
@@ -5076,20 +5156,32 @@ async function testReconcileOnReconnect() {
     expect(queryAllTexts(".o-mail-Activity").join(" ")).not.toInclude("pending sync");
 
     // The replay actually created the activity on the SERVER with the queued
-    // summary and type — asserted on the authoritative mock SERVER state (reliable),
-    // a REAL positive server id (mock stores the many2one as the raw id). This is
-    // the "server row folded in" guarantee at its reliable source; the live
-    // in-memory fold-in into the already-mounted chatter is best-effort (KL-B) and
-    // is not asserted here to avoid a harness-timing flake.
+    // summary and type (authoritative mock SERVER state), a REAL positive server id.
     expect(typeof serverActivityId).toBe("number");
     expect(serverActivityId).toBeGreaterThan(0);
     const [serverRow] = MockServer.env["mail.activity"].browse(serverActivityId);
     expect(serverRow.summary).toBe("Scheduled");
     expect(serverRow.activity_type_id).toBe(2);
-    // The server row exists (browse returns it) and no optimistic temp row survived
-    // the drain.
-    expect(MockServer.env["mail.activity"].browse(serverActivityId).length).toBe(1);
+
+    // Fold-in into the RENDERED thread (Requirement 10.2): drive the chatter's REAL
+    // guarded refetch now that the connection is back — CrmChatter.load ->
+    // super.load -> the mock server's own thread-data fetch (fetchThreadData is NOT
+    // stubbed). The server activity the replay created must then render in the
+    // chatter EXACTLY ONCE (positive id), carrying the queued summary, with no
+    // optimistic temp row surviving.
+    chatter._loadSkipped = false;
+    await chatter.load(chatter.state.thread, chatter.initialRequestList);
+    await runAllTimers();
+    await animationFrame();
+    const renderedServerRows = chatter.state.thread.activities.filter(
+        (a) => a.id === serverActivityId
+    );
+    expect(renderedServerRows.length).toBe(1);
+    expect(renderedServerRows[0].id).toBeGreaterThan(0);
     expect(chatter.state.thread.activities.filter((a) => a.id < 0).length).toBe(0);
+    // The rendered DOM shows the server activity's summary and no pending marker.
+    expect(queryAllTexts(".o-mail-Activity").join(" ")).toInclude("Scheduled");
+    expect(queryAllTexts(".o-mail-Activity").join(" ")).not.toInclude("pending sync");
 }
 test.tags("mobile");
 test("8.7: reconnect replays the queued schedule and reconciles the row (mobile)", testReconcileOnReconnect);
@@ -5884,37 +5976,28 @@ async function testRefetchRedecoratesAndRebuilds() {
     const tempBefore = chatter.state.thread.activities.filter((a) => a.id < 0);
     expect(tempBefore.length).toBe(1);
 
-    // Drive the REAL guarded refetch: CrmChatter.load() runs super.load() (the
-    // thread-data fetch) and THEN re-runs the queue-derived reconciliation. Patch
-    // fetchThreadData to deliver what a server refetch delivers — the server
-    // activity in its FRESH, undecorated shape, and no temp rows — so the only
-    // thing that can re-apply the marker + rebuild the temp row is load()'s own
-    // post-super reconciliation (the production wiring under test). The queue is
-    // left intact (we do NOT advance the replay timers), so the mark-done and
-    // schedule entries are STILL queued when load() reconciles.
+    // Drive the REAL guarded refetch: CrmChatter.load() runs super.load(), which
+    // calls the mock server's OWN thread-data fetch (fetchThreadData is NOT stubbed)
+    // — so thread.activities is genuinely REPLACED by the server's rows (the
+    // undecorated server activity; no temp rows, which are not server data). Then
+    // load()'s post-super reconciliation (the production wiring under test) re-
+    // applies the mark-done marker to the refetched server row and rebuilds the
+    // schedule temp row from the still-queued entry.
+    //
+    // We DO stub the framework replay (_syncORM) to a no-op: going online would
+    // otherwise drain the queue, and the mark-done + schedule entries must STILL be
+    // queued when load() reconciles (that is the exact condition under test).
+    // _syncORM is framework replay, NOT the code under test (that is load()'s own
+    // post-super reconciliation), so stubbing it isolates the refetch path without
+    // bypassing it.
     const thread = chatter.state.thread;
     let fetchCalls = 0;
     patchWithCleanup(Thread.prototype, {
         async fetchThreadData() {
             fetchCalls++;
-            // Fresh server shape: the mark-done's server activity comes back
-            // undecorated and writable; temp (optimistic) rows are not server data.
-            const srv = storeAct();
-            srv.summary = ORIGINAL_SUMMARY;
-            srv.can_write = true;
-            for (const act of [...thread.activities]) {
-                if (act.id < 0) {
-                    act.remove && act.remove({ broadcast: false });
-                }
-            }
-            return true;
+            return super.fetchThreadData(...arguments); // REAL mock-server fetch
         },
     });
-    // Isolate the REFETCH wiring under test from the queue REPLAY: stub the
-    // framework replay (_syncORM) to a no-op so going online does not drain the
-    // queue. _syncORM is NOT the wiring under test (that is load()'s own post-super
-    // reconciliation); this keeps the mark-done + schedule entries STILL queued
-    // while load() reconciles, which is the exact condition the test needs.
     patchWithCleanup(OfflinePlugin.prototype, {
         async _syncORM() {},
     });
@@ -5925,13 +6008,15 @@ async function testRefetchRedecoratesAndRebuilds() {
     await setOfflineReal(false);
     chatter._loadSkipped = false;
     await chatter.load(thread, chatter.initialRequestList);
+    await runAllTimers();
     await animationFrame();
 
-    // super.load()'s fetch actually ran (the real refetch path, not a hand-rolled
-    // mutation).
+    // super.load()'s REAL fetch actually ran and replaced thread.activities with
+    // the server's rows: the mark-done's server activity (positive id) is present.
     expect(fetchCalls).toBeGreaterThan(0);
+    expect(thread.activities.some((a) => a.id === activityId)).toBe(true);
     // The still-queued mark-done was re-decorated by load()'s post-super
-    // reconciliation — exactly ONE marker on the fresh server row.
+    // reconciliation — exactly ONE marker on the refetched server row.
     expect(markDoneQueuedFor(activityId).length).toBe(1);
     expect(storeAct().summary).toBe(ORIGINAL_SUMMARY + " " + "(done, pending sync)");
     expect(storeAct().can_write).toBe(false);
@@ -5944,11 +6029,12 @@ async function testRefetchRedecoratesAndRebuilds() {
 test.tags("mobile");
 test("T1b: a refetch re-decorates the queued mark-done and rebuilds temp rows without duplicates (mobile)", testRefetchRedecoratesAndRebuilds);
 
-// T4 (mobile): _queueSignature is scoped to THIS lead. An action_feedback queued
-// for an activity that belongs to ANOTHER lead (or to another model) must NOT
-// appear in this chatter's signature (so it never churns this chatter's
-// reconcile), while one for THIS lead's own activity MUST. Covers both the
-// matching and the non-matching branch of feedbackTargetsThisLead().
+// T4 (mobile): _queueSignature is scoped to THIS lead, and that scoping is what
+// drives the production reconcile. An action_feedback queued for an activity that
+// belongs to ANOTHER lead (or another model) must NOT re-run this chatter's
+// _syncOptimisticActivities (no churn), while one for THIS lead's own activity
+// MUST. We SPY _syncOptimisticActivities as invoked by the production useOnChange
+// (keyed on _queueSignature) — we do NOT call it by hand — and count the runs.
 async function testQueueSignatureScopedToLead() {
     const pyEnv = await startServer();
     const leadId = pyEnv["crm.lead"].create({ name: "Sig Lead A", type: "opportunity" });
@@ -5978,11 +6064,18 @@ async function testQueueSignatureScopedToLead() {
         summary: "Partner",
         can_write: true,
     });
+    // Spy _syncOptimisticActivities BEFORE mount so the count reflects every run,
+    // including the ones the production useOnChange(_queueSignature) callback fires.
     let chatter;
+    let reconcileRuns = 0;
     patchWithCleanup(CrmChatter.prototype, {
         setup() {
             super.setup(...arguments);
             chatter = this;
+        },
+        _syncOptimisticActivities() {
+            reconcileRuns++;
+            return super._syncOptimisticActivities(...arguments);
         },
     });
     const setOfflineReal = mockOffline();
@@ -6007,13 +6100,17 @@ async function testQueueSignatureScopedToLead() {
     });
     await setOfflineReal(true);
     await animationFrame();
+    await runAllTimers();
+    await animationFrame();
 
     const offline = getService(OfflinePlugin);
     const sigEmpty = chatter._queueSignature();
+    const myAct = () => chatter.store["mail.activity"].get(myActivityId);
 
     // NON-MATCHING branch: queue action_feedback for ANOTHER lead's activity and
-    // for a res.partner activity. Neither belongs to THIS lead, so the signature
-    // must be UNCHANGED, and this lead's own activity must NOT be decorated.
+    // for a res.partner activity. Neither belongs to THIS lead, so the signature is
+    // UNCHANGED and the production useOnChange callback must NOT re-run the reconcile.
+    const runsBeforeNonMatching = reconcileRuns;
     offline.scheduleORM(
         "mail.activity",
         "action_feedback",
@@ -6029,14 +6126,18 @@ async function testQueueSignatureScopedToLead() {
         { id: "sig-partner", extras: { timeStamp: 2 } }
     );
     await animationFrame();
-    expect(chatter._queueSignature()).toBe(sigEmpty); // unchanged — not this lead
-    chatter._syncOptimisticActivities();
+    await runAllTimers();
     await animationFrame();
-    const myAct = () => chatter.store["mail.activity"].get(myActivityId);
-    expect(myAct().summary).toBe("Mine"); // not decorated by another lead's entry
+    // Signature unchanged, so NO extra production reconcile ran, and this lead's
+    // own activity is NOT decorated.
+    expect(chatter._queueSignature()).toBe(sigEmpty);
+    expect(reconcileRuns).toBe(runsBeforeNonMatching);
+    expect(myAct().summary).toBe("Mine");
 
-    // MATCHING branch: queue action_feedback for THIS lead's own activity. Now the
-    // signature MUST change, and this lead's activity IS decorated.
+    // MATCHING branch: queue action_feedback for THIS lead's own activity. The
+    // signature changes, so the production useOnChange callback runs the reconcile
+    // EXACTLY ONCE, and this lead's activity IS decorated.
+    const runsBeforeMatching = reconcileRuns;
     offline.scheduleORM(
         "mail.activity",
         "action_feedback",
@@ -6045,12 +6146,13 @@ async function testQueueSignatureScopedToLead() {
         { id: "sig-mine", extras: { timeStamp: 3 } }
     );
     await animationFrame();
-    expect(chatter._queueSignature()).not.toBe(sigEmpty); // changed — this lead
+    await runAllTimers();
+    await animationFrame();
+    expect(chatter._queueSignature()).not.toBe(sigEmpty);
     expect(chatter._queueSignature()).toInclude("sig-mine");
     expect(chatter._queueSignature()).not.toInclude("sig-other-lead");
     expect(chatter._queueSignature()).not.toInclude("sig-partner");
-    chatter._syncOptimisticActivities();
-    await animationFrame();
+    expect(reconcileRuns).toBe(runsBeforeMatching + 1); // exactly one reconcile
     expect(myAct().summary).toBe("Mine (done, pending sync)");
     await setOfflineReal(false);
 }
