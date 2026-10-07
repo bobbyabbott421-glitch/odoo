@@ -37,6 +37,8 @@ import { user } from "@web/core/user";
 import { WebClient } from "@web/webclient/webclient";
 import { browser } from "@web/core/browser/browser";
 import { useCrmOffline } from "@crm/mobile/crm_offline_hooks";
+import { CrmMobileLeadCard } from "@crm/mobile/crm_mobile_lead_card/crm_mobile_lead_card";
+import { CrmMobileQuickCreate } from "@crm/mobile/crm_mobile_quick_create/crm_mobile_quick_create";
 import { TeamSwitcher } from "@crm/components/team_switcher/team_switcher";
 import { LeadGenerationDropdown } from "@crm/components/lead_generation_dropdown/lead_generation_dropdown";
 import { CrmColumnProgress } from "@crm/views/crm_kanban/crm_column_progress";
@@ -470,6 +472,39 @@ class Spec04Lead extends models.Model {
         aggregator: "sum",
     });
 
+    // Spec-07 additive fields: these back the VERBATIM production card arch
+    // (crm_lead_views.xml:524-562) so the spec-07 board tests can mount that
+    // card unchanged, plus date_deadline for a forecast group-by. They are
+    // ADDITIVE — no spec-04/05 test references them and the existing _records
+    // leave them falsy (benign). Field TYPES match production (crm_lead.py):
+    // contact_name/partner_name Char, company_currency Many2one(res.currency),
+    // recurring_revenue Monetary(currency_field=company_currency),
+    // recurring_plan Many2one(crm.recurring.plan), priority Selection matching
+    // crm's AVAILABLE_PRIORITIES (0..3), tag_ids Many2many(crm.tag),
+    // date_deadline Date, color Integer, is_rotting Boolean, rotting_days Integer.
+    contact_name = fields.Char();
+    partner_name = fields.Char();
+    company_currency = fields.Many2one({ string: "Currency", relation: "res.currency" });
+    recurring_revenue = fields.Monetary({
+        string: "Recurring Revenue",
+        currency_field: "company_currency",
+    });
+    recurring_plan = fields.Many2one({ string: "Recurring Plan", relation: "crm.recurring.plan" });
+    priority = fields.Selection({
+        string: "Priority",
+        selection: [
+            ["0", "Low"],
+            ["1", "Medium"],
+            ["2", "High"],
+            ["3", "Very High"],
+        ],
+    });
+    tag_ids = fields.Many2many({ string: "Tags", relation: "crm.tag" });
+    date_deadline = fields.Date({ string: "Expected Closing" });
+    color = fields.Integer({ string: "Color" });
+    is_rotting = fields.Boolean();
+    rotting_days = fields.Integer();
+
     _records = [
         {
             // Lead 1 carries the partner-sync flags so the CRM `_save` override
@@ -588,12 +623,30 @@ const spec04KanbanArch = `
         </templates>
     </kanban>`;
 
+// Spec-07 additive relation targets for the VERBATIM card arch. `res.currency`
+// (company_currency) and `res.partner` (partner_id) are already provided by
+// defineMailModels() via webModels, so they are NOT redefined here — only the
+// two CRM-specific relations the mock lacks are added, with a minimal name
+// field each. They carry no _records; the additive crm.lead fields stay falsy.
+class Spec04RecurringPlan extends models.Model {
+    _name = "crm.recurring.plan";
+    name = fields.Char();
+}
+
+class Spec04Tag extends models.Model {
+    _name = "crm.tag";
+    name = fields.Char();
+    color = fields.Integer();
+}
+
 /**
  * Register the spec-04 mock models once. `defineMailModels()` is already called
  * at the top of this file for the hook tests; the webclient services behind a
- * mount still resolve mail models, so the two coexist.
+ * mount still resolve mail models, so the two coexist. The two spec-07 relation
+ * models (crm.recurring.plan, crm.tag) are added for the verbatim card arch;
+ * res.currency / res.partner come from defineMailModels (not re-added).
  */
-defineModels([Spec04Lead, Spec04Stage, Spec04Team, Spec04Users]);
+defineModels([Spec04Lead, Spec04Stage, Spec04Team, Spec04Users, Spec04RecurringPlan, Spec04Tag]);
 
 /**
  * Install a scoped `web_save` failure for `crm.lead`, gated on a mutable flag.
@@ -6760,3 +6813,1973 @@ async function testScheduleSheetDefaultDate() {
 }
 test.tags("mobile");
 test("T9c: the schedule sheet default deadline is the local date (mobile)", testScheduleSheetDefaultDate);
+
+// ###########################################################################
+// Spec 07 — Shared-hook queued-writes accessor (Requirement 13)
+//
+// `useCrmOffline().queuedWrites(resModel)` returns the array of queue entry
+// values ({ model, method, args, kwargs, extras }) for `resModel`, read from
+// the SAME `_ormToSync()` signal `hasQueuedWrite` reads — reactive at call
+// time, an empty array when nothing is queued for that model. These tests use
+// the file's existing signal-only harness (`mountProbe`, `scheduleWrite`,
+// `getService(OfflinePlugin)`); no `mockOffline` is needed because the queued
+// state is read without any RPC having to fail. Paired desktop/mobile.
+// ###########################################################################
+
+// 13.1 / 13.2: scoped to the requested model. A crm.lead entry AND a
+// res.partner entry are queued; queuedWrites("crm.lead") returns only the
+// crm.lead entry's value and excludes the res.partner one.
+async function testSpec07QueuedWritesScoped() {
+    await mountProbe();
+    scheduleWrite("crm.lead", [5]);
+    scheduleWrite("res.partner", [9]);
+
+    const leadWrites = hook.queuedWrites("crm.lead");
+    expect(leadWrites.length).toBe(1);
+    expect(leadWrites[0].model).toBe("crm.lead");
+    expect(leadWrites[0].method).toBe("web_save");
+    expect(leadWrites[0].args[0]).toInclude(5);
+    // The res.partner entry is not returned by the crm.lead accessor.
+    expect(leadWrites.some((v) => v.model === "res.partner")).toBe(false);
+}
+
+test.tags("desktop");
+test("spec07 queuedWrites returns only the requested model (desktop)", testSpec07QueuedWritesScoped);
+
+test.tags("mobile");
+test("spec07 queuedWrites returns only the requested model (mobile)", testSpec07QueuedWritesScoped);
+
+// 13.4: no entry for the model → an empty array.
+async function testSpec07QueuedWritesEmpty() {
+    await mountProbe();
+    expect(hook.queuedWrites("crm.lead")).toEqual([]);
+}
+
+test.tags("desktop");
+test("spec07 queuedWrites is empty when none (desktop)", testSpec07QueuedWritesEmpty);
+
+test.tags("mobile");
+test("spec07 queuedWrites is empty when none (mobile)", testSpec07QueuedWritesEmpty);
+
+// 13.3: reactive at call time. Start empty; schedule a crm.lead web_save
+// (capturing the plugin key the hook forwards) → length 1; remove it through
+// the plugin's removeScheduledORM → back to length 0 on the next read.
+async function testSpec07QueuedWritesReactive() {
+    await mountProbe();
+    const offline = getService(OfflinePlugin);
+    expect(hook.queuedWrites("crm.lead")).toEqual([]);
+
+    const key = offline.scheduleORM("crm.lead", "web_save", [[7]], {}, {
+        extras: { timeStamp: 1 },
+    });
+    expect(hook.queuedWrites("crm.lead").length).toBe(1);
+
+    offline.removeScheduledORM(key);
+    expect(hook.queuedWrites("crm.lead").length).toBe(0);
+}
+
+test.tags("desktop");
+test("spec07 queuedWrites updates with the queue (desktop)", testSpec07QueuedWritesReactive);
+
+test.tags("mobile");
+test("spec07 queuedWrites updates with the queue (mobile)", testSpec07QueuedWritesReactive);
+
+// ===========================================================================
+// Spec 07 — task 1.2: CrmMobileLeadCard record-mode render + monetary format
+// (Requirements 1.1, 1.2, 1.3; 1.5/1.6 desktop-negative is the BOARD's job).
+//
+// The card in record mode reads only
+// `props.record.data.{name,partner_id,contact_name,partner_name,
+//  expected_revenue,company_currency}` and formats revenue through
+// `formatMonetary`, so a standalone mount can pass a PLAIN record stub. A
+// standalone-mounted card has NO kanban <article> wrapper (the article belongs
+// to the real board), so the 44 CSS-pixel tap-surface check (AC 1.4) is NOT
+// asserted here — it is proven on the real board in task 4.0 / 4.2. This test
+// only proves the component renders its three fields and that `formatMonetary`
+// ran (revenue is NOT a bare number).
+//
+// Desktop-negative note (AC 1.6): "no mobile card on desktop" is a BOARD-wiring
+// property — the card is injected into the kanban article only when isSmall().
+// A DIRECT mount renders the component regardless of preset, so a
+// "not rendered on desktop" assertion against a direct mount would be
+// misleading. The render/format test therefore runs under BOTH presets (it
+// proves the component renders its fields the same way either way); the real
+// desktop BOARD-level negative (no card injected on desktop) is task 4.2.
+//
+// Removal check: this standalone render test has no single production line to
+// remove; its real wiring removal check is the task-4.0 real-board test
+// ("spec07 board renders the card").
+// ===========================================================================
+
+async function testSpec07CardRendersFields() {
+    // Plain record stub: only the fields record mode reads, matching the
+    // production types (name Char, partner_id Many2one [id, display_name],
+    // expected_revenue Monetary, company_currency Many2one).
+    await mountWithCleanup(CrmMobileLeadCard, {
+        props: {
+            record: {
+                data: {
+                    name: "Acme Lead",
+                    partner_id: { id: 7, display_name: "Jane Partner" },
+                    expected_revenue: 5000,
+                    company_currency: { id: 1, display_name: "USD" },
+                },
+            },
+        },
+    });
+
+    // Name and partner render verbatim.
+    expect(".o_crm_mobile_lead_card_name").toHaveText("Acme Lead");
+    expect(".o_crm_mobile_lead_card_partner").toHaveText("Jane Partner");
+
+    // Revenue is formatted via formatMonetary — NOT the bare "5000". Assert a
+    // formatted-monetary shape (currency symbol/code OR digit grouping),
+    // tolerant of locale, while proving formatMonetary ran.
+    const revenue = (queryAllTexts(".o_crm_mobile_lead_card_revenue")[0] || "").trim();
+    expect(revenue).not.toBe("5000");
+    expect(revenue).toMatch(/\$|USD|5[,.]?0?00/);
+}
+
+test.tags("desktop");
+test("spec07 card renders name/partner/revenue (desktop)", testSpec07CardRendersFields);
+
+test.tags("mobile");
+test("spec07 card renders name/partner/revenue (mobile)", testSpec07CardRendersFields);
+
+// ===========================================================================
+// Spec 07 — task 2.1: pending-sync indicator in the card (RECORD mode).
+// (Requirements 2.1, 2.2, 2.3, 2.4, 2.5; Property 4.)
+//
+// The indicator is a SINGLE boolean derived from the framework queue
+// (`_ormToSync()` via `useCrmOffline().hasQueuedWrite("crm.lead", resId)`) with
+// NO card-owned dirty flag. These tests follow the testHasQueuedWriteOffline
+// lifecycle: they MOUNT the card first, THEN go offline, THEN queue, then await
+// the next frame and assert the indicator appears/disappears reactively on the
+// SAME mounted card (no remount to observe a change). Queued entries are removed
+// with removeScheduledORM BEFORE going back online so the framework never
+// replays against the mock server.
+//
+// Removal check (run separately): temporarily hardcode `showPendingIndicator`
+// to `false` in crm_mobile_lead_card.js → the "indicator shows with queued
+// web_save" test goes red; restore.
+// ===========================================================================
+
+/** A plain record stub for record mode, carrying a server id (`resId`). */
+function spec07CardProps(resId) {
+    return { props: { record: { resId, data: { name: `Lead ${resId}` } } } };
+}
+
+// 1. Indicator appears reactively on the mounted card when a crm.lead web_save
+// is queued for this lead, and the card re-renders from the queue signal.
+async function testSpec07IndicatorShows() {
+    await mountWithCleanup(CrmMobileLeadCard, spec07CardProps(42));
+    const offline = getService(OfflinePlugin);
+    setOffline(true);
+
+    // Not pending yet.
+    expect(".o_crm_mobile_lead_card_pending").toHaveCount(0);
+
+    const key = offline.scheduleORM("crm.lead", "web_save", [[42]], {}, { extras: { timeStamp: 1 } });
+    await animationFrame();
+
+    // The SAME mounted card now shows the indicator (reactive from the queue signal).
+    expect(".o_crm_mobile_lead_card_pending").toHaveCount(1);
+    expect(queryAllTexts(".o_crm_mobile_lead_card_pending")[0] || "").toInclude("Pending sync");
+
+    // Clean up the entry before going back online so no replay is attempted.
+    offline.removeScheduledORM(key);
+    setOffline(false);
+}
+test.tags("desktop");
+test("spec07 indicator shows with queued web_save (desktop)", testSpec07IndicatorShows);
+test.tags("mobile");
+test("spec07 indicator shows with queued web_save (mobile)", testSpec07IndicatorShows);
+
+// 2. Indicator clears reactively on the SAME mounted card when the queued
+// write is removed; the card root remains present (never "absent" alone).
+async function testSpec07IndicatorClearsOnDrain() {
+    await mountWithCleanup(CrmMobileLeadCard, spec07CardProps(42));
+    const offline = getService(OfflinePlugin);
+    setOffline(true);
+
+    const key = offline.scheduleORM("crm.lead", "web_save", [[42]], {}, { extras: { timeStamp: 1 } });
+    await animationFrame();
+    expect(".o_crm_mobile_lead_card_pending").toHaveCount(1);
+
+    offline.removeScheduledORM(key);
+    await animationFrame();
+    expect(".o_crm_mobile_lead_card_pending").toHaveCount(0);
+    expect(".o_crm_mobile_lead_card").toHaveCount(1);
+
+    setOffline(false);
+}
+test.tags("desktop");
+test("spec07 indicator clears when queue drains (desktop)", testSpec07IndicatorClearsOnDrain);
+test.tags("mobile");
+test("spec07 indicator clears when queue drains (mobile)", testSpec07IndicatorClearsOnDrain);
+
+// 3. Exactly ONE indicator for two queued edits on the same lead (boolean
+// state, not a per-entry badge).
+async function testSpec07OneIndicatorTwoEdits() {
+    await mountWithCleanup(CrmMobileLeadCard, spec07CardProps(42));
+    const offline = getService(OfflinePlugin);
+    setOffline(true);
+
+    const k1 = offline.scheduleORM("crm.lead", "web_save", [[42]], {}, { extras: { timeStamp: 1 } });
+    const k2 = offline.scheduleORM("crm.lead", "web_save", [[42]], {}, { extras: { timeStamp: 2 } });
+    await animationFrame();
+
+    expect(".o_crm_mobile_lead_card_pending").toHaveCount(1);
+
+    offline.removeScheduledORM(k1);
+    offline.removeScheduledORM(k2);
+    setOffline(false);
+}
+test.tags("desktop");
+test("spec07 one indicator for two queued edits (desktop)", testSpec07OneIndicatorTwoEdits);
+test.tags("mobile");
+test("spec07 one indicator for two queued edits (mobile)", testSpec07OneIndicatorTwoEdits);
+
+// 4. A queued mail.activity action_feedback does NOT flip the lead indicator.
+async function testSpec07ActionFeedbackDoesNotFlip() {
+    await mountWithCleanup(CrmMobileLeadCard, spec07CardProps(42));
+    const offline = getService(OfflinePlugin);
+    setOffline(true);
+
+    const key = offline.scheduleORM("mail.activity", "action_feedback", [[7]], {}, { extras: { timeStamp: 1 } });
+    await animationFrame();
+
+    expect(".o_crm_mobile_lead_card_pending").toHaveCount(0);
+    expect(".o_crm_mobile_lead_card").toHaveCount(1);
+
+    offline.removeScheduledORM(key);
+    setOffline(false);
+}
+test.tags("desktop");
+test("spec07 action_feedback does not flip indicator (desktop)", testSpec07ActionFeedbackDoesNotFlip);
+test.tags("mobile");
+test("spec07 action_feedback does not flip indicator (mobile)", testSpec07ActionFeedbackDoesNotFlip);
+
+// ===========================================================================
+// Spec 07 — task 3.1: uncached-lead in-card message (RECORD mode).
+// (Requirements 3.1, 3.2, 3.3, 3.4, 3.5; Property 5.)
+//
+// The message is card STATE (not gated on a tap, since the framework disables
+// an uncached card's tap target offline). It shows when
+//   isSmall() && isOffline() && !isAvailableOffline(actionId, "form", resId)
+// and the record has a real server resId. A cached lead shows no message.
+//
+// The gate is driven the REAL way, mirroring `testIsAvailableOffline` above:
+// mount the card FIRST (so getService(OfflinePlugin) is available — the
+// plugin manager must exist), seed the cache with `setAvailableOffline` while
+// ONLINE (it only persists when not offline), then go offline and await
+// `getVisitedStatus()` so the plugin loads its `_visited` map, then
+// `animationFrame()` so the reactive card re-renders. We never patch
+// `setOffline` or `isAvailableOffline`.
+//
+// Element text is read via `queryAllTexts(sel)[0]` (repo convention), never
+// `queryAttribute(sel, "textContent")`.
+//
+// Removal check (run separately): remove the `!isAvailableOffline(...)` term
+// from `showUncachedMessage` in crm_mobile_lead_card.js → the cached lead
+// wrongly shows the message → "spec07 cached lead no message" goes red;
+// restore.
+// ===========================================================================
+
+/** Record-mode props for a saved lead: an actionId + a record carrying resId. */
+function spec07UncachedProps(resId) {
+    return { props: { actionId: 42, record: { resId, data: { name: `Lead ${resId}` } } } };
+}
+
+// MOBILE + offline: an UNCACHED lead shows the in-card message. The action/form
+// is cached for a DIFFERENT resId (7), but this card is mounted for resId 999,
+// which is not in the cached form id list → isAvailableOffline is false → the
+// message element is present and explains the lead is not available offline.
+async function testSpec07UncachedShowsMobile() {
+    await mountWithCleanup(CrmMobileLeadCard, spec07UncachedProps(999));
+    const offline = getService(OfflinePlugin);
+
+    // Seed the cache for a DIFFERENT record while ONLINE (action/form known,
+    // resId 999 not).
+    await offline.setAvailableOffline(42, "form", { resId: 7 });
+
+    setOffline(true);
+    await offline.getVisitedStatus();
+    await animationFrame();
+
+    expect(".o_crm_mobile_lead_card_uncached").toHaveCount(1);
+    expect((queryAllTexts(".o_crm_mobile_lead_card_uncached")[0] || "")).toInclude(
+        "not available offline"
+    );
+
+    setOffline(false);
+}
+test.tags("mobile");
+test("spec07 uncached message present (mobile)", testSpec07UncachedShowsMobile);
+
+// Shared (both presets): a CACHED lead shows NO message, and the card root
+// still exists. On mobile the gate's isAvailableOffline term is true → no
+// message; on desktop isSmall() is false → also no message. Either way the
+// card renders and the message is absent. This is the test the task-3 removal
+// check targets.
+async function testSpec07CachedNoMessage() {
+    await mountWithCleanup(CrmMobileLeadCard, spec07UncachedProps(7));
+    const offline = getService(OfflinePlugin);
+
+    // Seed the cache for THIS record's form while ONLINE.
+    await offline.setAvailableOffline(42, "form", { resId: 7 });
+
+    setOffline(true);
+    await offline.getVisitedStatus();
+    await animationFrame();
+
+    // Cached lead → no message, but the card itself is present.
+    expect(".o_crm_mobile_lead_card_uncached").toHaveCount(0);
+    expect(".o_crm_mobile_lead_card").toHaveCount(1);
+
+    setOffline(false);
+}
+test.tags("desktop");
+test("spec07 cached lead no message (desktop)", testSpec07CachedNoMessage);
+test.tags("mobile");
+test("spec07 cached lead no message (mobile)", testSpec07CachedNoMessage);
+
+// DESKTOP: even an UNCACHED lead offline shows NO message, because the gate's
+// isSmall() term is false on the desktop preset. This proves the isSmall()
+// gating of the message (not merely the isAvailableOffline term).
+async function testSpec07UncachedDesktopNoMessage() {
+    await mountWithCleanup(CrmMobileLeadCard, spec07UncachedProps(999));
+    const offline = getService(OfflinePlugin);
+
+    // Seed a DIFFERENT resId so resId 999 would be uncached if isSmall were true.
+    await offline.setAvailableOffline(42, "form", { resId: 7 });
+
+    setOffline(true);
+    await offline.getVisitedStatus();
+    await animationFrame();
+
+    // Desktop → isSmall() false → no message even though the lead is uncached.
+    expect(".o_crm_mobile_lead_card_uncached").toHaveCount(0);
+    expect(".o_crm_mobile_lead_card").toHaveCount(1);
+
+    setOffline(false);
+}
+test.tags("desktop");
+test("spec07 uncached message not on desktop (desktop)", testSpec07UncachedDesktopNoMessage);
+
+// ###########################################################################
+// Spec 07 — Task 4.0 / 4.2: additive card host wiring on the REAL crm_kanban
+// board.
+//
+// These tests mount the REAL `crm_kanban` kanban view (via `mountView`) grouped
+// by stage_id, so the production wiring is exercised end to end:
+//   - CrmKanbanRenderer registers `KanbanRecord: CrmKanbanRecord`
+//     (crm_kanban_renderer.js), and
+//   - the primary-inherit `crm.MobileKanbanRecord` template inserts a
+//     `CrmMobileLeadCard` as the FIRST child of each kanban <article>, gated on
+//     isSmall() (crm_mobile_lead_card.xml), and
+//   - the SCSS hide block hides the duplicated arch name/partner/revenue nodes
+//     under `.o_kanban_record:has(.o_crm_mobile_lead_card)`.
+// Nothing is mounted with `{ force: true }` and no flag is hand-set — the tests
+// rely on the production registry entry (lessons: tests must depend on
+// production wiring).
+//
+// REUSED FROM THIS FILE: the Spec04Lead/Spec04Stage/Spec04Team/Spec04Users mock
+// models (already `defineModels`-ed above); the `setOffline` helper; the
+// `moveLeadToStage` helper; `spec04QueuedFor` / `failWebSaveWhenOffline` (for the
+// offline stage-move queue check driven ON THE SPEC07 BOARD); and `queryAllTexts`
+// from Hoot.
+//
+// MOCK MODEL (now adequate for the VERBATIM card arch): the shared `crm.lead`
+// mock (Spec04Lead) now declares every field the production card template reads
+// — name (Char), partner_id (Many2one res.partner), expected_revenue (Integer),
+// company_currency (Many2one res.currency), recurring_revenue (Monetary),
+// recurring_plan (Many2one crm.recurring.plan), contact_name / partner_name
+// (Char), tag_ids (Many2many crm.tag), priority (Selection), activity_ids,
+// stage_id, is_rotting / rotting_days — with the field TYPES matching production
+// (crm_lead.py). So `mountSpec07Board` mounts `spec07VerbatimKanbanArch` (the
+// production card markup verbatim) rather than a simplified stand-in, and the
+// board tests exercise the real card nodes: the monetary expected_revenue
+// formatted with the record's `company_currency`, the recurring_revenue /
+// recurring_plan block (shown once, unhidden by the SCSS), and the partner /
+// contact_name / partner_name fallback. The shared `_records` are NOT mutated
+// (other tests depend on them); each test seeds a currency / partner / recurring
+// value via `MockServer.env` AFTER mount and reloads the model to re-render.
+// Rendered widget-less <field> nodes drop their `name` attribute (card
+// compiler), so the SCSS hide rule targets marker CLASSES on the arch (not
+// attribute/structural selectors); the verbatim arch carries the exact
+// production marker classes (`o_crm_card_name`, `o_crm_card_expected_revenue`,
+// `o_crm_card_partner`, `o_crm_card_contact_name`, `o_crm_card_partner_name`) so
+// the hide rule applies here as on the real board.
+// ###########################################################################
+
+// ---------------------------------------------------------------------------
+// spec07VerbatimKanbanArch — mirrors the PRODUCTION lead card template
+// (crm_lead_views.xml lines 524-562) as closely as the Hoot mock allows, so the
+// spec-07 board tests can exercise the real card markup verbatim rather than a
+// simplified stand-in. Backed by the additive Spec04Lead fields and relation
+// models (crm.recurring.plan, crm.tag) added above.
+//
+// Faithful to production: both web_ribbon widgets (lost_ribbon on
+// won_status=='lost', archived_ribbon), the o_crm_card_name name field, the
+// .o_kanban_card_crm_lead_revenue block with the monetary expected_revenue +
+// the recurring " + " / recurring_revenue / recurring_plan nodes (t-if on
+// record.recurring_revenue.raw_value), the o_crm_card_partner block with the
+// two partner_id fields, contact_name / partner_name, the many2many_tags
+// tag_ids, and the footer with the priority and kanban_activity widgets and the
+// user_id / team_id fields. All marker classes are preserved exactly
+// (o_crm_card_name / o_crm_card_expected_revenue / o_crm_card_partner /
+// o_crm_card_contact_name / o_crm_card_partner_name) so the SCSS hide rule
+// applies.
+//
+// Mock-necessary deviations from production:
+//   - The `<field name="lead_properties" widget="properties"/>` line (527's
+//     region) is OMITTED: the properties widget needs a definition record the
+//     mock lacks. Everything else from 524-562 is present.
+//   - The production `groups="crm.group_use_recurring_revenues"` /
+//     `groups="base.group_user"` attributes are dropped — the mock has no
+//     groups; the recurring nodes stay gated by their production t-if on
+//     record.recurring_revenue.raw_value, and the priority field is rendered
+//     ungrouped.
+//   - partner_id many2one options/widget are kept as in production; the
+//     avatar widget resolves res.partner (from defineMailModels).
+//
+// The footer `activity_ids` field is rendered as a PLAIN field (NOT the
+// production `widget="kanban_activity"`): on the grouped mock board that widget
+// drives an activity-data RPC the shared `crm.lead` mock cannot answer for a
+// grouped board (it crashed the mount earlier), so the live `kanban_activity`
+// widget rendering on a real device stays a Step 10 manual check. Everything
+// else is verbatim.
+//
+// A `menu` template is added (production relies on the default kanban menu,
+// which is editable/deletable); this mirrors production's menu so the additive
+// behavior test (testSpec07AdditivePreservesBehavior) can open the card menu
+// deterministically.
+const spec07VerbatimKanbanArch = `
+    <kanban js_class="crm_kanban">
+        <field name="name"/>
+        <field name="partner_id"/>
+        <field name="expected_revenue"/>
+        <field name="company_currency"/>
+        <field name="recurring_revenue"/>
+        <field name="recurring_plan"/>
+        <field name="contact_name"/>
+        <field name="partner_name"/>
+        <field name="tag_ids"/>
+        <field name="priority"/>
+        <field name="activity_ids"/>
+        <field name="stage_id"/>
+        <field name="won_status"/>
+        <field name="active"/>
+        <templates>
+            <t t-name="menu">
+                <a role="menuitem" class="dropdown-item" data-type="edit">Edit</a>
+            </t>
+            <t t-name="card">
+                <widget name="web_ribbon" id="lost_ribbon" title="Lost" bg_color="text-bg-danger" invisible="won_status != 'lost'"/>
+                <widget name="web_ribbon" id="archived_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active or won_status in ['lost', 'won']"/>
+                <field class="fw-bold fs-5 o_crm_card_name" name="name"/>
+                <div class="o_kanban_card_crm_lead_revenue">
+                    <t t-if="record.expected_revenue.raw_value">
+                        <field class="o_crm_card_expected_revenue" name="expected_revenue" widget="monetary" options="{'currency_field': 'company_currency'}"/>
+                        <span t-if="record.recurring_revenue and record.recurring_revenue.raw_value"> + </span>
+                    </t>
+                    <t t-if="record.recurring_revenue and record.recurring_revenue.raw_value">
+                        <field class="me-1" name="recurring_revenue" widget="monetary" options="{'currency_field': 'company_currency'}"/>
+                        <field name="recurring_plan"/>
+                    </t>
+                </div>
+                <div class="d-flex o_crm_card_partner" invisible="not partner_id">
+                    <field name="partner_id" widget="many2one_avatar" class="text-truncate" readonly="1" options="{'no_create': 1, 'no_open': 1}"/>
+                    <field name="partner_id" class="ms-2 text-truncate"/>
+                </div>
+                <field class="o_crm_card_contact_name" name="contact_name" invisible="partner_id"/>
+                <field class="o_crm_card_partner_name" name="partner_name" invisible="partner_id or contact_name"/>
+                <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color', 'on_tag_click': 'edit_color'}"/>
+                <footer class="pt-1">
+                    <div class="d-flex align-items-center">
+                        <field name="priority" widget="priority" class="me-2"/>
+                        <field name="activity_ids"/>
+                    </div>
+                    <div class="d-flex align-items-center gap-2 min-w-0 ms-auto">
+                        <field name="is_rotting" invisible="1"/>
+                        <span class="d-flex align-items-center text-truncate">
+                            <field name="team_id" class="badge rounded-pill text-bg-300 fw-bold"/>
+                        </span>
+                        <field name="user_id"/>
+                    </div>
+                </footer>
+            </t>
+        </templates>
+    </kanban>`;
+
+/**
+ * Mount the REAL `crm_kanban` board with the VERBATIM production card arch
+ * (`spec07VerbatimKanbanArch`), grouped by stage_id, and capture the live model
+ * so a test can reload it after seeding a currency / partner / recurring value.
+ * Uses the production registry entry (no `{ force: true }`). An optional
+ * `{ domain }` scopes which leads load, for the search-scoped stage-selector
+ * test.
+ */
+async function mountSpec07Board({ domain } = {}) {
+    const crmKanbanView = registry.category("views").get("crm_kanban");
+    let model;
+    patchWithCleanup(crmKanbanView.Controller.prototype, {
+        setup() {
+            super.setup(...arguments);
+            model = this.model;
+        },
+    });
+    await mountView({
+        type: "kanban",
+        resModel: "crm.lead",
+        arch: spec07VerbatimKanbanArch,
+        groupBy: ["stage_id"],
+        ...(domain ? { domain } : {}),
+    });
+    return () => model;
+}
+
+// --- Task 4.0 -------------------------------------------------------------
+
+// "spec07 board renders the card" (mobile): the REAL crm_kanban board renders a
+// CrmMobileLeadCard INSIDE a real kanban <article>.o_kanban_record. This is the
+// removal-check anchor for task 4.2: removing `KanbanRecord: CrmKanbanRecord`
+// from the renderer static components makes this go red (no mobile card inside
+// any real record).
+async function testSpec07BoardRendersCard() {
+    await mountSpec07Board();
+    expect(".o_kanban_record").toHaveCount(3); // one per seeded lead (1/6/9)
+    // At least one mobile card rendered INSIDE a real rendered kanban record.
+    expect(".o_kanban_record .o_crm_mobile_lead_card").toHaveCount(3);
+}
+test.tags("mobile");
+test("spec07 board renders the card (mobile)", testSpec07BoardRendersCard);
+
+/**
+ * Find the mobile card on the REAL board whose name node reads `leadName`.
+ * Returns the `.o_crm_mobile_lead_card` element (NOT a strip card: scoped to
+ * `.o_kanban_record`), or undefined.
+ */
+function spec07BoardCardFor(leadName) {
+    return [...document.querySelectorAll(".o_kanban_record .o_crm_mobile_lead_card")].find(
+        (c) => c.querySelector(".o_crm_mobile_lead_card_name")?.textContent === leadName
+    );
+}
+
+/** The `.o_kanban_record` article that contains the given card element. */
+function spec07RecordOf(cardEl) {
+    return cardEl?.closest(".o_kanban_record");
+}
+
+/**
+ * Define a WebClient window action (id 71) that opens the spec07 board (the
+ * VERBATIM-card crm_kanban, grouped by stage_id) with a form view, so a kanban
+ * record tap can route to the lead form. The kanban arch is registered under a
+ * DEDICATED view id (`kanban,71`) so the shared `kanban,false` entry other tests
+ * use is untouched; the form reuses the model's existing `form,false`. The
+ * `group_by` context key makes the board grouped by stage (so the mobile card
+ * injects, matching the production pipeline).
+ */
+function defineSpec07BoardAction() {
+    Spec04Lead._views["kanban,71"] = spec07VerbatimKanbanArch;
+    defineActions([
+        {
+            id: 71,
+            name: "CRM Pipeline (spec07)",
+            res_model: "crm.lead",
+            type: "ir.actions.act_window",
+            context: { group_by: ["stage_id"] },
+            views: [
+                [71, "kanban"],
+                [false, "form"],
+            ],
+        },
+    ]);
+}
+
+// "spec07 board partner shown once" (mobile): for a lead WITH a partner, the
+// mobile card (on the REAL verbatim board) shows the partner display_name
+// exactly once — the mobile-card partner node is visible while the duplicated
+// arch partner block (`.o_crm_card_partner`) is hidden by the SCSS, so the name
+// appears once overall. This guards defect A (an object-shaped many2one, not an
+// array) — array indexing of `partner_id` would render empty. The partner is
+// seeded via `MockServer.env` AFTER mount (no `_records` mutation), then the
+// model reloaded to re-render.
+async function testSpec07BoardPartnerShownOnce() {
+    const getModel = await mountSpec07Board();
+    // Seed a partner and attach it to lead 6 (expected_revenue 5) in the live
+    // mock env, then reload so the board re-renders with the partner resolved.
+    const [partnerId] = MockServer.env["res.partner"].create([{ name: "Acme Partner Co" }]);
+    MockServer.env["crm.lead"].write([6], { partner_id: partnerId });
+    await getModel().load();
+    await animationFrame();
+
+    const lead6Card = spec07BoardCardFor("Lead 6");
+    expect(lead6Card).not.toBe(undefined);
+    // The mobile card shows the partner display name (object many2one shape, not
+    // an array index), visibly, exactly once in its partner node.
+    const mobilePartner = lead6Card.querySelector(".o_crm_mobile_lead_card_partner");
+    expect(mobilePartner).not.toBe(null);
+    expect(mobilePartner.offsetParent).not.toBe(null); // visible
+    expect(queryAllTexts(".o_crm_mobile_lead_card_partner")).toEqual(["Acme Partner Co"]);
+
+    // The arch partner block (`.o_crm_card_partner`) IS present but hidden by the
+    // SCSS hide rule (offsetParent null), so the partner name appears once overall.
+    const record = spec07RecordOf(lead6Card);
+    const archPartner = record.querySelector(".o_crm_card_partner");
+    expect(archPartner).not.toBe(null);
+    expect(archPartner.offsetParent).toBe(null); // hidden
+}
+test.tags("mobile");
+test("spec07 board partner shown once (mobile)", testSpec07BoardPartnerShownOnce);
+
+// "spec07 board contact_name fallback" (mobile): for a lead with NO partner but
+// a `contact_name`, the mobile card's partnerName getter falls back to
+// contact_name, so the mobile partner node shows "Contact Person"; the arch
+// `.o_crm_card_contact_name` node is present but hidden by the SCSS (offsetParent
+// null), so the fallback name appears once overall. Lead 1 has no partner_id.
+async function testSpec07BoardContactNameFallback() {
+    const getModel = await mountSpec07Board();
+    // Lead 1 has no partner; give it a contact_name only, then reload.
+    MockServer.env["crm.lead"].write([1], { contact_name: "Contact Person" });
+    await getModel().load();
+    await animationFrame();
+
+    const lead1Card = spec07BoardCardFor("Lead 1");
+    expect(lead1Card).not.toBe(undefined);
+    // The mobile card falls back to contact_name in its partner node (visible).
+    const mobilePartner = lead1Card.querySelector(".o_crm_mobile_lead_card_partner");
+    expect(mobilePartner).not.toBe(null);
+    expect(mobilePartner.offsetParent).not.toBe(null); // visible
+    expect(mobilePartner.textContent).toBe("Contact Person");
+
+    // The arch contact_name node is present but hidden by the SCSS, so the
+    // fallback name appears once overall.
+    const record = spec07RecordOf(lead1Card);
+    const archContact = record.querySelector(".o_crm_card_contact_name");
+    expect(archContact).not.toBe(null);
+    expect(archContact.offsetParent).toBe(null); // hidden
+}
+test.tags("mobile");
+test("spec07 board contact_name fallback (mobile)", testSpec07BoardContactNameFallback);
+
+// "spec07 board revenue formatted with record currency" (mobile): for a lead
+// with a `company_currency` and a non-zero `expected_revenue`, the mobile card
+// revenue node renders a FORMATTED monetary string for that currency (the card's
+// `expectedRevenue` getter calls `formatMonetary(value, { currencyId })`), not a
+// bare number. The seeded currency is the mock's pre-seeded USD (id 1, symbol
+// "$"), whose symbol `formatMonetary` resolves from the session `currencies`
+// (creating an ad-hoc currency would not populate that lookup). Lead 6 has
+// expected_revenue 5; attach company_currency 1 and reload.
+async function testSpec07BoardRevenueFormattedCurrency() {
+    const getModel = await mountSpec07Board();
+    // USD (id 1) is pre-seeded by the mail/web mock (serverState.currencies:
+    // {id:1,name:"USD",symbol:"$"}); its symbol resolves in formatMonetary.
+    MockServer.env["crm.lead"].write([6], { company_currency: 1 });
+    await getModel().load();
+    await animationFrame();
+
+    const lead6Card = spec07BoardCardFor("Lead 6");
+    expect(lead6Card).not.toBe(undefined);
+    const revenueNode = lead6Card.querySelector(".o_crm_mobile_lead_card_revenue");
+    expect(revenueNode).not.toBe(null);
+    const revenueText = revenueNode.textContent || "";
+    // A formatted monetary string: carries the currency symbol AND a digit — not
+    // a bare number (which would be just "5").
+    expect(revenueText).toInclude("$");
+    expect(revenueText).toMatch(/\d/);
+    expect(revenueText).not.toBe("5");
+}
+test.tags("mobile");
+test("spec07 board revenue formatted with record currency (mobile)", testSpec07BoardRevenueFormattedCurrency);
+
+// "spec07 board recurring revenue and plan shown once" (mobile): a lead with a
+// non-zero `recurring_revenue` + a `recurring_plan` renders the recurring nodes
+// in the ARCH `.o_kanban_card_crm_lead_revenue` block, and those nodes stay
+// VISIBLE (the SCSS hide rule targets `.o_crm_card_expected_revenue` only, NOT
+// the recurring fields). The mobile card shows only expected_revenue, so the
+// recurring value is NOT duplicated — it appears exactly once on the card. This
+// restores the dropped recurring-render assertion now that the mock carries the
+// recurring fields. Lead 6 gets recurring_revenue 50 + a "Monthly" plan +
+// company_currency 1; reload.
+async function testSpec07BoardRecurringShownOnce() {
+    const getModel = await mountSpec07Board();
+    const [planId] = MockServer.env["crm.recurring.plan"].create([{ name: "Monthly" }]);
+    MockServer.env["crm.lead"].write([6], {
+        recurring_revenue: 50,
+        recurring_plan: planId,
+        company_currency: 1,
+    });
+    await getModel().load();
+    await animationFrame();
+
+    const lead6Card = spec07BoardCardFor("Lead 6");
+    expect(lead6Card).not.toBe(undefined);
+    const record = spec07RecordOf(lead6Card);
+
+    // The arch recurring block renders and is VISIBLE (not hidden by the SCSS,
+    // which only hides .o_crm_card_expected_revenue inside this block).
+    const revenueBlock = record.querySelector(".o_kanban_card_crm_lead_revenue");
+    expect(revenueBlock).not.toBe(null);
+    expect(revenueBlock.offsetParent).not.toBe(null); // the block is visible
+    const blockText = revenueBlock.textContent || "";
+    // The recurring plan label and the recurring monetary value render here.
+    expect(blockText).toInclude("Monthly");
+    expect(blockText).toInclude("50");
+
+    // The recurring value is NOT duplicated by the mobile card: the mobile card
+    // shows ONLY expected_revenue (5), never the recurring amount (50). So the
+    // recurring "50" appears once on the card — in the arch block above, not in
+    // the mobile card's revenue node.
+    const mobileRevenue = lead6Card.querySelector(".o_crm_mobile_lead_card_revenue");
+    expect(mobileRevenue?.textContent || "").not.toInclude("50");
+}
+test.tags("mobile");
+test("spec07 board recurring revenue and plan shown once (mobile)", testSpec07BoardRecurringShownOnce);
+
+// "spec07 board card tap surface 44px" (mobile): the card tap surface is the
+// real kanban <article>.o_kanban_record (rendered by web KanbanRecord, which the
+// standalone-mounted card does not have). Measure its height on the real board
+// and assert >= 44 CSS pixels (Fact 7 / Requirement 1.4).
+async function testSpec07BoardTapSurface44() {
+    await mountSpec07Board();
+    const article = document.querySelector(".o_kanban_record");
+    expect(article).not.toBe(null);
+    const height = article.getBoundingClientRect().height;
+    expect(height).toBeGreaterThan(43); // >= 44 CSS px tap surface
+}
+test.tags("mobile");
+test("spec07 board card tap surface 44px (mobile)", testSpec07BoardTapSurface44);
+
+// --- Task 4.2 -------------------------------------------------------------
+
+// "spec07 lead name appears once" (mobile): on the REAL board the visible lead
+// name appears exactly once — the mobile-card name is visible while the
+// duplicated arch name node (`.o_crm_card_name`) is hidden by the SCSS hide
+// block (its `offsetParent` is null when `display:none`). This is the
+// removal-check anchor for the SCSS hide rule: removing the hide block makes the
+// arch name node visible again and the name appears twice, failing this test.
+//
+// The recurring-revenue "still shown once" case is asserted directly by
+// `testSpec07BoardRecurringShownOnce` above (the mock now carries the recurring
+// fields), so it is no longer deferred here.
+async function testSpec07LeadNameAppearsOnce() {
+    const getModel = await mountSpec07Board();
+    void getModel;
+    // Pick the first real record and its lead name from the mobile card.
+    const record = document.querySelector(".o_kanban_record");
+    expect(record).not.toBe(null);
+    const mobileName = record.querySelector(".o_crm_mobile_lead_card_name");
+    expect(mobileName).not.toBe(null);
+    const name = mobileName.textContent;
+    // The mobile-card name is VISIBLE (offsetParent is set when displayed).
+    expect(mobileName.offsetParent).not.toBe(null);
+    // The duplicated arch name node is present in the DOM but HIDDEN by the SCSS
+    // hide block (display:none → offsetParent null).
+    const archName = record.querySelector(".o_crm_card_name");
+    expect(archName).not.toBe(null);
+    expect(archName.offsetParent).toBe(null); // hidden → not visible
+    // Belt-and-braces: the exact name text appears once among visible nodes.
+    const visibleWithName = [...record.querySelectorAll("*")].filter(
+        (el) => el.offsetParent !== null && el.textContent === name && el.children.length === 0
+    );
+    expect(visibleWithName.length).toBe(1);
+}
+test.tags("mobile");
+test("spec07 lead name appears once (mobile)", testSpec07LeadNameAppearsOnce);
+
+// "spec07 card precedes footer widgets" (mobile): on the REAL board the mobile
+// card node precedes the arch body (and therefore the footer priority/activity
+// widgets) in document order within the article. The primary inherit inserts the
+// card as the FIRST child of the article (xpath `article/*[1]` position before),
+// so the mobile card is the article's first element child and the arch name node
+// (`.o_crm_card_name` marker class) follows it via compareDocumentPosition.
+async function testSpec07CardPrecedesFooter() {
+    await mountSpec07Board();
+    const article = document.querySelector(".o_kanban_record");
+    expect(article).not.toBe(null);
+    const card = article.querySelector(".o_crm_mobile_lead_card");
+    expect(card).not.toBe(null);
+    // The mobile card is injected as the FIRST child of the article, so it
+    // precedes the compiled arch body (and its footer widgets) in document order.
+    expect(article.firstElementChild).toBe(card);
+    // The arch name node (marker class, since rendered fields drop the `name`
+    // attribute) exists and FOLLOWS the card in document order.
+    const archName = article.querySelector(".o_crm_card_name");
+    expect(archName).not.toBe(null);
+    expect(Boolean(card.compareDocumentPosition(archName) & Node.DOCUMENT_POSITION_FOLLOWING)).toBe(true);
+}
+test.tags("mobile");
+test("spec07 card precedes footer widgets (mobile)", testSpec07CardPrecedesFooter);
+
+// "spec07 additive wiring preserves card behavior" (mobile): the card is ADDED,
+// not swapped, so the real kanban behaviors survive. Every assertion runs on the
+// SPEC07 BOARD ITSELF (the verbatim-card board), NOT a different arch — so if the
+// `CrmKanbanRecord` registration were removed (no mobile card), these would still
+// be exercising the board that is supposed to carry the card.
+//
+// (a) MENU: the verbatim arch declares a `menu` template, so each record renders
+//     the kanban dropdown. Click the record's menu toggle and assert a
+//     `.dropdown-item` appears (the dropdown opens) — proving the card menu is
+//     still reachable with the mobile card injected above the arch body.
+// (b) STAGE MOVE on THIS board: capture the model from `mountSpec07Board`, go
+//     offline (web_save failing so the move queues), move lead 6 to stage 3 via
+//     `moveLeadToStage`, and assert exactly one `crm.lead` web_save is queued for
+//     lead 6. Driven on the spec07 board (the one with the card), not a separate
+//     arch, so removing the card wiring cannot leave it trivially passing. Real
+//     touch drag-and-drop is a Step 10 manual check.
+// (d) PRIORITY widget presence: the footer priority widget is READONLY on this
+//     board, so it renders a `<span class="o_priority_star">`, NOT a `<button>`.
+//     The framework offline pass only disables `<button>`, so the span is never
+//     disabled and the real offline priority WRITE cannot be driven here — it is
+//     a Step 10 manual check (and a deviation). This block asserts only that the
+//     priority widget rendered in the footer (`.o_priority` is present), proving
+//     the arch footer body is intact beneath the mobile card.
+async function testSpec07AdditivePreservesBehavior() {
+    // (a) Menu opens on a record of the spec07 board.
+    const getBoardModel = await mountSpec07Board();
+    const article = document.querySelector(".o_kanban_record");
+    expect(article).not.toBe(null);
+    // The mobile card is present and first; the arch body follows it.
+    const card = article.querySelector(".o_crm_mobile_lead_card");
+    expect(card).not.toBe(null);
+    expect(article.firstElementChild).toBe(card);
+    expect(article.children.length).toBeGreaterThan(1);
+    // Open the record's kanban menu (its toggle carries .dropdown-toggle inside
+    // the record's .o_dropdown_kanban) and assert a menu item appears.
+    const menuToggle = article.querySelector(".o_dropdown_kanban .dropdown-toggle");
+    expect(menuToggle).not.toBe(null);
+    await click(menuToggle);
+    await animationFrame();
+    // The dropdown opened and rendered its menu item (the Edit item from the
+    // arch's `menu` template).
+    expect(".dropdown-item").toHaveCount(1);
+    expect(queryAllTexts(".dropdown-item")).toInclude("Edit");
+
+    // (d) PRIORITY widget rendered in the footer of a spec07-board record. The
+    // kanban priority widget is readonly (renders a <span>, not a <button>), so
+    // it is not framework-offline-disabled and the real offline priority WRITE
+    // cannot be driven here — it is a Step 10 manual check (and a deviation).
+    // Asserting `.o_priority` is present proves the arch footer body is intact
+    // beneath the mobile card.
+    void getBoardModel;
+    expect(article.querySelector(".o_priority")).not.toBe(null);
+
+    // (b) Offline stage move ON THE SPEC07 BOARD queues one web_save for lead 6.
+    // A fresh spec07 board is mounted with a scoped web_save-failure so the move
+    // falls back to the offline queue; the move is driven through this board's
+    // own model (captured by mountSpec07Board), not a separate arch.
+    const setSaveOffline = failWebSaveWhenOffline();
+    const getModel = await mountSpec07Board();
+    setOffline(true);
+    setSaveOffline(true);
+    await moveLeadToStage(getModel(), 6, 3);
+    expect(spec04QueuedFor("crm.lead", "web_save", 6).length).toBe(1);
+    setOffline(false);
+}
+test.tags("mobile");
+test("spec07 additive wiring preserves card behavior (mobile)", testSpec07AdditivePreservesBehavior);
+
+// "spec07 cached card tap opens the form" (mobile, ONLINE): on the spec07 board
+// reached through a WebClient window action (kanban + form views), tapping a
+// rendered lead card routes the kanban's openRecord to the form view for that
+// lead — Req 3.4 / 10.4 (the card tap target opens the lead). Driven ONLINE so
+// the card is tappable (offline an uncached card is disabled and shows the
+// in-card message instead, covered elsewhere). This needs the WebClient +
+// doAction harness because a bare `mountView` board has no action stack to route
+// a kanban→form switch; the action's form view is Spec04Lead._views["form,false"].
+async function testSpec07CachedCardTapOpensForm() {
+    defineSpec07BoardAction();
+    await mountWithCleanup(WebClient);
+    await runAllTimers();
+    await getService("action").doAction(71);
+    await animationFrame();
+
+    // The board rendered with mobile cards (mobile preset, grouped by stage).
+    expect(".o_kanban_view").toHaveCount(1);
+    const card = spec07BoardCardFor("Lead 6") || document.querySelector(".o_kanban_record");
+    expect(card).not.toBe(null);
+    const record = spec07RecordOf(card) || card;
+
+    // Tap the card: the kanban openRecord switches to the form view for the lead.
+    await click(record);
+    await animationFrame();
+    await runAllTimers();
+
+    // The form view opened for a lead.
+    expect(".o_form_view").toHaveCount(1);
+    expect(".o_kanban_view").toHaveCount(0);
+}
+test.tags("mobile");
+test("spec07 cached card tap opens the form (mobile)", testSpec07CachedCardTapOpensForm);
+
+// "spec07 no mobile card in board on desktop" (desktop): under the desktop
+// preset isSmall() is false, so the template does NOT inject the mobile card and
+// the arch card renders intact. (Property 1 desktop-negative.)
+async function testSpec07NoMobileCardDesktop() {
+    await mountSpec07Board();
+    expect(".o_kanban_record").toHaveCount(3); // arch card intact
+    expect(".o_crm_mobile_lead_card").toHaveCount(0); // no mobile card injected
+    // The arch name node is VISIBLE on desktop (no hide block applies: the
+    // `:has(.o_crm_mobile_lead_card)` scope is false without a mobile card). Guard
+    // against null first: assert at least one arch name node renders, then that
+    // the first one is visible (offsetParent set).
+    const archNames = document.querySelectorAll(".o_kanban_record .o_crm_card_name");
+    expect(archNames.length).toBeGreaterThan(0);
+    const archName = archNames[0];
+    expect(archName).not.toBe(null);
+    expect(archName.offsetParent).not.toBe(null); // visible
+}
+test.tags("desktop");
+test("spec07 no mobile card in board on desktop (desktop)", testSpec07NoMobileCardDesktop);
+
+// ---------------------------------------------------------------------------
+// Removal checks for tasks 4.0 / 4.2 (stated here; run by the operator — the
+// suite is NOT run as part of this task):
+//   - Remove `KanbanRecord: CrmKanbanRecord` from CrmKanbanRenderer.static
+//     components (crm_kanban_renderer.js) → "spec07 board renders the card" goes
+//     red (`.o_kanban_record .o_crm_mobile_lead_card` count 0).
+//   - Remove the SCSS hide block
+//     (`.o_kanban_record:has(.o_crm_mobile_lead_card) { ... display: none }` in
+//     crm_mobile_lead_card.scss) → "spec07 lead name appears once" goes red (the
+//     arch name node becomes visible, so the name appears twice).
+// ---------------------------------------------------------------------------
+
+
+// ###########################################################################
+// Spec 07 — Task 5.2: CrmMobileQuickCreate sheet contents + queued-create shape
+// + client-side validation + 44x44 controls.
+// (Requirements 5.4, 5.5, 5.6, 5.7, 5.8, 5.10, 5.11, 6.1, 6.2, 6.4, 6.5, 6.6,
+//  6.7, 8.1, 8.2, 8.3, 8.4, 8.5; Properties 3, 8.)
+//
+// The sheet is a STANDALONE component (no model, no env.config of its own): it
+// takes `{ close, groups, context, extrasBase }` props. These tests mount it
+// directly with `mountWithCleanup` and plain mock groups shaped like kanban
+// Groups (`{ serverValue, displayName, isFolded }`) — the REAL grouped-kanban
+// stage selector is exercised in task 6.1. Connectivity is driven through the
+// real `setOffline` helper; the app (plugin manager) exists after mount so
+// `getService(OfflinePlugin)` is available. Every queued entry is removed with
+// `removeScheduledORM` BEFORE `setOffline(false)` so the framework never replays
+// against a mock server. Element text is read via `queryAllTexts(sel)[0]` (repo
+// convention). The sheet renders identically under both presets because it is
+// mounted directly (it reads `isSmall()` only indirectly, through the hook, and
+// its markup is preset-independent); the pair runs it under BOTH presets to
+// satisfy "new mobile components tested in the mobile preset", with the desktop
+// run a harmless duplicate that also guards the markup.
+//
+// Removal check: this task does NOT wire the sheet to the New button — that is
+// task 6, which OWNS the open-the-sheet removal checks (remove the
+// `isNewButtonAvailableOffline` / `createRecord` overrides). The sheet-content
+// tests here mount the component directly, so they have no production-wiring
+// line of their own to remove; this is acceptable because task 6 proves the
+// sheet is reachable from production. (Stated explicitly rather than "n/a".)
+// ###########################################################################
+
+/** Three groups shaped like kanban Groups: a visible stage, a FOLDED stage,
+ *  and the falsy-serverValue "None" group (which must yield NO option). */
+const spec07QcGroups = [
+    { serverValue: 1, displayName: "New", isFolded: false },
+    { serverValue: 2, displayName: "Qualified", isFolded: true },
+    { serverValue: false, displayName: "None", isFolded: false },
+];
+
+/** The queue as a plain array of stored `value` objects. */
+function spec07QcEntries() {
+    return Object.values(getService(OfflinePlugin)._ormToSync()).map((e) => e.value);
+}
+
+/** Mount the sheet with the given props, returning the `closed` sink array. */
+async function mountSpec07Sheet({ groups = spec07QcGroups, context = { default_type: "lead" } } = {}) {
+    const closed = [];
+    await mountWithCleanup(CrmMobileQuickCreate, {
+        props: {
+            close: () => closed.push(true),
+            groups,
+            context,
+            extrasBase: { actionId: 1, actionName: "CRM", viewType: "kanban" },
+        },
+    });
+    return closed;
+}
+
+// --- Test 1: every control carries data-available-offline, none disabled -----
+// (Requirements 5.4, 5.5.) Each of the six fields, the stage select, and both
+// buttons has `data-available-offline` AND is not `[disabled]` / not
+// `.o_disabled_offline`. The stage select is ENABLED because the groups are
+// non-empty.
+async function testSpec07SheetFieldsAvailableOffline() {
+    await mountSpec07Sheet();
+    const selectors = [
+        ".o_crm_qc_name",
+        ".o_crm_qc_contact_name",
+        ".o_crm_qc_phone",
+        ".o_crm_qc_email",
+        ".o_crm_qc_revenue",
+        ".o_crm_qc_stage",
+        ".o_crm_qc_create",
+        ".o_crm_qc_cancel",
+    ];
+    for (const sel of selectors) {
+        expect(sel).toHaveCount(1);
+        const el = document.querySelector(sel);
+        // The offline-availability attribute is present on the interactive element.
+        expect(el.getAttribute("data-available-offline")).not.toBe(null);
+        // Not disabled by the framework offline pass, and not the disabled class.
+        expect(el.hasAttribute("disabled")).toBe(false);
+        expect(el.classList.contains("o_disabled_offline")).toBe(false);
+    }
+}
+test.tags("desktop");
+test("spec07 sheet fields carry data-available-offline (desktop)", testSpec07SheetFieldsAvailableOffline);
+test.tags("mobile");
+test("spec07 sheet fields carry data-available-offline (mobile)", testSpec07SheetFieldsAvailableOffline);
+
+// --- Test 2: stage selector lists groups incl empty+folded, excludes None ----
+// (Requirements 5.6, 5.7, 5.10.) Options are exactly ["New","Qualified"] in
+// array order; the falsy-serverValue "None" group yields NO option; the FOLDED
+// "Qualified" group IS present. Option values are the server stage ids "1","2".
+async function testSpec07SheetStageOptions() {
+    await mountSpec07Sheet();
+    const labels = queryAllTexts(".o_crm_qc_stage option");
+    expect(labels).toEqual(["New", "Qualified"]); // array order; "None" excluded
+    const values = [...document.querySelectorAll(".o_crm_qc_stage option")].map((o) => o.value);
+    expect(values).toEqual(["1", "2"]); // serverValue 1 (New), 2 (folded Qualified)
+}
+test.tags("desktop");
+test("spec07 stage selector lists groups incl empty+folded, excludes None (desktop)", testSpec07SheetStageOptions);
+test.tags("mobile");
+test("spec07 stage selector lists groups incl empty+folded, excludes None (mobile)", testSpec07SheetStageOptions);
+
+// Variant: no groups → the stage selector is disabled (stageDisabled true).
+// (Requirement 5.8.)
+async function testSpec07SheetStageDisabledNoGroups() {
+    await mountSpec07Sheet({ groups: [] });
+    expect(".o_crm_qc_stage").toHaveCount(1);
+    expect(document.querySelector(".o_crm_qc_stage").hasAttribute("disabled")).toBe(true);
+}
+test.tags("desktop");
+test("spec07 stage selector disabled when no groups (desktop)", testSpec07SheetStageDisabledNoGroups);
+test.tags("mobile");
+test("spec07 stage selector disabled when no groups (mobile)", testSpec07SheetStageDisabledNoGroups);
+
+// --- Test 3: a valid Create queues EXACTLY one web_save with the right shape --
+// (Requirements 6.1, 6.2, 6.5, 6.6, 6.7.) Offline, set name WITH surrounding
+// whitespace via the captured instance's state (to prove the sheet TRIMS it),
+// set revenue/email, leave contact_name and phone EMPTY (to prove empty optional
+// fields are OMITTED from VALUES), keep the stage at its default (first option,
+// serverValue 1), invoke onCreate directly. The WHOLE queue holds exactly one
+// entry: crm.lead web_save, args [[], VALUES] with the trimmed
+// name/stage_id/expected_revenue/email_from set and contact_name/phone absent;
+// kwargs.specification deep-equals {} and kwargs.context.default_type === "lead";
+// EXTRAS carries displayName/changes/timeStamp AND the extrasBase
+// actionId/actionName/viewType; and the sheet closed. Entries are removed before
+// going back online.
+//
+// The name is set WITH surrounding whitespace directly on the captured instance's
+// state ("  Acme Lead  ") and `onCreate()` is invoked directly (the same
+// programmatic-instance pattern as the empty-name / revenue tests). This proves the
+// production trim (`onCreate`: `const name = (this.state.name||"").trim()`)
+// deterministically — driving the whitespace through the input/edit path does not
+// preserve the surrounding spaces, so typing cannot exercise the trim.
+async function testSpec07ValidCreateQueuesOne() {
+    let qcInstance;
+    patchWithCleanup(CrmMobileQuickCreate.prototype, {
+        setup() {
+            super.setup(...arguments);
+            qcInstance = this;
+        },
+    });
+    const closed = await mountSpec07Sheet();
+    setOffline(true);
+
+    // Set the whitespace-wrapped name and the filled optionals via state (fine and
+    // deterministic). contact_name and phone left empty: they must be OMITTED from
+    // VALUES. Stage left at the sheet's default (first option, serverValue 1).
+    qcInstance.state.name = "  Acme Lead  ";
+    qcInstance.state.expected_revenue = "500";
+    qcInstance.state.email_from = "a@b.com";
+
+    qcInstance.onCreate();
+
+    const entries = spec07QcEntries();
+    expect(entries.length).toBe(1); // the WHOLE queue, exactly one entry
+    const v = entries[0];
+    expect(v.model).toBe("crm.lead");
+    expect(v.method).toBe("web_save");
+    // args: empty id list + the VALUES dict.
+    expect(v.args[0]).toEqual([]);
+    const VALUES = v.args[1];
+    expect(VALUES.name).toBe("Acme Lead"); // trimmed of surrounding whitespace
+    expect(VALUES.stage_id).toBe(1); // default first non-falsy stage
+    expect(VALUES.expected_revenue).toBe(500); // numeric, not the "500" string
+    expect(VALUES.email_from).toBe("a@b.com");
+    // Empty optional fields are omitted entirely, not sent as "".
+    expect("contact_name" in VALUES).toBe(false);
+    expect("phone" in VALUES).toBe(false);
+    // kwargs: context carries the pipeline default_type; specification is {} so
+    // replay does not raise a TypeError.
+    expect(v.kwargs.specification).toEqual({});
+    expect(v.kwargs.context.default_type).toBe("lead");
+    // EXTRAS: the sheet's own displayName/changes/timeStamp PLUS the Controller's
+    // extrasBase (actionId/actionName/viewType).
+    expect(v.extras.displayName).toBe("Acme Lead");
+    expect(typeof v.extras.changes).toBe("object");
+    expect(typeof v.extras.timeStamp).toBe("number");
+    expect(v.extras.actionId).toBe(1);
+    expect(v.extras.actionName).toBe("CRM");
+    expect(v.extras.viewType).toBe("kanban");
+    // The sheet closed on a successful queue.
+    expect(closed.length).toBe(1);
+
+    // Clean up every queued entry before going back online (no replay).
+    const offline = getService(OfflinePlugin);
+    for (const key of Object.keys(offline._ormToSync())) {
+        offline.removeScheduledORM(key);
+    }
+    setOffline(false);
+}
+test.tags("desktop");
+test("spec07 valid create queues exactly one web_save (desktop)", testSpec07ValidCreateQueuesOne);
+test.tags("mobile");
+test("spec07 valid create queues exactly one web_save (mobile)", testSpec07ValidCreateQueuesOne);
+
+// --- Test 3b: FILLED optional fields ARE included in VALUES --------------------
+// (Requirements 6.1, 6.2, 6.5.) The omit-empty rule is one-sided: when the
+// optional fields ARE filled they must appear in the queued VALUES. Offline, fill
+// contact_name/phone/email_from/revenue (name too), click Create, and assert the
+// single queued web_save's VALUES carries each filled optional with its entered
+// value and the numeric revenue. Same offline-queue + cleanup pattern as the
+// sibling tests.
+async function testSpec07CreateIncludesFilledOptionals() {
+    await mountSpec07Sheet();
+    setOffline(true);
+
+    await contains(".o_crm_qc_name").edit("Acme Lead", { confirm: false });
+    await contains(".o_crm_qc_contact_name").edit("Jane", { confirm: false });
+    await contains(".o_crm_qc_phone").edit("+1 555", { confirm: false });
+    await contains(".o_crm_qc_email").edit("a@b.com", { confirm: false });
+    await contains(".o_crm_qc_revenue").edit("7", { confirm: false });
+
+    await contains(".o_crm_qc_create").click();
+
+    const entries = spec07QcEntries();
+    expect(entries.length).toBe(1);
+    const VALUES = entries[0].args[1];
+    expect(VALUES.contact_name).toBe("Jane");
+    expect(VALUES.phone).toBe("+1 555");
+    expect(VALUES.email_from).toBe("a@b.com");
+    expect(VALUES.expected_revenue).toBe(7); // numeric, not the "7" string
+
+    // Clean up every queued entry before going back online (no replay).
+    const offline = getService(OfflinePlugin);
+    for (const key of Object.keys(offline._ormToSync())) {
+        offline.removeScheduledORM(key);
+    }
+    setOffline(false);
+}
+test.tags("desktop");
+test("spec07 create includes filled optional fields (desktop)", testSpec07CreateIncludesFilledOptionals);
+test.tags("mobile");
+test("spec07 create includes filled optional fields (mobile)", testSpec07CreateIncludesFilledOptionals);
+
+// --- Test 4: an empty name queues nothing and marks the name invalid ----------
+// (Requirements 8.1, 8.4.) Offline, leave the name empty, click Create: the
+// queue stays EMPTY, the name field gains `is-invalid`, and the sheet stays open
+// (closed sink empty). Create/Cancel keep data-available-offline throughout.
+async function testSpec07EmptyNameQueuesNothing() {
+    const closed = await mountSpec07Sheet();
+    setOffline(true);
+
+    await contains(".o_crm_qc_create").click();
+
+    expect(spec07QcEntries().length).toBe(0); // nothing queued
+    expect(document.querySelector(".o_crm_qc_name").classList.contains("is-invalid")).toBe(true);
+    expect(closed.length).toBe(0); // sheet stayed open
+    // The buttons keep the offline-availability attribute while invalid.
+    expect(document.querySelector(".o_crm_qc_create").getAttribute("data-available-offline")).not.toBe(null);
+    expect(document.querySelector(".o_crm_qc_cancel").getAttribute("data-available-offline")).not.toBe(null);
+
+    setOffline(false);
+}
+test.tags("desktop");
+test("spec07 empty name queues nothing and marks invalid (desktop)", testSpec07EmptyNameQueuesNothing);
+test.tags("mobile");
+test("spec07 empty name queues nothing and marks invalid (mobile)", testSpec07EmptyNameQueuesNothing);
+
+// --- Test 5: invalid revenue, then invalid email, each queue nothing ----------
+// (Requirements 8.2, 8.3.) Two sequential mounts within one test (deterministic):
+//   (a) name "X" + non-numeric revenue "abc" → queue empty, revenue is-invalid;
+//   (b) name "X" + valid revenue + malformed email "notanemail" → queue empty,
+//       email is-invalid.
+async function testSpec07InvalidRevenueEmailQueuesNothing() {
+    // (a) non-numeric revenue. The `.o_crm_qc_revenue` input is `type="number"`,
+    // so the browser rejects typed non-numeric text and the field would stay
+    // empty (valid) — typing cannot reach the revenue guard. The guard is a
+    // defensive, programmatically-reachable path, so exercise it by driving the
+    // handler directly on the captured instance (same pattern as the empty-name
+    // programmatic test), not through the DOM.
+    let revInstance;
+    patchWithCleanup(CrmMobileQuickCreate.prototype, {
+        setup() {
+            super.setup(...arguments);
+            revInstance = this;
+        },
+    });
+    await mountSpec07Sheet();
+    setOffline(true);
+    revInstance.state.name = "X";
+    revInstance.state.expected_revenue = "abc";
+    revInstance.onCreate();
+    expect(spec07QcEntries().length).toBe(0); // nothing queued
+    expect(revInstance.state.invalid.expected_revenue).toBe(true); // revenue flagged
+    await animationFrame();
+    expect(document.querySelector(".o_crm_qc_revenue").classList.contains("is-invalid")).toBe(true);
+    setOffline(false);
+
+    // (b) malformed email with a valid revenue — fresh mount, fresh state. A
+    // `type="email"` input DOES accept the string "notanemail", so keep the
+    // typed approach here.
+    await mountSpec07Sheet();
+    setOffline(true);
+    await contains(".o_crm_qc_name").edit("X", { confirm: false });
+    await contains(".o_crm_qc_revenue").edit("100", { confirm: false });
+    await contains(".o_crm_qc_email").edit("notanemail", { confirm: false });
+    await contains(".o_crm_qc_create").click();
+    expect(spec07QcEntries().length).toBe(0); // nothing queued
+    expect(document.querySelector(".o_crm_qc_email").classList.contains("is-invalid")).toBe(true);
+    setOffline(false);
+}
+test.tags("desktop");
+test("spec07 invalid revenue/email queues nothing (desktop)", testSpec07InvalidRevenueEmailQueuesNothing);
+test.tags("mobile");
+test("spec07 invalid revenue/email queues nothing (mobile)", testSpec07InvalidRevenueEmailQueuesNothing);
+
+// --- Test 6: a programmatic confirm with empty name queues nothing ------------
+// (Requirement 8.5.) The confirm handler is reachable in code; called directly
+// with an empty name it must return without queuing. The component instance is
+// captured through the production `setup` (patchWithCleanup on the prototype),
+// not by forcing any flag.
+async function testSpec07ProgrammaticConfirmEmptyName() {
+    let testInstance;
+    patchWithCleanup(CrmMobileQuickCreate.prototype, {
+        setup() {
+            super.setup(...arguments);
+            testInstance = this;
+        },
+    });
+    await mountSpec07Sheet();
+    setOffline(true);
+
+    // name left empty — call the confirm handler directly.
+    testInstance.onCreate();
+
+    expect(spec07QcEntries().length).toBe(0); // nothing queued
+    setOffline(false);
+}
+test.tags("desktop");
+test("spec07 programmatic confirm empty name queues nothing (desktop)", testSpec07ProgrammaticConfirmEmptyName);
+test.tags("mobile");
+test("spec07 programmatic confirm empty name queues nothing (mobile)", testSpec07ProgrammaticConfirmEmptyName);
+
+// --- Test 7: every interactive control is at least 44x44 CSS pixels -----------
+// (Requirement 5.11.) On the mounted sheet, each input, the stage select, and
+// both buttons measure >= 44 in BOTH width and height via getBoundingClientRect.
+async function testSpec07SheetControls44px() {
+    await mountSpec07Sheet();
+    const selectors = [
+        ".o_crm_qc_name",
+        ".o_crm_qc_contact_name",
+        ".o_crm_qc_phone",
+        ".o_crm_qc_email",
+        ".o_crm_qc_revenue",
+        ".o_crm_qc_stage",
+        ".o_crm_qc_create",
+        ".o_crm_qc_cancel",
+    ];
+    for (const sel of selectors) {
+        const el = document.querySelector(sel);
+        expect(el).not.toBe(null);
+        const rect = el.getBoundingClientRect();
+        expect(rect.width).toBeGreaterThan(43); // >= 44 CSS px wide
+        expect(rect.height).toBeGreaterThan(43); // >= 44 CSS px tall
+    }
+}
+test.tags("desktop");
+test("spec07 sheet controls 44px (desktop)", testSpec07SheetControls44px);
+test.tags("mobile");
+test("spec07 sheet controls 44px (mobile)", testSpec07SheetControls44px);
+
+// ###########################################################################
+// Spec 07 — Task 6.1: quick-create ENTRY wiring on the CRM kanban Controller.
+// (Requirements 4.1, 4.2, 4.3, 4.4; design Facts 2, 9, 13; Property 2.)
+//
+// These tests mount the REAL `crm_kanban` board (`mountSpec07Board`, grouped by
+// stage_id) so the production Controller overrides on `crmKanbanView.Controller`
+// (crm_kanban_view.js) are exercised end to end — no `{ force: true }`, no
+// patched `setOffline`, no hand-set flags. Connectivity is driven through the
+// real `setOffline` helper.
+//
+// The control-panel New button is `button.o-kanban-button-new`
+// (web.KanbanView.Buttons), rendered with
+//   t-att-disabled="this.isNewButtonDisabled"
+//   t-att-data-available-offline="this.isNewButtonAvailableOffline"
+// so the Controller's `isNewButtonAvailableOffline` getter directly sets the
+// offline-availability attribute that the framework offline pass reads
+// (SELECTORS_TO_DISABLE = button:not([data-available-offline])). Returning true
+// on small+offline therefore keeps the button live offline; `createRecord()`
+// opens the CrmMobileQuickCreate bottom sheet (`.o_crm_mobile_quick_create`)
+// into document.body via BottomSheetPlugin.
+//
+// Note: the spec07 arch does not set create="0", so the New button renders. The
+// board is grouped by stage_id so `root.groups` is populated — the sheet's stage
+// selector is fed from those real groups (the empty/falsy-serverValue "None"
+// group yields no option; the real stages do).
+//
+// Removal checks (stated here; run by the operator — the suite is NOT run as
+// part of this task):
+//   - Remove the `isNewButtonAvailableOffline` override from
+//     `crmKanbanView.Controller` (crm_kanban_view.js) → "spec07 New enabled
+//     offline" goes red (the framework offline pass disables the New button
+//     because the attribute falls back to super's offline-availability, which is
+//     false for an uncached inline quick-create).
+//   - Remove the `createRecord` override → "spec07 tapping New opens the sheet"
+//     goes red (no `.o_crm_mobile_quick_create` sheet is mounted; the click
+//     falls through to the inline quick-create instead).
+// ###########################################################################
+
+// --- Test 1: the New button stays enabled offline on a small screen -----------
+// (Requirement 4.1.) Mobile + offline: after going offline, the control-panel
+// New button is NOT disabled — the override returns true for
+// isNewButtonAvailableOffline, so the framework offline pass leaves it enabled
+// because `data-available-offline` is set from that getter.
+async function testSpec07NewEnabledOffline() {
+    await mountSpec07Board();
+    setOffline(true);
+    await animationFrame();
+
+    const newBtn = document.querySelector(".o-kanban-button-new");
+    expect(newBtn).not.toBe(null);
+    // The offline-availability attribute is present (set from the getter) ...
+    expect(newBtn.getAttribute("data-available-offline")).not.toBe(null);
+    // ... and the framework offline pass has NOT disabled the button.
+    expect(newBtn.hasAttribute("disabled")).toBe(false);
+    expect(newBtn.classList.contains("o_disabled_offline")).toBe(false);
+    expect(".o-kanban-button-new:not([disabled])").toHaveCount(1);
+
+    setOffline(false);
+}
+test.tags("mobile");
+test("spec07 New enabled offline (mobile)", testSpec07NewEnabledOffline);
+
+// --- Test 2: tapping New offline opens the mobile quick-create sheet -----------
+// (Requirement 4.2.) Mobile + offline: clicking the New button opens the
+// CrmMobileQuickCreate bottom sheet (`.o_crm_mobile_quick_create`, mounted into
+// document.body by BottomSheetPlugin). The sheet received stage options from the
+// real `root.groups` (the board is grouped by stage_id), so its stage selector
+// lists at least one option. Cancel at the end tears the overlay down.
+async function testSpec07TappingNewOpensSheet() {
+    await mountSpec07Board();
+    setOffline(true);
+    await animationFrame();
+
+    await click(".o-kanban-button-new");
+    await animationFrame();
+
+    // The mobile quick-create sheet is in the DOM exactly once.
+    expect(".o_crm_mobile_quick_create").toHaveCount(1);
+    // It was fed stages from root.groups (grouped-by-stage board), so the stage
+    // selector lists at least one real stage option.
+    expect(document.querySelectorAll(".o_crm_qc_stage option").length).toBeGreaterThan(0);
+
+    // Clean up the overlay before leaving (Cancel closes the sheet).
+    await click(".o_crm_qc_cancel");
+    await animationFrame();
+    setOffline(false);
+}
+test.tags("mobile");
+test("spec07 tapping New opens the sheet (mobile)", testSpec07TappingNewOpensSheet);
+
+// --- Test 3: the real grouped-kanban stage selector — LITERAL (Fix 3) ---------
+// (Requirement 5.9 and the real-board half of 5.6/5.7/5.10.) Exercise the stage
+// selector through the REAL offline-loaded grouped crm_kanban (not mocked
+// groups), asserting LITERAL labels/order/values rather than recomputing the
+// expectation from the same `root.groups` the production code reads (which would
+// make the test tautological).
+//
+// The mock crm.stage has exactly Start(1) / Middle(2) / Won(3); leads 1/6/9 sit
+// in stages 1/2/3, so all three stages render as groups. The sheet's stage
+// selector therefore lists EXACTLY ["Start","Middle","Won"] in that order, with
+// values ["1","2","3"], and no option is "false"/empty.
+//
+// EMPTY STAGE: this mock does NOT implement group_expand (Spec04Stage is a plain
+// models.Model with no `_read_group_stage_ids` / group_expand on stage_id), so a
+// stage with NO leads does NOT surface as a group — and therefore does NOT appear
+// in the selector. This test adds a 4th stage ("Empty", no leads) and asserts it
+// is ABSENT from the options, documenting that reality. "Empty stage selectable
+// in the quick-create" is deferred to a Step 10 manual check on the real
+// group_expand-backed pipeline. (If the mock later gains group_expand, this
+// literal expectation must be updated to include the empty stage.)
+async function testSpec07RealGroupedStageSelector() {
+    const getModel = await mountSpec07Board();
+    // Add an empty stage AFTER mount: with no group_expand it must not become a
+    // group (and so must not appear as an option). Reload to re-group.
+    MockServer.env["crm.stage"].create([{ name: "Empty" }]);
+    await getModel().load();
+    await animationFrame();
+
+    setOffline(true);
+    await animationFrame();
+
+    await click(".o-kanban-button-new");
+    await animationFrame();
+
+    expect(".o_crm_mobile_quick_create").toHaveCount(1);
+
+    const optionEls = [...document.querySelectorAll(".o_crm_qc_stage option")];
+    // LITERAL labels, order, and values — the three populated stages only.
+    expect(queryAllTexts(".o_crm_qc_stage option")).toEqual(["Start", "Middle", "Won"]);
+    expect(optionEls.map((o) => o.value)).toEqual(["1", "2", "3"]);
+    // No option is falsy/empty (no "None" group, and the empty stage is absent).
+    expect(optionEls.every((o) => o.value && o.value !== "false")).toBe(true);
+    // The empty stage (no group_expand → no group) does NOT appear.
+    expect(queryAllTexts(".o_crm_qc_stage option")).not.toInclude("Empty");
+
+    await click(".o_crm_qc_cancel");
+    await animationFrame();
+    setOffline(false);
+}
+test.tags("mobile");
+test("spec07 real grouped-kanban stage selector (mobile)", testSpec07RealGroupedStageSelector);
+
+// --- Test 3b: the stage selector honors an active search scope (Req 5.9) ------
+// With a search domain that limits the board to one stage's leads, the loaded
+// groups (and therefore the quick-create stage selector) list only the in-scope
+// stages. Since the mock has no group_expand, a stage with no in-scope leads does
+// not surface as a group — so a domain of `stage_id = 2` leaves ONLY "Middle" in
+// the selector. This asserts LITERAL in-scope expectations (not recomputed from
+// root.groups). (A real search FACET is harder to drive deterministically in the
+// Hoot harness; mounting the board with a `domain` is the equivalent scope, and
+// is what the real search facet reduces to — stated here explicitly.)
+async function testSpec07StageSelectorSearchScoped() {
+    // Only lead 6 (stage 2 / "Middle") is in scope.
+    await mountSpec07Board({ domain: [["stage_id", "=", 2]] });
+    setOffline(true);
+    await animationFrame();
+
+    await click(".o-kanban-button-new");
+    await animationFrame();
+
+    expect(".o_crm_mobile_quick_create").toHaveCount(1);
+    const optionEls = [...document.querySelectorAll(".o_crm_qc_stage option")];
+    // Only the in-scope stage ("Middle"/2) is listed — literal expectation.
+    expect(queryAllTexts(".o_crm_qc_stage option")).toEqual(["Middle"]);
+    expect(optionEls.map((o) => o.value)).toEqual(["2"]);
+
+    await click(".o_crm_qc_cancel");
+    await animationFrame();
+    setOffline(false);
+}
+test.tags("mobile");
+test("spec07 stage selector honors an active search scope (mobile)", testSpec07StageSelectorSearchScoped);
+
+// --- Test 4a: New is unchanged online on DESKTOP (sheet never opens) ----------
+// (Requirements 4.3, 4.4.) Desktop preset, ONLINE: the override's gate
+// (isSmall() && isOffline()) is false, so clicking New falls through to `super`
+// (the inline kanban quick-create). OUR sheet must NOT open. We assert only that
+// `.o_crm_mobile_quick_create` is absent — not the inline quick-create's own
+// internals.
+async function testSpec07NewUnchangedDesktop() {
+    await mountSpec07Board();
+
+    await click(".o-kanban-button-new");
+    await animationFrame();
+
+    // The mobile sheet is NEVER opened on desktop/online.
+    expect(".o_crm_mobile_quick_create").toHaveCount(0);
+}
+test.tags("desktop");
+test("spec07 New unchanged online/desktop (desktop)", testSpec07NewUnchangedDesktop);
+
+// --- Test 4b: New is unchanged on MOBILE while ONLINE (sheet never opens) ------
+// (Requirements 4.3, 4.4.) Mobile preset but ONLINE: the gate requires
+// isOffline() too, so our sheet must NOT open; the existing inline quick-create
+// path is used instead. Assert `.o_crm_mobile_quick_create` is absent.
+async function testSpec07NewUnchangedMobileOnline() {
+    await mountSpec07Board();
+
+    // Stay online.
+    await click(".o-kanban-button-new");
+    await animationFrame();
+
+    expect(".o_crm_mobile_quick_create").toHaveCount(0);
+}
+test.tags("mobile");
+test("spec07 New unchanged online on mobile (mobile)", testSpec07NewUnchangedMobileOnline);
+
+// ###########################################################################
+// Spec 07 — Task 7.1: the queued create renders in the offline systray without
+// error (Blocker 2).
+// (Requirements 7.1, 7.2, 7.3, 7.4; design Fact 13; Property 8.)
+//
+// The offline systray lives in the WebClient navbar (`.o_menu_systray`), so this
+// test uses the WebClient + `mockOffline` harness the other passing systray tests
+// in this file use (`queueThreeCrmCalls` / `testSystrayClassifiesCrmCalls`). A
+// bare `mountView`/board has no navbar, so `.o_offline_systray` never renders —
+// that was why the previous version found 0 (HootTimingError).
+//
+// The create is STILL queued through the PRODUCTION sheet `onCreate`: the
+// production CrmMobileQuickCreate is mounted into the SAME running app (so it
+// resolves the SAME OfflinePlugin via `useCrmOffline()`), its name is filled, and
+// Create is clicked — queuing the `crm.lead` web_save with the real EXTRAS the
+// sheet builds (Fact 13: `{ ...extrasBase, displayName, changes, timeStamp }`).
+// Then the existing offline systray is opened and the queued-create row is
+// asserted to render with its label — the displayName ("Systray Lead") and the
+// STATUS.CREATED badge ("Created") — with NO error icon and NO uncaught error.
+//
+// The systray's CREATE branch (offline_systray.js) reads
+// `value.extras.displayName` and iterates `Object.entries(value.extras.changes)`
+// for a `web_save` whose `args[0]` id list is empty (STATUS.CREATED). A queued
+// create with missing extras would throw while rendering (the same class of
+// crash as spec 06's `status.color`). A clean pass — no `expect.errors`, so
+// Hoot's unverified-error check must find none — proves the production EXTRAS
+// keep the systray row safe.
+//
+// Mobile only: the sheet is the `isSmall() && isOffline()` entry point, so there
+// is no meaningful desktop variant; no desktop duplicate is added.
+//
+// Removal check (stated here; run by the operator — the suite is NOT run as part
+// of this task): because the create is queued via the PRODUCTION sheet `onCreate`,
+// remove the `changes` key from the PRODUCTION EXTRAS builder in
+// crm_mobile_quick_create.js `onCreate` (the `changes: { ...VALUES }` entry, NOT a
+// test fixture). The systray CREATE branch then does
+// `Object.entries(value.extras.changes)` on `undefined` and THROWS while rendering
+// this row → THIS test goes red (an uncaught render error Hoot reports as
+// unverified); restore the key to make it green again.
+async function testSpec07SystrayRendersQueuedCreate() {
+    // The systray lives in the WebClient navbar, so use the WebClient + offline
+    // harness the other systray tests use (a bare mountView has no systray). The
+    // create is still queued through the PRODUCTION sheet onCreate (mounted into
+    // the same running app), so its EXTRAS are the real ones Fact 13 builds.
+    const setOfflineReal = mockOffline();
+    onRpc("/web/webclient/version_info", () => new Response("", { status: 502 }), { pure: true });
+    await mountWithCleanup(WebClient);
+    await runAllTimers();
+    await setOfflineReal(true);
+
+    // Mount the production quick-create sheet into the same app (same OfflinePlugin),
+    // fill the name, and Create — production onCreate queues the crm.lead web_save
+    // with the real EXTRAS and closes the sheet.
+    const closed = [];
+    await mountWithCleanup(CrmMobileQuickCreate, {
+        props: {
+            close: () => closed.push(true),
+            groups: spec07QcGroups,
+            context: { default_type: "lead" },
+            extrasBase: { actionId: 1, actionName: "CRM", viewType: "kanban" },
+        },
+    });
+    await contains(".o_crm_qc_name").edit("Systray Lead", { confirm: false });
+    await contains(".o_crm_qc_create").click();
+    await animationFrame();
+    expect(spec07QcEntries().length).toBe(1);
+
+    // Open the offline systray and assert the queued-create row renders with its
+    // displayName and the Created badge, and NO error icon / NO uncaught crash.
+    await contains(".o_menu_systray .o_offline_systray").click();
+    await animationFrame();
+    const itemText = queryAllTexts(".o-dropdown--menu .o-dropdown-item").join(" ");
+    expect(itemText).toInclude("Systray Lead");
+    const badgeText = queryAllTexts(".o-dropdown--menu .o_tag.o_badge").join(" ");
+    expect(badgeText).toInclude("Created");
+    expect(".o-dropdown--menu .o-dropdown-item [data-icon='error']").toHaveCount(0);
+
+    // Clean up the queue before going back online so nothing replays.
+    const offline = getService(OfflinePlugin);
+    for (const key of Object.keys(offline._ormToSync())) {
+        offline.removeScheduledORM(key);
+    }
+    await setOfflineReal(false);
+}
+test.tags("mobile");
+test("spec07 systray renders the queued create without error (mobile)", testSpec07SystrayRendersQueuedCreate);
+
+// ###########################################################################
+// Spec 07 — Task 8.1 (TEST side): the Controller-owned optimistic
+// pending-create strip.
+// (Requirements 9.1, 9.2, 9.3, 9.4, 9.5, 9.6, 9.7, 9.8, 9.9; Property 4.)
+//
+// The strip is rendered FROM THE CONTROLLER (crmKanbanView.Controller
+// `static template = "crm.MobileKanbanView"`) as a full-width element
+// (`.o_crm_mobile_pending_strip.w-100`) ABOVE the kanban renderer root
+// (`.o_kanban_renderer`), gated on `isSmall()`. The Controller derives its
+// queued creates from `this.crmOffline.queuedWrites("crm.lead")` (NOT by
+// resolving OfflinePlugin itself), filtered to empty-id `web_save` entries, and
+// renders one `CrmMobileLeadCard` in queued-create mode per entry inside the
+// strip. Each strip card renders `.o_crm_mobile_lead_card_name`, an optional
+// `.o_crm_mobile_lead_card_stage`, and a `.o_crm_mobile_lead_card_marker` whose
+// text is "Pending sync" (non-parked) or "Needs retry" (parked `extras.error`,
+// adding class `o_crm_needs_retry`).
+//
+// How these tests put an empty-id `crm.lead` web_save in the queue: they mount
+// the REAL board (`mountSpec07Board`), go offline through the real `setOffline`
+// helper, then schedule the create DIRECTLY on the plugin
+// (`getService(OfflinePlugin).scheduleORM("crm.lead", "web_save", [[], VALUES],
+// ...)`). An empty-id web_save queued directly simulates a create from ANY path
+// (quick-create or form) — which is exactly what Req 9.5 (origin-independence)
+// requires. After scheduling, `await animationFrame()` lets the Controller's
+// strip derivation re-read the reactive `_ormToSync()` signal (through the hook)
+// and re-render. Every entry is removed with `removeScheduledORM` BEFORE
+// `setOffline(false)` so the framework never replays against the mock server.
+//
+// A real stage id is read from the live model AFTER mount:
+//   const groups = getModel().root.groups;
+//   const stageId = groups.find((g) => g.serverValue)?.serverValue;
+// so a queued `stage_id` can be resolved to that group's `displayName`.
+//
+// Removal check (stated here; run by the operator — the suite is NOT run as part
+// of this task): remove the strip derivation (make the Controller's
+// `pendingCreateCards` getter return `[]`, or remove the
+// `this.crmOffline.queuedWrites("crm.lead")` call) OR remove
+// `static template = "crm.MobileKanbanView"` on crmKanbanView.Controller →
+// "spec07 strip shows queued create" goes red (`.o_crm_mobile_pending_strip`
+// count 0); restore. (This is also the real wiring removal check for the
+// task-0.1 hook `queuedWrites` accessor.)
+// ###########################################################################
+
+/** Build the VALUES dict for a queued empty-id crm.lead web_save create. */
+function spec07StripValues(overrides = {}) {
+    return {
+        name: "Strip Lead",
+        contact_name: "Contact Co",
+        expected_revenue: 999,
+        ...overrides,
+    };
+}
+
+/**
+ * Schedule an empty-id `crm.lead` `web_save` directly on the plugin (simulating
+ * a create queued from any path) and return its key. `extras` is merged over a
+ * minimal base so the systray/strip reads never see undefined.
+ */
+function spec07ScheduleStripCreate(offline, values, extras = {}) {
+    return offline.scheduleORM(
+        "crm.lead",
+        "web_save",
+        [[], values],
+        { context: {}, specification: {} },
+        {
+            extras: {
+                actionName: "CRM",
+                displayName: values.name || "New lead",
+                changes: {},
+                timeStamp: 1,
+                ...extras,
+            },
+        }
+    );
+}
+
+// --- Test 1: the strip shows a queued create, full-width, above the renderer ---
+// (Requirements 9.1, 9.2, 9.3, 9.7, 9.8.) After a queued empty-id create, the
+// strip renders exactly once; inside it a CrmMobileLeadCard whose name is
+// "Strip Lead" and whose marker reads "Pending sync". The strip node is BEFORE
+// the kanban renderer root in document order and spans full width (w-100).
+async function testSpec07StripShowsQueuedCreate() {
+    const getModel = await mountSpec07Board();
+    const offline = getService(OfflinePlugin);
+    setOffline(true);
+
+    const groups = getModel().root.groups;
+    const stageId = groups.find((g) => g.serverValue)?.serverValue;
+    expect(stageId).not.toBe(undefined); // a real stage group exists
+
+    const key = spec07ScheduleStripCreate(
+        offline,
+        spec07StripValues({ stage_id: stageId })
+    );
+    await animationFrame();
+
+    // The strip renders exactly once.
+    expect(".o_crm_mobile_pending_strip").toHaveCount(1);
+    // One queued-create card inside the strip, with the queued name.
+    const stripCard = document.querySelector(
+        ".o_crm_mobile_pending_strip .o_crm_mobile_lead_card"
+    );
+    expect(stripCard).not.toBe(null);
+    expect(stripCard.querySelector(".o_crm_mobile_lead_card_name")?.textContent).toBe(
+        "Strip Lead"
+    );
+    const marker = (
+        queryAllTexts(".o_crm_mobile_pending_strip .o_crm_mobile_lead_card_marker")[0] || ""
+    );
+    expect(marker).toInclude("Pending sync");
+
+    // Positioned ABOVE the renderer: the strip precedes the kanban renderer root
+    // in document order, and spans full width.
+    const strip = document.querySelector(".o_crm_mobile_pending_strip");
+    const renderer = document.querySelector(".o_kanban_renderer");
+    expect(renderer).not.toBe(null);
+    expect(
+        Boolean(strip.compareDocumentPosition(renderer) & Node.DOCUMENT_POSITION_FOLLOWING)
+    ).toBe(true);
+    expect(strip).toHaveClass("w-100");
+
+    offline.removeScheduledORM(key);
+    setOffline(false);
+}
+test.tags("mobile");
+test("spec07 strip shows queued create (mobile)", testSpec07StripShowsQueuedCreate);
+
+// --- Test 2: a form-path create also shows (origin independence, Req 9.5) ------
+// (Requirement 9.5.) An empty-id `crm.lead` web_save whose EXTRAS carry no
+// quick-create-specific displayName (shaped like a form-view create) STILL shows
+// in the strip. The strip is not filtered by origin or actionId.
+async function testSpec07StripShowsFormPathCreate() {
+    const getModel = await mountSpec07Board();
+    const offline = getService(OfflinePlugin);
+    setOffline(true);
+    void getModel;
+
+    // A form-shaped create: empty id list, extras WITHOUT a sheet-tied
+    // displayName/actionId — only the minimal systray fields. Name "Form Lead".
+    const key = offline.scheduleORM(
+        "crm.lead",
+        "web_save",
+        [[], spec07StripValues({ name: "Form Lead", contact_name: "Form Co" })],
+        { context: {}, specification: {} },
+        { extras: { actionName: "CRM", displayName: "Form Lead", changes: {}, timeStamp: 2 } }
+    );
+    await animationFrame();
+
+    expect(".o_crm_mobile_pending_strip").toHaveCount(1);
+    const names = queryAllTexts(
+        ".o_crm_mobile_pending_strip .o_crm_mobile_lead_card .o_crm_mobile_lead_card_name"
+    );
+    expect(names).toInclude("Form Lead");
+
+    offline.removeScheduledORM(key);
+    setOffline(false);
+}
+test.tags("mobile");
+test("spec07 strip shows a form-path create (mobile)", testSpec07StripShowsFormPathCreate);
+
+// --- Test 3: stage label resolution --------------------------------------------
+// (Requirement 9.6.) A queued create whose `stage_id` matches a `root.groups`
+// `serverValue` shows that group's `displayName`. A queued create whose
+// `stage_id` is unmatched resolves to no stage (no fallback) and does not crash
+// (strip still present). Both entries are queued at once so one board shows a
+// resolvable AND an unresolvable card.
+async function testSpec07StripStageLabelResolution() {
+    const getModel = await mountSpec07Board();
+    const offline = getService(OfflinePlugin);
+    setOffline(true);
+
+    const groups = getModel().root.groups;
+    const group = groups.find((g) => g.serverValue);
+    expect(group).not.toBe(undefined);
+    const stageId = group.serverValue;
+    const stageLabel = group.displayName;
+
+    // Resolvable: stage_id matches a group's serverValue.
+    const keyResolvable = spec07ScheduleStripCreate(
+        offline,
+        spec07StripValues({ name: "Resolvable Lead", stage_id: stageId }),
+        { timeStamp: 1 }
+    );
+    // Unresolvable: stage_id matches no group and no extras.changes stage.
+    const keyUnresolved = spec07ScheduleStripCreate(
+        offline,
+        spec07StripValues({ name: "Unresolved Lead", stage_id: 999999 }),
+        { timeStamp: 2 }
+    );
+    await animationFrame();
+
+    const cards = [
+        ...document.querySelectorAll(
+            ".o_crm_mobile_pending_strip .o_crm_mobile_lead_card"
+        ),
+    ];
+    const resolvableCard = cards.find(
+        (c) => c.querySelector(".o_crm_mobile_lead_card_name")?.textContent === "Resolvable Lead"
+    );
+    const unresolvedCard = cards.find(
+        (c) => c.querySelector(".o_crm_mobile_lead_card_name")?.textContent === "Unresolved Lead"
+    );
+    expect(resolvableCard).not.toBe(undefined);
+    expect(unresolvedCard).not.toBe(undefined);
+
+    // Resolvable card shows the matched group's displayName as its stage.
+    expect(resolvableCard.querySelector(".o_crm_mobile_lead_card_stage")?.textContent).toBe(
+        stageLabel
+    );
+    // Unresolved card shows NO stage element and the strip did not crash.
+    expect(unresolvedCard.querySelectorAll(".o_crm_mobile_lead_card_stage").length).toBe(0);
+    expect(".o_crm_mobile_pending_strip").toHaveCount(1);
+
+    offline.removeScheduledORM(keyResolvable);
+    offline.removeScheduledORM(keyUnresolved);
+    setOffline(false);
+}
+test.tags("mobile");
+test("spec07 strip stage label resolution (mobile)", testSpec07StripStageLabelResolution);
+
+// --- Test 4: a parked create shows the "needs retry" marker --------------------
+// (Requirement 9.9.) A strip card whose queued create is PARKED (`extras.error`
+// set) shows the translatable "Needs retry" marker, carrying class
+// `o_crm_needs_retry`, and does not crash. A NON-parked entry (no error) shows
+// "Pending sync".
+async function testSpec07StripParkedCreateNeedsRetry() {
+    const getModel = await mountSpec07Board();
+    const offline = getService(OfflinePlugin);
+    setOffline(true);
+    void getModel;
+
+    // Parked entry: extras.error set.
+    const parkedKey = spec07ScheduleStripCreate(
+        offline,
+        spec07StripValues({ name: "Parked Lead" }),
+        { error: "Server rejected", timeStamp: 1 }
+    );
+    // Non-parked entry: no error.
+    const pendingKey = spec07ScheduleStripCreate(
+        offline,
+        spec07StripValues({ name: "Pending Lead" }),
+        { timeStamp: 2 }
+    );
+    await animationFrame();
+
+    const cards = [
+        ...document.querySelectorAll(
+            ".o_crm_mobile_pending_strip .o_crm_mobile_lead_card"
+        ),
+    ];
+    const parkedCard = cards.find(
+        (c) => c.querySelector(".o_crm_mobile_lead_card_name")?.textContent === "Parked Lead"
+    );
+    const pendingCard = cards.find(
+        (c) => c.querySelector(".o_crm_mobile_lead_card_name")?.textContent === "Pending Lead"
+    );
+    expect(parkedCard).not.toBe(undefined);
+    expect(pendingCard).not.toBe(undefined);
+
+    // Parked card: "Needs retry" marker carrying o_crm_needs_retry.
+    const parkedMarker = parkedCard.querySelector(".o_crm_mobile_lead_card_marker");
+    expect(parkedMarker).not.toBe(null);
+    expect(parkedMarker.textContent).toInclude("Needs retry");
+    expect(parkedMarker).toHaveClass("o_crm_needs_retry");
+    // The strip did not crash.
+    expect(".o_crm_mobile_pending_strip").toHaveCount(1);
+
+    // Non-parked card: "Pending sync" marker, no o_crm_needs_retry.
+    const pendingMarker = pendingCard.querySelector(".o_crm_mobile_lead_card_marker");
+    expect(pendingMarker).not.toBe(null);
+    expect(pendingMarker.textContent).toInclude("Pending sync");
+    expect(pendingMarker).not.toHaveClass("o_crm_needs_retry");
+
+    offline.removeScheduledORM(parkedKey);
+    offline.removeScheduledORM(pendingKey);
+    setOffline(false);
+}
+test.tags("mobile");
+test("spec07 strip parked create shows needs-retry (mobile)", testSpec07StripParkedCreateNeedsRetry);
+
+// --- Test 5: no strip on desktop -----------------------------------------------
+// (Requirement 9.7 / Property 1 desktop-negative.) Under the desktop preset
+// isSmall() is false, so the Controller template renders NO strip even with an
+// empty-id create queued.
+async function testSpec07NoStripDesktop() {
+    const getModel = await mountSpec07Board();
+    const offline = getService(OfflinePlugin);
+    setOffline(true);
+    void getModel;
+
+    const key = spec07ScheduleStripCreate(offline, spec07StripValues());
+    await animationFrame();
+
+    // isSmall() false → no strip.
+    expect(".o_crm_mobile_pending_strip").toHaveCount(0);
+
+    offline.removeScheduledORM(key);
+    setOffline(false);
+}
+test.tags("desktop");
+test("spec07 no strip on desktop (desktop)", testSpec07NoStripDesktop);
+
+// ###########################################################################
+// Spec 07 — forecast-leak guard: NONE of the mobile pipeline behaviour leaks
+// onto the forecast_kanban board (the DISABLE-offline, date-grouped board).
+// (Requirement 1 / the `_crmMobileStageBoard` gate.)
+//
+// The mobile card, the offline New-button override, the quick-create sheet, and
+// the pending-create strip are all gated on `_crmMobileStageBoard` — the board
+// grouped by stage_id. The forecast_kanban view extends the SAME Controller but
+// groups by date_deadline, so NONE of the mobile behaviour must appear on it:
+//   - the mobile card is NOT injected (the MobileKanbanRecord template gates on
+//     `groupByField.name === 'stage_id'`),
+//   - the New button is NOT force-enabled by our override (the gate is false, so
+//     `isNewButtonAvailableOffline` falls through to super, which for an uncached
+//     forecast board leaves the button framework-disabled offline), and tapping
+//     New does NOT open the mobile quick-create sheet,
+//   - the pending-create strip is NOT rendered even with an empty-id crm.lead
+//     web_save queued.
+//
+// Mounted via the REAL `forecast_kanban` view grouped by date_deadline (as
+// crm/.../forecast_kanban.test.js mounts it), so the production gate is exercised
+// end to end. The shared `crm.lead` records carry no date_deadline, so they fall
+// in a single date group; that is enough to render the board and prove the gate.
+//
+// Removal check (stated here; run by the operator): make `_crmMobileStageBoard`
+// return `true` unconditionally in crm_kanban_view.js → this test goes red (New
+// opens the sheet, the strip appears, and — because the MobileKanbanRecord
+// template's own stage_id gate still holds — at minimum the New/strip
+// assertions fail on the date-grouped board).
+async function testSpec07ForecastKanbanNoMobile() {
+    await mountView({
+        type: "kanban",
+        resModel: "crm.lead",
+        arch: `<kanban js_class="forecast_kanban"><templates><t t-name="card"><field name="name"/></t></templates></kanban>`,
+        groupBy: ["date_deadline"],
+        context: { forecast_field: "date_deadline" },
+    });
+    expect(".o_kanban_view").toHaveCount(1); // the forecast board mounted
+
+    setOffline(true);
+    await animationFrame();
+
+    // No mobile card on the forecast (date-grouped) board.
+    expect(".o_crm_mobile_lead_card").toHaveCount(0);
+
+    // The New button is NOT force-enabled by our override: the gate is false, so
+    // for an uncached forecast board offline the framework pass disables it (no
+    // data-available-offline from super).
+    const newBtn = document.querySelector(".o-kanban-button-new");
+    if (newBtn) {
+        expect(
+            newBtn.hasAttribute("disabled") ||
+                newBtn.classList.contains("o_disabled_offline")
+        ).toBe(true);
+        // And tapping it never opens our mobile quick-create sheet (robust check,
+        // independent of the exact disabled styling).
+        newBtn.click();
+        await animationFrame();
+    }
+    expect(".o_crm_mobile_quick_create").toHaveCount(0);
+
+    // No strip, even with an empty-id crm.lead create queued.
+    const offline = getService(OfflinePlugin);
+    const key = offline.scheduleORM(
+        "crm.lead",
+        "web_save",
+        [[], { name: "Forecast Create" }],
+        { context: {}, specification: {} },
+        { extras: { actionName: "CRM", displayName: "Forecast Create", changes: {}, timeStamp: 1 } }
+    );
+    await animationFrame();
+    expect(".o_crm_mobile_pending_strip").toHaveCount(0);
+
+    offline.removeScheduledORM(key);
+    setOffline(false);
+}
+test.tags("mobile");
+test("spec07 forecast board has no mobile card/New/strip (mobile)", testSpec07ForecastKanbanNoMobile);

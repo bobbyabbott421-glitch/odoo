@@ -41,5 +41,13 @@ export function useCrmOffline() {
                     value.args[0].includes(resId)
             );
         },
+        // Reads the same framework queue signal `hasQueuedWrite` reads (no second
+        // store): returns the queued entry values ({ model, method, args, kwargs,
+        // extras }) for `resModel`, as an array. Read at call time so it stays
+        // reactive — an empty array when the queue holds no entry for that model.
+        queuedWrites: (resModel) =>
+            Object.values(offline._ormToSync())
+                .map((entry) => entry.value)
+                .filter((value) => value.model === resModel),
     };
 }

@@ -7,6 +7,7 @@ from odoo.addons.crm.controllers.webmanifest import WebManifest as CrmWebManifes
 from odoo.addons.crm.tests.common import TestCrmCommon
 from odoo.addons.http_routing.tests.common import MockRequest
 from odoo.addons.web.controllers.webmanifest import WebManifest as WebWebManifest
+from odoo.service.model import call_kw
 from odoo.tests import HttpCase
 from odoo.tests.common import tagged
 from odoo.tools import file_open
@@ -290,3 +291,86 @@ class TestCrmOffline(HttpCase, TestCrmCommon):
         created = self.env['crm.lead'].search([('name', '=', 'Created Offline')])
         self.assertEqual(len(created), 1, "exactly one lead was created")
         self.assertEqual(created.type, 'opportunity')
+
+    # ------------------------------------------------------------------
+    # Spec 07 — Quick-create queued create replay (Req 11 / Fact 4)
+    #
+    # Replays the quick-create's queued offline `web_save` CREATE the way the
+    # framework does — through `odoo.service.model.call_kw` with the EXACT queued
+    # args `[[], VALUES]` and kwargs `{context, specification: {}}` (Fact 4 shape,
+    # identical to what the JS lane asserts is queued). In a call_kw, args[0] (the
+    # id list) becomes the recordset `self`, so VALUES is `web_save`'s `vals`
+    # argument on an empty recordset — NOT a positional web_save([], VALUES).
+    # Runs for BOTH a lead pipeline and an opportunity pipeline (Req 11.1 / 11.2),
+    # asserting the created lead carries the entered values, the chosen stage, and
+    # the correct type from the pipeline context. Distinct from the pre-existing
+    # `test_offline_websave_create_replay`, which is NOT modified.
+    # ------------------------------------------------------------------
+
+    def test_spec07_quick_create_replay(self):
+        """Req 11.1 / 11.2 (Fact 4): replaying the quick-create's queued offline
+        `web_save` create via `call_kw(crm.lead, 'web_save', [[], VALUES],
+        {context, specification: {}})` yields a server lead carrying the entered
+        values and the chosen generic stage, with the type taken from the pipeline
+        context — `lead` for a lead pipeline and `opportunity` for an opportunity
+        pipeline."""
+        # stage_gen_1 has no team_ids (usable by any team), matching the generic
+        # stage a quick-create picks from root.groups.
+        stage = self.stage_gen_1
+
+        def replay_create(ctx, values):
+            # Exact queued shape: args [[], VALUES], kwargs {context, specification}.
+            result = call_kw(
+                self.env['crm.lead'].with_context(**ctx),
+                'web_save',
+                [[], values],
+                {'context': ctx, 'specification': {}},
+            )
+            # web_save returns a list of record-data dicts; with an empty
+            # specification this is minimal data, typically [{'id': <id>}]. Prefer
+            # the returned id; fall back to a name search only if it is unavailable.
+            if result and isinstance(result[0], dict) and 'id' in result[0]:
+                created_id = result[0]['id']
+                lead = self.env['crm.lead'].browse(created_id)
+            else:
+                lead = self.env['crm.lead'].search(
+                    [('name', '=', values['name'])], limit=1,
+                )
+            self.assertTrue(lead, "the replayed web_save created exactly one lead")
+            return lead
+
+        # Lead pipeline: context default_type='lead'. FULL payload — every
+        # optional field filled, mirroring a quick-create with all fields entered.
+        ctx_lead = {'default_type': 'lead'}
+        lead = replay_create(ctx_lead, {
+            'name': 'QC Lead',
+            'contact_name': 'QC Contact',
+            'phone': '+1 555 0100',
+            'email_from': 'qc@test.example.com',
+            'expected_revenue': 1234,
+            'stage_id': stage.id,
+        })
+        self.assertEqual(lead.name, 'QC Lead')
+        self.assertEqual(lead.contact_name, 'QC Contact')
+        self.assertEqual(lead.phone, '+1 555 0100')
+        self.assertEqual(lead.email_from, 'qc@test.example.com')
+        self.assertEqual(lead.expected_revenue, 1234)
+        self.assertEqual(lead.stage_id, stage)
+        self.assertEqual(lead.type, 'lead')
+
+        # Opportunity pipeline: context default_type='opportunity'. MINIMAL payload
+        # — name + stage_id only, mirroring the sheet's omit-empty behaviour when
+        # the optional fields are left blank. The minimal (omit-empty) payload must
+        # replay just as cleanly.
+        ctx_opp = {'default_type': 'opportunity'}
+        opp = replay_create(ctx_opp, {
+            'name': 'QC Opp',
+            'stage_id': stage.id,
+        })
+        self.assertEqual(opp.name, 'QC Opp')
+        self.assertEqual(opp.stage_id, stage)
+        self.assertEqual(opp.type, 'opportunity')
+        # Omitted optional fields stay falsy/empty on the created lead.
+        self.assertFalse(opp.contact_name)
+        self.assertFalse(opp.phone)
+        self.assertFalse(opp.email_from)
