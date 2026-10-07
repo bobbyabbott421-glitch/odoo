@@ -1590,6 +1590,44 @@ offline activity reconnect, the user still has a retry path).
 
 ---
 
+### KL-C — The schedulable activity-type allow-list is session-scoped, so an offline page reload before any online prefetch leaves the schedule control disabled
+
+**Intent (verbatim):** "Read and edit leads they visited online, and create new leads. Log
+calls, schedule follow-ups, and mark activities done." The schedule-follow-up control depends
+on the activity-type cache **and** on the non-meeting allow-list.
+
+**What is true.** The non-meeting (schedulable) allow-list recorded by the activity-type
+prefetch lives in a module-level `WeakMap` keyed by the `OfflinePlugin` instance
+(`_schedulableTypeIds`), i.e. it is **session-scoped and not persisted**. The schedulable set
+offered to the sheet is the shared `many2x_mail.activity.type` cache INTERSECTED with this
+allow-list. In the **warm-session** flow — open the lead online, then lose the connection
+WITHOUT reloading the page — the allow-list is present and the schedule control works offline.
+
+**The limitation.** After an **offline page RELOAD** (service worker serves the app, but no
+online prefetch has run in the new page session), the allow-list is empty. With an empty
+allow-list nothing is treated as schedulable, so the gate stays closed and the schedule
+control is **disabled** until the connection returns and a prefetch runs. This is a
+deliberate **fail-safe**: an empty allow-list can never leak a meeting-category type that
+happens to sit in the shared many2x cache from an unrelated dropdown search. The lead is still
+readable/editable offline; only the *schedule-activity* affordance is withheld in this reload
+case.
+
+**Why it is not fixed here.** Persisting the allow-list would require storing an arbitrary
+CRM value (specifically `category`, which the many2x cache's `_encryptAndFormat` discards —
+it keeps only `{id, display_name}`) in the existing offline IndexedDB. `OfflinePlugin` exposes
+**no public key/value persist API** for that (its only write paths are the visited-UI table,
+the orm-to-sync queue, and the many2x cache); `_idb` is private, and adding a store or a second
+cache is forbidden by `constraints.md`. A real fix would need a **public key/value API added
+to `web`**, which is outside this effort's write boundary. (A lighter alternative — re-run the
+prefetch opportunistically whenever briefly online — narrows but does not close the gap.)
+
+**Decision.** Keep the session-scoped allow-list for spec 06 (user's call). KL-C is flagged
+for **Step 10 manual validation** on a real device: confirm that after an offline reload the
+schedule control is disabled (not crashing, no meeting type offered), and that it re-enables
+once a connection returns and the prefetch runs.
+
+---
+
 ## Carry-forward
 
 In spec 06, row 9 is documented as NOT met in its literal wording by the framework (probe
@@ -1803,7 +1841,7 @@ cached rows (a, b) or a blank region (c), never the literal helper. Spec 06 **ac
 documents** this (decision **R1**); a CRM-side card-click guard on today's crm kanban (R2) is
 **not** built, and the explanation UI for an uncached lead is **carried forward** to the
 spec-07 mobile lead card and asserted by spec 08's pipeline test (see the Carry-forward
-section). Row 9, KL-A and KL-B are flagged for Step 10 validation. No optional property-based-test tasks are generated (there is no
+section). Row 9, KL-A, KL-B and KL-C are flagged for Step 10 validation. No optional property-based-test tasks are generated (there is no
 property-testing facility in this repo; properties are expressed as deterministic example and
 edge-case tests).
 
@@ -1822,6 +1860,14 @@ registered via the backend bundle). Open a lead **offline** and confirm:
 This is the real-widget confirmation the unit test cannot give, and it MUST be stated as an
 explicit limit of the unit test in the PR description. (3c adds no CRM code; this check
 confirms the framework already enforces the rule for the real widget.)
+
+**Step 10 manual validation (KL-C — schedule control after an offline reload).** On a real
+device/PWA: open a lead **online** on a small screen (so the activity-type prefetch runs),
+then go **offline** and **reload the page**. Confirm that the schedule-activity control is
+**disabled** (not crashing, and the schedule sheet never opens with a meeting type offered),
+because the session-scoped allow-list is empty after the reload. Then restore the connection
+and confirm the control **re-enables** once the prefetch runs again. (Warm-session — going
+offline without reloading — should keep the control enabled; verify that path too.)
 
 ---
 
