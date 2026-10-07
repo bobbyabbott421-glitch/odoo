@@ -523,10 +523,10 @@
                         <t t-name="card">
                             <widget name="web_ribbon" id="lost_ribbon" title="Lost" bg_color="text-bg-danger" invisible="won_status != 'lost'"/>
                             <widget name="web_ribbon" id="archived_ribbon" title="Archived" bg_color="text-bg-danger" invisible="active or won_status in ['lost', 'won']"/>
-                            <field class="fw-bold fs-5" name="name"/>
+                            <field class="fw-bold fs-5 o_crm_card_name" name="name"/>
                             <div class="o_kanban_card_crm_lead_revenue">
                                 <t t-if="record.expected_revenue.raw_value">
-                                    <field name="expected_revenue" widget="monetary" options="{'currency_field': 'company_currency'}"/>
+                                    <field class="o_crm_card_expected_revenue" name="expected_revenue" widget="monetary" options="{'currency_field': 'company_currency'}"/>
                                     <span t-if="record.recurring_revenue and record.recurring_revenue.raw_value" groups="crm.group_use_recurring_revenues"> + </span>
                                 </t>
                                 <t t-if="record.recurring_revenue and record.recurring_revenue.raw_value">
@@ -534,12 +534,12 @@
                                     <field name="recurring_plan" groups="crm.group_use_recurring_revenues"/>
                                 </t>
                             </div>
-                            <div class="d-flex" invisible="not partner_id">
+                            <div class="d-flex o_crm_card_partner" invisible="not partner_id">
                                 <field name="partner_id" widget="many2one_avatar" class="text-truncate" readonly="1" options="{'no_create': 1, 'no_open': 1}"/>
                                 <field name="partner_id" class="ms-2 text-truncate"/>
                             </div>
-                            <field name="contact_name" invisible="partner_id"/>
-                            <field name="partner_name" invisible="partner_id or contact_name"/>
+                            <field class="o_crm_card_contact_name" name="contact_name" invisible="partner_id"/>
+                            <field class="o_crm_card_partner_name" name="partner_name" invisible="partner_id or contact_name"/>
                             <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color', 'on_tag_click': 'edit_color'}"/>
                             <field name="lead_properties" widget="properties"/>
                             <footer class="pt-1">

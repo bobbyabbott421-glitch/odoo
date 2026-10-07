@@ -1,0 +1,17 @@
+// CrmMobileQuickCreate (spec 07, PART 4 item 3) — offline mobile quick-create
+// bottom sheet. Every interactive control (inputs, the stage select, and the
+// Create / Cancel buttons) is at least 44x44 CSS pixels so it is a comfortable
+// touch target on a small screen (Fact 7).
+.o_crm_mobile_quick_create {
+    .o_crm_qc_name,
+    .o_crm_qc_contact_name,
+    .o_crm_qc_phone,
+    .o_crm_qc_email,
+    .o_crm_qc_revenue,
+    .o_crm_qc_stage,
+    .o_crm_qc_create,
+    .o_crm_qc_cancel {
+        min-width: 44px;
+        min-height: 44px;
+    }
+}

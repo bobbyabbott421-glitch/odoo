@@ -41,7 +41,8 @@ their final proof is the acceptance report after spec 08.
 - Spec 04: merged into `kiro/00-setup`.
 - Spec 05: merged into `kiro/00-setup`.
 - Spec 06: merged into `kiro/00-setup`.
-- Specs 07–08: not started.
+- Spec 07: implemented on `kiro/07-mobile-card-quick-create`; NOT merged (pending review).
+- Spec 08: not started.
 
 ## Row 9 (acceptance) — not met literally in spec 06; carried forward
 
@@ -88,3 +89,36 @@ a Step 10 manual check on a real device/PWA:
   `this.load(...)` path) is not exercised end-to-end by a unit test. Confirm manually that, with
   the lead chatter mounted, reconnecting on a real device refetches the thread once and folds in
   the replayed server activity without a duplicate or a stale pending row.
+
+## Carry-forward from spec 07 (mobile lead card + quick create)
+
+Spec 07 implemented the mobile lead card, the offline mobile quick-create bottom sheet, the
+pending-create strip, and the KL-A in-card uncached-lead message. Two things are explicitly
+left for **spec 08**:
+
+- **Pending-create card placement in the stage column.** Spec 07 renders each queued offline
+  create as a `CrmMobileLeadCard` in a flat full-width strip ABOVE the kanban columns, rendered
+  from the CRM kanban Controller. Spec 08 (mobile pipeline) SHALL place each pending-create card
+  inside its own stage column of the pipeline.
+- **Acceptance row 9, end-to-end.** Spec 07 implements and unit-proves the in-card uncached-lead
+  message (present for an uncached lead, absent for a cached one, mobile + offline; desktop
+  renders neither). Spec 08 owns row 9 and SHALL assert the explanation end-to-end through the
+  pipeline and the browser tour.
+
+### Step 10 manual-check list (spec 07)
+
+These behaviours cannot be proven by the Hoot unit/integration lanes and MUST be confirmed by a
+Step 10 manual check on a real device / installed PWA:
+
+- **Real touch drag-and-drop of a lead card.** The unit lane exercises the stage move through
+  the kanban model's `moveRecords` path (which queues the expected `web_save`), not a real
+  touch drag; confirm a finger drag between stages on a phone queues the move offline.
+- **Real card tap opening the form.** Confirm tapping a cached lead card on a device opens its
+  form (requirement 3.4 / 10.4); the unit lane asserts the additive wiring preserves the open
+  path structurally.
+- **Live `kanban_activity` widget on the card.** The board tests use a plain `activity_ids`
+  field (the shared mock cannot drive the activity widget's RPC for a grouped board); confirm
+  the real `kanban_activity` widget renders under the mobile card on a device.
+- **The real offline systray row for a queued create on a device.** The unit lane proves the
+  systray renders the queued-create row without crashing (extras shape); confirm it appears in
+  the real navbar systray on a device.
