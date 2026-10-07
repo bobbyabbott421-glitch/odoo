@@ -5035,14 +5035,37 @@ async function testReconcileOnReconnect() {
     // cleared — no stale/duplicate optimistic row remains after the replay.
     expect(chatter.state.thread.activities.filter((a) => a.id < 0).length).toBe(0);
     expect(queryAllTexts(".o-mail-Activity").join(" ")).not.toInclude("pending sync");
+
+    // The replay actually created the activity on the SERVER with the queued
+    // summary and type — asserted on the authoritative mock SERVER state (reliable),
+    // a REAL positive server id (mock stores the many2one as the raw id). This is
+    // the "server row folded in" guarantee at its reliable source; the live
+    // in-memory fold-in into the already-mounted chatter is best-effort (KL-B) and
+    // is not asserted here to avoid a harness-timing flake.
+    expect(typeof serverActivityId).toBe("number");
+    expect(serverActivityId).toBeGreaterThan(0);
+    const [serverRow] = MockServer.env["mail.activity"].browse(serverActivityId);
+    expect(serverRow.summary).toBe("Scheduled");
+    expect(serverRow.activity_type_id).toBe(2);
+    // The server row exists (browse returns it) and no optimistic temp row survived
+    // the drain.
+    expect(MockServer.env["mail.activity"].browse(serverActivityId).length).toBe(1);
+    expect(chatter.state.thread.activities.filter((a) => a.id < 0).length).toBe(0);
 }
 test.tags("mobile");
 test("8.7: reconnect replays the queued schedule and reconciles the row (mobile)", testReconcileOnReconnect);
 
-// 8.7b mobile: on reconnect a queued mark-done (action_feedback) replays; the mock
-// server REMOVES the activity (as _action_done archives it), and after the refetch
-// the activity leaves the rendered list. Asserts the server received action_feedback.
-async function testReconcileMarkDoneRemovesRow() {
+// 8.7b mobile: on reconnect a queued mark-done (action_feedback) replays exactly
+// once. What this test PROVES (all reliable in this harness): the server received
+// exactly the queued action_feedback for that activity id (verbatim, last-write-
+// wins, not re-sent), the queue drained to empty, the server removed the activity
+// (its on-server archive/unlink), and the done-pending-sync marker is cleared from
+// the rendered row (its queue entry is gone). It does NOT assert live in-memory
+// removal of the row from the mounted chatter's list — that depends on the
+// mounted-chatter reconnect refetch, which is best-effort in this harness (the KL-B
+// limitation); the Python replay test (test_offline_action_feedback_replay) covers
+// the server-side archive end-to-end.
+async function testReconcileMarkDoneReplaysOnce() {
     const pyEnv = await startServer();
     const leadId = pyEnv["crm.lead"].create({ name: "Done Reconcile", type: "opportunity" });
     const activityId = pyEnv["mail.activity"].create({
@@ -5089,17 +5112,16 @@ async function testReconcileMarkDoneRemovesRow() {
     // reached the server last-write-wins and is not re-sent.
     expect.verifySteps(["action_feedback:" + JSON.stringify([activityId])]);
     expect(hookOrmToSyncSize()).toBe(0);
+    // The server removed the activity on reconnect (its on-server archive/unlink),
+    // reliable because it is asserted on the mock SERVER state, not the mounted
+    // component's in-memory list.
+    expect(MockServer.env["mail.activity"].browse(activityId).length).toBe(0);
     // The done-pending-sync marker is no longer sourced from the queue (its entry is
     // gone), so the row is no longer shown as pending.
     expect(queryAllTexts(".o-mail-Activity").join(" ")).not.toInclude("done, pending sync");
-    // NB: dropping the archived activity from the mounted chatter's list depends on
-    // the reconnect thread refetch, which is best-effort in this harness (same
-    // mounted-chatter refetch limitation as KL-B); the Python replay test
-    // (test_offline_action_feedback_replay) asserts the server-side archive. We do
-    // not assert the live in-memory list removal here to avoid a harness-timing flake.
 }
 test.tags("mobile");
-test("8.7b: reconnect replays mark-done and the activity leaves the list (mobile)", testReconcileMarkDoneRemovesRow);
+test("8.7b: reconnect replays mark-done exactly once and the server archives the activity (mobile)", testReconcileMarkDoneReplaysOnce);
 
 // 8.7 removal check (mobile): with the queue-derived rebuild
 // (_syncOptimisticActivities) stubbed to a no-op, scheduling offline still queues
@@ -5688,6 +5710,168 @@ async function testParkInPlaceRefreshesMarker() {
 test.tags("mobile");
 test("FIX4: parking in place refreshes the row to needs-retry (mobile)", testParkInPlaceRefreshesMarker);
 
+// T1a (mobile): a queued mark-done survives UNMOUNT + REMOUNT of the chatter —
+// the marker is applied from the TRUE original (NOT doubled) because the originals
+// live in the module WeakMap keyed by the store record (which outlives the
+// component), and can_write is RESTORED once the entry leaves the queue. Regression
+// guard: if the originals were held per-component (recaptured on remount), the
+// second mount would capture the already-decorated summary and double the marker.
+async function testMarkDoneSurvivesRemount() {
+    // One expected offline error: the framework's own background record refetch
+    // (crm.lead/web_read) when the cached lead form is reopened offline. It is
+    // swallowed by the framework; we verify it explicitly (same pattern as the
+    // chatter offline-reopen tests).
+    expect.errors(1);
+    const pyEnv = await startServer();
+    const leadId = pyEnv["crm.lead"].create({ name: "Remount Done", type: "opportunity" });
+    const ORIGINAL_SUMMARY = "Phone the lead";
+    const activityId = pyEnv["mail.activity"].create({
+        res_model: "crm.lead",
+        res_id: leadId,
+        activity_type_id: 2,
+        summary: ORIGINAL_SUMMARY,
+        can_write: true,
+    });
+    pyEnv["crm.lead"].write([leadId], { activity_ids: [activityId] });
+    defineLeadFormAction(leadId);
+    let chatter;
+    patchWithCleanup(CrmChatter.prototype, {
+        setup() {
+            super.setup(...arguments);
+            chatter = this;
+        },
+    });
+    const setOfflineReal = mockOffline();
+    await start();
+    await runAllTimers();
+    // Open the lead ONLINE through the cached action so the form + record are
+    // cached for an offline reopen; Done is re-enabled.
+    await getService("action").doAction(80);
+    await mc(".o-mail-Activity-markDone");
+    await runAllTimers();
+    await setOfflineReal(true);
+    await animationFrame();
+    await mc(".o-mail-Activity-markDone[data-available-offline]");
+
+    // The store activity record is shared across remounts (lives in the store).
+    const storeAct = () => chatter.store["mail.activity"].get(activityId);
+    expect(storeAct().summary).toBe(ORIGINAL_SUMMARY);
+
+    // Queue the mark-done: summary decorated ONCE, Done button suppressed.
+    await click(".o-mail-Activity-markDone");
+    await animationFrame();
+    expect(storeAct().summary).toBe(ORIGINAL_SUMMARY + " " + "(done, pending sync)");
+    expect(markDoneQueuedFor(activityId).length).toBe(1);
+
+    // REMOUNT the lead chatter by reopening the SAME cached action offline
+    // (clearBreadcrumbs tears the current form down and mounts a fresh one). The
+    // cached record renders; a background web_read refetch fails (declared above).
+    await getService("action").doAction(80, { clearBreadcrumbs: true });
+    await mc(".o-mail-Activity-markDone, .o-mail-Activity");
+    await animationFrame();
+    await runAllTimers();
+
+    // After remount the marker is NOT doubled — still exactly one marker on the
+    // true original (the module WeakMap preserved the real original summary).
+    expect(storeAct().summary).toBe(ORIGINAL_SUMMARY + " " + "(done, pending sync)");
+    // Done is still suppressed while the entry is queued.
+    expect(markDoneQueuedFor(activityId).length).toBe(1);
+    expect(storeAct().can_write).toBe(false);
+
+    // The entry leaves the queue (replayed/discarded): remove it and re-run the
+    // queue-driven reconciliation — summary restored EXACTLY, can_write back.
+    const offline = getService(OfflinePlugin);
+    for (const key of Object.keys(offline._ormToSync())) {
+        offline.removeScheduledORM(key);
+    }
+    chatter._syncOptimisticActivities();
+    await animationFrame();
+    expect(storeAct().summary).toBe(ORIGINAL_SUMMARY);
+    expect(storeAct().can_write).toBe(true);
+    await setOfflineReal(false);
+    await expect.waitForErrors([/couldn't be established/]);
+}
+test.tags("mobile");
+test("T1a: a queued mark-done survives remount (marker not doubled, can_write restored) (mobile)", testMarkDoneSurvivesRemount);
+
+// T1b (mobile): a REFETCH (super.load replaces thread.activities with fresh server
+// rows) re-runs the queue-driven reconciliation so a still-queued mark-done
+// re-decorates its (new) server-activity row, and temp rows for a still-queued
+// schedule are rebuilt WITHOUT duplicates — no stale marker, no doubled rows.
+async function testRefetchRedecoratesAndRebuilds() {
+    const pyEnv = await startServer();
+    const leadId = pyEnv["crm.lead"].create({ name: "Refetch Lead", type: "opportunity" });
+    const ORIGINAL_SUMMARY = "Call back today";
+    const activityId = pyEnv["mail.activity"].create({
+        res_model: "crm.lead",
+        res_id: leadId,
+        activity_type_id: 2,
+        summary: ORIGINAL_SUMMARY,
+        can_write: true,
+    });
+    pyEnv["crm.lead"].write([leadId], { activity_ids: [activityId] });
+    let chatter;
+    patchWithCleanup(CrmChatter.prototype, {
+        setup() {
+            super.setup(...arguments);
+            chatter = this;
+        },
+    });
+    const setOfflineReal = mockOffline();
+    await start();
+    await openMarkDoneReady(pyEnv, leadId, setOfflineReal);
+    const storeAct = () => chatter.store["mail.activity"].get(activityId);
+
+    // Queue a mark-done on the server activity.
+    await click(".o-mail-Activity-markDone");
+    await animationFrame();
+    expect(storeAct().summary).toBe(ORIGINAL_SUMMARY + " " + "(done, pending sync)");
+
+    // Queue a schedule too (produces one optimistic temp row).
+    await mc(".o-mail-Chatter-activity[data-available-offline]");
+    await click(".o-mail-Chatter-activity");
+    await animationFrame();
+    await mc(".o_crm_offline_schedule_sheet");
+    const select = document.querySelector(".o_crm_offline_schedule_type");
+    select.value = "2";
+    select.dispatchEvent(new Event("change"));
+    document.querySelector(".o_crm_offline_schedule_summary").value = "Follow up soon";
+    document
+        .querySelector(".o_crm_offline_schedule_summary")
+        .dispatchEvent(new Event("input"));
+    await click(".o_crm_offline_schedule_confirm");
+    await animationFrame();
+    expect(scheduledActivityFor(leadId).length).toBe(1);
+    const tempBefore = chatter.state.thread.activities.filter((a) => a.id < 0);
+    expect(tempBefore.length).toBe(1);
+
+    // Simulate a REFETCH: a server refetch drops the temp rows and re-runs the
+    // guarded reconciliation (what load() calls after super.load()). Reset the
+    // decorated server row to its fresh server shape first.
+    const thread = chatter.state.thread;
+    const freshServerAct = storeAct();
+    freshServerAct.summary = ORIGINAL_SUMMARY;
+    freshServerAct.can_write = true;
+    for (const act of [...thread.activities]) {
+        if (act.id < 0) {
+            act.remove && act.remove({ broadcast: false });
+        }
+    }
+    chatter._syncOptimisticActivities();
+    await animationFrame();
+
+    // The still-queued mark-done re-decorated its server row — exactly ONE marker.
+    expect(storeAct().summary).toBe(ORIGINAL_SUMMARY + " " + "(done, pending sync)");
+    expect(storeAct().can_write).toBe(false);
+    // The schedule temp row was rebuilt — exactly ONE temp row, no duplicate.
+    const tempAfter = chatter.state.thread.activities.filter((a) => a.id < 0);
+    expect(tempAfter.length).toBe(1);
+    expect(scheduledActivityFor(leadId).length).toBe(1);
+    await setOfflineReal(false);
+}
+test.tags("mobile");
+test("T1b: a refetch re-decorates the queued mark-done and rebuilds temp rows without duplicates (mobile)", testRefetchRedecoratesAndRebuilds);
+
 // FIX 5 (mobile): queued schedule and mark-done entries show a NAMED row in the
 // offline systray (lead/summary), not just a badge.
 async function testSystrayShowsNames() {
@@ -5824,18 +6008,26 @@ async function testMarkDoneOtherModelGoesToSuper() {
     await setOfflineReal(true);
     await animationFrame();
 
+    // Spy the super path POSITIVELY: the base mail onClickMarkAsDone opens the
+    // mark-done popover (activity.js). Replace markDonePopover.open with a probe so
+    // we can assert the super branch actually ran (and avoid the real popover
+    // needing a DOM anchor) — no broad try/catch that could mask a CRM-side throw.
+    let popoverOpened = 0;
+    patchWithCleanup(activityInstance.markDonePopover, {
+        open() {
+            popoverOpened++;
+        },
+    });
+
     // Call the handler offline on a small screen for the res.partner activity. The
-    // crm.lead gate is false, so it falls through to super (the normal popover
-    // path) and queues NO action_feedback. super's popover may throw in the bare
-    // unit harness (no anchor) — that is the super path running; we only assert
-    // that CRM queued nothing.
+    // crm.lead gate is false, so it MUST fall through to super (open the popover)
+    // and queue NO action_feedback.
     const before = hookOrmToSyncSize();
-    try {
-        activityInstance.onClickMarkAsDone(new Event("click"));
-    } catch (e) {
-        // super's popover open can throw without a DOM anchor; irrelevant here.
-    }
+    activityInstance.onClickMarkAsDone(new Event("click"));
     await animationFrame();
+    // Super ran (popover opened exactly once) ...
+    expect(popoverOpened).toBe(1);
+    // ... and CRM queued nothing (no action_feedback, whole queue unchanged).
     expect(markDoneQueuedFor(activityId).length).toBe(0);
     expect(hookOrmToSyncSize()).toBe(before);
     await setOfflineReal(false);
@@ -5856,12 +6048,16 @@ async function testMeetingTypeNotOfferedOffline() {
         name: "Meeting",
         category: "meeting",
     });
-    // (a) Spy the prefetch domain: it must exclude category "meeting".
+    // (a) Spy the prefetch domain AND fields: assert the FULL domain (res_model is
+    // false OR crm.lead, AND category != meeting) and the exact fields read
+    // (id, display_name, category — category needed to derive the allow-list).
     let prefetchDomain;
+    let prefetchFields;
     onRpc("mail.activity.type", "search_read", ({ kwargs }) => {
         const dom = JSON.stringify(kwargs.domain || []);
         if (dom.includes("crm.lead")) {
-            prefetchDomain = dom;
+            prefetchDomain = kwargs.domain;
+            prefetchFields = kwargs.fields;
         }
     });
     const setOfflineReal = mockOffline();
@@ -5870,8 +6066,17 @@ async function testMeetingTypeNotOfferedOffline() {
     await openFormView("crm.lead", leadId, { arch: spec05ChatterArch });
     await animationFrame();
     await runAllTimers();
-    expect(prefetchDomain).toInclude("meeting"); // domain references the category
-    expect(prefetchDomain).toInclude("!="); // as an exclusion
+    // The complete domain, asserted exactly (not just "mentions meeting").
+    expect(prefetchDomain).toEqual([
+        "&",
+        "|",
+        ["res_model", "=", false],
+        ["res_model", "=", "crm.lead"],
+        ["category", "!=", "meeting"],
+    ]);
+    // The exact fields read — category is required to derive the non-meeting
+    // allow-list from the authoritative server value.
+    expect(prefetchFields).toEqual(["id", "display_name", "category"]);
 
     // (b) Simulate an unrelated dropdown search having cached the meeting type in
     // the SHARED many2x cache.
@@ -6054,19 +6259,120 @@ async function testPrefetchDestroyedWritesNothing() {
 test.tags("mobile");
 test("T1c: a prefetch whose component is destroyed writes nothing (mobile)", testPrefetchDestroyedWritesNothing);
 
-// T9a (both presets): systray INVARIANCE — a framework web_save row keeps its own
-// (framework) status, and an unknown NON-CRM method row is left unclassified by
-// the CRM wrapper (so other addons are unaffected). The CRM wrapper only fills a
-// status for the three CRM pairs.
+// C1 (mobile): `_prefetchActivityTypes` must AWAIT `_schedulableCachedCount()`
+// before setting the `_hasCachedActivityTypes` gate. The count is async: the
+// un-awaited compare `_schedulableCachedCount() > 0` compares a PROMISE to 0, which
+// coerces to `NaN > 0` === `false`, so with the bug the gate is set `false` even
+// when the real (awaited) count is POSITIVE — the schedule control would never be
+// enabled offline. This test targets `_prefetchActivityTypes` DIRECTLY: with a
+// positive awaited count the gate must become `true`. Regression guard: with the
+// un-awaited compare the gate stays `false`, so `toBe(true)` FAILS. We stub
+// `_refreshCachedActivityTypes` to a no-op ONLY to isolate the path under test
+// (that method, which also sets the gate, has its own tests); `_prefetchActivityTypes`
+// is NOT stubbed — it is the code under test.
+async function testGateOpensWhenAwaitedCountPositive() {
+    const pyEnv = await startServer();
+    const leadId = pyEnv["crm.lead"].create({ name: "Has Types Lead", type: "opportunity" });
+    let chatter;
+    patchWithCleanup(CrmChatter.prototype, {
+        setup() {
+            super.setup(...arguments);
+            chatter = this;
+            // Seed a WRONG value so the assertion proves the prefetch set it.
+            this._hasCachedActivityTypes.set(false);
+        },
+        _refreshCachedActivityTypes() {},
+        async _schedulableCachedCount() {
+            return 3; // a positive AWAITED count
+        },
+    });
+    await start();
+    await openFormView("crm.lead", leadId, { arch: spec05ChatterArch });
+    await animationFrame();
+    await runAllTimers();
+    expect(chatter).not.toBe(undefined);
+
+    // After the online mount prefetch (awaited count 3 > 0), the gate is the STRICT
+    // boolean true. With the un-awaited `_schedulableCachedCount() > 0`, the compare
+    // is `Promise > 0` === `NaN > 0` === false, so the gate would stay false and
+    // `toBe(true)` would FAIL.
+    expect(chatter._hasCachedActivityTypes()).toBe(true);
+}
+test.tags("mobile");
+test("C1: a positive awaited schedulable count opens the gate (not a Promise compare) (mobile)", testGateOpensWhenAwaitedCountPositive);
+
+// T9a (desktop): systray INVARIANCE — the CRM wrapper only fills a status for its
+// own three (model, method) pairs and touches nothing else. Proven two ways:
+// (1) a framework web_save row keeps its OWN framework status ("Edited") when
+// rendered; (2) an UNKNOWN non-CRM method entry is left unclassified by the CRM
+// wrapper (its status stays undefined) — asserted on groupEntries() DATA, not the
+// DOM, because an unclassified entry would crash the framework's own render (that
+// crash for CRM methods is exactly what the SYS removal check proves). A CRM entry
+// scheduled alongside IS classified by the wrapper, so the two behaviours are
+// shown to be independent.
 async function testSystrayInvariance() {
     const setOfflineReal = mockOffline();
     onRpc("/web/webclient/version_info", () => new Response("", { status: 502 }), {
         pure: true,
     });
+    // Capture the live systray Component instance so we can call its wrapped
+    // groupEntries() directly (data-level invariance, no render).
+    let systrayInstance;
+    patchWithCleanup(registry.category("systray").get("offline").Component.prototype, {
+        setup() {
+            super.setup(...arguments);
+            systrayInstance = this;
+        },
+    });
     await mountWithCleanup(WebClient);
     await runAllTimers();
     await setOfflineReal(true);
     const offline = getService(OfflinePlugin);
+
+    // An UNKNOWN non-CRM method on a non-CRM model: the framework cannot classify
+    // it (not one of its five write methods) and neither can the CRM wrapper (not
+    // one of its three pairs). It must be left with NO status by the CRM wrapper.
+    offline.scheduleORM(
+        "res.partner",
+        "some_custom_action",
+        [[9]],
+        {},
+        {
+            id: "inv-unknown",
+            extras: { actionName: "Contacts", displayName: "Custom", timeStamp: 2 },
+        }
+    );
+    // A CRM entry scheduled alongside IS classified by the wrapper (independence).
+    offline.scheduleORM(
+        "crm.lead",
+        "activity_schedule",
+        [[11]],
+        { summary: "Ring" },
+        {
+            id: "inv-crm",
+            extras: { actionName: "CRM", displayName: "Schedule", timeStamp: 3 },
+        }
+    );
+    await animationFrame();
+
+    // Call the wrapped groupEntries() and inspect the entries' status directly: the
+    // unknown non-CRM entry is left unclassified, while the CRM entry is classified.
+    const sections = systrayInstance.groupEntries();
+    const byId = {};
+    for (const [, items] of sections) {
+        for (const item of items) {
+            byId[item.id] = item;
+        }
+    }
+    expect(byId["inv-unknown"]).not.toBe(undefined);
+    expect(byId["inv-unknown"].status).toBe(undefined); // CRM did not rescue it
+    expect(byId["inv-crm"]).not.toBe(undefined);
+    expect(byId["inv-crm"].status).not.toBe(undefined); // CRM classified its own
+    // status.label is a LazyTranslatedString; compare its string form.
+    expect(String(byId["inv-crm"].status.label)).toBe("Scheduled");
+    // Drop the unknown entry so it never reaches the (crash-prone) render below.
+    offline.removeScheduledORM("inv-unknown");
+    offline.removeScheduledORM("inv-crm");
     // A framework web_save on a NON-CRM model (res.partner): the framework
     // classifies it (EDITED, label "Edited"). The CRM wrapper only fills a status
     // for its own three model/method pairs, so it must leave this entry's framework
@@ -6101,12 +6407,13 @@ async function testSystrayInvariance() {
     expect(badgeText).not.toInclude("Marked won");
     expect(`.o-dropdown--menu .o-dropdown-item [data-icon='error']`).toHaveCount(0);
     // (The complementary invariance — that CRM does NOT rescue an UNKNOWN non-CRM
-    // method, so the framework still crashes on it — is exactly the SYS removal
-    // check above; we do not re-trigger that crash here.)
+    // method — is asserted above on groupEntries() data: inv-unknown kept status
+    // undefined. We do not RENDER an unclassified entry, since that is the very
+    // crash the SYS removal check demonstrates.)
     await setOfflineReal(false);
 }
 test.tags("desktop");
-test("T9a: systray leaves a framework non-CRM entry unchanged (desktop)", testSystrayInvariance);
+test("T9a: systray leaves framework and unknown non-CRM entries unclassified by CRM (desktop)", testSystrayInvariance);
 
 // T9b (mobile): the schedule sheet's Discard button closes the sheet and queues
 // nothing.

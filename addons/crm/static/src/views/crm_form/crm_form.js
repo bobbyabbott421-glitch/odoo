@@ -382,11 +382,25 @@ export class CrmChatter extends Chatter {
     // (extras.error). Changes when an entry is added, removed, OR parked in place,
     // so the optimistic-row sync re-runs on a rejection even if the count is equal.
     // Narrowed to the entries THIS lead's rows derive from — the lead's own
-    // activity_schedule entries and any mail.activity/action_feedback entries — so
-    // an unrelated addon's queued write does not churn this chatter's reconciliation.
+    // activity_schedule entries, and mail.activity/action_feedback entries whose
+    // target activity BELONGS to this lead (resolved from the store by the
+    // activity's own res_model/res_id, NOT from the chatter's live
+    // thread.activities array — reading that array here would couple the signature
+    // to the very list _syncOptimisticActivities mutates and churn the reconcile).
+    // So a mark-done queued on ANOTHER lead's (or model's) activity, or an
+    // unrelated addon's queued write, does not churn this chatter's reconciliation.
     _queueSignature() {
         const thread = this.state.thread;
         const leadId = thread && thread.model === "crm.lead" ? thread.id : false;
+        const feedbackTargetsThisLead = (ids) => {
+            for (const id of ids) {
+                const act = this.store["mail.activity"].get(id);
+                if (act && act.res_model === "crm.lead" && act.res_id === leadId) {
+                    return true;
+                }
+            }
+            return false;
+        };
         return this._queueEntries()
             .filter(
                 (e) =>
@@ -394,7 +408,10 @@ export class CrmChatter extends Chatter {
                         e.method === "activity_schedule" &&
                         Array.isArray(e.args?.[0]) &&
                         e.args[0].includes(leadId)) ||
-                    (e.model === "mail.activity" && e.method === "action_feedback")
+                    (e.model === "mail.activity" &&
+                        e.method === "action_feedback" &&
+                        Array.isArray(e.args?.[0]) &&
+                        feedbackTargetsThisLead(e.args[0]))
             )
             .map((e) => e.key + ":" + (e.extras && e.extras.error ? "1" : "0"))
             .sort()
@@ -717,10 +734,16 @@ export class CrmChatter extends Chatter {
             "mail.activity.type",
             result.map((t) => ({ id: t.id, display_name: t.display_name }))
         );
-        if (status(this) !== "destroyed") {
-            this._hasCachedActivityTypes.set(this._schedulableCachedCount() > 0);
-            this._syncActivityOfflineAttr();
+        // _schedulableCachedCount() is async; await it before comparing. Comparing
+        // the unresolved Promise with `> 0` coerces to `NaN > 0` === false, which
+        // would keep the gate CLOSED even when the real count is positive (schedule
+        // never enabled offline). Re-check destroyed AFTER the await.
+        const count = await this._schedulableCachedCount();
+        if (status(this) === "destroyed") {
+            return;
         }
+        this._hasCachedActivityTypes.set(count > 0);
+        this._syncActivityOfflineAttr();
     }
 
     /**

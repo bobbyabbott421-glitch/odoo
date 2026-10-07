@@ -124,18 +124,40 @@ corrected here and the corrected citation is authoritative.
   (the shape `_cacheMany2X` and `relational_utils` both pass it). So a CRM-side prefetch that
   reads the applicable activity types online and hands them to `cacheMany2XSearch` populates
   the SAME cache the schedule control reads via `searchMany2XRecords` — no new cache, no new
-  machinery. The prefetch's read is an unlimited `searchRead` over the wizard domain, so it
-  writes the FULL applicable type list (unlike the ~7-result autocomplete of Path (2)), and it
+  machinery. The prefetch's read is an unlimited `searchRead` over the wizard's base domain
+  with a meeting-category exclusion ANDed on (see below), so it writes the FULL schedulable
+  (non-meeting) type list (unlike the ~7-result autocomplete of Path (2)), and it
   runs once per page session gated on "has not run this session" (tracked per `OfflinePlugin`
   instance), so it fills even a partial cache rather than being skipped by a "cache empty"
   check.
-- **The schedule wizard's activity-type domain (what the prefetch mirrors).** The
-  `mail.activity.schedule` wizard's `activity_type_id` field is declared with
-  `domain="['|', ('res_model', '=', False), ('res_model', '=', res_model)]"` at
+- **The schedule wizard's activity-type domain (the prefetch's base, plus a meeting
+  exclusion).** The `mail.activity.schedule` wizard's `activity_type_id` field is declared
+  with `domain="['|', ('res_model', '=', False), ('res_model', '=', res_model)]"` at
   `addons/mail/wizard/mail_activity_schedule.py:78`; for a `crm.lead` schedule `res_model`
-  resolves to `'crm.lead'`, i.e. the concrete domain
-  `['|', ('res_model', '=', false), ('res_model', '=', 'crm.lead')]`. The prefetch issues the
-  SAME domain so the cached set matches exactly the types the wizard would offer online.
+  resolves to `'crm.lead'`, i.e. the concrete base domain
+  `['|', ('res_model', '=', false), ('res_model', '=', 'crm.lead')]`. The prefetch takes that
+  base domain and ANDs a meeting exclusion onto it — the full prefetch domain is
+  `['&', '|', ('res_model', '=', false), ('res_model', '=', 'crm.lead'), ('category', '!=', 'meeting')]`
+  — because a meeting activity needs the online calendar round trip and must be unreachable
+  offline (Requirement 11.1). So the prefetch does NOT mirror the wizard domain exactly; the
+  cached schedulable set is the wizard's set MINUS meeting-category types. The prefetch also
+  reads `category` (fields `id`, `display_name`, `category`) so the non-meeting allow-list is
+  derived from the authoritative server value rather than a guess.
+- **The allow-list is session-scoped (`_schedulableTypeIds`), and that is a deliberate
+  limitation after an offline reload.** The non-meeting ids recorded by the prefetch live in a
+  module-level `WeakMap` keyed by the `OfflinePlugin` instance; they are NOT persisted. The
+  schedulable set is the shared `many2x_mail.activity.type` cache INTERSECTED with this
+  allow-list, so a meeting type sitting in the shared cache (from an unrelated dropdown search)
+  is never offered. After an offline PAGE RELOAD the allow-list is empty until a new online
+  prefetch runs: with no allow-list nothing is schedulable and the schedule control stays
+  disabled (fail-safe — never a meeting leak), rather than offering a possibly-stale or
+  meeting-contaminated set. Persisting the allow-list was PROBED and found infeasible without
+  new machinery: `OfflinePlugin` exposes no public API to store an arbitrary CRM value in the
+  existing offline IndexedDB (its write paths are the visited-UI table, the orm-to-sync queue,
+  and the many2x cache — whose `_encryptAndFormat` keeps only `{id, display_name}` and cannot
+  carry `category`), and adding a store or writing the private `_idb` is forbidden by
+  constraints.md. The primary field flow — open the lead online, then lose the connection
+  WITHOUT reloading — keeps the allow-list and the schedulable types in the same page session.
 - **The partner-field dropdown already withholds create affordances offline (framework).**
   In `addons/web/static/src/views/fields/relational_utils.js`,
   `Many2XAutocomplete.suggest()` adds the "Create 'X'" / "Create and edit" action
@@ -298,9 +320,12 @@ corrected here and the corrected citation is authoritative.
     `CrmFormController`, `CrmChatter` (with a guarded `load`) and `CrmFormRenderer`; it hosts
     `CrmChatter.scheduleActivity()` (the component override that opens the inline bottom sheet
     via `usePlugin(BottomSheetPlugin)` and queues `activity_schedule` when `isSmall() &&
-    offline`, else `super`), the queue-derived optimistic-row logic (with the component-owned
-    `_markerOriginals` / `_doneWriteOriginals` Maps so server-row markers and the suppressed
-    Done button are RESTORED when a queue entry is discarded), the double-mark-done guard's
+    offline`, else `super`), the queue-derived optimistic-row logic (with a MODULE-level
+    `WeakMap` keyed by the store activity record — `_activityMarkerOriginals`, holding each
+    decorated activity's original `summary` AND `can_write` together — so server-row markers
+    and the suppressed Done button are RESTORED when a queue entry is discarded, and the
+    original is read from the SAME map across a chatter remount so the marker is never
+    doubled), the double-mark-done guard's
     attribute half, the `data-available-offline` set+remove wiring on the two mail buttons, and
     the **activity-type cache prefetch** (on mount, online-mobile only; see "Activity-type cache
     prefetch" under 3b). (3c adds no code here — the `Field` patch was dropped; 3c is
@@ -1166,8 +1191,11 @@ The brief's rule is already satisfied by the framework; there is nothing broken 
   offline), so it would modify existing behaviour the feature does not require, which the
   "don't modify existing code unless the feature requires it" constraint forbids.
 - **Spec 06 PROVES (by test) the framework behaviour.** Offline, on the lead's partner field:
-  typing an unmatched name produces **no** "Create" / "Create and edit" / "Search more"
-  entry, and pressing Enter or Tab on unmatched free text commits **no**
+  typing an unmatched name produces **no** "Create" and **no** "Create and edit" entry (both
+  appear online for the same input, so the absence is meaningful). "Search more" is NOT
+  separately asserted — it never appears for an unmatched name even online (it needs matches
+  beyond the dropdown limit), so an offline-absence assertion would be vacuous. And pressing
+  Enter or Tab on unmatched free text commits **no**
   `{ id: false, display_name }` quick-create value (the field value stays unchanged / empty).
   Online, the same input **does** offer Create / Create and edit (the framework's online
   behaviour, preserved).
@@ -1439,11 +1467,14 @@ Fixes applied after a source review of the Group 8 code, each with a test:
   `Activity.onClickMarkAsDone` early-returns when an `action_feedback` already targets that id,
   and `CrmChatter` suppresses the Done button (clears `can_write`, restored on discard) while
   an entry is queued.
-- **Marker restore on discard.** The originals of decorated server-activity summaries live in
-  a component-owned `Map` (`_markerOriginals`), not a field on the shared store record;
-  `_syncOptimisticActivities` restores the original summary (and the suppressed Done button via
-  `_doneWriteOriginals`) for any activity whose queue entry is gone — including when the entry
-  is discarded from the offline systray.
+- **Marker restore on discard (and across remount).** The originals of each decorated
+  server-activity (both its `summary` and its `can_write`) live together in a MODULE-level
+  `WeakMap` keyed by the store activity record (`_activityMarkerOriginals`), not a field on the
+  record and not a per-component map. Keying by the shared store record means a chatter remount
+  reuses the SAME stored original instead of re-capturing the already-decorated summary, so the
+  marker is never doubled (asserted by the T1a remount test). `_syncOptimisticActivities`
+  restores the original summary and the suppressed Done button for any activity whose queue
+  entry is gone — including when the entry is discarded from the offline systray.
 - **Park-in-place marker refresh.** The optimistic-row sync re-runs on a SIGNATURE of the
   queue (each entry's key + whether it is parked with `extras.error`), not just the entry
   count, so a rejection that parks an entry in place (count unchanged) still flips its row to
@@ -1638,11 +1669,21 @@ connectivity states where a predicate depends on connectivity.
   button stays **disabled** (never a schedule sheet with an empty selector).
 - **3b activity-type prefetch (online-mobile only):** paired desktop/mobile + online/offline.
   - **A FIRST online mobile mount** issues **exactly one** prefetch (an unlimited `searchRead`
-    of `mail.activity.type` under the wizard domain) **EVEN WHEN THE CACHE ALREADY HOLDS SOME
-    TYPES** (seed a partial cache first, confirm the read still fires), and the cache **then
-    holds the full applicable list** (assert via `searchMany2XRecords("mail.activity.type",
-    "")` returning the full list afterwards, and assert the mock server received exactly one
-    such read).
+    of `mail.activity.type` under the wizard's base domain ANDed with the meeting exclusion —
+    the full domain
+    `['&', '|', ('res_model', '=', false), ('res_model', '=', 'crm.lead'), ('category', '!=', 'meeting')]`,
+    fields `['id', 'display_name', 'category']`, both asserted EXACTLY in the P2 test) **EVEN
+    WHEN THE CACHE ALREADY HOLDS SOME TYPES** (seed a partial cache first, confirm the read
+    still fires), and the cache **then holds the full schedulable list** (assert via
+    `searchMany2XRecords("mail.activity.type", "")` returning the full list afterwards, and
+    assert the mock server received exactly one such read).
+  - **The gate awaits the schedulable count (C1).** `_prefetchActivityTypes` sets the
+    `_hasCachedActivityTypes` gate from `await _schedulableCachedCount()`, never from the
+    un-awaited `_schedulableCachedCount() > 0`: the method is async, so comparing the returned
+    PROMISE to 0 coerces to `NaN > 0` === `false` and would keep the gate CLOSED even when the
+    real count is positive (the schedule control would never enable offline). The C1 test
+    targets `_prefetchActivityTypes` directly: a positive awaited count opens the gate; with
+    the un-awaited compare the gate stays false and the test fails.
   - **A SECOND mount in the same session** (same `OfflinePlugin` instance, already marked done
     in the `WeakSet`) issues **none**.
   - **Desktop** (online) issues **none** (gate requires `isSmall()`).
@@ -1681,12 +1722,22 @@ connectivity states where a predicate depends on connectivity.
   translated **needs-retry** text in its rendered field (`summary`) — not synced, not
   vanished. Assert the parked entry's `extras.error` includes the server's actual text, the
   systray surfaces that raw text, AND the row's rendered text reflects the needs-retry state.
-- **3b reconcile on reconnect:** real reconnect (`mockOffline()` + `WebClient` +
-  `setOffline(false)` + `runAllTimers()`); the thread refetches through the guarded
-  `CrmChatter.load`, temp rows whose key has left `_ormToSync()` drop (rebuilt-from-queue) and
-  server rows fold in; a marked-done activity leaves the list (server archived it). Assert on
-  the mock SERVER's received calls and the final DOM. Include a removal check (delete the
-  guarded refetch / the queue-driven drop, confirm the test fails, restore).
+- **3b reconcile on reconnect (schedule):** real reconnect (`mockOffline()` + `WebClient` +
+  `setOffline(false)` + `runAllTimers()`); the queued `activity_schedule` replays exactly once
+  (assert the mock SERVER received it verbatim and the queue drained), the temp row whose key
+  has left `_ormToSync()` drops, and the server activity the replay created is folded into the
+  thread through the guarded `CrmChatter.load` — asserted as a real positive-id row with the
+  queued summary + type, shown exactly once, no temp row remaining. Include a removal check
+  (stub the queue-driven rebuild, confirm no optimistic row renders, restore).
+- **3b reconcile on reconnect (mark-done):** a queued `action_feedback` replays exactly once;
+  what is asserted reliably is the mock SERVER side — the server received exactly the queued
+  `action_feedback` for that activity id (verbatim, not re-sent), the queue drained, and the
+  server removed/archived the activity (asserted on `MockServer.env` state) — plus that the
+  rendered row no longer shows the done-pending-sync marker (its queue entry is gone). The
+  live in-memory removal of the row from the mounted chatter's list is NOT asserted: it depends
+  on the mounted-chatter reconnect refetch, which is best-effort in this harness (KL-B); the
+  Python replay test (`test_offline_action_feedback_replay`) covers the server-side archive
+  end-to-end.
 - **3c partner create forbidden offline (verify-and-prove, lead form, generic widget):** the
   real `widget="res_partner_many2one"` is registered only in `web.assets_backend` and is
   **absent from the crm unit-test bundle** (`web.assets_unit_tests` lists only

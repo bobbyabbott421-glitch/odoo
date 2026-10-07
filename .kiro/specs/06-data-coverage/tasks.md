@@ -13,7 +13,9 @@ EXISTING files (Option 2 — no new file):
 - `addons/crm/static/src/views/crm_form/crm_form.js` — the `CrmChatter.scheduleActivity()`
   component override (opens the bottom sheet via `usePlugin(BottomSheetPlugin)` and queues
   `activity_schedule`; NOT a global store patch), the queue-derived optimistic rows + markers
-  (with component-owned `_markerOriginals` / `_doneWriteOriginals` Maps restored on discard,
+  (with a module-level `WeakMap` keyed by the store record — `_activityMarkerOriginals`,
+  holding each activity's original summary + `can_write` — restored on discard and reused
+  across remount so the marker never doubles,
   and a queue-signature re-run so a park-in-place refreshes needs-retry), the double-mark-done
   attribute guard, the local-date state rule, and the `data-available-offline` set/remove
   wiring. (3c adds no code here — the `Field` patch was dropped; 3c is verify-and-prove.)
@@ -283,10 +285,12 @@ The manifest `version` stays `1.9` here (the bump is spec 08).
       activity (by id in `args[0]`); the translated needs-retry text when the matching entry
       is parked with `extras.error`.
     - Derive every marker from the matching `_ormToSync()` entry; NEVER write it destructively
-      onto the stored record. Keep server-activity originals in a component-owned Map
-      (`_markerOriginals`), restoring the original summary when the entry leaves the queue —
-      including when DISCARDED from the offline systray — so no stale marker lingers. Recompute
-      on every queue-signature change and after the guarded refetch. Keep the offline systray
+      onto the stored record. Keep server-activity originals (summary AND `can_write`) in a
+      module-level `WeakMap` keyed by the store record (`_activityMarkerOriginals`), restoring
+      both when the entry leaves the queue — including when DISCARDED from the offline systray —
+      so no stale marker lingers, and so a chatter remount restores from the true original
+      (marker never doubled). Recompute on every queue-signature change and after the guarded
+      refetch. Keep the offline systray
       as the only error surface (add no
       CRM error dialog/banner/second store).
     - _Requirements: 9.1, 9.2, 9.3, 9.4, 9.5, 9.6, 5.5; Property 2, Property 8_
@@ -294,8 +298,11 @@ The manifest `version` stays `1.9` here (the bump is spec 08).
     - Refetch the thread ONLY through the already-guarded `CrmChatter.load` (`crm_form.js:245`):
       skip when offline AND wrap in try/catch for `ConnectionLostError`, re-arm, and refetch
       through the guarded method — never `super.load` directly. Temp rows whose key has left
-      `_ormToSync()` drop (rebuilt-from-queue) and server rows fold in; a marked-done activity
-      leaves the list once its `action_feedback` key leaves the queue.
+      `_ormToSync()` drop (rebuilt-from-queue) and server rows fold in. For a replayed
+      mark-done the reliably-proven outcome is server-side (the server archives/removes the
+      activity, asserted on `MockServer.env`) and the cleared done-pending-sync marker; the
+      live in-memory removal from the mounted chatter's list is best-effort (KL-B) and is
+      covered end-to-end by the Python replay test, not asserted on the mounted component.
     - _Requirements: 10.1, 10.2, 10.3, 10.4; Property 7_
   - [x] 8.4 Add pending / needs-retry / done marker styling in `crm_form.scss`
     - Styling for the pending / needs-retry / done-pending-sync markers (text lives in the
