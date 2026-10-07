@@ -3,3 +3,20 @@
         height: 1rem;
     }
 }
+
+// 3b — offline schedule sheet (mobile bottom sheet) and the queue-derived
+// activity markers. Styling only; behaviour lives in activity_menu_patch.js /
+// crm_form.js. The sheet component (CrmActivityScheduleSheet) is hosted in
+// activity_menu_patch.js but styled here (both load via web.assets_backend).
+.o_crm_offline_schedule_sheet {
+    min-width: 18rem;
+
+    .o_form_label {
+        display: block;
+        font-weight: 500;
+    }
+}
+
+// Pending / needs-retry / done-pending-sync state is carried entirely in the
+// activity row's rendered summary text (translatable, no mail-template change and
+// no extra class on the row). No separate CSS rule is needed for it.

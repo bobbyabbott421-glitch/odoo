@@ -40,4 +40,46 @@ their final proof is the acceptance report after spec 08.
 - Spec 03: merged into `kiro/00-setup`.
 - Spec 04: merged into `kiro/00-setup`.
 - Spec 05: merged into `kiro/00-setup`.
-- Specs 06–08: not started.
+- Spec 06: implemented on `kiro/06-data-coverage`; PR #8 open, NOT yet merged (do not mark
+  merged until the merge actually lands).
+- Specs 07–08: not started.
+
+## Row 9 (acceptance) — not met literally in spec 06; carried forward
+
+Row 9's literal wording is **not** met by spec 06. Spec 06 documents the framework behaviour as
+known limitation **KL-A**: when a lead's view is not cached, the offline region is **blank** —
+the framework does not render `OfflineActionHelper` on a reroute to a cached view, and a
+no-cache lead form shows nothing. Spec 06 adds no CRM UI for this (it cannot without a
+forbidden web-level change). The explanation UI is therefore **carried forward**:
+
+- **Spec 07** (mobile lead card): the mobile lead card SHALL show the explanation (the
+  framework's `OfflineActionHelper`, or an equivalent in-card message) when a tapped lead was
+  not cached online, instead of a blank region.
+- **Spec 08** (mobile pipeline + tour): the pipeline/tour test SHALL assert that explanation is
+  shown for an uncached lead, which is where row 9's intent is finally proven. (Spec 08 owns
+  row 9 in the table above.)
+
+## Step 10 manual-check list (carried forward from spec 06)
+
+These behaviours cannot be fully proven by the unit/integration lanes and MUST be confirmed by
+a Step 10 manual check on a real device/PWA:
+
+- **KL-A** (row 9): with no cached view, the offline region is blank; the explanation UI is
+  carried to spec 07 and asserted by spec 08 (see Row 9 above).
+- **KL-B**: a rejected queued activity call (`activity_schedule`/`action_feedback`) parks with
+  `extras.error`, but with the lead chatter mounted both the chatter row and the systray read
+  the same in-memory `_ormToSync()` map, so the parked entry may be observable only transiently
+  (it can drain from the in-memory queue). Cause **not** established. Confirm manually that after
+  a rejected offline activity reconnect the user still has a retry path.
+- **KL-C**: after an offline page **reload** before any online prefetch has run, the schedulable
+  activity-type allow-list (`_schedulableTypeIds`, session-scoped) is empty, so scheduling is
+  **disabled** (fail-safe — no meeting type leaks). Confirm the control is disabled (no crash,
+  no meeting type offered) after an offline reload and re-enables once a connection returns and
+  the prefetch runs; confirm the warm-session path (offline without reload) stays enabled.
+- **3c real-widget partner-create checks**: the unit lane proves the no-offline-create behaviour
+  only with the **generic** many2one widget, because the real `res_partner_many2one` widget is
+  registered only in `web.assets_backend` and is absent from the crm unit-test bundle. On the
+  real widget, offline, confirm: typing an unmatched name offers **no** "Create" / "Create and
+  edit" / **"Search more"** entry; **Tab** (and Enter) on unmatched free text commits no
+  quick-create value; and `partner_autocomplete`'s own company-autocomplete suggestions offer no
+  offline create path either.

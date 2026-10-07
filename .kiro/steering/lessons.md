@@ -272,3 +272,74 @@ spec-honesty details right the first time.
   red, STOP and show the log — do not rewrite the test to bypass the production wiring.
 - Do not use sub-agents for test-fix loops; their network errors and stalls cost two failed
   turns and ~68 credits in this spec.
+
+## Lessons from spec 06
+
+Spec 06 added the offline data-coverage work (3a/3b/3c) and took two PR-review rounds. These
+rules capture the traps that round 2 exposed so later specs avoid them.
+
+### Async gate values
+
+- An `async` method returns a Promise; never compare that Promise with a number. `foo() > 0`
+  where `foo` is async is `Promise > 0` === `NaN > 0` === **false** — it does NOT throw and is
+  NOT "truthy". In spec 06 the C1 bug (`_hasCachedActivityTypes.set(_schedulableCachedCount() > 0)`)
+  silently kept the schedule gate CLOSED, not open. `await` the count first, then compare, and
+  re-check `status(this) !== "destroyed"` after the await. State the failure direction
+  correctly in comments/specs (closed, not open).
+
+### Do not read a mutated reactive array inside a `useOnChange`/`computed` dependency
+
+- `CrmChatter` recomputes optimistic rows on `useOnChange(() => [this._queueSignature()], () =>
+  this._syncOptimisticActivities())`. Making `_queueSignature()` read `thread.activities` (to
+  scope mark-done entries to this lead) coupled the dependency to the very array the callback
+  MUTATES, churning the reconcile and intermittently breaking unrelated schedule tests (8.7,
+  FIX6) in the full-suite order while passing in isolation. Scope by stable data instead:
+  resolve each queued `action_feedback` activity from the store (`this.store["mail.activity"].get(id)`)
+  and match its own `res_model`/`res_id`. Lesson: a signature/computed must depend only on
+  values its own effect does not write.
+
+### A regression test must fail with the bug present — verify the DIRECTION
+
+- A "gate stays closed" test passed with the C1 bug AND the fix, because another method
+  (`_refreshCachedActivityTypes`) also set the gate and masked it. Target the method under test
+  DIRECTLY (call `_prefetchActivityTypes`, stub the confounding sibling to a no-op, force the
+  awaited count), assert the strict boolean, and run a real removal check: re-inject the bug,
+  confirm the test goes red (it did: 125/1), then restore. If a test passes both ways, it
+  proves nothing.
+
+### Mounted-chatter reconnect fold-in is best-effort (KL-B) — assert the server, not the DOM
+
+- For a replayed schedule/mark-done, assert the authoritative mock SERVER state
+  (`MockServer.env[model].browse(id)` → fields; `.length` for existence) plus the drained
+  queue and the cleared marker. Do NOT assert the live in-memory row fold-in/removal on the
+  already-mounted chatter — it depends on the reconnect refetch and flakes. `browse(id)` is the
+  reliable read in this harness (not `search_count`, which was not confirmed available).
+
+### Positive super-path assertions, no blanket try/catch
+
+- When a patched handler must fall through to `super`, prove it POSITIVELY (spy the concrete
+  effect — e.g. patch the component's `markDonePopover.open` and assert it was called once) and
+  assert nothing was queued. Do not wrap the call in a broad try/catch that swallows a real
+  CRM-side throw just because `super`'s popover needs a DOM anchor.
+
+### LazyTranslatedString compares
+
+- `_t("...")` returns a `LazyTranslatedString`, not a `String`. `expect(label).toBe("Scheduled")`
+  fails with `<cannot display LazyTranslatedString>`. Compare `String(label)` (or `.toString()`).
+
+### KL-C — session-scoped schedulable allow-list (carry forward)
+
+- The non-meeting activity-type allow-list (`_schedulableTypeIds`) is a session-scoped `WeakMap`,
+  NOT persisted. After an offline page RELOAD before any online prefetch, nothing is schedulable
+  and the schedule control is disabled (fail-safe — never leaks a meeting type). Persisting it
+  would need a PUBLIC key/value API on `web`'s offline IndexedDB (the many2x cache drops
+  `category`, `_idb` is private, and a second store is forbidden by constraints.md) — out of the
+  write boundary. Recorded as KL-C and flagged for Step 10 manual validation. If a later spec
+  wants reload-survival, add the public `web` API first; do not write `_idb` or add a store.
+
+### Probe before building; stop and report when a public API is missing
+
+- When a review asks for persistence/behaviour that may need framework support, PROBE the public
+  API first (read the plugin in full), and if it is absent, STOP and report options + a
+  recommendation rather than reaching into private fields or adding forbidden machinery. The user
+  decides; record the outcome as a named known limitation.
