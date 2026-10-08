@@ -1,0 +1,14 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Run scope checks on stop",
+      "trigger": "Stop",
+      "action": {
+        "type": "agent",
+        "prompt": "Run .kiro/scripts/check.sh scope. If anything fails, fix it before finishing and say what you changed. If it passes, reply \"scope clean\" and nothing else."
+      },
+      "enabled": true
+    }
+  ]
+}

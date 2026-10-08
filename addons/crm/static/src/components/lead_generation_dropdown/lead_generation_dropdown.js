@@ -10,6 +10,7 @@ import { user } from "@web/core/user";
 import { ConfirmationDialog } from "@web/core/confirmation_dialog/confirmation_dialog";
 import { ErrorDialog } from "@web/core/errors/error_dialogs";
 import { PromoteMailPluginsDialog } from "@crm/components/promote_mail_plugins_dialog/promote_mail_plugins_dialog";
+import { useCrmOffline } from "@crm/mobile/crm_offline_hooks";
 
 export const MODULE_STATUS = {
     NOT_INSTALLED: "NOT_INSTALLED",
@@ -23,6 +24,7 @@ export class LeadGenerationDropdown extends Component {
     static components = { Dropdown, DropdownItem };
 
     setup() {
+        this.crmOffline = useCrmOffline();
         this.orm = useService("orm");
         this.dialogs = useService("dialog");
         this.action = useService("action");
@@ -118,6 +120,14 @@ export class LeadGenerationDropdown extends Component {
     }
 
     async toggleDropdown() {
+        // Offline the module-state searchRead and the checkAccessRight probes
+        // have no fallback and must not run. Returning here BEFORE
+        // `dropdownWasAlreadyOpened` is set keeps the first open after reconnect
+        // able to issue the probes and render the items. The "Generate"
+        // <button> itself is framework-disabled offline (no data-available-offline).
+        if (this.crmOffline.isOffline()) {
+            return;
+        }
         for (const dropdownContentElement in this.state.dropdownContentElements) {
             this.resetDescription(this.state.dropdownContentElements[dropdownContentElement]);
         }
@@ -201,6 +211,10 @@ export class LeadGenerationDropdown extends Component {
             title: element.title,
             body: sprintf(this.newContentText["NOT_INSTALLED"], { module_name: name }),
             confirm: async () => {
+                // Module install has no offline fallback; guard the navigation.
+                if (this.crmOffline.isOffline()) {
+                    return;
+                }
                 this.setElementStatus(element, name, MODULE_STATUS.INSTALLING);
                 try {
                     await this.orm.silent.call("ir.module.module", "button_immediate_install", [
@@ -237,6 +251,10 @@ export class LeadGenerationDropdown extends Component {
     }
 
     redirectToImport() {
+        // The import client action navigates server-side; disabled offline.
+        if (this.crmOffline.isOffline()) {
+            return;
+        }
         const { context, resModel } = this.env.searchModel;
         this.action.doAction({
             type: "ir.actions.client",
@@ -253,6 +271,10 @@ export class LeadGenerationDropdown extends Component {
      * present in the database (true) or request access to an already installed module (false)
      */
     requestAccess(moduleName, title, install) {
+        // Opening the install-request wizard needs the server; disabled offline.
+        if (this.crmOffline.isOffline()) {
+            return;
+        }
         const { id } = this.modulesInfo[moduleName];
         this.action.doAction({
             type: "ir.actions.act_window",

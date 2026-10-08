@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="crm.MobileQuickCreate">
+        <div class="o_crm_mobile_quick_create p-3">
+            <h6 class="fw-bolder mb-3">New Lead</h6>
+            <div class="mb-2">
+                <label class="o_form_label">Name</label>
+                <span class="text-danger">*</span>
+                <input type="text" class="o_input form-control o_crm_qc_name"
+                       data-available-offline="1"
+                       t-model.proxy="this.state.name"
+                       t-att-class="{ 'is-invalid': this.state.invalid.name }"/>
+            </div>
+            <div class="mb-2">
+                <label class="o_form_label">Contact Name</label>
+                <input type="text" class="o_input form-control o_crm_qc_contact_name"
+                       data-available-offline="1"
+                       t-model.proxy="this.state.contact_name"/>
+            </div>
+            <div class="mb-2">
+                <label class="o_form_label">Phone</label>
+                <input type="tel" class="o_input form-control o_crm_qc_phone"
+                       data-available-offline="1"
+                       t-model.proxy="this.state.phone"/>
+            </div>
+            <div class="mb-2">
+                <label class="o_form_label">Email</label>
+                <input type="email" class="o_input form-control o_crm_qc_email"
+                       data-available-offline="1"
+                       t-model.proxy="this.state.email_from"
+                       t-att-class="{ 'is-invalid': this.state.invalid.email_from }"/>
+            </div>
+            <div class="mb-2">
+                <label class="o_form_label">Expected Revenue</label>
+                <input type="number" class="o_input form-control o_crm_qc_revenue"
+                       data-available-offline="1"
+                       t-model.proxy="this.state.expected_revenue"
+                       t-att-class="{ 'is-invalid': this.state.invalid.expected_revenue }"/>
+            </div>
+            <div class="mb-2">
+                <label class="o_form_label">Stage</label>
+                <select class="o_input form-select o_crm_qc_stage"
+                        data-available-offline="1"
+                        t-model.proxy.number="this.state.stage_id"
+                        t-att-disabled="this.stageDisabled">
+                    <option t-foreach="this.stageOptions" t-as="opt" t-key="opt.id"
+                            t-att-value="opt.id" t-esc="opt.label"/>
+                </select>
+            </div>
+            <div class="d-flex justify-content-end gap-2 mt-3">
+                <button class="btn btn-secondary o_crm_qc_cancel"
+                        data-available-offline="1"
+                        t-on-click="() => this.onCancel()">Cancel</button>
+                <button class="btn btn-primary o_crm_qc_create"
+                        data-available-offline="1"
+                        t-on-click="() => this.onCreate()">Create</button>
+            </div>
+        </div>
+    </t>
+
+</templates>

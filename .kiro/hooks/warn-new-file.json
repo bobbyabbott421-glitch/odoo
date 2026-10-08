@@ -1,0 +1,15 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "Warn on disallowed new files",
+      "trigger": "PostFileCreate",
+      "matcher": "addons/crm/.*",
+      "action": {
+        "type": "agent",
+        "prompt": "A new file was just created under addons/crm/. If its path is not on the allowed-new-files list in constraints.md, tell me and delete it unless I say otherwise. Otherwise say nothing."
+      },
+      "enabled": true
+    }
+  ]
+}

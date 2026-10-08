@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="crm.MobileLeadCard">
+        <div class="o_crm_mobile_lead_card" t-att-class="{ 'o_crm_mobile_lead_card_queued': this.isQueuedCreate }">
+            <!-- Lead name -->
+            <div class="o_crm_mobile_lead_card_name" t-esc="this.name"/>
+
+            <!-- Partner / contact name (hidden when empty) -->
+            <div class="o_crm_mobile_lead_card_partner" t-if="this.partnerName" t-esc="this.partnerName"/>
+
+            <!-- Formatted expected revenue (hidden when empty) -->
+            <div class="o_crm_mobile_lead_card_revenue" t-if="this.expectedRevenue" t-esc="this.expectedRevenue"/>
+
+            <!-- Pending-sync indicator (record mode, hasQueuedWrite) -->
+            <div class="o_crm_mobile_lead_card_pending" t-if="this.showPendingIndicator" t-esc="this.pendingLabel"/>
+            <!-- Uncached-lead in-card message (record mode, offline + not available offline).
+                 Non-interactive text: no button, no 44px requirement. If any part becomes
+                 interactive later it must carry data-available-offline. -->
+            <div class="o_crm_mobile_lead_card_uncached" t-if="this.showUncachedMessage" t-esc="this.uncachedLabel"/>
+
+            <!-- Queued-create mode (strip card). name / partnerName / expectedRevenue
+                 already render above from the shared getters (which read queuedValues
+                 in this mode). Add the resolved stage label (if any) and the
+                 pending-sync / needs-retry marker. The record-mode pending indicator
+                 above does not show here (showPendingIndicator returns false when
+                 isQueuedCreate). -->
+            <t t-if="this.isQueuedCreate">
+                <div class="o_crm_mobile_lead_card_stage" t-if="this.stageLabel" t-esc="this.stageLabel"/>
+                <div class="o_crm_mobile_lead_card_marker" t-if="this.showQueuedCreateMarker" t-att-class="{ 'o_crm_needs_retry': this.props.parkedError }" t-esc="this.pendingMarkerLabel"/>
+            </t>
+        </div>
+    </t>
+
+    <!-- Additive card host wiring (spec 07, task 4.1 — Fact 12).
+         PRIMARY inherit of web.KanbanRecord so the base record template is NOT
+         mutated for other views. The mobile card is inserted as the FIRST child
+         of the article (before the compiled arch body), gated on isSmall() so
+         desktop is untouched. Resulting DOM order: mobile card first, then the
+         (partially hidden) arch body with its footer priority/activity widgets. -->
+    <t t-name="crm.MobileKanbanRecord" t-inherit="web.KanbanRecord" t-inherit-mode="primary">
+        <xpath expr="article/*[1]" position="before">
+            <CrmMobileLeadCard t-if="this.crmOffline.isSmall() and this.props.record.model.root.groupByField and this.props.record.model.root.groupByField.name === 'stage_id'" record="this.props.record" actionId="this.env.config.actionId"/>
+        </xpath>
+    </t>
+
+    <!-- Optimistic pending-create strip (spec 07, task 8.1 — Fact 11).
+         PRIMARY inherit of web.KanbanView so the base view template is NOT
+         mutated for other views. The Controller owns this template (its
+         `static template` points here). The strip is a full-width element
+         rendered ABOVE the renderer's flex row of columns (NOT a column), with
+         `position="before"` the Renderer node — the same t-component anchor
+         used by other primary inherits of web.KanbanView (e.g.
+         hr_expense.KanbanView). Gated on isSmall() so desktop is untouched, and
+         only present when there is at least one pending create. Each queued
+         create renders one CrmMobileLeadCard in queued-create mode.
+
+         Spec 08: in the production mobile pipeline (the `o_kanban_mobile` arch),
+         `pendingCreateCards` returns [] (pipeline mode), so this strip is empty
+         and the cards render inside their stage column instead. Every spec-07
+         test arch lacks `o_kanban_mobile`, so the strip renders unchanged. -->
+    <t t-name="crm.MobileKanbanView" t-inherit="web.KanbanView" t-inherit-mode="primary">
+        <xpath expr="//t[@t-component='this.props.Renderer']" position="before">
+            <div class="o_crm_mobile_pending_strip w-100" t-if="this.crmOffline.isSmall() and this.pendingCreateCards.length">
+                <CrmMobileLeadCard t-foreach="this.pendingCreateCards" t-as="pc" t-key="pc.key"
+                    queuedValues="pc.values" parkedError="pc.parkedError" stageGroups="this.pendingStageGroups"/>
+            </div>
+        </xpath>
+    </t>
+
+</templates>

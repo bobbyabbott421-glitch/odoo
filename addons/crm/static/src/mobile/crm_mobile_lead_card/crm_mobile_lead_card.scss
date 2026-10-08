@@ -1,0 +1,53 @@
+// Mobile lead card presentation (spec 07, task 1.1 — record mode).
+//
+// The card's touch target is the kanban article / card tap area (the whole
+// card is the tap surface that opens the form, Fact 7). The 44px tap-surface
+// min-height is applied to the card root here; on the real board the article
+// wraps this card.
+//
+// NOTE: the duplicated-arch hide rules under `.o_crm_mobile_card_host` are
+// added by task 4.1, not here.
+
+.o_crm_mobile_lead_card {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 8px;
+    min-height: 44px;
+
+    .o_crm_mobile_lead_card_name {
+        font-weight: 600;
+        font-size: 1.05rem;
+        line-height: 1.2;
+    }
+
+    .o_crm_mobile_lead_card_partner {
+        font-size: 0.9rem;
+    }
+
+    .o_crm_mobile_lead_card_revenue {
+        font-size: 0.9rem;
+    }
+}
+
+// On small screens, when the mobile lead card is injected as the first child of
+// the kanban article, hide the duplicated arch text nodes so the lead text shows
+// once. Rendered widget-less <field> nodes drop the `name` attribute (card
+// compiler), so these target the marker CLASSES added to the arch
+// (crm_lead_views.xml). The `:has(.o_crm_mobile_lead_card)` scope is true ONLY
+// when the mobile card is present — i.e. only on small screens (the template
+// gates the card on isSmall()); on desktop the card is absent and the arch
+// renders untouched. Only the duplicated name / expected_revenue / partner /
+// contact / company nodes are hidden; recurring_revenue + recurring_plan and the
+// footer priority/activity widgets stay visible.
+.o_kanban_record:has(.o_crm_mobile_lead_card) {
+    .o_crm_card_name,
+    .o_crm_card_expected_revenue,
+    .o_crm_card_partner,
+    .o_crm_card_contact_name,
+    .o_crm_card_partner_name {
+        // `!important` to override Bootstrap display utilities (e.g. `.d-flex`)
+        // that the arch nodes carry.
+        display: none !important;
+    }
+}
