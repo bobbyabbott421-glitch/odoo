@@ -401,3 +401,90 @@ rules capture the traps those rounds exposed so later specs avoid them.
 - For each [RC] test, run the real removal check (re-inject the bug, confirm exactly that test
   goes red, restore) and record the result in the PR description — which wiring was removed and
   which test failed. A strengthened assertion without a stated removal check is unproven.
+
+## Lessons from spec 07
+
+Spec 07 added the mobile lead card and the offline quick create. The review of the spec files, the
+first code and the diff found the problems below; each is a rule for the next spec.
+
+### A queued `web_save` carries `specification` and systray extras
+
+- `web_save(self, vals, specification, next_id=None)` requires `specification`: queue it as
+  `scheduleORM(model, "web_save", [[], values], { context, specification: {} }, { extras })`, the
+  framework's own form-create shape (`record.js` `_offlineSave`). Empty kwargs raise a TypeError on
+  replay and the entry is rejected.
+- The offline systray reads `extras.timeStamp`, `actionName`, `displayName` and, for a `web_save`,
+  `Object.entries(extras.changes)`. A queued call without them crashes the systray. Pass the kanban's
+  `root.context` so the replayed lead gets the pipeline's `default_type`. Test the systray row through
+  the real create path, with a removal check on the production extras.
+- A queued create has no server id, so nothing can target it later: do not spec or test a "create
+  plus edit on one lead" case. Offline-created leads are shown from the queue (shared hook), keyed by
+  the entry.
+
+### Many2one record values are `{ id, display_name }`, not arrays
+
+- Read `record.data.partner_id?.display_name` and `record.data.company_currency?.id`. A stub written
+  in the old array shape (`[7, "Jane"]`) makes the test pass while the real board shows nothing.
+  Mock data must use the production shape, and a board test must assert the visible text.
+
+### Kanban facts that bit
+
+- A widget-less `<field>` in a card compiles to a bare `<span>` and only `data-tooltip` is copied
+  (`view_compiler.js` `allowedFieldAttributes`): the `name` attribute is gone. Select duplicated nodes
+  by a class added in the arch, and dump the rendered DOM before writing selectors.
+- `web.CardRenderer` is `<article>` containing the compiled arch: `position="inside"` appends below the
+  footer widgets; use `article/*[1]` with `before` to put something first.
+- The renderer root is a horizontal flex row of columns: anything inserted into it becomes a column.
+  Put a full-width element in the controller template above the renderer node.
+- The many2x cache only holds stages that have records (and needs a secure context). The stage list
+  for a selector comes from the kanban's loaded groups: `group.serverValue` (id), `group.displayName`,
+  array order; drop a group whose `serverValue` is falsy (the "None" group).
+- Views are inherited: the forecast kanban extends the CRM controller and renderer. Gate every new
+  mobile behavior on the grouped field being `stage_id` and test the forecast board.
+
+### Shared hook, not the plugin
+
+- If a component needs more of the queue than `hasQueuedWrite`, add one read accessor to
+  `useCrmOffline()` (here `queuedWrites(model)`) with its own test. Do not resolve `OfflinePlugin`
+  directly in a view.
+
+### Tests: do not derive the expectation from the code under test
+
+- A test that computes its expected options from the same `root.groups` and filter as production
+  cannot fail. Seed explicit data and assert literals.
+- A test that mounts a simplified arch cannot prove the production card's hide rules, monetary
+  formatting or recurring-revenue behavior: copy the production card markup verbatim and add the
+  missing fields to the mock (additive fields only).
+- "Present" is not a behavior: open the menu, run the move on the board under test, tap the card.
+  A stage move run on a different board passes with the new wiring removed.
+- Test reactivity on one mounted component: mount first, then change the queue, then watch the same
+  card update. Remounting avoids the claim you are testing. Mount before `setOffline`, queue while
+  offline and remove the entries before going back online (otherwise the framework replays against the
+  mock and reports an unverified error).
+- A Python replay mirrors the RPC: `call_kw(model, "web_save", [[], values], { context, specification })`.
+  The id list becomes the recordset; it is not a positional argument.
+
+### Reporting
+
+- A task is ticked only when its tests are green and its removal check has been run. A dropped test
+  goes on the deviations list in the report and the PR, not in a code comment. The deviations list is
+  rebuilt from what is true at the end.
+
+## Lessons from spec 08
+
+Spec 08 added the mobile pipeline, the tour and the version bump.
+
+- Row 11 (existing tests unchanged) beats a carry-forward that wants old behavior removed. Keep the old
+  behavior behind a gate that the old tests' arches do not meet (here the `o_opportunity_kanban` marker
+  class read from `archInfo.className`), add new tests for both sides, and record the gate as a decision.
+- A folded group has a count and no loaded records. Do not treat that as "not cached": expand a folded
+  stage when the user navigates to it online, and offline show the helper only for a stage whose
+  records are not available.
+- Run a browser tour in its own `HttpCase` class (`browser_size`, `touch_enabled`) so the phone viewport
+  does not apply to every test in `TestCrmOffline`. A tour leg that depends on the online activity-type
+  prefetch (KL-C) is not stable in a single run: say so in the deviations instead of weakening the rest.
+- Before cutting a branch, `git fetch` and fast-forward the local `kiro/00-setup`; a stale local
+  branch and a stale `spec-plan.md` made Kiro conclude a merged spec was unmerged.
+- When the credit budget is short: no spec workflow and no sub-agents (they ran 19 to 54 times per
+  spec), compact spec files written directly, no approval rounds, and the diff reviewed by the
+  operator instead of a reviewer-agent pass. The cost was review depth (see the process record).

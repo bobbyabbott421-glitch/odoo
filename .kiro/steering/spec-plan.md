@@ -42,8 +42,7 @@ their final proof is the acceptance report after spec 08.
 - Spec 05: merged into `kiro/00-setup`.
 - Spec 06: merged into `kiro/00-setup`.
 - Spec 07: merged into `kiro/00-setup` (PR #10, 294c162).
-- Spec 08: implemented on `kiro/08-mobile-pipeline-tour` (cut from `kiro/00-setup` @294c162);
-  PR open against `kiro/00-setup`, pending review.
+- Spec 08: merged into `kiro/00-setup` (PR #11, ec145b4). All eight specs are merged.
 
 ## Row 9 (acceptance) — not met literally in spec 06; carried forward
 
