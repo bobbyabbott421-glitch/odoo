@@ -20,6 +20,15 @@ export const crmKanbanView = {
         // Spec 07 (task 8.1 — Fact 11): the Controller owns the pending-create
         // strip template (a primary inherit of web.KanbanView authored in
         // crm_mobile_lead_card.xml), so point its `static template` here.
+        //
+        // Spec 08: the strip stays BYTE-FOR-BYTE for the spec-07 board (and its
+        // frozen tests). The NEW mobile pipeline is a separate presentation that
+        // activates only when the arch carries the `o_kanban_mobile` marker
+        // (the production mobile lead kanban, view_crm_lead_kanban) AND the
+        // screen is small over a stage board. In that pipeline mode the strip is
+        // suppressed (`pendingCreateCards` returns []) and the pending creates
+        // render inside their stage column via CrmMobilePipeline; without the
+        // marker — every spec-07 test arch — the strip renders exactly as before.
         static template = "crm.MobileKanbanView";
         static components = {
             ...rottingKanbanView.Controller.components,
@@ -108,6 +117,28 @@ export const crmKanbanView = {
         }
 
         /**
+         * Spec 08: "pipeline mode" — the NEW mobile pipeline presentation. It is
+         * active only when the arch carries the `o_opportunity_kanban` marker
+         * class (the production stage pipeline `crm_case_kanban_view_leads`, the
+         * board "My Pipeline" opens), AND the screen is small over a stage board.
+         * Every spec-07 test arch mounts a `<kanban js_class="crm_kanban">`
+         * WITHOUT that class, so pipeline mode is false for them and the spec-07
+         * strip renders exactly as before.
+         *
+         * In pipeline mode the pending-create cards render INSIDE their stage
+         * column (CrmMobilePipeline / CrmKanbanRenderer), so the Controller's
+         * flat strip is suppressed here to avoid double-rendering.
+         */
+        get _crmMobilePipelineMode() {
+            const className = this.props.archInfo.className || "";
+            return (
+                this._crmMobileStageBoard &&
+                this.crmOffline.isSmall() &&
+                className.split(/\s+/).includes("o_opportunity_kanban")
+            );
+        }
+
+        /**
          * Spec 07 (Req 9 / Fact 11, 15): the queued offline creates to render in
          * the pending-create strip.
          *
@@ -119,9 +150,17 @@ export const crmKanbanView = {
          * a stable key, the queued VALUES (`args[1]`), and any parked error
          * (`extras.error`). Desktop (not small) renders nothing. Every read is
          * guarded so a missing field does not crash.
+         *
+         * Spec 08: in pipeline mode (the `o_kanban_mobile` production arch) the
+         * cards render inside their stage column instead, so the strip is
+         * suppressed here (returns []). Without the marker — every spec-07 test
+         * arch — this is byte-for-byte the spec-07 behaviour.
          */
         get pendingCreateCards() {
             if (!this._crmMobileStageBoard || !this.crmOffline.isSmall()) {
+                return [];
+            }
+            if (this._crmMobilePipelineMode) {
                 return [];
             }
             const entries = this.crmOffline.queuedWrites("crm.lead") || [];

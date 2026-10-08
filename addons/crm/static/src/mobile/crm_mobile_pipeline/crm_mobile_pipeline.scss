@@ -1,0 +1,42 @@
+// Mobile pipeline presentation (spec 08, PART 4 item 1).
+//
+// One stage at a time, filling the viewport width, with a fixed header
+// (stage name, lead count, revenue sum) and prev/next navigation. Desktop is
+// untouched: the renderer only emits `.o_crm_mobile_pipeline` on a small screen
+// over a stage board; otherwise the base `.o_kanban_renderer` row renders.
+
+.o_crm_mobile_pipeline {
+    flex-direction: column;
+
+    // The single visible stage column fills the viewport width.
+    .o_crm_mobile_pipeline_stage {
+        width: 100%;
+        flex: 0 0 100%;
+    }
+
+    // Fixed header stays visible while the stage body scrolls.
+    .o_crm_mobile_pipeline_header {
+        position: sticky;
+        top: 0;
+        z-index: 1;
+        padding: 8px;
+        gap: 8px;
+        background: var(--o-kanban-group-bg, #fff);
+
+        // Prev / next are 44x44 touch targets (mobile tap-surface minimum).
+        .o_crm_mobile_pipeline_prev,
+        .o_crm_mobile_pipeline_next {
+            min-width: 44px;
+            min-height: 44px;
+        }
+
+        .o_crm_mobile_pipeline_stage_name {
+            font-size: 1.05rem;
+            line-height: 1.2;
+        }
+
+        .o_crm_mobile_pipeline_meta {
+            font-size: 0.9rem;
+        }
+    }
+}

@@ -41,8 +41,9 @@ their final proof is the acceptance report after spec 08.
 - Spec 04: merged into `kiro/00-setup`.
 - Spec 05: merged into `kiro/00-setup`.
 - Spec 06: merged into `kiro/00-setup`.
-- Spec 07: implemented on `kiro/07-mobile-card-quick-create`; NOT merged (pending review).
-- Spec 08: not started.
+- Spec 07: merged into `kiro/00-setup` (PR #10, 294c162).
+- Spec 08: implemented on `kiro/08-mobile-pipeline-tour` (cut from `kiro/00-setup` @294c162);
+  PR open against `kiro/00-setup`, pending review.
 
 ## Row 9 (acceptance) — not met literally in spec 06; carried forward
 

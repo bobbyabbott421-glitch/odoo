@@ -53,7 +53,12 @@
          used by other primary inherits of web.KanbanView (e.g.
          hr_expense.KanbanView). Gated on isSmall() so desktop is untouched, and
          only present when there is at least one pending create. Each queued
-         create renders one CrmMobileLeadCard in queued-create mode. -->
+         create renders one CrmMobileLeadCard in queued-create mode.
+
+         Spec 08: in the production mobile pipeline (the `o_kanban_mobile` arch),
+         `pendingCreateCards` returns [] (pipeline mode), so this strip is empty
+         and the cards render inside their stage column instead. Every spec-07
+         test arch lacks `o_kanban_mobile`, so the strip renders unchanged. -->
     <t t-name="crm.MobileKanbanView" t-inherit="web.KanbanView" t-inherit-mode="primary">
         <xpath expr="//t[@t-component='this.props.Renderer']" position="before">
             <div class="o_crm_mobile_pending_strip w-100" t-if="this.crmOffline.isSmall() and this.pendingCreateCards.length">

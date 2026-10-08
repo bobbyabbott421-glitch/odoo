@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <!-- Fixed header + prev/next navigation for the mobile pipeline (spec 08).
+         Buttons carry data-available-offline so the framework's offline pass
+         (which disables bare <button> offline) leaves navigation live offline. -->
+    <t t-name="crm.MobilePipeline">
+        <div class="o_crm_mobile_pipeline_header w-100 d-flex align-items-center">
+            <button class="o_crm_mobile_pipeline_prev btn btn-light"
+                data-available-offline="1"
+                t-att-disabled="this.atStart"
+                t-on-click="() => this.onPrev()"
+                aria-label="Previous stage">
+                <i class="oi oi-chevron-left" aria-hidden="true"/>
+            </button>
+            <div class="o_crm_mobile_pipeline_title flex-grow-1 text-center">
+                <div class="o_crm_mobile_pipeline_stage_name fw-bold" t-esc="this.stageName"/>
+                <div class="o_crm_mobile_pipeline_meta d-flex justify-content-center gap-2">
+                    <span class="o_crm_mobile_pipeline_count" t-esc="this.countLabel"/>
+                    <span class="o_crm_mobile_pipeline_revenue" t-esc="this.revenueSum"/>
+                </div>
+            </div>
+            <button class="o_crm_mobile_pipeline_next btn btn-light"
+                data-available-offline="1"
+                t-att-disabled="this.atEnd"
+                t-on-click="() => this.onNext()"
+                aria-label="Next stage">
+                <i class="oi oi-chevron-right" aria-hidden="true"/>
+            </button>
+        </div>
+    </t>
+
+    <!-- CrmKanbanRenderer template (spec 08): a PRIMARY inherit of
+         web.KanbanRenderer. When the mobile pipeline is active (small screen +
+         stage board) it renders the pipeline header and exactly ONE stage column
+         (full width) with its pending-create cards and, for an uncached stage,
+         the framework OfflineActionHelper. Otherwise it renders the base column
+         row UNCHANGED (desktop / online / forecast board are untouched).
+
+         The base body is reproduced verbatim inside the `t-else` so no desktop
+         behaviour changes; only the mobile branch is new. -->
+    <t t-name="crm.MobilePipelineRenderer" t-inherit="web.KanbanRenderer" t-inherit-mode="primary">
+        <xpath expr="//div[hasclass('o_kanban_renderer')]" position="replace">
+            <div t-if="this._mobilePipelineActive"
+                class="o_kanban_renderer o_renderer o_crm_mobile_pipeline o_kanban_grouped align-content-stretch"
+                t-ref="this.rootRef">
+                <CrmMobilePipeline
+                    groups="this.pipelineGroups"
+                    index="this.pipelineIndex"
+                    onPrev.bind="this.pipelinePrev"
+                    onNext.bind="this.pipelineNext"/>
+                <t t-if="this.pipelineGroups.length === 0">
+                    <div class="o_crm_mobile_pipeline_empty o_view_nocontent">
+                        <div class="o_nocontent_help"><p t-esc="''"/></div>
+                    </div>
+                </t>
+                <t t-else="">
+                    <t t-set="group" t-value="this.pipelineCurrentGroup"/>
+                    <div class="o_kanban_group o_crm_mobile_pipeline_stage w-100"
+                        t-att-class="this.getGroupClasses(group, this.isProcessing(group.id))"
+                        t-att-data-id="group.id">
+                        <KanbanHeader
+                            activeActions="this.props.archInfo.activeActions"
+                            canQuickCreate="this.props.canQuickCreate"
+                            deleteGroup="(group) => this.deleteGroup(group)"
+                            dialogClose="this.dialogClose"
+                            group="group"
+                            list="this.props.list"
+                            quickCreateState="this.props.quickCreateState"
+                            scrollTop="this.props.scrollTop"
+                            tooltipInfo="this.props.archInfo.tooltipInfo"
+                            progressBarState="this.props.progressBarState"/>
+                        <!-- Uncached stage offline → the framework helper, not an
+                             empty column (spec 08 R4 / row 9). -->
+                        <t t-if="this.showPipelineOfflineHelper">
+                            <OfflineActionHelper/>
+                        </t>
+                        <t t-else="">
+                            <!-- Pending offline creates for THIS stage column
+                                 (carry-forward a): rendered above the real
+                                 records, in queued-create mode. -->
+                            <CrmMobileLeadCard t-foreach="this.currentPendingCards" t-as="pc" t-key="pc.key"
+                                queuedValues="pc.values" parkedError="pc.parkedError"
+                                stageGroups="this.pendingStageGroups"/>
+                            <t t-foreach="group.list.records" t-as="record" t-key="record.id">
+                                <KanbanRecord
+                                    archInfo="this.props.archInfo.cardArchInfo"
+                                    Compiler="this.props.Compiler"
+                                    canResequence="!this.isProcessing(group.id) and !this.isProcessing(record.id) and this.canResequenceRecords"
+                                    cardColorField="this.props.archInfo.cardColorField"
+                                    forceGlobalClick="this.props.forceGlobalClick"
+                                    groupByField="this.props.list.groupByField"
+                                    getSelection.bind="this.getSelection"
+                                    toggleSelection.bind="this.toggleSelection"
+                                    deleteRecord="this.props.deleteRecord"
+                                    archiveRecord.bind="this.archiveRecord"
+                                    canOpenRecords="this.props.archInfo.canOpenRecords"
+                                    openAction="this.props.archInfo.openAction"
+                                    openRecord="this.props.openRecord"
+                                    readonly="this.props.readonly"
+                                    record="record"
+                                    progressBarState="this.props.progressBarState"
+                                    selectionAvailable="this.state.selectionAvailable"/>
+                            </t>
+                        </t>
+                    </div>
+                </t>
+            </div>
+            <!-- Base body (desktop / online / forecast): verbatim from
+                 web.KanbanRenderer so desktop rendering is unchanged. -->
+            <div t-else=""
+                class="o_kanban_renderer o_renderer d-flex user-select-none"
+                t-attf-class="{{ this.props.list.isGrouped ? 'o_kanban_grouped align-content-stretch' : 'o_kanban_ungrouped align-content-start flex-wrap justify-content-start' }}"
+                t-ref="this.rootRef">
+                <t t-foreach="this.getGroupsOrRecords()" t-as="groupOrRecord" t-key="groupOrRecord.key">
+                    <t t-if="groupOrRecord.group">
+                        <t t-set="group" t-value="groupOrRecord.group"/>
+                        <t t-set="isGroupProcessing" t-value="this.isProcessing(group.id)"/>
+                        <div class="o_kanban_group"
+                            t-att-class="this.getGroupClasses(group, isGroupProcessing)"
+                            t-attf-class="{{ !this.uiService.isSmall and group.isFolded ? 'opacity-trigger-hover' : '' }}"
+                            t-att-data-id="group.id"
+                            t-on-click="(ev) => this.onGroupClick(group, ev)">
+                            <KanbanHeader
+                                activeActions="this.props.archInfo.activeActions"
+                                canQuickCreate="this.props.canQuickCreate"
+                                deleteGroup="(group) => this.deleteGroup(group)"
+                                dialogClose="this.dialogClose"
+                                group="group"
+                                list="this.props.list"
+                                quickCreateState="this.props.quickCreateState"
+                                scrollTop="this.props.scrollTop"
+                                tooltipInfo="this.props.archInfo.tooltipInfo"
+                                progressBarState="this.props.progressBarState"/>
+                            <t t-if="!group.isFolded">
+                                <t t-if="group.id === this.props.quickCreateState.id">
+                                    <KanbanRecordQuickCreate
+                                        quickCreateState="this.props.quickCreateState"
+                                        onValidate="(record, mode) => this.validateQuickCreate(record, mode, group)"
+                                        resModel="group.resModel"
+                                        context="group.context"/>
+                                </t>
+                                <t t-foreach="group.list.records" t-as="record" t-key="record.id">
+                                    <KanbanRecord
+                                        archInfo="this.props.archInfo.cardArchInfo"
+                                        Compiler="this.props.Compiler"
+                                        canResequence="!isGroupProcessing and !this.isProcessing(record.id) and this.canResequenceRecords"
+                                        cardColorField="this.props.archInfo.cardColorField"
+                                        forceGlobalClick="this.props.forceGlobalClick"
+                                        groupByField="this.props.list.groupByField"
+                                        getSelection.bind="this.getSelection"
+                                        toggleSelection.bind="this.toggleSelection"
+                                        deleteRecord="this.props.deleteRecord"
+                                        archiveRecord.bind="this.archiveRecord"
+                                        canOpenRecords="this.props.archInfo.canOpenRecords"
+                                        openAction="this.props.archInfo.openAction"
+                                        openRecord="this.props.openRecord"
+                                        readonly="this.props.readonly"
+                                        record="record"
+                                        progressBarState="this.props.progressBarState"
+                                        selectionAvailable="this.state.selectionAvailable"/>
+                                </t>
+                                <t t-set="unloadedCount" t-value="this.getGroupUnloadedCount(group)"/>
+                                <div t-if="unloadedCount > 0" class="o_kanban_load_more" t-key="unloadedCount">
+                                    <button class="btn btn-outline-primary w-100 mt-4" t-on-click="() => this.loadMore(group)">Load more... (<t t-out="unloadedCount"/> remaining)</button>
+                                </div>
+                            </t>
+                            <t t-elif="this.uiService.isSmall">
+                                <t t-set="unloadedCount" t-value="this.getGroupUnloadedCount(group)"/>
+                                <div t-if="unloadedCount > 0" class="o_kanban_load_more">
+                                    <button class="btn btn-outline-primary w-100 mt-4" t-on-click="() => this.toggleGroup(group)">Load more... (<t t-out="unloadedCount"/> remaining)</button>
+                                </div>
+                            </t>
+                        </div>
+                    </t>
+                    <t t-else="">
+                        <KanbanRecord
+                            archInfo="this.props.archInfo.cardArchInfo"
+                            Compiler="this.props.Compiler"
+                            canResequence="!this.isProcessing(groupOrRecord.record.id) and this.canResequenceRecords"
+                            cardColorField="this.props.archInfo.cardColorField"
+                            forceGlobalClick="this.props.forceGlobalClick"
+                            groupByField="this.props.list.groupByField"
+                            getSelection.bind="this.getSelection"
+                            toggleSelection.bind="this.toggleSelection"
+                            deleteRecord="this.props.deleteRecord"
+                            archiveRecord="(record, active) => this.archiveRecord(record, active)"
+                            canOpenRecords="this.props.archInfo.canOpenRecords"
+                            openAction="this.props.archInfo.openAction"
+                            openRecord="this.props.openRecord"
+                            readonly="this.props.readonly"
+                            record="groupOrRecord.record"
+                            selectionAvailable="this.state.selectionAvailable"/>
+                    </t>
+                </t>
+                <t t-if="this.props.list.isGrouped">
+                    <t t-if="this.canCreateGroup()">
+                        <KanbanColumnQuickCreate
+                            folded="this.state.columnQuickCreateIsFolded"
+                            onFoldChange="folded => this.state.columnQuickCreateIsFolded = folded"
+                            onValidate="this.props.list.createGroup.bind(this.props.list)"
+                            groupByField="this.props.list.groupByField"/>
+                        <div t-if="this.props.list.groups.length === 0" class="o_view_nocontent o_kanban_group_nocontent">
+                            <div class="o_nocontent_help">
+                                <p class="o_view_nocontent_smiling_face">
+                                    No <t t-out="this.props.list.groupByField.string.toLowerCase()"/> yet, let's create some!
+                                </p>
+                                <p t-if="this.canShowExamples">
+                                    Lack of inspiration? <button type="button" class="btn btn-link o_kanban_examples p-0" t-on-click="this.showExamples">See examples</button>
+                                </p>
+                            </div>
+                        </div>
+                    </t>
+                </t>
+                <t t-else="">
+                    <button t-if="this.props.addLabel" class="o_kanban_record o-kanban-button-new btn btn-link border d-print-none py-4" accesskey="shift+c" t-on-click.stop.prevent="() => this.props.onAdd()">
+                        <i class="oi me-1" data-icon="add_2" aria-hidden="true"/>
+                        <t t-out="this.props.addLabel"/>
+                    </button>
+                    <div t-foreach="[,,,,,,]" t-as="i" t-key="i_index" class="o_kanban_record o_kanban_ghost flex-grow-1 flex-md-shrink-1 flex-shrink-0 my-0"/>
+                </t>
+                <t t-if="this.showNoContentHelper">
+                    <ActionHelper noContentHelp="this.props.noContentHelp"/>
+                </t>
+            </div>
+        </xpath>
+    </t>
+
+</templates>
