@@ -23,8 +23,8 @@ export const crmKanbanView = {
         //
         // Spec 08: the strip stays BYTE-FOR-BYTE for the spec-07 board (and its
         // frozen tests). The NEW mobile pipeline is a separate presentation that
-        // activates only when the arch carries the `o_kanban_mobile` marker
-        // (the production mobile lead kanban, view_crm_lead_kanban) AND the
+        // activates only when the arch carries the `o_opportunity_kanban` marker
+        // (the production stage pipeline, crm_case_kanban_view_leads) AND the
         // screen is small over a stage board. In that pipeline mode the strip is
         // suppressed (`pendingCreateCards` returns []) and the pending creates
         // render inside their stage column via CrmMobilePipeline; without the
@@ -151,8 +151,8 @@ export const crmKanbanView = {
          * (`extras.error`). Desktop (not small) renders nothing. Every read is
          * guarded so a missing field does not crash.
          *
-         * Spec 08: in pipeline mode (the `o_kanban_mobile` production arch) the
-         * cards render inside their stage column instead, so the strip is
+         * Spec 08: in pipeline mode (the `o_opportunity_kanban` production arch)
+         * the cards render inside their stage column instead, so the strip is
          * suppressed here (returns []). Without the marker — every spec-07 test
          * arch — this is byte-for-byte the spec-07 behaviour.
          */

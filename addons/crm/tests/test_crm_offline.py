@@ -386,17 +386,22 @@ class TestCrmOffline(HttpCase, TestCrmCommon):
 # is why the tour lives in its own class rather than a method on TestCrmOffline.
 #
 # The tour (crm_mobile_offline): loads the pipeline online, opens a cached lead,
-# goes offline, edits + saves the lead (queued web_save), creates a lead through
-# the mobile quick-create bottom sheet (queued web_save create), then reconnects.
-# After the tour this test asserts the queued changes reached the server.
+# goes offline, edits + saves the lead (queued web_save), MARKS THE LEAD WON
+# (queued action_set_won, shown won optimistically), creates a lead through the
+# mobile quick-create bottom sheet (queued web_save create), then reconnects.
+# After the tour this test asserts the edit, the mark-won, and the quick-create
+# all reached the server.
 #
-# Deviation (recorded in the PR): the tour exercises the two PIPELINE-specific
-# offline writes end to end (the lead edit and the mobile quick-create). The
-# activity-schedule and mark-won legs of acceptance row 6 are proven by the
-# existing Python replay tests in this module (test_offline_activity_schedule_replay,
-# test_offline_action_set_won_marks_lead_won) and the spec-04/06 JS lanes; adding
-# them as fragile tour steps risked the whole single-run tour. They are listed as
-# a Step-10 manual-check item.
+# Deviation (recorded in the PR): the ACTIVITY-SCHEDULE leg of acceptance row 6 is
+# NOT in the tour. The offline schedule control is gated on the online
+# activity-type prefetch having cached non-meeting types into the many2x cache
+# (KL-C: a session-scoped allow-list); that caching is not reliably ready within
+# the single-run tour's timing, so after 3 runs the schedule step could not be
+# made stable. It was dropped rather than weaken the rest of the tour (per the
+# review's rule). Offline activity scheduling is proven by the existing Python
+# replay test (test_offline_activity_schedule_replay) and the spec-06 JS lane; the
+# end-to-end schedule-on-device is a Step-10 manual-check item. The edit,
+# mark-won, and quick-create legs ARE exercised end to end here.
 # ----------------------------------------------------------------------------
 
 
@@ -408,8 +413,8 @@ class TestCrmMobileOfflineTour(HttpCase, TestCrmCommon):
 
     def test_crm_mobile_offline_tour(self):
         """Run the mobile offline tour on a phone-sized touch viewport, then
-        assert the queued offline edit and the queued offline quick-create both
-        reached the server after reconnect."""
+        assert the queued offline edit, mark-won, and quick-create all reached the
+        server after reconnect."""
         # A pipeline opportunity the tour opens, edits, and (after the tour)
         # we assert was renamed. Assigned to admin so the admin login sees it.
         lead = self.env['crm.lead'].create({
@@ -434,3 +439,9 @@ class TestCrmMobileOfflineTour(HttpCase, TestCrmCommon):
             len(created), 1,
             "the offline mobile quick-create must replay exactly one lead",
         )
+        # The offline MARK-WON replayed: the lead is won on the server.
+        self.assertEqual(
+            lead.won_status, 'won',
+            "the offline action_set_won must replay and leave the lead won",
+        )
+        self.assertEqual(lead.probability, 100)

@@ -1,8 +1,9 @@
-import { proxy } from "@odoo/owl";
+import { onMounted, proxy, status } from "@odoo/owl";
 import { CrmColumnProgress } from "./crm_column_progress";
 import { CrmKanbanRecord, CrmMobileLeadCard } from "@crm/mobile/crm_mobile_lead_card/crm_mobile_lead_card";
 import { CrmMobilePipeline } from "@crm/mobile/crm_mobile_pipeline/crm_mobile_pipeline";
 import { useCrmOffline } from "@crm/mobile/crm_offline_hooks";
+import { ConnectionLostError } from "@web/core/network/rpc";
 import { OfflineActionHelper } from "@web/views/offline_action_helper";
 import { RottingKanbanHeader } from "@mail/js/rotting_mixin/rotting_kanban_header";
 import { RottingKanbanRenderer } from "@mail/js/rotting_mixin/rotting_kanban_renderer";
@@ -34,6 +35,9 @@ export class CrmKanbanRenderer extends RottingKanbanRenderer {
         this.crmOffline = useCrmOffline();
         // The active-stage index for the one-stage-at-a-time mobile pipeline.
         this.pipelineState = proxy({ index: 0 });
+        // Expand the initial active stage if it is folded (online loads its
+        // cards; offline a folded stage stays folded and shows the helper).
+        onMounted(() => this._ensurePipelineStageExpanded());
     }
 
     /**
@@ -81,6 +85,7 @@ export class CrmKanbanRenderer extends RottingKanbanRenderer {
 
     pipelinePrev() {
         this.pipelineState.index = Math.max(this.pipelineIndex - 1, 0);
+        this._ensurePipelineStageExpanded();
     }
 
     pipelineNext() {
@@ -88,6 +93,45 @@ export class CrmKanbanRenderer extends RottingKanbanRenderer {
             this.pipelineIndex + 1,
             this.pipelineGroups.length - 1
         );
+        this._ensurePipelineStageExpanded();
+    }
+
+    /**
+     * Expand the ACTIVE stage column if it is folded, so its cards load.
+     *
+     * A folded group carries a `count` but no loaded records; without this, a
+     * folded stage would render as an empty column (and, offline, be mistaken
+     * for an uncached stage). ONLINE: `group.toggle()` awaits `list.load()` and
+     * loads the cards. OFFLINE: toggling would issue a load that raises
+     * ConnectionLostError, so we leave the stage folded — it has no available
+     * data and `showPipelineOfflineHelper` honestly shows the framework helper
+     * instead. Guarded: no group, not folded, or already has loaded records → no
+     * work. A ConnectionLostError from a race (went offline mid-expand) is
+     * swallowed so the stage falls back to the helper; other errors rethrow.
+     * The destroyed-check after the await mirrors the spec-05 reconnect handlers.
+     */
+    async _ensurePipelineStageExpanded() {
+        if (!this._mobilePipelineActive) {
+            return;
+        }
+        if (this.crmOffline.isOffline()) {
+            return;
+        }
+        const group = this.pipelineCurrentGroup;
+        if (!group || !group.isFolded) {
+            return;
+        }
+        try {
+            await group.toggle();
+        } catch (e) {
+            if (e instanceof ConnectionLostError) {
+                return; // went offline mid-expand → the helper takes over
+            }
+            throw e;
+        }
+        if (status(this) === "destroyed") {
+            return;
+        }
     }
 
     /**
@@ -159,11 +203,18 @@ export class CrmKanbanRenderer extends RottingKanbanRenderer {
 
     /**
      * Whether to show the framework offline action helper in the active stage
-     * body instead of an empty column: offline, and the current stage has a
-     * non-zero server count but no loaded records (its view/search was not
-     * cached online, so the records could not be fetched offline). A cached
-     * stage with its records loaded, or a genuinely empty cached stage (count
-     * 0), shows no helper. Guarded: online / no group → false.
+     * body instead of an empty column.
+     *
+     * Shown OFFLINE when the active stage has a non-zero server count but no
+     * loaded records — i.e. its records are not available offline. This covers
+     * both an uncached stage (never visited online) and a folded-never-loaded
+     * stage: offline we cannot expand a folded group (the load would raise), and
+     * showing the helper is the honest state (that stage's data is unavailable).
+     *
+     * NOT shown when the stage HAS loaded records (`loaded > 0`) — a folded stage
+     * that we expanded online then keeps its records offline — nor for a
+     * genuinely empty cached stage (`count === 0`): that stage shows neither
+     * cards nor helper. Guarded: online / no group → false.
      */
     get showPipelineOfflineHelper() {
         if (!this.crmOffline.isOffline()) {

@@ -17,9 +17,11 @@ model; it SHALL NOT define a second kanban model.
 existing kanban column row unchanged (gated on `isSmall()` and the stage board).
 
 ## R2 — Mobile view arch (PART 4 item 5)
-2.1 The pipeline SHALL activate through the existing mobile kanban arch
-`view_crm_lead_kanban` (`class="o_kanban_mobile" js_class="crm_kanban"`); NO
-parallel view record SHALL be added.
+2.1 The pipeline SHALL activate through the existing stage pipeline arch
+`crm_case_kanban_view_leads` (`default_group_by="stage_id"`,
+`class="... o_opportunity_kanban" js_class="crm_kanban"` — the board "My Pipeline"
+opens; see D12 for why this is the stage board, not the lead-only
+`view_crm_lead_kanban`/`o_kanban_mobile`); NO parallel view record SHALL be added.
 2.2 The `crm_kanban` view SHALL remain registered in the view registry and
 referenced by `js_class` on the lead kanban views; a test SHALL demonstrate the
 registry entry drives the pipeline.

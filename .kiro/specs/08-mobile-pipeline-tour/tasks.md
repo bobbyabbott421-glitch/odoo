@@ -84,8 +84,22 @@ check. Do NOT tick a task while its test is red.
   where the brief maps row 9), NOT through the browser tour — the tour loads
   online first so it never hits an uncached stage. Recorded as a Step-10 item.
 
+## 7. PR #11 review round 1 (folded stages, tour legs, stale comment)
+- [x] 7.1 Folded stages: online navigation expands a folded stage
+  (`_ensurePipelineStageExpanded` → `group.toggle()`); offline a folded
+  never-loaded stage shows the helper; an empty cached stage (count 0) shows
+  neither. Tests: `folded stage expands on navigation ...`,
+  `folded never-loaded stage shows the helper ...`,
+  `empty cached stage shows neither cards nor helper`. Removal checks in the PR.
+- [x] 7.2 Tour legs: added mark-won offline (queued `action_set_won`, Won button
+  disappears optimistically) and assert won on the server after reconnect. The
+  activity-schedule leg was dropped after 3 unstable runs (KL-C prefetch/cache
+  timing) and recorded as a deviation; the Python replay test still proves it.
+- [x] 7.3 Fixed the stale `o_kanban_mobile` comments in crm_kanban_view.js and the
+  stale R2.1 wording in requirements.md (marker is `o_opportunity_kanban`).
+
 ## Finish
-- [ ] F1. `check.sh full` — report verbatim; row 5 now PASS.
+- [x] F1. `check.sh full` — ALL CHECKS PASSED (round 1 re-run); row 5 PASS.
 - [ ] F2. Update spec-plan.md (spec 07 merged PR #10 294c162; spec 08 implemented).
   `git add -f` every `.kiro/` file. Commit, push, open PR against kiro/00-setup.
   PR body: per-file line counts, removal-check table, decisions, deviations, Step

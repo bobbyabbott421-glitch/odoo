@@ -1,4 +1,4 @@
-import { animationFrame, expect, queryAllTexts, test } from "@odoo/hoot";
+import { animationFrame, expect, queryAllTexts, runAllTimers, test } from "@odoo/hoot";
 import { defineMailModels } from "@mail/../tests/mail_test_helpers";
 import {
     defineModels,
@@ -29,6 +29,10 @@ class Stage extends models.Model {
     _name = "crm.stage";
     name = fields.Char();
     is_won = fields.Boolean();
+    // The kanban fold field (crm.stage._fold_name = "fold" in production): a
+    // stage with fold=true renders a FOLDED group whose records are not loaded.
+    // Defaults false, so the existing 3-stage tests are unaffected.
+    fold = fields.Boolean();
     _records = [
         { id: 1, name: "New" },
         { id: 2, name: "Qualified" },
@@ -481,3 +485,103 @@ async function testPipelineGuards() {
 }
 test.tags("mobile");
 test("pipeline guard branches: end-of-range nav + empty groups (mobile)", testPipelineGuards);
+
+// ===========================================================================
+// Folded stages (review item 1). A folded group carries a `count` but no loaded
+// records; the pipeline must NOT render it as empty-or-uncached. Online:
+// navigating to a folded stage expands it (group.toggle → list.load) so its
+// cards load. Offline: a folded never-loaded stage shows the helper (honest:
+// its data is unavailable). An empty cached stage (count 0, loaded) shows
+// neither cards nor helper.
+// ===========================================================================
+
+// MOBILE + online: with stage 2 (Qualified) FOLDED, navigating to it expands the
+// group so its card (Lead B) loads and renders. Removal check: remove the
+// `_ensurePipelineStageExpanded()` call from `pipelineNext` (or make it a no-op)
+// → Lead B never loads on navigation and this goes red.
+async function testPipelineFoldedExpandsOnNavigation() {
+    const { getModel, getRenderer } = await mountPipeline();
+    await animationFrame();
+    // Fold stage 2 and reload so its group loads folded (count, no records).
+    MockServer.env["crm.stage"].write([2], { fold: true });
+    await getModel().load();
+    await animationFrame();
+    const renderer = getRenderer();
+
+    // Stage 2 is folded and carries no loaded records initially.
+    const foldedGroup = renderer.pipelineGroups.find((g) => g.serverValue === 2);
+    expect(foldedGroup).not.toBe(undefined);
+    expect(foldedGroup.isFolded).toBe(true);
+
+    // Navigate to the folded stage: the renderer expands it on arrival.
+    renderer.pipelineNext();
+    await animationFrame();
+    await runAllTimers();
+    await animationFrame();
+
+    // The group is now expanded and its card loaded and rendered.
+    expect(foldedGroup.isFolded).toBe(false);
+    expect(renderer.showPipelineOfflineHelper).toBe(false);
+    const names = queryAllTexts(".o_crm_mobile_pipeline_stage .o_crm_mobile_lead_card_name");
+    expect(names).toInclude("Lead B");
+}
+test.tags("mobile");
+test("folded stage expands on navigation and shows its cards (mobile, online)", testPipelineFoldedExpandsOnNavigation);
+
+// MOBILE + offline: a folded never-loaded stage (count > 0, no loaded records,
+// cannot be expanded offline) shows the framework offline action helper, NOT an
+// empty column. Removal check: remove the `showPipelineOfflineHelper` branch →
+// this goes red (no helper for the folded stage).
+async function testPipelineFoldedOfflineShowsHelper() {
+    const { getModel, getRenderer } = await mountPipeline();
+    await animationFrame();
+    MockServer.env["crm.stage"].write([2], { fold: true });
+    await getModel().load();
+    await animationFrame();
+    const renderer = getRenderer();
+
+    // Go offline, then navigate to the folded stage. Offline the renderer does
+    // NOT expand it (the load would raise), so it stays folded with no records.
+    setOffline(true);
+    renderer.pipelineNext();
+    await animationFrame();
+
+    const foldedGroup = renderer.pipelineCurrentGroup;
+    expect(foldedGroup.serverValue).toBe(2);
+    expect(foldedGroup.isFolded).toBe(true);
+    expect(renderer.showPipelineOfflineHelper).toBe(true);
+    // The framework helper renders in the stage body; no lead card for the stage.
+    expect(".o_crm_mobile_pipeline_stage .o_view_nocontent").toHaveCount(1);
+    expect(".o_crm_mobile_pipeline_stage .o_crm_mobile_lead_card").toHaveCount(0);
+
+    setOffline(false);
+}
+test.tags("mobile");
+test("folded never-loaded stage shows the helper (mobile, offline)", testPipelineFoldedOfflineShowsHelper);
+
+// MOBILE + offline: an EMPTY cached stage (loaded, count 0, no records) shows
+// NEITHER cards NOR the helper — a real empty stage is not "uncached". Driven by
+// forcing the active group's count to 0 with no loaded records while offline.
+// Removal check: change the `count > 0` guard in `showPipelineOfflineHelper` to
+// drop the count condition → this goes red (an empty stage wrongly shows the
+// helper).
+async function testPipelineEmptyCachedStageNeither() {
+    const { getRenderer } = await mountPipeline();
+    await animationFrame();
+    const renderer = getRenderer();
+
+    const group = renderer.pipelineCurrentGroup;
+    patchWithCleanup(group.list, { records: [] });
+    patchWithCleanup(group, { count: 0 });
+    setOffline(true);
+    await animationFrame();
+
+    // count 0 → not uncached → no helper; and no cards.
+    expect(renderer.showPipelineOfflineHelper).toBe(false);
+    expect(".o_crm_mobile_pipeline_stage .o_view_nocontent").toHaveCount(0);
+    expect(".o_crm_mobile_pipeline_stage .o_crm_mobile_lead_card").toHaveCount(0);
+
+    setOffline(false);
+}
+test.tags("mobile");
+test("empty cached stage shows neither cards nor helper (mobile, offline)", testPipelineEmptyCachedStageNeither);
