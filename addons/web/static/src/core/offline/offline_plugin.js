@@ -77,9 +77,7 @@ export class OfflinePlugin extends Plugin {
     _queueLock = JSON.stringify(["offline-sync", session.db, user.userId]);
     _syncTask;
     _syncRequested = false;
-    _readCache = window.isSecureContext
-        ? markRaw(new IndexedDB(offlineScope("offline-reads"), session.registry_hash + CRYPTO_ALGO))
-        : new FakeIndexedDB();
+    _readCache = this._openReadCache();
     _visitedUITable = computed(() =>
         this.debugMode.isActive()
             ? OfflinePlugin.VISITED_UI_TABLE_NAME_DEBUG
@@ -147,7 +145,7 @@ export class OfflinePlugin extends Plugin {
         useListener(browser, "storage", (event) => {
             if (event.key === offlineRevisionKey() && this._revision !== event.newValue) {
                 this._revision = event.newValue;
-                rpcBus.trigger("CLEAR-CACHES");
+                this._resetAccess();
             }
         });
 
@@ -270,8 +268,9 @@ export class OfflinePlugin extends Plugin {
                         .map(({ search }) => search)
                 );
         }
+        const generation = this.cacheGeneration;
         const searches = await this._visited()[actionId]?.views[viewType];
-        return [...searches];
+        return generation === this.cacheGeneration ? [...searches] : [];
     }
 
     /**
@@ -306,18 +305,19 @@ export class OfflinePlugin extends Plugin {
      */
     async setAvailableOffline(actionId, viewType, { resId, search }) {
         if (!this.isOffline()) {
+            const db = this._readCache;
             const key = this._generateKey(actionId, viewType, resId);
             let value;
             if (["form", "kanban_quick_create", "list_quick_create"].includes(viewType)) {
                 value = true;
             } else {
-                value = (await this._readCache.read(this._visitedUITable(), key)) || {};
+                value = (await db.read(this._visitedUITable(), key)) || {};
                 let count = value[search.key]?.count || 0;
                 search = value[search.key]?.search || search; // keep original search (no "Custom Filter")
                 delete value[search.key]; // delete and re-add to mark it as "last visited"
                 value[search.key] = { count: ++count, search };
             }
-            return this._readCache.write(this._visitedUITable(), key, value);
+            return db.write(this._visitedUITable(), key, value);
         }
     }
 
@@ -460,7 +460,19 @@ export class OfflinePlugin extends Plugin {
         // account. Other tabs clear RAM through the corresponding storage event.
         this._revision = `${Date.now()}-${Math.random()}`;
         browser.localStorage.setItem(offlineRevisionKey(), this._revision);
+        this._resetAccess();
+    }
+
+    _openReadCache() {
+        return window.isSecureContext
+            ? markRaw(new IndexedDB(offlineScope("offline-reads"), session.registry_hash + CRYPTO_ALGO))
+            : new FakeIndexedDB();
+    }
+
+    _resetAccess() {
         rpcBus.trigger("CLEAR-CACHES");
+        this._readCache = this._openReadCache();
+        rpcBus.trigger("OFFLINE:ACCESS-CHANGED");
     }
 
     /** Save a server-authorized read for use when the network is unavailable. */
@@ -482,14 +494,15 @@ export class OfflinePlugin extends Plugin {
     async readSnapshot(key) {
         if (this._crypto) {
             const generation = this.cacheGeneration;
-            const value = await this._readCache.read("snapshots", key);
+            const db = this._readCache;
+            const value = await db.read("snapshots", key);
             if (value) {
                 try {
                     const snapshot = await this._crypto.decrypt(value);
                     return generation === this.cacheGeneration ? snapshot : undefined;
                 } catch {
                     // A security change can rotate the user's cache secret.
-                    await this._readCache.delete("snapshots", key);
+                    await db.delete("snapshots", key);
                 }
             }
         }
@@ -504,8 +517,9 @@ export class OfflinePlugin extends Plugin {
             return;
         }
         const tableName = OfflinePlugin.MANY2X_TABLE_PREFIX + resModel;
+        const db = this._readCache;
         const values = await this._encryptAndFormat(result);
-        this._readCache.write(tableName, values);
+        return db.write(tableName, values);
     }
 
     async searchMany2XRecords(resModel, name) {
@@ -521,8 +535,10 @@ export class OfflinePlugin extends Plugin {
                   return decryptedValue.includes(normalizeSearch);
               };
         const tableName = OfflinePlugin.MANY2X_TABLE_PREFIX + resModel;
+        const generation = this.cacheGeneration;
         const res = await this._readCache.search(tableName, _searchFn);
-        return this._decryptAndFormat(res);
+        const records = await this._decryptAndFormat(res);
+        return generation === this.cacheGeneration ? records : [];
     }
 
     async readMany2XRecords(resModel, resIds) {
@@ -530,8 +546,10 @@ export class OfflinePlugin extends Plugin {
             return;
         }
         const tableName = OfflinePlugin.MANY2X_TABLE_PREFIX + resModel;
+        const generation = this.cacheGeneration;
         const res = await this._readCache.read(tableName, resIds);
-        return this._decryptAndFormat(res);
+        const records = await this._decryptAndFormat(res);
+        return generation === this.cacheGeneration ? records : [];
     }
 
     // -------------------------------------------------------------------------
@@ -588,8 +606,9 @@ export class OfflinePlugin extends Plugin {
      * @private
      */
     async _populateVisited() {
+        const generation = this.cacheGeneration;
         return this._readCache.getAllKeys(this._visitedUITable()).then((keys) => {
-            if (!this.isOffline()) {
+            if (!this.isOffline() || generation !== this.cacheGeneration) {
                 return; // status changed again meanwhile
             }
             for (const key of keys) {

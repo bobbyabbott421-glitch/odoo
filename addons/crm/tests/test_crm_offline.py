@@ -2,6 +2,7 @@
 
 import socket
 import threading
+from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
 from odoo.fields import Command
 from odoo.http.session import session_store
@@ -113,6 +114,48 @@ class TestCrmOfflineRead(CrmOfflineBrowserCase):
                 self.assertIn('You are offline', self.evaluate('document.body.innerText'))
                 self.assertFalse(self.evaluate('!!window.odoo?.__session_info__'))
 
+    def test_revisit_after_http_denial(self):
+        class Deny(BaseHTTPRequestHandler):
+            def do_POST(self):
+                self.send_error(403)
+
+            def log_message(self, format, *args):
+                pass
+
+        browser = self.browser
+        with self.allow_requests(browser=browser), flushing_cursor(self.cr):
+            with serve_odoo() as port:
+                url = f'http://{HOST}:{port}/odoo/crm'
+                browser.navigate_to(url, wait_stop=True)
+                self.assertTrue(browser._wait_ready("!!document.querySelector('.o_kanban_record')"))
+                self.evaluate('navigator.serviceWorker.ready.then(() => true)')
+                browser.navigate_to(url, wait_stop=True)
+                self.assertTrue(browser._wait_ready("!!document.querySelector('.o_kanban_record')"))
+            # A sign-in gateway can return an HTML error for an RPC. Preserve
+            # that live denial while allowing newly authorized reads to be saved.
+            with ThreadingHTTPServer((HOST, port), Deny) as gateway:
+                thread = threading.Thread(target=gateway.serve_forever, daemon=True)
+                thread.start()
+                try:
+                    self.assertEqual(self.evaluate("""
+                        odoo.loader.modules.get('@web/core/network/rpc').rpc('/authority')
+                            .then(() => false, error => error.exceptionName)
+                    """), 'odoo.exceptions.AccessDenied')
+                finally:
+                    gateway.shutdown()
+                    thread.join()
+            with serve_odoo(port):
+                self.evaluate("window.originalDocument = true; document.querySelector('.o_kanban_record').click()")
+                self.assertTrue(browser._wait_ready("!!document.querySelector('.o-mail-Chatter-logNote:not(:disabled)')"))
+                self.assertTrue(self.evaluate("window.originalDocument"))
+                name = self.evaluate("document.querySelector('.o_form_view [name=name] textarea').value")
+                self.assertTrue(name)
+                lead_url = self.evaluate('location.href')
+            with browser.offline():
+                browser.navigate_to(lead_url, wait_stop=True)
+                self.assertTrue(browser._wait_ready("!!document.querySelector('.o_form_view [name=name] textarea')"))
+                self.assertEqual(self.evaluate("document.querySelector('.o_form_view [name=name] textarea').value"), name)
+
     def test_offline_form_edit(self):
         lead = self.env['crm.lead'].create({'name': 'Morning visit', 'type': 'opportunity'})
         browser = self.browser
@@ -201,6 +244,54 @@ class TestCrmOfflineRead(CrmOfflineBrowserCase):
                                  self.env.ref('base.user_admin').partner_id)
                 activity = lead.activity_ids.filtered(lambda a: a.summary == 'Confirm the delivery window')
                 self.assertEqual(activity.user_id, self.env.ref('base.user_admin'))
+                browser.navigate_to(url, wait_stop=True)
+                self.assertTrue(browser._wait_ready("document.body.innerText.includes('Sync issues')"))
+                self.evaluate("document.querySelector('.o_offline_systray').click()")
+                self.assertTrue(browser._wait_ready("document.body.innerText.includes('Note for canceled visit') && document.body.innerText.includes('deleted')"))
+
+    def test_pending_note_on_a_shared_device(self):
+        browser = self.browser
+        lead = self.env['crm.lead'].create({'name': 'Shared device visit', 'type': 'opportunity'})
+        text = 'Only the original rep can send this offline note'
+        with self.allow_requests(browser=browser), flushing_cursor(self.cr):
+            with serve_odoo() as port:
+                url = f'http://{HOST}:{port}/odoo/crm/{lead.id}'
+                browser.navigate_to(url, wait_stop=True)
+                self.assertTrue(browser._wait_ready("!!document.querySelector('.o-mail-Chatter-logNote:not(:disabled)')"))
+            with browser.offline():
+                log_note = "[...document.querySelectorAll('button')].find(b => b.innerText === 'Log an offline note')"
+                self.assertTrue(browser._wait_ready(f'!!({log_note})'))
+                self.evaluate(f'{log_note}.click()')
+                self.assertTrue(browser._wait_ready("!!document.querySelector('.o-mail-Chatter textarea.form-control')"))
+                self.evaluate(f"""
+                    (() => {{
+                        const input = document.querySelector('.o-mail-Chatter textarea.form-control');
+                        input.value = '{text}';
+                        input.dispatchEvent(new Event('input', {{ bubbles: true }}));
+                    }})()
+                """)
+                save = "[...document.querySelectorAll('button')].find(b => b.innerText === 'Save on this device')"
+                self.assertTrue(browser._wait_ready(f'!!({save} && !{save}.disabled)'))
+                self.evaluate(f'{save}.click()')
+                self.assertTrue(browser._wait_ready("document.body.innerText.includes('Your note is waiting to be sent')"))
+                browser.navigate_to('about:blank', wait_stop=True)
+            self.authenticate('demo', 'demo', browser=browser)
+            with serve_odoo(port):
+                browser.navigate_to(f'http://{HOST}:{port}/odoo/crm', wait_stop=True)
+                self.assertTrue(browser._wait_ready("!!document.querySelector('.o_kanban_view')"))
+                self.assertEqual(self.evaluate("odoo.loader.modules.get('@web/core/user').user.userId"), self.env.ref('base.user_demo').id)
+                self.assertFalse(self.evaluate("!!document.querySelector('.o_offline_systray')"))
+                self.assertNotIn(text, self.evaluate('document.body.innerText'))
+                self.assertFalse(self.env['mail.message'].search_count([('body', 'ilike', text)]))
+                browser.navigate_to('about:blank', wait_stop=True)
+            self.authenticate('admin', 'admin', browser=browser)
+            with serve_odoo(port):
+                browser.navigate_to(url, wait_stop=True)
+                self.assertTrue(browser._wait_ready(f"document.body.innerText.includes('{text}')"))
+                self.env.invalidate_all()
+                notes = lead.message_ids.filtered(lambda message: text in (message.body or ''))
+                self.assertEqual(len(notes), 1)
+                self.assertEqual(notes.author_id, self.env.ref('base.user_admin').partner_id)
 
     def test_lost_create_acknowledgement(self):
         browser = self.browser

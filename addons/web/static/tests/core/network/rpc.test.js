@@ -148,6 +148,19 @@ test("trigger a RequestEntityTooLargeError when status is 413 even if response i
     await expect(rpc("/test/")).rejects.toThrow(error);
 });
 
+for (const [status, exceptionName] of [[401, "odoo.http.session.SessionExpiredException"], [403, "odoo.exceptions.AccessDenied"]]) {
+    test(`a live HTTP ${status} remains an access failure when the response is HTML`, async () => {
+        mockFetch(() => new Response("<h1>Sign in</h1>", { status }));
+        let error;
+        try {
+            await rpc("/test/");
+        } catch (e) {
+            error = e;
+        }
+        expect(error?.exceptionName).toBe(exceptionName);
+    });
+}
+
 test("rpc can send additional headers", async () => {
     mockFetch((url, settings) => {
         expect(settings.headers).toEqual(

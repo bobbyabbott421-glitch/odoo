@@ -4,7 +4,7 @@ import { localization } from "@web/core/l10n/localization";
 import { user } from "@web/core/user";
 import { session } from "@web/session";
 import { _t } from "./core/l10n/translation";
-import { rpc } from "./core/network/rpc";
+import { rpc, rpcBus } from "./core/network/rpc";
 import { isRPCCacheDisabled, RPCCache } from "./core/network/rpc_cache";
 import { offlineScope } from "./core/offline/offline_scope";
 import { mountComponent } from "./env";
@@ -43,9 +43,11 @@ export async function startWebClient(Webclient) {
         });
     }
     if (window.isSecureContext && session.browser_cache_secret && !isRPCCacheDisabled()) {
-        rpc.setCache(
+        const openCache = () => rpc.setCache(
             new RPCCache(offlineScope("rpc"), session.registry_hash, session.browser_cache_secret)
         );
+        openCache();
+        rpcBus.addEventListener("OFFLINE:ACCESS-CHANGED", openCache);
     }
 
     await whenReady();

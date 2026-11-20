@@ -129,6 +129,15 @@ rpc._rpc = function (url, params, settings) {
                     specialError = new RequestEntityTooLargeError();
                     break;
             }
+            if (request.status === 401 || request.status === 403 ||
+                (request.responseURL?.includes("/web/login") && new URL(request.responseURL, location.href).pathname === "/web/login")) {
+                const expired = request.status !== 403;
+                specialError = makeErrorFromResponse({
+                    code: expired ? 100 : 403,
+                    message: expired ? "Session expired" : "Access denied",
+                    data: { name: expired ? "odoo.http.session.SessionExpiredException" : "odoo.exceptions.AccessDenied" },
+                });
+            }
             if (specialError) {
                 rpcBus.trigger("RPC:RESPONSE", { data, settings, error: specialError });
                 reject(specialError);

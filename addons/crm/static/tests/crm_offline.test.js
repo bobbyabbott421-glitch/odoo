@@ -27,6 +27,7 @@ test("a denied read clears stored history and ongoing snapshot writes", async ()
     await makeTestApp();
     const offline = getService(OfflinePlugin);
     const pending = Promise.withResolvers();
+    const crypto = offline._crypto;
     let writes = 0;
     let invalidations = 0;
     patchWithCleanup(offline, {
@@ -46,6 +47,10 @@ test("a denied read clears stored history and ongoing snapshot writes", async ()
     await saved;
     expect(invalidations).toBe(1);
     expect(writes).toBe(0);
+    expect(offline._readCache.name).toBe(offlineScope("offline-reads"));
+    patchWithCleanup(offline, { _crypto: crypto });
+    await offline.writeSnapshot("still authorized", { name: "Return visit" });
+    expect((await offline.readSnapshot("still authorized")).data.name).toBe("Return visit");
 });
 
 test("the saved order survives enrichment and an unreadable pending row", async () => {
@@ -87,6 +92,7 @@ test("an online save can finish when this device is full", async () => {
     expect(result).toEqual([{ id: 42 }]);
     expect(offline.hasScheduledCalls).toBe(false);
 });
+
 
 test("a busy sender leaves a new save queued without waiting for the network", async () => {
     await makeTestApp();
