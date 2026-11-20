@@ -4,8 +4,9 @@ import { localization } from "@web/core/l10n/localization";
 import { user } from "@web/core/user";
 import { session } from "@web/session";
 import { _t } from "./core/l10n/translation";
-import { rpc } from "./core/network/rpc";
+import { rpc, rpcBus } from "./core/network/rpc";
 import { isRPCCacheDisabled, RPCCache } from "./core/network/rpc_cache";
+import { offlineScope } from "./core/offline/offline_scope";
 import { mountComponent } from "./env";
 
 // Chrome iOS wraps some text nodes (like measures, email...)
@@ -33,8 +34,20 @@ export async function startWebClient(Webclient) {
     };
     odoo.isReady = false;
 
+    if (user.userId) {
+        rpc.account = `${user.userId}@${session.db}`;
+        navigator.serviceWorker?.addEventListener("message", (event) => {
+            if (event.data === "odoo_session_changed" && event.source === navigator.serviceWorker.controller) {
+                location.replace("/odoo/offline");
+            }
+        });
+    }
     if (window.isSecureContext && session.browser_cache_secret && !isRPCCacheDisabled()) {
-        rpc.setCache(new RPCCache("rpc", session.registry_hash, session.browser_cache_secret));
+        const openCache = () => rpc.setCache(
+            new RPCCache(offlineScope("rpc"), session.registry_hash, session.browser_cache_secret)
+        );
+        openCache();
+        rpcBus.addEventListener("OFFLINE:ACCESS-CHANGED", openCache);
     }
 
     await whenReady();

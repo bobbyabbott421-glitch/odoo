@@ -11,6 +11,8 @@ import {
     patchWithCleanup,
     serverState,
 } from "@web/../tests/web_test_helpers";
+import { browser } from "@web/core/browser/browser";
+import { LocalizationPlugin } from "@web/core/l10n/localization_plugin";
 import { _t as basic_t, translatedTerms, translationLoaded } from "@web/core/l10n/translation";
 import { IndexedDB } from "@web/core/utils/indexed_db";
 import { render } from "@web/owl2/utils";
@@ -130,6 +132,15 @@ test("[cache] write into the cache", async () => {
         expectedValue
     );
     expect.verifySteps(["hash: "]);
+});
+
+test("a lost refresh can use an already saved language", async () => {
+    patchWithCleanup(browser, { fetch: async () => { throw new TypeError("Offline"); } });
+    const refresh = LocalizationPlugin.prototype.fetchTranslations.bind({
+        translationURL: "/web/webclient/translations", lang: "en",
+    });
+    expect(await refresh("known-language-hash")).toBe(undefined);
+    await expect(refresh()).rejects.toThrow("Offline");
 });
 
 test("[cache] read from cache, and don't wait to render", async () => {

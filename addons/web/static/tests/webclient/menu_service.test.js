@@ -12,6 +12,7 @@ import {
 } from "@web/../tests/web_test_helpers";
 import { browser } from "@web/core/browser/browser";
 import { animationFrame } from "@odoo/hoot-dom";
+import { offlineScope } from "@web/core/offline/offline_scope";
 import { IndexedDB } from "@web/core/utils/indexed_db";
 
 defineActions([
@@ -75,7 +76,7 @@ defineMenus([
 test.tags("desktop");
 test(`use stored menus, and don't update on load_menus return (if identical)`, async () => {
     const def = Promise.withResolvers();
-    const menuDB = new IndexedDB("webclient_menu");
+    const menuDB = new IndexedDB(offlineScope("webclient_menu"));
     redirect("/odoo/action-666");
     onRpc("/web/webclient/load_menus", () => def?.promise);
 
@@ -105,7 +106,7 @@ test(`use stored menus, and don't update on load_menus return (if identical)`, a
 test.tags("desktop");
 test(`use stored menus, and update on load_menus return`, async () => {
     const def = Promise.withResolvers();
-    const menuDB = new IndexedDB("webclient_menu");
+    const menuDB = new IndexedDB(offlineScope("webclient_menu"));
     redirect("/odoo/action-666");
     onRpc("/web/webclient/load_menus", () => def?.promise);
 

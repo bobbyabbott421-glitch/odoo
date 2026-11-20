@@ -10,7 +10,7 @@ import odoo.exceptions
 from odoo.exceptions import AccessError
 from odoo.http import Controller, request, route
 from odoo.http.router import db_list
-from odoo.http.session import authenticate, check, touch, update_session_token
+from odoo.http.session import STORED_SESSION_BYTES, authenticate, check, get_session_max_inactivity, touch, update_session_token
 from odoo.tools import LazyTranslate, _, config, hmac
 from odoo.tools.cloc import Cloc
 from odoo.tools.urls import urljoin
@@ -77,7 +77,29 @@ class Home(Controller):
             session_info = context.get("session_info")
             session_info['browser_cache_secret'] = hmac(request.env(su=True), "browser_cache_key", hmac_payload)
 
+            # Pending work must survive both module upgrades and password rotation.
+            # This key is served only after account verification, like the read key.
+            session_info['browser_offline_work_secret'] = hmac(
+                request.env(su=True), 'offline_work', (request.db, request.env.uid),
+            )
+
+            # This marker grants no server access. A cold worker can check that
+            # the browser still belongs to the session which enrolled the device.
+            # Soft session rotation preserves this prefix, just as it does for CSRF.
+            # A new login, module update or permission change requires enrollment again.
+            scope = (request.db, request.env.uid, request.session.sid[:STORED_SESSION_BYTES],
+                     session_info['registry_hash'], session_info['browser_cache_secret'],
+                     tuple(sorted(request.env.user.all_group_ids.ids)),
+                     tuple(sorted(session_info['user_companies']['allowed_companies'])),
+                     session_info['user_companies']['current_company'], session_info['user_context'].get('lang'))
+            stamp = hmac(request.env(su=True), 'offline_session', scope)
+            session_info['offline_session_stamp'] = stamp
+            account = [request.db, request.env.uid]
+            if request.session.get('_offline_account') != account:
+                request.session['_offline_account'] = account
             response = request.render('web.webclient_bootstrap', qcontext=context)
+            response.set_cookie('odoo_offline_session', stamp, max_age=get_session_max_inactivity(request.env),
+                                httponly=False, samesite='Lax')
             response.headers['X-Frame-Options'] = 'DENY'
             response.headers['Cache-Control'] = 'no-store'
             return response

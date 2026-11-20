@@ -17,11 +17,16 @@ function formatStorageSize(size) {
 }
 
 export class IndexedDB {
-    constructor(name, version) {
+    constructor(name, version, { durability = "relaxed" } = {}) {
+        this.durability = durability;
         this.name = name;
         this._tables = new Set([VERSION_TABLE]);
         this.mutex = new Mutex();
-        this.mutex.exec(() => this._checkVersion(version));
+        // A null version opens durable work (including pre-upgrade queues)
+        // without the cache invalidation used for replaceable server reads.
+        if (version !== null) {
+            this.mutex.exec(() => this._checkVersion(version));
+        }
     }
 
     // -------------------------------------------------------------------------
@@ -235,7 +240,7 @@ export class IndexedDB {
                 if (newTables.size !== 0) {
                     db.close();
                     const version = db.version + 1;
-                    return this._execute(callback, version).then(resolve);
+                    return this._execute(callback, version).then(resolve, reject);
                 }
                 Promise.resolve(callback(db))
                     .then(resolve)
@@ -256,7 +261,11 @@ export class IndexedDB {
             };
             request.onerror = (event) => {
                 console.error(`IndexedDB error: ${event.target.error?.message}`);
-                Promise.resolve(callback()).then(resolve);
+                if (this.durability === "strict") {
+                    reject(event.target.error);
+                } else {
+                    Promise.resolve(callback()).then(resolve, reject);
+                }
             };
         });
     }
@@ -267,7 +276,7 @@ export class IndexedDB {
             // Relaxed durability improves the write performances
             // https://nolanlawson.com/2021/08/22/speeding-up-indexeddb-reads-and-writes/
             // https://developer.mozilla.org/en-US/docs/Web/API/IDBTransaction/durability
-            const transaction = db.transaction(table, "readwrite", { durability: "relaxed" });
+            const transaction = db.transaction(table, "readwrite", { durability: this.durability });
             const store = transaction.objectStore(table);
 
             for (const item of items) {

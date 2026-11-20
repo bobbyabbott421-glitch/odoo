@@ -102,9 +102,16 @@ export class LocalizationPlugin extends Plugin {
     async fetchTranslations(hash) {
         let queryString = objectToUrlEncodedString({ hash, lang: this.lang });
         queryString = queryString.length > 0 ? `?${queryString}` : queryString;
-        const response = await browser.fetch(`${this.translationURL}${queryString}`, {
-            cache: "no-store",
-        });
+        let response;
+        try {
+            response = await browser.fetch(`${this.translationURL}${queryString}`, { cache: "no-store" });
+        } catch (error) {
+            // The selected language is ready even when its background refresh fails offline.
+            if (hash && error instanceof TypeError) {
+                return;
+            }
+            throw error;
+        }
         if (!response.ok) {
             throw new Error("Error while fetching translations");
         }

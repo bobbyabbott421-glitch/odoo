@@ -1,6 +1,7 @@
 import { browser } from "@web/core/browser/browser";
 import { Domain } from "@web/core/domain";
 import { _t } from "@web/core/l10n/translation";
+import { offlineScope } from "@web/core/offline/offline_scope";
 import { SearchModel } from "@web/search/search_model";
 
 import { computed, proxy } from "@odoo/owl";
@@ -150,7 +151,7 @@ export class CrmSearchModel extends SearchModel {
      * the local storage or fallback on "All Teams".
      */
     _initSwitcherSelection(loaded=false) {
-        let teamId = JSON.parse(browser.localStorage.getItem("crm.switcher_team_id"));
+        let teamId = JSON.parse(browser.localStorage.getItem(offlineScope("crm.switcher_team_id")));
         const isValid = this.state.switcherTeams.find((t) => t.id === teamId);
         if (!isValid) {
             // Fallback on "All Teams"
@@ -198,9 +199,9 @@ export class CrmSearchModel extends SearchModel {
         this.state.switcherTeamId = teamId;
         this._updateActionContext(teamId);
         if (teamId) {
-            browser.localStorage.setItem("crm.switcher_team_id", JSON.stringify(teamId));
+            browser.localStorage.setItem(offlineScope("crm.switcher_team_id"), JSON.stringify(teamId));
         } else {
-            browser.localStorage.removeItem("crm.switcher_team_id");
+            browser.localStorage.removeItem(offlineScope("crm.switcher_team_id"));
         }
         if (notify) {
             this._notify();

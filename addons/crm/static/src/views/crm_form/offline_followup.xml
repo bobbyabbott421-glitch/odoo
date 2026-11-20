@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="crm.OfflineFollowup">
+        <div t-if="this.offline.offline or this.state.kind or this.state.notice" class="px-2 py-1">
+            <div t-if="!this.state.kind and this.offline.offline" class="d-flex flex-wrap gap-2">
+                <button type="button" class="btn btn-secondary" data-available-offline=""
+                    t-on-click="() => this.state.kind = 'note'">Log an offline note</button>
+                <button type="button" class="btn btn-secondary" data-available-offline=""
+                    t-on-click="() => this.state.kind = 'activity'">Schedule my to-do</button>
+            </div>
+            <div t-elif="this.state.kind" class="d-flex flex-column gap-2">
+                <label>
+                    <span t-if="this.state.kind === 'activity'">Activity summary</span>
+                    <span t-else="">Internal note</span>
+                    <textarea class="form-control" t-att-value="this.state.text" t-on-input="(ev) => this.state.text = ev.target.value" required=""/>
+                </label>
+                <label t-if="this.state.kind === 'activity'">
+                    Due date
+                    <input class="form-control" type="date" t-att-value="this.state.deadline" t-on-input="(ev) => this.state.deadline = ev.target.value" required=""/>
+                </label>
+                <div class="d-flex gap-2">
+                    <button type="button" class="btn btn-primary" data-available-offline=""
+                        t-att-disabled="this.state.busy or !this.state.text.trim() or (this.state.kind === 'activity' and !this.state.deadline)"
+                        t-on-click="() => this.save()">Save on this device</button>
+                    <button type="button" class="btn btn-secondary" data-available-offline=""
+                        t-att-disabled="this.state.busy"
+                        t-on-click="() => { this.state.kind = ''; this.state.text = ''; }">Cancel</button>
+                </div>
+            </div>
+            <span class="small" role="status" t-out="this.state.notice"/>
+        </div>
+    </t>
+</templates>

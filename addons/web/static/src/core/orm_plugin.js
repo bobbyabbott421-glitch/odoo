@@ -1,7 +1,8 @@
 import { assertType, Plugin, types as t, usePlugin } from "@odoo/owl";
+import { browser } from "@web/core/browser/browser";
 import { services } from "@web/core/services";
 import { registry } from "@web/core/registry";
-import { rpc } from "@web/core/network/rpc";
+import { ConnectionLostError, rpc } from "@web/core/network/rpc";
 import { user } from "@web/core/user";
 import { Domain } from "@web/core/domain";
 
@@ -117,6 +118,11 @@ export class ORM extends Plugin {
      * @param {any} [kwargs={}]
      * @returns {Promise<any>}
      */
+    /** Optional server receipt token for an offline-capable business operation. */
+    offlineWriteToken(model, method, parent) {
+        return registry.category("offline_write_tokens").get(model, null)?.(method, parent);
+    }
+
     call(model, method, args = [], kwargs = {}) {
         assertType(
             model,
@@ -126,16 +132,40 @@ export class ORM extends Plugin {
         const url = `/web/dataset/call_kw/${model}/${method}`;
         const fullContext = Object.assign({}, user.context, kwargs.context || {});
         const fullKwargs = Object.assign({}, kwargs, { context: fullContext });
+        const replay = kwargs.offline_operation;
+        const operation = replay || (!this.replaying && this.offlineWriteToken(model, method));
+        if (operation) {
+            fullKwargs.offline_operation = operation;
+        }
         const params = {
             model,
             method,
             args,
             kwargs: fullKwargs,
         };
-        return this.rpc(url, params, {
-            silent: this._silent,
-            cache: this._cache,
-        });
+        const retryable = operation && {
+            id: operation.key, model, method, args, kwargs: fullKwargs,
+        };
+        const send = () => {
+            if (retryable) {
+                const xhr = new browser.XMLHttpRequest();
+                xhr.timeout = 10000;
+                return this.rpc(url, params, { silent: this._silent, xhr });
+            }
+            return this.rpc(url, params, { silent: this._silent, cache: this._cache });
+        };
+        if (retryable && !this.replaying) {
+            if (this.submitOfflineWrite) {
+                return this.submitOfflineWrite(retryable, send);
+            }
+            return send().catch((error) => {
+                if (error instanceof ConnectionLostError) {
+                    error.offlineWrite = retryable;
+                }
+                throw error;
+            });
+        }
+        return send();
     }
 
     /**

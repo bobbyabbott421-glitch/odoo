@@ -1,6 +1,7 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 from odoo import api, fields, models, release
+from odoo.exceptions import AccessDenied
 from odoo.http import request
 from odoo.http.requestlib import DEFAULT_MAX_CONTENT_LENGTH
 from odoo.tools import config
@@ -63,11 +64,25 @@ class IrHttp(models.AbstractModel):
     def _pre_dispatch(cls, rule, args):
         super()._pre_dispatch(rule, args)
         cls._handle_debug()
+        # A different tab may have changed the session cookie since this client
+        # booted. Never read or replay its work under the replacement account.
+        expected = request.httprequest.headers.get('X-Odoo-Account')
+        if expected and expected != f'{request.session.uid}@{request.db}':
+            raise AccessDenied(request.env._("The signed-in account has changed. Reopen Odoo."))
+
+    @classmethod
+    def _post_dispatch(cls, response):
+        stamp = request.cookies.get('odoo_offline_session')
+        account = request.session.get('_offline_account')
+        if stamp and account != [request.db, request.session.uid]:
+            response.set_cookie('odoo_offline_session', '', max_age=0)
+        return super()._post_dispatch(response)
 
     @classmethod
     def _post_logout(cls):
         super()._post_logout()
         request.future_response.set_cookie('cids', max_age=0)
+        request.future_response.set_cookie('odoo_offline_session', max_age=0)
 
     def webclient_rendering_context(self):
         return {

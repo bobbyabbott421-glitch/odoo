@@ -5,102 +5,168 @@ const cacheName = "odoo-sw-cache";
 const homepageURL = "/odoo";
 const offLineURL = `${homepageURL}/offline`;
 
-let sessionInfo = null;
+// The authenticated shell contains the encryption secret for the current user.
+// Keep it only for the lifetime of the verified session in this worker.
+let offlineShell;
+let shellAccount;
+const sealedURL = "/odoo/offline/saved-shell";
+
+async function currentStamp() {
+    return (await self.cookieStore?.get("odoo_offline_session"))?.value;
+}
+
+function readAccount(html) {
+    const match = html.match(/odoo\.__session_info__\s*=\s*({.*?});/s);
+    if (match) {
+        const info = JSON.parse(match[1]);
+        if (info.browser_cache_secret && info.offline_session_stamp) {
+            return { db: info.db, uid: info.uid, stamp: info.offline_session_stamp };
+        }
+    }
+}
+
+async function passphraseKey(passphrase, salt) {
+    const material = await crypto.subtle.importKey("raw", new TextEncoder().encode(passphrase),
+        "PBKDF2", false, ["deriveKey"]);
+    return crypto.subtle.deriveKey({ name: "PBKDF2", salt, iterations: 600000, hash: "SHA-256" },
+        material, { name: "AES-GCM", length: 256 }, false, ["encrypt", "decrypt"]);
+}
+
+async function handleOfflineAccess(event) {
+    const { action, passphrase, uid, db } = event.data;
+    const port = event.ports[0];
+    if (!port || !event.source || new URL(event.source.url).origin !== self.location.origin) {
+        return;
+    }
+    const version = navigationVersion;
+    try {
+        const cache = await caches.open(cacheName);
+        const stamp = await currentStamp();
+        if (!stamp) {
+            throw new Error();
+        }
+        if (action === "enroll") {
+            if (!isBackendURL(new URL(event.source.url)) || typeof passphrase !== "string" || passphrase.length < 12) {
+                throw new Error();
+            }
+            const live = await fetch("/odoo/crm", { cache: "no-store", signal: AbortSignal.timeout(5000) });
+            const html = await live.text();
+            const account = readAccount(html);
+            if (!live.ok || account?.uid !== uid || account.db !== db || account.stamp !== stamp) {
+                throw new Error();
+            }
+            const salt = crypto.getRandomValues(new Uint8Array(16));
+            const iv = crypto.getRandomValues(new Uint8Array(12));
+            const key = await passphraseKey(passphrase, salt);
+            const payload = JSON.stringify({ html, headers: [...live.headers] });
+            const encrypted = await crypto.subtle.encrypt({ name: "AES-GCM", iv }, key, new TextEncoder().encode(payload));
+            if (version !== navigationVersion || await currentStamp() !== stamp) {
+                throw new Error();
+            }
+            await cache.put(sealedURL, new Response(encrypted, { headers: {
+                "X-Odoo-Offline-Salt": Array.from(salt).join(","),
+                "X-Odoo-Offline-IV": Array.from(iv).join(","),
+                "X-Odoo-Offline-Session": stamp,
+            }}));
+        } else {
+            const sealed = await cache.match(sealedURL);
+            if (!sealed || sealed.headers.get("X-Odoo-Offline-Session") !== stamp) {
+                throw new Error();
+            }
+            if (action === "unlock") {
+                const salt = Uint8Array.from(sealed.headers.get("X-Odoo-Offline-Salt").split(","));
+                const iv = Uint8Array.from(sealed.headers.get("X-Odoo-Offline-IV").split(","));
+                const key = await passphraseKey(passphrase, salt);
+                const bytes = await crypto.subtle.decrypt({ name: "AES-GCM", iv }, key, await sealed.arrayBuffer());
+                const { html, headers } = JSON.parse(new TextDecoder().decode(bytes));
+                const account = readAccount(html);
+                if (version !== navigationVersion || account?.stamp !== stamp || await currentStamp() !== stamp) {
+                    throw new Error();
+                }
+                shellAccount = account;
+                offlineShell = new Response(html, { headers });
+            } else if (action !== "available") {
+                throw new Error();
+            }
+        }
+        port.postMessage(true);
+    } catch {
+        port.postMessage(false);
+    }
+}
+let navigationVersion = 0;
+
+function isBackendURL(url) {
+    return url.origin === self.location.origin &&
+        (url.pathname === homepageURL || url.pathname.startsWith(homepageURL + "/")) &&
+        url.pathname !== offLineURL && !url.searchParams.get("debug")?.includes("assets");
+}
+
+function forgetShell() {
+    navigationVersion++;
+    offlineShell = undefined;
+}
+
+async function rememberShell(response, version) {
+    if (!response.ok || !isBackendURL(new URL(response.url))) {
+        return;
+    }
+    const html = await response.text();
+    if (version === navigationVersion) {
+        shellAccount = readAccount(html);
+        offlineShell = shellAccount ? new Response(html, { headers: response.headers }) : undefined;
+    }
+}
 
 self.addEventListener("install", (event) => {
-    event.waitUntil(
-        Promise.all([
-            // Needed because the sw is register after the initial fetch
-            fetch(homepageURL).then((res) => (res.ok ? storeDataOnCache(homepageURL, res) : null)),
-            // offLine Page
-            caches.open(cacheName).then((cache) => cache.add(offLineURL)),
-        ])
-    );
+    const version = navigationVersion;
+    event.waitUntil(Promise.all([
+        fetch(homepageURL).then((response) => response.ok && rememberShell(response, version)),
+        caches.open(cacheName).then((cache) => cache.add(offLineURL)),
+    ]));
 });
 
-const extractSessionInfo = (htmlContent) => {
-    const match = htmlContent.match(/odoo\.__session_info__\s*=\s*({.*?});/s);
-    return match && match[1] ? match[1] : null;
-};
+self.addEventListener("activate", (event) => {
+    // Earlier workers stored a redacted web client shell alongside the public offline page.
+    event.waitUntil(caches.open(cacheName).then((cache) => cache.delete(homepageURL)));
+});
 
-const getTextFromResponse = async (response) => {
-    const reader = response.clone().body.getReader();
-    const decoder = new TextDecoder();
-    let result = "";
-    async function read() {
-        const { value, done } = await reader.read();
-        if (done) {
-            reader.releaseLock();
-            return;
-        }
-        result += decoder.decode(value, { stream: true });
-        await read();
-    }
-    await read();
-    return result;
-};
-
-const storeDataOnCache = async (url, response) => {
-    const htmlBody = await getTextFromResponse(response);
-    // store on ram, the session info
-    sessionInfo = extractSessionInfo(htmlBody);
-    const cache = await caches.open(cacheName);
-    return cache.put(
-        url.endsWith(offLineURL) ? url : homepageURL,
-        new Response(htmlBody.replace(sessionInfo, "@@@session_info_secret@@@"), {
-            headers: response.headers,
-        })
-    );
-};
-
-const readDataOnCache = async (url) => {
-    const cache = await caches.open(cacheName);
-    const response = await cache.match(url);
-    if (url === offLineURL) {
-        return response;
-    }
-    // if you come from /odoo to project the url is now /odoo/project, but it doesn't exist in cache so use /odoo instead
-    if (!response) {
-        return readDataOnCache(homepageURL);
-    }
-    const htmlBody = await getTextFromResponse(response);
-    return new Response(htmlBody.replaceAll("@@@session_info_secret@@@", sessionInfo), {
-        headers: response.headers,
-    });
-};
-
-const fetchErrorMessages = [
-    "Failed to fetch", // Chromium
-    "Load failed", // WebKit
-    "NetworkError when attempting to fetch resource.", // Firefox
-];
-
-const navigateOrDisplayOfflinePage = async (request) => {
-    const isDebugAssets = new URL(request.url).searchParams.get("debug")?.includes("assets");
+const navigateOrDisplayOfflinePage = async (event) => {
+    const request = event.request;
+    const url = new URL(request.url);
+    const backend = isBackendURL(url);
+    const version = backend ? ++navigationVersion : navigationVersion;
     try {
-        const response = await fetch(request);
-        if (response.ok && !isDebugAssets) {
-            storeDataOnCache(request.url, response.clone());
+        // A stalled CRM launch must also reach the unlock page after a worker restart.
+        // Only a safe GET can fall back to the last authenticated shell.
+        const crm = url.pathname === "/odoo/crm" || url.pathname.startsWith("/odoo/crm/");
+        const response = backend && (offlineShell || crm) && request.method === "GET"
+            ? await fetch(request, { signal: AbortSignal.timeout(5000) })
+            : await fetch(request);
+        if (backend && version === navigationVersion) {
+            if (response.ok && isBackendURL(new URL(response.url))) {
+                offlineShell = undefined;
+                // Start reading while the response streams to the page. A later navigation
+                // or logout must win even if this older response finishes last.
+                const capture = rememberShell(response.clone(), version);
+                event.waitUntil(capture);
+            } else {
+                offlineShell = undefined;
+            }
         }
         return response;
-    } catch (requestError) {
-        if (
-            request.method === "GET" &&
-            requestError instanceof TypeError &&
-            fetchErrorMessages.includes(requestError.message)
-        ) {
-            if (sessionInfo?.length && !isDebugAssets) {
-                const cachedResponse = await readDataOnCache(request.url);
-                if (cachedResponse) {
-                    return cachedResponse;
-                }
-            }
-            const offlinePage = await readDataOnCache(offLineURL);
-            if (offlinePage) {
-                return offlinePage;
-            }
+    } catch (error) {
+        if (request.method !== "GET" || (!(error instanceof TypeError) && error.name !== "TimeoutError")) {
+            throw error;
         }
-        throw requestError;
+        if (backend && offlineShell && shellAccount?.stamp === await currentStamp()) {
+            return offlineShell.clone();
+        }
+        const page = await (await caches.open(cacheName)).match(offLineURL);
+        if (page) {
+            return page;
+        }
+        throw error;
     }
 };
 
@@ -122,6 +188,20 @@ const serveShareTarget = (event) => {
 };
 
 self.addEventListener("fetch", (event) => {
+    const url = new URL(event.request.url);
+    if (url.origin === self.location.origin && [
+        "/web/login", "/web/session/logout", "/web/session/destroy", "/web/session/authenticate",
+    ].includes(url.pathname)) {
+        forgetShell();
+        event.waitUntil(caches.open(cacheName).then((cache) => cache.delete(sealedURL)));
+        event.waitUntil(self.clients.matchAll({ type: "window" }).then((clients) => {
+            for (const client of clients) {
+                if (client.id !== event.clientId && isBackendURL(new URL(client.url))) {
+                    client.postMessage("odoo_session_changed");
+                }
+            }
+        }));
+    }
     if (
         event.request.method === "POST" &&
         new URL(event.request.url).searchParams.has("share_target")
@@ -131,9 +211,9 @@ self.addEventListener("fetch", (event) => {
     if (
         (event.request.mode === "navigate" && event.request.destination === "document") ||
         // request.mode = navigate isn't supported in all browsers => check for http header accept:text/html
-        event.request.headers.get("accept").includes("text/html")
+        event.request.headers.get("accept")?.includes("text/html")
     ) {
-        event.respondWith(navigateOrDisplayOfflinePage(event.request));
+        event.respondWith(navigateOrDisplayOfflinePage(event));
     }
 });
 
@@ -212,6 +292,10 @@ const waitingMessage = async (message, clientId = false, { signal } = {}) => {
 };
 
 self.addEventListener("message", (event) => {
+    if (event.data?.type === "odoo-offline-access") {
+        event.waitUntil(handleOfflineAccess(event));
+        return;
+    }
     if (typeof event.data !== "string") {
         return;
     }
@@ -229,6 +313,6 @@ self.addEventListener("message", (event) => {
         forgetMessage(clientId, event.data);
     }
     if (event.data === "user_logout") {
-        sessionInfo = null;
+        forgetShell();
     }
 });

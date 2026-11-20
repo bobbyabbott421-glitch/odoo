@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-name="crm.OfflineAccess">
+        <Dialog title.translate="CRM offline access" size="'md'" footer="false">
+            <p>Set a passphrase on this device to reopen your saved pipeline when Odoo is closed and the connection is down. Enable it again after signing out, changing permissions or updating Odoo.</p>
+            <form t-if="this.supported" class="d-grid gap-3" t-on-submit="this.enroll">
+                <label>Offline passphrase
+                    <input class="form-control" name="passphrase" type="password" required="" minlength="12"
+                        autocomplete="new-password" aria-describedby="crm_offline_passphrase_help"/>
+                </label>
+                <span id="crm_offline_passphrase_help" class="small text-muted">Use at least 12 characters.</span>
+                <label>Confirm passphrase
+                    <input class="form-control" name="confirmation" type="password" required="" minlength="12" autocomplete="new-password"/>
+                </label>
+                <button type="submit" class="btn btn-primary" t-att-disabled="this.state.busy">Enable offline access</button>
+            </form>
+            <p t-else="">This browser needs a connection to verify your account when reopening Odoo.</p>
+            <p class="my-2" role="status" t-out="this.state.message"/>
+            <a class="btn btn-secondary" href="/scoped_app?app_id=crm&amp;path=odoo%2Fcrm">Install CRM</a>
+        </Dialog>
+    </t>
+</templates>

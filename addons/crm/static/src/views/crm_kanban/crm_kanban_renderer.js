@@ -10,6 +10,14 @@ class CrmKanbanHeader extends RottingKanbanHeader {
 }
 
 export class CrmKanbanRenderer extends RottingKanbanRenderer {
+    get canResequenceGroups() {
+        return !this.env.services.offline.offline && super.canResequenceGroups;
+    }
+
+    get canResequenceRecords() {
+        return !this.env.services.offline.offline && super.canResequenceRecords;
+    }
+
     static components = {
         ...RottingKanbanRenderer.components,
         KanbanHeader: CrmKanbanHeader,

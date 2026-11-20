@@ -373,13 +373,17 @@ export class Store extends BaseStore {
                 }
             },
             (error) => {
-                for (const [, , dataRequest] of fetchParams) {
-                    dataRequest._resultResolvers.reject(error);
+                for (const request of fetchParams) {
+                    this._handleFetchStoreDataError(request, error);
                 }
             }
         );
         this.fetchParams = [];
         this.fetchSilent = true;
+    }
+
+    _handleFetchStoreDataError([, , dataRequest], error) {
+        dataRequest._resultResolvers.reject(error);
     }
 
     _fetchStoreDataRpc(fetchParams) {
