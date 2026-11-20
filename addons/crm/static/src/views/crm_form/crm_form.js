@@ -47,7 +47,7 @@ class CrmFormRecord extends formView.Model.Record {
         }
 
         const res = await super._save(...arguments);
-        if (res && changeStage) {
+        if (res && changeStage && !this.model.offlinePlugin.isOffline()) {
             await checkRainbowmanMessage(this.model.orm, this.model.effect, this.resId);
         }
         return res;

@@ -1028,6 +1028,19 @@ class CrmLead(models.Model):
     # ACTIONS
     # ------------------------------------------------------------
 
+    def offline_log_note(self, body):
+        self.ensure_one()
+        self.check_access(self._mail_post_access)
+        self.message_post(body=body, message_type='comment', subtype_xmlid='mail.mt_note')
+        return True
+
+    def offline_schedule_todo(self, summary, deadline):
+        self.ensure_one()
+        self.check_access('read')
+        self.activity_schedule('mail.mail_activity_data_todo', summary=summary,
+                               date_deadline=fields.Date.to_date(deadline), user_id=self.env.uid, automated=False)
+        return True
+
     def action_unarchive(self):
         """ When re-activating, force update probability for both leads and
         opportunities. Note that archiving triggers nothing more, as a lead

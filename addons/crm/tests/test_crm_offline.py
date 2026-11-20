@@ -105,3 +105,121 @@ class TestCrmOfflineRead(HttpCase):
                 browser.navigate_to(url, wait_stop=True)
                 self.assertIn('You are offline', self.evaluate('document.body.innerText'))
                 self.assertFalse(self.evaluate('!!window.odoo?.__session_info__'))
+
+    def test_offline_form_edit(self):
+        lead = self.env['crm.lead'].create({'name': 'Morning visit', 'type': 'opportunity'})
+        browser = self.browser
+        with self.allow_requests(browser=browser), flushing_cursor(self.cr):
+            with serve_odoo() as port:
+                url = f'http://{HOST}:{port}/odoo/crm/{lead.id}'
+                browser.navigate_to(url, wait_stop=True)
+                self.assertTrue(browser._wait_ready("!!document.querySelector('[name=name] textarea, [name=name] input')"))
+                self.evaluate('navigator.serviceWorker.ready.then(() => true)')
+            with browser.offline():
+                self.evaluate("""
+                    (() => {
+                        const field = document.querySelector('[name=name] textarea, [name=name] input');
+                        field.focus();
+                        field.value = 'Evening visit';
+                        field.dispatchEvent(new InputEvent('input', {bubbles: true}));
+                        field.dispatchEvent(new Event('change', {bubbles: true}));
+                        field.blur();
+                    })()
+                """)
+                self.assertTrue(browser._wait_ready("!!document.querySelector('.o_form_button_save:not([disabled])')"))
+                self.evaluate("document.querySelector('.o_form_button_save').click()")
+                self.assertTrue(browser._wait_ready("""
+                    [...document.querySelectorAll('.o_offline_systray')].some(el =>
+                        el.innerText.includes('Working offline') && el.querySelector('[data-icon=arrow_drop_down]'))
+                """))
+                self.assertEqual(lead.name, 'Morning visit')
+                lead.name = 'Concurrent change'
+                self.env.flush_all()
+            with serve_odoo(port):
+                self.assertTrue(browser._wait_ready("!document.querySelector('.o_offline_systray')", timeout=60))
+                self.env.invalidate_all()
+                self.assertEqual(lead.name, 'Evening visit')
+                self.assertEqual(self.env['crm.offline.receipt'].search_count([
+                    ('user_id', '=', self.env.ref('base.user_admin').id),
+                ]), 1)
+
+    def test_offline_followup(self):
+        lead = self.env['crm.lead'].create({'name': 'Return visit', 'type': 'opportunity'})
+        removed = self.env['crm.lead'].create({'name': 'Canceled visit', 'type': 'opportunity'})
+        browser = self.browser
+
+        def button(label):
+            return f"[...document.querySelectorAll('button')].find(b => b.textContent.trim() === '{label}')"
+
+        def queue(kind, text):
+            self.assertTrue(browser._wait_ready(f'!!({button(kind)})'))
+            self.evaluate(f'{button(kind)}.click()')
+            self.assertTrue(browser._wait_ready("!!document.querySelector('.o-mail-Chatter textarea.form-control')"))
+            self.evaluate(f"""
+                (() => {{
+                    const input = document.querySelector('.o-mail-Chatter textarea.form-control');
+                    input.value = '{text}';
+                    input.dispatchEvent(new Event('input', {{bubbles: true}}));
+                }})()
+            """)
+            save = button('Save on this device')
+            self.assertTrue(browser._wait_ready(f'!!({save} && !{save}.disabled)'))
+            self.evaluate(f'{save}.click()')
+            self.assertTrue(browser._wait_ready(f'!!({button(kind)})'))
+
+        with self.allow_requests(browser=browser), flushing_cursor(self.cr):
+            with serve_odoo() as port:
+                url = f'http://{HOST}:{port}/odoo/crm/{lead.id}'
+                browser.navigate_to(url, wait_stop=True)
+                self.assertTrue(browser._wait_ready("!!document.querySelector('.o-mail-Chatter-logNote:not(:disabled)')"))
+                self.evaluate('navigator.serviceWorker.ready.then(() => true)')
+                deleted_url = f'http://{HOST}:{port}/odoo/crm/{removed.id}'
+                browser.navigate_to(deleted_url, wait_stop=True)
+                self.assertTrue(browser._wait_ready("!!document.querySelector('.o-mail-Chatter-logNote:not(:disabled)')"))
+            with browser.offline():
+                queue('Log an offline note', 'Note for canceled visit')
+                removed.unlink()
+                self.env.flush_all()
+                browser.navigate_to(url, wait_stop=True)
+
+                queue('Log an offline note', 'Bring safety boots')
+                queue('Schedule my to-do', 'Confirm the delivery window')
+                self.assertTrue(browser._wait_ready("document.body.innerText.includes('Your activity is waiting to be sent')"))
+            with serve_odoo(port):
+                self.assertTrue(browser._wait_ready("document.body.innerText.includes('Sync issues')", timeout=60))
+                self.evaluate("document.querySelector('.o_offline_systray').click()")
+                self.assertTrue(browser._wait_ready("document.body.innerText.includes('Note for canceled visit') && document.body.innerText.includes('deleted')"))
+                self.env.invalidate_all()
+                self.assertEqual(lead.message_ids.filtered(lambda m: 'Bring safety boots' in (m.body or '')).author_id,
+                                 self.env.ref('base.user_admin').partner_id)
+                activity = lead.activity_ids.filtered(lambda a: a.summary == 'Confirm the delivery window')
+                self.assertEqual(activity.user_id, self.env.ref('base.user_admin'))
+
+    def test_create_offline(self):
+        browser = self.browser
+        name = 'New warehouse opportunity'
+        with self.allow_requests(browser=browser), flushing_cursor(self.cr):
+            with serve_odoo() as port:
+                url = f'http://{HOST}:{port}/odoo/crm/new'
+                browser.navigate_to(url, wait_stop=True)
+                self.assertTrue(browser._wait_ready("!!document.querySelector('[name=name] textarea')"))
+                self.evaluate('navigator.serviceWorker.ready.then(() => true)')
+            with browser.offline():
+                self.evaluate(f"""
+                    (() => {{
+                        const field = document.querySelector('[name=name] textarea');
+                        field.value = '{name}';
+                        field.dispatchEvent(new InputEvent('input', {{bubbles: true}}));
+                        field.dispatchEvent(new Event('change', {{bubbles: true}}));
+                        field.blur();
+                    }})()
+                """)
+                self.assertTrue(browser._wait_ready("!!document.querySelector('.o_form_button_save:not(:disabled)')"))
+                self.evaluate("document.querySelector('.o_form_button_save').click()")
+                self.assertTrue(browser._wait_ready("!!document.querySelector('.o_offline_systray [data-icon=arrow_drop_down]')"))
+            with serve_odoo(port):
+                self.assertTrue(browser._wait_ready("!document.querySelector('.o_offline_systray')"))
+                self.env.invalidate_all()
+                leads = self.env['crm.lead'].search([('name', '=', name)])
+                self.assertEqual(len(leads), 1)
+                self.assertEqual(leads.create_uid, self.env.ref('base.user_admin'))

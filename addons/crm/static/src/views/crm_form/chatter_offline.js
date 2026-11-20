@@ -1,4 +1,5 @@
 import { useOnChange } from "@odoo/owl";
+import { OfflineFollowup } from "./offline_followup";
 import { Chatter } from "@mail/chatter/web_portal_project/chatter";
 import { Store } from "@mail/core/common/store_service";
 import { browser } from "@web/core/browser/browser";
@@ -95,6 +96,8 @@ patch(Store.prototype, {
         }
     },
 });
+
+patch(Chatter, { components: { ...Chatter.components, OfflineFollowup } });
 
 patch(Chatter.prototype, {
     setup() {

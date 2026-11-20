@@ -47,3 +47,43 @@ test("a denied read clears stored history and ongoing snapshot writes", async ()
     expect(invalidations).toBe(1);
     expect(writes).toBe(0);
 });
+
+test("the saved order survives enrichment and an unreadable pending row", async () => {
+    await makeTestApp();
+    const offline = getService(OfflinePlugin);
+    offline.setOffline(true);
+    const model = "crm.lead";
+    const method = "web_save";
+    const args = [[42], { name: "Visit" }];
+    async function save(id, displayName) {
+        const kwargs = { offline_operation: { key: id } };
+        return offline.scheduleORM(model, method, args, kwargs, {
+            request: { id, model, method, args, kwargs },
+            extras: { displayName },
+        });
+    }
+    await save("first", "Visit");
+    await save("second", "Return visit");
+    await save("first", "Saved visit");
+    const stored = await offline._idb.read(OfflinePlugin.ORM_SYNC_TABLE_NAME, "first");
+    expect(Boolean(stored.ciphertext)).toBe(true);
+    expect(stored.args).toBe(undefined);
+    await offline._idb.write(OfflinePlugin.ORM_SYNC_TABLE_NAME, "unreadable", {});
+    await offline._updateScheduledORMList();
+    expect(offline.unreadablePending()).toBe(true);
+    expect(offline._ormToSync().first.value.extras.order).toBe(1);
+    expect(offline._ormToSync().second.value.extras.order).toBe(2);
+    expect(offline._ormToSync().first.value.extras.displayName).toBe("Saved visit");
+});
+
+test("an online save can finish when this device is full", async () => {
+    await makeTestApp();
+    const offline = getService(OfflinePlugin);
+    patchWithCleanup(offline, {
+        scheduleORM: async () => { throw new DOMException("Full", "QuotaExceededError"); },
+    });
+    const request = { id: "unique", model: "crm.lead", method: "web_save", args: [[42], { name: "Site" }], kwargs: {} };
+    const result = await offline._submitOfflineWrite(request, async () => [{ id: 42 }]);
+    expect(result).toEqual([{ id: 42 }]);
+    expect(offline.hasScheduledCalls).toBe(false);
+});

@@ -2,6 +2,7 @@
 <templates xml:space="preserve">
     <t t-inherit="mail.Chatter" t-inherit-mode="extension">
         <xpath expr="//div[hasclass('o-mail-Chatter-topbar')]" position="before">
+            <OfflineFollowup t-if="this.state.thread?.model === 'crm.lead' and this.state.thread.id and this.state.thread.canPostMessage" t-key="this.state.thread.id" thread="this.state.thread"/>
             <div t-if="this.offlineDetailsNotice" role="status" class="small text-muted px-2"
                  t-out="this.offlineDetailsNotice"/>
             <div t-if="this.offlineHistoryNotice" role="status" class="small text-muted px-2 py-1"
@@ -12,7 +13,7 @@
         <xpath expr="//div[hasclass('o_control_panel_main')]" position="after">
             <p t-if="this.env.searchModel?.resModel === 'crm.lead' and this.env.services.offline?.offline"
                class="small text-muted m-0" role="status">
-                Offline. You can reopen saved leads and searches. Connect to load other results.
+                Offline. Reopen saved leads and searches, or edit a lead to change its stage. Other results, card dragging and disabled actions require a connection.
             </p>
         </xpath>
     </t>

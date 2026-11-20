@@ -20,13 +20,20 @@ registry.category("services").add("crm.offline_leads", {
                 if (visible.length !== batch.length) {
                     offline.invalidateAccess();
                     // Remove stale cards and details from the current document as well.
-                    if (browser.location.pathname.startsWith("/odoo/crm")) {
+                    const path = browser.location.pathname;
+                    const missing = batch.filter((id) => !visible.includes(id));
+                    if (path === "/odoo/crm" || missing.some((id) => path === `/odoo/crm/${id}`)) {
                         browser.location.replace("/odoo/crm");
                     }
                     return;
                 }
             }
         }
+        rpcBus.addEventListener("OFFLINE:APPLIED", ({ detail: { value } }) => {
+            if (value.model === "crm.lead" && ["offline_log_note", "offline_schedule_todo"].includes(value.method)) {
+                env.bus.trigger("MAIL:RELOAD-THREAD", { model: value.model, id: value.args[0][0] });
+            }
+        });
         rpcBus.addEventListener("RPC:RESPONSE", ({ detail }) => {
             if (detail.error instanceof ConnectionLostError) {
                 disconnected = true;
