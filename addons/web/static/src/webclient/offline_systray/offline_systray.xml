@@ -24,6 +24,12 @@
             </button>
             <t t-set-slot="content">
                 <div class="o_offline_systray_content px-2">
+                    <p t-if="this.offlinePlugin.legacyPending()" role="status">
+                        This device holds changes from an older version. Verify the original account and database before recovering them.
+                    </p>
+                    <p t-if="this.offlinePlugin.unreadablePending()" role="status">
+                        Some saved changes could not be opened. They are still on this device.
+                    </p>
                     <t t-foreach="this.groupEntries()" t-as="entry" t-key="entry[0]">
                         <div class="o_horizontal_separator text-uppercase fw-bolder small mb-1">
                             <span t-out="entry[0]"/>
@@ -43,6 +49,7 @@
                                 <div t-attf-class="text-truncate {{element.error ? 'text-danger': ''}} {{ element.clickable ? '' : 'text-muted'}}" t-att-data-tooltip="element.error ?? element.displayName">
                                     <i t-if="element.error" class="oi oi-fw oi-filled o_button_icon text-danger me-1" data-icon="error"/>
                                     <span t-out="element.displayName"/>
+                                    <span t-if="element.retryable" class="d-block text-wrap small" t-out="element.error"/>
                                 </div>
                                 <div
                                     class="ms-auto"
@@ -53,6 +60,10 @@
                                     </span>
                                 </div>
                                 <div>
+                                    <button t-if="element.retryable" type="button" class="btn btn-link"
+                                        t-on-click.stop="() => this.offlinePlugin.retryScheduledORM(element.id)">
+                                        Retry
+                                    </button>
                                     <button
                                         class="oi oi-filled btn btn-link text-danger py-0" data-icon="delete"
                                         title="Discard offline changes"

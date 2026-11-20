@@ -77,6 +77,12 @@ class Home(Controller):
             session_info = context.get("session_info")
             session_info['browser_cache_secret'] = hmac(request.env(su=True), "browser_cache_key", hmac_payload)
 
+            # Pending work must survive both module upgrades and password rotation.
+            # This key is served only after account verification, like the read key.
+            session_info['browser_offline_work_secret'] = hmac(
+                request.env(su=True), 'offline_work', (request.db, request.env.uid),
+            )
+
             response = request.render('web.webclient_bootstrap', qcontext=context)
             response.headers['X-Frame-Options'] = 'DENY'
             response.headers['Cache-Control'] = 'no-store'

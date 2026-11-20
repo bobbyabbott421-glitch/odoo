@@ -393,7 +393,7 @@ export class MockServiceWorkerRegistration {
 export class MockLockManager {
     async request(name, ...args) {
         const callback = args.length > 1 ? args[1] : args[0];
-        callback();
+        return callback();
     }
 
     async query() {

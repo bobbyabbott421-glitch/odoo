@@ -285,12 +285,13 @@ export class DynamicList extends DataPoint {
             });
         } catch (e) {
             if (e instanceof ConnectionLostError) {
-                this.model.offlinePlugin.scheduleORM(
+                await this.model.offlinePlugin.scheduleORM(
                     this.resModel,
                     "web_unlink",
                     [resIds],
                     { context: this.context },
                     {
+                        request: e.offlineWrite,
                         extras: getScheduleORMExtras(this.model, records),
                     }
                 );
@@ -493,7 +494,19 @@ export class DynamicList extends DataPoint {
         } catch (e) {
             if (e instanceof ConnectionLostError) {
                 // keep the changes and replay them when the connection is back
-                records.forEach((record) => record._offlineSave());
+                if (e.offlineWrite && records.length > 1) {
+                    const extras = getScheduleORMExtras(this.model, records);
+                    await this.model.offlinePlugin.scheduleORM(this.resModel, e.offlineWrite.method,
+                        e.offlineWrite.args, e.offlineWrite.kwargs, {
+                            request: e.offlineWrite,
+                            extras: { ...extras, changes, originalValues: {} },
+                        });
+                    records.forEach((record) => record._commitSave());
+                } else {
+                    for (const record of records) {
+                        await record._offlineSave(e.offlineWrite);
+                    }
+                }
                 return true;
             }
             undoFns.forEach((undo) => undo());
@@ -555,12 +568,13 @@ export class DynamicList extends DataPoint {
         } catch (e) {
             if (e instanceof ConnectionLostError) {
                 const records = this.records.filter((r) => resIds.includes(r.resId));
-                this.model.offlinePlugin.scheduleORM(
+                await this.model.offlinePlugin.scheduleORM(
                     this.resModel,
                     method,
                     [resIds],
                     { context: this.context },
                     {
+                        request: e.offlineWrite,
                         extras: getScheduleORMExtras(this.model, records),
                     }
                 );

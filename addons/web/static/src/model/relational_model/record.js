@@ -204,6 +204,7 @@ export class Record extends DataPoint {
                         [[this.resId]],
                         { context: this.context },
                         {
+                            request: e.offlineWrite,
                             extras: getScheduleORMExtras(this.model, [this]),
                         }
                     );
@@ -378,6 +379,18 @@ export class Record extends DataPoint {
     }
 
     setOfflineChanges(id) {
+        const operations = Object.values(this.model.offlinePlugin._ormToSync())
+            .filter(({ value, key }) => value.kwargs.offline_operation &&
+                value.method === "web_save" && value.model === this.resModel &&
+                (this.resId ? value.args[0]?.includes(this.resId) : key === id))
+            .sort((a, b) => a.value.extras.order - b.value.extras.order);
+        if (operations.length) {
+            this._offlineId = operations.at(-1).key;
+            this._offlineChanges = markRaw(Object.assign({}, ...operations.map(({ value }) =>
+                this._parseOfflineValues(value.extras.changes)
+            )));
+            return this.update(this._offlineChanges);
+        }
         let scheduledORM;
         if (id) {
             scheduledORM = this.model.offlinePlugin._ormToSync()[id];
@@ -1256,10 +1269,10 @@ export class Record extends DataPoint {
         ) {
             // We are trying to sa ve urgently because the user is closing the page when offline.
             // Unfortunately, we can't save on IndexedDB before unload.
-            if (this.model.offlinePlugin.isOffline()) {
+            if (this.model.offlinePlugin.isOffline() || this.model.orm.offlineWriteToken?.(this.resModel, "web_save")) {
                 this.model._closeUrgentSaveNotification = this.model.notification.add(
                     _t(
-                        `Heads up! Your recent changes cannot be saved automatically while you are offline. Please click the %(uploadIcon)s button now to ensure your work is saved before you exit this tab.`,
+                        `Heads up! Your recent changes cannot be saved automatically before this page closes. Please click the %(uploadIcon)s button now to ensure your work is saved before you exit this tab.`,
                         { uploadIcon: markup`<i class="oi oi-fw" data-icon="cloud_upload"></i>` }
                     ),
                     { sticky: true }
@@ -1318,7 +1331,11 @@ export class Record extends DataPoint {
                 { orderBys }
             );
         }
+        const operation = this.model.orm.offlineWriteToken?.(
+            this.resModel, "web_save", creation ? this._offlineId : undefined
+        );
         const kwargs = {
+            ...(operation && { offline_operation: operation }),
             context: this.context,
             specification: fieldSpec,
             next_id: nextId,
@@ -1333,7 +1350,7 @@ export class Record extends DataPoint {
             );
         } catch (e) {
             if (e instanceof ConnectionLostError) {
-                return this._offlineSave();
+                return this._offlineSave(e.offlineWrite);
             }
             if (onError && e instanceof RPCError) {
                 return onError(e, {
@@ -1388,30 +1405,39 @@ export class Record extends DataPoint {
         this.dirty = false;
     }
 
-    _offlineSave() {
+    async _offlineSave(request) {
         this._offlineChanges = markRaw({ ...(this._offlineChanges || {}), ...this._changes });
         const offlineChanges = this._getChanges(this._offlineChanges);
         delete offlineChanges.id; // id never changes, and should not be written
 
         this._offlineTimeStamp = this._offlineTimeStamp || Date.now();
-        this._offlineId = this.model.offlinePlugin.scheduleORM(
-            this.resModel,
-            "web_save",
-            [this.resId ? [this.resId] : [], offlineChanges],
-            { context: this.context, specification: {} }, //Here for the kwargs we don't need the specification or the next_id
-            {
-                id: this._offlineId,
-                extras: {
-                    ...getScheduleORMExtras(this.model, [this]),
-                    changes: this._formatOfflineValues(this._offlineChanges),
-                    originalValues: this._formatOfflineValues(
-                        pick(this._values, ...Object.keys(this._offlineChanges)),
-                        { changes: false }
-                    ),
-                    timeStamp: this._offlineTimeStamp,
-                },
-            }
-        );
+        try {
+            this._offlineId = await this.model.offlinePlugin.scheduleORM(
+                this.resModel,
+                "web_save",
+                [this.resId ? [this.resId] : [], offlineChanges],
+                { context: this.context, specification: {} }, //Here for the kwargs we don't need the specification or the next_id
+                {
+                    id: this._offlineId,
+                    request,
+                    extras: {
+                        ...getScheduleORMExtras(this.model, [this]),
+                        changes: this._formatOfflineValues(this._offlineChanges),
+                        originalValues: this._formatOfflineValues(
+                            pick(this._values, ...Object.keys(this._offlineChanges)),
+                            { changes: false }
+                        ),
+                        timeStamp: this._offlineTimeStamp,
+                    },
+                }
+            );
+        } catch {
+            this.model.notification.add(
+                _t("This device could not save your changes. Keep the form open and reconnect or free up storage."),
+                { type: "warning", sticky: true }
+            );
+            return false;
+        }
 
         this._commitSave();
         return true;
@@ -1490,6 +1516,7 @@ export class Record extends DataPoint {
                     [[this.resId]],
                     { context: this.context },
                     {
+                        request: e.offlineWrite,
                         extras: getScheduleORMExtras(this.model, [this]),
                     }
                 );

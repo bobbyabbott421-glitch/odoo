@@ -45,7 +45,7 @@ class OfflineSystray extends Component {
                     records: value.extras.displayNames || [],
                 },
             };
-            if (value.method === "web_save") {
+            if (["web_save", "web_save_multi"].includes(value.method)) {
                 item.status = value.args[0].length ? STATUS.EDITED : STATUS.CREATED;
                 item.tooltip.changes = Object.entries(value.extras.changes).map(([k, v]) => [
                     k,
@@ -59,6 +59,12 @@ class OfflineSystray extends Component {
                         c[1],
                     ]);
                 }
+            }
+            if (value.extras.operationLabel) {
+                item.status = { label: value.extras.operationLabel, color: 3 };
+            }
+            if (value.extras.error) {
+                item.retryable = !!value.kwargs.offline_operation;
             }
             if (value.method === "unlink" || value.method === "web_unlink") {
                 item.status = STATUS.DELETED;
@@ -147,7 +153,7 @@ class OfflineSystray extends Component {
             body: _t("Are you sure that you want to discard the changes you made offline?"),
             confirmLabel: _t("Discard"),
             cancelLabel: _t("No, keep it"),
-            confirm: () => this.offlinePlugin.removeScheduledORM(id),
+            confirm: () => this.offlinePlugin.discardScheduledORM(id),
             cancel: () => {},
         });
     }
@@ -160,8 +166,8 @@ class OfflineSystray extends Component {
             props: { offlineId: id, resId },
             clearBreadcrumbs: true,
         });
-        if (!this.offlinePlugin.isOffline()) {
-            this.offlinePlugin.removeScheduledORM(id);
+        if (!value.kwargs.offline_operation && !this.offlinePlugin.isOffline()) {
+            await this.offlinePlugin.removeScheduledORM(id);
         }
     }
 }
