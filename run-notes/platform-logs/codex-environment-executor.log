@@ -1,0 +1,87 @@
+2026-11-20T18:36:36.705214Z  INFO codex.exec_server.remote.register{otel.kind="client" otel.name="codex.exec_server.remote.register"}: codex_exec_server::remote: Noise executor registration completed noise_event="registration" noise_outcome="ok" security_profile="noise_hybrid_ik_v1"
+2026-11-20T18:36:37.059036Z  INFO codex_exec_server::remote: Noise executor connected to rendezvous noise_event="rendezvous_connection" noise_outcome="ok" request_id=[REDACTED] connection_attempt=1
+2026-11-20T18:36:42.156739Z  INFO codex_exec_server::relay: Noise executor handshake completed noise_event="handshake" noise_outcome="ok"
+2026-11-20T18:36:45.270917Z  INFO codex_exec_server::relay: Noise executor handshake completed noise_event="handshake" noise_outcome="ok"
+2026-11-20T18:38:28.508433Z  INFO codex_exec_server::relay: Noise executor handshake completed noise_event="handshake" noise_outcome="ok"
+2026-11-20T18:41:50.730361Z  INFO codex_exec_server::relay: Noise executor handshake completed noise_event="handshake" noise_outcome="ok"
+2026-11-20T18:49:36.877652Z  INFO codex_exec_server::relay: Noise executor handshake completed noise_event="handshake" noise_outcome="ok"
+2026-11-20T18:54:12.223664Z  INFO codex_exec_server::relay: Noise executor handshake completed noise_event="handshake" noise_outcome="ok"
+2026-11-20T18:56:42.535612Z  INFO codex_exec_server::relay: Noise executor handshake completed noise_event="handshake" noise_outcome="ok"
+2026-11-20T19:11:38.604503Z  INFO codex_exec_server::relay: Noise executor handshake completed noise_event="handshake" noise_outcome="ok"
+2026-11-20T19:19:35.589643Z  INFO codex_exec_server::relay: Noise executor handshake completed noise_event="handshake" noise_outcome="ok"
+2026-11-20T19:23:44.579902Z  INFO codex_exec_server::relay: Noise executor handshake completed noise_event="handshake" noise_outcome="ok"
+2026-11-20T19:26:21.973025Z  INFO codex_exec_server::relay: Noise executor handshake completed noise_event="handshake" noise_outcome="ok"
+2026-11-20T19:32:07.144369Z  INFO codex_exec_server::remote: Noise executor disconnected from rendezvous noise_event="rendezvous_connection" noise_outcome="disconnected" noise_reason="peer_close" request_id=[REDACTED] connection_attempt=1
+2026-11-20T19:32:08.035166Z  WARN codex_exec_server::remote: Noise executor failed to connect to rendezvous noise_event="rendezvous_connection" noise_outcome="error" noise_reason="websocket_error" request_id=[REDACTED] connection_attempt=2 error_kind="http" http_status=401 rejection_reason="expired"
+2026-11-20T19:32:08.453401Z  INFO codex.exec_server.remote.register{otel.kind="client" otel.name="codex.exec_server.remote.register"}: codex_exec_server::remote: Noise executor registration completed noise_event="registration" noise_outcome="ok" security_profile="noise_hybrid_ik_v1"
+2026-11-20T19:32:10.380525Z  INFO codex_exec_server::remote: Noise executor connected to rendezvous noise_event="rendezvous_connection" noise_outcome="ok" request_id=[REDACTED] connection_attempt=3
+2026-11-20T19:32:12.638076Z  INFO codex_exec_server::relay: Noise executor handshake completed noise_event="handshake" noise_outcome="ok"
+2026-11-20T19:41:22.295228Z  INFO codex_exec_server::relay: Noise executor handshake completed noise_event="handshake" noise_outcome="ok"
+2026-11-20T19:41:24.087687Z  INFO codex_exec_server::relay: Noise executor handshake completed noise_event="handshake" noise_outcome="ok"
+2026-11-20T19:46:57.099093Z  INFO codex_exec_server::relay: Noise executor handshake completed noise_event="handshake" noise_outcome="ok"
+2026-11-20T19:49:18.835741Z  INFO codex_exec_server::relay: Noise executor handshake completed noise_event="handshake" noise_outcome="ok"
+2026-11-20T19:52:03.106126Z  INFO codex_exec_server::relay: Noise executor handshake completed noise_event="handshake" noise_outcome="ok"
+2026-11-20T19:56:26.547289Z  INFO codex_exec_server::relay: Noise executor handshake completed noise_event="handshake" noise_outcome="ok"
+2026-11-20T20:18:17.709975Z  INFO codex_exec_server::relay: Noise executor handshake completed noise_event="handshake" noise_outcome="ok"
+2026-11-20T20:39:47.645946Z  INFO codex_exec_server::relay: Noise executor handshake completed noise_event="handshake" noise_outcome="ok"
+2026-11-20T21:06:42.662363Z  INFO codex_exec_server::relay: Noise executor handshake completed noise_event="handshake" noise_outcome="ok"
+2026-11-20T21:06:59.498638Z  INFO codex_exec_server::relay: Noise executor handshake completed noise_event="handshake" noise_outcome="ok"
+2026-11-20T21:34:45.660816Z  INFO codex_exec_server::relay: Noise executor handshake completed noise_event="handshake" noise_outcome="ok"
+2026-11-20T21:50:44.871470Z  INFO codex_exec_server::remote: Noise executor disconnected from rendezvous noise_event="rendezvous_connection" noise_outcome="disconnected" noise_reason="read_error" request_id=[REDACTED] connection_attempt=3
+2026-11-20T21:50:45.903474Z  WARN codex_exec_server::remote: Noise executor failed to connect to rendezvous noise_event="rendezvous_connection" noise_outcome="error" noise_reason="websocket_error" request_id=[REDACTED] connection_attempt=4 error_kind="http" http_status=401 rejection_reason="expired"
+2026-11-20T21:50:46.334529Z  INFO codex.exec_server.remote.register{otel.kind="client" otel.name="codex.exec_server.remote.register"}: codex_exec_server::remote: Noise executor registration completed noise_event="registration" noise_outcome="ok" security_profile="noise_hybrid_ik_v1"
+2026-11-20T21:50:47.864157Z  INFO codex_exec_server::remote: Noise executor connected to rendezvous noise_event="rendezvous_connection" noise_outcome="ok" request_id=[REDACTED] connection_attempt=5
+2026-11-20T21:50:49.580088Z  INFO codex_exec_server::relay: Noise executor handshake completed noise_event="handshake" noise_outcome="ok"
+2026-11-20T22:41:11.734422Z  INFO codex_exec_server::relay: Noise executor handshake completed noise_event="handshake" noise_outcome="ok"
+2026-11-20T22:57:45.292402Z  INFO codex_exec_server::relay: Noise executor handshake completed noise_event="handshake" noise_outcome="ok"
+2026-11-20T23:13:48.352355Z  INFO codex_exec_server::relay: Noise executor handshake completed noise_event="handshake" noise_outcome="ok"
+2026-11-20T23:26:04.218704Z  INFO codex_exec_server::relay: Noise executor handshake completed noise_event="handshake" noise_outcome="ok"
+2026-11-20T23:29:40.484861Z  INFO codex_exec_server::relay: Noise executor handshake completed noise_event="handshake" noise_outcome="ok"
+2026-11-20T23:35:52.044318Z  INFO codex_exec_server::relay: Noise executor handshake completed noise_event="handshake" noise_outcome="ok"
+2026-11-20T23:36:28.286069Z  WARN codex_exec_server::noise_relay::executor_stream: failed to encode Noise virtual stream payload: exec-server protocol error: Noise relay JSON-RPC message exceeds maximum length
+2026-11-20T23:36:30.148446Z  INFO codex_exec_server::relay: Noise executor handshake completed noise_event="handshake" noise_outcome="ok"
+2026-11-20T23:36:32.366733Z  WARN codex_exec_server::noise_relay::executor_stream: failed to encode Noise virtual stream payload: exec-server protocol error: Noise relay JSON-RPC message exceeds maximum length
+2026-11-20T23:36:33.064534Z  INFO codex_exec_server::relay: Noise executor handshake completed noise_event="handshake" noise_outcome="ok"
+2026-11-20T23:36:35.271625Z  WARN codex_exec_server::noise_relay::executor_stream: failed to encode Noise virtual stream payload: exec-server protocol error: Noise relay JSON-RPC message exceeds maximum length
+2026-11-20T23:36:36.963035Z  INFO codex_exec_server::relay: Noise executor handshake completed noise_event="handshake" noise_outcome="ok"
+2026-11-20T23:36:39.556372Z  WARN codex_exec_server::noise_relay::executor_stream: failed to encode Noise virtual stream payload: exec-server protocol error: Noise relay JSON-RPC message exceeds maximum length
+2026-11-20T23:36:40.266152Z  INFO codex_exec_server::relay: Noise executor handshake completed noise_event="handshake" noise_outcome="ok"
+2026-11-20T23:36:43.720644Z  WARN codex_exec_server::noise_relay::executor_stream: failed to encode Noise virtual stream payload: exec-server protocol error: Noise relay JSON-RPC message exceeds maximum length
+2026-11-20T23:36:45.430595Z  INFO codex_exec_server::relay: Noise executor handshake completed noise_event="handshake" noise_outcome="ok"
+2026-11-20T23:36:48.286934Z  WARN codex_exec_server::noise_relay::executor_stream: failed to encode Noise virtual stream payload: exec-server protocol error: Noise relay JSON-RPC message exceeds maximum length
+2026-11-20T23:36:55.853955Z  INFO codex_exec_server::relay: Noise executor handshake completed noise_event="handshake" noise_outcome="ok"
+2026-11-20T23:37:22.257310Z  WARN codex_exec_server::noise_relay::executor_stream: failed to encode Noise virtual stream payload: exec-server protocol error: Noise relay JSON-RPC message exceeds maximum length
+2026-11-20T23:37:23.920393Z  INFO codex_exec_server::relay: Noise executor handshake completed noise_event="handshake" noise_outcome="ok"
+2026-11-20T23:37:26.127459Z  WARN codex_exec_server::noise_relay::executor_stream: failed to encode Noise virtual stream payload: exec-server protocol error: Noise relay JSON-RPC message exceeds maximum length
+2026-11-20T23:37:26.791397Z  INFO codex_exec_server::relay: Noise executor handshake completed noise_event="handshake" noise_outcome="ok"
+2026-11-20T23:37:29.185939Z  WARN codex_exec_server::noise_relay::executor_stream: failed to encode Noise virtual stream payload: exec-server protocol error: Noise relay JSON-RPC message exceeds maximum length
+2026-11-20T23:37:30.901404Z  INFO codex_exec_server::relay: Noise executor handshake completed noise_event="handshake" noise_outcome="ok"
+2026-11-20T23:37:33.274428Z  WARN codex_exec_server::noise_relay::executor_stream: failed to encode Noise virtual stream payload: exec-server protocol error: Noise relay JSON-RPC message exceeds maximum length
+2026-11-20T23:37:34.018995Z  INFO codex_exec_server::relay: Noise executor handshake completed noise_event="handshake" noise_outcome="ok"
+2026-11-20T23:37:37.199038Z  WARN codex_exec_server::noise_relay::executor_stream: failed to encode Noise virtual stream payload: exec-server protocol error: Noise relay JSON-RPC message exceeds maximum length
+2026-11-20T23:37:38.969696Z  INFO codex_exec_server::relay: Noise executor handshake completed noise_event="handshake" noise_outcome="ok"
+2026-11-20T23:37:42.468915Z  WARN codex_exec_server::noise_relay::executor_stream: failed to encode Noise virtual stream payload: exec-server protocol error: Noise relay JSON-RPC message exceeds maximum length
+2026-11-20T23:37:45.265465Z  INFO codex_exec_server::relay: Noise executor handshake completed noise_event="handshake" noise_outcome="ok"
+2026-11-20T23:38:59.214619Z  WARN codex_exec_server::noise_relay::executor_stream: failed to encode Noise virtual stream payload: exec-server protocol error: Noise relay JSON-RPC message exceeds maximum length
+2026-11-20T23:39:00.941793Z  INFO codex_exec_server::relay: Noise executor handshake completed noise_event="handshake" noise_outcome="ok"
+2026-11-20T23:39:04.251123Z  WARN codex_exec_server::noise_relay::executor_stream: failed to encode Noise virtual stream payload: exec-server protocol error: Noise relay JSON-RPC message exceeds maximum length
+2026-11-20T23:40:12.911975Z  INFO codex_exec_server::relay: Noise executor handshake completed noise_event="handshake" noise_outcome="ok"
+2026-11-20T23:40:17.136944Z  WARN codex_exec_server::noise_relay::executor_stream: failed to encode Noise virtual stream payload: exec-server protocol error: Noise relay JSON-RPC message exceeds maximum length
+2026-11-20T23:40:18.954420Z  INFO codex_exec_server::relay: Noise executor handshake completed noise_event="handshake" noise_outcome="ok"
+2026-11-20T23:40:21.856336Z  WARN codex_exec_server::noise_relay::executor_stream: failed to encode Noise virtual stream payload: exec-server protocol error: Noise relay JSON-RPC message exceeds maximum length
+2026-11-20T23:40:22.938541Z  INFO codex_exec_server::relay: Noise executor handshake completed noise_event="handshake" noise_outcome="ok"
+2026-11-20T23:40:28.952500Z  WARN codex_exec_server::noise_relay::executor_stream: failed to encode Noise virtual stream payload: exec-server protocol error: Noise relay JSON-RPC message exceeds maximum length
+2026-11-20T23:40:30.732553Z  INFO codex_exec_server::relay: Noise executor handshake completed noise_event="handshake" noise_outcome="ok"
+2026-11-20T23:40:33.176996Z  WARN codex_exec_server::noise_relay::executor_stream: failed to encode Noise virtual stream payload: exec-server protocol error: Noise relay JSON-RPC message exceeds maximum length
+2026-11-20T23:40:38.174354Z  INFO codex_exec_server::relay: Noise executor handshake completed noise_event="handshake" noise_outcome="ok"
+2026-11-20T23:40:51.553063Z  WARN codex_exec_server::noise_relay::executor_stream: failed to encode Noise virtual stream payload: exec-server protocol error: Noise relay JSON-RPC message exceeds maximum length
+2026-11-20T23:40:53.337901Z  INFO codex_exec_server::relay: Noise executor handshake completed noise_event="handshake" noise_outcome="ok"
+2026-11-20T23:40:55.739238Z  WARN codex_exec_server::noise_relay::executor_stream: failed to encode Noise virtual stream payload: exec-server protocol error: Noise relay JSON-RPC message exceeds maximum length
+2026-11-20T23:40:56.511867Z  INFO codex_exec_server::relay: Noise executor handshake completed noise_event="handshake" noise_outcome="ok"
+2026-11-20T23:40:59.235599Z  WARN codex_exec_server::noise_relay::executor_stream: failed to encode Noise virtual stream payload: exec-server protocol error: Noise relay JSON-RPC message exceeds maximum length
+2026-11-20T23:41:00.976419Z  INFO codex_exec_server::relay: Noise executor handshake completed noise_event="handshake" noise_outcome="ok"
+2026-11-20T23:41:02.996236Z  WARN codex_exec_server::noise_relay::executor_stream: failed to encode Noise virtual stream payload: exec-server protocol error: Noise relay JSON-RPC message exceeds maximum length
+2026-11-20T23:44:48.219095Z  INFO codex_exec_server::relay: Noise executor handshake completed noise_event="handshake" noise_outcome="ok"
+2026-11-20T23:47:02.900476Z  INFO codex_exec_server::relay: Noise executor handshake completed noise_event="handshake" noise_outcome="ok"
+2026-11-20T23:51:02.574443Z  INFO codex_exec_server::relay: Noise executor handshake completed noise_event="handshake" noise_outcome="ok"
+2026-11-20T23:52:50.327920Z  INFO codex_exec_server::relay: Noise executor handshake completed noise_event="handshake" noise_outcome="ok"

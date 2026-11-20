@@ -1,0 +1,31 @@
+Run notes branch exclusions
+
+Omitted files and links under /workspace/run-notes (path, bytes, reason)
+/workspace/run-notes/browser-cache/dconf/user	2	browser profile or cache
+/workspace/run-notes/browser-cache/fontconfig/3830d5c3ddfd5cd38a049b759396e72e-le64.cache-9	352	browser profile or cache
+/workspace/run-notes/browser-cache/fontconfig/CACHEDIR.TAG	200	browser profile or cache
+/workspace/run-notes/browser-config/chromium/Crash Reports/pending/3e89907c-f6a6-4822-af8b-34de7477e39a.dmp	172416	browser profile or cache
+/workspace/run-notes/browser-config/chromium/Crash Reports/pending/3e89907c-f6a6-4822-af8b-34de7477e39a.meta	32	browser profile or cache
+/workspace/run-notes/browser-config/chromium/Crash Reports/pending/4786f8bf-2795-4a23-9ebc-0eda5639b935.dmp	172288	browser profile or cache
+/workspace/run-notes/browser-config/chromium/Crash Reports/pending/4786f8bf-2795-4a23-9ebc-0eda5639b935.meta	32	browser profile or cache
+/workspace/run-notes/browser-config/chromium/Crash Reports/pending/71458eb5-84e1-4c5f-a61d-9c469817764b.dmp	185280	browser profile or cache
+/workspace/run-notes/browser-config/chromium/Crash Reports/pending/71458eb5-84e1-4c5f-a61d-9c469817764b.meta	32	browser profile or cache
+/workspace/run-notes/browser-config/chromium/Crash Reports/pending/c6e68e9d-1f3f-4836-b897-02922c3b67ac.dmp	184768	browser profile or cache
+/workspace/run-notes/browser-config/chromium/Crash Reports/pending/c6e68e9d-1f3f-4836-b897-02922c3b67ac.meta	32	browser profile or cache
+/workspace/run-notes/browser-config/chromium/Crash Reports/pending/e8af977f-571f-48e0-a579-26886daa9aed.dmp	180528	browser profile or cache
+/workspace/run-notes/browser-config/chromium/Crash Reports/pending/e8af977f-571f-48e0-a579-26886daa9aed.meta	32	browser profile or cache
+/workspace/run-notes/browser-config/chromium/Crash Reports/pending/fec76a43-81e1-4e0f-9346-9fc9687efd68.dmp	185600	browser profile or cache
+/workspace/run-notes/browser-config/chromium/Crash Reports/pending/fec76a43-81e1-4e0f-9346-9fc9687efd68.meta	32	browser profile or cache
+/workspace/run-notes/browser-config/chromium/Crash Reports/settings.dat	40	browser profile or cache
+/workspace/run-notes/browser-config/pulse/e4d7a0e89a084787b491ee4bd0a599ff-runtime	47	browser profile or cache
+
+Files above 50,000,000 bytes under run-notes: 0
+
+Environment scope: odoo.conf, install.sh, start.sh, start-postgresql.sh and the setup helper bin/pg_config are in run-notes/odoo-env/. Other environment content was omitted, including PostgreSQL databases (pgdata/), filestores and sessions (data/), venv/, Chromium profiles and browser-cache/.
+
+Git worktree metadata: Git reserves the filename .git. The original base-control/.git pointer is copied byte-for-byte as base-control/.git-worktree-pointer. The baseline checkout itself is included as ordinary files.
+
+Empty directories (Git normally tracks files):
+run-notes/browser-config/chromium/Crash Reports/attachments
+run-notes/browser-config/chromium/Crash Reports/completed
+run-notes/browser-config/chromium/Crash Reports/new

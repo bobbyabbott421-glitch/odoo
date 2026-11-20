@@ -1,0 +1,46 @@
+Excluded run-notes entries (path, bytes, reason)
+/workspace/run-notes/browser-cache/dconf/user	2	browser profile or cache
+/workspace/run-notes/browser-cache/fontconfig/3830d5c3ddfd5cd38a049b759396e72e-le64.cache-9	352	browser profile or cache
+/workspace/run-notes/browser-cache/fontconfig/CACHEDIR.TAG	200	browser profile or cache
+/workspace/run-notes/browser-config/chromium/Crash Reports/pending/3e89907c-f6a6-4822-af8b-34de7477e39a.dmp	172416	browser profile or cache
+/workspace/run-notes/browser-config/chromium/Crash Reports/pending/3e89907c-f6a6-4822-af8b-34de7477e39a.meta	32	browser profile or cache
+/workspace/run-notes/browser-config/chromium/Crash Reports/pending/4786f8bf-2795-4a23-9ebc-0eda5639b935.dmp	172288	browser profile or cache
+/workspace/run-notes/browser-config/chromium/Crash Reports/pending/4786f8bf-2795-4a23-9ebc-0eda5639b935.meta	32	browser profile or cache
+/workspace/run-notes/browser-config/chromium/Crash Reports/pending/71458eb5-84e1-4c5f-a61d-9c469817764b.dmp	185280	browser profile or cache
+/workspace/run-notes/browser-config/chromium/Crash Reports/pending/71458eb5-84e1-4c5f-a61d-9c469817764b.meta	32	browser profile or cache
+/workspace/run-notes/browser-config/chromium/Crash Reports/pending/c6e68e9d-1f3f-4836-b897-02922c3b67ac.dmp	184768	browser profile or cache
+/workspace/run-notes/browser-config/chromium/Crash Reports/pending/c6e68e9d-1f3f-4836-b897-02922c3b67ac.meta	32	browser profile or cache
+/workspace/run-notes/browser-config/chromium/Crash Reports/pending/e8af977f-571f-48e0-a579-26886daa9aed.dmp	180528	browser profile or cache
+/workspace/run-notes/browser-config/chromium/Crash Reports/pending/e8af977f-571f-48e0-a579-26886daa9aed.meta	32	browser profile or cache
+/workspace/run-notes/browser-config/chromium/Crash Reports/pending/fec76a43-81e1-4e0f-9346-9fc9687efd68.dmp	185600	browser profile or cache
+/workspace/run-notes/browser-config/chromium/Crash Reports/pending/fec76a43-81e1-4e0f-9346-9fc9687efd68.meta	32	browser profile or cache
+/workspace/run-notes/browser-config/chromium/Crash Reports/settings.dat	40	browser profile or cache
+/workspace/run-notes/browser-config/pulse/e4d7a0e89a084787b491ee4bd0a599ff-runtime	47	browser profile or cache
+
+Run-notes files over 50,000,000 bytes: 0
+
+Environment entries outside the requested configuration and setup/start scripts (directories represent their full subtree):
+/workspace/odoo-env/apt/
+/workspace/odoo-env/browser-cache/
+/workspace/odoo-env/chromium-check/
+/workspace/odoo-env/chromium-check.html
+/workspace/odoo-env/chromium-check.log
+/workspace/odoo-env/chromium-single/
+/workspace/odoo-env/chromium-single.html
+/workspace/odoo-env/chromium-single.log
+/workspace/odoo-env/chromium-smoke/
+/workspace/odoo-env/chromium-smoke.html
+/workspace/odoo-env/chromium-smoke.log
+/workspace/odoo-env/data/
+/workspace/odoo-env/debs/
+/workspace/odoo-env/initialize.log
+/workspace/odoo-env/pgdata/
+/workspace/odoo-env/pip-install.log
+/workspace/odoo-env/postgresql.log
+/workspace/odoo-env/reinstall.log
+/workspace/odoo-env/run/
+/workspace/odoo-env/server.log
+/workspace/odoo-env/system/
+/workspace/odoo-env/uv-cache/
+/workspace/odoo-env/venv/
+The omitted data/ subtree contains the Odoo filestores and sessions. pgdata/ contains the PostgreSQL databases. venv/ is the Python environment. chromium-check/, chromium-single/, chromium-smoke/ and browser-cache/ hold browser state.

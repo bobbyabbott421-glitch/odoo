@@ -1,0 +1,16 @@
+Redaction locations
+
+Line numbers refer to the copies in this folder. Values are omitted.
+
+codex-environment-executor.log — lines 2, 14, 15, 17, 30, 31, 33 — request correlation ID (precaution)
+
+run-notes-outputs/file-inventory.tsv — lines 15155, 15184, 15185, 15186, 15266, 15267 — demo certificate-container basename (precaution)
+codex-github-operations-[REDACTED]/[REDACTED].1.attempts — opaque operation-directory or filename key (precaution)
+codex-github-operations-[REDACTED]/[REDACTED].1.log — opaque operation-directory or filename key (precaution)
+codex-github-operations-[REDACTED]/[REDACTED].1.status — opaque operation-directory or filename key (precaution)
+codex-github-operations-[REDACTED]/[REDACTED].active — opaque operation-directory or filename key (precaution)
+codex-github-operations-[REDACTED]/[REDACTED].lock — opaque operation-directory or filename key (precaution)
+codex-github-operations-[REDACTED]/[REDACTED].observer-1 — opaque operation-directory or filename key (precaution)
+codex-github-operations-[REDACTED]/repository.lock — opaque operation-directory or filename key (precaution)
+
+ANSI display formatting was removed from the executor log to scan its fields consistently. Git commit hashes and timestamps were retained.
