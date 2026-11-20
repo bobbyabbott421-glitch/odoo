@@ -1704,6 +1704,17 @@ class ChromeBrowser:
             self.stop()
             exit()
 
+    @contextmanager
+    def offline(self):
+        """Disconnect the current page from the network until the context exits."""
+        self._websocket_request('Network.enable')
+        conditions = {'latency': 0, 'downloadThroughput': -1, 'uploadThroughput': -1}
+        self._websocket_request('Network.emulateNetworkConditions', params={**conditions, 'offline': True})
+        try:
+            yield
+        finally:
+            self._websocket_request('Network.emulateNetworkConditions', params={**conditions, 'offline': False})
+
     def throttle(self, factor: int | None) -> None:
         if not factor:
             return

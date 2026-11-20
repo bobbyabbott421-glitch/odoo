@@ -1,6 +1,7 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 from . import test_health
+from . import test_offline
 from . import test_image
 from . import test_ir_model
 from . import test_js
