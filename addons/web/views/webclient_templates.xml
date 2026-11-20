@@ -21,7 +21,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <title t-out="title or 'Odoo'"/>
         <link type="image/x-icon" rel="shortcut icon" t-att-href="x_icon or '/web/static/img/favicon.ico'"/>
-        <script id="web.layout.odooscript" type="text/javascript">
+        <script id="web.layout.odooscript" type="text/javascript" t-if="not public_offline_page">
             var odoo = {
                 csrf_token: "<t t-out="request.csrf_token(None)"/>",
                 debug: "<t t-out="debug"/>",
@@ -323,10 +323,45 @@
     </template>
 
     <template id="webclient_offline">
+        <t t-set="public_offline_page" t-value="True"/>
         <t t-set="head">
+            <meta name="viewport" content="width=device-width, initial-scale=1"/>
             <script type="text/javascript">
                 document.addEventListener("DOMContentLoaded", () =&gt; {
                     const cookies = document.cookie.split(';').map(c =&gt; c.trim());
+                    const form = document.getElementById("offline_unlock");
+                    const worker = navigator.serviceWorker?.controller;
+                    if (worker) {
+                        const ask = (action, passphrase) =&gt; new Promise((resolve) =&gt; {
+                            const channel = new MessageChannel();
+                            const timeout = setTimeout(() =&gt; { channel.port1.close(); resolve(false); }, 10000);
+                            channel.port1.onmessage = ({ data }) =&gt; {
+                                clearTimeout(timeout);
+                                channel.port1.close();
+                                resolve(data);
+                            };
+                            worker.postMessage({ type: "odoo-offline-access", action, passphrase }, [channel.port2]);
+                        });
+                        ask("available").then(available =&gt; { form.hidden = !available; });
+                        form.addEventListener("submit", async event =&gt; {
+                            event.preventDefault();
+                            const button = form.querySelector("button");
+                            button.disabled = true;
+                            const unlocked = await ask("unlock", form.passphrase.value);
+                            form.reset();
+                            if (unlocked) {
+                                if (location.pathname === "/odoo/crm" || location.pathname.startsWith("/odoo/crm/")) {
+                                    location.reload();
+                                } else {
+                                    location.replace("/odoo/crm");
+                                }
+                            } else {
+                                button.disabled = false;
+                                document.getElementById("offline_unlock_error").hidden = false;
+                                form.passphrase.focus();
+                            }
+                        });
+                    }
                     if (cookies.includes('color_scheme=dark')) {
                         document.body.style.backgroundColor = "#25262b";
                         document.body.style.color = "#FFFFFF";
@@ -345,9 +380,7 @@
                 align-items: center;
                 justify-content: center;
                 text-align: center;
-                height: 100vh;
-                width: 100vw;
-                user-select: none;
+                min-height: 100vh;
                 }
                 .card {
                 width: 80%;
@@ -356,6 +389,14 @@
                 width: 96px;
                 height: auto;
                 filter: grayscale(.6);
+                }
+                #offline_unlock input, #offline_unlock button {
+                    box-sizing: border-box;
+                    display: block;
+                    width: 100%;
+                    padding: .75rem;
+                    margin-block: .5rem 1rem;
+                    font: inherit;
                 }
                 .card button {
                 background-color: #714B67;
@@ -371,13 +412,20 @@
             <meta name="viewport" content="width=device-width, initial-scale=1"/>
         </t>
         <t t-call="web.layout"
-            html_data="{'style': 'height: 100%;'}"
+            html_data="{'lang': env.lang.replace('_', '-'), 'dir': env['res.lang']._get_data(code=env.lang).direction}"
             title.translate="Offline"
             head="head">
             <div class="card">
                 <img t-attf-src="data:image/png;base64,{{odoo_icon.to_base64()}}" alt="Odoo logo"/>
                 <h1>You are offline</h1>
                 <p>Connect to verify your account and reopen Odoo.</p>
+                <form id="offline_unlock" hidden="hidden">
+                    <label>Offline passphrase
+                        <input type="password" name="passphrase" required="required" autocomplete="off"/>
+                    </label>
+                    <button type="submit">Unlock CRM</button>
+                    <p role="alert" id="offline_unlock_error" hidden="hidden">Could not unlock CRM. Check the passphrase or reconnect to verify your account.</p>
+                </form>
                 <button onclick="location.pathname === '/odoo/offline' ? location.replace('/odoo') : location.reload()">Check again</button>
             </div>
         </t>

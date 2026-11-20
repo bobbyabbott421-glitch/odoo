@@ -8,6 +8,92 @@ const offLineURL = `${homepageURL}/offline`;
 // The authenticated shell contains the encryption secret for the current user.
 // Keep it only for the lifetime of the verified session in this worker.
 let offlineShell;
+let shellAccount;
+const sealedURL = "/odoo/offline/saved-shell";
+
+async function currentStamp() {
+    return (await self.cookieStore?.get("odoo_offline_session"))?.value;
+}
+
+function readAccount(html) {
+    const match = html.match(/odoo\.__session_info__\s*=\s*({.*?});/s);
+    if (match) {
+        const info = JSON.parse(match[1]);
+        if (info.browser_cache_secret && info.offline_session_stamp) {
+            return { db: info.db, uid: info.uid, stamp: info.offline_session_stamp };
+        }
+    }
+}
+
+async function passphraseKey(passphrase, salt) {
+    const material = await crypto.subtle.importKey("raw", new TextEncoder().encode(passphrase),
+        "PBKDF2", false, ["deriveKey"]);
+    return crypto.subtle.deriveKey({ name: "PBKDF2", salt, iterations: 600000, hash: "SHA-256" },
+        material, { name: "AES-GCM", length: 256 }, false, ["encrypt", "decrypt"]);
+}
+
+async function handleOfflineAccess(event) {
+    const { action, passphrase, uid, db } = event.data;
+    const port = event.ports[0];
+    if (!port || !event.source || new URL(event.source.url).origin !== self.location.origin) {
+        return;
+    }
+    const version = navigationVersion;
+    try {
+        const cache = await caches.open(cacheName);
+        const stamp = await currentStamp();
+        if (!stamp) {
+            throw new Error();
+        }
+        if (action === "enroll") {
+            if (!isBackendURL(new URL(event.source.url)) || typeof passphrase !== "string" || passphrase.length < 12) {
+                throw new Error();
+            }
+            const live = await fetch("/odoo/crm", { cache: "no-store", signal: AbortSignal.timeout(5000) });
+            const html = await live.text();
+            const account = readAccount(html);
+            if (!live.ok || account?.uid !== uid || account.db !== db || account.stamp !== stamp) {
+                throw new Error();
+            }
+            const salt = crypto.getRandomValues(new Uint8Array(16));
+            const iv = crypto.getRandomValues(new Uint8Array(12));
+            const key = await passphraseKey(passphrase, salt);
+            const payload = JSON.stringify({ html, headers: [...live.headers] });
+            const encrypted = await crypto.subtle.encrypt({ name: "AES-GCM", iv }, key, new TextEncoder().encode(payload));
+            if (version !== navigationVersion || await currentStamp() !== stamp) {
+                throw new Error();
+            }
+            await cache.put(sealedURL, new Response(encrypted, { headers: {
+                "X-Odoo-Offline-Salt": Array.from(salt).join(","),
+                "X-Odoo-Offline-IV": Array.from(iv).join(","),
+                "X-Odoo-Offline-Session": stamp,
+            }}));
+        } else {
+            const sealed = await cache.match(sealedURL);
+            if (!sealed || sealed.headers.get("X-Odoo-Offline-Session") !== stamp) {
+                throw new Error();
+            }
+            if (action === "unlock") {
+                const salt = Uint8Array.from(sealed.headers.get("X-Odoo-Offline-Salt").split(","));
+                const iv = Uint8Array.from(sealed.headers.get("X-Odoo-Offline-IV").split(","));
+                const key = await passphraseKey(passphrase, salt);
+                const bytes = await crypto.subtle.decrypt({ name: "AES-GCM", iv }, key, await sealed.arrayBuffer());
+                const { html, headers } = JSON.parse(new TextDecoder().decode(bytes));
+                const account = readAccount(html);
+                if (version !== navigationVersion || account?.stamp !== stamp || await currentStamp() !== stamp) {
+                    throw new Error();
+                }
+                shellAccount = account;
+                offlineShell = new Response(html, { headers });
+            } else if (action !== "available") {
+                throw new Error();
+            }
+        }
+        port.postMessage(true);
+    } catch {
+        port.postMessage(false);
+    }
+}
 let navigationVersion = 0;
 
 function isBackendURL(url) {
@@ -27,10 +113,8 @@ async function rememberShell(response, version) {
     }
     const html = await response.text();
     if (version === navigationVersion) {
-        const session = html.match(/odoo\.__session_info__\s*=\s*({.*?});/s);
-        offlineShell = session && JSON.parse(session[1]).browser_cache_secret
-            ? new Response(html, { headers: response.headers })
-            : undefined;
+        shellAccount = readAccount(html);
+        offlineShell = shellAccount ? new Response(html, { headers: response.headers }) : undefined;
     }
 }
 
@@ -53,9 +137,10 @@ const navigateOrDisplayOfflinePage = async (event) => {
     const backend = isBackendURL(url);
     const version = backend ? ++navigationVersion : navigationVersion;
     try {
-        // Give a warmed navigation a bounded wait on a stalled connection.
+        // A stalled CRM launch must also reach the unlock page after a worker restart.
         // Only a safe GET can fall back to the last authenticated shell.
-        const response = backend && offlineShell && request.method === "GET"
+        const crm = url.pathname === "/odoo/crm" || url.pathname.startsWith("/odoo/crm/");
+        const response = backend && (offlineShell || crm) && request.method === "GET"
             ? await fetch(request, { signal: AbortSignal.timeout(5000) })
             : await fetch(request);
         if (backend && version === navigationVersion) {
@@ -74,7 +159,7 @@ const navigateOrDisplayOfflinePage = async (event) => {
         if (request.method !== "GET" || (!(error instanceof TypeError) && error.name !== "TimeoutError")) {
             throw error;
         }
-        if (backend && offlineShell) {
+        if (backend && offlineShell && shellAccount?.stamp === await currentStamp()) {
             return offlineShell.clone();
         }
         const page = await (await caches.open(cacheName)).match(offLineURL);
@@ -108,6 +193,7 @@ self.addEventListener("fetch", (event) => {
         "/web/login", "/web/session/logout", "/web/session/destroy", "/web/session/authenticate",
     ].includes(url.pathname)) {
         forgetShell();
+        event.waitUntil(caches.open(cacheName).then((cache) => cache.delete(sealedURL)));
         event.waitUntil(self.clients.matchAll({ type: "window" }).then((clients) => {
             for (const client of clients) {
                 if (client.id !== event.clientId && isBackendURL(new URL(client.url))) {
@@ -206,6 +292,10 @@ const waitingMessage = async (message, clientId = false, { signal } = {}) => {
 };
 
 self.addEventListener("message", (event) => {
+    if (event.data?.type === "odoo-offline-access") {
+        event.waitUntil(handleOfflineAccess(event));
+        return;
+    }
     if (typeof event.data !== "string") {
         return;
     }

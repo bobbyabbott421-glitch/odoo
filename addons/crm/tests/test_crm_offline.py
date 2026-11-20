@@ -1,12 +1,15 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
+import socket
+
+from odoo.fields import Command
+from odoo.http.session import session_store
 from odoo.addons.web.tests.test_offline import serve_odoo
 from odoo.tests import HttpCase, tagged
 from odoo.tests.common import HOST, ChromeBrowser, flushing_cursor
 
 
-@tagged('post_install', '-at_install')
-class TestCrmOfflineRead(HttpCase):
+class CrmOfflineBrowserCase(HttpCase):
     def evaluate(self, expression):
         result = self.browser._websocket_request('Runtime.evaluate', params={
             'expression': expression, 'awaitPromise': True, 'returnByValue': True,
@@ -20,6 +23,9 @@ class TestCrmOfflineRead(HttpCase):
         self.addCleanup(self.browser.stop)
         self.authenticate('admin', 'admin', browser=self.browser)
 
+
+@tagged('post_install', '-at_install')
+class TestCrmOfflineRead(CrmOfflineBrowserCase):
     def test_visited_lead(self):
         lead = self.env['crm.lead'].create({'name': 'Warehouse visit', 'type': 'opportunity'})
         lead.message_post(body='Use the loading entrance', subtype_xmlid='mail.mt_note')
@@ -223,3 +229,125 @@ class TestCrmOfflineRead(HttpCase):
                 leads = self.env['crm.lead'].search([('name', '=', name)])
                 self.assertEqual(len(leads), 1)
                 self.assertEqual(leads.create_uid, self.env.ref('base.user_admin'))
+
+
+@tagged('post_install', '-at_install')
+class TestCrmOfflinePhone(CrmOfflineBrowserCase):
+    browser_size = '390x844'
+    touch_enabled = True
+
+    def test_cold_launch(self):
+        browser = self.browser
+        browser._websocket_request('Emulation.setDeviceMetricsOverride', params={
+            'mobile': True, 'width': 390, 'height': 844, 'deviceScaleFactor': 2,
+        })
+        with self.allow_requests(browser=browser), flushing_cursor(self.cr):
+            with serve_odoo() as port:
+                url = f'http://{HOST}:{port}/odoo/crm'
+                browser.navigate_to(url, wait_stop=True)
+                self.assertTrue(browser._wait_ready("!!document.querySelector('.o_kanban_record')"))
+                self.evaluate('navigator.serviceWorker.ready.then(() => true)')
+                browser.navigate_to(url, wait_stop=True)
+                self.assertTrue(browser._wait_ready("!!document.querySelector('.o_kanban_record') && !!navigator.serviceWorker.controller"))
+                browser._websocket_request('Emulation.setTouchEmulationEnabled', params={'enabled': True, 'maxTouchPoints': 5})
+                self.assertTrue(self.evaluate("navigator.maxTouchPoints > 0"))
+                title = self.evaluate("document.querySelector('.o_kanban_record').innerText.trim().split('\\n')[0]")
+                self.assertTrue(title)
+                self.evaluate("document.querySelector('.o_kanban_record').click()")
+                self.assertTrue(browser._wait_ready("!!document.querySelector('.o-mail-Chatter-logNote:not(:disabled)')"))
+                lead_url = self.evaluate("location.href")
+                self.assertRegex(lead_url, r'/odoo/crm/\d+$')
+                browser.navigate_to(url, wait_stop=True)
+                self.assertTrue(browser._wait_ready("!!document.querySelector('.o_kanban_record')"))
+                self.evaluate("document.querySelector('.o_mobile_menu_toggle').click()")
+                item = "[...document.querySelectorAll('button,a,span')].find(e => e.textContent.trim() === 'CRM offline access')"
+                self.assertTrue(browser._wait_ready(f'!!({item})'))
+                self.evaluate(f'{item}.click()')
+                self.assertTrue(browser._wait_ready("!!document.querySelector('input[name=confirmation]')"))
+                manifest = self.evaluate("""
+                    (async () => {
+                        const href = document.querySelector('a[href*="scoped_app?app_id=crm"]').href;
+                        const page = new DOMParser().parseFromString(await (await fetch(href)).text(), 'text/html');
+                        const src = page.querySelector('link[rel=manifest]').getAttribute('href');
+                        return (await fetch(src)).json();
+                    })()
+                """)
+                self.assertEqual(manifest['start_url'], '/odoo/crm')
+                self.assertEqual(manifest['display'], 'standalone')
+                self.evaluate("""
+                    const form = document.querySelector('input[name=confirmation]').form;
+                    form.passphrase.value = form.confirmation.value = 'A test device passphrase';
+                    form.requestSubmit();
+                """)
+                self.assertTrue(browser._wait_ready("document.body.innerText.includes('Offline access is ready')"))
+                browser.set_cookie('color_scheme', 'dark', '/', HOST)
+                browser._websocket_request('ServiceWorker.enable')
+            # A TCP listener which accepts the connection but sends no response
+            # reproduces a stalled link while Chromium still considers it online.
+            with socket.create_server((HOST, port)):
+                browser._websocket_request('ServiceWorker.stopAllWorkers')
+                browser.navigate_to(lead_url, wait_stop=True)
+                self.assertTrue(browser._wait_ready("!!document.querySelector('#offline_unlock:not([hidden])')", timeout=15))
+                self.assertNotIn(title, self.evaluate('document.body.innerText'))
+            with browser.offline():
+                browser._websocket_request('ServiceWorker.stopAllWorkers')
+                browser.navigate_to(url, wait_stop=True)
+                self.assertTrue(browser._wait_ready("!!document.querySelector('#offline_unlock:not([hidden])')"))
+                self.assertNotIn(title, self.evaluate('document.body.innerText'))
+                self.assertLessEqual(self.evaluate('window.innerWidth'), 391)
+                self.assertFalse(self.evaluate("!!document.getElementById('web.layout.odooscript')"))
+                self.assertEqual(self.evaluate("getComputedStyle(document.body).backgroundColor"), 'rgb(37, 38, 43)')
+                self.evaluate("document.documentElement.dir = 'rtl'")
+                self.assertTrue(self.evaluate("document.documentElement.scrollWidth <= window.innerWidth + 1"))
+                self.assertGreaterEqual(self.evaluate("document.querySelector('#offline_unlock button').offsetHeight"), 44)
+                ax_nodes = browser._websocket_request('Accessibility.getFullAXTree')['nodes']
+                self.assertIn(('textbox', 'Offline passphrase'), {
+                    (node['role']['value'], node.get('name', {}).get('value')) for node in ax_nodes
+                })
+                self.assertTrue(self.evaluate("!!document.querySelector('label input[name=passphrase]')"))
+                self.evaluate("""
+                    let form = document.querySelector('#offline_unlock');
+                    form.passphrase.value = 'Incorrect offline passphrase';
+                    form.requestSubmit();
+                """)
+                self.assertTrue(browser._wait_ready("!document.getElementById('offline_unlock_error').hidden"))
+                self.assertFalse(self.evaluate("!!document.querySelector('.o_kanban_record')"))
+                self.evaluate("""
+                    document.querySelector('#offline_unlock').passphrase.value = 'A test device passphrase';
+                    document.querySelector('#offline_unlock').requestSubmit();
+                """)
+                self.assertTrue(browser._wait_ready("!!document.querySelector('.o_kanban_record')"))
+                self.assertIn(title, self.evaluate('document.body.innerText'))
+                self.assertTrue(self.evaluate("document.documentElement.scrollWidth <= window.innerWidth + 1"))
+
+                browser._websocket_request('ServiceWorker.stopAllWorkers')
+                browser.navigate_to(lead_url, wait_stop=True)
+                self.assertTrue(browser._wait_ready("!!document.querySelector('#offline_unlock:not([hidden])')"))
+                self.evaluate("""
+                    document.querySelector('#offline_unlock').passphrase.value = 'A test device passphrase';
+                    document.querySelector('#offline_unlock').requestSubmit();
+                """)
+                self.assertTrue(browser._wait_ready("!!document.querySelector('.o_form_view [name=name]')"))
+                self.assertEqual(self.evaluate("location.href"), lead_url)
+
+
+@tagged('post_install', '-at_install')
+class TestOfflineSession(HttpCase):
+    def test_enrollment_survives_soft_rotation_and_ends_after_access_change(self):
+        self.authenticate('demo', 'demo')
+        user = self.env.ref('base.user_demo')
+        group = self.env['res.groups'].create({'name': 'Temporary CRM access'})
+
+        def stamp():
+            response = self.url_open('/odoo/crm')
+            self.assertEqual(response.status_code, 200)
+            self.assertIn('odoo_offline_session', response.cookies)
+            return response.cookies['odoo_offline_session']
+
+        original = stamp()
+        session = session_store().get(self.session.sid)
+        session_store().rotate(session, self.env(user=user), soft=True)
+        self.opener.cookies.set('session_id', session.sid, domain=HOST)
+        self.assertEqual(stamp(), original)
+        user.group_ids = [Command.link(group.id)]
+        self.assertNotEqual(stamp(), original)

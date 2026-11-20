@@ -71,9 +71,18 @@ class IrHttp(models.AbstractModel):
             raise AccessDenied(request.env._("The signed-in account has changed. Reopen Odoo."))
 
     @classmethod
+    def _post_dispatch(cls, response):
+        stamp = request.cookies.get('odoo_offline_session')
+        account = request.session.get('_offline_account')
+        if stamp and account != [request.db, request.session.uid]:
+            response.set_cookie('odoo_offline_session', '', max_age=0)
+        return super()._post_dispatch(response)
+
+    @classmethod
     def _post_logout(cls):
         super()._post_logout()
         request.future_response.set_cookie('cids', max_age=0)
+        request.future_response.set_cookie('odoo_offline_session', max_age=0)
 
     def webclient_rendering_context(self):
         return {
