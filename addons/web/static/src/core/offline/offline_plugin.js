@@ -25,6 +25,16 @@ import { session } from "@web/session";
 
 const IS_READY = Symbol("ready");
 
+function syncErrorMessage(error) {
+    if (error.exceptionName === "odoo.http.session.SessionExpiredException") {
+        return _t("Sign in with the account that saved this change, then retry.");
+    }
+    if (error.exceptionName === "odoo.exceptions.AccessDenied") {
+        return _t("Your account could not send this change. Check your access, then retry.");
+    }
+    return error.data?.message || error.message || _t("The change could not be sent.");
+}
+
 class FakeIndexedDB {
     // used in non secure context to disable the offline features as data can't be encrypted
     invalidate() {}
@@ -64,6 +74,9 @@ export class OfflinePlugin extends Plugin {
     _workCrypto = window.isSecureContext && session.browser_offline_work_secret
         ? new Crypto(session.browser_offline_work_secret)
         : this._crypto;
+    _queueLock = JSON.stringify(["offline-sync", session.db, user.userId]);
+    _syncTask;
+    _syncRequested = false;
     _readCache = window.isSecureContext
         ? markRaw(new IndexedDB(offlineScope("offline-reads"), session.registry_hash + CRYPTO_ALGO))
         : new FakeIndexedDB();
@@ -92,7 +105,9 @@ export class OfflinePlugin extends Plugin {
     _visited = signal.Object({ [IS_READY]: null });
 
     setup() {
-        this.orm.submitOfflineWrite = this._submitOfflineWrite.bind(this);
+        // Components receive scoped ORM objects which inherit from this instance.
+        // Install once on their shared parent so the first send and replay use one ID.
+        this.orm.unscoped.submitOfflineWrite = this._submitOfflineWrite.bind(this);
         if (window.isSecureContext && indexedDB.databases) {
             indexedDB.databases().then(async (databases) => {
                 if (databases.some((db) => db.name === "offline")) {
@@ -338,12 +353,23 @@ export class OfflinePlugin extends Plugin {
             throw error;
         }
         try {
-            return await navigator.locks.request("db-sync", async () => {
+            return await navigator.locks.request(this._queueLock, { ifAvailable: true }, async (lock) => {
+                if (!lock) {
+                    // It is already durable. Let the current sender finish without
+                    // keeping this form open until another tab drains its backlog.
+                    if (!this.isOffline()) {
+                        this._syncORM();
+                    }
+                    throw new ConnectionLostError();
+                }
                 await this._updateScheduledORMList();
                 const current = this._ormToSync()[request.id];
                 const waiting = current && Object.values(this._ormToSync()).some(({ value }) =>
                     !value.extras?.error && value.extras?.order < current.value.extras.order
                 );
+                if (waiting && !this.isOffline()) {
+                    this._syncORM();
+                }
                 if (waiting || this.isOffline()) {
                     throw new ConnectionLostError();
                 }
@@ -359,7 +385,7 @@ export class OfflinePlugin extends Plugin {
                     "odoo.exceptions.MissingError"].includes(error.exceptionName)) {
                     await this.scheduleORM(model, method, args, kwargs, {
                         id: request.id, extras: { ...this._ormToSync()[request.id]?.value.extras,
-                            error: error.data?.message || error.message },
+                            error: syncErrorMessage(error) },
                     });
                 } else {
                     // A definite live validation failure goes back to the editable form.
@@ -381,7 +407,7 @@ export class OfflinePlugin extends Plugin {
             ? { model: request.model, method: request.method, args: request.args, kwargs: request.kwargs, extras: options.extras }
             : { model, method, args, kwargs, extras: options.extras };
         const key = request?.id ?? options.id ?? hashCode(JSON.stringify(value));
-        await navigator.locks.request("odoo-offline-queue", async () => {
+        await navigator.locks.request(this._queueLock + "-enqueue", async () => {
             if (request) {
                 const previous = await this._idb.read(OfflinePlugin.ORM_SYNC_TABLE_NAME, key);
                 const order = previous && (await this._workCrypto.decrypt(previous)).extras.order;
@@ -617,29 +643,34 @@ export class OfflinePlugin extends Plugin {
             return;
         }
 
-        // Only one tab can execute this block at a time
-        // This can only be done in a secure context
-        await navigator.locks.request("db-sync", async () => {
-            this.syncingORM.set(true);
-            try {
-                await this._sendScheduledORM();
-            } finally {
-                this.syncingORM.set(false);
-            }
-        });
+        this._syncRequested = true;
+        if (!this._syncTask) {
+            this._syncTask = navigator.locks.request(this._queueLock + "-drain", async () => {
+                this.syncingORM.set(true);
+                try {
+                    do {
+                        this._syncRequested = false;
+                        await this._sendScheduledORM();
+                    } while (this._syncRequested && !this.isOffline());
+                } finally {
+                    this.syncingORM.set(false);
+                    this._syncTask = undefined;
+                }
+            });
+        }
+        return this._syncTask;
     }
 
     async _sendScheduledORM() {
         await this._updateScheduledORMList();
-        for (const [index, { key }] of Object.values(this._ormToSync())
+        const pending = Object.values(this._ormToSync())
             .filter(({ value }) => !value.extras?.error)
             .sort((a, b) => (a.value.extras?.order ?? a.value.extras?.timeStamp ?? 0) -
-                (b.value.extras?.order ?? b.value.extras?.timeStamp ?? 0))
-            .entries()) {
-            if (index !== 0) {
-                await new Promise((r) => browser.setTimeout(r, 1000)); // Waits 1 second
-            }
-            const proceed = await navigator.locks.request("offline-change-" + key, () => this._sendPending(key));
+                (b.value.extras?.order ?? b.value.extras?.timeStamp ?? 0));
+        for (const { key } of pending) {
+            const proceed = await navigator.locks.request(this._queueLock, () =>
+                navigator.locks.request(this._queueLock + key, () => this._sendPending(key))
+            );
             if (!proceed) {
                 break;
             }
@@ -656,6 +687,9 @@ export class OfflinePlugin extends Plugin {
             return true;
         }
         try {
+            if (!value.kwargs?.offline_operation && this.orm.offlineWriteToken(value.model, value.method)) {
+                throw new Error(_t("This older change has no delivery ID. Check the record online before re-entering it."));
+            }
             const replay = Object.assign(Object.create(this.orm.silent), { replaying: true });
             const result = await replay.call(value.model, value.method, value.args, value.kwargs);
             await this.removeScheduledORM(key);
@@ -665,14 +699,14 @@ export class OfflinePlugin extends Plugin {
                 return false;
             }
             await this.scheduleORM(value.model, value.method, value.args, value.kwargs, {
-                id: key, extras: { ...value.extras, error: error.data?.message || error.message || _t("The change could not be sent.") },
+                id: key, extras: { ...value.extras, error: syncErrorMessage(error) },
             });
         }
         return true;
     }
 
     discardScheduledORM(key) {
-        return navigator.locks.request("offline-change-" + key, () => this.removeScheduledORM(key));
+        return navigator.locks.request(this._queueLock + key, () => this.removeScheduledORM(key));
     }
 
     async _updateScheduledORMList() {

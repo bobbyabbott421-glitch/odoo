@@ -2,7 +2,7 @@ import { assertType, Plugin, types as t, usePlugin } from "@odoo/owl";
 import { browser } from "@web/core/browser/browser";
 import { services } from "@web/core/services";
 import { registry } from "@web/core/registry";
-import { rpc } from "@web/core/network/rpc";
+import { ConnectionLostError, rpc } from "@web/core/network/rpc";
 import { user } from "@web/core/user";
 import { Domain } from "@web/core/domain";
 
@@ -133,7 +133,7 @@ export class ORM extends Plugin {
         const fullContext = Object.assign({}, user.context, kwargs.context || {});
         const fullKwargs = Object.assign({}, kwargs, { context: fullContext });
         const replay = kwargs.offline_operation;
-        const operation = replay || this.offlineWriteToken(model, method);
+        const operation = replay || (!this.replaying && this.offlineWriteToken(model, method));
         if (operation) {
             fullKwargs.offline_operation = operation;
         }
@@ -154,8 +154,16 @@ export class ORM extends Plugin {
             }
             return this.rpc(url, params, { silent: this._silent, cache: this._cache });
         };
-        if (retryable && this.submitOfflineWrite && !this.replaying) {
-            return this.submitOfflineWrite(retryable, send);
+        if (retryable && !this.replaying) {
+            if (this.submitOfflineWrite) {
+                return this.submitOfflineWrite(retryable, send);
+            }
+            return send().catch((error) => {
+                if (error instanceof ConnectionLostError) {
+                    error.offlineWrite = retryable;
+                }
+                throw error;
+            });
         }
         return send();
     }

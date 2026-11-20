@@ -87,3 +87,27 @@ test("an online save can finish when this device is full", async () => {
     expect(result).toEqual([{ id: 42 }]);
     expect(offline.hasScheduledCalls).toBe(false);
 });
+
+test("a busy sender leaves a new save queued without waiting for the network", async () => {
+    await makeTestApp();
+    const offline = getService(OfflinePlugin);
+    const params = { model: "crm.lead", method: "web_save", args: [[8], { name: "Depot" }], kwargs: {} };
+    patchWithCleanup(navigator.locks, {
+        request(name, options, callback) {
+            if (options.ifAvailable) {
+                return callback(null);
+            }
+            return options();
+        },
+    });
+    patchWithCleanup(offline, { _syncORM() { expect.step("schedule delivery"); } });
+    let error;
+    try {
+        await offline._submitOfflineWrite({ id: "new-save", ...params }, () => expect.step("sent"));
+    } catch (e) {
+        error = e;
+    }
+    expect(error.offlineWrite.id).toBe("new-save");
+    expect(offline._ormToSync()["new-save"].value.args).toEqual(params.args);
+    expect.verifySteps(["schedule delivery"]);
+});

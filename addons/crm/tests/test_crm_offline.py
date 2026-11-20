@@ -1,6 +1,7 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 
 import socket
+import threading
 
 from odoo.fields import Command
 from odoo.http.session import session_store
@@ -200,6 +201,54 @@ class TestCrmOfflineRead(CrmOfflineBrowserCase):
                                  self.env.ref('base.user_admin').partner_id)
                 activity = lead.activity_ids.filtered(lambda a: a.summary == 'Confirm the delivery window')
                 self.assertEqual(activity.user_id, self.env.ref('base.user_admin'))
+
+    def test_lost_create_acknowledgement(self):
+        browser = self.browser
+        name = 'Warehouse visit with a lost reply'
+        held = threading.Event()
+        response_ids = []
+        handle_request = browser._handlers['Fetch.requestPaused']
+
+        def hold_reply(**event):
+            if (not response_ids and event.get('responseStatusCode') == 200
+                    and '/crm.lead/web_save' in event['request']['url']):
+                response_ids.append(event['requestId'])
+                held.set()
+            else:
+                handle_request(**event)
+
+        with self.allow_requests(browser=browser), flushing_cursor(self.cr):
+            with serve_odoo() as port:
+                browser.navigate_to(f'http://{HOST}:{port}/odoo/crm/new', wait_stop=True)
+                self.assertTrue(browser._wait_ready("!!document.querySelector('[name=name] textarea')"))
+                browser._handlers['Fetch.requestPaused'] = hold_reply
+                browser._websocket_request('Fetch.enable', params={'patterns': [
+                    {'urlPattern': '*', 'requestStage': 'Request'},
+                    {'urlPattern': '*/crm.lead/web_save*', 'requestStage': 'Response'},
+                ]})
+                self.evaluate(f"""
+                    (() => {{
+                        const input = document.querySelector('[name=name] textarea');
+                        input.value = '{name}';
+                        input.dispatchEvent(new InputEvent('input', {{ bubbles: true }}));
+                        input.dispatchEvent(new Event('change', {{ bubbles: true }}));
+                        input.blur();
+                    }})()
+                """)
+                self.assertTrue(browser._wait_ready("!!document.querySelector('.o_form_button_save:not(:disabled)')"))
+                self.evaluate("document.querySelector('.o_form_button_save').click()")
+                self.assertTrue(held.wait(25), 'The server must complete the create before the link drops')
+                leads = self.env['crm.lead'].search([('name', '=', name)])
+                self.assertEqual(len(leads), 1)
+            with browser.offline():
+                browser._websocket_send('Fetch.failRequest', params={
+                    'requestId': response_ids[0], 'errorReason': 'ConnectionReset',
+                })
+                self.assertTrue(browser._wait_ready("!!document.querySelector('.o_offline_systray [data-icon=arrow_drop_down]')"))
+            with serve_odoo(port):
+                self.assertTrue(browser._wait_ready("!document.querySelector('.o_offline_systray')"))
+                self.assertEqual(self.env['crm.lead'].search([('name', '=', name)]), leads)
+                self.assertEqual(self.env['crm.offline.receipt'].search_count([('created_lead_id', '=', leads.id)]), 1)
 
     def test_create_offline(self):
         browser = self.browser
