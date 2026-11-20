@@ -86,6 +86,7 @@ export class RPCCache {
         this.indexedDB = new IndexedDB(name, version + CRYPTO_ALGO);
         this.ramCache = new RamCache();
         this.pendingRequests = {};
+        this.generation = 0;
         this.checkSize(); // we want to control the disk space used by Odoo
     }
 
@@ -135,6 +136,7 @@ export class RPCCache {
         }
 
         if (!ramValue || update === "always") {
+            const generation = this.generation;
             const request = { callbacks: [callback], invalidated: false };
             this.pendingRequests[requestKey] = request;
             const now = Date.now();
@@ -160,6 +162,9 @@ export class RPCCache {
                     });
                     if (type === "disk") {
                         this.crypto.encrypt(result).then((encryptedResult) => {
+                            if (generation !== this.generation || request.invalidated) {
+                                return;
+                            }
                             const diskEntry = {
                                 data: encryptedResult,
                                 timestamp: now,
@@ -219,6 +224,9 @@ export class RPCCache {
                                     // The data will be updated with the new cryptoKey.
                                     return;
                                 }
+                                if (generation !== this.generation || request.invalidated) {
+                                    return;
+                                }
                                 resolve(decrypted);
                                 fromCacheValue = decrypted;
                             }
@@ -236,6 +244,7 @@ export class RPCCache {
     }
 
     invalidate(tables) {
+        this.generation++;
         this.indexedDB.invalidate(tables);
         this.ramCache.invalidate(tables);
         // flag the pending requests as invalidated s.t. we don't write their results in caches

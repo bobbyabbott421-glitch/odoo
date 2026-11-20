@@ -1,5 +1,7 @@
 import { computed, signal, t, usePlugin } from "@odoo/owl";
 import { DebugModePlugin } from "@web/core/debug_mode_plugin";
+import { offlineScope } from "@web/core/offline/offline_scope";
+import { user } from "@web/core/user";
 import { registry } from "@web/core/registry";
 import { IndexedDB } from "@web/core/utils/indexed_db";
 import { session } from "@web/session";
@@ -14,7 +16,10 @@ export const menuService = {
             if (!reload && odoo.loadMenusPromise) {
                 return odoo.loadMenusPromise;
             }
-            const res = await fetch(loadMenusUrl, { cache: "no-store" });
+            const res = await fetch(loadMenusUrl, {
+                cache: "no-store",
+                headers: { "X-Odoo-Account": `${user.userId}@${session.db}` },
+            });
             if (!res.ok) {
                 throw new Error("Error while fetching menus");
             }
@@ -45,7 +50,7 @@ export const menuService = {
         });
         const menusData = signal(null, { type: t.record(t.string()) });
 
-        const menuDB = new IndexedDB("webclient_menu", session.registry_hash);
+        const menuDB = new IndexedDB(offlineScope("webclient_menu"), session.registry_hash);
         const table = "menu";
         const debugMode = usePlugin(DebugModePlugin);
         const key = JSON.stringify({ debug: debugMode.isActive() });
@@ -62,6 +67,11 @@ export const menuService = {
                         env.bus.trigger("MENUS:APP-CHANGED");
                     }
                 }
+            }).catch((error) => {
+                if (!(error instanceof TypeError)) {
+                    throw error;
+                }
+                // A disconnected client can continue with its own stored menus.
             });
             menusData.set(JSON.parse(storedMenus));
         } else {

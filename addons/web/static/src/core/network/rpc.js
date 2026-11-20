@@ -155,14 +155,19 @@ rpc._rpc = function (url, params, settings) {
             reject(error);
         });
         // handle failure
-        request.addEventListener("error", () => {
+        const onConnectionLost = () => {
             const error = new ConnectionLostError(url);
             rpcBus.trigger("RPC:RESPONSE", { data, settings, error });
             reject(error);
-        });
+        };
+        request.addEventListener("error", onConnectionLost);
+        request.addEventListener("timeout", onConnectionLost);
         // configure and send request
         request.open("POST", url);
-        const headers = settings.headers || {};
+        const headers = { ...settings.headers };
+        if (rpc.account && new URL(url, location.href).origin === location.origin) {
+            headers["X-Odoo-Account"] = rpc.account;
+        }
         headers["Content-Type"] = "application/json";
         for (const [header, value] of Object.entries(headers)) {
             request.setRequestHeader(header, value);

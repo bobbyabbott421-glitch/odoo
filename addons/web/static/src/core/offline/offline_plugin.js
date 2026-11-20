@@ -14,6 +14,7 @@ import { NonSecureContextError } from "@web/core/errors/non_secure_context_error
 import { _t } from "@web/core/l10n/translation";
 import { normalize } from "@web/core/l10n/utils";
 import { ConnectionLostError, rpc, rpcBus } from "@web/core/network/rpc";
+import { offlineRevisionKey, offlineScope } from "@web/core/offline/offline_scope";
 import { ORM } from "@web/core/orm_plugin";
 import { registry } from "@web/core/registry";
 import { services } from "@web/core/services";
@@ -57,11 +58,16 @@ export class OfflinePlugin extends Plugin {
         window.isSecureContext &&
         session.browser_cache_secret &&
         new Crypto(session.browser_cache_secret);
+    _readCache = window.isSecureContext
+        ? markRaw(new IndexedDB(offlineScope("offline-reads"), session.registry_hash + CRYPTO_ALGO))
+        : new FakeIndexedDB();
     _visitedUITable = computed(() =>
         this.debugMode.isActive()
             ? OfflinePlugin.VISITED_UI_TABLE_NAME_DEBUG
             : OfflinePlugin.VISITED_UI_TABLE_NAME
     );
+    cacheGeneration = 0;
+    _revision = browser.localStorage.getItem(offlineRevisionKey());
     _timeout = null; // used to repeatedly ping the server when offline
     _observer = null; // used to detect DOM mutations and disable the UI when offline
 
@@ -93,16 +99,35 @@ export class OfflinePlugin extends Plugin {
         // Use RPC:RESPONSE to validate the current offline status, which is more accurate than
         // the "offline"/"online" events (e.g. server is down).
         useListener(rpcBus, "RPC:RESPONSE", (ev) => {
-            this.setOffline(ev.detail.error instanceof ConnectionLostError);
+            const error = ev.detail.error;
+            const name = error?.exceptionName;
+            if (
+                name === "odoo.exceptions.AccessDenied" ||
+                name === "odoo.http.session.SessionExpiredException" ||
+                (["web_read", "web_search_read", "web_read_group"].includes(ev.detail.data?.params?.method) &&
+                    ["odoo.exceptions.AccessError", "odoo.exceptions.MissingError"].includes(name))
+            ) {
+                this.invalidateAccess();
+            }
+            this.setOffline(error instanceof ConnectionLostError);
+        });
+
+        useListener(browser, "storage", (event) => {
+            if (event.key === offlineRevisionKey() && this._revision !== event.newValue) {
+                this._revision = event.newValue;
+                rpcBus.trigger("CLEAR-CACHES");
+            }
         });
 
         // When the "CLEAR-CACHES" event is triggered, the rpc cache is wiped out, so we must also
         // clear the information about elements that are available offline, as they aren't anymore.
         useListener(rpcBus, "CLEAR-CACHES", () => {
-            this._idb.invalidate([
+            this.cacheGeneration++;
+            this._readCache.invalidate([
                 OfflinePlugin.VISITED_UI_TABLE_NAME,
                 OfflinePlugin.VISITED_UI_TABLE_NAME_DEBUG,
                 new RegExp(`^${OfflinePlugin.MANY2X_TABLE_PREFIX}`),
+                "snapshots",
             ]);
             this._visited.set({});
         });
@@ -204,7 +229,7 @@ export class OfflinePlugin extends Plugin {
             return [];
         } else if (this._visited()[actionId]?.views[viewType] === true) {
             // Searches for that action/view type haven't been retrieve from idb yet
-            this._visited()[actionId].views[viewType] = this._idb
+            this._visited()[actionId].views[viewType] = this._readCache
                 .read(this._visitedUITable(), this._generateKey(actionId, viewType))
                 .then((r) =>
                     Object.values(r || {})
@@ -254,13 +279,13 @@ export class OfflinePlugin extends Plugin {
             if (["form", "kanban_quick_create", "list_quick_create"].includes(viewType)) {
                 value = true;
             } else {
-                value = (await this._idb.read(this._visitedUITable(), key)) || {};
+                value = (await this._readCache.read(this._visitedUITable(), key)) || {};
                 let count = value[search.key]?.count || 0;
                 search = value[search.key]?.search || search; // keep original search (no "Custom Filter")
                 delete value[search.key]; // delete and re-add to mark it as "last visited"
                 value[search.key] = { count: ++count, search };
             }
-            return this._idb.write(this._visitedUITable(), key, value);
+            return this._readCache.write(this._visitedUITable(), key, value);
         }
     }
 
@@ -291,6 +316,50 @@ export class OfflinePlugin extends Plugin {
     }
 
     // -------------------------------------------------------------------------
+    // Server-authorized read snapshots
+    // -------------------------------------------------------------------------
+
+    invalidateAccess() {
+        // Rotate the namespace for every company selection belonging to this
+        // account. Other tabs clear RAM through the corresponding storage event.
+        this._revision = `${Date.now()}-${Math.random()}`;
+        browser.localStorage.setItem(offlineRevisionKey(), this._revision);
+        rpcBus.trigger("CLEAR-CACHES");
+    }
+
+    /** Save a server-authorized read for use when the network is unavailable. */
+    async writeSnapshot(key, data, generation = this.cacheGeneration) {
+        if (this._crypto) {
+            const savedAt = Date.now();
+            const value = await this._crypto.encrypt({ data, savedAt });
+            if (generation === this.cacheGeneration) {
+                await this._readCache.write("snapshots", key, value);
+                return savedAt;
+            }
+        }
+    }
+
+    getSnapshotKeys() {
+        return this._readCache.getAllKeys("snapshots");
+    }
+
+    async readSnapshot(key) {
+        if (this._crypto) {
+            const generation = this.cacheGeneration;
+            const value = await this._readCache.read("snapshots", key);
+            if (value) {
+                try {
+                    const snapshot = await this._crypto.decrypt(value);
+                    return generation === this.cacheGeneration ? snapshot : undefined;
+                } catch {
+                    // A security change can rotate the user's cache secret.
+                    await this._readCache.delete("snapshots", key);
+                }
+            }
+        }
+    }
+
+    // -------------------------------------------------------------------------
     // Many2X Offline
     // -------------------------------------------------------------------------
 
@@ -300,7 +369,7 @@ export class OfflinePlugin extends Plugin {
         }
         const tableName = OfflinePlugin.MANY2X_TABLE_PREFIX + resModel;
         const values = await this._encryptAndFormat(result);
-        this._idb.write(tableName, values);
+        this._readCache.write(tableName, values);
     }
 
     async searchMany2XRecords(resModel, name) {
@@ -316,7 +385,7 @@ export class OfflinePlugin extends Plugin {
                   return decryptedValue.includes(normalizeSearch);
               };
         const tableName = OfflinePlugin.MANY2X_TABLE_PREFIX + resModel;
-        const res = await this._idb.search(tableName, _searchFn);
+        const res = await this._readCache.search(tableName, _searchFn);
         return this._decryptAndFormat(res);
     }
 
@@ -325,7 +394,7 @@ export class OfflinePlugin extends Plugin {
             return;
         }
         const tableName = OfflinePlugin.MANY2X_TABLE_PREFIX + resModel;
-        const res = await this._idb.read(tableName, resIds);
+        const res = await this._readCache.read(tableName, resIds);
         return this._decryptAndFormat(res);
     }
 
@@ -383,7 +452,7 @@ export class OfflinePlugin extends Plugin {
      * @private
      */
     async _populateVisited() {
-        return this._idb.getAllKeys(this._visitedUITable()).then((keys) => {
+        return this._readCache.getAllKeys(this._visitedUITable()).then((keys) => {
             if (!this.isOffline()) {
                 return; // status changed again meanwhile
             }

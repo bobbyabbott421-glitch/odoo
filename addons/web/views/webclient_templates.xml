@@ -284,15 +284,25 @@
                 // Block to avoid leaking variables in the script scope
                 {
                     odoo.__session_info__ = <t t-out="json.dumps(session_info)"/>;
-                    const { user_context } = odoo.__session_info__;
+                    const { db, uid, user_context } = odoo.__session_info__;
                     const lang = new URLSearchParams(document.location.search).get("lang");
                     let menuURL = "/web/webclient/load_menus";
                     if (lang) {
                         user_context.lang = lang;
                         menuURL += `&amp;lang=${lang}`;
                     }
-                    odoo.reloadMenus = () =&gt; fetch(menuURL, { cache: "no-store" }).then(res =&gt; res.json());
+                    odoo.reloadMenus = async () =&gt; {
+                        const res = await fetch(menuURL, {
+                            cache: "no-store", headers: { "X-Odoo-Account": `${uid}@${db}` },
+                        });
+                        if (!res.ok) {
+                            throw new Error("Error while fetching menus");
+                        }
+                        return res.json();
+                    };
                     odoo.loadMenusPromise = odoo.reloadMenus();
+                    // The menu service consumes this preload after assets have loaded.
+                    odoo.loadMenusPromise.catch(() =&gt; {});
                 }
             </script>
             <t t-call-assets="web.assets_web_print" media="print" t-js="false"/>
@@ -367,8 +377,8 @@
             <div class="card">
                 <img t-attf-src="data:image/png;base64,{{odoo_icon.to_base64()}}" alt="Odoo logo"/>
                 <h1>You are offline</h1>
-                <p>Check your network connection and come back here. Odoo will load as soon as you're back online.</p>
-                <button onclick="location.reload()">Check again</button>
+                <p>Connect to verify your account and reopen Odoo.</p>
+                <button onclick="location.pathname === '/odoo/offline' ? location.replace('/odoo') : location.reload()">Check again</button>
             </div>
         </t>
     </template>
