@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+    <t t-inherit="mail.Chatter" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('o-mail-Chatter-topbar')]" position="before">
+            <div t-if="this.offlineDetailsNotice" role="status" class="small text-muted px-2"
+                 t-out="this.offlineDetailsNotice"/>
+            <div t-if="this.offlineHistoryNotice" role="status" class="small text-muted px-2 py-1"
+                 t-out="this.offlineHistoryNotice"/>
+        </xpath>
+    </t>
+    <t t-inherit="web.ControlPanel" t-inherit-mode="extension">
+        <xpath expr="//div[hasclass('o_control_panel_main')]" position="after">
+            <p t-if="this.env.searchModel?.resModel === 'crm.lead' and this.env.services.offline?.offline"
+               class="small text-muted m-0" role="status">
+                Offline. You can reopen saved leads and searches. Connect to load other results.
+            </p>
+        </xpath>
+    </t>
+</templates>
