@@ -1,0 +1,67 @@
+[90469:90499:1120/214957.740332:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[90469:90499:1120/214957.740614:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[90469:90499:1120/214957.796627:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[90469:90499:1120/214957.797198:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[90469:90499:1120/214957.797661:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[90469:90499:1120/214957.797707:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[90469:90499:1120/214957.797722:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[90469:90499:1120/214957.840000:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[90469:90499:1120/214958.247979:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[90469:90509:1120/214958.261020:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 90535: Read-only file system (30)
+[90469:90469:1120/214958.274417:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[90469:90469:1120/214958.274543:WARNING:device/bluetooth/dbus/bluez_dbus_manager.cc:209] Floss manager service not available, cannot set Floss enable/disable.
+[90469:90469:1120/214958.274560:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[90469:90469:1120/214958.274880:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[90469:90499:1120/214958.275474:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[90469:90499:1120/214958.275502:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[90469:90469:1120/214958.282001:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[90469:90499:1120/214958.282242:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[90469:90509:1120/214958.337340:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 90550: Read-only file system (30)
+[90469:90509:1120/214958.494729:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 90564: Read-only file system (30)
+[90469:90509:1120/214958.500813:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 90565: Read-only file system (30)
+[90511:90511:1120/214958.513939:WARNING:media/gpu/vaapi/vaapi_wrapper.cc:1655] drmGetDevices2() has not found any devices
+[90511:90511:1120/214958.534339:WARNING:sandbox/policy/linux/sandbox_linux.cc:405] InitializeSandbox() called with multiple threads in process gpu-process.
+[90469:90499:1120/214958.535152:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[90469:90469:1120/214958.535191:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[90469:90499:1120/214958.535203:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[90469:90469:1120/214958.535562:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[90469:90499:1120/214958.535653:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[90469:90469:1120/214958.536107:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[90469:90469:1120/214958.558620:WARNING:dbus/property.cc:94] Failed to connect to PropertiesChangedsignal.
+[90469:90469:1120/214958.558658:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.Properties.GetAll: object_path= /org/freedesktop/UPower/devices/DisplayDevice: unknown error type: 
+[90469:90469:1120/214958.558664:WARNING:dbus/property.cc:174] GetAll request failed for: org.freedesktop.UPower.Device
+[90469:90469:1120/214958.559005:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[90469:90499:1120/214958.559113:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[90469:90469:1120/214958.606020:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[90469:90499:1120/214958.606135:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[90469:90469:1120/214958.624039:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[90469:90469:1120/214958.624058:WARNING:ui/base/idle/idle_linux.cc:111] None of the known D-Bus ScreenSaver services could be used.
+[90469:90469:1120/215000.231555:INFO:CONSOLE:1148] "Owl is running in 'dev' mode.", source: http://127.0.0.1:8075/web/assets/56c5002/web.assets_web.min.js (1148)
+[90469:90469:1120/215001.663292:INFO:CONSOLE:7] "Starting ClickEverywhere test", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (7)
+[90469:90469:1120/215001.665906:INFO:CONSOLE:99] "Testing app: Apps (base.menu_management)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (99)
+[90469:90469:1120/215001.665973:INFO:CONSOLE:94] "Testing menu Main Apps (base.menu_module_tree)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (94)
+[90469:90469:1120/215002.582630:INFO:CONSOLE:58] "Testing 4 filters", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (58)
+[90469:90469:1120/215002.594003:INFO:CONSOLE:51] "Clicking on: filter "Apps"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[90469:90469:1120/215003.513688:INFO:CONSOLE:51] "Clicking on: filter "Extra"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[90469:90469:1120/215003.871453:INFO:CONSOLE:51] "Clicking on: filter "Installed"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[90469:90469:1120/215004.358921:INFO:CONSOLE:51] "Clicking on: filter "Not Installed"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[90469:90469:1120/215004.859150:INFO:CONSOLE:86] "Testing view switch: list", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (86)
+[90469:90469:1120/215004.859443:INFO:CONSOLE:51] "Clicking on: list view switcher", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[90469:90469:1120/215005.199054:INFO:CONSOLE:51] "Clicking on: open form view from list", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[90469:90469:1120/215005.809311:INFO:CONSOLE:51] "Clicking on: go back to list view (from record view)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[90469:90469:1120/215006.126050:INFO:CONSOLE:58] "Testing 4 filters", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (58)
+[90469:90469:1120/215006.127312:INFO:CONSOLE:51] "Clicking on: filter "Apps"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[90469:90469:1120/215006.429333:INFO:CONSOLE:51] "Clicking on: filter "Extra"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[90469:90469:1120/215006.637021:INFO:CONSOLE:51] "Clicking on: filter "Installed"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[90469:90469:1120/215006.778147:INFO:CONSOLE:51] "Clicking on: filter "Not Installed"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[90469:90469:1120/215006.959001:INFO:CONSOLE:88] "Skipping blacklisted menu Theme Store (base.menu_theme_store)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (88)
+[90469:90469:1120/215006.959835:INFO:CONSOLE:88] "Skipping blacklisted menu Third-Party Apps (base.menu_third_party)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (88)
+[90469:90469:1120/215006.963323:INFO:CONSOLE:25] "Test took 5.296199999999255 seconds", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (25)
+[90469:90469:1120/215006.963463:INFO:CONSOLE:26] "Tested 1 apps", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (26)
+[90469:90469:1120/215006.963833:INFO:CONSOLE:26] "Tested 1 menus", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (26)
+[90469:90469:1120/215006.963897:INFO:CONSOLE:27] "Tested 2 views", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (27)
+[90469:90469:1120/215006.963950:INFO:CONSOLE:27] "Tested 1 form views", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (27)
+[90469:90469:1120/215006.963999:INFO:CONSOLE:27] "Tested 0 new record views", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (27)
+[90469:90469:1120/215006.964052:INFO:CONSOLE:27] "Tested 0 modals", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (27)
+[90469:90469:1120/215006.964104:INFO:CONSOLE:27] "Tested 8 filters", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (27)
+[90469:90469:1120/215006.964147:INFO:CONSOLE:12] "clickbot test succeeded", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (12)

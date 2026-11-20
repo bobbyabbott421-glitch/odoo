@@ -1,0 +1,46 @@
+[99471:99500:1120/220542.170711:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[99471:99500:1120/220542.170819:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[99471:99500:1120/220542.186004:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[99471:99500:1120/220542.186057:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[99471:99500:1120/220542.186290:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[99471:99500:1120/220542.186309:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[99471:99500:1120/220542.186323:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[99471:99500:1120/220542.194857:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[99471:99500:1120/220542.248955:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[99471:99511:1120/220542.253484:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 99515: Read-only file system (30)
+[99471:99471:1120/220542.285419:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[99471:99500:1120/220542.285840:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[99471:99471:1120/220542.294240:WARNING:device/bluetooth/dbus/bluez_dbus_manager.cc:209] Floss manager service not available, cannot set Floss enable/disable.
+[99471:99471:1120/220542.294290:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[99471:99500:1120/220542.294411:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[99471:99471:1120/220542.294820:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[99471:99471:1120/220542.301692:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[99471:99500:1120/220542.303171:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[99471:99500:1120/220542.305803:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[99471:99500:1120/220542.305843:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[99471:99471:1120/220542.305844:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[99513:99513:1120/220542.358141:WARNING:media/gpu/vaapi/vaapi_wrapper.cc:1655] drmGetDevices2() has not found any devices
+[99471:99511:1120/220542.366075:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 99561: Read-only file system (30)
+[99513:99513:1120/220542.377400:WARNING:sandbox/policy/linux/sandbox_linux.cc:405] InitializeSandbox() called with multiple threads in process gpu-process.
+[99471:99511:1120/220542.397901:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 99578: Read-only file system (30)
+[99471:99511:1120/220542.404661:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 99583: Read-only file system (30)
+[99471:99471:1120/220542.407803:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[99471:99471:1120/220542.408339:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[99471:99471:1120/220542.408609:WARNING:dbus/property.cc:94] Failed to connect to PropertiesChangedsignal.
+[99471:99471:1120/220542.408628:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.Properties.GetAll: object_path= /org/freedesktop/UPower/devices/DisplayDevice: unknown error type: 
+[99471:99471:1120/220542.408631:WARNING:dbus/property.cc:174] GetAll request failed for: org.freedesktop.UPower.Device
+[99471:99500:1120/220542.410457:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[99471:99471:1120/220542.422883:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[99471:99500:1120/220542.423006:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[99471:99471:1120/220542.434211:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[99471:99500:1120/220542.434711:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[99471:99471:1120/220542.436858:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[99471:99471:1120/220542.436875:WARNING:ui/base/idle/idle_linux.cc:111] None of the known D-Bus ScreenSaver services could be used.
+[99471:99471:1120/220548.455723:INFO:CONSOLE:1148] "Owl is running in 'dev' mode.", source: http://127.0.0.1:8071/web/assets/1/ec60ef2/web.assets_web.min.js (1148)
+[99471:99471:1120/220548.523919:INFO:CONSOLE:672] "Hoot DOM helpers available from `window.hoot`", source: http://127.0.0.1:8071/web/assets/1/f0674d8/web.assets_tests.min.js (672)
+[99471:99471:1120/220548.524211:INFO:CONSOLE:683] "[1/7] Tour test_can_publish_partner → Step Open grade filter (trigger: :iframe body[is-ready=true] .dropdown:has(.dropdown-item:contains("Grade Test")) button.dropdown-toggle:contains("All Categories"))", source: http://127.0.0.1:8071/web/assets/1/f0674d8/web.assets_tests.min.js (683)
+[99471:99471:1120/220553.331839:INFO:CONSOLE:1227] "Owl is running in 'dev' mode.", source: http://127.0.0.1:8071/web/assets/1/14eb585/web.assets_frontend_lazy.min.js (1227)
+[99471:99471:1120/220553.551893:INFO:CONSOLE:683] "[2/7] Tour test_can_publish_partner → Step Filter on Grade Test (trigger: :iframe .dropdown a.dropdown-item:contains("Grade Test"))", source: http://127.0.0.1:8071/web/assets/1/f0674d8/web.assets_tests.min.js (683)
+[99471:99471:1120/220553.563548:INFO:CONSOLE:683] "[3/7] Tour test_can_publish_partner → Step Go to partner (trigger: :iframe a:contains("Agrolait"))", source: http://127.0.0.1:8071/web/assets/1/f0674d8/web.assets_tests.min.js (683)
+[99471:99471:1120/220553.577985:INFO:CONSOLE:683] "[4/7] Tour test_can_publish_partner → Step Unpublish (trigger: .o_menu_systray .o_menu_systray_item.o_website_publish_container:contains("Published"))", source: http://127.0.0.1:8071/web/assets/1/f0674d8/web.assets_tests.min.js (683)
+[99471:99471:1120/220554.149667:INFO:CONSOLE:1227] "Owl is running in 'dev' mode.", source: http://127.0.0.1:8071/web/assets/1/14eb585/web.assets_frontend_lazy.min.js (1227)

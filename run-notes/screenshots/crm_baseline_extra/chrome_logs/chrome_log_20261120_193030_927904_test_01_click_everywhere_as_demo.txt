@@ -1,0 +1,61 @@
+[26133:26162:1120/193024.865422:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[26133:26162:1120/193024.865704:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[26133:26162:1120/193024.865744:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[26133:26162:1120/193024.865762:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[26133:26162:1120/193024.865779:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[26133:26162:1120/193024.865791:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[26133:26162:1120/193024.865798:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[26133:26162:1120/193024.928867:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[26133:26162:1120/193025.066951:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[26133:26173:1120/193025.078951:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 26177: Read-only file system (30)
+[26174:26174:1120/193025.106121:WARNING:media/gpu/vaapi/vaapi_wrapper.cc:1655] drmGetDevices2() has not found any devices
+[26133:26133:1120/193025.123302:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[26174:26174:1120/193025.123353:WARNING:sandbox/policy/linux/sandbox_linux.cc:405] InitializeSandbox() called with multiple threads in process gpu-process.
+[26133:26162:1120/193025.123728:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[26133:26133:1120/193025.123774:WARNING:device/bluetooth/dbus/bluez_dbus_manager.cc:209] Floss manager service not available, cannot set Floss enable/disable.
+[26133:26133:1120/193025.123799:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[26133:26162:1120/193025.123840:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[26133:26133:1120/193025.124250:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[26133:26133:1120/193025.132402:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[26133:26162:1120/193025.132491:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[26133:26162:1120/193025.136763:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[26133:26162:1120/193025.136848:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[26133:26173:1120/193025.217746:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 26230: Read-only file system (30)
+[26133:26173:1120/193025.392780:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 26241: Read-only file system (30)
+[26133:26173:1120/193025.397649:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 26243: Read-only file system (30)
+[26133:26133:1120/193025.423323:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[26133:26133:1120/193025.423968:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[26133:26162:1120/193025.424149:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[26133:26133:1120/193025.430426:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[26133:26133:1120/193025.432728:WARNING:dbus/property.cc:94] Failed to connect to PropertiesChangedsignal.
+[26133:26133:1120/193025.432758:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.Properties.GetAll: object_path= /org/freedesktop/UPower/devices/DisplayDevice: unknown error type: 
+[26133:26133:1120/193025.432765:WARNING:dbus/property.cc:174] GetAll request failed for: org.freedesktop.UPower.Device
+[26133:26133:1120/193025.449036:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[26133:26162:1120/193025.449126:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[26133:26133:1120/193025.468712:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[26133:26162:1120/193025.468806:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[26133:26133:1120/193025.477455:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[26133:26133:1120/193025.477480:WARNING:ui/base/idle/idle_linux.cc:111] None of the known D-Bus ScreenSaver services could be used.
+[26133:26133:1120/193027.459276:INFO:CONSOLE:1148] "Owl is running in 'dev' mode.", source: http://127.0.0.1:8075/web/assets/5c8437c/web.assets_web.min.js (1148)
+[26133:26133:1120/193028.599130:INFO:CONSOLE:7] "Starting ClickEverywhere test", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (7)
+[26133:26133:1120/193028.599255:INFO:CONSOLE:99] "Testing app: Dashboards (spreadsheet_dashboard.spreadsheet_dashboard_menu_root)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (99)
+[26133:26133:1120/193028.599798:INFO:CONSOLE:94] "Testing menu Dashboards (spreadsheet_dashboard.spreadsheet_dashboard_menu_dashboard)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (94)
+[26133:26133:1120/193029.391733:INFO:CONSOLE:94] "Testing menu Dashboards (spreadsheet_dashboard.spreadsheet_dashboard_menu_configuration_dashboards)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (94)
+[26133:26133:1120/193029.902592:INFO:CONSOLE:58] "Testing 1 filters", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (58)
+[26133:26133:1120/193029.902847:INFO:CONSOLE:51] "Clicking on: filter "Published"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[26133:26133:1120/193029.950123:INFO:CONSOLE:94] "Testing menu Sections (spreadsheet_dashboard.spreadsheet_dashboard_group_menu_configuration_sections)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (94)
+[26133:26133:1120/193030.134348:INFO:CONSOLE:62] "Skipping blacklisted form menu Sections (spreadsheet_dashboard.spreadsheet_dashboard_group_menu_configuration_sections)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (62)
+[26133:26133:1120/193030.152530:INFO:CONSOLE:58] "Testing 0 filters", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (58)
+[26133:26133:1120/193030.154086:INFO:CONSOLE:94] "Testing menu Share links (spreadsheet_dashboard.spreadsheet_dashboard_share_menu_configuration_share_links)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (94)
+[26133:26133:1120/193030.392350:INFO:CONSOLE:58] "Testing 2 filters", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (58)
+[26133:26133:1120/193030.393827:INFO:CONSOLE:51] "Clicking on: filter "Active"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[26133:26133:1120/193030.462290:INFO:CONSOLE:51] "Clicking on: filter "Inactive"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[26133:26133:1120/193030.502175:INFO:CONSOLE:25] "Test took 1.9025 seconds", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (25)
+[26133:26133:1120/193030.502320:INFO:CONSOLE:26] "Tested 1 apps", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (26)
+[26133:26133:1120/193030.502387:INFO:CONSOLE:26] "Tested 4 menus", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (26)
+[26133:26133:1120/193030.502446:INFO:CONSOLE:27] "Tested 4 views", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (27)
+[26133:26133:1120/193030.502470:INFO:CONSOLE:27] "Tested 0 form views", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (27)
+[26133:26133:1120/193030.502491:INFO:CONSOLE:27] "Tested 0 new record views", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (27)
+[26133:26133:1120/193030.502524:INFO:CONSOLE:27] "Tested 0 modals", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (27)
+[26133:26133:1120/193030.502600:INFO:CONSOLE:27] "Tested 3 filters", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (27)
+[26133:26133:1120/193030.502671:INFO:CONSOLE:12] "clickbot test succeeded", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (12)

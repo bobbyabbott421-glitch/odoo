@@ -1,0 +1,59 @@
+[87154:87184:1120/214054.135223:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[87154:87184:1120/214054.254905:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[87154:87184:1120/214054.254997:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[87154:87184:1120/214054.255399:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[87154:87184:1120/214054.255424:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[87154:87184:1120/214054.255434:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[87154:87184:1120/214054.255442:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[87154:87184:1120/214054.294379:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[87199:87199:1120/214054.455075:WARNING:media/gpu/vaapi/vaapi_wrapper.cc:1655] drmGetDevices2() has not found any devices
+[87154:87197:1120/214054.462010:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 87223: Read-only file system (30)
+[87154:87184:1120/214054.466040:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[87199:87199:1120/214054.476993:WARNING:sandbox/policy/linux/sandbox_linux.cc:405] InitializeSandbox() called with multiple threads in process gpu-process.
+[87154:87154:1120/214054.516667:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[87154:87154:1120/214054.516766:WARNING:device/bluetooth/dbus/bluez_dbus_manager.cc:209] Floss manager service not available, cannot set Floss enable/disable.
+[87154:87154:1120/214054.516788:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[87154:87184:1120/214054.516957:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[87154:87184:1120/214054.518812:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[87154:87154:1120/214054.522477:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[87154:87154:1120/214054.529985:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[87154:87184:1120/214054.531655:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[87154:87154:1120/214054.550709:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[87154:87184:1120/214054.550770:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[87154:87184:1120/214054.550807:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[87154:87197:1120/214054.649645:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 87253: Read-only file system (30)
+[87154:87197:1120/214054.739550:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 87267: Read-only file system (30)
+[87154:87197:1120/214054.742955:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 87269: Read-only file system (30)
+[87154:87154:1120/214054.772690:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[87154:87184:1120/214054.772914:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[87154:87154:1120/214054.774140:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[87154:87154:1120/214054.776210:WARNING:dbus/property.cc:94] Failed to connect to PropertiesChangedsignal.
+[87154:87154:1120/214054.776247:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.Properties.GetAll: object_path= /org/freedesktop/UPower/devices/DisplayDevice: unknown error type: 
+[87154:87154:1120/214054.776254:WARNING:dbus/property.cc:174] GetAll request failed for: org.freedesktop.UPower.Device
+[87154:87154:1120/214054.824511:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[87154:87184:1120/214054.828210:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[87154:87154:1120/214054.868123:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[87154:87184:1120/214054.868301:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[87154:87154:1120/214054.905200:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[87154:87154:1120/214054.905241:WARNING:ui/base/idle/idle_linux.cc:111] None of the known D-Bus ScreenSaver services could be used.
+[87154:87154:1120/214059.374180:INFO:CONSOLE:1148] "Owl is running in 'dev' mode.", source: http://127.0.0.1:8071/web/assets/56c5002/web.assets_web.min.js (1148)
+[87154:87154:1120/214059.618047:INFO:CONSOLE:672] "Hoot DOM helpers available from `window.hoot`", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (672)
+[87154:87154:1120/214059.627966:INFO:CONSOLE:683] "[1/10] Tour avatar_card_tour → Step Open the avatar card popover (trigger: .o-mail-Message-avatar)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[87154:87154:1120/214102.851163:INFO:CONSOLE:683] "[2/10] Tour avatar_card_tour → Step Check that the employee's work email is displayed (trigger: .o_avatar_card:contains(test_employee@test.com))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[87154:87154:1120/214103.764442:INFO:CONSOLE:683] "[3/10] Tour avatar_card_tour → Step Check that the employee's department is displayed (trigger: .o_avatar_card:contains(Test Department))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[87154:87154:1120/214103.770757:INFO:CONSOLE:683] "[4/10] Tour avatar_card_tour → Step Check that the employee's work phone is displayed (trigger: .o_avatar_card:contains(123456789))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[87154:87154:1120/214103.803467:INFO:CONSOLE:683] "[5/10] Tour avatar_card_tour → Step Check that the employee's holiday status is displayed (trigger: .o_avatar_card:contains(Back on))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[87154:87154:1120/214103.803735:INFO:CONSOLE:683] "[6/10] Tour avatar_card_tour → Step Check that the employee's job title is displayed (trigger: .o_avatar_card:contains(Test Job Title))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[87154:87154:1120/214103.803823:INFO:CONSOLE:683] "[7/10] Tour avatar_card_tour → Step .o-mail-ActivityMenu-counter:text('2')", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[87154:87154:1120/214103.810361:INFO:CONSOLE:683] "[8/10] Tour avatar_card_tour → Step button.o_switch_company_menu", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[87154:87154:1120/214103.851973:INFO:CONSOLE:683] "[9/10] Tour avatar_card_tour → Step [role=button][title='Switch to Company 2']", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[87154:87154:1120/214106.625954:INFO:CONSOLE:1148] "Owl is running in 'dev' mode.", source: http://127.0.0.1:8071/web/assets/56c5002/web.assets_web.min.js (1148)
+[87154:87154:1120/214106.768906:INFO:CONSOLE:672] "Hoot DOM helpers available from `window.hoot`", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (672)
+[87154:87154:1120/214106.769045:INFO:CONSOLE:683] "[10/10] Tour avatar_card_tour → Step .o-mail-ActivityMenu-counter:text('1')", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[87154:87154:1120/214108.194741:INFO:CONSOLE:666] "tour succeeded", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (666)
+[87154:87154:1120/214108.194934:INFO:CONSOLE:666] "
+
+╔═════════════════════════════════╗
+║ TOUR avatar_card_tour SUCCEEDED ║
+╚═════════════════════════════════╝
+", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (666)

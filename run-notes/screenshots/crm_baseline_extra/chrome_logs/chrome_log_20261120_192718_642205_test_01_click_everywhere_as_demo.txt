@@ -1,0 +1,118 @@
+[22974:23003:1120/192708.538699:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[22974:23003:1120/192708.539473:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[22974:23003:1120/192708.554905:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[22974:23003:1120/192708.554972:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[22974:23003:1120/192708.556112:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[22974:23003:1120/192708.556140:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[22974:23003:1120/192708.556159:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[22974:23003:1120/192708.567636:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[22974:23003:1120/192708.637199:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[22974:23013:1120/192708.645473:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 23019: Read-only file system (30)
+[22974:22974:1120/192708.665431:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[22974:23003:1120/192708.665627:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[22974:22974:1120/192708.665869:WARNING:device/bluetooth/dbus/bluez_dbus_manager.cc:209] Floss manager service not available, cannot set Floss enable/disable.
+[22974:22974:1120/192708.666023:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[22974:23003:1120/192708.666056:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[23014:23014:1120/192708.666991:WARNING:media/gpu/vaapi/vaapi_wrapper.cc:1655] drmGetDevices2() has not found any devices
+[22974:22974:1120/192708.667880:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[22974:22974:1120/192708.678398:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[22974:23003:1120/192708.678476:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[23014:23014:1120/192708.680163:WARNING:sandbox/policy/linux/sandbox_linux.cc:405] InitializeSandbox() called with multiple threads in process gpu-process.
+[22974:22974:1120/192708.682324:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[22974:23003:1120/192708.683127:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[22974:23003:1120/192708.683158:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[22974:23013:1120/192708.762398:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 23067: Read-only file system (30)
+[22974:23013:1120/192708.795189:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 23078: Read-only file system (30)
+[22974:23013:1120/192708.808180:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 23079: Read-only file system (30)
+[22974:22974:1120/192708.820149:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[22974:23003:1120/192708.820248:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[22974:22974:1120/192708.821440:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[22974:22974:1120/192708.822708:WARNING:dbus/property.cc:94] Failed to connect to PropertiesChangedsignal.
+[22974:22974:1120/192708.822737:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.Properties.GetAll: object_path= /org/freedesktop/UPower/devices/DisplayDevice: unknown error type: 
+[22974:22974:1120/192708.822744:WARNING:dbus/property.cc:174] GetAll request failed for: org.freedesktop.UPower.Device
+[22974:22974:1120/192708.836042:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[22974:23003:1120/192708.836127:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[22974:22974:1120/192708.850989:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[22974:23003:1120/192708.851236:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[22974:22974:1120/192708.857114:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[22974:22974:1120/192708.857136:WARNING:ui/base/idle/idle_linux.cc:111] None of the known D-Bus ScreenSaver services could be used.
+[22974:22974:1120/192710.886751:INFO:CONSOLE:1148] "Owl is running in 'dev' mode.", source: http://127.0.0.1:8075/web/assets/5c8437c/web.assets_web.min.js (1148)
+[22974:22974:1120/192712.408021:INFO:CONSOLE:7] "Starting ClickEverywhere test", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (7)
+[22974:22974:1120/192712.408287:INFO:CONSOLE:99] "Testing app: Discuss (mail.menu_root_discuss)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (99)
+[22974:22974:1120/192712.408843:INFO:CONSOLE:94] "Testing menu Discuss (mail.main_menu_discuss)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (94)
+[22974:22974:1120/192712.773675:INFO:CONSOLE:94] "Testing menu Channels (mail.menu_channel)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (94)
+[22974:22974:1120/192713.128808:INFO:CONSOLE:51] "Clicking on: kanban view's new button", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[22974:22974:1120/192713.413542:INFO:CONSOLE:51] "Clicking on: go back to kanban view (from new record form view)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[22974:22974:1120/192713.523883:INFO:CONSOLE:51] "Clicking on: open form view from kanban", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[22974:22974:1120/192713.916391:INFO:CONSOLE:51] "Clicking on: go back to kanban view (from special record view)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[22974:22974:1120/192713.984788:INFO:CONSOLE:58] "Testing 3 filters", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (58)
+[22974:22974:1120/192713.985050:INFO:CONSOLE:51] "Clicking on: filter "My Channels"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[22974:22974:1120/192714.059269:INFO:CONSOLE:51] "Clicking on: filter "Not Joined"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[22974:22974:1120/192714.164912:INFO:CONSOLE:51] "Clicking on: filter "Archived"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[22974:22974:1120/192714.226039:INFO:CONSOLE:86] "Testing view switch: list", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (86)
+[22974:22974:1120/192714.226346:INFO:CONSOLE:51] "Clicking on: list view switcher", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[22974:22974:1120/192714.329999:INFO:CONSOLE:51] "Clicking on: list view's new button", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[22974:22974:1120/192714.422769:INFO:CONSOLE:51] "Clicking on: go back to list view (from new record form view)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[22974:22974:1120/192714.538451:INFO:CONSOLE:58] "Testing 3 filters", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (58)
+[22974:22974:1120/192714.538748:INFO:CONSOLE:51] "Clicking on: filter "My Channels"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[22974:22974:1120/192714.575484:INFO:CONSOLE:51] "Clicking on: filter "Not Joined"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[22974:22974:1120/192714.621989:INFO:CONSOLE:51] "Clicking on: filter "Archived"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[22974:22974:1120/192714.751984:INFO:CONSOLE:51] "Clicking on: open form view from list", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[22974:22974:1120/192714.947802:INFO:CONSOLE:51] "Clicking on: go back to list view (from special record view)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[22974:22974:1120/192714.966732:INFO:CONSOLE:94] "Testing menu Call History (mail.discuss_call_history_menu)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (94)
+[22974:22974:1120/192715.246288:INFO:CONSOLE:51] "Clicking on: open form view from list", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[22974:22974:1120/192715.314494:INFO:CONSOLE:51] "Clicking on: go back to list view (from record view)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[22974:22974:1120/192715.483090:INFO:CONSOLE:58] "Testing 0 filters", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (58)
+[22974:22974:1120/192715.483529:INFO:CONSOLE:94] "Testing menu Categories (mail.menu_discuss_category)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (94)
+[22974:22974:1120/192715.689489:INFO:CONSOLE:51] "Clicking on: open form view from list", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[22974:22974:1120/192715.778951:INFO:CONSOLE:51] "Clicking on: go back to list view (from record view)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[22974:22974:1120/192716.040930:INFO:CONSOLE:58] "Testing 0 filters", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (58)
+[22974:22974:1120/192716.041958:INFO:CONSOLE:86] "Testing view switch: kanban", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (86)
+[22974:22974:1120/192716.042045:INFO:CONSOLE:51] "Clicking on: kanban view switcher", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[22974:22974:1120/192716.184116:INFO:CONSOLE:58] "Testing 0 filters", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (58)
+[22974:22974:1120/192716.184955:INFO:CONSOLE:94] "Testing menu Canned Responses (mail.menu_canned_responses)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (94)
+[22974:22974:1120/192716.420826:INFO:CONSOLE:51] "Clicking on: list view's new button", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[22974:22974:1120/192716.475015:INFO:CONSOLE:51] "Clicking on: discard the editable list (from new record, editable list)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[22974:22974:1120/192716.489650:INFO:CONSOLE:51] "Clicking on: open form view from list", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[22974:22974:1120/192716.502651:INFO:CONSOLE:51] "Clicking on: discard the editable list", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[22974:22974:1120/192716.564834:INFO:CONSOLE:58] "Testing 2 filters", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (58)
+[22974:22974:1120/192716.565375:INFO:CONSOLE:51] "Clicking on: filter "Private"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[22974:22974:1120/192716.609477:INFO:CONSOLE:51] "Clicking on: filter "Shared"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[22974:22974:1120/192716.680065:INFO:CONSOLE:86] "Testing view switch: kanban", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (86)
+[22974:22974:1120/192716.680163:INFO:CONSOLE:51] "Clicking on: kanban view switcher", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[22974:22974:1120/192716.783686:INFO:CONSOLE:51] "Clicking on: kanban view's new button", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[22974:22974:1120/192716.859465:INFO:CONSOLE:51] "Clicking on: go back to kanban view (from new record form view)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[22974:22974:1120/192716.919307:INFO:CONSOLE:51] "Clicking on: open form view from kanban", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[22974:22974:1120/192717.008160:INFO:CONSOLE:51] "Clicking on: go back to kanban view (from record view)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[22974:22974:1120/192717.174178:INFO:CONSOLE:58] "Testing 2 filters", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (58)
+[22974:22974:1120/192717.174306:INFO:CONSOLE:51] "Clicking on: filter "Private"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[22974:22974:1120/192717.244611:INFO:CONSOLE:51] "Clicking on: filter "Shared"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[22974:22974:1120/192717.303073:INFO:CONSOLE:94] "Testing menu Roles (mail.menu_roles)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (94)
+[22974:22974:1120/192717.600060:INFO:CONSOLE:51] "Clicking on: open form view from list", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[22974:22974:1120/192717.755368:INFO:CONSOLE:51] "Clicking on: go back to list view (from record view)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[22974:22974:1120/192717.863032:INFO:CONSOLE:58] "Testing 2 filters", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (58)
+[22974:22974:1120/192717.863412:INFO:CONSOLE:51] "Clicking on: filter "Archived"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[22974:22974:1120/192717.934735:INFO:CONSOLE:51] "Clicking on: filter "My Roles"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[22974:22974:1120/192718.005683:INFO:CONSOLE:94] "Testing menu Notifications (mail.menu_notification_settings)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (94)
+[22974:22974:1120/192718.067098:INFO:CONSOLE:95] "Modal detected: Notifications (mail.menu_notification_settings)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (95)
+[22974:22974:1120/192718.068700:INFO:CONSOLE:51] "Clicking on: modal close button", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[22974:22974:1120/192718.078180:INFO:CONSOLE:94] "Testing menu Voice & Video (mail.menu_call_settings)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (94)
+[22974:22974:1120/192718.141632:INFO:CONSOLE:95] "Modal detected: Voice & Video (mail.menu_call_settings)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (95)
+[22974:22974:1120/192718.165967:INFO:CONSOLE:95] "Modal detected: Voice & Video (mail.menu_call_settings)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (95)
+[22974:22974:1120/192718.166079:INFO:CONSOLE:51] "Clicking on: modal close button", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[22974:22974:1120/192718.212766:INFO:CONSOLE:25] "Test took 5.806300000000279 seconds", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (25)
+[22974:22974:1120/192718.213481:INFO:CONSOLE:26] "Tested 1 apps", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (26)
+[22974:22974:1120/192718.215439:INFO:CONSOLE:26] "Tested 8 menus", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (26)
+[22974:22974:1120/192718.215516:INFO:CONSOLE:27] "Tested 9 views", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (27)
+[22974:22974:1120/192718.215653:INFO:CONSOLE:27] "Tested 4 form views", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (27)
+[22974:22974:1120/192718.215689:INFO:CONSOLE:27] "Tested 4 new record views", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (27)
+[22974:22974:1120/192718.215723:INFO:CONSOLE:27] "Tested 3 modals", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (27)
+[22974:22974:1120/192718.215758:INFO:CONSOLE:27] "Tested 12 filters", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (27)
+[22974:22974:1120/192718.215795:INFO:CONSOLE:12] "clickbot test succeeded", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (12)
+[23126:23126:1120/192718.233043:WARNING:media/audio/linux/audio_manager_linux.cc:53] Falling back to ALSA for audio output. PulseAudio is not available or could not be initialized.
+[22974:22974:1120/192718.234155:WARNING:chrome/browser/media/prefs/capture_device_ranking.h:256] Can't initialize the value of media.audio_input.user_preference_ranking because media.default_audio_capture_device isn't registered or is empty
+[22974:22974:1120/192718.234217:WARNING:chrome/browser/media/prefs/capture_device_ranking.h:256] Can't initialize the value of media.video_input.user_preference_ranking because media.default_video_capture_Device isn't registered or is empty
+[22974:22974:1120/192718.234238:WARNING:chrome/browser/media/prefs/capture_device_ranking.h:256] Can't initialize the value of media.audio_input.user_preference_ranking because media.default_audio_capture_device isn't registered or is empty
+[22974:22974:1120/192718.234242:WARNING:chrome/browser/media/prefs/capture_device_ranking.h:256] Can't initialize the value of media.video_input.user_preference_ranking because media.default_video_capture_Device isn't registered or is empty
+[22974:22974:1120/192718.234250:WARNING:chrome/browser/media/prefs/capture_device_ranking.h:256] Can't initialize the value of media.audio_input.user_preference_ranking because media.default_audio_capture_device isn't registered or is empty
+[22974:22974:1120/192718.234274:WARNING:chrome/browser/media/prefs/capture_device_ranking.h:256] Can't initialize the value of media.video_input.user_preference_ranking because media.default_video_capture_Device isn't registered or is empty

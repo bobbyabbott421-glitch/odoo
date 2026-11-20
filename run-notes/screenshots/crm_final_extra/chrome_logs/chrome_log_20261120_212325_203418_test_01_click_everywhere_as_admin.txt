@@ -1,0 +1,148 @@
+[77216:77244:1120/212221.368156:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[77216:77244:1120/212221.368893:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[77216:77244:1120/212221.436561:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[77216:77244:1120/212221.436665:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[77216:77244:1120/212221.436785:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[77216:77244:1120/212221.436813:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[77216:77244:1120/212221.436941:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[77216:77244:1120/212221.472485:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[77216:77244:1120/212221.649951:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[77216:77256:1120/212221.652774:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 77260: Read-only file system (30)
+[77216:77216:1120/212221.761933:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[77216:77216:1120/212221.763183:WARNING:device/bluetooth/dbus/bluez_dbus_manager.cc:209] Floss manager service not available, cannot set Floss enable/disable.
+[77216:77216:1120/212221.763300:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[77216:77244:1120/212221.764481:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[77216:77244:1120/212221.764904:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[77216:77216:1120/212221.767996:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[77216:77216:1120/212221.840068:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[77216:77244:1120/212221.844572:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[77216:77244:1120/212222.126532:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[77216:77244:1120/212222.128003:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[77257:77257:1120/212222.420129:WARNING:media/gpu/vaapi/vaapi_wrapper.cc:1655] drmGetDevices2() has not found any devices
+[77257:77257:1120/212222.449395:WARNING:sandbox/policy/linux/sandbox_linux.cc:405] InitializeSandbox() called with multiple threads in process gpu-process.
+[77216:77256:1120/212222.460206:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 77313: Read-only file system (30)
+[77216:77256:1120/212222.543560:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 77322: Read-only file system (30)
+[77216:77256:1120/212222.548151:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 77323: Read-only file system (30)
+[77216:77216:1120/212222.555426:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[77216:77216:1120/212222.559542:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[77216:77244:1120/212222.559802:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[77216:77216:1120/212222.567623:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[77216:77216:1120/212222.571060:WARNING:dbus/property.cc:94] Failed to connect to PropertiesChangedsignal.
+[77216:77216:1120/212222.571434:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.Properties.GetAll: object_path= /org/freedesktop/UPower/devices/DisplayDevice: unknown error type: 
+[77216:77216:1120/212222.571445:WARNING:dbus/property.cc:174] GetAll request failed for: org.freedesktop.UPower.Device
+[77216:77216:1120/212222.635471:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[77216:77244:1120/212222.635558:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[77216:77216:1120/212222.666649:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[77216:77244:1120/212222.666728:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[77216:77216:1120/212222.674641:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[77216:77216:1120/212222.674663:WARNING:ui/base/idle/idle_linux.cc:111] None of the known D-Bus ScreenSaver services could be used.
+[77216:77216:1120/212226.166150:INFO:CONSOLE:1148] "Owl is running in 'dev' mode.", source: http://127.0.0.1:8075/web/assets/56c5002/web.assets_web.min.js (1148)
+[77216:77216:1120/212228.224971:INFO:CONSOLE:7] "Starting ClickEverywhere test", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (7)
+[77216:77216:1120/212228.225462:INFO:CONSOLE:99] "Testing app: SMS Marketing (mass_mailing_sms.mass_mailing_sms_menu_root)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (99)
+[77216:77216:1120/212228.225890:INFO:CONSOLE:94] "Testing menu SMS Marketing (mass_mailing_sms.mass_mailing_sms_menu_mass_sms)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (94)
+[77216:77216:1120/212228.626421:INFO:CONSOLE:51] "Clicking on: list view's new button", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212229.304398:INFO:CONSOLE:51] "Clicking on: go back to list view (from new record form view)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212229.495163:INFO:CONSOLE:51] "Clicking on: open form view from list", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212230.630506:INFO:CONSOLE:51] "Clicking on: go back to list view (from record view)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212230.860958:INFO:CONSOLE:58] "Testing 5 filters", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (58)
+[77216:77216:1120/212230.861032:INFO:CONSOLE:51] "Clicking on: filter "My SMS Marketing"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212231.000983:INFO:CONSOLE:51] "Clicking on: filter "Sent Date"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212231.026409:INFO:CONSOLE:51] "Clicking on: filter "Sent Date (Today)"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212231.127421:INFO:CONSOLE:51] "Clicking on: filter "A/B Tests"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212231.245147:INFO:CONSOLE:51] "Clicking on: filter "A/B Tests to review"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212231.329368:INFO:CONSOLE:51] "Clicking on: filter "Archived"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212231.399802:INFO:CONSOLE:86] "Testing view switch: kanban", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (86)
+[77216:77216:1120/212231.399880:INFO:CONSOLE:51] "Clicking on: kanban view switcher", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212231.740771:INFO:CONSOLE:51] "Clicking on: kanban view's new button", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212232.125523:INFO:CONSOLE:51] "Clicking on: go back to kanban view (from new record form view)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212232.425405:INFO:CONSOLE:58] "Testing 5 filters", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (58)
+[77216:77216:1120/212232.426239:INFO:CONSOLE:51] "Clicking on: filter "My SMS Marketing"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212232.928268:INFO:CONSOLE:51] "Clicking on: filter "Sent Date (Today)"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212233.038850:INFO:CONSOLE:51] "Clicking on: filter "A/B Tests"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212233.133313:INFO:CONSOLE:51] "Clicking on: filter "A/B Tests to review"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212233.258510:INFO:CONSOLE:51] "Clicking on: filter "Archived"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212233.595706:INFO:CONSOLE:86] "Testing view switch: calendar", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (86)
+[77216:77216:1120/212233.595828:INFO:CONSOLE:51] "Clicking on: calendar view switcher", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212235.668914:INFO:CONSOLE:58] "Testing 5 filters", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (58)
+[77216:77216:1120/212235.672678:INFO:CONSOLE:51] "Clicking on: filter "My SMS Marketing"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212236.100163:INFO:CONSOLE:51] "Clicking on: filter "Sent Date"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212236.209922:INFO:CONSOLE:51] "Clicking on: filter "Sent Date (Today)"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212236.851081:INFO:CONSOLE:51] "Clicking on: filter "A/B Tests"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212237.140988:INFO:CONSOLE:51] "Clicking on: filter "A/B Tests to review"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212237.943346:INFO:CONSOLE:51] "Clicking on: filter "Archived"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212238.114236:INFO:CONSOLE:86] "Testing view switch: graph", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (86)
+[77216:77216:1120/212238.114405:INFO:CONSOLE:51] "Clicking on: graph view switcher", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212238.650185:INFO:CONSOLE:58] "Testing 5 filters", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (58)
+[77216:77216:1120/212238.650392:INFO:CONSOLE:51] "Clicking on: filter "My SMS Marketing"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212238.767024:INFO:CONSOLE:51] "Clicking on: filter "Sent Date (Today)"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212238.867722:INFO:CONSOLE:51] "Clicking on: filter "A/B Tests"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212238.962421:INFO:CONSOLE:51] "Clicking on: filter "A/B Tests to review"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212239.020391:INFO:CONSOLE:51] "Clicking on: filter "Archived"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212239.166397:INFO:CONSOLE:94] "Testing menu Mailing Lists (mass_mailing_sms.mailing_list_menu_sms)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (94)
+[77216:77216:1120/212239.458647:INFO:CONSOLE:51] "Clicking on: kanban view's new button", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212239.722960:INFO:CONSOLE:51] "Clicking on: modal close button", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212240.366517:INFO:CONSOLE:51] "Clicking on: open form view from kanban", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212240.946134:INFO:CONSOLE:51] "Clicking on: go back to kanban view (from special record view)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212241.178876:INFO:CONSOLE:58] "Testing 1 filters", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (58)
+[77216:77216:1120/212241.178989:INFO:CONSOLE:51] "Clicking on: filter "Archived"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212241.255908:INFO:CONSOLE:86] "Testing view switch: list", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (86)
+[77216:77216:1120/212241.256049:INFO:CONSOLE:51] "Clicking on: list view switcher", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212241.398441:INFO:CONSOLE:51] "Clicking on: list view's new button", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212241.554124:INFO:CONSOLE:51] "Clicking on: go back to list view (from new record form view)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212241.728496:INFO:CONSOLE:58] "Testing 1 filters", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (58)
+[77216:77216:1120/212241.728852:INFO:CONSOLE:51] "Clicking on: filter "Archived"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212241.770804:INFO:CONSOLE:51] "Clicking on: open form view from list", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212241.927328:INFO:CONSOLE:51] "Clicking on: go back to list view (from record view)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212242.044785:INFO:CONSOLE:94] "Testing menu Mailing Contacts (mass_mailing_sms.mailing_contact_menu_sms)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (94)
+[77216:77216:1120/212242.554729:INFO:CONSOLE:51] "Clicking on: list view's new button", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212242.822157:INFO:CONSOLE:51] "Clicking on: go back to list view (from new record form view)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212242.977402:INFO:CONSOLE:51] "Clicking on: open form view from list", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212243.436551:INFO:CONSOLE:51] "Clicking on: go back to list view (from record view)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212243.722956:INFO:CONSOLE:58] "Testing 3 filters", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (58)
+[77216:77216:1120/212243.723530:INFO:CONSOLE:51] "Clicking on: filter "Bounced"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212243.895912:INFO:CONSOLE:51] "Clicking on: filter "Exclude Blacklisted Emails"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212243.952758:INFO:CONSOLE:51] "Clicking on: filter "Exclude Blacklisted Phone"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212244.034991:INFO:CONSOLE:94] "Testing menu Reporting (mass_mailing_sms.mass_mailing_sms_menu_reporting)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (94)
+[77216:77216:1120/212244.666753:INFO:CONSOLE:58] "Testing 1 filters", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (58)
+[77216:77216:1120/212244.666869:INFO:CONSOLE:51] "Clicking on: filter "Scheduled Date"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212244.669047:INFO:CONSOLE:51] "Clicking on: filter "Scheduled Date (Today)"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212244.846566:INFO:CONSOLE:86] "Testing view switch: pivot", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (86)
+[77216:77216:1120/212244.854920:INFO:CONSOLE:51] "Clicking on: pivot view switcher", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212245.045652:INFO:CONSOLE:58] "Testing 1 filters", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (58)
+[77216:77216:1120/212245.045928:INFO:CONSOLE:51] "Clicking on: filter "Scheduled Date (Today)"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212245.125798:INFO:CONSOLE:86] "Testing view switch: list", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (86)
+[77216:77216:1120/212245.130801:INFO:CONSOLE:51] "Clicking on: list view switcher", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212245.327499:INFO:CONSOLE:51] "Clicking on: open form view from list", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212321.826660:INFO:CONSOLE:98] "Error found:
+ - Current testing app is SMS Marketing (mass_mailing_sms.mass_mailing_sms_menu_root)
+ - Current testing menu is Reporting (mass_mailing_sms.mass_mailing_sms_menu_reporting)
+ - Current testing view is list
+The error is :
+Timeout when: clicking on open form view from list, it took more than 30 seconds to load
+Waiting for:
+ * stopCondition: ()=>document.querySelector(".o_form_view")!==null||document.querySelector(".o_data_row.o_selected_row")!==null
+", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (98)
+[77216:77216:1120/212321.831083:INFO:CONSOLE:94] "Testing menu Blacklisted Phone Numbers (mass_mailing_sms.phone_blacklist_menu)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (94)
+[77216:77216:1120/212322.462529:INFO:CONSOLE:51] "Clicking on: list view's new button", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212322.839166:INFO:CONSOLE:51] "Clicking on: go back to list view (from new record form view)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212323.049740:INFO:CONSOLE:58] "Testing 1 filters", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (58)
+[77216:77216:1120/212323.053743:INFO:CONSOLE:51] "Clicking on: filter "Archived"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212323.202877:INFO:CONSOLE:94] "Testing menu Link Tracker (mass_mailing_sms.link_tracker_menu)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (94)
+[77216:77216:1120/212323.539625:INFO:CONSOLE:51] "Clicking on: list view's new button", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212323.872226:INFO:CONSOLE:51] "Clicking on: go back to list view (from new record form view)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212324.057141:INFO:CONSOLE:51] "Clicking on: open form view from list", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212324.269207:INFO:CONSOLE:51] "Clicking on: go back to list view (from record view)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212324.455883:INFO:CONSOLE:58] "Testing 0 filters", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (58)
+[77216:77216:1120/212324.455999:INFO:CONSOLE:86] "Testing view switch: graph", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (86)
+[77216:77216:1120/212324.456037:INFO:CONSOLE:51] "Clicking on: graph view switcher", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[77216:77216:1120/212324.839792:INFO:CONSOLE:58] "Testing 0 filters", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (58)
+[77216:77216:1120/212324.843082:INFO:CONSOLE:25] "Test took 56.61659999999963 seconds", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (25)
+[77216:77216:1120/212324.843192:INFO:CONSOLE:26] "Tested 1 apps", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (26)
+[77216:77216:1120/212324.843237:INFO:CONSOLE:26] "Tested 6 menus", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (26)
+[77216:77216:1120/212324.843272:INFO:CONSOLE:26] "Error found while testing 1 menus", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (26)
+[77216:77216:1120/212324.843951:INFO:CONSOLE:27] "Tested 12 views", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (27)
+[77216:77216:1120/212324.844207:INFO:CONSOLE:27] "Tested 4 form views", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (27)
+[77216:77216:1120/212324.844275:INFO:CONSOLE:27] "Tested 7 new record views", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (27)
+[77216:77216:1120/212324.844309:INFO:CONSOLE:27] "Tested 0 modals", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (27)
+[77216:77216:1120/212324.844362:INFO:CONSOLE:27] "Tested 28 filters", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (27)
+[77216:77216:1120/212324.844406:INFO:CONSOLE:12] "clickbot test failed", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (12)

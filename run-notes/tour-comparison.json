@@ -1,0 +1,13 @@
+{
+  "baseline": {
+    "failure": 12,
+    "success": 81
+  },
+  "head": {
+    "success": 81,
+    "failure": 12
+  },
+  "missing": [],
+  "added": [],
+  "new_failures": []
+}

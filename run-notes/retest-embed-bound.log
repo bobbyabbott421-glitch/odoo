@@ -1,0 +1,203 @@
+2026-11-20 21:21:43,659 77006 INFO ? odoo: Odoo version 20.0
+2026-11-20 21:21:43,660 77006 INFO ? odoo: Using configuration file at /workspace/odoo-env/odoo.conf
+2026-11-20 21:21:43,660 77006 INFO ? odoo: addons paths: _NamespacePath(['/workspace/odoo/odoo/addons', '/workspace/odoo-env/data/addons/20.0', '/workspace/odoo/addons'])
+2026-11-20 21:21:43,660 77006 INFO ? odoo: database: odoo@/workspace/odoo-env/run:5432
+2026-11-20 21:21:45,236 77006 INFO ? odoo.service.server: HTTP service running on 127.0.0.1:17854
+2026-11-20 21:21:45,264 77006 INFO crm_final_measure odoo.tests.common: Importing test framework
+2026-11-20 21:21:45,505 77006 INFO crm_final_measure odoo.modules.loading: loading 1 modules...
+2026-11-20 21:21:46,144 77006 INFO crm_final_measure odoo.modules.loading: 1 modules loaded in 0.64s, 0 queries (+0 extra)
+2026-11-20 21:21:46,510 77006 INFO crm_final_measure odoo.modules.loading: loading 226 modules...
+2026-11-20 21:21:47,367 77006 WARNING crm_final_measure odoo.addons.mail.controllers.attachment: markdown2 is not installed, markdown will not be rendered
+2026-11-20 21:21:56,513 77006 INFO crm_final_measure odoo.modules.loading: 226 modules loaded in 10.00s, 0 queries (+0 extra)
+2026-11-20 21:21:57,066 77006 INFO crm_final_measure odoo.modules.loading: Modules loaded.
+2026-11-20 21:21:57,501 77006 INFO crm_final_measure odoo.registry: Registry loaded in 12.263s
+2026-11-20 21:21:57,502 77006 INFO crm_final_measure odoo.service.server: Starting post tests
+2026-11-20 21:21:57,853 77006 INFO crm_final_measure odoo.addons.base.models.ir_qweb: Pregenerating assets bundles
+2026-11-20 21:22:02,363 77006 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/50be1d8/api_doc.assets.min.js (id:2249)
+2026-11-20 21:22:02,366 77006 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Deleting attachments [2238] (matching /web/assets/_______/api_doc.assets.min.js) because it was replaced with /web/assets/50be1d8/api_doc.assets.min.js
+2026-11-20 21:22:03,231 77006 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/a36101e/hr_attendance.assets_public_attendance.min.js (id:2250)
+2026-11-20 21:22:03,232 77006 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Deleting attachments [2239] (matching /web/assets/_______/hr_attendance.assets_public_attendance.min.js) because it was replaced with /web/assets/a36101e/hr_attendance.assets_public_attendance.min.js
+2026-11-20 21:22:06,095 77006 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/e244cc1/im_livechat.assets_embed_external.min.js (id:2251)
+2026-11-20 21:22:06,099 77006 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Deleting attachments [2240] (matching /web/assets/_______/im_livechat.assets_embed_external.min.js) because it was replaced with /web/assets/e244cc1/im_livechat.assets_embed_external.min.js
+2026-11-20 21:22:12,237 77006 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/9afc6bb/im_livechat.embed_assets_unit_tests_setup.min.js (id:2252)
+2026-11-20 21:22:12,240 77006 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Deleting attachments [2241] (matching /web/assets/_______/im_livechat.embed_assets_unit_tests_setup.min.js) because it was replaced with /web/assets/9afc6bb/im_livechat.embed_assets_unit_tests_setup.min.js
+2026-11-20 21:22:12,711 77006 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/399e880/mail.assets_public.min.js (id:2253)
+2026-11-20 21:22:12,713 77006 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Deleting attachments [2242] (matching /web/assets/_______/mail.assets_public.min.js) because it was replaced with /web/assets/399e880/mail.assets_public.min.js
+2026-11-20 21:22:13,607 77006 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/d3e65b9/project.webclient.min.js (id:2254)
+2026-11-20 21:22:13,610 77006 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Deleting attachments [2243] (matching /web/assets/_______/project.webclient.min.js) because it was replaced with /web/assets/d3e65b9/project.webclient.min.js
+2026-11-20 21:22:15,115 77006 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/94983cd/spreadsheet.public_spreadsheet.min.js (id:2255)
+2026-11-20 21:22:15,127 77006 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Deleting attachments [2244] (matching /web/assets/_______/spreadsheet.public_spreadsheet.min.js) because it was replaced with /web/assets/94983cd/spreadsheet.public_spreadsheet.min.js
+2026-11-20 21:22:15,656 77006 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/14eb585/web.assets_frontend_lazy.min.js (id:2256)
+2026-11-20 21:22:15,658 77006 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Deleting attachments [2245] (matching /web/assets/_______/web.assets_frontend_lazy.min.js) because it was replaced with /web/assets/14eb585/web.assets_frontend_lazy.min.js
+2026-11-20 21:22:28,347 77006 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/927e3f1/web.assets_unit_tests.min.js (id:2257)
+2026-11-20 21:22:28,351 77006 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Deleting attachments [2171] (matching /web/assets/_______/web.assets_unit_tests.min.js) because it was replaced with /web/assets/927e3f1/web.assets_unit_tests.min.js
+2026-11-20 21:22:29,474 77006 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/75227c9/web.assets_unit_tests_setup.min.js (id:2258)
+2026-11-20 21:22:29,476 77006 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Deleting attachments [2246] (matching /web/assets/_______/web.assets_unit_tests_setup.min.js) because it was replaced with /web/assets/75227c9/web.assets_unit_tests_setup.min.js
+2026-11-20 21:22:30,723 77006 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/55acd04/web.assets_web.min.js (id:2259)
+2026-11-20 21:22:30,726 77006 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Deleting attachments [2247] (matching /web/assets/_______/web.assets_web.min.js) because it was replaced with /web/assets/55acd04/web.assets_web.min.js
+2026-11-20 21:22:31,034 77006 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/5863bf9/website_slides.slide_embed_assets.min.js (id:2260)
+2026-11-20 21:22:31,036 77006 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Deleting attachments [2248] (matching /web/assets/_______/website_slides.slide_embed_assets.min.js) because it was replaced with /web/assets/5863bf9/website_slides.slide_embed_assets.min.js
+2026-11-20 21:22:31,039 77006 INFO crm_final_measure odoo.addons.base.models.ir_qweb: JS Assets bundles generated in 30.381402015686035 seconds
+2026-11-20 21:22:31,045 77006 INFO crm_final_measure odoo.addons.base.models.ir_qweb: Binary Assets bundles generated in 0.005509853363037109 seconds
+2026-11-20 21:22:32,398 77006 INFO crm_final_measure odoo.addons.base.models.ir_qweb: CSS Assets bundles generated in 1.3530008792877197 seconds
+2026-11-20 21:22:32,455 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js: Starting ExternalTestSuite.test_external_livechat ...
+2026-11-20 21:22:34,209 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Chrome pid: 77405
+2026-11-20 21:22:34,210 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Chrome headless temporary user profile dir: /tmp/tmp2x_gkd_n_chrome_odoo
+2026-11-20 21:22:34,218 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Issuing json command http://127.0.0.1:40103/json/version
+2026-11-20 21:22:34,232 77006 INFO crm_final_measure odoo.tests.common.requests: request SplitResult(scheme='http', netloc='127.0.0.1:40103', path='/json/version', query='', fragment='') with timeout 3 increased to 10s during tests
+2026-11-20 21:22:34,631 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Browser version: Chrome/156.0.8078.79
+2026-11-20 21:22:34,631 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Issuing json command http://127.0.0.1:40103/json
+2026-11-20 21:22:34,632 77006 INFO crm_final_measure odoo.tests.common.requests: request SplitResult(scheme='http', netloc='127.0.0.1:40103', path='/json', query='', fragment='') with timeout 3 increased to 10s during tests
+2026-11-20 21:22:34,727 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Websocket url found: ws://127.0.0.1:40103/devtools/page/4A1FABCD8D62C9CB34F516F494EDF2F8
+2026-11-20 21:22:34,770 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Enable chrome headless console log notification
+2026-11-20 21:22:34,836 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Chrome headless enable page notifications
+2026-11-20 21:22:35,259 77006 INFO crm_final_measure odoo.addons.base.models.res_users: Login successful for login:admin from n/a
+2026-11-20 21:22:35,302 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Setting session cookie in browser
+2026-11-20 21:22:35,304 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Open "http://127.0.0.1:17854/web/tests/livechat?headless&loglevel=2&preset=desktop" in browser
+2026-11-20 21:22:35,304 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Navigating to: "http://127.0.0.1:17854/web/tests/livechat?headless&loglevel=2&preset=desktop"
+2026-11-20 21:22:35,358 77006 INFO crm_final_measure odoo.addons.base.models.ir_http: Generating routing map for key 1
+2026-11-20 21:22:36,165 77006 INFO crm_final_measure odoo.http.server: 127.0.0.1 im_LKmGG - [20/Nov/2026 21:22:36] "GET /web/tests/livechat?headless&loglevel=2&preset=desktop HTTP/1.1" 200 2014 16 0.03 0.825 rw
+2026-11-20 21:22:36,201 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Navigation result: {'frameId': '4A1FABCD8D62C9CB34F516F494EDF2F8', 'loaderId': '22A50302029028401725FCD9D444569C', 'isDownload': False}
+2026-11-20 21:22:36,202 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Waiting for frame '4A1FABCD8D62C9CB34F516F494EDF2F8' to stop loading
+2026-11-20 21:22:36,471 77006 INFO crm_final_measure odoo.http.server: 127.0.0.1 im_LKmGG - [20/Nov/2026 21:22:36] "GET /web/assets/f0b734a/im_livechat.embed_assets_unit_tests_setup.min.css HTTP/1.1" 200 1429597 2 0.009 1.127 ro
+2026-11-20 21:22:36,543 77006 INFO crm_final_measure odoo.http.server: 127.0.0.1 im_LKmGG - [20/Nov/2026 21:22:36] "GET /web/assets/bb618fd/im_livechat.embed_assets_unit_tests.min.js HTTP/1.1" 200 243035 2 0.001 0.024 ro
+2026-11-20 21:22:36,958 77006 INFO crm_final_measure odoo.http.server: 127.0.0.1 im_LKmGG - [20/Nov/2026 21:22:36] "GET /web/assets/9afc6bb/im_livechat.embed_assets_unit_tests_setup.min.js HTTP/1.1" 200 10987499 2 0.005 0.653 ro
+2026-11-20 21:22:38,168 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Evaluate ready code "document.readyState === 'complete'"
+2026-11-20 21:22:39,136 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Evaluate test code ""
+2026-11-20 21:22:39,209 77006 INFO crm_final_measure odoo.http.server: 127.0.0.1 im_LKmGG - [20/Nov/2026 21:22:39] "GET /web/static/img/favicon.ico HTTP/1.1" 200 1150 0 0 0.058 -
+2026-11-20 21:22:39,411 77006 INFO crm_final_measure odoo.http.server: 127.0.0.1 im_LKmGG - [20/Nov/2026 21:22:39] "POST /web/dataset/call_kw/ir.module.module.dependency/all_dependencies#ir.module.module.dependency.all_dependencies HTTP/1.1" 200 715 17 0.075 0.186 rw
+2026-11-20 21:22:39,603 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Configuration (click to expand)
+2026-11-20 21:22:39,610 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: Object(bail=0, debug='', debugTest=false, events=3, fps=60, fun=false, headless=true, loglevel=2, manual=false, networkDelay='0', notrycatch=false, order='fifo', preset='desktop', random=0, showdetail='first-fail', timeout=5000, filter='', id='[]', tag='[]')
+2026-11-20 21:22:39,611 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: console.groupEnd
+2026-11-20 21:22:39,612 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Starting test suites
+2026-11-20 21:22:39,612 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/autopopup/persisted session"
+2026-11-20 21:22:42,723 77006 INFO crm_final_measure odoo.http.server: 127.0.0.1 im_LKmGG - [20/Nov/2026 21:22:42] "POST /web/model/get_definitions HTTP/1.1" 200 783486 859 0.801 2.293 rw
+2026-11-20 21:22:43,830 77006 INFO crm_final_measure odoo.http.server: 127.0.0.1 im_LKmGG - [20/Nov/2026 21:22:43] "GET /web/assets/357f262/web.material_symbols_outlined.min.woff2 HTTP/1.1" 200 38596 2 0.011 0.07 ro
+2026-11-20 21:22:44,295 77006 INFO crm_final_measure odoo.http.server: 127.0.0.1 im_LKmGG - [20/Nov/2026 21:22:44] "GET /im_livechat/emoji_bundle HTTP/1.1" 200 458331 2 0.009 0.039 rw
+2026-11-20 21:22:44,704 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [ERROR] HootError: test "persisted session" timed out after 5000 milliseconds
+    at http://127.0.0.1:17854/web/assets/9afc6bb/im_livechat.embed_assets_unit_tests_setup.min.js:1486:76
+	at error (http://127.0.0.1:17854/web/assets/9afc6bb/im_livechat.embed_assets_unit_tests_setup.min.js:1351:25)
+	at _handleError (http://127.0.0.1:17854/web/assets/9afc6bb/im_livechat.embed_assets_unit_tests_setup.min.js:1587:176)
+
+2026-11-20 21:22:44,762 77006 ERROR crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Test "@im_livechat/embed/autopopup/persisted session" failed:
+
+Failed assertions:
+
+1. [assertions] expected at least 1 assertion or query event, but none were run
+
+2. [errors] 1 unverified error(s)
+
+Error during test:
+
+test "persisted session" timed out after 5000 milliseconds
+2026-11-20 21:22:44,763 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/autopopup/rule received in init"
+2026-11-20 21:22:45,312 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] "@im_livechat/embed/autopopup" ended (passed: 1 / failed: 1 / time: 5650 ms)
+2026-11-20 21:22:45,465 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [MEMINFO] @im_livechat/embed/autopopup (after GC) - used: 42960724 - total: 72301476 - limit: 4395630592 - tests: 2
+2026-11-20 21:22:45,550 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/chat_bubble/Do not show bot IM status"
+2026-11-20 21:22:46,114 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] "@im_livechat/embed/chat_bubble" ended (passed: 1 / time: 505 ms)
+2026-11-20 21:22:46,342 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [MEMINFO] @im_livechat/embed/chat_bubble (after GC) - used: 39216844 - total: 82793372 - limit: 4395630592 - tests: 1
+2026-11-20 21:22:46,495 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/chat_window/internal users can upload file to temporary thread"
+2026-11-20 21:22:47,540 77006 INFO crm_final_measure odoo.http.server: 127.0.0.1 im_LKmGG - [20/Nov/2026 21:22:47] "GET /web/static/img/mimetypes/text.svg HTTP/1.1" 200 691 0 0 0.002 -
+2026-11-20 21:22:48,706 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/chat_window/The name of the conversation changes based on the agents' names"
+2026-11-20 21:22:50,751 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/chat_window/Portal users should not be able to start a call"
+2026-11-20 21:22:51,973 77006 INFO crm_final_measure odoo.tests.common: External chrome request during tests: returning 404 for https://www.hoot.test/web/image/res.partner/420/avatar_128?access_token=420&unique=1552296600000
+2026-11-20 21:22:52,014 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/chat_window/avatar url contains access token for non-internal users"
+2026-11-20 21:22:53,024 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/chat_window/can close confirm livechat with keyboard"
+2026-11-20 21:22:53,918 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/chat_window/Should not show IM status of agents"
+2026-11-20 21:22:54,906 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/chat_window/Displays the name of agent in welcome message"
+2026-11-20 21:22:55,375 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/chat_window/should not make XMLHttpRequest to server file content when embedded externally"
+2026-11-20 21:22:56,129 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/chat_window/should not allow preview of PDF attachments when embedded externally"
+2026-11-20 21:22:56,560 77006 INFO crm_final_measure odoo.http.server: 127.0.0.1 im_LKmGG - [20/Nov/2026 21:22:56] "GET /web/static/lib/pdfjs/build/pdf.js HTTP/1.1" 200 797534 0 0 0.012 -
+2026-11-20 21:22:56,568 77006 INFO crm_final_measure odoo.http.server: 127.0.0.1 im_LKmGG - [20/Nov/2026 21:22:56] "GET /web/static/lib/pdfjs/build/pdf.worker.js HTTP/1.1" 200 1916063 0 0 0.018 -
+2026-11-20 21:22:56,735 77006 INFO crm_final_measure odoo.http.server: 127.0.0.1 im_LKmGG - [20/Nov/2026 21:22:56] "GET /web/static/img/mimetypes/pdf.svg HTTP/1.1" 200 2113 0 0 0.002 -
+2026-11-20 21:22:57,130 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] "@im_livechat/embed/chat_window" ended (passed: 9 / time: 10643 ms)
+2026-11-20 21:22:57,220 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: Warning: Setting up fake worker.
+2026-11-20 21:22:57,506 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [MEMINFO] @im_livechat/embed/chat_window (after GC) - used: 84668112 - total: 200116768 - limit: 4395630592 - tests: 9
+2026-11-20 21:22:57,541 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/expirable_storage/value is removed from expirable storage after expiration"
+2026-11-20 21:22:57,544 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/expirable_storage/subscribe/unsubscribe to storage changes"
+2026-11-20 21:22:57,558 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] "@im_livechat/embed/expirable_storage" ended (passed: 2 / time: 5 ms)
+2026-11-20 21:22:57,761 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [MEMINFO] @im_livechat/embed/expirable_storage (after GC) - used: 65684725 - total: 177572021 - limit: 4395630592 - tests: 2
+2026-11-20 21:22:57,828 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/feedback_panel/Do not ask feedback if empty"
+2026-11-20 21:22:58,013 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/feedback_panel/Close without feedback"
+2026-11-20 21:22:58,934 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/feedback_panel/Last operator leaving ends the livechat"
+2026-11-20 21:23:00,146 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/feedback_panel/Feedback with rating and comment"
+2026-11-20 21:23:00,903 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/feedback_panel/Closing folded chat window should open it with feedback"
+2026-11-20 21:23:01,761 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/feedback_panel/Start new session from feedback panel"
+2026-11-20 21:23:03,217 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/feedback_panel/open review link on good rating"
+2026-11-20 21:23:04,332 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] "@im_livechat/embed/feedback_panel" ended (passed: 7 / time: 6380 ms)
+2026-11-20 21:23:05,045 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [MEMINFO] @im_livechat/embed/feedback_panel (after GC) - used: 79068112 - total: 197495140 - limit: 4395630592 - tests: 7
+2026-11-20 21:23:05,212 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/history_command/Handle livechat history command"
+2026-11-20 21:23:05,810 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] "@im_livechat/embed/history_command" ended (passed: 1 / time: 588 ms)
+2026-11-20 21:23:06,048 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [MEMINFO] @im_livechat/embed/history_command (after GC) - used: 70855201 - total: 188582321 - limit: 4395630592 - tests: 1
+2026-11-20 21:23:06,118 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/livechat_button/open/close temporary channel"
+2026-11-20 21:23:06,364 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/livechat_button/open/close persisted channel"
+2026-11-20 21:23:07,551 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/livechat_button/livechat not available"
+2026-11-20 21:23:07,669 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/livechat_button/clicking on notification opens the chat"
+2026-11-20 21:23:07,848 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/livechat_button/can start a new live chat when acting as an agent in active live chats"
+2026-11-20 21:23:08,156 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] "@im_livechat/embed/livechat_button" ended (passed: 5 / time: 2025 ms)
+2026-11-20 21:23:08,349 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [MEMINFO] @im_livechat/embed/livechat_button (after GC) - used: 65830229 - total: 182553081 - limit: 4395630592 - tests: 5
+2026-11-20 21:23:08,422 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/livechat_service/persisted session history"
+2026-11-20 21:23:08,626 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/livechat_service/previous operator prioritized"
+2026-11-20 21:23:08,970 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/livechat_service/Only necessary requests are made when creating a new chat"
+2026-11-20 21:23:09,767 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/livechat_service/do not create new thread when operator answers to visitor"
+2026-11-20 21:23:10,336 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/livechat_service/Only create one channel when posting multiple messages"
+2026-11-20 21:23:12,724 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/livechat_service/guest token channel is subscribed at start and unsubscribed at destroy"
+2026-11-20 21:23:13,218 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] "@im_livechat/embed/livechat_service" ended (passed: 6 / time: 4749 ms)
+2026-11-20 21:23:13,531 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [MEMINFO] @im_livechat/embed/livechat_service (after GC) - used: 76042594 - total: 180980474 - limit: 4395630592 - tests: 6
+2026-11-20 21:23:13,669 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/livechat_session/Session is reset after failing to persist the channel"
+2026-11-20 21:23:14,635 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/livechat_session/Fold state is saved"
+2026-11-20 21:23:15,427 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/livechat_session/Seen message is saved on the server"
+2026-11-20 21:23:16,975 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] "@im_livechat/embed/livechat_session" ended (passed: 3 / time: 3279 ms)
+2026-11-20 21:23:17,238 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [MEMINFO] @im_livechat/embed/livechat_session (after GC) - used: 72800961 - total: 176789529 - limit: 4395630592 - tests: 3
+2026-11-20 21:23:17,498 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/message_reactions/user custom live chat user name for message reactions"
+2026-11-20 21:23:18,066 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] "@im_livechat/embed/message_reactions" ended (passed: 1 / time: 550 ms)
+2026-11-20 21:23:18,731 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [MEMINFO] @im_livechat/embed/message_reactions (after GC) - used: 57095523 - total: 157666223 - limit: 4395630592 - tests: 1
+2026-11-20 21:23:18,867 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/suggestion/Visitor cannot use @ mentions in livechat"
+2026-11-20 21:23:19,367 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] "@im_livechat/embed/suggestion" ended (passed: 1 / time: 491 ms)
+2026-11-20 21:23:19,608 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [MEMINFO] @im_livechat/embed/suggestion (after GC) - used: 60100437 - total: 137743317 - limit: 4395630592 - tests: 1
+2026-11-20 21:23:19,754 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/transcript_sender/send"
+2026-11-20 21:23:21,294 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/transcript_sender/send failed"
+2026-11-20 21:23:22,430 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] "@im_livechat/embed/transcript_sender" ended (passed: 2 / time: 2659 ms)
+2026-11-20 21:23:22,768 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [MEMINFO] @im_livechat/embed/transcript_sender (after GC) - used: 69719361 - total: 152425661 - limit: 4395630592 - tests: 2
+2026-11-20 21:23:22,876 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/unread_messages/new message from operator displays unread counter"
+2026-11-20 21:23:23,540 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/unread_messages/focus on unread livechat marks it as read"
+2026-11-20 21:23:25,001 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/unread_messages/new message from operator is automatically translated"
+2026-11-20 21:23:25,740 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] "@im_livechat/embed/unread_messages" ended (passed: 3 / time: 2798 ms)
+2026-11-20 21:23:26,108 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [MEMINFO] @im_livechat/embed/unread_messages (after GC) - used: 68776753 - total: 157144309 - limit: 4395630592 - tests: 3
+2026-11-20 21:23:26,194 77006 INFO crm_final_measure odoo.http.server: 127.0.0.1 im_LKmGG - [20/Nov/2026 21:23:26] "POST /web/dataset/call_kw/ir.module.module.dependency/all_dependencies#ir.module.module.dependency.all_dependencies HTTP/1.1" 200 3406 13 0.019 0.051 rw
+2026-11-20 21:23:26,504 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@test_discuss_full/embed/livechat_button/open/close persisted channel"
+2026-11-20 21:23:28,804 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] "@test_discuss_full/embed/livechat_button" ended (passed: 1 / time: 2296 ms)
+2026-11-20 21:23:29,107 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [MEMINFO] @test_discuss_full/embed/livechat_button (after GC) - used: 72476496 - total: 158476320 - limit: 4395630592 - tests: 1
+2026-11-20 21:23:29,333 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [MEMINFO] tests done (after GC) - used: 61080324 - total: 157403356 - limit: 4395630592
+2026-11-20 21:23:29,335 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] "@im_livechat" ended (passed: 42 / failed: 1 / time: 40322 ms)
+2026-11-20 21:23:29,337 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] "@test_discuss_full" ended (passed: 1 / time: 2296 ms)
+2026-11-20 21:23:29,339 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Failed 1 tests (43 passed, total time: 00:00:49)
+2026-11-20 21:23:29,340 77006 ERROR crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: Some tests failed: see above for details
+Failed tests link: http://127.0.0.1:17854/web/tests/livechat?preset=desktop&id=13fc4a31&debugTest=true&debug=assets
+2026-11-20 21:23:29,341 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Asking for screenshot
+2026-11-20 21:23:29,346 77006 INFO crm_final_measure odoo.addons.bus.websocket: Disconnecting 0 websockets
+2026-11-20 21:23:29,603 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Closing chrome headless with pid 77405
+2026-11-20 21:23:29,605 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Screenshot in: /tmp/odoo_tests/crm_final_measure/screenshots/sc_20261120_212329_603207_test_external_livechat.png
+2026-11-20 21:23:29,605 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Closing websocket connection
+2026-11-20 21:23:29,612 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Terminating chrome headless with pid 77405
+2026-11-20 21:23:30,004 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Chrome Log in: /tmp/odoo_tests/crm_final_measure/chrome_logs/chrome_log_20261120_212330_004673_test_external_livechat.txt
+2026-11-20 21:23:30,005 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Removing chrome user profile "/tmp/tmp2x_gkd_n_chrome_odoo"
+2026-11-20 21:23:30,060 77006 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js: ======================================================================
+2026-11-20 21:23:30,060 77006 ERROR crm_final_measure odoo.addons.im_livechat.tests.test_js: FAIL: ExternalTestSuite.test_external_livechat
+Traceback (most recent call last):
+  File "/workspace/odoo/addons/im_livechat/tests/test_js.py", line 10, in test_external_livechat
+    self.browser_js(
+  File "/workspace/odoo/odoo/tests/common.py", line 2990, in browser_js
+    self.fail(str(error))
+AssertionError: Some tests failed: see above for details
+Failed tests link: http://127.0.0.1:17854/web/tests/livechat?preset=desktop&id=13fc4a31&debugTest=true&debug=assets
+
+2026-11-20 21:23:30,240 77006 INFO crm_final_measure odoo.addons.base.models.ir_attachment: filestore gc 24 checked, 12 removed
+2026-11-20 21:23:30,273 77006 INFO crm_final_measure odoo.service.server: 1 post-tests in 92.77s, 1555 queries
+2026-11-20 21:23:30,302 77006 INFO crm_final_measure odoo.tests.stats: im_livechat: 3 tests 57.83s 934 queries
+2026-11-20 21:23:30,303 77006 ERROR crm_final_measure odoo.tests.result: 1 failed, 0 error(s) of 1 tests when loading database 'crm_final_measure'
+2026-11-20 21:23:30,303 77006 INFO crm_final_measure odoo.service.server.ThreadedServer: Failed: odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat - Some tests failed: see above for details [...]
+2026-11-20 21:23:30,303 77006 INFO crm_final_measure odoo.service.server.ThreadedServer: Initiating shutdown
+2026-11-20 21:23:30,303 77006 INFO crm_final_measure odoo.service.server.ThreadedServer: Hit CTRL-C again or send a second signal to force the shutdown.
+2026-11-20 21:23:30,303 77006 INFO crm_final_measure odoo.addons.bus.websocket: Disconnecting 0 websockets
+2026-11-20 21:23:30,459 77006 INFO crm_final_measure odoo.sql_db: ConnectionPool(read/write;used=0/count=0/max=64): Closed 1 connections 

@@ -1,0 +1,31 @@
+test_visited_lead (__main__.OfflineLead.test_visited_lead) ... 2026-11-20 20:55:42,958 58459 INFO ? lead: Chrome pid: 58789
+2026-11-20 20:55:42,960 58459 INFO ? lead: Chrome headless temporary user profile dir: /tmp/tmpqd_6o4sj_chrome_odoo
+2026-11-20 20:55:42,960 58459 INFO ? lead: Issuing json command http://127.0.0.1:38083/json/version
+2026-11-20 20:55:44,211 58459 INFO ? lead: Browser version: Chrome/156.0.8078.79
+2026-11-20 20:55:44,211 58459 INFO ? lead: Issuing json command http://127.0.0.1:38083/json
+2026-11-20 20:55:44,410 58459 INFO ? lead: Websocket url found: ws://127.0.0.1:38083/devtools/page/302D333CF64AF2E7C6A08C1A69CE77DC
+2026-11-20 20:55:44,498 58459 INFO ? lead: Enable chrome headless console log notification
+2026-11-20 20:55:44,626 58459 INFO ? lead: Chrome headless enable page notifications
+2026-11-20 20:55:44,836 58459 INFO ? lead: Navigating to: "http://127.0.0.1:8074/odoo/crm/46"
+2026-11-20 20:55:46,434 58459 INFO ? lead: Navigation result: {'frameId': '302D333CF64AF2E7C6A08C1A69CE77DC', 'loaderId': 'B9AC9FBA0ECFDBAA9D1649341FACF969', 'isDownload': False}
+2026-11-20 20:56:02,065 58459 INFO ? lead: Navigating to: "http://127.0.0.1:8074/odoo/crm/46"
+2026-11-20 20:56:02,306 58459 INFO ? lead: Navigation result: {'frameId': '302D333CF64AF2E7C6A08C1A69CE77DC', 'loaderId': '3F291A68FAE3CA01DF959EC15A5AA8E9', 'isDownload': False}
+2026-11-20 20:56:10,599 58459 INFO ? lead: Navigating to: "about:blank"
+2026-11-20 20:56:10,670 58459 INFO ? lead: Navigation result: {'frameId': '302D333CF64AF2E7C6A08C1A69CE77DC', 'loaderId': '2C7D66ADE0E31EF5E21590E1936DD198', 'isDownload': False}
+2026-11-20 20:56:10,670 58459 INFO ? lead: Waiting for frame '302D333CF64AF2E7C6A08C1A69CE77DC' to stop loading
+2026-11-20 20:57:08,380 58459 INFO ? lead: Navigating to: "http://127.0.0.1:8074/odoo/crm/46"
+2026-11-20 20:57:09,409 58459 INFO ? lead: Navigation result: {'frameId': '302D333CF64AF2E7C6A08C1A69CE77DC', 'loaderId': '1B6B9E58177DACF69E0E54AE00A84871', 'isDownload': False}
+2026-11-20 20:57:15,509 58459 INFO ? lead: Navigating to: "http://127.0.0.1:8074/odoo/crm/46"
+2026-11-20 20:57:15,742 58459 INFO ? lead: Navigation result: {'frameId': '302D333CF64AF2E7C6A08C1A69CE77DC', 'loaderId': '592006D01B3C89BD04D8F81BF0D85B0C', 'isDownload': False}
+PENDING_NOTE_APPLIED_ONCE_AFTER_UPGRADE
+2026-11-20 20:57:20,510 58459 INFO ? lead: Closing chrome headless with pid 58789
+2026-11-20 20:57:20,513 58459 INFO ? lead: Closing websocket connection
+2026-11-20 20:57:20,516 58459 INFO ? lead: Terminating chrome headless with pid 58789
+2026-11-20 20:57:20,697 58459 INFO ? lead: Chrome Log in: /tmp/odoo_tests/crm_flow/chrome_logs/chrome_log_20261120_205720_696397_runTest.txt
+2026-11-20 20:57:20,698 58459 INFO ? lead: Removing chrome user profile "/tmp/tmpqd_6o4sj_chrome_odoo"
+ok
+
+----------------------------------------------------------------------
+Ran 1 test in 112.330s
+
+OK

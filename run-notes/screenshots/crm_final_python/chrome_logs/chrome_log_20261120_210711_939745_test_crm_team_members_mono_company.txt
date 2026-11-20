@@ -1,0 +1,81 @@
+[64536:64566:1120/210644.302568:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[64536:64566:1120/210644.302716:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[64536:64566:1120/210644.302743:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[64536:64566:1120/210644.302761:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[64536:64566:1120/210644.302775:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[64536:64566:1120/210644.302785:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[64536:64566:1120/210644.302792:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[64536:64566:1120/210644.420123:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[64578:64578:1120/210644.722104:WARNING:media/gpu/vaapi/vaapi_wrapper.cc:1655] drmGetDevices2() has not found any devices
+[64578:64578:1120/210644.744827:WARNING:sandbox/policy/linux/sandbox_linux.cc:405] InitializeSandbox() called with multiple threads in process gpu-process.
+[64536:64566:1120/210644.752112:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[64536:64577:1120/210644.762459:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 64600: Read-only file system (30)
+[64536:64536:1120/210644.841741:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[64536:64536:1120/210644.841815:WARNING:device/bluetooth/dbus/bluez_dbus_manager.cc:209] Floss manager service not available, cannot set Floss enable/disable.
+[64536:64536:1120/210644.841909:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[64536:64566:1120/210644.851176:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[64536:64566:1120/210644.851213:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[64536:64536:1120/210644.858565:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[64536:64536:1120/210644.870104:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[64536:64566:1120/210644.900017:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[64536:64566:1120/210644.900084:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[64536:64566:1120/210644.900103:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[64536:64577:1120/210645.324523:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 64636: Read-only file system (30)
+[64536:64577:1120/210645.610501:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 64648: Read-only file system (30)
+[64536:64536:1120/210645.705643:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[64536:64536:1120/210645.714617:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[64536:64566:1120/210645.714947:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[64536:64536:1120/210645.725261:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[64536:64536:1120/210645.730355:WARNING:dbus/property.cc:94] Failed to connect to PropertiesChangedsignal.
+[64536:64536:1120/210645.730387:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.Properties.GetAll: object_path= /org/freedesktop/UPower/devices/DisplayDevice: unknown error type: 
+[64536:64536:1120/210645.730396:WARNING:dbus/property.cc:174] GetAll request failed for: org.freedesktop.UPower.Device
+[64536:64577:1120/210645.734137:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 64657: Read-only file system (30)
+[64536:64536:1120/210645.819372:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[64536:64566:1120/210645.819717:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[64536:64536:1120/210645.854682:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[64536:64566:1120/210645.858855:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[64536:64536:1120/210645.898841:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[64536:64536:1120/210645.898868:WARNING:ui/base/idle/idle_linux.cc:111] None of the known D-Bus ScreenSaver services could be used.
+[64536:64536:1120/210654.220665:INFO:CONSOLE:1148] "Owl is running in 'dev' mode.", source: http://127.0.0.1:8071/web/assets/56c5002/web.assets_web.min.js (1148)
+[64536:64536:1120/210654.370199:INFO:CONSOLE:672] "Hoot DOM helpers available from `window.hoot`", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (672)
+[64536:64536:1120/210654.374414:INFO:CONSOLE:683] "[1/15] Tour create_crm_team_tour → Step .o_navbar_apps_menu button:enabled", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[64536:64536:1120/210656.510030:INFO:CONSOLE:683] "[2/15] Tour create_crm_team_tour → Step .o_app[data-menu-xmlid="crm.crm_menu_root"]", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[64536:64536:1120/210656.553608:INFO:CONSOLE:683] "[3/15] Tour create_crm_team_tour → Step .o_app[data-menu-xmlid="crm.crm_menu_root"]", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[64536:64536:1120/210656.553715:INFO:CONSOLE:683] "[4/15] Tour create_crm_team_tour → Step button[data-menu-xmlid="crm.crm_menu_config"]", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[64536:64536:1120/210657.871685:INFO:CONSOLE:683] "[5/15] Tour create_crm_team_tour → Step a[data-menu-xmlid="crm.crm_team_config"]", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[64536:64536:1120/210657.925522:INFO:CONSOLE:683] "[6/15] Tour create_crm_team_tour → Step button.o_list_button_add", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[64536:64536:1120/210659.412450:INFO:CONSOLE:683] "[7/15] Tour create_crm_team_tour → Step input[id="name_0"]", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[64536:64536:1120/210700.456320:INFO:CONSOLE:683] "[8/15] Tour create_crm_team_tour → Step .btn.o-kanban-button-new", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[64536:64536:1120/210700.743369:INFO:CONSOLE:683] "[9/15] Tour create_crm_team_tour → Step div.modal-dialog tr:contains("Test Salesman") input.form-check-input", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[64536:64536:1120/210710.771841:INFO:CONSOLE:676] "console.groupEnd", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (676)
+[64536:64536:1120/210710.772140:INFO:CONSOLE:676] "{
+  "trigger": "button.o_list_button_add",
+  "run": "click"
+},
+{
+  "trigger": "input[id=\"name_0\"]",
+  "run": "edit My CRM Team"
+},
+{
+  "trigger": ".btn.o-kanban-button-new",
+  "run": "click"
+},
+---------- FAILED: [9/15] Tour create_crm_team_tour → Step div.modal-dialog tr:contains("Test Salesman") input.form-check-input ----------
+{
+  "trigger": "div.modal-dialog tr:contains(\"Test Salesman\") input.form-check-input",
+  "run": "click"
+},
+------------------------------------------------------------------------------------------------------------------------------------------
+{
+  "trigger": "div.modal-dialog tr:contains(\"Test Sales Manager\") input.form-check-input",
+  "run": "click"
+},
+{
+  "trigger": "div.modal-dialog tr:contains(\"Test Sales Manager\") input.form-check-input:checked"
+},
+{
+  "trigger": ".o_selection_box:contains(2)"
+},", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (676)
+[64536:64536:1120/210710.797689:INFO:CONSOLE:676] "FAILED: [9/15] Tour create_crm_team_tour → Step div.modal-dialog tr:contains("Test Salesman") input.form-check-input.
+Element (div.modal-dialog tr:contains("Test Salesman") input.form-check-input) has not been found.
+TIMEOUT step failed to complete within 10000 ms.", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (676)

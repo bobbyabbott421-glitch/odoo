@@ -1,0 +1,51 @@
+[93730:93760:1120/215851.851685:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[93730:93760:1120/215851.865988:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[93730:93760:1120/215851.866229:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[93730:93760:1120/215851.866288:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[93730:93760:1120/215851.866311:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[93730:93760:1120/215851.866321:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[93730:93760:1120/215851.866328:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[93730:93760:1120/215851.887367:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[93730:93773:1120/215852.022629:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 93777: Read-only file system (30)
+[93730:93760:1120/215852.025285:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[93730:93730:1120/215852.056842:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[93730:93730:1120/215852.056893:WARNING:device/bluetooth/dbus/bluez_dbus_manager.cc:209] Floss manager service not available, cannot set Floss enable/disable.
+[93730:93730:1120/215852.056907:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[93730:93730:1120/215852.057049:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[93730:93730:1120/215852.061306:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[93730:93760:1120/215852.064244:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[93730:93760:1120/215852.064717:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[93730:93760:1120/215852.064728:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[93730:93760:1120/215852.064773:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[93730:93760:1120/215852.064797:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[93730:93730:1120/215852.066747:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[93730:93730:1120/215852.066957:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[93730:93730:1120/215852.067013:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[93730:93760:1120/215852.067049:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[93730:93730:1120/215852.068745:WARNING:dbus/property.cc:94] Failed to connect to PropertiesChangedsignal.
+[93730:93730:1120/215852.068778:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.Properties.GetAll: object_path= /org/freedesktop/UPower/devices/DisplayDevice: unknown error type: 
+[93730:93730:1120/215852.068783:WARNING:dbus/property.cc:174] GetAll request failed for: org.freedesktop.UPower.Device
+[93730:93773:1120/215852.224828:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 93817: Read-only file system (30)
+[93775:93775:1120/215852.243333:WARNING:media/gpu/vaapi/vaapi_wrapper.cc:1655] drmGetDevices2() has not found any devices
+[93775:93775:1120/215852.301468:WARNING:sandbox/policy/linux/sandbox_linux.cc:405] InitializeSandbox() called with multiple threads in process gpu-process.
+[93730:93773:1120/215852.340983:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 93837: Read-only file system (30)
+[93730:93773:1120/215852.345997:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 93840: Read-only file system (30)
+[93730:93730:1120/215852.371279:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[93730:93760:1120/215852.371431:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[93730:93730:1120/215852.921892:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[93730:93760:1120/215852.922881:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[93730:93730:1120/215852.960120:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[93730:93730:1120/215852.960143:WARNING:ui/base/idle/idle_linux.cc:111] None of the known D-Bus ScreenSaver services could be used.
+[93730:93730:1120/215855.544652:INFO:CONSOLE:1148] "Owl is running in 'dev' mode.", source: http://127.0.0.1:8071/web/assets/56c5002/web.assets_web.min.js (1148)
+[93730:93730:1120/215855.645600:INFO:CONSOLE:672] "Hoot DOM helpers available from `window.hoot`", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (672)
+[93730:93730:1120/215855.646366:INFO:CONSOLE:683] "[1/4] Tour test_cloc_user_space → Step .o_debug_manager button", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[93730:93730:1120/215856.353727:INFO:CONSOLE:683] "[2/4] Tour test_cloc_user_space → Step .o-overlay-container .o-dropdown-item:contains(Count LoC)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[93730:93730:1120/215857.306209:INFO:CONSOLE:683] "[3/4] Tour test_cloc_user_space → Step .modal:contains(Count lines of code)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[93730:93730:1120/215858.119082:INFO:CONSOLE:683] "[4/4] Tour test_cloc_user_space → Step tr:has(td:contains(/^ir.actions.server$/)):contains(test cloc user space)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[93730:93730:1120/215858.120930:INFO:CONSOLE:666] "tour succeeded", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (666)
+[93730:93730:1120/215858.122606:INFO:CONSOLE:666] "
+
+╔═════════════════════════════════════╗
+║ TOUR test_cloc_user_space SUCCEEDED ║
+╚═════════════════════════════════════╝
+", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (666)

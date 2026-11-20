@@ -1,0 +1,170 @@
+2026-11-20 18:41:40,859 1507 INFO ? odoo: Odoo version 20.0
+2026-11-20 18:41:40,859 1507 INFO ? odoo: Using configuration file at /workspace/odoo-env/odoo.conf
+2026-11-20 18:41:40,859 1507 INFO ? odoo: addons paths: _NamespacePath(['/workspace/odoo/odoo/addons', '/workspace/odoo-env/data/addons/20.0', '/workspace/odoo/addons'])
+2026-11-20 18:41:40,859 1507 INFO ? odoo: database: odoo@/workspace/odoo-env/run:5432
+2026-11-20 18:41:41,329 1507 INFO ? odoo.service.server: HTTP service running on 127.0.0.1:8074
+2026-11-20 18:41:41,352 1507 INFO odoo_dev odoo.modules.loading: loading 1 modules...
+2026-11-20 18:41:41,357 1507 INFO odoo_dev odoo.modules.loading: 1 modules loaded in 0.01s, 0 queries (+0 extra)
+2026-11-20 18:41:41,362 1507 INFO odoo_dev odoo.modules.loading: loading 16 modules...
+2026-11-20 18:41:41,533 1507 WARNING odoo_dev odoo.addons.mail.controllers.attachment: markdown2 is not installed, markdown will not be rendered
+2026-11-20 18:41:41,544 1507 INFO odoo_dev odoo.modules.loading: 16 modules loaded in 0.18s, 0 queries (+0 extra)
+2026-11-20 18:41:41,587 1507 INFO odoo_dev odoo.modules.loading: Modules loaded.
+2026-11-20 18:41:41,606 1507 INFO odoo_dev odoo.registry: Registry loaded in 0.275s
+2026-11-20 18:41:41,608 1507 INFO odoo_dev odoo.addons.base.models.ir_http: Generating routing map for key None
+2026-11-20 18:41:41,624 1507 INFO odoo_dev odoo.http.server: 127.0.0.1 TLGUsmxU - [20/Nov/2026 18:41:41] "GET /web/health HTTP/1.1" 200 18 7 0.009 0.283 rw
+2026-11-20 18:41:42,823 1507 INFO odoo_dev odoo.http.server: 127.0.0.1 MarSd2bP - [20/Nov/2026 18:41:42] "GET /web/health HTTP/1.1" 200 18 3 0.008 0.027 rw
+2026-11-20 18:41:42,920 1507 WARNING odoo_dev odoo.http: <function odoo.addons.web.controllers.home.health> called ignoring args {'t'}
+2026-11-20 18:41:42,924 1507 INFO odoo_dev odoo.http.server: 127.0.0.1 PEWgfIq6 - [20/Nov/2026 18:41:42] "GET /web/health?t=1795200102883 HTTP/1.1" 200 18 3 0.007 0.118 rw
+2026-11-20 18:41:42,942 1507 INFO odoo_dev odoo.http.server: 127.0.0.1 uHL0ozA8 - [20/Nov/2026 18:41:42] "GET /favicon.ico HTTP/1.1" 404 207 6 0.021 0.015 rw
+2026-11-20 18:41:42,966 1507 WARNING odoo_dev odoo.http: <function odoo.addons.web.controllers.home.health> called ignoring args {'t'}
+2026-11-20 18:41:42,969 1507 INFO odoo_dev odoo.http.server: 127.0.0.1 ifg0GfGw - [20/Nov/2026 18:41:42] "GET /web/health?t=1795200102946 HTTP/1.1" 200 18 3 0.007 0.009 rw
+2026-11-20 18:41:49,057 1507 INFO odoo_dev odoo.service.server.ThreadedServer: Initiating shutdown
+2026-11-20 18:41:49,058 1507 INFO odoo_dev odoo.service.server.ThreadedServer: Hit CTRL-C again or send a second signal to force the shutdown.
+2026-11-20 18:41:49,058 1507 INFO odoo_dev odoo.addons.bus.websocket: Disconnecting 0 websockets
+2026-11-20 18:41:49,160 1507 INFO odoo_dev odoo.sql_db: ConnectionPool(read/write;used=0/count=0/max=64): Closed 1 connections 
+2026-11-20 18:41:58,637 1740 INFO ? odoo: Odoo version 20.0
+2026-11-20 18:41:58,637 1740 INFO ? odoo: Using configuration file at /workspace/odoo-env/odoo.conf
+2026-11-20 18:41:58,637 1740 INFO ? odoo: addons paths: _NamespacePath(['/workspace/odoo/odoo/addons', '/workspace/odoo-env/data/addons/20.0', '/workspace/odoo/addons'])
+2026-11-20 18:41:58,637 1740 INFO ? odoo: database: odoo@/workspace/odoo-env/run:5432
+2026-11-20 18:41:59,392 1740 INFO ? odoo.service.server: HTTP service running on 127.0.0.1:8074
+2026-11-20 18:41:59,413 1740 INFO odoo_dev odoo.modules.loading: loading 1 modules...
+2026-11-20 18:41:59,418 1740 INFO odoo_dev odoo.modules.loading: 1 modules loaded in 0.00s, 0 queries (+0 extra)
+2026-11-20 18:41:59,426 1740 INFO odoo_dev odoo.modules.loading: loading 16 modules...
+2026-11-20 18:41:59,620 1740 WARNING odoo_dev odoo.addons.mail.controllers.attachment: markdown2 is not installed, markdown will not be rendered
+2026-11-20 18:41:59,642 1740 INFO odoo_dev odoo.modules.loading: 16 modules loaded in 0.22s, 0 queries (+1 extra)
+2026-11-20 18:41:59,700 1740 INFO odoo_dev odoo.modules.loading: Modules loaded.
+2026-11-20 18:41:59,725 1740 INFO odoo_dev odoo.registry: Registry loaded in 0.332s
+2026-11-20 18:41:59,729 1740 INFO odoo_dev odoo.addons.base.models.ir_http: Generating routing map for key None
+2026-11-20 18:41:59,761 1740 INFO odoo_dev odoo.http.server: 127.0.0.1 Wn4HcJpa - [20/Nov/2026 18:41:59] "GET /web/health HTTP/1.1" 200 18 7 0.01 0.215 rw
+2026-11-20 18:42:00,317 1740 INFO odoo_dev odoo.http.server: 127.0.0.1 M0L1ZnEv - [20/Nov/2026 18:42:00] "GET /web/health HTTP/1.1" 200 18 3 0.012 0.029 rw
+2026-11-20 18:42:00,413 1740 WARNING odoo_dev odoo.http: <function odoo.addons.web.controllers.home.health> called ignoring args {'t'}
+2026-11-20 18:42:00,417 1740 INFO odoo_dev odoo.http.server: 127.0.0.1 XSLssy_3 - [20/Nov/2026 18:42:00] "GET /web/health?t=1795200120370 HTTP/1.1" 200 18 3 0.023 0.099 rw
+2026-11-20 18:42:00,440 1740 INFO odoo_dev odoo.http.server: 127.0.0.1 UKbsRPe6 - [20/Nov/2026 18:42:00] "GET /favicon.ico HTTP/1.1" 404 207 6 0.025 0.021 rw
+2026-11-20 18:42:00,462 1740 INFO odoo_dev odoo.http.server: 127.0.0.1 JFZ5Ualb - [20/Nov/2026 18:42:00] "GET /web/health HTTP/1.1" 200 18 3 0.007 0.014 rw
+2026-11-20 18:42:00,489 1740 WARNING odoo_dev odoo.http: <function odoo.addons.web.controllers.home.health> called ignoring args {'t'}
+2026-11-20 18:42:00,491 1740 INFO odoo_dev odoo.http.server: 127.0.0.1 4DONEkJN - [20/Nov/2026 18:42:00] "GET /web/health?t=1795200120467 HTTP/1.1" 200 18 3 0.011 0.011 rw
+2026-11-20 18:42:00,504 1740 INFO odoo_dev odoo.service.server.ThreadedServer: Initiating shutdown
+2026-11-20 18:42:00,504 1740 INFO odoo_dev odoo.service.server.ThreadedServer: Hit CTRL-C again or send a second signal to force the shutdown.
+2026-11-20 18:42:00,504 1740 INFO odoo_dev odoo.addons.bus.websocket: Disconnecting 0 websockets
+2026-11-20 18:42:00,607 1740 INFO odoo_dev odoo.sql_db: ConnectionPool(read/write;used=0/count=0/max=64): Closed 2 connections 
+2026-11-20 18:42:01,325 1893 INFO ? odoo: Odoo version 20.0
+2026-11-20 18:42:01,327 1893 INFO ? odoo: Using configuration file at /workspace/odoo-env/odoo.conf
+2026-11-20 18:42:01,327 1893 INFO ? odoo: addons paths: _NamespacePath(['/workspace/odoo/odoo/addons', '/workspace/odoo-env/data/addons/20.0', '/workspace/odoo/addons'])
+2026-11-20 18:42:01,327 1893 INFO ? odoo: database: odoo@/workspace/odoo-env/run:5432
+2026-11-20 18:42:01,872 1893 INFO ? odoo.service.server: HTTP service running on 127.0.0.1:8074
+2026-11-20 18:42:01,897 1893 INFO odoo_dev odoo.modules.loading: loading 1 modules...
+2026-11-20 18:42:01,902 1893 INFO odoo_dev odoo.modules.loading: 1 modules loaded in 0.00s, 0 queries (+0 extra)
+2026-11-20 18:42:01,908 1893 INFO odoo_dev odoo.modules.loading: loading 16 modules...
+2026-11-20 18:42:02,081 1893 WARNING odoo_dev odoo.addons.mail.controllers.attachment: markdown2 is not installed, markdown will not be rendered
+2026-11-20 18:42:02,096 1893 INFO odoo_dev odoo.modules.loading: 16 modules loaded in 0.19s, 0 queries (+1 extra)
+2026-11-20 18:42:02,150 1893 INFO odoo_dev odoo.modules.loading: Modules loaded.
+2026-11-20 18:42:02,168 1893 INFO odoo_dev odoo.registry: Registry loaded in 0.295s
+2026-11-20 18:42:02,171 1893 INFO odoo_dev odoo.addons.base.models.ir_http: Generating routing map for key None
+2026-11-20 18:42:02,196 1893 INFO odoo_dev odoo.http.server: 127.0.0.1 ZC-fiRWf - [20/Nov/2026 18:42:02] "GET /web/health HTTP/1.1" 200 18 7 0.007 0.188 rw
+2026-11-20 18:42:02,220 1893 WARNING odoo_dev odoo.http: <function odoo.addons.web.controllers.home.health> called ignoring args {'t'}
+2026-11-20 18:42:02,222 1893 INFO odoo_dev odoo.http.server: 127.0.0.1 2h9CCiSJ - [20/Nov/2026 18:42:02] "GET /web/health?t=1795200122202 HTTP/1.1" 200 18 3 0.008 0.009 rw
+2026-11-20 18:42:02,225 1893 INFO odoo_dev odoo.service.server.ThreadedServer: Initiating shutdown
+2026-11-20 18:42:02,225 1893 INFO odoo_dev odoo.service.server.ThreadedServer: Hit CTRL-C again or send a second signal to force the shutdown.
+2026-11-20 18:42:02,225 1893 INFO odoo_dev odoo.addons.bus.websocket: Disconnecting 0 websockets
+2026-11-20 18:42:02,328 1893 INFO odoo_dev odoo.sql_db: ConnectionPool(read/write;used=0/count=0/max=64): Closed 1 connections 
+2026-11-20 19:00:32,409 9971 INFO ? odoo: Odoo version 20.0
+2026-11-20 19:00:32,409 9971 INFO ? odoo: Using configuration file at /workspace/odoo-env/odoo.conf
+2026-11-20 19:00:32,409 9971 INFO ? odoo: addons paths: _NamespacePath(['/workspace/odoo/odoo/addons', '/workspace/odoo-env/data/addons/20.0', '/workspace/odoo/addons'])
+2026-11-20 19:00:32,409 9971 INFO ? odoo: database: odoo@/workspace/odoo-env/run:5432
+2026-11-20 19:00:33,561 9971 INFO ? odoo.service.server: HTTP service running on 127.0.0.1:8074
+2026-11-20 19:00:33,638 9971 INFO odoo_dev odoo.modules.loading: loading 1 modules...
+2026-11-20 19:00:33,651 9971 INFO odoo_dev odoo.modules.loading: 1 modules loaded in 0.01s, 0 queries (+0 extra)
+2026-11-20 19:00:33,661 9971 INFO odoo_dev odoo.modules.loading: loading 16 modules...
+2026-11-20 19:00:34,047 9971 WARNING odoo_dev odoo.addons.mail.controllers.attachment: markdown2 is not installed, markdown will not be rendered
+2026-11-20 19:00:34,098 9971 INFO odoo_dev odoo.modules.loading: 16 modules loaded in 0.44s, 0 queries (+1 extra)
+2026-11-20 19:00:34,199 9971 INFO odoo_dev odoo.modules.loading: Modules loaded.
+2026-11-20 19:00:34,263 9971 INFO odoo_dev odoo.registry: Registry loaded in 0.693s
+2026-11-20 19:00:34,280 9971 INFO odoo_dev odoo.addons.base.models.ir_http: Generating routing map for key None
+2026-11-20 19:00:34,330 9971 INFO odoo_dev odoo.http.server: 127.0.0.1 4i-h1mZz - [20/Nov/2026 19:00:34] "GET /web/health HTTP/1.1" 200 18 7 0.031 0.566 rw
+2026-11-20 19:00:35,713 9971 INFO odoo_dev odoo.http.server: 127.0.0.1 V0kzuSUK - [20/Nov/2026 19:00:35] "GET /web/health HTTP/1.1" 200 18 3 0.01 0.067 rw
+2026-11-20 19:00:35,906 9971 WARNING odoo_dev odoo.http: <function odoo.addons.web.controllers.home.health> called ignoring args {'t'}
+2026-11-20 19:00:35,910 9971 INFO odoo_dev odoo.http.server: 127.0.0.1 V145XOnq - [20/Nov/2026 19:00:35] "GET /web/health?t=1795201235830 HTTP/1.1" 200 18 3 0.024 0.223 rw
+2026-11-20 19:00:35,940 9971 INFO odoo_dev odoo.http.server: 127.0.0.1 2jUw66YV - [20/Nov/2026 19:00:35] "GET /favicon.ico HTTP/1.1" 404 207 6 0.038 0.039 rw
+2026-11-20 19:00:35,977 9971 INFO odoo_dev odoo.http.server: 127.0.0.1 WEue2Uug - [20/Nov/2026 19:00:35] "GET /web/health HTTP/1.1" 200 18 3 0.005 0.012 rw
+2026-11-20 19:00:36,027 9971 WARNING odoo_dev odoo.http: <function odoo.addons.web.controllers.home.health> called ignoring args {'t'}
+2026-11-20 19:00:36,033 9971 INFO odoo_dev odoo.http.server: 127.0.0.1 75Nzusnb - [20/Nov/2026 19:00:36] "GET /web/health?t=1795201235983 HTTP/1.1" 200 18 3 0.006 0.016 rw
+2026-11-20 19:00:36,037 9971 INFO odoo_dev odoo.service.server.ThreadedServer: Initiating shutdown
+2026-11-20 19:00:36,037 9971 INFO odoo_dev odoo.service.server.ThreadedServer: Hit CTRL-C again or send a second signal to force the shutdown.
+2026-11-20 19:00:36,037 9971 INFO odoo_dev odoo.addons.bus.websocket: Disconnecting 0 websockets
+2026-11-20 19:00:36,144 9971 INFO odoo_dev odoo.sql_db: ConnectionPool(read/write;used=0/count=0/max=64): Closed 1 connections 
+2026-11-20 19:00:37,049 10170 INFO ? odoo: Odoo version 20.0
+2026-11-20 19:00:37,050 10170 INFO ? odoo: Using configuration file at /workspace/odoo-env/odoo.conf
+2026-11-20 19:00:37,050 10170 INFO ? odoo: addons paths: _NamespacePath(['/workspace/odoo/odoo/addons', '/workspace/odoo-env/data/addons/20.0', '/workspace/odoo/addons'])
+2026-11-20 19:00:37,050 10170 INFO ? odoo: database: odoo@/workspace/odoo-env/run:5432
+2026-11-20 19:00:37,785 10170 INFO ? odoo.service.server: HTTP service running on 127.0.0.1:8074
+2026-11-20 19:00:37,818 10170 INFO odoo_dev odoo.modules.loading: loading 1 modules...
+2026-11-20 19:00:37,824 10170 INFO odoo_dev odoo.modules.loading: 1 modules loaded in 0.01s, 0 queries (+0 extra)
+2026-11-20 19:00:37,829 10170 INFO odoo_dev odoo.modules.loading: loading 16 modules...
+2026-11-20 19:00:37,992 10170 WARNING odoo_dev odoo.addons.mail.controllers.attachment: markdown2 is not installed, markdown will not be rendered
+2026-11-20 19:00:38,005 10170 INFO odoo_dev odoo.modules.loading: 16 modules loaded in 0.18s, 0 queries (+0 extra)
+2026-11-20 19:00:38,063 10170 INFO odoo_dev odoo.modules.loading: Modules loaded.
+2026-11-20 19:00:38,087 10170 INFO odoo_dev odoo.registry: Registry loaded in 0.302s
+2026-11-20 19:00:38,091 10170 INFO odoo_dev odoo.addons.base.models.ir_http: Generating routing map for key None
+2026-11-20 19:00:38,106 10170 INFO odoo_dev odoo.http.server: 127.0.0.1 MfStn46z - [20/Nov/2026 19:00:38] "GET /web/health HTTP/1.1" 200 18 7 0.014 0.283 rw
+2026-11-20 19:00:38,123 10170 WARNING odoo_dev odoo.http: <function odoo.addons.web.controllers.home.health> called ignoring args {'t'}
+2026-11-20 19:00:38,124 10170 INFO odoo_dev odoo.http.server: 127.0.0.1 mfL5dF1y - [20/Nov/2026 19:00:38] "GET /web/health?t=1795201238108 HTTP/1.1" 200 18 3 0.006 0.008 rw
+2026-11-20 19:00:38,127 10170 INFO odoo_dev odoo.service.server.ThreadedServer: Initiating shutdown
+2026-11-20 19:00:38,127 10170 INFO odoo_dev odoo.service.server.ThreadedServer: Hit CTRL-C again or send a second signal to force the shutdown.
+2026-11-20 19:00:38,127 10170 INFO odoo_dev odoo.addons.bus.websocket: Disconnecting 0 websockets
+2026-11-20 19:00:38,234 10170 INFO odoo_dev odoo.sql_db: ConnectionPool(read/write;used=0/count=0/max=64): Closed 1 connections 
+2026-11-20 20:51:04,270 56200 INFO ? odoo: Odoo version 20.0
+2026-11-20 20:51:04,273 56200 INFO ? odoo: Using configuration file at /workspace/odoo-env/odoo.conf
+2026-11-20 20:51:04,273 56200 INFO ? odoo: addons paths: _NamespacePath(['/workspace/odoo/odoo/addons', '/workspace/odoo-env/data/addons/20.0', '/workspace/odoo/addons'])
+2026-11-20 20:51:04,273 56200 INFO ? odoo: database: odoo@/workspace/odoo-env/run:5432
+2026-11-20 20:51:05,136 56200 INFO ? odoo.service.server: HTTP service running on 127.0.0.1:8074
+2026-11-20 20:51:05,166 56200 INFO crm_phase2 odoo.modules.loading: loading 1 modules...
+2026-11-20 20:51:05,172 56200 INFO crm_phase2 odoo.modules.loading: 1 modules loaded in 0.01s, 0 queries (+0 extra)
+2026-11-20 20:51:05,299 56200 INFO crm_phase2 odoo.modules.loading: loading 226 modules...
+2026-11-20 20:51:05,564 56200 WARNING crm_phase2 odoo.addons.mail.controllers.attachment: markdown2 is not installed, markdown will not be rendered
+2026-11-20 20:51:07,050 56200 INFO crm_phase2 odoo.modules.loading: 226 modules loaded in 1.75s, 0 queries (+1 extra)
+2026-11-20 20:51:07,908 56200 INFO crm_phase2 odoo.modules.loading: Modules loaded.
+2026-11-20 20:51:08,129 56200 INFO crm_phase2 odoo.registry: Registry loaded in 2.989s
+2026-11-20 20:51:08,147 56200 INFO crm_phase2 odoo.addons.base.models.ir_http: Generating routing map for key 1
+2026-11-20 20:51:08,179 56200 INFO crm_phase2 odoo.addons.base.models.ir_http: Generating routing map for key 1
+2026-11-20 20:51:08,320 56200 INFO crm_phase2 odoo.addons.base.models.ir_http: Generating routing map for key 1
+2026-11-20 20:51:09,021 56200 INFO crm_phase2 odoo.http.server: 127.0.0.1 2TXx5IzQ - [20/Nov/2026 20:51:09] "GET /web/health HTTP/1.1" 200 0 8 0.12 1.258 rw
+2026-11-20 20:51:09,024 56200 INFO crm_phase2 odoo.http.server: 127.0.0.1 IYf5QQcs - [20/Nov/2026 20:51:09] "GET /web/health HTTP/1.1" 200 0 8 0.124 3.672 rw
+2026-11-20 20:51:09,026 56200 INFO crm_phase2 odoo.http.server: 127.0.0.1 nGK83V0R - [20/Nov/2026 20:51:09] "GET /web/health HTTP/1.1" 200 0 5 0.11 2.484 rw
+2026-11-20 20:51:09,027 56200 INFO crm_phase2 odoo.http.server: 127.0.0.1 54uBBwAj - [20/Nov/2026 20:51:09] "GET /web/health HTTP/1.1" 200 18 4 0.069 0.101 rw
+2026-11-20 20:51:10,154 56200 INFO crm_phase2 odoo.http.server: 127.0.0.1 4Aei2OWU - [20/Nov/2026 20:51:10] "GET /web/health HTTP/1.1" 200 18 3 0.063 0.05 rw
+2026-11-20 20:51:10,308 56200 WARNING crm_phase2 odoo.http: <function odoo.addons.web.controllers.home.health> called ignoring args {'t'}
+2026-11-20 20:51:10,331 56200 INFO crm_phase2 odoo.http.server: 127.0.0.1 BpkMyBp1 - [20/Nov/2026 20:51:10] "GET /web/health?t=1795207870243 HTTP/1.1" 200 18 3 0.018 0.249 rw
+2026-11-20 20:51:10,468 56200 INFO crm_phase2 odoo.http.server: 127.0.0.1 B7yaJdRE - [20/Nov/2026 20:51:10] "GET /web/health HTTP/1.1" 200 18 3 0.041 0.059 rw
+2026-11-20 20:51:10,645 56200 WARNING crm_phase2 odoo.http: <function odoo.addons.web.controllers.home.health> called ignoring args {'t'}
+2026-11-20 20:51:10,662 56200 INFO crm_phase2 odoo.http.server: 127.0.0.1 f5tXKdLU - [20/Nov/2026 20:51:10] "GET /web/health?t=1795207870499 HTTP/1.1" 200 18 3 0.076 0.079 rw
+2026-11-20 20:51:10,696 56200 INFO crm_phase2 odoo.service.server.ThreadedServer: Initiating shutdown
+2026-11-20 20:51:10,696 56200 INFO crm_phase2 odoo.service.server.ThreadedServer: Hit CTRL-C again or send a second signal to force the shutdown.
+2026-11-20 20:51:10,697 56200 INFO crm_phase2 odoo.addons.bus.websocket: Disconnecting 0 websockets
+2026-11-20 20:51:10,711 56200 INFO crm_phase2 odoo.http.server: 127.0.0.1 gCrLcCdv - [20/Nov/2026 20:51:10] "GET /favicon.ico HTTP/1.1" 301 273 16 0.151 0.307 rw
+2026-11-20 20:51:10,839 56200 INFO crm_phase2 odoo.sql_db: ConnectionPool(read/write;used=0/count=0/max=64): Closed 4 connections 
+2026-11-20 20:51:10,840 56200 INFO crm_phase2 odoo.http.server: 127.0.0.1 gCrLcCdv - [20/Nov/2026 20:51:10] "GET /web/image/website/1/favicon?unique=0556b5e HTTP/1.1" 200 1150 5 0.042 0.078 rw
+2026-11-20 20:51:13,170 56383 INFO ? odoo: Odoo version 20.0
+2026-11-20 20:51:13,170 56383 INFO ? odoo: Using configuration file at /workspace/odoo-env/odoo.conf
+2026-11-20 20:51:13,170 56383 INFO ? odoo: addons paths: _NamespacePath(['/workspace/odoo/odoo/addons', '/workspace/odoo-env/data/addons/20.0', '/workspace/odoo/addons'])
+2026-11-20 20:51:13,170 56383 INFO ? odoo: database: odoo@/workspace/odoo-env/run:5432
+2026-11-20 20:51:14,099 56383 INFO ? odoo.service.server: HTTP service running on 127.0.0.1:8074
+2026-11-20 20:51:14,116 56383 INFO crm_phase2 odoo.modules.loading: loading 1 modules...
+2026-11-20 20:51:14,122 56383 INFO crm_phase2 odoo.modules.loading: 1 modules loaded in 0.01s, 0 queries (+0 extra)
+2026-11-20 20:51:14,237 56383 INFO crm_phase2 odoo.modules.loading: loading 226 modules...
+2026-11-20 20:51:14,528 56383 WARNING crm_phase2 odoo.addons.mail.controllers.attachment: markdown2 is not installed, markdown will not be rendered
+2026-11-20 20:51:16,318 56383 INFO crm_phase2 odoo.modules.loading: 226 modules loaded in 2.08s, 0 queries (+1 extra)
+2026-11-20 20:51:17,210 56383 INFO crm_phase2 odoo.modules.loading: Modules loaded.
+2026-11-20 20:51:17,446 56383 INFO crm_phase2 odoo.registry: Registry loaded in 3.345s
+2026-11-20 20:51:17,452 56383 INFO crm_phase2 odoo.addons.base.models.ir_http: Generating routing map for key 1
+2026-11-20 20:51:17,527 56383 INFO crm_phase2 odoo.addons.base.models.ir_http: Generating routing map for key 1
+2026-11-20 20:51:17,529 56383 INFO crm_phase2 odoo.addons.base.models.ir_http: Generating routing map for key 1
+2026-11-20 20:51:18,444 56383 INFO crm_phase2 odoo.http.server: 127.0.0.1 KA-k2rRF - [20/Nov/2026 20:51:18] "GET /web/health HTTP/1.1" 200 0 8 0.607 3.624 rw
+2026-11-20 20:51:18,458 56383 INFO crm_phase2 odoo.http.server: 127.0.0.1 Cibj_GZ3 - [20/Nov/2026 20:51:18] "GET /web/health HTTP/1.1" 200 0 5 0.087 2.952 rw
+2026-11-20 20:51:18,460 56383 INFO crm_phase2 odoo.http.server: 127.0.0.1 CXSqp_dM - [20/Nov/2026 20:51:18] "GET /web/health HTTP/1.1" 200 18 3 0.069 0.122 rw
+2026-11-20 20:51:18,465 56383 INFO crm_phase2 odoo.http.server: 127.0.0.1 2mVk5bpz - [20/Nov/2026 20:51:18] "GET /web/health HTTP/1.1" 200 0 5 0.067 1.766 rw
+2026-11-20 20:51:18,500 56383 WARNING crm_phase2 odoo.http: <function odoo.addons.web.controllers.home.health> called ignoring args {'t'}
+2026-11-20 20:51:18,501 56383 INFO crm_phase2 odoo.http.server: 127.0.0.1 gCrLcCdv - [20/Nov/2026 20:51:18] "GET /web/health?t=1795207878462 HTTP/1.1" 200 18 3 0.026 0.01 rw
+2026-11-20 20:51:18,506 56383 INFO crm_phase2 odoo.service.server.ThreadedServer: Initiating shutdown
+2026-11-20 20:51:18,506 56383 INFO crm_phase2 odoo.service.server.ThreadedServer: Hit CTRL-C again or send a second signal to force the shutdown.
+2026-11-20 20:51:18,506 56383 INFO crm_phase2 odoo.addons.bus.websocket: Disconnecting 0 websockets
+2026-11-20 20:51:18,617 56383 INFO crm_phase2 odoo.sql_db: ConnectionPool(read/write;used=0/count=0/max=64): Closed 4 connections 

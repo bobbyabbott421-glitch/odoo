@@ -1,0 +1,72 @@
+test_large_team (__main__.OfflinePipeline.test_large_team) ... 2026-11-20 18:50:51,516 4114 INFO ? scale: Chrome pid: 4135
+2026-11-20 18:50:51,518 4114 INFO ? scale: Chrome headless temporary user profile dir: /tmp/tmp6vlapcis_chrome_odoo
+2026-11-20 18:50:51,518 4114 INFO ? scale: Issuing json command http://127.0.0.1:43299/json/version
+2026-11-20 18:50:51,857 4114 INFO ? scale: Browser version: Chrome/156.0.8078.79
+2026-11-20 18:50:51,858 4114 INFO ? scale: Issuing json command http://127.0.0.1:43299/json
+2026-11-20 18:50:51,945 4114 INFO ? scale: Websocket url found: ws://127.0.0.1:43299/devtools/page/B2DAEAD27BD6EB2ACF865438F85D5010
+2026-11-20 18:50:52,035 4114 INFO ? scale: Enable chrome headless console log notification
+2026-11-20 18:50:52,054 4114 INFO ? scale: Chrome headless enable page notifications
+2026-11-20 18:50:52,116 4114 INFO ? scale: Navigating to: "http://127.0.0.1:8074/web/health"
+2026-11-20 18:50:52,246 4114 INFO ? scale: Navigation result: {'frameId': 'B2DAEAD27BD6EB2ACF865438F85D5010', 'loaderId': '17C8B224E5E9B407972814192CD20353', 'isDownload': False}
+2026-11-20 18:50:52,246 4114 INFO ? scale: Waiting for frame 'B2DAEAD27BD6EB2ACF865438F85D5010' to stop loading
+2026-11-20 18:50:52,466 4114 INFO ? scale: Navigating to: "http://127.0.0.1:8074/odoo/crm"
+2026-11-20 18:50:54,106 4114 INFO ? scale: Navigation result: {'frameId': 'B2DAEAD27BD6EB2ACF865438F85D5010', 'loaderId': '26B4ADD7203E304BC6360CAC31AF8934', 'isDownload': False}
+FAIL
+2026-11-20 18:52:50,968 4114 INFO ? scale: Closing chrome headless with pid 4135
+2026-11-20 18:52:50,973 4114 INFO ? scale: Closing websocket connection
+2026-11-20 18:52:50,974 4114 INFO ? scale: Terminating chrome headless with pid 4135
+2026-11-20 18:52:56,007 4114 WARNING ? scale: Killing chrome descendants-or-self of 4135: 7 remaining
+- chromium (zombie)
+- chromium (zombie)
+- chromium (zombie)
+- chromium (zombie)
+- chromium (zombie)
+- chromium (zombie)
+- chromium (zombie)
+2026-11-20 18:52:57,027 4114 INFO ? scale: Chrome Log in: /tmp/odoo_tests/crm_scale/chrome_logs/chrome_log_20261120_185257_024517_runTest.txt
+2026-11-20 18:52:57,027 4114 INFO ? scale: Removing chrome user profile "/tmp/tmp6vlapcis_chrome_odoo"
+
+======================================================================
+FAIL: test_large_team (__main__.OfflinePipeline.test_large_team)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/run-notes/scale_offline.py", line 39, in test_large_team
+    js('navigator.serviceWorker.ready.then(() => true)')
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/run-notes/scale_offline.py", line 33, in wait_until
+    self.fail('Timed out waiting for '+expression+'; screen: '+str(js('document.body?.innerText.slice(0,400)')))
+AssertionError: Timed out waiting for !!navigator.serviceWorker.controller; screen: CRM
+Sales
+Reporting
+Configuration
+11
+18
+My Company (San Francisco)
+New
+Generate
+Sales
+My Opportunities
+New
+$ 8,825k
+Devis pour 150 tapis
+$ 40,000.00
+OpenWood
+Product
+Quote for 12 Tables
+$ 40,000.00
+Will McEncroe
+Product
+Offline volume opportunity 09996
+$ 2,096.00
+Offline volume opportunity 09992
+$ 2,092.00
+Offline volume opportunity 09988
+$ 2,088.00
+Offline volume opportunity 09984
+$ 2,084.00
+Offl
+
+----------------------------------------------------------------------
+Ran 1 test in 136.071s
+
+FAILED (failures=1)

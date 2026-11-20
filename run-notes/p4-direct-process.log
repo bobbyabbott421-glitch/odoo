@@ -1,0 +1,94 @@
+2026-11-20 20:53:23,305 57286 WARNING ? odoo.addons.mail.controllers.attachment: markdown2 is not installed, markdown will not be rendered
+test_phone (__main__.PhoneProcess.test_phone) ... 2026-11-20 20:53:24,044 57286 INFO ? phone: Chrome pid: 57302
+2026-11-20 20:53:24,044 57286 INFO ? phone: Chrome headless temporary user profile dir: /tmp/tmpd1gamexl_chrome_odoo
+2026-11-20 20:53:24,044 57286 INFO ? phone: Issuing json command http://127.0.0.1:46841/json/version
+2026-11-20 20:53:24,866 57286 INFO ? phone: Browser version: Chrome/156.0.8078.79
+2026-11-20 20:53:24,867 57286 INFO ? phone: Issuing json command http://127.0.0.1:46841/json
+2026-11-20 20:53:24,947 57286 INFO ? phone: Websocket url found: ws://127.0.0.1:46841/devtools/page/7437CDFFCCCE8E630752330433D72033
+2026-11-20 20:53:24,994 57286 INFO ? phone: Enable chrome headless console log notification
+2026-11-20 20:53:25,001 57286 INFO ? phone: Chrome headless enable page notifications
+2026-11-20 20:53:35,494 57286 INFO ? phone: Navigating to: "http://127.0.0.1:8074/odoo/crm"
+2026-11-20 20:53:38,471 57286 INFO ? phone: Navigation result: {'frameId': '7437CDFFCCCE8E630752330433D72033', 'loaderId': '6B3AF56ED596ED702BD973D4E6E3CF9A', 'isDownload': False}
+2026-11-20 20:53:38,471 57286 INFO ? phone: Waiting for frame '7437CDFFCCCE8E630752330433D72033' to stop loading
+2026-11-20 20:53:40,210 57286 INFO ? phone: Evaluate ready code "!!document.querySelector('.o_kanban_record')"
+2026-11-20 20:53:43,620 57286 INFO ? phone: The ready code tooks too much time : 3.4096076488494873
+2026-11-20 20:53:43,638 57286 INFO ? phone: Navigating to: "http://127.0.0.1:8074/odoo/crm"
+2026-11-20 20:53:44,230 57286 INFO ? phone: Navigation result: {'frameId': '7437CDFFCCCE8E630752330433D72033', 'loaderId': '8BEF5AEDBAD9FD05BDE9D413DE59D86D', 'isDownload': False}
+2026-11-20 20:53:44,230 57286 INFO ? phone: Waiting for frame '7437CDFFCCCE8E630752330433D72033' to stop loading
+2026-11-20 20:53:46,941 57286 INFO ? phone: Evaluate ready code "!!document.querySelector('.o_kanban_record') && !!navigator.serviceWorker.controller"
+2026-11-20 20:53:48,784 57286 INFO ? phone: Evaluate ready code "!!document.querySelector('.o-mail-Chatter-logNote:not(:disabled)')"
+2026-11-20 20:53:50,752 57286 INFO ? phone: Navigating to: "http://127.0.0.1:8074/odoo/crm"
+2026-11-20 20:53:51,113 57286 INFO ? phone: Navigation result: {'frameId': '7437CDFFCCCE8E630752330433D72033', 'loaderId': '1FE09F57966EB5FFEC4BEBE8A2C5DEC2', 'isDownload': False}
+2026-11-20 20:53:51,113 57286 INFO ? phone: Waiting for frame '7437CDFFCCCE8E630752330433D72033' to stop loading
+2026-11-20 20:53:51,652 57286 INFO ? phone: Evaluate ready code "!!document.querySelector('.o_kanban_record')"
+2026-11-20 20:53:53,252 57286 INFO ? phone: Evaluate ready code "!!([...document.querySelectorAll('button,a,span')].find(e => e.textContent.trim() === 'CRM offline access'))"
+2026-11-20 20:53:53,381 57286 INFO ? phone: Evaluate ready code "!!document.querySelector('input[name=confirmation]')"
+2026-11-20 20:53:54,333 57286 INFO ? phone: Evaluate ready code "document.body.innerText.includes('Offline access is ready')"
+2026-11-20 20:53:56,606 57286 INFO ? phone: Navigating to: "http://127.0.0.1:8074/odoo/crm/31"
+2026-11-20 20:54:01,740 57286 INFO ? phone: Navigation result: {'frameId': '7437CDFFCCCE8E630752330433D72033', 'loaderId': 'FF71B866BBDA8B3CB0B0293CE95A32DB', 'isDownload': False}
+2026-11-20 20:54:01,745 57286 INFO ? phone: Waiting for frame '7437CDFFCCCE8E630752330433D72033' to stop loading
+2026-11-20 20:54:01,867 57286 INFO ? phone: Evaluate ready code "!!document.querySelector('#offline_unlock:not([hidden])')"
+2026-11-20 20:54:01,927 57286 INFO ? phone: Navigating to: "http://127.0.0.1:8074/odoo/crm"
+2026-11-20 20:54:02,019 57286 INFO ? phone: Navigation result: {'frameId': '7437CDFFCCCE8E630752330433D72033', 'loaderId': '445EAB75F298FC0F5592B21D3B110B3E', 'isDownload': False}
+2026-11-20 20:54:02,019 57286 INFO ? phone: Waiting for frame '7437CDFFCCCE8E630752330433D72033' to stop loading
+2026-11-20 20:54:02,110 57286 INFO ? phone: Evaluate ready code "!!document.querySelector('#offline_unlock:not([hidden])')"
+2026-11-20 20:54:02,205 57286 INFO ? phone: Evaluate ready code "!document.getElementById('offline_unlock_error').hidden"
+2026-11-20 20:54:02,504 57286 INFO ? phone: Evaluate ready code "!!document.querySelector('.o_kanban_record')"
+2026-11-20 20:54:03,299 57286 ERROR crm_phase2 phone.browser: TypeError: Failed to fetch
+    at LocalizationPlugin.fetchTranslations (http://127.0.0.1:8074/web/assets/56c5002/web.assets_web.min.js:2986:187)
+    at LocalizationPlugin.load (http://127.0.0.1:8074/web/assets/56c5002/web.assets_web.min.js:2983:151)
+    at async Promise.all (index 0)
+    at async mountComponent (http://127.0.0.1:8074/web/assets/56c5002/web.assets_web.min.js:1557:513)
+    at async startWebClient (http://127.0.0.1:8074/web/assets/56c5002/web.assets_web.min.js:32011:19)
+2026-11-20 20:54:03,299 57286 INFO crm_phase2 phone: Asking for screenshot
+2026-11-20 20:54:03,309 57286 WARNING crm_phase2 phone.browser: Error received after termination: Error while loading SharedWorker, fallback on Worker:  Event(isTrusted=true, type='error', target=SharedWorker, currentTarget=SharedWorker, eventPhase=2)
+2026-11-20 20:54:03,725 57286 WARNING crm_phase2 phone.browser: Error received after termination: Worker service failed to initialize:  Event(isTrusted=true, type='error', target=Worker, currentTarget=Worker, eventPhase=2)
+2026-11-20 20:54:03,734 57286 WARNING crm_phase2 phone.browser: Error received after termination: BusService: Real-time notifications disabled (WorkerService failed to start).
+2026-11-20 20:54:03,734 57286 WARNING crm_phase2 phone.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 20:54:03,735 57286 WARNING crm_phase2 phone.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 20:54:03,735 57286 WARNING crm_phase2 phone.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 20:54:03,736 57286 WARNING crm_phase2 phone.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 20:54:03,736 57286 WARNING crm_phase2 phone.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 20:54:03,736 57286 WARNING crm_phase2 phone.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 20:54:03,737 57286 WARNING crm_phase2 phone.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 20:54:03,737 57286 WARNING crm_phase2 phone.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 20:54:03,737 57286 WARNING crm_phase2 phone.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 20:54:03,737 57286 WARNING crm_phase2 phone.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 20:54:03,905 57286 INFO crm_phase2 phone: Screenshot in: /tmp/odoo_tests/crm_phase2/screenshots/sc_20261120_205403_904687_runTest.png
+2026-11-20 20:54:04,336 57286 INFO ? phone: Navigating to: "http://127.0.0.1:8074/odoo/crm/31"
+2026-11-20 20:54:04,413 57286 INFO ? phone: Navigation result: {'frameId': '7437CDFFCCCE8E630752330433D72033', 'loaderId': 'BC33A427698051B45E810B08EF0C3D9B', 'isDownload': False}
+2026-11-20 20:54:04,414 57286 INFO ? phone: Waiting for frame '7437CDFFCCCE8E630752330433D72033' to stop loading
+2026-11-20 20:54:04,705 57286 INFO ? phone: Evaluate ready code "!!document.querySelector('#offline_unlock:not([hidden])')"
+2026-11-20 20:54:04,727 57286 INFO ? phone: Evaluate ready code "!!document.querySelector('.o_form_view [name=name]')"
+2026-11-20 20:54:05,868 57286 WARNING crm_phase2 phone.browser: Error received after termination: Error while loading SharedWorker, fallback on Worker:  Event(isTrusted=true, type='error', target=SharedWorker, currentTarget=SharedWorker, eventPhase=2)
+2026-11-20 20:54:05,920 57286 INFO crm_phase2 phone.browser: Error received after termination: TypeError: Failed to fetch
+    at LocalizationPlugin.fetchTranslations (http://127.0.0.1:8074/web/assets/56c5002/web.assets_web.min.js:2986:187)
+    at LocalizationPlugin.load (http://127.0.0.1:8074/web/assets/56c5002/web.assets_web.min.js:2983:151)
+    at async Promise.all (index 0)
+    at async mountComponent (http://127.0.0.1:8074/web/assets/56c5002/web.assets_web.min.js:1557:513)
+    at async startWebClient (http://127.0.0.1:8074/web/assets/56c5002/web.assets_web.min.js:32011:19)
+2026-11-20 20:54:06,238 57286 WARNING crm_phase2 phone.browser: Error received after termination: Worker service failed to initialize:  Event(isTrusted=true, type='error', target=Worker, currentTarget=Worker, eventPhase=2)
+2026-11-20 20:54:06,238 57286 WARNING crm_phase2 phone.browser: Error received after termination: BusService: Real-time notifications disabled (WorkerService failed to start).
+2026-11-20 20:54:06,243 57286 WARNING crm_phase2 phone.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 20:54:06,244 57286 WARNING crm_phase2 phone.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 20:54:06,244 57286 WARNING crm_phase2 phone.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 20:54:06,244 57286 WARNING crm_phase2 phone.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 20:54:06,244 57286 WARNING crm_phase2 phone.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 20:54:06,246 57286 WARNING crm_phase2 phone.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 20:54:06,246 57286 WARNING crm_phase2 phone.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 20:54:06,246 57286 WARNING crm_phase2 phone.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 20:54:06,246 57286 WARNING crm_phase2 phone.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 20:54:06,247 57286 WARNING crm_phase2 phone.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 20:54:07,164 57286 WARNING crm_phase2 phone.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 20:54:07,164 57286 WARNING crm_phase2 phone.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 20:54:07,495 57286 INFO ? phone: Closing chrome headless with pid 57302
+2026-11-20 20:54:07,496 57286 INFO ? phone: Closing websocket connection
+2026-11-20 20:54:07,498 57286 INFO ? phone: Terminating chrome headless with pid 57302
+2026-11-20 20:54:07,899 57286 INFO ? phone: Chrome Log in: /tmp/odoo_tests/crm_phase2/chrome_logs/chrome_log_20261120_205407_898828_runTest.txt
+2026-11-20 20:54:07,899 57286 INFO ? phone: Removing chrome user profile "/tmp/tmpd1gamexl_chrome_odoo"
+ok
+
+----------------------------------------------------------------------
+Ran 1 test in 44.504s
+
+OK

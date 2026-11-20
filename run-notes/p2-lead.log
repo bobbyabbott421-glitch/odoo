@@ -1,0 +1,51 @@
+test_visited_lead (__main__.OfflineLead.test_visited_lead) ... 2026-11-20 19:54:40,234 32615 INFO ? lead: Chrome pid: 32634
+2026-11-20 19:54:40,235 32615 INFO ? lead: Chrome headless temporary user profile dir: /tmp/tmp4sekwm1t_chrome_odoo
+2026-11-20 19:54:40,235 32615 INFO ? lead: Issuing json command http://127.0.0.1:33497/json/version
+2026-11-20 19:54:40,368 32615 INFO ? lead: Browser version: Chrome/156.0.8078.79
+2026-11-20 19:54:40,368 32615 INFO ? lead: Issuing json command http://127.0.0.1:33497/json
+2026-11-20 19:54:40,412 32615 INFO ? lead: Websocket url found: ws://127.0.0.1:33497/devtools/page/6387F6A2B596A7CDF0BF701F96114FD1
+2026-11-20 19:54:40,423 32615 INFO ? lead: Enable chrome headless console log notification
+2026-11-20 19:54:40,428 32615 INFO ? lead: Chrome headless enable page notifications
+2026-11-20 19:54:40,470 32615 INFO ? lead: Navigating to: "http://127.0.0.1:8074/odoo/crm/46"
+2026-11-20 19:54:41,085 32615 INFO ? lead: Navigation result: {'frameId': '6387F6A2B596A7CDF0BF701F96114FD1', 'loaderId': '8ACF8BD3EFDB9C28A90ECBE74E542081', 'isDownload': False}
+2026-11-20 19:54:46,638 32615 INFO ? lead: Navigating to: "http://127.0.0.1:8074/odoo/crm/46"
+2026-11-20 19:54:46,719 32615 INFO ? lead: Navigation result: {'frameId': '6387F6A2B596A7CDF0BF701F96114FD1', 'loaderId': 'AF1A485343367D94AAE5C9E33F8477A7', 'isDownload': False}
+2026-11-20 19:54:49,416 32615 INFO ? lead: Navigating to: "http://127.0.0.1:8074/odoo/crm/46"
+2026-11-20 19:54:49,461 32615 INFO ? lead: Navigation result: {'frameId': '6387F6A2B596A7CDF0BF701F96114FD1', 'loaderId': 'E624B23F7713AF1CF605C25F27AFF8EA', 'isDownload': False}
+2026-11-20 19:54:50,305 32615 INFO crm_flow lead: Asking for screenshot
+2026-11-20 19:54:50,340 32615 INFO crm_flow lead.browser: Error received after termination: TypeError: Failed to fetch
+    at LocalizationPlugin.fetchTranslations (http://127.0.0.1:8074/web/assets/72c4da2/web.assets_web.min.js:2986:187)
+    at LocalizationPlugin.load (http://127.0.0.1:8074/web/assets/72c4da2/web.assets_web.min.js:2983:151)
+    at async Promise.all (index 0)
+    at async mountComponent (http://127.0.0.1:8074/web/assets/72c4da2/web.assets_web.min.js:1557:513)
+    at async startWebClient (http://127.0.0.1:8074/web/assets/72c4da2/web.assets_web.min.js:31950:19)
+2026-11-20 19:54:50,341 32615 WARNING crm_flow lead.browser: Error received after termination: Error while loading SharedWorker, fallback on Worker:  Event(isTrusted=true, type='error', target=SharedWorker, currentTarget=SharedWorker, eventPhase=2)
+2026-11-20 19:54:50,546 32615 INFO crm_flow lead: Screenshot in: /tmp/odoo_tests/crm_flow/screenshots/sc_20261120_195450_542810_runTest.png
+2026-11-20 19:54:50,552 32615 WARNING crm_flow lead.browser: Error received after termination: Worker service failed to initialize:  Event(isTrusted=true, type='error', target=Worker, currentTarget=Worker, eventPhase=2)
+2026-11-20 19:54:50,552 32615 WARNING crm_flow lead.browser: Error received after termination: BusService: Real-time notifications disabled (WorkerService failed to start).
+2026-11-20 19:54:50,552 32615 WARNING crm_flow lead.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 19:54:50,553 32615 WARNING crm_flow lead.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 19:54:50,553 32615 WARNING crm_flow lead.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 19:54:50,553 32615 WARNING crm_flow lead.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 19:54:50,553 32615 WARNING crm_flow lead.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 19:54:50,553 32615 WARNING crm_flow lead.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 19:54:50,553 32615 WARNING crm_flow lead.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 19:54:50,554 32615 WARNING crm_flow lead.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 19:54:50,554 32615 WARNING crm_flow lead.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 19:54:50,554 32615 WARNING crm_flow lead.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 19:54:50,555 32615 INFO crm_flow lead.browser: Error received after termination: TypeError: Failed to fetch
+    at odoo.reloadMenus (http://127.0.0.1:8074/odoo/crm/46:30:46)
+    at http://127.0.0.1:8074/odoo/crm/46:31:50
+2026-11-20 19:54:50,867 32615 WARNING crm_flow lead.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 19:54:50,867 32615 WARNING crm_flow lead.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 19:54:53,363 32615 INFO ? lead: Closing chrome headless with pid 32634
+2026-11-20 19:54:53,364 32615 INFO ? lead: Closing websocket connection
+2026-11-20 19:54:53,365 32615 INFO ? lead: Terminating chrome headless with pid 32634
+2026-11-20 19:54:53,449 32615 INFO ? lead: Chrome Log in: /tmp/odoo_tests/crm_flow/chrome_logs/chrome_log_20261120_195453_449260_runTest.txt
+2026-11-20 19:54:53,449 32615 INFO ? lead: Removing chrome user profile "/tmp/tmp4sekwm1t_chrome_odoo"
+ok
+
+----------------------------------------------------------------------
+Ran 1 test in 17.525s
+
+OK

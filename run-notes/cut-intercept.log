@@ -1,0 +1,22 @@
+test_disconnect_and_reconnect (__main__.ConnectionCut.test_disconnect_and_reconnect) ... 2026-11-20 19:00:35,214 9952 INFO ? cut: Chrome pid: 10020
+2026-11-20 19:00:35,217 9952 INFO ? cut: Chrome headless temporary user profile dir: /tmp/tmpt7wfqu70_chrome_odoo
+2026-11-20 19:00:35,218 9952 INFO ? cut: Issuing json command http://127.0.0.1:38479/json/version
+2026-11-20 19:00:35,437 9952 INFO ? cut: Browser version: Chrome/156.0.8078.79
+2026-11-20 19:00:35,437 9952 INFO ? cut: Issuing json command http://127.0.0.1:38479/json
+2026-11-20 19:00:35,507 9952 INFO ? cut: Websocket url found: ws://127.0.0.1:38479/devtools/page/5985C07ECE6C58D839D16DF9FD13055B
+2026-11-20 19:00:35,545 9952 INFO ? cut: Enable chrome headless console log notification
+2026-11-20 19:00:35,603 9952 INFO ? cut: Chrome headless enable page notifications
+2026-11-20 19:00:35,634 9952 INFO ? cut: Navigating to: "http://127.0.0.1:8074/web/health"
+2026-11-20 19:00:35,721 9952 INFO ? cut: Navigation result: {'frameId': '5985C07ECE6C58D839D16DF9FD13055B', 'loaderId': 'C7F64CC43C293EC99678DF3B373522E6', 'isDownload': False}
+2026-11-20 19:00:35,721 9952 INFO ? cut: Waiting for frame '5985C07ECE6C58D839D16DF9FD13055B' to stop loading
+2026-11-20 19:00:38,560 9952 INFO ? cut: Closing chrome headless with pid 10020
+2026-11-20 19:00:38,561 9952 INFO ? cut: Closing websocket connection
+2026-11-20 19:00:38,563 9952 INFO ? cut: Terminating chrome headless with pid 10020
+2026-11-20 19:00:38,637 9952 INFO ? cut: Chrome Log in: /tmp/odoo_tests/odoo_dev/chrome_logs/chrome_log_20261120_190038_637428_runTest.txt
+2026-11-20 19:00:38,638 9952 INFO ? cut: Removing chrome user profile "/tmp/tmpt7wfqu70_chrome_odoo"
+ok
+
+----------------------------------------------------------------------
+Ran 1 test in 7.179s
+
+OK

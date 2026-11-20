@@ -1,0 +1,14 @@
+2026-11-20 20:50:01,020 55562 INFO ? odoo: Odoo version 20.0
+2026-11-20 20:50:01,021 55562 INFO ? odoo: Using configuration file at /workspace/odoo-env/odoo.conf
+2026-11-20 20:50:01,021 55562 INFO ? odoo: addons paths: _NamespacePath(['/workspace/odoo/odoo/addons', '/workspace/odoo-env/data/addons/20.0', '/workspace/odoo/addons'])
+2026-11-20 20:50:01,021 55562 INFO ? odoo: database: odoo@/workspace/odoo-env/run:5432
+2026-11-20 20:50:01,663 55562 INFO ? odoo.service.server.ThreadedServer: Initiating shutdown
+2026-11-20 20:50:01,663 55562 INFO ? odoo.service.server.ThreadedServer: Hit CTRL-C again or send a second signal to force the shutdown.
+2026-11-20 20:50:01,716 55562 INFO crm_phase2 odoo.modules.loading: loading 1 modules...
+2026-11-20 20:50:01,744 55562 INFO crm_phase2 odoo.modules.loading: 1 modules loaded in 0.03s, 0 queries (+0 extra)
+2026-11-20 20:50:01,853 55562 INFO crm_phase2 odoo.modules.loading: loading 226 modules...
+2026-11-20 20:50:02,136 55562 WARNING crm_phase2 odoo.addons.mail.controllers.attachment: markdown2 is not installed, markdown will not be rendered
+2026-11-20 20:50:03,461 55562 INFO crm_phase2 odoo.modules.loading: 226 modules loaded in 1.61s, 0 queries (+0 extra)
+2026-11-20 20:50:04,268 55562 INFO crm_phase2 odoo.modules.loading: Modules loaded.
+2026-11-20 20:50:04,477 55562 INFO crm_phase2 odoo.registry: Registry loaded in 2.795s
+2026-11-20 20:50:04,976 55562 INFO crm_phase2 odoo.registry: Caches invalidated, signaling through the database: ['templates']

@@ -1,0 +1,93 @@
+[83304:83332:1120/213224.776389:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[83304:83332:1120/213224.776480:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[83304:83332:1120/213225.026496:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[83304:83332:1120/213225.026601:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[83304:83332:1120/213225.026633:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[83304:83332:1120/213225.026651:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[83304:83332:1120/213225.026663:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[83304:83332:1120/213225.119619:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[83304:83332:1120/213225.544736:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[83304:83345:1120/213225.610355:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 83350: Read-only file system (30)
+[83304:83304:1120/213225.752396:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[83304:83304:1120/213225.752733:WARNING:device/bluetooth/dbus/bluez_dbus_manager.cc:209] Floss manager service not available, cannot set Floss enable/disable.
+[83304:83304:1120/213225.752759:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[83304:83304:1120/213225.753209:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[83304:83332:1120/213225.766714:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[83304:83332:1120/213225.766991:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[83304:83304:1120/213225.807692:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[83304:83332:1120/213225.813184:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[83304:83332:1120/213225.828206:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[83304:83332:1120/213225.828250:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[83304:83345:1120/213226.070119:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 83380: Read-only file system (30)
+[83304:83345:1120/213226.321371:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 83393: Read-only file system (30)
+[83304:83345:1120/213226.342342:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 83394: Read-only file system (30)
+[83304:83304:1120/213226.428551:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[83304:83304:1120/213226.431738:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[83304:83332:1120/213226.431881:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[83304:83304:1120/213226.432826:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[83304:83304:1120/213226.433418:WARNING:dbus/property.cc:94] Failed to connect to PropertiesChangedsignal.
+[83304:83304:1120/213226.433439:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.Properties.GetAll: object_path= /org/freedesktop/UPower/devices/DisplayDevice: unknown error type: 
+[83304:83304:1120/213226.433445:WARNING:dbus/property.cc:174] GetAll request failed for: org.freedesktop.UPower.Device
+[83304:83304:1120/213226.496473:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[83304:83332:1120/213226.496736:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[83347:83347:1120/213226.504186:WARNING:media/gpu/vaapi/vaapi_wrapper.cc:1655] drmGetDevices2() has not found any devices
+[83304:83304:1120/213226.552052:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[83304:83332:1120/213226.555261:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[83304:83304:1120/213226.563056:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[83304:83304:1120/213226.563084:WARNING:ui/base/idle/idle_linux.cc:111] None of the known D-Bus ScreenSaver services could be used.
+[83347:83347:1120/213227.058151:WARNING:sandbox/policy/linux/sandbox_linux.cc:405] InitializeSandbox() called with multiple threads in process gpu-process.
+[83304:83304:1120/213237.232670:INFO:CONSOLE:1148] "Owl is running in 'dev' mode.", source: http://127.0.0.1:8071/web/assets/56c5002/web.assets_web.min.js (1148)
+[83304:83304:1120/213237.470361:INFO:CONSOLE:672] "Hoot DOM helpers available from `window.hoot`", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (672)
+[83304:83304:1120/213237.470489:INFO:CONSOLE:683] "[1/46] Tour mail_poll_tour.js → Step .o-mail-Composer [title='More Actions']", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83304:83304:1120/213240.329541:INFO:CONSOLE:683] "[2/46] Tour mail_poll_tour.js → Step button:text('Create Poll')", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83304:83304:1120/213240.585190:INFO:CONSOLE:683] "[3/46] Tour mail_poll_tour.js → Step .modal-header:text('Create Poll')", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83304:83304:1120/213240.663981:INFO:CONSOLE:683] "[4/46] Tour mail_poll_tour.js → Step input[name='poll_question']", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83304:83304:1120/213240.762649:INFO:CONSOLE:683] "[5/46] Tour mail_poll_tour.js → Step button:contains('Add another option'):enabled", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83304:83304:1120/213240.762801:INFO:CONSOLE:683] "[6/46] Tour mail_poll_tour.js → Step .o-mail-CreatePollOptionDialog:eq(0) [data-icon='sentiment_satisfied']", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83304:83304:1120/213240.795965:INFO:CONSOLE:683] "[7/46] Tour mail_poll_tour.js → Step .o-Emoji:text('❤️')", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83304:83304:1120/213243.847189:INFO:CONSOLE:683] "[8/46] Tour mail_poll_tour.js → Step .o-mail-CreatePollOptionDialog:eq(0):text('❤️')", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83304:83304:1120/213244.128198:INFO:CONSOLE:683] "[9/46] Tour mail_poll_tour.js → Step .o-mail-CreatePollOptionDialog input:eq(0)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83304:83304:1120/213244.129007:INFO:CONSOLE:683] "[10/46] Tour mail_poll_tour.js → Step .o-mail-CreatePollOptionDialog input:eq(1)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83304:83304:1120/213244.196236:INFO:CONSOLE:683] "[11/46] Tour mail_poll_tour.js → Step button:contains('Add another option')", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83304:83304:1120/213244.198429:INFO:CONSOLE:683] "[12/46] Tour mail_poll_tour.js → Step .o-mail-CreatePollOptionDialog input:eq(2)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83304:83304:1120/213244.624794:INFO:CONSOLE:683] "[13/46] Tour mail_poll_tour.js → Step button:contains(Post)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83304:83304:1120/213244.697704:INFO:CONSOLE:683] "[14/46] Tour mail_poll_tour.js → Step .o-mail-Poll :contains('What is your favorite color?')", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83304:83304:1120/213246.224909:INFO:CONSOLE:683] "[15/46] Tour mail_poll_tour.js → Step .o-mail-Poll :contains('Select one option')", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83304:83304:1120/213246.228547:INFO:CONSOLE:683] "[16/46] Tour mail_poll_tour.js → Step .o-mail-Poll button:contains('Vote'):disabled", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83304:83304:1120/213246.228786:INFO:CONSOLE:683] "[17/46] Tour mail_poll_tour.js → Step .o-mail-PollOption:text('❤️ Red') input:not(:checked)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83304:83304:1120/213246.229564:INFO:CONSOLE:683] "[18/46] Tour mail_poll_tour.js → Step .o-mail-PollOption:contains('Green') input:not(:checked)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83304:83304:1120/213246.232168:INFO:CONSOLE:683] "[19/46] Tour mail_poll_tour.js → Step .o-mail-PollOption:contains('Blue') input:not(:checked)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83304:83304:1120/213246.252176:INFO:CONSOLE:683] "[20/46] Tour mail_poll_tour.js → Step .o-mail-PollOption:contains('Blue') input:checked", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83304:83304:1120/213246.260161:INFO:CONSOLE:683] "[21/46] Tour mail_poll_tour.js → Step .o-mail-Poll button:contains('Vote'):enabled", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83304:83304:1120/213246.412852:INFO:CONSOLE:683] "[22/46] Tour mail_poll_tour.js → Step .o-mail-PollOption:contains(Blue):contains(1 vote100%)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83304:83304:1120/213246.794051:INFO:CONSOLE:683] "[23/46] Tour mail_poll_tour.js → Step .o-mail-Poll a:text('1 vote')", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83304:83304:1120/213247.107157:INFO:CONSOLE:683] "[24/46] Tour mail_poll_tour.js → Step .o-mail-PollVotesPanel .o-mail-TabHeader:has(:text('Red')) .o-discuss-badge:text(0)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83304:83304:1120/213247.306475:INFO:CONSOLE:683] "[25/46] Tour mail_poll_tour.js → Step .modal .btn-close", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83304:83304:1120/213247.336342:INFO:CONSOLE:683] "[26/46] Tour mail_poll_tour.js → Step body:not(:has(.o-mail-PollVotesPanel))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83304:83304:1120/213247.825647:INFO:CONSOLE:683] "[27/46] Tour mail_poll_tour.js → Step .o-mail-Poll button:contains('Remove Vote')", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83304:83304:1120/213248.015235:INFO:CONSOLE:683] "[28/46] Tour mail_poll_tour.js → Step .o-mail-PollOption:contains('Blue') input:not(:checked)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83304:83304:1120/213248.744639:INFO:CONSOLE:683] "[29/46] Tour mail_poll_tour.js → Step .o-mail-Message:has(.o-mail-Poll) [title='Expand']", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83304:83304:1120/213248.858423:INFO:CONSOLE:683] "[30/46] Tour mail_poll_tour.js → Step .o-mail-Message-moreMenu [name='reply-to']", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83304:83304:1120/213249.235793:INFO:CONSOLE:683] "[31/46] Tour mail_poll_tour.js → Step .o-mail-Composer:contains('Replying to Ernest Employee') .o-mail-Composer-input", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83304:83304:1120/213249.867885:INFO:CONSOLE:683] "[32/46] Tour mail_poll_tour.js → Step .o-mail-Composer:has(button[title='Send']:enabled) .o-mail-Composer-input", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83304:83304:1120/213250.102358:INFO:CONSOLE:683] "[33/46] Tour mail_poll_tour.js → Step .o-mail-MessageInReply:contains('What is your favorite color?') [data-icon='oi_view-cohort']", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83304:83304:1120/213250.146940:INFO:CONSOLE:683] "[34/46] Tour mail_poll_tour.js → Step .o-mail-PollOption:contains('Blue') input", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83304:83304:1120/213250.195347:INFO:CONSOLE:683] "[35/46] Tour mail_poll_tour.js → Step .o-mail-Poll button:contains('Vote'):enabled", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83304:83304:1120/213250.562424:INFO:CONSOLE:683] "[36/46] Tour mail_poll_tour.js → Step .o-mail-PollOption:contains(Blue):contains(1 vote100%)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83304:83304:1120/213251.855069:INFO:CONSOLE:683] "[37/46] Tour mail_poll_tour.js → Step .o-mail-Message:has(.o-mail-Poll)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83304:83304:1120/213252.044250:INFO:CONSOLE:683] "[38/46] Tour mail_poll_tour.js → Step button:contains('End Poll')", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83304:83304:1120/213252.259156:INFO:CONSOLE:683] "[39/46] Tour mail_poll_tour.js → Step .o-mail-PollResult:contains(Blue)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83304:83304:1120/213253.234759:INFO:CONSOLE:683] "[40/46] Tour mail_poll_tour.js → Step .o-mail-PollResult:contains('Winning Answer∙100%')", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83304:83304:1120/213253.237418:INFO:CONSOLE:683] "[41/46] Tour mail_poll_tour.js → Step .o-mail-Message:has(.o-mail-Poll)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83304:83304:1120/213253.302914:INFO:CONSOLE:683] "[42/46] Tour mail_poll_tour.js → Step button:contains('Delete')", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83304:83304:1120/213253.658979:INFO:CONSOLE:683] "[43/46] Tour mail_poll_tour.js → Step .modal .btn:contains(Delete)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83304:83304:1120/213254.142895:INFO:CONSOLE:683] "[44/46] Tour mail_poll_tour.js → Step .o-mail-Message:contains('This message has been removed'):not(:has(.o-mail-Poll))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83304:83304:1120/213254.674022:INFO:CONSOLE:683] "[45/46] Tour mail_poll_tour.js → Step body", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83304:83304:1120/213255.606332:INFO:CONSOLE:683] "[46/46] Tour mail_poll_tour.js → Step .o-mail-PollResult:contains(internal user (base.group_user)'s poll "???" has ended.)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83304:83304:1120/213255.772880:INFO:CONSOLE:666] "tour succeeded", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (666)
+[83304:83304:1120/213255.773001:INFO:CONSOLE:666] "
+
+╔══════════════════════════════════╗
+║ TOUR mail_poll_tour.js SUCCEEDED ║
+╚══════════════════════════════════╝
+", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (666)

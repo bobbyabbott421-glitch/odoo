@@ -1,0 +1,29 @@
+test_disconnect_and_reconnect (__main__.ConnectionCut.test_disconnect_and_reconnect) ... 2026-11-20 18:42:00,079 1734 INFO ? cut: Chrome pid: 1748
+2026-11-20 18:42:00,081 1734 INFO ? cut: Chrome headless temporary user profile dir: /tmp/tmp9m1ogc8s_chrome_odoo
+2026-11-20 18:42:00,081 1734 INFO ? cut: Issuing json command http://127.0.0.1:46279/json/version
+2026-11-20 18:42:00,178 1734 INFO ? cut: Browser version: Chrome/156.0.8078.79
+2026-11-20 18:42:00,178 1734 INFO ? cut: Issuing json command http://127.0.0.1:46279/json
+2026-11-20 18:42:00,205 1734 INFO ? cut: Websocket url found: ws://127.0.0.1:46279/devtools/page/CADF7446A63C1471BC9D67C1AE07CBA6
+2026-11-20 18:42:00,232 1734 INFO ? cut: Enable chrome headless console log notification
+2026-11-20 18:42:00,250 1734 INFO ? cut: Chrome headless enable page notifications
+2026-11-20 18:42:00,270 1734 INFO ? cut: Navigating to: "http://127.0.0.1:8074/web/health"
+2026-11-20 18:42:00,320 1734 INFO ? cut: Navigation result: {'frameId': 'CADF7446A63C1471BC9D67C1AE07CBA6', 'loaderId': '2A2741AFF20A3447EE3C05C1A2F76666', 'isDownload': False}
+2026-11-20 18:42:00,320 1734 INFO ? cut: Waiting for frame 'CADF7446A63C1471BC9D67C1AE07CBA6' to stop loading
+2026-11-20 18:42:02,598 1734 INFO ? cut: Closing chrome headless with pid 1748
+2026-11-20 18:42:02,600 1734 INFO ? cut: Closing websocket connection
+2026-11-20 18:42:02,600 1734 INFO ? cut: Terminating chrome headless with pid 1748
+2026-11-20 18:42:07,613 1734 WARNING ? cut: Killing chrome descendants-or-self of 1748: 6 remaining
+- chromium (zombie)
+- chromium (zombie)
+- chromium (zombie)
+- chromium (zombie)
+- chromium (zombie)
+- chromium (zombie)
+2026-11-20 18:42:08,620 1734 INFO ? cut: Chrome Log in: /tmp/odoo_tests/odoo_dev/chrome_logs/chrome_log_20261120_184208_619992_runTest.txt
+2026-11-20 18:42:08,621 1734 INFO ? cut: Removing chrome user profile "/tmp/tmp9m1ogc8s_chrome_odoo"
+ok
+
+----------------------------------------------------------------------
+Ran 1 test in 10.515s
+
+OK

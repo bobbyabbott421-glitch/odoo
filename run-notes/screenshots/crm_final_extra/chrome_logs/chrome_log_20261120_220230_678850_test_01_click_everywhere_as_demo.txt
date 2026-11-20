@@ -1,0 +1,82 @@
+[97408:97439:1120/220211.720558:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[97408:97439:1120/220211.720960:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[97408:97439:1120/220211.752537:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[97408:97439:1120/220211.752773:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[97408:97439:1120/220211.753009:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[97408:97439:1120/220211.753022:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[97408:97439:1120/220211.753030:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[97408:97439:1120/220211.768293:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[97408:97439:1120/220211.860892:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[97448:97448:1120/220211.862016:WARNING:media/gpu/vaapi/vaapi_wrapper.cc:1655] drmGetDevices2() has not found any devices
+[97408:97447:1120/220211.867487:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 97460: Read-only file system (30)
+[97448:97448:1120/220211.873918:WARNING:sandbox/policy/linux/sandbox_linux.cc:405] InitializeSandbox() called with multiple threads in process gpu-process.
+[97408:97408:1120/220212.017004:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[97408:97408:1120/220212.017274:WARNING:device/bluetooth/dbus/bluez_dbus_manager.cc:209] Floss manager service not available, cannot set Floss enable/disable.
+[97408:97408:1120/220212.017326:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[97408:97408:1120/220212.017921:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[97408:97439:1120/220212.018321:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[97408:97439:1120/220212.018347:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[97408:97408:1120/220212.026405:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[97408:97439:1120/220212.026892:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[97408:97447:1120/220212.178844:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 97504: Read-only file system (30)
+[97408:97447:1120/220212.254349:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 97515: Read-only file system (30)
+[97408:97447:1120/220212.262877:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 97516: Read-only file system (30)
+[97408:97439:1120/220212.282080:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[97408:97439:1120/220212.282133:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[97408:97408:1120/220212.282180:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[97408:97408:1120/220212.288040:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[97408:97439:1120/220212.288453:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[97408:97408:1120/220212.291187:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[97408:97408:1120/220212.320431:WARNING:dbus/property.cc:94] Failed to connect to PropertiesChangedsignal.
+[97408:97408:1120/220212.320489:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.Properties.GetAll: object_path= /org/freedesktop/UPower/devices/DisplayDevice: unknown error type: 
+[97408:97408:1120/220212.320496:WARNING:dbus/property.cc:174] GetAll request failed for: org.freedesktop.UPower.Device
+[97408:97408:1120/220212.323085:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[97408:97439:1120/220212.323175:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[97408:97408:1120/220212.348561:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[97408:97439:1120/220212.348687:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[97408:97408:1120/220212.367661:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[97408:97408:1120/220212.367698:WARNING:ui/base/idle/idle_linux.cc:111] None of the known D-Bus ScreenSaver services could be used.
+[97408:97408:1120/220215.825700:INFO:CONSOLE:1148] "Owl is running in 'dev' mode.", source: http://127.0.0.1:8075/web/assets/56c5002/web.assets_web.min.js (1148)
+[97408:97408:1120/220218.320507:INFO:CONSOLE:7] "Starting ClickEverywhere test", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (7)
+[97408:97408:1120/220218.324350:INFO:CONSOLE:99] "Testing app: Attendances (hr_attendance.menu_hr_attendance_root)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (99)
+[97408:97408:1120/220218.324466:INFO:CONSOLE:94] "Testing menu Attendances (hr_attendance.menu_hr_attendance_attendance_reporting)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (94)
+[97408:97408:1120/220220.127107:INFO:CONSOLE:58] "Testing 13 filters", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (58)
+[97408:97408:1120/220220.128095:INFO:CONSOLE:51] "Clicking on: filter "My Attendances"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[97408:97408:1120/220220.257826:INFO:CONSOLE:51] "Clicking on: filter "My Team"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[97408:97408:1120/220220.356925:INFO:CONSOLE:51] "Clicking on: filter "Draft"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[97408:97408:1120/220220.471080:INFO:CONSOLE:51] "Clicking on: filter "Validated"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[97408:97408:1120/220220.647928:INFO:CONSOLE:51] "Clicking on: filter "Refused"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[97408:97408:1120/220220.741051:INFO:CONSOLE:51] "Clicking on: filter "At Work"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[97408:97408:1120/220220.831758:INFO:CONSOLE:51] "Clicking on: filter "Errors"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[97408:97408:1120/220220.939893:INFO:CONSOLE:51] "Clicking on: filter "Automatically Checked-Out"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[97408:97408:1120/220220.997190:INFO:CONSOLE:51] "Clicking on: filter "Overtime Entries"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[97408:97408:1120/220221.088388:INFO:CONSOLE:51] "Clicking on: filter "Source Attendances"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[97408:97408:1120/220221.744735:INFO:CONSOLE:51] "Clicking on: filter "Date"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[97408:97408:1120/220222.051323:INFO:CONSOLE:51] "Clicking on: filter "Date (Today)"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[97408:97408:1120/220222.345329:INFO:CONSOLE:51] "Clicking on: filter "Active Employees"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[97408:97408:1120/220222.714103:INFO:CONSOLE:51] "Clicking on: filter "Archived Employees"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[97408:97408:1120/220223.111429:INFO:CONSOLE:86] "Testing view switch: graph", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (86)
+[97408:97408:1120/220223.111614:INFO:CONSOLE:51] "Clicking on: graph view switcher", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[97408:97408:1120/220225.484344:INFO:CONSOLE:58] "Testing 13 filters", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (58)
+[97408:97408:1120/220225.484522:INFO:CONSOLE:51] "Clicking on: filter "My Attendances"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[97408:97408:1120/220225.806458:INFO:CONSOLE:51] "Clicking on: filter "My Team"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[97408:97408:1120/220226.038991:INFO:CONSOLE:51] "Clicking on: filter "Draft"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[97408:97408:1120/220226.278986:INFO:CONSOLE:51] "Clicking on: filter "Validated"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[97408:97408:1120/220226.640835:INFO:CONSOLE:51] "Clicking on: filter "Refused"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[97408:97408:1120/220226.832858:INFO:CONSOLE:51] "Clicking on: filter "At Work"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[97408:97408:1120/220226.952257:INFO:CONSOLE:51] "Clicking on: filter "Errors"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[97408:97408:1120/220227.046283:INFO:CONSOLE:51] "Clicking on: filter "Automatically Checked-Out"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[97408:97408:1120/220227.238886:INFO:CONSOLE:51] "Clicking on: filter "Overtime Entries"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[97408:97408:1120/220227.740810:INFO:CONSOLE:51] "Clicking on: filter "Source Attendances"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[97408:97408:1120/220227.977073:INFO:CONSOLE:51] "Clicking on: filter "Date (Today)"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[97408:97408:1120/220228.150994:INFO:CONSOLE:51] "Clicking on: filter "Active Employees"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[97408:97408:1120/220228.429313:INFO:CONSOLE:51] "Clicking on: filter "Archived Employees"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[97408:97408:1120/220228.717239:INFO:CONSOLE:25] "Test took 10.401900000000373 seconds", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (25)
+[97408:97408:1120/220228.720488:INFO:CONSOLE:26] "Tested 1 apps", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (26)
+[97408:97408:1120/220228.720541:INFO:CONSOLE:26] "Tested 1 menus", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (26)
+[97408:97408:1120/220228.720566:INFO:CONSOLE:27] "Tested 2 views", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (27)
+[97408:97408:1120/220228.720625:INFO:CONSOLE:27] "Tested 0 form views", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (27)
+[97408:97408:1120/220228.720651:INFO:CONSOLE:27] "Tested 0 new record views", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (27)
+[97408:97408:1120/220228.720675:INFO:CONSOLE:27] "Tested 0 modals", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (27)
+[97408:97408:1120/220228.720698:INFO:CONSOLE:27] "Tested 26 filters", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (27)
+[97408:97408:1120/220228.720731:INFO:CONSOLE:12] "clickbot test succeeded", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (12)

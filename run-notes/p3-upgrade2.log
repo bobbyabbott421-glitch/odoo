@@ -1,0 +1,296 @@
+2026-11-20 20:26:58,061 42652 INFO ? odoo: Odoo version 20.0
+2026-11-20 20:26:58,062 42652 INFO ? odoo: Using configuration file at /workspace/odoo-env/odoo.conf
+2026-11-20 20:26:58,062 42652 INFO ? odoo: addons paths: _NamespacePath(['/workspace/odoo/odoo/addons', '/workspace/odoo-env/data/addons/20.0', '/workspace/odoo/addons'])
+2026-11-20 20:26:58,062 42652 INFO ? odoo: database: odoo@/workspace/odoo-env/run:5432
+2026-11-20 20:26:58,653 42652 INFO crm_phase2 odoo.modules.loading: loading 1 modules...
+2026-11-20 20:26:58,658 42652 INFO crm_phase2 odoo.modules.loading: 1 modules loaded in 0.00s, 0 queries (+0 extra)
+2026-11-20 20:26:58,685 42652 INFO crm_phase2 odoo.modules.loading: updating modules list
+2026-11-20 20:26:58,689 42652 INFO crm_phase2 odoo.addons.base.models.ir_module: ALLOW access to module.update_list on [] to user __system__ #1 via n/a
+2026-11-20 20:26:59,356 42652 INFO crm_phase2 odoo.addons.base.models.ir_module: ALLOW access to module.button_upgrade on ['CRM'] to user __system__ #1 via n/a
+2026-11-20 20:26:59,356 42652 INFO crm_phase2 odoo.addons.base.models.ir_module: ALLOW access to module.update_list on ['CRM'] to user __system__ #1 via n/a
+2026-11-20 20:26:59,698 42652 INFO crm_phase2 odoo.addons.base.models.ir_module: ALLOW access to module.button_install on [] to user __system__ #1 via n/a
+2026-11-20 20:26:59,802 42652 INFO crm_phase2 odoo.modules.loading: loading 226 modules...
+2026-11-20 20:27:00,083 42652 WARNING crm_phase2 odoo.addons.mail.controllers.attachment: markdown2 is not installed, markdown will not be rendered
+2026-11-20 20:27:00,384 42652 INFO crm_phase2 odoo.modules.loading: Loading module crm (66/226)
+2026-11-20 20:27:00,632 42652 INFO crm_phase2 odoo.registry: module crm: creating or updating database tables
+2026-11-20 20:27:00,920 42652 INFO crm_phase2 odoo.modules.loading: loading crm/security/crm_security.xml
+2026-11-20 20:27:01,057 42652 INFO crm_phase2 odoo.modules.loading: loading crm/data/crm_lead_merge_template.xml
+2026-11-20 20:27:01,077 42652 INFO crm_phase2 odoo.modules.loading: loading crm/data/crm_lead_prediction_data.xml
+2026-11-20 20:27:01,137 42652 INFO crm_phase2 odoo.modules.loading: loading crm/data/crm_lost_reason_data.xml
+2026-11-20 20:27:01,141 42652 INFO crm_phase2 odoo.modules.loading: loading crm/data/crm_stage_data.xml
+2026-11-20 20:27:01,146 42652 INFO crm_phase2 odoo.modules.loading: loading crm/data/crm_team_data.xml
+2026-11-20 20:27:01,151 42652 INFO crm_phase2 odoo.modules.loading: loading crm/data/digest_data.xml
+2026-11-20 20:27:01,175 42652 INFO crm_phase2 odoo.modules.loading: loading crm/data/ir_cron_data.xml
+2026-11-20 20:27:01,177 42652 INFO crm_phase2 odoo.modules.loading: loading crm/data/mail_message_subtype_data.xml
+2026-11-20 20:27:01,186 42652 INFO crm_phase2 odoo.modules.loading: loading crm/data/crm_recurring_plan_data.xml
+2026-11-20 20:27:01,191 42652 INFO crm_phase2 odoo.modules.loading: loading crm/data/mail_templates.xml
+2026-11-20 20:27:01,207 42652 INFO crm_phase2 odoo.modules.loading: loading crm/data/crm_tour.xml
+2026-11-20 20:27:01,213 42652 INFO crm_phase2 odoo.modules.loading: loading crm/wizard/crm_lead_lost_views.xml
+2026-11-20 20:27:01,260 42652 INFO crm_phase2 odoo.modules.loading: loading crm/wizard/crm_lead_to_opportunity_mass_views.xml
+2026-11-20 20:27:01,276 42652 INFO crm_phase2 odoo.modules.loading: loading crm/wizard/crm_merge_opportunities_views.xml
+2026-11-20 20:27:01,292 42652 INFO crm_phase2 odoo.modules.loading: loading crm/wizard/crm_lead_pls_update_views.xml
+2026-11-20 20:27:01,306 42652 INFO crm_phase2 odoo.modules.loading: loading crm/views/calendar_views.xml
+2026-11-20 20:27:01,328 42652 INFO crm_phase2 odoo.modules.loading: loading crm/views/crm_recurring_plan_views.xml
+2026-11-20 20:27:01,348 42652 INFO crm_phase2 odoo.modules.loading: loading crm/views/crm_lost_reason_views.xml
+2026-11-20 20:27:01,385 42652 INFO crm_phase2 odoo.modules.loading: loading crm/views/crm_stage_views.xml
+2026-11-20 20:27:01,419 42652 INFO crm_phase2 odoo.modules.loading: loading crm/views/crm_lead_views.xml
+2026-11-20 20:27:01,786 42652 INFO crm_phase2 odoo.modules.loading: loading crm/views/crm_team_member_views.xml
+2026-11-20 20:27:01,874 42652 INFO crm_phase2 odoo.modules.loading: loading crm/views/digest_views.xml
+2026-11-20 20:27:01,905 42652 INFO crm_phase2 odoo.modules.loading: loading crm/views/mail_activity_plan_views.xml
+2026-11-20 20:27:01,916 42652 INFO crm_phase2 odoo.modules.loading: loading crm/views/mail_activity_views.xml
+2026-11-20 20:27:01,924 42652 INFO crm_phase2 odoo.modules.loading: loading crm/views/res_config_settings_views.xml
+2026-11-20 20:27:02,009 42652 INFO crm_phase2 odoo.modules.loading: loading crm/views/res_partner_views.xml
+2026-11-20 20:27:02,075 42652 INFO crm_phase2 odoo.modules.loading: loading crm/views/utm_campaign_views.xml
+2026-11-20 20:27:02,128 42652 INFO crm_phase2 odoo.modules.loading: loading crm/report/crm_activity_report_views.xml
+2026-11-20 20:27:02,165 42652 INFO crm_phase2 odoo.modules.loading: loading crm/report/crm_opportunity_report_views.xml
+2026-11-20 20:27:02,256 42652 INFO crm_phase2 odoo.models.unlink: User #1 deleted ir.actions.act_window.view records with IDs: [499, 500, 501]
+2026-11-20 20:27:02,270 42652 INFO crm_phase2 odoo.models.unlink: User #1 deleted ir.actions.act_window.view records with IDs: [502, 503, 504, 505]
+2026-11-20 20:27:02,275 42652 INFO crm_phase2 odoo.modules.loading: loading crm/views/crm_team_views.xml
+2026-11-20 20:27:02,283 42652 INFO crm_phase2 odoo.models.unlink: User #1 deleted ir.actions.act_window.view records with IDs: [506, 507]
+2026-11-20 20:27:02,451 42652 INFO crm_phase2 odoo.modules.loading: loading crm/views/crm_menu_views.xml
+2026-11-20 20:27:02,556 42652 INFO crm_phase2 odoo.modules.loading: loading crm/views/crm_helper_templates.xml
+2026-11-20 20:27:02,566 42652 INFO crm_phase2 odoo.modules.loading: loading crm/views/crm_lead_templates.xml
+2026-11-20 20:27:02,572 42652 INFO crm_phase2 odoo.modules.loading: loading crm/security/ir.access.csv
+2026-11-20 20:27:02,736 42652 INFO crm_phase2 odoo.modules.loading: Module crm: loading demo
+2026-11-20 20:27:02,736 42652 INFO crm_phase2 odoo.modules.loading: loading crm/data/crm_team_demo.xml
+2026-11-20 20:27:02,739 42652 INFO crm_phase2 odoo.modules.loading: loading crm/data/crm_stage_demo.xml
+2026-11-20 20:27:02,741 42652 INFO crm_phase2 odoo.modules.loading: loading crm/data/mail_template_demo.xml
+2026-11-20 20:27:02,743 42652 INFO crm_phase2 odoo.modules.loading: loading crm/data/crm_team_member_demo.xml
+2026-11-20 20:27:02,747 42652 INFO crm_phase2 odoo.modules.loading: loading crm/data/crm_lead_demo.xml
+2026-11-20 20:27:02,819 42652 INFO crm_phase2 odoo.registry: Registry changed, signaling through the database
+2026-11-20 20:27:02,823 42652 INFO crm_phase2 odoo.modules.loading: Module crm loaded in 2.44s, 2158 queries (+2158 other)
+2026-11-20 20:27:03,033 42652 INFO crm_phase2 odoo.modules.loading: Loading module crm_livechat (83/226)
+2026-11-20 20:27:03,360 42652 INFO crm_phase2 odoo.registry: module crm_livechat: creating or updating database tables
+2026-11-20 20:27:03,518 42652 INFO crm_phase2 odoo.modules.loading: loading crm_livechat/data/crm_livechat_chatbot_data.xml
+2026-11-20 20:27:03,524 42652 INFO crm_phase2 odoo.modules.loading: loading crm_livechat/views/chatbot_script_views.xml
+2026-11-20 20:27:03,636 42652 INFO crm_phase2 odoo.modules.loading: loading crm_livechat/views/chatbot_script_step_views.xml
+2026-11-20 20:27:03,651 42652 INFO crm_phase2 odoo.modules.loading: loading crm_livechat/views/crm_lead_views.xml
+2026-11-20 20:27:03,680 42652 INFO crm_phase2 odoo.modules.loading: loading crm_livechat/views/discuss_channel_views.xml
+2026-11-20 20:27:03,706 42652 INFO crm_phase2 odoo.modules.loading: loading crm_livechat/security/ir.access.csv
+2026-11-20 20:27:03,765 42652 INFO crm_phase2 odoo.registry: Registry changed, signaling through the database
+2026-11-20 20:27:03,767 42652 INFO crm_phase2 odoo.modules.loading: Module crm_livechat loaded in 0.73s, 337 queries (+337 other)
+2026-11-20 20:27:03,767 42652 INFO crm_phase2 odoo.modules.loading: Loading module crm_mail_plugin (84/226)
+2026-11-20 20:27:03,855 42652 INFO crm_phase2 odoo.registry: Caches invalidated, signaling through the database: ['default', 'stable']
+2026-11-20 20:27:03,856 42652 INFO crm_phase2 odoo.modules.loading: Module crm_mail_plugin loaded in 0.09s, 13 queries (+13 other)
+2026-11-20 20:27:03,856 42652 INFO crm_phase2 odoo.modules.loading: Loading module crm_sms (85/226)
+2026-11-20 20:27:03,927 42652 INFO crm_phase2 odoo.modules.loading: loading crm_sms/views/crm_lead_views.xml
+2026-11-20 20:27:04,033 42652 INFO crm_phase2 odoo.modules.loading: loading crm_sms/security/ir.access.csv
+2026-11-20 20:27:04,067 42652 INFO crm_phase2 odoo.registry: Caches invalidated, signaling through the database: ['default', 'stable', 'templates']
+2026-11-20 20:27:04,070 42652 INFO crm_phase2 odoo.modules.loading: Module crm_sms loaded in 0.21s, 143 queries (+143 other)
+2026-11-20 20:27:04,072 42652 INFO crm_phase2 odoo.modules.loading: Loading module event_crm (87/226)
+2026-11-20 20:27:04,118 42652 INFO crm_phase2 odoo.registry: module event_crm: creating or updating database tables
+2026-11-20 20:27:04,223 42652 INFO crm_phase2 odoo.modules.loading: loading event_crm/data/crm_lead_merge_template.xml
+2026-11-20 20:27:04,240 42652 INFO crm_phase2 odoo.modules.loading: loading event_crm/data/ir_action_data.xml
+2026-11-20 20:27:04,262 42652 INFO crm_phase2 odoo.modules.loading: loading event_crm/data/ir_cron_data.xml
+2026-11-20 20:27:04,286 42652 INFO crm_phase2 odoo.modules.loading: loading event_crm/views/crm_lead_views.xml
+2026-11-20 20:27:04,384 42652 INFO crm_phase2 odoo.modules.loading: loading event_crm/views/event_registration_views.xml
+2026-11-20 20:27:04,412 42652 INFO crm_phase2 odoo.modules.loading: loading event_crm/views/event_lead_rule_views.xml
+2026-11-20 20:27:04,450 42652 INFO crm_phase2 odoo.modules.loading: loading event_crm/views/event_event_views.xml
+2026-11-20 20:27:04,500 42652 INFO crm_phase2 odoo.modules.loading: loading event_crm/views/event_question_views.xml
+2026-11-20 20:27:04,523 42652 INFO crm_phase2 odoo.modules.loading: loading event_crm/security/ir.access.csv
+2026-11-20 20:27:04,563 42652 INFO crm_phase2 odoo.modules.loading: Module event_crm: loading demo
+2026-11-20 20:27:04,563 42652 INFO crm_phase2 odoo.modules.loading: loading event_crm/data/event_crm_demo.xml
+2026-11-20 20:27:04,586 42652 INFO crm_phase2 odoo.registry: Registry changed, signaling through the database
+2026-11-20 20:27:04,587 42652 INFO crm_phase2 odoo.modules.loading: Module event_crm loaded in 0.52s, 452 queries (+452 other)
+2026-11-20 20:27:04,617 42652 INFO crm_phase2 odoo.modules.loading: Loading module iap_crm (97/226)
+2026-11-20 20:27:04,729 42652 INFO crm_phase2 odoo.registry: module iap_crm: creating or updating database tables
+2026-11-20 20:27:04,854 42652 INFO crm_phase2 odoo.registry: Registry changed, signaling through the database
+2026-11-20 20:27:04,856 42652 INFO crm_phase2 odoo.modules.loading: Module iap_crm loaded in 0.24s, 67 queries (+67 other)
+2026-11-20 20:27:04,858 42652 INFO crm_phase2 odoo.modules.loading: Loading module mass_mailing_crm (100/226)
+2026-11-20 20:27:04,906 42652 INFO crm_phase2 odoo.registry: module mass_mailing_crm: creating or updating database tables
+2026-11-20 20:27:05,001 42652 INFO crm_phase2 odoo.modules.loading: loading mass_mailing_crm/views/mailing_mailing_views.xml
+2026-11-20 20:27:05,098 42652 INFO crm_phase2 odoo.registry: Registry changed, signaling through the database
+2026-11-20 20:27:05,100 42652 INFO crm_phase2 odoo.modules.loading: Module mass_mailing_crm loaded in 0.24s, 130 queries (+130 other)
+2026-11-20 20:27:05,250 42652 INFO crm_phase2 odoo.modules.loading: Loading module survey_crm (115/226)
+2026-11-20 20:27:05,408 42652 INFO crm_phase2 odoo.registry: module survey_crm: creating or updating database tables
+2026-11-20 20:27:05,521 42652 INFO crm_phase2 odoo.modules.loading: loading survey_crm/views/survey_question_views.xml
+2026-11-20 20:27:05,599 42652 INFO crm_phase2 odoo.modules.loading: loading survey_crm/views/survey_survey_views.xml
+2026-11-20 20:27:05,648 42652 INFO crm_phase2 odoo.modules.loading: loading survey_crm/views/survey_user_views.xml
+2026-11-20 20:27:05,666 42652 INFO crm_phase2 odoo.modules.loading: Module survey_crm: loading demo
+2026-11-20 20:27:05,666 42652 INFO crm_phase2 odoo.modules.loading: loading survey_crm/demo/lead_qualification_survey_demo.xml
+2026-11-20 20:27:05,677 42652 INFO crm_phase2 odoo.modules.loading: loading survey_crm/demo/lead_qualification_answer_demo.xml
+2026-11-20 20:27:05,690 42652 INFO crm_phase2 odoo.registry: Registry changed, signaling through the database
+2026-11-20 20:27:05,692 42652 INFO crm_phase2 odoo.modules.loading: Module survey_crm loaded in 0.44s, 264 queries (+264 other)
+2026-11-20 20:27:05,693 42652 INFO crm_phase2 odoo.modules.loading: Loading module website_crm (117/226)
+2026-11-20 20:27:05,733 42652 INFO crm_phase2 odoo.registry: module website_crm: creating or updating database tables
+2026-11-20 20:27:05,843 42652 INFO crm_phase2 odoo.modules.loading: loading website_crm/data/crm_lead_merge_template.xml
+2026-11-20 20:27:05,862 42652 INFO crm_phase2 odoo.modules.loading: loading website_crm/data/ir_actions_data.xml
+2026-11-20 20:27:05,867 42652 INFO crm_phase2 odoo.modules.loading: loading website_crm/data/ir_model_data.xml
+2026-11-20 20:27:05,893 42652 INFO crm_phase2 odoo.modules.loading: loading website_crm/views/crm_lead_views.xml
+2026-11-20 20:27:05,984 42652 INFO crm_phase2 odoo.modules.loading: loading website_crm/views/website_visitor_views.xml
+2026-11-20 20:27:06,057 42652 INFO crm_phase2 odoo.modules.loading: loading website_crm/views/website_templates_contactus.xml
+2026-11-20 20:27:06,074 42652 INFO crm_phase2 odoo.modules.loading: loading website_crm/security/ir.access.csv
+2026-11-20 20:27:06,127 42652 INFO crm_phase2 odoo.registry: Registry changed, signaling through the database
+2026-11-20 20:27:06,129 42652 INFO crm_phase2 odoo.modules.loading: Module website_crm loaded in 0.44s, 332 queries (+332 other)
+2026-11-20 20:27:06,140 42652 INFO crm_phase2 odoo.modules.loading: Loading module crm_iap_enrich (126/226)
+2026-11-20 20:27:06,245 42652 INFO crm_phase2 odoo.registry: module crm_iap_enrich: creating or updating database tables
+2026-11-20 20:27:06,367 42652 INFO crm_phase2 odoo.modules.loading: loading crm_iap_enrich/data/ir_cron.xml
+2026-11-20 20:27:06,412 42652 INFO crm_phase2 odoo.modules.loading: loading crm_iap_enrich/data/ir_action.xml
+2026-11-20 20:27:06,422 42652 INFO crm_phase2 odoo.modules.loading: loading crm_iap_enrich/data/mail_templates.xml
+2026-11-20 20:27:06,425 42652 INFO crm_phase2 odoo.modules.loading: loading crm_iap_enrich/views/crm_lead_views.xml
+2026-11-20 20:27:06,546 42652 INFO crm_phase2 odoo.modules.loading: loading crm_iap_enrich/views/res_config_settings_view.xml
+2026-11-20 20:27:06,696 42652 INFO crm_phase2 odoo.registry: Registry changed, signaling through the database
+2026-11-20 20:27:06,699 42652 INFO crm_phase2 odoo.modules.loading: Module crm_iap_enrich loaded in 0.56s, 244 queries (+244 other)
+2026-11-20 20:27:06,699 42652 INFO crm_phase2 odoo.modules.loading: Loading module crm_iap_mine (127/226)
+2026-11-20 20:27:06,748 42652 INFO crm_phase2 odoo.registry: module crm_iap_mine: creating or updating database tables
+2026-11-20 20:27:06,887 42652 INFO crm_phase2 odoo.modules.loading: loading crm_iap_mine/data/crm.iap.lead.industry.division.csv
+2026-11-20 20:27:06,897 42652 INFO crm_phase2 odoo.modules.loading: loading crm_iap_mine/data/crm.iap.lead.industry.csv
+2026-11-20 20:27:06,919 42652 INFO crm_phase2 odoo.modules.loading: loading crm_iap_mine/data/crm.iap.lead.role.csv
+2026-11-20 20:27:06,927 42652 INFO crm_phase2 odoo.modules.loading: loading crm_iap_mine/data/crm.iap.lead.seniority.csv
+2026-11-20 20:27:06,932 42652 INFO crm_phase2 odoo.modules.loading: loading crm_iap_mine/data/mail_template_data.xml
+2026-11-20 20:27:06,934 42652 INFO crm_phase2 odoo.modules.loading: loading crm_iap_mine/data/ir_sequence_data.xml
+2026-11-20 20:27:06,937 42652 INFO crm_phase2 odoo.modules.loading: loading crm_iap_mine/views/crm_iap_lead_industry_views.xml
+2026-11-20 20:27:06,996 42652 INFO crm_phase2 odoo.modules.loading: loading crm_iap_mine/views/crm_iap_lead_mining_request_views.xml
+2026-11-20 20:27:07,026 42652 INFO crm_phase2 odoo.modules.loading: loading crm_iap_mine/views/res_config_settings_views.xml
+2026-11-20 20:27:07,128 42652 INFO crm_phase2 odoo.modules.loading: loading crm_iap_mine/views/mail_templates.xml
+2026-11-20 20:27:07,149 42652 INFO crm_phase2 odoo.modules.loading: loading crm_iap_mine/views/crm_menus.xml
+2026-11-20 20:27:07,155 42652 INFO crm_phase2 odoo.modules.loading: loading crm_iap_mine/security/ir.access.csv
+2026-11-20 20:27:07,208 42652 INFO crm_phase2 odoo.registry: Registry changed, signaling through the database
+2026-11-20 20:27:07,209 42652 INFO crm_phase2 odoo.modules.loading: Module crm_iap_mine loaded in 0.51s, 409 queries (+409 other)
+2026-11-20 20:27:07,253 42652 INFO crm_phase2 odoo.modules.loading: Loading module mass_mailing_crm_sms (132/226)
+2026-11-20 20:27:07,367 42652 INFO crm_phase2 odoo.registry: module mass_mailing_crm_sms: creating or updating database tables
+2026-11-20 20:27:07,485 42652 INFO crm_phase2 odoo.registry: Registry changed, signaling through the database
+2026-11-20 20:27:07,487 42652 INFO crm_phase2 odoo.modules.loading: Module mass_mailing_crm_sms loaded in 0.23s, 43 queries (+43 other)
+2026-11-20 20:27:07,523 42652 INFO crm_phase2 odoo.modules.loading: Loading module website_crm_livechat (146/226)
+2026-11-20 20:27:07,682 42652 INFO crm_phase2 odoo.registry: module website_crm_livechat: creating or updating database tables
+2026-11-20 20:27:07,794 42652 INFO crm_phase2 odoo.modules.loading: loading website_crm_livechat/views/website_crm_lead_views.xml
+2026-11-20 20:27:07,900 42652 INFO crm_phase2 odoo.registry: Registry changed, signaling through the database
+2026-11-20 20:27:07,902 42652 INFO crm_phase2 odoo.modules.loading: Module website_crm_livechat loaded in 0.38s, 168 queries (+168 other)
+2026-11-20 20:27:07,902 42652 INFO crm_phase2 odoo.modules.loading: Loading module website_crm_sms (147/226)
+2026-11-20 20:27:07,941 42652 INFO crm_phase2 odoo.registry: module website_crm_sms: creating or updating database tables
+2026-11-20 20:27:08,021 42652 INFO crm_phase2 odoo.registry: Registry changed, signaling through the database
+2026-11-20 20:27:08,022 42652 INFO crm_phase2 odoo.modules.loading: Module website_crm_sms loaded in 0.12s, 39 queries (+39 other)
+2026-11-20 20:27:08,047 42652 INFO crm_phase2 odoo.modules.loading: Loading module partnership (158/226)
+2026-11-20 20:27:08,219 42652 INFO crm_phase2 odoo.registry: module partnership: creating or updating database tables
+2026-11-20 20:27:08,426 42652 INFO crm_phase2 odoo.schema: Keep unexpected index product_template__description_index on table product_template
+2026-11-20 20:27:08,426 42652 INFO crm_phase2 odoo.schema: Keep unexpected index product_template__description_sale_index on table product_template
+2026-11-20 20:27:08,452 42652 INFO crm_phase2 odoo.modules.loading: loading partnership/data/res_partner_grade_data.xml
+2026-11-20 20:27:08,461 42652 INFO crm_phase2 odoo.modules.loading: loading partnership/views/res_config_settings_views.xml
+2026-11-20 20:27:08,621 42652 INFO crm_phase2 odoo.modules.loading: loading partnership/views/res_partner_views.xml
+2026-11-20 20:27:08,772 42652 INFO crm_phase2 odoo.modules.loading: loading partnership/views/res_partner_grade_views.xml
+2026-11-20 20:27:08,806 42652 INFO crm_phase2 odoo.modules.loading: loading partnership/views/product_template_views.xml
+2026-11-20 20:27:08,880 42652 INFO crm_phase2 odoo.modules.loading: loading partnership/views/product_pricelist_views.xml
+2026-11-20 20:27:08,913 42652 INFO crm_phase2 odoo.modules.loading: loading partnership/views/partnership_menu.xml
+2026-11-20 20:27:08,924 42652 INFO crm_phase2 odoo.modules.loading: loading partnership/security/ir.access.csv
+2026-11-20 20:27:08,998 42652 INFO crm_phase2 odoo.registry: Registry changed, signaling through the database
+2026-11-20 20:27:09,000 42652 INFO crm_phase2 odoo.modules.loading: Module partnership loaded in 0.95s, 604 queries (+604 other)
+2026-11-20 20:27:09,010 42652 INFO crm_phase2 odoo.modules.loading: Loading module sale_crm (163/226)
+2026-11-20 20:27:09,119 42652 INFO crm_phase2 odoo.registry: module sale_crm: creating or updating database tables
+2026-11-20 20:27:09,240 42652 INFO crm_phase2 odoo.modules.loading: loading sale_crm/data/crm_lead_merge_template.xml
+2026-11-20 20:27:09,261 42652 INFO crm_phase2 odoo.modules.loading: loading sale_crm/views/sale_order_views.xml
+2026-11-20 20:27:09,405 42652 INFO crm_phase2 odoo.modules.loading: loading sale_crm/views/crm_lead_views.xml
+2026-11-20 20:27:09,449 42652 INFO crm_phase2 odoo.modules.loading: loading sale_crm/views/crm_team_views.xml
+2026-11-20 20:27:09,475 42652 INFO crm_phase2 odoo.modules.loading: loading sale_crm/wizard/crm_opportunity_to_quotation_views.xml
+2026-11-20 20:27:09,489 42652 INFO crm_phase2 odoo.modules.loading: loading sale_crm/security/ir.access.csv
+2026-11-20 20:27:09,533 42652 INFO crm_phase2 odoo.registry: Registry changed, signaling through the database
+2026-11-20 20:27:09,535 42652 INFO crm_phase2 odoo.modules.loading: Module sale_crm loaded in 0.52s, 293 queries (+293 other)
+2026-11-20 20:27:09,548 42652 INFO crm_phase2 odoo.modules.loading: Loading module website_crm_iap_reveal (170/226)
+2026-11-20 20:27:09,689 42652 INFO crm_phase2 odoo.registry: module website_crm_iap_reveal: creating or updating database tables
+2026-11-20 20:27:09,816 42652 INFO crm_phase2 odoo.modules.loading: loading website_crm_iap_reveal/data/ir_cron_data.xml
+2026-11-20 20:27:09,820 42652 INFO crm_phase2 odoo.modules.loading: loading website_crm_iap_reveal/data/ir_model_data.xml
+2026-11-20 20:27:09,844 42652 INFO crm_phase2 odoo.modules.loading: loading website_crm_iap_reveal/data/mail_templates.xml
+2026-11-20 20:27:09,862 42652 INFO crm_phase2 odoo.modules.loading: loading website_crm_iap_reveal/views/crm_lead_views.xml
+2026-11-20 20:27:10,078 42652 INFO crm_phase2 odoo.modules.loading: loading website_crm_iap_reveal/views/crm_reveal_views.xml
+2026-11-20 20:27:10,132 42652 INFO crm_phase2 odoo.modules.loading: loading website_crm_iap_reveal/views/res_config_settings_views.xml
+2026-11-20 20:27:10,256 42652 INFO crm_phase2 odoo.modules.loading: loading website_crm_iap_reveal/views/crm_menus.xml
+2026-11-20 20:27:10,265 42652 INFO crm_phase2 odoo.modules.loading: loading website_crm_iap_reveal/security/ir.access.csv
+2026-11-20 20:27:10,323 42652 INFO crm_phase2 odoo.registry: Registry changed, signaling through the database
+2026-11-20 20:27:10,324 42652 INFO crm_phase2 odoo.modules.loading: Module website_crm_iap_reveal loaded in 0.78s, 536 queries (+536 other)
+2026-11-20 20:27:10,327 42652 INFO crm_phase2 odoo.modules.loading: Loading module website_event_crm (172/226)
+2026-11-20 20:27:10,379 42652 INFO crm_phase2 odoo.registry: module website_event_crm: creating or updating database tables
+2026-11-20 20:27:10,517 42652 INFO crm_phase2 odoo.modules.loading: loading website_event_crm/views/event_lead_rule_views.xml
+2026-11-20 20:27:10,603 42652 INFO crm_phase2 odoo.modules.loading: Module website_event_crm: loading demo
+2026-11-20 20:27:10,604 42652 INFO crm_phase2 odoo.modules.loading: loading website_event_crm/data/event_crm_demo.xml
+2026-11-20 20:27:10,616 42652 INFO crm_phase2 odoo.registry: Registry changed, signaling through the database
+2026-11-20 20:27:10,617 42652 INFO crm_phase2 odoo.modules.loading: Module website_event_crm loaded in 0.29s, 100 queries (+100 other)
+2026-11-20 20:27:10,651 42652 INFO crm_phase2 odoo.modules.loading: Loading module gamification_sale_crm (178/226)
+2026-11-20 20:27:10,888 42652 INFO crm_phase2 odoo.modules.loading: loading gamification_sale_crm/data/gamification_sale_crm_data.xml
+2026-11-20 20:27:10,898 42652 INFO crm_phase2 odoo.modules.loading: Module gamification_sale_crm: loading demo
+2026-11-20 20:27:10,899 42652 INFO crm_phase2 odoo.modules.loading: loading gamification_sale_crm/data/gamification_sale_crm_demo.xml
+2026-11-20 20:27:10,907 42652 INFO crm_phase2 odoo.registry: Caches invalidated, signaling through the database: ['default', 'stable']
+2026-11-20 20:27:10,908 42652 INFO crm_phase2 odoo.modules.loading: Module gamification_sale_crm loaded in 0.26s, 52 queries (+52 other)
+2026-11-20 20:27:10,941 42652 INFO crm_phase2 odoo.modules.loading: Loading module website_partnership (193/226)
+2026-11-20 20:27:11,075 42652 INFO crm_phase2 odoo.registry: module website_partnership: creating or updating database tables
+2026-11-20 20:27:11,175 42652 INFO crm_phase2 odoo.modules.loading: loading website_partnership/views/res_partner_grade_views.xml
+2026-11-20 20:27:11,240 42652 INFO crm_phase2 odoo.modules.loading: loading website_partnership/views/website_partnership_templates.xml
+2026-11-20 20:27:11,429 42652 INFO crm_phase2 odoo.modules.loading: loading website_partnership/views/res_config_settings_views.xml
+2026-11-20 20:27:11,547 42652 INFO crm_phase2 odoo.modules.loading: loading website_partnership/security/ir.access.csv
+2026-11-20 20:27:11,573 42652 INFO crm_phase2 odoo.modules.loading: Module website_partnership: loading demo
+2026-11-20 20:27:11,573 42652 INFO crm_phase2 odoo.modules.loading: loading website_partnership/demo/res_partner_grade_demo.xml
+2026-11-20 20:27:11,576 42652 INFO crm_phase2 odoo.modules.loading: loading website_partnership/demo/res_partner_demo.xml
+2026-11-20 20:27:11,597 42652 INFO crm_phase2 odoo.registry: Registry changed, signaling through the database
+2026-11-20 20:27:11,598 42652 INFO crm_phase2 odoo.modules.loading: Module website_partnership loaded in 0.66s, 447 queries (+447 other)
+2026-11-20 20:27:11,617 42652 INFO crm_phase2 odoo.modules.loading: Loading module test_discuss_full (195/226)
+2026-11-20 20:27:11,834 42652 INFO crm_phase2 odoo.registry: Caches invalidated, signaling through the database: ['default', 'stable']
+2026-11-20 20:27:11,835 42652 INFO crm_phase2 odoo.modules.loading: Module test_discuss_full loaded in 0.22s, 15 queries (+15 other)
+2026-11-20 20:27:11,842 42652 INFO crm_phase2 odoo.modules.loading: Loading module event_crm_sale (198/226)
+2026-11-20 20:27:11,933 42652 INFO crm_phase2 odoo.registry: module event_crm_sale: creating or updating database tables
+2026-11-20 20:27:12,029 42652 INFO crm_phase2 odoo.modules.loading: loading event_crm_sale/views/event_lead_rule_views.xml
+2026-11-20 20:27:12,124 42652 INFO crm_phase2 odoo.registry: Registry changed, signaling through the database
+2026-11-20 20:27:12,126 42652 INFO crm_phase2 odoo.modules.loading: Module event_crm_sale loaded in 0.28s, 98 queries (+98 other)
+2026-11-20 20:27:12,134 42652 INFO crm_phase2 odoo.modules.loading: Loading module website_crm_partner_assign (204/226)
+2026-11-20 20:27:12,260 42652 INFO crm_phase2 odoo.registry: module website_crm_partner_assign: creating or updating database tables
+2026-11-20 20:27:12,288 42652 INFO crm_phase2 odoo.fields: Prepare computation of website.show_line_subtotals_tax_selection in 0 records
+2026-11-20 20:27:12,453 42652 INFO crm_phase2 odoo.modules.loading: loading website_crm_partner_assign/data/crm_lead_merge_template.xml
+2026-11-20 20:27:12,473 42652 INFO crm_phase2 odoo.modules.loading: loading website_crm_partner_assign/data/crm_tag_data.xml
+2026-11-20 20:27:12,482 42652 INFO crm_phase2 odoo.modules.loading: loading website_crm_partner_assign/data/mail_template_data.xml
+2026-11-20 20:27:12,491 42652 INFO crm_phase2 odoo.modules.loading: loading website_crm_partner_assign/data/res_partner_activation_data.xml
+2026-11-20 20:27:12,497 42652 INFO crm_phase2 odoo.modules.loading: loading website_crm_partner_assign/data/portal_entry_data.xml
+2026-11-20 20:27:12,499 42652 INFO crm_phase2 odoo.modules.loading: loading website_crm_partner_assign/wizard/crm_forward_to_partner_view.xml
+2026-11-20 20:27:12,557 42652 INFO crm_phase2 odoo.modules.loading: loading website_crm_partner_assign/views/res_partner_views.xml
+2026-11-20 20:27:12,648 42652 INFO crm_phase2 odoo.modules.loading: loading website_crm_partner_assign/views/website_page_views.xml
+2026-11-20 20:27:12,715 42652 INFO crm_phase2 odoo.models.unlink: User #1 deleted ir.actions.act_window.view records with IDs: [508, 509]
+2026-11-20 20:27:12,724 42652 INFO crm_phase2 odoo.modules.loading: loading website_crm_partner_assign/views/res_partner_activation_views.xml
+2026-11-20 20:27:12,766 42652 INFO crm_phase2 odoo.modules.loading: loading website_crm_partner_assign/views/res_partner_grade_views.xml
+2026-11-20 20:27:12,785 42652 INFO crm_phase2 odoo.modules.loading: loading website_crm_partner_assign/views/crm_lead_views.xml
+2026-11-20 20:27:13,090 42652 INFO crm_phase2 odoo.modules.loading: loading website_crm_partner_assign/views/website_crm_partner_assign_templates.xml
+2026-11-20 20:27:13,340 42652 INFO crm_phase2 odoo.modules.loading: loading website_crm_partner_assign/views/partner_assign_menus.xml
+2026-11-20 20:27:13,345 42652 INFO crm_phase2 odoo.modules.loading: loading website_crm_partner_assign/report/crm_partner_report_view.xml
+2026-11-20 20:27:13,374 42652 INFO crm_phase2 odoo.modules.loading: loading website_crm_partner_assign/security/ir.access.csv
+2026-11-20 20:27:13,451 42652 INFO crm_phase2 odoo.modules.loading: Module website_crm_partner_assign: loading demo
+2026-11-20 20:27:13,451 42652 INFO crm_phase2 odoo.modules.loading: loading website_crm_partner_assign/data/res_partner_demo.xml
+2026-11-20 20:27:13,460 42652 INFO crm_phase2 odoo.modules.loading: loading website_crm_partner_assign/data/crm_lead_demo.xml
+2026-11-20 20:27:13,490 42652 INFO crm_phase2 odoo.registry: Registry changed, signaling through the database
+2026-11-20 20:27:13,492 42652 INFO crm_phase2 odoo.modules.loading: Module website_crm_partner_assign loaded in 1.36s, 1221 queries (+1221 other)
+2026-11-20 20:27:13,492 42652 INFO crm_phase2 odoo.modules.loading: Loading module test_crm_full (205/226)
+2026-11-20 20:27:13,608 42652 INFO crm_phase2 odoo.registry: Caches invalidated, signaling through the database: ['default', 'stable']
+2026-11-20 20:27:13,609 42652 INFO crm_phase2 odoo.modules.loading: Module test_crm_full loaded in 0.12s, 13 queries (+13 other)
+2026-11-20 20:27:13,612 42652 INFO crm_phase2 odoo.modules.loading: Loading module test_website_modules (207/226)
+2026-11-20 20:27:13,768 42652 INFO crm_phase2 odoo.registry: Caches invalidated, signaling through the database: ['default', 'stable']
+2026-11-20 20:27:13,770 42652 INFO crm_phase2 odoo.modules.loading: Module test_website_modules loaded in 0.16s, 14 queries (+14 other)
+2026-11-20 20:27:13,775 42652 INFO crm_phase2 odoo.modules.loading: Loading module crm_sale_project (212/226)
+2026-11-20 20:27:13,892 42652 INFO crm_phase2 odoo.registry: module crm_sale_project: creating or updating database tables
+2026-11-20 20:27:14,030 42652 INFO crm_phase2 odoo.modules.loading: loading crm_sale_project/data/ir_actions_server_data.xml
+2026-11-20 20:27:14,055 42652 INFO crm_phase2 odoo.modules.loading: loading crm_sale_project/views/crm_lead_views.xml
+2026-11-20 20:27:14,145 42652 INFO crm_phase2 odoo.modules.loading: loading crm_sale_project/views/project_project_views.xml
+2026-11-20 20:27:14,205 42652 INFO crm_phase2 odoo.modules.loading: loading crm_sale_project/wizard/project_template_create_wizard.xml
+2026-11-20 20:27:14,240 42652 INFO crm_phase2 odoo.registry: Registry changed, signaling through the database
+2026-11-20 20:27:14,244 42652 INFO crm_phase2 odoo.modules.loading: Module crm_sale_project loaded in 0.47s, 252 queries (+252 other)
+2026-11-20 20:27:14,259 42652 INFO crm_phase2 odoo.modules.loading: Loading module test_main_flows (219/226)
+2026-11-20 20:27:14,436 42652 INFO crm_phase2 odoo.registry: module test_main_flows: creating or updating database tables
+2026-11-20 20:27:14,532 42652 INFO crm_phase2 odoo.modules.loading: loading test_main_flows/ir.access.csv
+2026-11-20 20:27:14,570 42652 INFO crm_phase2 odoo.registry: Registry changed, signaling through the database
+2026-11-20 20:27:14,572 42652 INFO crm_phase2 odoo.modules.loading: Module test_main_flows loaded in 0.31s, 79 queries (+79 other)
+2026-11-20 20:27:14,572 42652 INFO crm_phase2 odoo.modules.loading: Loading module website_customer (220/226)
+2026-11-20 20:27:14,663 42652 INFO crm_phase2 odoo.registry: module website_customer: creating or updating database tables
+2026-11-20 20:27:14,822 42652 INFO crm_phase2 odoo.modules.loading: loading website_customer/views/website_customer_templates.xml
+2026-11-20 20:27:14,967 42652 INFO crm_phase2 odoo.modules.loading: loading website_customer/views/res_partner_views.xml
+2026-11-20 20:27:15,132 42652 INFO crm_phase2 odoo.modules.loading: loading website_customer/security/ir.access.csv
+2026-11-20 20:27:15,174 42652 INFO crm_phase2 odoo.modules.loading: Module website_customer: loading demo
+2026-11-20 20:27:15,174 42652 INFO crm_phase2 odoo.modules.loading: loading website_customer/data/res_partner_demo.xml
+2026-11-20 20:27:15,197 42652 INFO crm_phase2 odoo.registry: Registry changed, signaling through the database
+2026-11-20 20:27:15,199 42652 INFO crm_phase2 odoo.modules.loading: Module website_customer loaded in 0.63s, 468 queries (+468 other)
+2026-11-20 20:27:15,203 42652 INFO crm_phase2 odoo.modules.loading: Loading module test_event_full (226/226)
+2026-11-20 20:27:15,359 42652 INFO crm_phase2 odoo.modules.loading: loading test_event_full/data/ir_actions_report_data.xml
+2026-11-20 20:27:15,369 42652 INFO crm_phase2 odoo.modules.loading: loading test_event_full/views/event_registration_templates_reports.xml
+2026-11-20 20:27:15,385 42652 INFO crm_phase2 odoo.registry: Caches invalidated, signaling through the database: ['default', 'stable', 'templates']
+2026-11-20 20:27:15,388 42652 INFO crm_phase2 odoo.modules.loading: Module test_event_full loaded in 0.19s, 35 queries (+35 other)
+2026-11-20 20:27:15,388 42652 INFO crm_phase2 odoo.modules.loading: 226 modules loaded in 15.59s, 9026 queries (+9026 extra)
+2026-11-20 20:27:16,057 42652 INFO crm_phase2 odoo.registry: verifying fields for every extended model
+2026-11-20 20:27:17,305 42652 INFO crm_phase2 odoo.modules.loading: Modules loaded.
+2026-11-20 20:27:17,329 42652 INFO crm_phase2 odoo.registry: Registry changed, signaling through the database
+2026-11-20 20:27:17,332 42652 INFO crm_phase2 odoo.registry: Registry loaded in 18.697s
+2026-11-20 20:27:17,333 42652 INFO crm_phase2 odoo.service.server.ThreadedServer: Initiating shutdown
+2026-11-20 20:27:17,333 42652 INFO crm_phase2 odoo.service.server.ThreadedServer: Hit CTRL-C again or send a second signal to force the shutdown.
+2026-11-20 20:27:17,333 42652 INFO crm_phase2 odoo.addons.bus.websocket: Disconnecting 0 websockets
+2026-11-20 20:27:17,442 42652 INFO crm_phase2 odoo.sql_db: ConnectionPool(read/write;used=0/count=0/max=64): Closed 1 connections 

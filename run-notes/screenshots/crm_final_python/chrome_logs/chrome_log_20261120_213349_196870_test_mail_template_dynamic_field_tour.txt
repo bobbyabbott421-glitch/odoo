@@ -1,0 +1,110 @@
+[83780:83811:1120/213317.937763:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[83780:83811:1120/213318.013473:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[83780:83811:1120/213318.013552:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[83780:83811:1120/213318.013606:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[83780:83811:1120/213318.013627:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[83780:83811:1120/213318.013637:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[83780:83811:1120/213318.013669:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[83780:83811:1120/213318.064472:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[83780:83811:1120/213318.211677:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[83780:83821:1120/213318.236956:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 83826: Read-only file system (30)
+[83780:83780:1120/213318.264101:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[83780:83780:1120/213318.264292:WARNING:device/bluetooth/dbus/bluez_dbus_manager.cc:209] Floss manager service not available, cannot set Floss enable/disable.
+[83780:83780:1120/213318.264316:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[83780:83780:1120/213318.264907:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[83780:83811:1120/213318.266392:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[83780:83811:1120/213318.266417:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[83780:83780:1120/213318.276303:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[83780:83811:1120/213318.298362:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[83780:83780:1120/213318.324033:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[83780:83780:1120/213318.324356:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[83780:83780:1120/213318.325219:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[83780:83811:1120/213318.337938:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[83780:83811:1120/213318.337972:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[83780:83811:1120/213318.337998:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[83823:83823:1120/213318.537721:WARNING:media/gpu/vaapi/vaapi_wrapper.cc:1655] drmGetDevices2() has not found any devices
+[83823:83823:1120/213318.549260:WARNING:sandbox/policy/linux/sandbox_linux.cc:405] InitializeSandbox() called with multiple threads in process gpu-process.
+[83780:83821:1120/213318.565387:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 83876: Read-only file system (30)
+[83780:83821:1120/213318.772158:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 83888: Read-only file system (30)
+[83780:83821:1120/213318.810488:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 83890: Read-only file system (30)
+[83780:83780:1120/213318.924565:WARNING:dbus/property.cc:94] Failed to connect to PropertiesChangedsignal.
+[83780:83780:1120/213318.924622:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.Properties.GetAll: object_path= /org/freedesktop/UPower/devices/DisplayDevice: unknown error type: 
+[83780:83780:1120/213318.924630:WARNING:dbus/property.cc:174] GetAll request failed for: org.freedesktop.UPower.Device
+[83780:83780:1120/213318.924643:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[83780:83811:1120/213318.924736:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[83780:83780:1120/213318.972381:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[83780:83811:1120/213318.972508:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[83780:83780:1120/213319.016991:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[83780:83780:1120/213319.017025:WARNING:ui/base/idle/idle_linux.cc:111] None of the known D-Bus ScreenSaver services could be used.
+[83780:83780:1120/213325.141459:INFO:CONSOLE:1148] "Owl is running in 'dev' mode.", source: http://127.0.0.1:8071/web/assets/56c5002/web.assets_web.min.js (1148)
+[83780:83780:1120/213325.594544:INFO:CONSOLE:672] "Hoot DOM helpers available from `window.hoot`", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (672)
+[83780:83780:1120/213325.599932:INFO:CONSOLE:683] "[1/40] Tour mail_template_dynamic_field_tour → Step .o_navbar_apps_menu button:enabled", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83780:83780:1120/213326.970516:INFO:CONSOLE:683] "[2/40] Tour mail_template_dynamic_field_tour → Step Go into the Setting "app" (trigger: .o_app[data-menu-xmlid="base.menu_administration"])", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83780:83780:1120/213327.241787:INFO:CONSOLE:683] "[3/40] Tour mail_template_dynamic_field_tour → Step Open email templates (trigger: button[name="open_mail_templates"])", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83780:83780:1120/213330.872812:INFO:CONSOLE:683] "[4/40] Tour mail_template_dynamic_field_tour → Step Create a new email template (trigger: button.o_list_button_add)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83780:83780:1120/213333.518601:INFO:CONSOLE:683] "[5/40] Tour mail_template_dynamic_field_tour → Step Insert # inside "Subject" input (trigger: div[name="subject"] input[type="text"])", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83780:83780:1120/213334.062059:INFO:CONSOLE:683] "[6/40] Tour mail_template_dynamic_field_tour → Step Select "Contact" model (trigger: div[name="model_id"] input[type="text"])", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83780:83780:1120/213334.132615:INFO:CONSOLE:683] "[7/40] Tour mail_template_dynamic_field_tour → Step Click on contact (trigger: div[name="model_id"] .ui-autocomplete .dropdown-item:text(Contact))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83780:83780:1120/213334.498565:INFO:CONSOLE:683] "[8/40] Tour mail_template_dynamic_field_tour → Step Wait for the drop down to disappear (trigger: div[name="model_id"] .o-autocomplete:not(:has(.ui-autocomplete)))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83780:83780:1120/213334.703417:INFO:CONSOLE:683] "[9/40] Tour mail_template_dynamic_field_tour → Step Retry insert # inside "Subject" input (trigger: div[name="subject"] input[type="text"])", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83780:83780:1120/213334.744356:INFO:CONSOLE:683] "[10/40] Tour mail_template_dynamic_field_tour → Step Check if the dynamic placeholder popover is opened (trigger: div.o_model_field_selector_popover)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83780:83780:1120/213335.465470:INFO:CONSOLE:683] "[11/40] Tour mail_template_dynamic_field_tour → Step filter the dph result (trigger: div.o_model_field_selector_popover_search input[type='text'])", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83780:83780:1120/213335.496742:INFO:CONSOLE:683] "[12/40] Tour mail_template_dynamic_field_tour → Step Click on the first entry of the dynamic placeholder (trigger: div.o_model_field_selector_popover button:contains("Parent Name"))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83780:83780:1120/213335.513007:INFO:CONSOLE:683] "[13/40] Tour mail_template_dynamic_field_tour → Step Enter a default value (trigger: div.o_model_field_selector_popover .o_model_field_selector_default_value_input input[type="text"])", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83780:83780:1120/213335.634188:INFO:CONSOLE:683] "[14/40] Tour mail_template_dynamic_field_tour → Step Click on the insert button (trigger: div.o_model_field_selector_popover button:first-child)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83780:83780:1120/213335.650641:INFO:CONSOLE:683] "[15/40] Tour mail_template_dynamic_field_tour → Step Wait for the popover to disappear (trigger: body:not(:has(.o_model_field_selector_popover)))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83780:83780:1120/213335.671143:INFO:CONSOLE:683] "[16/40] Tour mail_template_dynamic_field_tour → Step Check if subject value was correctly updated (trigger: div[name="subject"] input[type="text"]:value(yes_model_id {{object.parent_name|||defValue}}))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83780:83780:1120/213335.698089:INFO:CONSOLE:683] "[17/40] Tour mail_template_dynamic_field_tour → Step Insert text inside editable (trigger: .note-editable.odoo-editor-editable)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83780:83780:1120/213335.732178:INFO:CONSOLE:683] "[18/40] Tour mail_template_dynamic_field_tour → Step Click on the the dynamic field powerBox options (trigger: div.o-we-powerbox .o-we-command:contains(Field))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83780:83780:1120/213335.765524:INFO:CONSOLE:683] "[19/40] Tour mail_template_dynamic_field_tour → Step Check if the dynamic field popover is opened (trigger: div.o-dynamic-field-popover)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83780:83780:1120/213336.194824:INFO:CONSOLE:683] "[20/40] Tour mail_template_dynamic_field_tour → Step Select a model (trigger: .o_model_field_selector_value)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83780:83780:1120/213336.206743:INFO:CONSOLE:683] "[21/40] Tour mail_template_dynamic_field_tour → Step Filter the field selector result (trigger: div.o_model_field_selector_popover_search input[type='text'])", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83780:83780:1120/213336.355251:INFO:CONSOLE:683] "[22/40] Tour mail_template_dynamic_field_tour → Step Click on the first entry of the dynamic field (trigger: div.o_model_field_selector_popover button:contains("Parent Name"))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83780:83780:1120/213336.373718:INFO:CONSOLE:683] "[23/40] Tour mail_template_dynamic_field_tour → Step Enter a default value (trigger: div.o-dynamic-field-popover input[name="label_value"])", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83780:83780:1120/213336.424000:INFO:CONSOLE:683] "[24/40] Tour mail_template_dynamic_field_tour → Step Click on the insert button (trigger: div.o-dynamic-field-popover button:first-child)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83780:83780:1120/213336.495149:INFO:CONSOLE:683] "[25/40] Tour mail_template_dynamic_field_tour → Step Ensure the editable contain the dynamic field t tag (trigger: .note-editable.odoo-editor-editable t[t-out="object.parent_name"]:contains("defValue"))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83780:83780:1120/213336.496339:INFO:CONSOLE:683] "[26/40] Tour mail_template_dynamic_field_tour → Step Type "Push Notification Device" model (trigger: div[name="model_id"] input[type="text"])", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83780:83780:1120/213336.598538:INFO:CONSOLE:683] "[27/40] Tour mail_template_dynamic_field_tour → Step Select "Push Notification Device" model (trigger: a.dropdown-item:contains("Push Notification Device"))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83780:83780:1120/213337.194324:INFO:CONSOLE:683] "[28/40] Tour mail_template_dynamic_field_tour → Step Insert text inside editable (trigger: .note-editable.odoo-editor-editable)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83780:83780:1120/213337.224382:INFO:CONSOLE:683] "[29/40] Tour mail_template_dynamic_field_tour → Step Click on the the dynamic field powerBox options (trigger: div.o-we-powerbox .o-we-command:contains(Field))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83780:83780:1120/213337.268128:INFO:CONSOLE:683] "[30/40] Tour mail_template_dynamic_field_tour → Step Check if the dynamic field popover is opened (trigger: div.o-dynamic-field-popover)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83780:83780:1120/213337.694502:INFO:CONSOLE:683] "[31/40] Tour mail_template_dynamic_field_tour → Step Select a model (trigger: .o_model_field_selector_value)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83780:83780:1120/213337.708952:INFO:CONSOLE:683] "[32/40] Tour mail_template_dynamic_field_tour → Step Filter the field selector result (trigger: div.o_model_field_selector_popover_search input[type='text'])", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83780:83780:1120/213337.935187:INFO:CONSOLE:683] "[33/40] Tour mail_template_dynamic_field_tour → Step Click on the first entry of the dynamic field (trigger: div.o_model_field_selector_popover li:first-child button:contains("Created on"))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83780:83780:1120/213338.345257:INFO:CONSOLE:683] "[34/40] Tour mail_template_dynamic_field_tour → Step Enter a default value (trigger: div.o-dynamic-field-popover input[name="label_value"])", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83780:83780:1120/213338.404748:INFO:CONSOLE:683] "[35/40] Tour mail_template_dynamic_field_tour → Step Wait for the label input to reflect 'localTime' (trigger: div.o-dynamic-field-popover input[name="label_value"]:value(localTime))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83780:83780:1120/213338.404881:INFO:CONSOLE:683] "[36/40] Tour mail_template_dynamic_field_tour → Step Click on the insert button (trigger: div.o-dynamic-field-popover button:first-child:contains('Update'))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83780:83780:1120/213338.442674:INFO:CONSOLE:683] "[37/40] Tour mail_template_dynamic_field_tour → Step Wait for the dynamic field popover to disappear (trigger: body:not(:has(.o-dynamic-field-popover)))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83780:83780:1120/213338.516175:INFO:CONSOLE:683] "[38/40] Tour mail_template_dynamic_field_tour → Step Ensure the editable contain the dynamic field t tag (trigger: .note-editable.odoo-editor-editable t[t-out="format_datetime(object.create_date, tz=object.partner_id.tz) or 'localTime'"]:contains("localTime"))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[83780:83780:1120/213348.516694:INFO:CONSOLE:676] "console.groupEnd", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (676)
+[83780:83780:1120/213348.517650:INFO:CONSOLE:676] "{
+  "content": "Wait for the label input to reflect 'localTime'",
+  "trigger": "div.o-dynamic-field-popover input[name=\"label_value\"]:value(localTime)"
+},
+{
+  "content": "Click on the insert button",
+  "trigger": "div.o-dynamic-field-popover button:first-child:contains('Update')",
+  "run": "click"
+},
+{
+  "content": "Wait for the dynamic field popover to disappear",
+  "trigger": "body:not(:has(.o-dynamic-field-popover))"
+},
+---------- FAILED: [38/40] Tour mail_template_dynamic_field_tour → Step Ensure the editable contain the dynamic field t tag (trigger: .note-editable.odoo-editor-editable t[t-out="format_datetime(object.create_date, tz=object.partner_id.tz) or 'localTime'"]:contains("localTime")) ----------
+{
+  "content": "Ensure the editable contain the dynamic field t tag",
+  "trigger": ".note-editable.odoo-editor-editable t[t-out=\"format_datetime(object.create_date, tz=object.partner_id.tz) or 'localTime'\"]:contains(\"localTime\")"
+},
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+{
+  "content": "Discard form changes",
+  "trigger": "button.o_form_button_cancel",
+  "run": "click"
+},
+{
+  "content": "Wait for the form view to disappear",
+  "trigger": "body:not(:has(.o_form_sheet))"
+},", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (676)
+[83780:83780:1120/213348.520301:INFO:CONSOLE:676] "FAILED: [38/40] Tour mail_template_dynamic_field_tour → Step Ensure the editable contain the dynamic field t tag (trigger: .note-editable.odoo-editor-editable t[t-out="format_datetime(object.create_date, tz=object.partner_id.tz) or 'localTime'"]:contains("localTime")).
+Element (.note-editable.odoo-editor-editable t[t-out="format_datetime(object.create_date, tz=object.partner_id.tz) or 'localTime'"]:contains("localTime")) has not been found.
+TIMEOUT step failed to complete within 10000 ms.", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (676)

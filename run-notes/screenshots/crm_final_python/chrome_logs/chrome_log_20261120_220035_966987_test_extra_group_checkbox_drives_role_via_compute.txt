@@ -1,0 +1,51 @@
+[95153:95182:1120/220029.065208:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[95153:95182:1120/220029.065293:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[95153:95182:1120/220029.085496:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[95153:95182:1120/220029.085569:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[95153:95182:1120/220029.085633:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[95153:95182:1120/220029.085649:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[95153:95182:1120/220029.085701:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[95153:95182:1120/220029.092773:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[95153:95182:1120/220029.225615:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[95153:95193:1120/220029.236755:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 95200: Read-only file system (30)
+[95195:95195:1120/220029.246168:WARNING:media/gpu/vaapi/vaapi_wrapper.cc:1655] drmGetDevices2() has not found any devices
+[95153:95153:1120/220029.299387:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[95153:95153:1120/220029.299540:WARNING:device/bluetooth/dbus/bluez_dbus_manager.cc:209] Floss manager service not available, cannot set Floss enable/disable.
+[95153:95153:1120/220029.299562:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[95153:95153:1120/220029.299959:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[95153:95182:1120/220029.300890:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[95153:95182:1120/220029.300917:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[95153:95153:1120/220029.308172:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[95153:95182:1120/220029.308749:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[95153:95182:1120/220029.313672:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[95153:95182:1120/220029.314597:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[95195:95195:1120/220029.328074:WARNING:sandbox/policy/linux/sandbox_linux.cc:405] InitializeSandbox() called with multiple threads in process gpu-process.
+[95153:95193:1120/220029.394244:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 95249: Read-only file system (30)
+[95153:95193:1120/220029.434722:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 95258: Read-only file system (30)
+[95153:95153:1120/220029.446902:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[95153:95193:1120/220029.447634:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 95259: Read-only file system (30)
+[95153:95153:1120/220029.449929:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[95153:95182:1120/220029.450049:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[95153:95153:1120/220029.450978:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[95153:95153:1120/220029.451474:WARNING:dbus/property.cc:94] Failed to connect to PropertiesChangedsignal.
+[95153:95153:1120/220029.451497:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.Properties.GetAll: object_path= /org/freedesktop/UPower/devices/DisplayDevice: unknown error type: 
+[95153:95153:1120/220029.451503:WARNING:dbus/property.cc:174] GetAll request failed for: org.freedesktop.UPower.Device
+[95153:95153:1120/220029.467239:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[95153:95182:1120/220029.467487:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[95153:95153:1120/220029.506084:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[95153:95182:1120/220029.506406:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[95153:95153:1120/220029.512828:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[95153:95153:1120/220029.512852:WARNING:ui/base/idle/idle_linux.cc:111] None of the known D-Bus ScreenSaver services could be used.
+[95153:95153:1120/220033.021439:INFO:CONSOLE:1148] "Owl is running in 'dev' mode.", source: http://127.0.0.1:8071/web/assets/56c5002/web.assets_web.min.js (1148)
+[95153:95153:1120/220033.114914:INFO:CONSOLE:672] "Hoot DOM helpers available from `window.hoot`", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (672)
+[95153:95153:1120/220033.116046:INFO:CONSOLE:683] "[1/4] Tour role_sync_check_extra_group_and_save → Step wait for the user form (Role field) to be loaded (trigger: .o_field_widget[name="role"] div[role="radiogroup"])", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[95153:95153:1120/220034.770509:INFO:CONSOLE:683] "[2/4] Tour role_sync_check_extra_group_and_save → Step check the 'Extra Rights' group "Test Role Sync Extra Group" (trigger: .o_field_widget[name="group_ids"] .o_extra_rights_group .o_cell:has(label:contains("Test Role Sync Extra Group")) + .o_cell input[type="checkbox"]:not(:checked))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[95153:95153:1120/220034.804458:INFO:CONSOLE:683] "[3/4] Tour role_sync_check_extra_group_and_save → Step save the form (trigger: .o_form_button_save)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[95153:95153:1120/220034.949855:INFO:CONSOLE:683] "[4/4] Tour role_sync_check_extra_group_and_save → Step wait for the save to actually complete (Save button gone = clean) (trigger: .o_form_button_save:not(:visible))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[95153:95153:1120/220035.404232:INFO:CONSOLE:666] "tour succeeded", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (666)
+[95153:95153:1120/220035.404735:INFO:CONSOLE:666] "
+
+╔═════════════════════════════════════════════════════╗
+║ TOUR role_sync_check_extra_group_and_save SUCCEEDED ║
+╚═════════════════════════════════════════════════════╝
+", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (666)

@@ -1,0 +1,95 @@
+[27162:27191:1120/193113.183857:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[27162:27191:1120/193113.210856:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[27162:27191:1120/193113.210943:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[27162:27191:1120/193113.210964:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[27162:27191:1120/193113.210981:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[27162:27191:1120/193113.211258:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[27162:27191:1120/193113.211282:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[27162:27191:1120/193113.231297:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[27162:27203:1120/193113.360291:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 27207: Read-only file system (30)
+[27162:27191:1120/193113.360701:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[27162:27162:1120/193113.417128:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[27162:27162:1120/193113.417200:WARNING:device/bluetooth/dbus/bluez_dbus_manager.cc:209] Floss manager service not available, cannot set Floss enable/disable.
+[27162:27162:1120/193113.417217:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[27162:27191:1120/193113.417251:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[27162:27191:1120/193113.417280:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[27162:27162:1120/193113.417390:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[27162:27162:1120/193113.423934:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[27162:27191:1120/193113.424063:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[27205:27205:1120/193113.456905:WARNING:media/gpu/vaapi/vaapi_wrapper.cc:1655] drmGetDevices2() has not found any devices
+[27205:27205:1120/193113.477828:WARNING:sandbox/policy/linux/sandbox_linux.cc:405] InitializeSandbox() called with multiple threads in process gpu-process.
+[27162:27203:1120/193113.489681:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 27255: Read-only file system (30)
+[27162:27203:1120/193113.530347:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 27266: Read-only file system (30)
+[27162:27203:1120/193113.542566:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 27268: Read-only file system (30)
+[27162:27162:1120/193113.625799:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[27162:27162:1120/193113.626343:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[27162:27191:1120/193113.627023:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[27162:27191:1120/193113.627070:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[27162:27191:1120/193113.627081:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[27162:27162:1120/193113.630445:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[27162:27162:1120/193113.828085:WARNING:dbus/property.cc:94] Failed to connect to PropertiesChangedsignal.
+[27162:27162:1120/193113.828410:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.Properties.GetAll: object_path= /org/freedesktop/UPower/devices/DisplayDevice: unknown error type: 
+[27162:27162:1120/193113.828424:WARNING:dbus/property.cc:174] GetAll request failed for: org.freedesktop.UPower.Device
+[27162:27162:1120/193113.831053:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[27162:27191:1120/193113.834357:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[27162:27162:1120/193113.861812:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[27162:27191:1120/193113.862348:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[27162:27162:1120/193113.865281:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[27162:27162:1120/193113.865300:WARNING:ui/base/idle/idle_linux.cc:111] None of the known D-Bus ScreenSaver services could be used.
+[27162:27162:1120/193115.527062:INFO:CONSOLE:1148] "Owl is running in 'dev' mode.", source: http://127.0.0.1:8075/web/assets/5c8437c/web.assets_web.min.js (1148)
+[27162:27162:1120/193116.550050:INFO:CONSOLE:7] "Starting ClickEverywhere test", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (7)
+[27162:27162:1120/193116.550873:INFO:CONSOLE:99] "Testing app: Timesheets (hr_timesheet.timesheet_menu_root)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (99)
+[27162:27162:1120/193116.551305:INFO:CONSOLE:94] "Testing menu My Timesheets (hr_timesheet.timesheet_menu_activity_user)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (94)
+[27162:27162:1120/193117.409330:INFO:CONSOLE:51] "Clicking on: list view's new button", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[27162:27162:1120/193117.584903:INFO:CONSOLE:51] "Clicking on: discard the editable list (from new record, editable list)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[27162:27162:1120/193117.664117:INFO:CONSOLE:51] "Clicking on: open form view from list", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[27162:27162:1120/193117.764945:INFO:CONSOLE:51] "Clicking on: discard the editable list", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[27162:27162:1120/193117.982748:INFO:CONSOLE:58] "Testing 4 filters", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (58)
+[27162:27162:1120/193117.983442:INFO:CONSOLE:51] "Clicking on: filter "My Projects/Tasks"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[27162:27162:1120/193118.460619:INFO:CONSOLE:51] "Clicking on: filter "Billable"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[27162:27162:1120/193118.627949:INFO:CONSOLE:51] "Clicking on: filter "Non-Billable"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[27162:27162:1120/193118.853239:INFO:CONSOLE:51] "Clicking on: filter "Date"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[27162:27162:1120/193118.877380:INFO:CONSOLE:51] "Clicking on: filter "Date (Today)"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[27162:27162:1120/193119.055921:INFO:CONSOLE:86] "Testing view switch: calendar", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (86)
+[27162:27162:1120/193119.056040:INFO:CONSOLE:51] "Clicking on: calendar view switcher", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[27162:27162:1120/193119.611909:INFO:CONSOLE:58] "Testing 4 filters", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (58)
+[27162:27162:1120/193119.612031:INFO:CONSOLE:51] "Clicking on: filter "My Projects/Tasks"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[27162:27162:1120/193119.801032:INFO:CONSOLE:51] "Clicking on: filter "Billable"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[27162:27162:1120/193119.917209:INFO:CONSOLE:51] "Clicking on: filter "Non-Billable"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[27162:27162:1120/193120.059906:INFO:CONSOLE:51] "Clicking on: filter "Date (Today)"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[27162:27162:1120/193120.283435:INFO:CONSOLE:86] "Testing view switch: kanban", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (86)
+[27162:27162:1120/193120.283601:INFO:CONSOLE:51] "Clicking on: kanban view switcher", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[27162:27162:1120/193120.614799:INFO:CONSOLE:51] "Clicking on: kanban view's new button", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[27162:27162:1120/193120.798167:INFO:CONSOLE:51] "Clicking on: go back to kanban view (from new record form view)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[27162:27162:1120/193121.068384:INFO:CONSOLE:51] "Clicking on: open form view from kanban", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[27162:27162:1120/193121.210535:INFO:CONSOLE:51] "Clicking on: go back to kanban view (from record view)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[27162:27162:1120/193121.449420:INFO:CONSOLE:58] "Testing 4 filters", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (58)
+[27162:27162:1120/193121.452918:INFO:CONSOLE:51] "Clicking on: filter "My Projects/Tasks"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[27162:27162:1120/193121.629942:INFO:CONSOLE:51] "Clicking on: filter "Billable"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[27162:27162:1120/193121.732202:INFO:CONSOLE:51] "Clicking on: filter "Non-Billable"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[27162:27162:1120/193121.929953:INFO:CONSOLE:51] "Clicking on: filter "Date"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[27162:27162:1120/193121.939793:INFO:CONSOLE:51] "Clicking on: filter "Date (Today)"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[27162:27162:1120/193122.047874:INFO:CONSOLE:86] "Testing view switch: pivot", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (86)
+[27162:27162:1120/193122.048017:INFO:CONSOLE:51] "Clicking on: pivot view switcher", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[27162:27162:1120/193122.234206:INFO:CONSOLE:58] "Testing 4 filters", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (58)
+[27162:27162:1120/193122.234383:INFO:CONSOLE:51] "Clicking on: filter "My Projects/Tasks"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[27162:27162:1120/193122.298137:INFO:CONSOLE:51] "Clicking on: filter "Billable"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[27162:27162:1120/193122.359181:INFO:CONSOLE:51] "Clicking on: filter "Non-Billable"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[27162:27162:1120/193122.425405:INFO:CONSOLE:51] "Clicking on: filter "Date (Today)"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[27162:27162:1120/193122.466520:INFO:CONSOLE:86] "Testing view switch: graph", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (86)
+[27162:27162:1120/193122.467084:INFO:CONSOLE:51] "Clicking on: graph view switcher", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[27162:27162:1120/193123.140706:INFO:CONSOLE:58] "Testing 4 filters", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (58)
+[27162:27162:1120/193123.141521:INFO:CONSOLE:51] "Clicking on: filter "My Projects/Tasks"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[27162:27162:1120/193123.402200:INFO:CONSOLE:51] "Clicking on: filter "Billable"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[27162:27162:1120/193123.607296:INFO:CONSOLE:51] "Clicking on: filter "Non-Billable"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[27162:27162:1120/193123.788143:INFO:CONSOLE:51] "Clicking on: filter "Date"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[27162:27162:1120/193123.844999:INFO:CONSOLE:51] "Clicking on: filter "Date (Today)"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[27162:27162:1120/193124.057438:INFO:CONSOLE:25] "Test took 7.506699999999721 seconds", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (25)
+[27162:27162:1120/193124.058710:INFO:CONSOLE:26] "Tested 1 apps", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (26)
+[27162:27162:1120/193124.058800:INFO:CONSOLE:26] "Tested 1 menus", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (26)
+[27162:27162:1120/193124.058873:INFO:CONSOLE:27] "Tested 5 views", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (27)
+[27162:27162:1120/193124.058911:INFO:CONSOLE:27] "Tested 1 form views", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (27)
+[27162:27162:1120/193124.058971:INFO:CONSOLE:27] "Tested 2 new record views", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (27)
+[27162:27162:1120/193124.059022:INFO:CONSOLE:27] "Tested 0 modals", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (27)
+[27162:27162:1120/193124.059077:INFO:CONSOLE:27] "Tested 20 filters", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (27)
+[27162:27162:1120/193124.059124:INFO:CONSOLE:12] "clickbot test succeeded", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (12)

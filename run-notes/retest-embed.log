@@ -1,0 +1,91 @@
+2026-11-20 21:16:12,759 71117 INFO ? odoo: Odoo version 20.0
+2026-11-20 21:16:12,760 71117 INFO ? odoo: Using configuration file at /workspace/odoo-env/odoo.conf
+2026-11-20 21:16:12,760 71117 INFO ? odoo: addons paths: _NamespacePath(['/workspace/odoo/odoo/addons', '/workspace/odoo-env/data/addons/20.0', '/workspace/odoo/addons'])
+2026-11-20 21:16:12,760 71117 INFO ? odoo: database: odoo@/workspace/odoo-env/run:5432
+2026-11-20 21:16:15,719 71117 CRITICAL ? odoo.service.server: Thread odoo.service.httpd (140294717163200) Exception occurred, quitting...
+Traceback (most recent call last):
+  File "/workspace/odoo/odoo/service/server.py", line 472, in http_server_thread
+    server = socket.create_server(
+             ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/codex/runtimes/codex-primary-runtime/dependencies/python/lib/python3.12/socket.py", line 950, in create_server
+    raise error(err.errno, msg) from None
+OSError: [Errno 98] Address already in use (while attempting to bind on address ('127.0.0.1', 8085))
+2026-11-20 21:16:15,766 71117 INFO crm_final_measure odoo.tests.common: Importing test framework
+2026-11-20 21:16:15,928 71117 INFO crm_final_measure odoo.modules.loading: loading 1 modules...
+2026-11-20 21:16:16,161 71117 INFO crm_final_measure odoo.modules.loading: 1 modules loaded in 0.23s, 0 queries (+0 extra)
+2026-11-20 21:16:16,409 71117 INFO crm_final_measure odoo.modules.loading: loading 226 modules...
+2026-11-20 21:16:17,181 71117 WARNING crm_final_measure odoo.addons.mail.controllers.attachment: markdown2 is not installed, markdown will not be rendered
+2026-11-20 21:16:26,510 71117 INFO crm_final_measure odoo.modules.loading: 226 modules loaded in 10.10s, 0 queries (+0 extra)
+2026-11-20 21:16:29,302 71117 INFO crm_final_measure odoo.modules.loading: Modules loaded.
+2026-11-20 21:16:29,897 71117 INFO crm_final_measure odoo.registry: Registry loaded in 14.162s
+2026-11-20 21:16:29,897 71117 INFO crm_final_measure odoo.service.server: Starting post tests
+2026-11-20 21:16:30,123 71117 INFO crm_final_measure odoo.addons.base.models.ir_qweb: Pregenerating assets bundles
+2026-11-20 21:16:34,195 71117 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/b99dd72/api_doc.assets.min.js (id:2238)
+2026-11-20 21:16:34,206 71117 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Deleting attachments [2145] (matching /web/assets/_______/api_doc.assets.min.js) because it was replaced with /web/assets/b99dd72/api_doc.assets.min.js
+2026-11-20 21:16:34,647 71117 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/86712e6/hr_attendance.assets_public_attendance.min.js (id:2239)
+2026-11-20 21:16:34,651 71117 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Deleting attachments [2146] (matching /web/assets/_______/hr_attendance.assets_public_attendance.min.js) because it was replaced with /web/assets/86712e6/hr_attendance.assets_public_attendance.min.js
+2026-11-20 21:16:38,254 71117 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/823784f/im_livechat.assets_embed_external.min.js (id:2240)
+2026-11-20 21:16:38,262 71117 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Deleting attachments [2149] (matching /web/assets/_______/im_livechat.assets_embed_external.min.js) because it was replaced with /web/assets/823784f/im_livechat.assets_embed_external.min.js
+2026-11-20 21:16:50,831 71117 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/4c9e9c4/im_livechat.embed_assets_unit_tests_setup.min.js (id:2241)
+2026-11-20 21:16:50,833 71117 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Deleting attachments [2152] (matching /web/assets/_______/im_livechat.embed_assets_unit_tests_setup.min.js) because it was replaced with /web/assets/4c9e9c4/im_livechat.embed_assets_unit_tests_setup.min.js
+2026-11-20 21:16:51,342 71117 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/745a957/mail.assets_public.min.js (id:2242)
+2026-11-20 21:16:51,344 71117 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Deleting attachments [2156] (matching /web/assets/_______/mail.assets_public.min.js) because it was replaced with /web/assets/745a957/mail.assets_public.min.js
+2026-11-20 21:16:52,736 71117 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/b9de4d1/project.webclient.min.js (id:2243)
+2026-11-20 21:16:52,744 71117 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Deleting attachments [2160] (matching /web/assets/_______/project.webclient.min.js) because it was replaced with /web/assets/b9de4d1/project.webclient.min.js
+2026-11-20 21:16:55,450 71117 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/cc2eaea/spreadsheet.public_spreadsheet.min.js (id:2244)
+2026-11-20 21:16:55,455 71117 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Deleting attachments [2162] (matching /web/assets/_______/spreadsheet.public_spreadsheet.min.js) because it was replaced with /web/assets/cc2eaea/spreadsheet.public_spreadsheet.min.js
+2026-11-20 21:16:57,043 71117 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/b566955/web.assets_frontend_lazy.min.js (id:2245)
+2026-11-20 21:16:57,061 71117 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Deleting attachments [2168] (matching /web/assets/_______/web.assets_frontend_lazy.min.js) because it was replaced with /web/assets/b566955/web.assets_frontend_lazy.min.js
+2026-11-20 21:16:58,857 71117 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/34d8fe0/web.assets_unit_tests_setup.min.js (id:2246)
+2026-11-20 21:16:58,859 71117 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Deleting attachments [2172] (matching /web/assets/_______/web.assets_unit_tests_setup.min.js) because it was replaced with /web/assets/34d8fe0/web.assets_unit_tests_setup.min.js
+2026-11-20 21:17:00,771 71117 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/3eb8eee/web.assets_web.min.js (id:2247)
+2026-11-20 21:17:00,797 71117 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Deleting attachments [2173] (matching /web/assets/_______/web.assets_web.min.js) because it was replaced with /web/assets/3eb8eee/web.assets_web.min.js
+2026-11-20 21:17:01,272 71117 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/7d86c8a/website_slides.slide_embed_assets.min.js (id:2248)
+2026-11-20 21:17:01,296 71117 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Deleting attachments [2186] (matching /web/assets/_______/website_slides.slide_embed_assets.min.js) because it was replaced with /web/assets/7d86c8a/website_slides.slide_embed_assets.min.js
+2026-11-20 21:17:01,305 71117 INFO crm_final_measure odoo.addons.base.models.ir_qweb: JS Assets bundles generated in 29.96682906150818 seconds
+2026-11-20 21:17:01,312 71117 INFO crm_final_measure odoo.addons.base.models.ir_qweb: Binary Assets bundles generated in 0.0063648223876953125 seconds
+2026-11-20 21:17:02,245 71117 INFO crm_final_measure odoo.addons.base.models.ir_qweb: CSS Assets bundles generated in 0.9333384037017822 seconds
+2026-11-20 21:17:02,301 71117 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js: Starting ExternalTestSuite.test_external_livechat ...
+2026-11-20 21:17:03,608 71117 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Chrome pid: 71724
+2026-11-20 21:17:03,608 71117 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Chrome headless temporary user profile dir: /tmp/tmpe7ze6vg5_chrome_odoo
+2026-11-20 21:17:03,608 71117 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Issuing json command http://127.0.0.1:45439/json/version
+2026-11-20 21:17:03,625 71117 INFO crm_final_measure odoo.tests.common.requests: request SplitResult(scheme='http', netloc='127.0.0.1:45439', path='/json/version', query='', fragment='') with timeout 3 increased to 10s during tests
+2026-11-20 21:17:04,135 71117 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Browser version: Chrome/156.0.8078.79
+2026-11-20 21:17:04,135 71117 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Issuing json command http://127.0.0.1:45439/json
+2026-11-20 21:17:04,136 71117 INFO crm_final_measure odoo.tests.common.requests: request SplitResult(scheme='http', netloc='127.0.0.1:45439', path='/json', query='', fragment='') with timeout 3 increased to 10s during tests
+2026-11-20 21:17:04,154 71117 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Websocket url found: ws://127.0.0.1:45439/devtools/page/7DA9A991A8BDB685E6B649217EA065D1
+2026-11-20 21:17:04,253 71117 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Enable chrome headless console log notification
+2026-11-20 21:17:04,316 71117 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Chrome headless enable page notifications
+2026-11-20 21:17:06,496 71117 INFO crm_final_measure odoo.addons.base.models.res_users: Login successful for login:admin from n/a
+2026-11-20 21:17:06,872 71117 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Setting session cookie in browser
+2026-11-20 21:17:06,883 71117 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Open "http://127.0.0.1:8085/web/tests/livechat?headless&loglevel=2&preset=desktop" in browser
+2026-11-20 21:17:06,884 71117 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Navigating to: "http://127.0.0.1:8085/web/tests/livechat?headless&loglevel=2&preset=desktop"
+2026-11-20 21:17:07,330 71117 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Navigation result: {'frameId': '7DA9A991A8BDB685E6B649217EA065D1', 'loaderId': '6E431059F28824CC367154D88D68CD19', 'isDownload': False}
+2026-11-20 21:17:07,331 71117 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Waiting for frame '7DA9A991A8BDB685E6B649217EA065D1' to stop loading
+2026-11-20 21:17:07,434 71117 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Evaluate ready code "document.readyState === 'complete'"
+2026-11-20 21:17:07,499 71117 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Evaluate test code ""
+2026-11-20 21:21:42,103 71117 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Asking for screenshot
+2026-11-20 21:21:42,134 71117 INFO crm_final_measure odoo.addons.bus.websocket: Disconnecting 0 websockets
+2026-11-20 21:21:42,239 71117 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Closing chrome headless with pid 71724
+2026-11-20 21:21:42,241 71117 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Closing websocket connection
+2026-11-20 21:21:42,243 71117 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Terminating chrome headless with pid 71724
+2026-11-20 21:21:42,340 71117 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Chrome Log in: /tmp/odoo_tests/crm_final_measure/chrome_logs/chrome_log_20261120_212142_337033_test_external_livechat.txt
+2026-11-20 21:21:42,342 71117 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Removing chrome user profile "/tmp/tmpe7ze6vg5_chrome_odoo"
+2026-11-20 21:21:42,420 71117 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js: ======================================================================
+2026-11-20 21:21:42,420 71117 ERROR crm_final_measure odoo.addons.im_livechat.tests.test_js: FAIL: ExternalTestSuite.test_external_livechat
+Traceback (most recent call last):
+  File "/workspace/odoo/addons/im_livechat/tests/test_js.py", line 10, in test_external_livechat
+    self.browser_js(
+  File "/workspace/odoo/odoo/tests/common.py", line 2990, in browser_js
+    self.fail(str(error))
+AssertionError: Unknown error
+
+2026-11-20 21:21:42,697 71117 INFO crm_final_measure odoo.addons.base.models.ir_attachment: filestore gc 22 checked, 11 removed
+2026-11-20 21:21:42,803 71117 INFO crm_final_measure odoo.service.server: 1 post-tests in 312.91s, 635 queries
+2026-11-20 21:21:42,804 71117 INFO crm_final_measure odoo.tests.stats: im_livechat: 3 tests 280.51s 19 queries
+2026-11-20 21:21:42,805 71117 ERROR crm_final_measure odoo.tests.result: 1 failed, 0 error(s) of 1 tests when loading database 'crm_final_measure'
+2026-11-20 21:21:42,810 71117 INFO crm_final_measure odoo.service.server.ThreadedServer: Failed: odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat - Unknown error
+2026-11-20 21:21:42,811 71117 INFO crm_final_measure odoo.service.server.ThreadedServer: Initiating shutdown
+2026-11-20 21:21:42,811 71117 INFO crm_final_measure odoo.service.server.ThreadedServer: Hit CTRL-C again or send a second signal to force the shutdown.
+2026-11-20 21:21:42,812 71117 INFO crm_final_measure odoo.addons.bus.websocket: Disconnecting 0 websockets
+2026-11-20 21:21:42,951 71117 INFO crm_final_measure odoo.sql_db: ConnectionPool(read/write;used=0/count=0/max=64): Closed 1 connections 

@@ -1,0 +1,92 @@
+[8215:8244:1120/185833.303651:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[8215:8244:1120/185833.303804:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[8215:8244:1120/185833.329273:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[8215:8244:1120/185833.329510:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[8215:8244:1120/185833.329545:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[8215:8244:1120/185833.329555:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[8215:8244:1120/185833.329591:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[8215:8244:1120/185833.343412:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[8258:8258:1120/185833.441556:WARNING:media/gpu/vaapi/vaapi_wrapper.cc:1655] drmGetDevices2() has not found any devices
+[8215:8244:1120/185833.472341:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[8215:8256:1120/185833.477407:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 8270: Read-only file system (30)
+[8258:8258:1120/185833.534370:WARNING:sandbox/policy/linux/sandbox_linux.cc:405] InitializeSandbox() called with multiple threads in process gpu-process.
+[8215:8215:1120/185833.553020:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[8215:8244:1120/185833.553374:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[8215:8215:1120/185833.556872:WARNING:device/bluetooth/dbus/bluez_dbus_manager.cc:209] Floss manager service not available, cannot set Floss enable/disable.
+[8215:8215:1120/185833.557078:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[8215:8244:1120/185833.557180:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[8215:8215:1120/185833.557264:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[8215:8215:1120/185833.596137:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[8215:8244:1120/185833.596267:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[8215:8256:1120/185833.739982:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 8313: Read-only file system (30)
+[8215:8256:1120/185833.841441:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 8326: Read-only file system (30)
+[8215:8256:1120/185833.855272:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 8328: Read-only file system (30)
+[8215:8215:1120/185833.863752:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[8215:8244:1120/185833.864640:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[8215:8244:1120/185833.864675:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[8215:8215:1120/185833.871280:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[8215:8244:1120/185833.871854:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[8215:8215:1120/185833.873549:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[8215:8215:1120/185833.938937:WARNING:dbus/property.cc:94] Failed to connect to PropertiesChangedsignal.
+[8215:8215:1120/185833.938974:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.Properties.GetAll: object_path= /org/freedesktop/UPower/devices/DisplayDevice: unknown error type: 
+[8215:8215:1120/185833.938982:WARNING:dbus/property.cc:174] GetAll request failed for: org.freedesktop.UPower.Device
+[8215:8215:1120/185833.947230:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[8215:8244:1120/185833.947374:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[8215:8215:1120/185834.014057:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[8215:8244:1120/185834.016027:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[8215:8215:1120/185834.063483:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[8215:8215:1120/185834.063515:WARNING:ui/base/idle/idle_linux.cc:111] None of the known D-Bus ScreenSaver services could be used.
+[8215:8215:1120/185836.469715:INFO:CONSOLE:1148] "Owl is running in 'dev' mode.", source: http://127.0.0.1:8071/web/assets/3043928/mail.assets_public.min.js (1148)
+[8215:8215:1120/185839.850752:INFO:CONSOLE:647] "Hoot DOM helpers available from `window.hoot`", source: http://127.0.0.1:8071/web/assets/4b2dfe1/web_tour.automatic.min.js (647)
+[8215:8215:1120/185839.851221:INFO:CONSOLE:658] "[1/39] Tour discuss_channel_public_tour.js → Step .o-mail-Discuss", source: http://127.0.0.1:8071/web/assets/4b2dfe1/web_tour.automatic.min.js (658)
+[8215:8215:1120/185839.857462:INFO:CONSOLE:658] "[2/39] Tour discuss_channel_public_tour.js → Step .o-mail-Thread", source: http://127.0.0.1:8071/web/assets/4b2dfe1/web_tour.automatic.min.js (658)
+[8215:8215:1120/185839.857559:INFO:CONSOLE:658] "[3/39] Tour discuss_channel_public_tour.js → Step .o_discuss_channel_public_modules_loaded", source: http://127.0.0.1:8071/web/assets/4b2dfe1/web_tour.automatic.min.js (658)
+[8215:8215:1120/185839.878716:INFO:CONSOLE:658] "[4/39] Tour discuss_channel_public_tour.js → Step .o-mail-Composer-input", source: http://127.0.0.1:8071/web/assets/4b2dfe1/web_tour.automatic.min.js (658)
+[8215:8215:1120/185840.022633:INFO:CONSOLE:658] "[5/39] Tour discuss_channel_public_tour.js → Step .o-mail-Composer button[title='More Actions']", source: http://127.0.0.1:8071/web/assets/4b2dfe1/web_tour.automatic.min.js (658)
+[8215:8215:1120/185840.058327:INFO:CONSOLE:658] "[6/39] Tour discuss_channel_public_tour.js → Step .o-discuss-dropdownMenu", source: http://127.0.0.1:8071/web/assets/4b2dfe1/web_tour.automatic.min.js (658)
+[8215:8215:1120/185840.098954:INFO:CONSOLE:658] "[7/39] Tour discuss_channel_public_tour.js → Step .dropdown-item:contains('Attach Files')", source: http://127.0.0.1:8071/web/assets/4b2dfe1/web_tour.automatic.min.js (658)
+[8215:8215:1120/185840.106605:INFO:CONSOLE:334] "File chooser dialog can only be shown with a user activation.", source: http://127.0.0.1:8071/web/assets/4b2dfe1/web_tour.automatic.min.js (334)
+[8215:8215:1120/185840.108780:INFO:CONSOLE:658] "[8/39] Tour discuss_channel_public_tour.js → Step .o-mail-Composer .o-mail-AttachmentContainer:not(.o-isUploading):contains(text.txt)", source: http://127.0.0.1:8071/web/assets/4b2dfe1/web_tour.automatic.min.js (658)
+[8215:8256:1120/185840.410464:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 8362: Read-only file system (30)
+[8215:8215:1120/185840.419052:INFO:CONSOLE:658] "[9/39] Tour discuss_channel_public_tour.js → Step You must click on 'More Action' each time you want to upload a file (trigger: .o-mail-Composer button[title='More Actions'])", source: http://127.0.0.1:8071/web/assets/4b2dfe1/web_tour.automatic.min.js (658)
+[8215:8215:1120/185840.433236:INFO:CONSOLE:658] "[10/39] Tour discuss_channel_public_tour.js → Step .dropdown-item:contains('Attach Files')", source: http://127.0.0.1:8071/web/assets/4b2dfe1/web_tour.automatic.min.js (658)
+[8215:8215:1120/185840.468794:INFO:CONSOLE:334] "File chooser dialog can only be shown with a user activation.", source: http://127.0.0.1:8071/web/assets/4b2dfe1/web_tour.automatic.min.js (334)
+[8215:8215:1120/185840.468839:INFO:CONSOLE:658] "[11/39] Tour discuss_channel_public_tour.js → Step .o-mail-Composer .o-mail-AttachmentContainer:not(.o-isUploading)[title="image.png"]", source: http://127.0.0.1:8071/web/assets/4b2dfe1/web_tour.automatic.min.js (658)
+[8215:8215:1120/185840.725328:INFO:CONSOLE:658] "[12/39] Tour discuss_channel_public_tour.js → Step .o-mail-Composer-input", source: http://127.0.0.1:8071/web/assets/4b2dfe1/web_tour.automatic.min.js (658)
+[8215:8215:1120/185840.747415:INFO:CONSOLE:658] "[13/39] Tour discuss_channel_public_tour.js → Step body:not(:has(.o-discuss-dropdownMenu))", source: http://127.0.0.1:8071/web/assets/4b2dfe1/web_tour.automatic.min.js (658)
+[8215:8215:1120/185840.747969:INFO:CONSOLE:658] "[14/39] Tour discuss_channel_public_tour.js → Step .o-mail-Composer", source: http://127.0.0.1:8071/web/assets/4b2dfe1/web_tour.automatic.min.js (658)
+[8215:8215:1120/185840.748449:INFO:CONSOLE:658] "[15/39] Tour discuss_channel_public_tour.js → Step .o-mail-Composer button[title='Send']:enabled", source: http://127.0.0.1:8071/web/assets/4b2dfe1/web_tour.automatic.min.js (658)
+[8215:8215:1120/185840.869235:INFO:CONSOLE:658] "[16/39] Tour discuss_channel_public_tour.js → Step .o-mail-Message:has(.o-mail-Message-body:contains('cheese'))[data-persistent]", source: http://127.0.0.1:8071/web/assets/4b2dfe1/web_tour.automatic.min.js (658)
+[8215:8256:1120/185840.906898:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 8375: Read-only file system (30)
+[8215:8215:1120/185841.126156:INFO:CONSOLE:658] "[17/39] Tour discuss_channel_public_tour.js → Step .o-mail-Message:has(.o-mail-Message-body:contains('cheese')) .o-mail-AttachmentContainer:contains("text.txt")", source: http://127.0.0.1:8071/web/assets/4b2dfe1/web_tour.automatic.min.js (658)
+[8215:8215:1120/185841.127536:INFO:CONSOLE:658] "[18/39] Tour discuss_channel_public_tour.js → Step .o-mail-Message:has(.o-mail-Message-body:contains('cheese'))", source: http://127.0.0.1:8071/web/assets/4b2dfe1/web_tour.automatic.min.js (658)
+[8215:8215:1120/185841.144545:INFO:CONSOLE:658] "[19/39] Tour discuss_channel_public_tour.js → Step .o-mail-QuickReactionMenu", source: http://127.0.0.1:8071/web/assets/4b2dfe1/web_tour.automatic.min.js (658)
+[8215:8215:1120/185841.223242:INFO:CONSOLE:658] "[20/39] Tour discuss_channel_public_tour.js → Step [title='Toggle Emoji Picker']", source: http://127.0.0.1:8071/web/assets/4b2dfe1/web_tour.automatic.min.js (658)
+[8215:8215:1120/185841.591757:INFO:CONSOLE:658] "[21/39] Tour discuss_channel_public_tour.js → Step .o-EmojiPicker .o-Emoji:contains('🙂')", source: http://127.0.0.1:8071/web/assets/4b2dfe1/web_tour.automatic.min.js (658)
+[8215:8215:1120/185842.131958:INFO:CONSOLE:658] "[22/39] Tour discuss_channel_public_tour.js → Step .o-mail-Message:has(.o-mail-Message-body:contains('cheese')) .o-mail-MessageReaction:contains('🙂')", source: http://127.0.0.1:8071/web/assets/4b2dfe1/web_tour.automatic.min.js (658)
+[8215:8215:1120/185842.286721:INFO:CONSOLE:658] "[23/39] Tour discuss_channel_public_tour.js → Step .o-mail-Message:has(.o-mail-Message-body:contains('cheese')):not(:has(.o-mail-MessageReaction:contains('🙂')))", source: http://127.0.0.1:8071/web/assets/4b2dfe1/web_tour.automatic.min.js (658)
+[8215:8215:1120/185842.402921:INFO:CONSOLE:658] "[24/39] Tour discuss_channel_public_tour.js → Step .o-mail-Message:has(.o-mail-Message-body:contains('cheese'))", source: http://127.0.0.1:8071/web/assets/4b2dfe1/web_tour.automatic.min.js (658)
+[8215:8215:1120/185842.423305:INFO:CONSOLE:658] "[25/39] Tour discuss_channel_public_tour.js → Step .o-mail-Message-moreMenu [name='edit']", source: http://127.0.0.1:8071/web/assets/4b2dfe1/web_tour.automatic.min.js (658)
+[8215:8215:1120/185842.474900:INFO:CONSOLE:658] "[26/39] Tour discuss_channel_public_tour.js → Step .o-mail-Message .o-mail-Composer-input", source: http://127.0.0.1:8071/web/assets/4b2dfe1/web_tour.automatic.min.js (658)
+[8215:8215:1120/185842.626684:INFO:CONSOLE:658] "[27/39] Tour discuss_channel_public_tour.js → Step .o-mail-Message .o-mail-Composer button[title='More Actions']", source: http://127.0.0.1:8071/web/assets/4b2dfe1/web_tour.automatic.min.js (658)
+[8215:8215:1120/185842.640072:INFO:CONSOLE:658] "[28/39] Tour discuss_channel_public_tour.js → Step .dropdown-item:contains('Attach Files')", source: http://127.0.0.1:8071/web/assets/4b2dfe1/web_tour.automatic.min.js (658)
+[8215:8215:1120/185842.715371:INFO:CONSOLE:334] "File chooser dialog can only be shown with a user activation.", source: http://127.0.0.1:8071/web/assets/4b2dfe1/web_tour.automatic.min.js (334)
+[8215:8215:1120/185842.718435:INFO:CONSOLE:658] "[29/39] Tour discuss_channel_public_tour.js → Step .o-mail-Message .o-mail-Composer .o-mail-AttachmentContainer:not(.o-isUploading):contains(extra.txt)", source: http://127.0.0.1:8071/web/assets/4b2dfe1/web_tour.automatic.min.js (658)
+[8215:8215:1120/185842.827358:INFO:CONSOLE:658] "[30/39] Tour discuss_channel_public_tour.js → Step .o-mail-Message button:contains(save)", source: http://127.0.0.1:8071/web/assets/4b2dfe1/web_tour.automatic.min.js (658)
+[8215:8215:1120/185842.843631:INFO:CONSOLE:658] "[31/39] Tour discuss_channel_public_tour.js → Step .o-mail-Message:has(.o-mail-Message-body:contains('vegetables'))", source: http://127.0.0.1:8071/web/assets/4b2dfe1/web_tour.automatic.min.js (658)
+[8215:8256:1120/185843.041016:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 8392: Read-only file system (30)
+[8215:8215:1120/185843.058943:INFO:CONSOLE:658] "[32/39] Tour discuss_channel_public_tour.js → Step .o-mail-Message:has(.o-mail-Message-body:contains('vegetables')) .o-mail-AttachmentContainer:contains("text.txt")", source: http://127.0.0.1:8071/web/assets/4b2dfe1/web_tour.automatic.min.js (658)
+[8215:8215:1120/185843.059497:INFO:CONSOLE:658] "[33/39] Tour discuss_channel_public_tour.js → Step .o-mail-Message:has(.o-mail-Message-body:contains('vegetables')) .o-mail-AttachmentContainer:contains("extra.txt") .o-mail-Attachment-unlink", source: http://127.0.0.1:8071/web/assets/4b2dfe1/web_tour.automatic.min.js (658)
+[8215:8215:1120/185843.116765:INFO:CONSOLE:658] "[34/39] Tour discuss_channel_public_tour.js → Step .modal:contains(Delete Attachment) .btn:contains(Delete Attachment)", source: http://127.0.0.1:8071/web/assets/4b2dfe1/web_tour.automatic.min.js (658)
+[8215:8215:1120/185843.162520:INFO:CONSOLE:658] "[35/39] Tour discuss_channel_public_tour.js → Step .o-mail-Message:has(.o-mail-Message-body:contains('vegetables')):not(:has(.o-mail-AttachmentContainer:contains("extra.txt")))", source: http://127.0.0.1:8071/web/assets/4b2dfe1/web_tour.automatic.min.js (658)
+[8215:8215:1120/185843.285154:INFO:CONSOLE:658] "[36/39] Tour discuss_channel_public_tour.js → Step button[title='Search Messages']", source: http://127.0.0.1:8071/web/assets/4b2dfe1/web_tour.automatic.min.js (658)
+[8215:8215:1120/185843.308673:INFO:CONSOLE:658] "[37/39] Tour discuss_channel_public_tour.js → Step .o-mail-SearchMessageInput", source: http://127.0.0.1:8071/web/assets/4b2dfe1/web_tour.automatic.min.js (658)
+[8215:8215:1120/185843.325685:INFO:CONSOLE:658] "[38/39] Tour discuss_channel_public_tour.js → Step .o-mail-SearchMessageInput .o-mail-SearchInput input", source: http://127.0.0.1:8071/web/assets/4b2dfe1/web_tour.automatic.min.js (658)
+[8215:8215:1120/185843.340221:INFO:CONSOLE:658] "[39/39] Tour discuss_channel_public_tour.js → Step .o-mail-SearchMessagesPanel .o-mail-Message:has(.o-mail-Message-body:contains('vegetables')) .o-mail-AttachmentContainer:contains("text.txt")", source: http://127.0.0.1:8071/web/assets/4b2dfe1/web_tour.automatic.min.js (658)
+[8215:8215:1120/185843.581656:INFO:CONSOLE:641] "tour succeeded", source: http://127.0.0.1:8071/web/assets/4b2dfe1/web_tour.automatic.min.js (641)
+[8215:8215:1120/185843.581989:INFO:CONSOLE:641] "
+
+╔═══════════════════════════════════════════════╗
+║ TOUR discuss_channel_public_tour.js SUCCEEDED ║
+╚═══════════════════════════════════════════════╝
+", source: http://127.0.0.1:8071/web/assets/4b2dfe1/web_tour.automatic.min.js (641)

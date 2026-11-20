@@ -1,0 +1,87 @@
+[23587:23616:1120/192736.282334:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[23587:23616:1120/192736.284363:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[23587:23616:1120/192736.306948:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[23587:23616:1120/192736.306985:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[23587:23616:1120/192736.307005:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[23587:23616:1120/192736.307019:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[23587:23616:1120/192736.307028:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[23587:23616:1120/192736.343444:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[23587:23616:1120/192736.434927:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[23587:23627:1120/192736.435660:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 23642: Read-only file system (30)
+[23587:23587:1120/192736.486671:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[23587:23616:1120/192736.486942:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[23587:23587:1120/192736.487203:WARNING:device/bluetooth/dbus/bluez_dbus_manager.cc:209] Floss manager service not available, cannot set Floss enable/disable.
+[23587:23587:1120/192736.487228:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[23587:23616:1120/192736.487323:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[23587:23587:1120/192736.497286:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[23629:23629:1120/192736.497998:WARNING:media/gpu/vaapi/vaapi_wrapper.cc:1655] drmGetDevices2() has not found any devices
+[23587:23587:1120/192736.539472:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[23587:23616:1120/192736.540105:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[23629:23629:1120/192736.547916:WARNING:sandbox/policy/linux/sandbox_linux.cc:405] InitializeSandbox() called with multiple threads in process gpu-process.
+[23587:23627:1120/192736.898400:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 23684: Read-only file system (30)
+[23587:23627:1120/192736.942544:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 23695: Read-only file system (30)
+[23587:23627:1120/192736.952025:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 23696: Read-only file system (30)
+[23587:23587:1120/192736.958006:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[23587:23616:1120/192736.958738:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[23587:23587:1120/192736.959060:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[23587:23616:1120/192736.959154:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[23587:23616:1120/192736.959171:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[23587:23587:1120/192736.960537:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[23587:23587:1120/192736.976785:WARNING:dbus/property.cc:94] Failed to connect to PropertiesChangedsignal.
+[23587:23587:1120/192736.976888:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.Properties.GetAll: object_path= /org/freedesktop/UPower/devices/DisplayDevice: unknown error type: 
+[23587:23587:1120/192736.976895:WARNING:dbus/property.cc:174] GetAll request failed for: org.freedesktop.UPower.Device
+[23587:23587:1120/192736.976903:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[23587:23616:1120/192736.976963:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[23587:23587:1120/192736.993119:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[23587:23616:1120/192736.993196:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[23587:23587:1120/192736.996339:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[23587:23587:1120/192736.996363:WARNING:ui/base/idle/idle_linux.cc:111] None of the known D-Bus ScreenSaver services could be used.
+[23587:23587:1120/192738.445559:INFO:CONSOLE:1148] "Owl is running in 'dev' mode.", source: http://127.0.0.1:8075/web/assets/5c8437c/web.assets_web.min.js (1148)
+[23587:23587:1120/192739.649235:INFO:CONSOLE:7] "Starting ClickEverywhere test", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (7)
+[23587:23587:1120/192739.704937:INFO:CONSOLE:99] "Testing app: To-do (project_todo.menu_todo_todos)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (99)
+[23587:23587:1120/192739.705666:INFO:CONSOLE:94] "Testing menu To-do (project_todo.menu_todo_todos)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (94)
+[23587:23587:1120/192740.548541:INFO:CONSOLE:51] "Clicking on: kanban view's new button", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[23587:23587:1120/192740.657469:INFO:CONSOLE:51] "Clicking on: discard the kanban (from kanban quick create form)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[23587:23587:1120/192740.667953:INFO:CONSOLE:51] "Clicking on: open form view from kanban", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[23587:23587:1120/192741.105731:INFO:CONSOLE:51] "Clicking on: go back to kanban view (from record view)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[23587:23587:1120/192741.764865:INFO:CONSOLE:58] "Testing 4 filters", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (58)
+[23587:23587:1120/192741.766719:INFO:CONSOLE:51] "Clicking on: filter "Open"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[23587:23587:1120/192742.138602:INFO:CONSOLE:51] "Clicking on: filter "Closed"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[23587:23587:1120/192742.326755:INFO:CONSOLE:51] "Clicking on: filter "Closed On"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[23587:23587:1120/192742.369894:INFO:CONSOLE:51] "Clicking on: filter "Closed On (Today)"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[23587:23587:1120/192742.524976:INFO:CONSOLE:51] "Clicking on: filter "Deadline"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[23587:23587:1120/192742.536056:INFO:CONSOLE:51] "Clicking on: filter "Deadline (Today)"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[23587:23587:1120/192742.638152:INFO:CONSOLE:86] "Testing view switch: list", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (86)
+[23587:23587:1120/192742.638292:INFO:CONSOLE:51] "Clicking on: list view switcher", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[23587:23587:1120/192742.771104:INFO:CONSOLE:51] "Clicking on: list view's new button", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[23587:23587:1120/192743.022524:INFO:CONSOLE:51] "Clicking on: go back to list view (from new record form view)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[23587:23587:1120/192743.145035:INFO:CONSOLE:58] "Testing 4 filters", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (58)
+[23587:23587:1120/192743.145305:INFO:CONSOLE:51] "Clicking on: filter "Open"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[23587:23587:1120/192743.218904:INFO:CONSOLE:51] "Clicking on: filter "Closed"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[23587:23587:1120/192743.284789:INFO:CONSOLE:51] "Clicking on: filter "Closed On (Today)"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[23587:23587:1120/192743.355376:INFO:CONSOLE:51] "Clicking on: filter "Deadline (Today)"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[23587:23587:1120/192743.523033:INFO:CONSOLE:86] "Testing view switch: calendar", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (86)
+[23587:23587:1120/192743.525027:INFO:CONSOLE:51] "Clicking on: calendar view switcher", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[23587:23587:1120/192744.082396:INFO:CONSOLE:58] "Testing 4 filters", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (58)
+[23587:23587:1120/192744.082666:INFO:CONSOLE:51] "Clicking on: filter "Open"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[23587:23587:1120/192744.158184:INFO:CONSOLE:51] "Clicking on: filter "Closed"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[23587:23587:1120/192744.252414:INFO:CONSOLE:51] "Clicking on: filter "Closed On"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[23587:23587:1120/192744.264972:INFO:CONSOLE:51] "Clicking on: filter "Closed On (Today)"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[23587:23587:1120/192744.337434:INFO:CONSOLE:51] "Clicking on: filter "Deadline"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[23587:23587:1120/192744.349385:INFO:CONSOLE:51] "Clicking on: filter "Deadline (Today)"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[23587:23587:1120/192744.457607:INFO:CONSOLE:86] "Testing view switch: activity", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (86)
+[23587:23587:1120/192744.457863:INFO:CONSOLE:51] "Clicking on: activity view switcher", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[23587:23587:1120/192744.767244:INFO:CONSOLE:58] "Testing 4 filters", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (58)
+[23587:23587:1120/192744.767792:INFO:CONSOLE:51] "Clicking on: filter "Open"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[23587:23587:1120/192744.887625:INFO:CONSOLE:51] "Clicking on: filter "Closed"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[23587:23587:1120/192745.022678:INFO:CONSOLE:51] "Clicking on: filter "Closed On (Today)"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[23587:23587:1120/192745.086438:INFO:CONSOLE:51] "Clicking on: filter "Deadline (Today)"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[23587:23587:1120/192745.188705:INFO:CONSOLE:25] "Test took 5.535200000000186 seconds", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (25)
+[23587:23587:1120/192745.191197:INFO:CONSOLE:26] "Tested 1 apps", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (26)
+[23587:23587:1120/192745.191372:INFO:CONSOLE:26] "Tested 1 menus", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (26)
+[23587:23587:1120/192745.191467:INFO:CONSOLE:27] "Tested 4 views", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (27)
+[23587:23587:1120/192745.191546:INFO:CONSOLE:27] "Tested 1 form views", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (27)
+[23587:23587:1120/192745.191649:INFO:CONSOLE:27] "Tested 2 new record views", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (27)
+[23587:23587:1120/192745.191716:INFO:CONSOLE:27] "Tested 0 modals", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (27)
+[23587:23587:1120/192745.191806:INFO:CONSOLE:27] "Tested 16 filters", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (27)
+[23587:23587:1120/192745.191887:INFO:CONSOLE:12] "clickbot test succeeded", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (12)

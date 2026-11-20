@@ -1,0 +1,58 @@
+[98519:98548:1120/220319.546889:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[98519:98548:1120/220319.560833:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[98519:98548:1120/220319.560897:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[98519:98548:1120/220319.560915:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[98519:98548:1120/220319.560931:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[98519:98548:1120/220319.560943:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[98519:98548:1120/220319.560948:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[98519:98548:1120/220319.567393:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[98519:98559:1120/220319.711889:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 98563: Read-only file system (30)
+[98519:98548:1120/220319.715258:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[98519:98519:1120/220319.766740:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[98519:98519:1120/220319.766818:WARNING:device/bluetooth/dbus/bluez_dbus_manager.cc:209] Floss manager service not available, cannot set Floss enable/disable.
+[98519:98519:1120/220319.766842:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[98519:98519:1120/220319.766991:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[98519:98548:1120/220319.767624:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[98519:98548:1120/220319.767651:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[98561:98561:1120/220319.769800:WARNING:media/gpu/vaapi/vaapi_wrapper.cc:1655] drmGetDevices2() has not found any devices
+[98519:98519:1120/220319.776280:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[98519:98548:1120/220319.794119:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[98519:98548:1120/220319.794205:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[98519:98548:1120/220319.794228:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[98561:98561:1120/220319.794322:WARNING:sandbox/policy/linux/sandbox_linux.cc:405] InitializeSandbox() called with multiple threads in process gpu-process.
+[98519:98559:1120/220319.864099:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 98616: Read-only file system (30)
+[98519:98559:1120/220319.920092:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 98627: Read-only file system (30)
+[98519:98559:1120/220319.921820:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 98628: Read-only file system (30)
+[98519:98519:1120/220319.942200:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[98519:98519:1120/220319.942628:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[98519:98548:1120/220319.942791:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[98519:98519:1120/220319.944089:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[98519:98519:1120/220319.944173:WARNING:dbus/property.cc:94] Failed to connect to PropertiesChangedsignal.
+[98519:98519:1120/220319.944189:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.Properties.GetAll: object_path= /org/freedesktop/UPower/devices/DisplayDevice: unknown error type: 
+[98519:98519:1120/220319.944195:WARNING:dbus/property.cc:174] GetAll request failed for: org.freedesktop.UPower.Device
+[98519:98519:1120/220319.959127:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[98519:98548:1120/220319.959210:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[98519:98519:1120/220319.975794:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[98519:98548:1120/220319.975880:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[98519:98519:1120/220319.978853:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[98519:98519:1120/220319.978878:WARNING:ui/base/idle/idle_linux.cc:111] None of the known D-Bus ScreenSaver services could be used.
+[98519:98559:1120/220320.710136:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 98660: Read-only file system (30)
+[98519:98519:1120/220322.173349:INFO:CONSOLE:1227] "Owl is running in 'dev' mode.", source: http://127.0.0.1:8071/web/assets/1/14eb585/web.assets_frontend_lazy.min.js (1227)
+[98519:98519:1120/220322.464804:INFO:CONSOLE:675] "Hoot DOM helpers available from `window.hoot`", source: http://127.0.0.1:8071/web/assets/1/6e80696/web.__assets_tests_call__.min.js (675)
+[98519:98519:1120/220322.465228:INFO:CONSOLE:686] "[1/8] Tour website_crm_tour → Step Complete name (trigger: input[name=contact_name])", source: http://127.0.0.1:8071/web/assets/1/6e80696/web.__assets_tests_call__.min.js (686)
+[98519:98519:1120/220322.508417:INFO:CONSOLE:686] "[2/8] Tour website_crm_tour → Step Complete phone number (trigger: input[name=phone])", source: http://127.0.0.1:8071/web/assets/1/6e80696/web.__assets_tests_call__.min.js (686)
+[98519:98519:1120/220322.533468:INFO:CONSOLE:686] "[3/8] Tour website_crm_tour → Step Complete Email (trigger: input[name=email_from])", source: http://127.0.0.1:8071/web/assets/1/6e80696/web.__assets_tests_call__.min.js (686)
+[98519:98519:1120/220322.546366:INFO:CONSOLE:686] "[4/8] Tour website_crm_tour → Step Complete Company (trigger: input[name=partner_name])", source: http://127.0.0.1:8071/web/assets/1/6e80696/web.__assets_tests_call__.min.js (686)
+[98519:98519:1120/220322.555451:INFO:CONSOLE:686] "[5/8] Tour website_crm_tour → Step Complete Subject (trigger: input[name=name])", source: http://127.0.0.1:8071/web/assets/1/6e80696/web.__assets_tests_call__.min.js (686)
+[98519:98519:1120/220322.570905:INFO:CONSOLE:686] "[6/8] Tour website_crm_tour → Step Complete Subject (trigger: textarea[name=description])", source: http://127.0.0.1:8071/web/assets/1/6e80696/web.__assets_tests_call__.min.js (686)
+[98519:98519:1120/220322.588693:INFO:CONSOLE:686] "[7/8] Tour website_crm_tour → Step Send the form (trigger: .s_website_form_send)", source: http://127.0.0.1:8071/web/assets/1/6e80696/web.__assets_tests_call__.min.js (686)
+[98519:98519:1120/220323.599353:INFO:CONSOLE:1227] "Owl is running in 'dev' mode.", source: http://127.0.0.1:8071/web/assets/1/14eb585/web.assets_frontend_lazy.min.js (1227)
+[98519:98519:1120/220323.735165:INFO:CONSOLE:675] "Hoot DOM helpers available from `window.hoot`", source: http://127.0.0.1:8071/web/assets/1/6e80696/web.__assets_tests_call__.min.js (675)
+[98519:98519:1120/220323.735387:INFO:CONSOLE:686] "[8/8] Tour website_crm_tour → Step Check we were redirected to the success page (trigger: #wrap:has(h1:contains('Thank You!')))", source: http://127.0.0.1:8071/web/assets/1/6e80696/web.__assets_tests_call__.min.js (686)
+[98519:98519:1120/220323.831331:INFO:CONSOLE:669] "tour succeeded", source: http://127.0.0.1:8071/web/assets/1/6e80696/web.__assets_tests_call__.min.js (669)
+[98519:98519:1120/220323.831607:INFO:CONSOLE:669] "
+
+╔═════════════════════════════════╗
+║ TOUR website_crm_tour SUCCEEDED ║
+╚═════════════════════════════════╝
+", source: http://127.0.0.1:8071/web/assets/1/6e80696/web.__assets_tests_call__.min.js (669)

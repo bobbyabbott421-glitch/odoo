@@ -1,0 +1,59 @@
+test_visited_lead (__main__.OfflineLead.test_visited_lead) ... 2026-11-20 21:36:18,107 84354 INFO ? lead: Chrome pid: 84650
+2026-11-20 21:36:18,109 84354 INFO ? lead: Chrome headless temporary user profile dir: /tmp/tmpfseswcrv_chrome_odoo
+2026-11-20 21:36:18,109 84354 INFO ? lead: Issuing json command http://127.0.0.1:39027/json/version
+2026-11-20 21:36:19,041 84354 INFO ? lead: Browser version: Chrome/156.0.8078.79
+2026-11-20 21:36:19,042 84354 INFO ? lead: Issuing json command http://127.0.0.1:39027/json
+2026-11-20 21:36:19,122 84354 INFO ? lead: Websocket url found: ws://127.0.0.1:39027/devtools/page/F02E0E917D80339A9BF2876C891E61D4
+2026-11-20 21:36:19,194 84354 INFO ? lead: Enable chrome headless console log notification
+2026-11-20 21:36:19,204 84354 INFO ? lead: Chrome headless enable page notifications
+2026-11-20 21:36:21,837 84354 INFO ? lead: Navigating to: "http://127.0.0.1:17855/odoo/crm/54"
+2026-11-20 21:36:27,064 84354 INFO ? lead: Navigation result: {'frameId': 'F02E0E917D80339A9BF2876C891E61D4', 'loaderId': 'F7E3D52F3F27F08E72520B01ED761418', 'isDownload': False}
+FAIL
+2026-11-20 21:38:14,205 84354 INFO ? lead: Closing chrome headless with pid 84650
+2026-11-20 21:38:14,211 84354 INFO ? lead: Closing websocket connection
+2026-11-20 21:38:14,214 84354 INFO ? lead: Terminating chrome headless with pid 84650
+2026-11-20 21:38:14,544 84354 INFO ? lead: Chrome Log in: /tmp/odoo_tests/crm_flow/chrome_logs/chrome_log_20261120_213814_539272_runTest.txt
+2026-11-20 21:38:14,544 84354 INFO ? lead: Removing chrome user profile "/tmp/tmpfseswcrv_chrome_odoo"
+
+======================================================================
+FAIL: test_visited_lead (__main__.OfflineLead.test_visited_lead)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/run-notes/lifecycle.py", line 52, in test_visited_lead
+    wait_until("document.body.innerText.includes('Working offline')")
+  File "/workspace/run-notes/lifecycle.py", line 33, in wait_until
+    self.fail('Timed out waiting for '+expression+'; screen: '+str(js('document.body?.innerText.slice(0,400)')))
+AssertionError: Timed out waiting for !!document.querySelector('button[data-available-offline]') && document.body.innerText.includes('Log an offline note'); screen: CRM
+Sales
+Reporting
+Configuration
+Working offline
+11
+19
+My Company (San Francisco)
+New
+Pipeline
+Stopped-server Archive 1795210579520694668
+No Meeting
+0
+Quotations
+1 / 1
+
+Offline. Reopen saved leads and searches, or edit a lead to change its stage. Other results, card dragging and disabled actions require a connection.
+
+New Quotation
+Won
+Lost
+Won
+Proposition
+Qualified
+New
+1m
+Expected Revenue
+$ 
+0.0
+
+----------------------------------------------------------------------
+Ran 1 test in 157.902s
+
+FAILED (failures=1)

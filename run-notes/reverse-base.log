@@ -1,0 +1,51 @@
+test_render (__main__.Measure.test_render) ... 2026-11-20 22:24:41,502 102544 INFO ? measure: Chrome pid: 102564
+2026-11-20 22:24:41,503 102544 INFO ? measure: Chrome headless temporary user profile dir: /tmp/tmp5iis6e18_chrome_odoo
+2026-11-20 22:24:41,504 102544 INFO ? measure: Issuing json command http://127.0.0.1:38657/json/version
+2026-11-20 22:24:41,601 102544 INFO ? measure: Browser version: Chrome/156.0.8078.79
+2026-11-20 22:24:41,601 102544 INFO ? measure: Issuing json command http://127.0.0.1:38657/json
+2026-11-20 22:24:41,630 102544 INFO ? measure: Websocket url found: ws://127.0.0.1:38657/devtools/page/B89FD26B9B70B6C271B3B50318CD97FC
+2026-11-20 22:24:41,638 102544 INFO ? measure: Enable chrome headless console log notification
+2026-11-20 22:24:41,650 102544 INFO ? measure: Chrome headless enable page notifications
+2026-11-20 22:24:41,690 102544 INFO ? measure: Navigating to: "http://127.0.0.1:17861/odoo/crm"
+2026-11-20 22:24:42,212 102544 INFO ? measure: Navigation result: {'frameId': 'B89FD26B9B70B6C271B3B50318CD97FC', 'loaderId': '501DB30278C1131587418CC165547F11', 'isDownload': False}
+2026-11-20 22:24:46,055 102544 INFO ? measure: Navigating to: "http://127.0.0.1:17861/odoo/crm"
+2026-11-20 22:24:46,221 102544 INFO ? measure: Navigation result: {'frameId': 'B89FD26B9B70B6C271B3B50318CD97FC', 'loaderId': 'CCEBBFF40A52164510A6121DDEEF4E91', 'isDownload': False}
+pipeline 1592 26 16
+2026-11-20 22:24:49,152 102544 INFO ? measure: Navigating to: "http://127.0.0.1:17861/odoo/crm/31"
+2026-11-20 22:24:49,245 102544 INFO ? measure: Navigation result: {'frameId': 'B89FD26B9B70B6C271B3B50318CD97FC', 'loaderId': '17D997E18A56094DFCE709936021D242', 'isDownload': False}
+lead 1001 27 18
+2026-11-20 22:24:51,960 102544 INFO ? measure: Navigating to: "http://127.0.0.1:17861/odoo/crm"
+2026-11-20 22:24:52,025 102544 INFO ? measure: Navigation result: {'frameId': 'B89FD26B9B70B6C271B3B50318CD97FC', 'loaderId': '61DA7015392FB585C2FE6A2942F8FDE9', 'isDownload': False}
+pipeline 653 25 14
+2026-11-20 22:24:54,116 102544 INFO ? measure: Navigating to: "http://127.0.0.1:17861/odoo/crm/31"
+2026-11-20 22:24:54,169 102544 INFO ? measure: Navigation result: {'frameId': 'B89FD26B9B70B6C271B3B50318CD97FC', 'loaderId': '677414B25ADF625C999BA3456F979536', 'isDownload': False}
+lead 671 27 15
+2026-11-20 22:24:56,492 102544 INFO ? measure: Navigating to: "http://127.0.0.1:17861/odoo/crm"
+2026-11-20 22:24:56,570 102544 INFO ? measure: Navigation result: {'frameId': 'B89FD26B9B70B6C271B3B50318CD97FC', 'loaderId': 'F6AFC9EB98706ECD6375468263A442F2', 'isDownload': False}
+pipeline 705 25 14
+2026-11-20 22:24:58,706 102544 INFO ? measure: Navigating to: "http://127.0.0.1:17861/odoo/crm/31"
+2026-11-20 22:24:58,768 102544 INFO ? measure: Navigation result: {'frameId': 'B89FD26B9B70B6C271B3B50318CD97FC', 'loaderId': 'D6C523EC09C51C2FD3C2D4EFB16B823D', 'isDownload': False}
+lead 799 27 15
+2026-11-20 22:25:01,309 102544 INFO ? measure: Navigating to: "http://127.0.0.1:17861/odoo/crm"
+2026-11-20 22:25:01,377 102544 INFO ? measure: Navigation result: {'frameId': 'B89FD26B9B70B6C271B3B50318CD97FC', 'loaderId': '9E8087D3A4295A66B060E21693D65F10', 'isDownload': False}
+pipeline 822 25 14
+2026-11-20 22:25:03,639 102544 INFO ? measure: Navigating to: "http://127.0.0.1:17861/odoo/crm/31"
+2026-11-20 22:25:03,698 102544 INFO ? measure: Navigation result: {'frameId': 'B89FD26B9B70B6C271B3B50318CD97FC', 'loaderId': '8C7B31DE5D92CFF4A2B987BCEB93A62C', 'isDownload': False}
+lead 713 27 15
+2026-11-20 22:25:06,070 102544 INFO ? measure: Navigating to: "http://127.0.0.1:17861/odoo/crm"
+2026-11-20 22:25:06,203 102544 INFO ? measure: Navigation result: {'frameId': 'B89FD26B9B70B6C271B3B50318CD97FC', 'loaderId': '4870B36D52CAE96B9054797CF0975549', 'isDownload': False}
+pipeline 963 25 14
+2026-11-20 22:25:08,537 102544 INFO ? measure: Navigating to: "http://127.0.0.1:17861/odoo/crm/31"
+2026-11-20 22:25:08,601 102544 INFO ? measure: Navigation result: {'frameId': 'B89FD26B9B70B6C271B3B50318CD97FC', 'loaderId': '91B24B6B00F7254A75D305EEF46D175B', 'isDownload': False}
+lead 755 27 15
+2026-11-20 22:25:11,725 102544 INFO ? measure: Closing chrome headless with pid 102564
+2026-11-20 22:25:11,725 102544 INFO ? measure: Closing websocket connection
+2026-11-20 22:25:11,729 102544 INFO ? measure: Terminating chrome headless with pid 102564
+2026-11-20 22:25:11,823 102544 INFO ? measure: Chrome Log in: /tmp/odoo_tests/crm_upgrade_control/chrome_logs/chrome_log_20261120_222511_823108_runTest.txt
+2026-11-20 22:25:11,823 102544 INFO ? measure: Removing chrome user profile "/tmp/tmp5iis6e18_chrome_odoo"
+ok
+
+----------------------------------------------------------------------
+Ran 1 test in 36.529s
+
+OK

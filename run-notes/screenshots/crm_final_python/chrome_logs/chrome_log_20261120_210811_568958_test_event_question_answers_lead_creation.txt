@@ -1,0 +1,57 @@
+[65423:65453:1120/210802.765471:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[65423:65453:1120/210802.765537:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[65423:65453:1120/210802.782518:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[65423:65453:1120/210802.794634:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[65423:65453:1120/210802.794717:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[65423:65453:1120/210802.794728:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[65423:65453:1120/210802.794736:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[65423:65453:1120/210802.819612:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[65423:65453:1120/210803.005519:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[65423:65464:1120/210803.055302:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 65478: Read-only file system (30)
+[65466:65466:1120/210803.056499:WARNING:media/gpu/vaapi/vaapi_wrapper.cc:1655] drmGetDevices2() has not found any devices
+[65423:65423:1120/210803.114534:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[65423:65453:1120/210803.114774:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[65423:65423:1120/210803.114784:WARNING:device/bluetooth/dbus/bluez_dbus_manager.cc:209] Floss manager service not available, cannot set Floss enable/disable.
+[65423:65423:1120/210803.114892:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[65423:65453:1120/210803.114949:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[65423:65423:1120/210803.115383:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[65466:65466:1120/210803.124307:WARNING:sandbox/policy/linux/sandbox_linux.cc:405] InitializeSandbox() called with multiple threads in process gpu-process.
+[65423:65423:1120/210803.134010:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[65423:65453:1120/210803.135992:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[65423:65464:1120/210803.262330:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 65521: Read-only file system (30)
+[65423:65464:1120/210803.320776:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 65530: Read-only file system (30)
+[65423:65464:1120/210803.329940:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 65532: Read-only file system (30)
+[65423:65423:1120/210803.335041:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[65423:65423:1120/210803.335375:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[65423:65453:1120/210803.335775:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[65423:65453:1120/210803.335795:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[65423:65453:1120/210803.335802:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[65423:65423:1120/210803.350996:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[65423:65423:1120/210803.395412:WARNING:dbus/property.cc:94] Failed to connect to PropertiesChangedsignal.
+[65423:65423:1120/210803.395457:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.Properties.GetAll: object_path= /org/freedesktop/UPower/devices/DisplayDevice: unknown error type: 
+[65423:65423:1120/210803.395463:WARNING:dbus/property.cc:174] GetAll request failed for: org.freedesktop.UPower.Device
+[65423:65423:1120/210803.395479:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[65423:65453:1120/210803.397207:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[65423:65423:1120/210803.458355:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[65423:65453:1120/210803.460120:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[65423:65423:1120/210803.468754:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[65423:65423:1120/210803.468814:WARNING:ui/base/idle/idle_linux.cc:111] None of the known D-Bus ScreenSaver services could be used.
+[65423:65423:1120/210806.482131:INFO:CONSOLE:1148] "Owl is running in 'dev' mode.", source: http://127.0.0.1:8071/web/assets/56c5002/web.assets_web.min.js (1148)
+[65423:65423:1120/210806.606182:INFO:CONSOLE:672] "Hoot DOM helpers available from `window.hoot`", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (672)
+[65423:65423:1120/210806.607703:INFO:CONSOLE:683] "[1/10] Tour event_question_answers_rule_creation_tour → Step .o_navbar_apps_menu button:enabled", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[65423:65423:1120/210807.221453:INFO:CONSOLE:683] "[2/10] Tour event_question_answers_rule_creation_tour → Step .o_app[data-menu-xmlid="event.event_main_menu"]", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[65423:65423:1120/210807.373799:INFO:CONSOLE:683] "[3/10] Tour event_question_answers_rule_creation_tour → Step .o_app[data-menu-xmlid="event.event_main_menu"]", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[65423:65423:1120/210807.373927:INFO:CONSOLE:683] "[4/10] Tour event_question_answers_rule_creation_tour → Step Click on the Configuration menu. (trigger: button[data-menu-xmlid="event.menu_event_configuration"])", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[65423:65423:1120/210808.405023:INFO:CONSOLE:683] "[5/10] Tour event_question_answers_rule_creation_tour → Step Go to the list of questions. (trigger: a[data-menu-xmlid="event.event_question_menu"])", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[65423:65423:1120/210808.441532:INFO:CONSOLE:683] "[6/10] Tour event_question_answers_rule_creation_tour → Step Go to the form of a specific question. (trigger: td[name="title"]:contains("Question Test"))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[65423:65423:1120/210809.747420:INFO:CONSOLE:683] "[7/10] Tour event_question_answers_rule_creation_tour → Step Click on the 'Add rule' button. (trigger: tr:contains("Answer Test") button[name="action_add_rule_button"])", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[65423:65423:1120/210810.117704:INFO:CONSOLE:683] "[8/10] Tour event_question_answers_rule_creation_tour → Step Edit the name of the rule. (trigger: [name=name] input)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[65423:65423:1120/210810.767863:INFO:CONSOLE:683] "[9/10] Tour event_question_answers_rule_creation_tour → Step Save the rule creation form with pre-filled data, except for the name. (trigger: .modal:contains("Event lead rule") .o_form_button_save)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[65423:65423:1120/210810.829517:INFO:CONSOLE:683] "[10/10] Tour event_question_answers_rule_creation_tour → Step Wait until the modal is closed (trigger: body:not(.modal-open))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[65423:65423:1120/210811.098626:INFO:CONSOLE:666] "tour succeeded", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (666)
+[65423:65423:1120/210811.098855:INFO:CONSOLE:666] "
+
+╔══════════════════════════════════════════════════════════╗
+║ TOUR event_question_answers_rule_creation_tour SUCCEEDED ║
+╚══════════════════════════════════════════════════════════╝
+", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (666)

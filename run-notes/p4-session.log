@@ -1,0 +1,148 @@
+2026-11-20 20:48:57,622 55151 INFO ? odoo: Odoo version 20.0
+2026-11-20 20:48:57,623 55151 INFO ? odoo: Using configuration file at /workspace/odoo-env/odoo.conf
+2026-11-20 20:48:57,623 55151 INFO ? odoo: addons paths: _NamespacePath(['/workspace/odoo/odoo/addons', '/workspace/odoo-env/data/addons/20.0', '/workspace/odoo/addons'])
+2026-11-20 20:48:57,623 55151 INFO ? odoo: database: odoo@/workspace/odoo-env/run:5432
+2026-11-20 20:48:58,457 55151 INFO ? odoo.service.server: HTTP service running on 127.0.0.1:8078
+2026-11-20 20:48:58,468 55151 INFO crm_phase2 odoo.tests.common: Importing test framework
+2026-11-20 20:48:58,515 55151 INFO crm_phase2 odoo.modules.loading: loading 1 modules...
+2026-11-20 20:48:58,570 55151 INFO crm_phase2 odoo.modules.loading: 1 modules loaded in 0.06s, 0 queries (+0 extra)
+2026-11-20 20:48:58,664 55151 INFO crm_phase2 odoo.modules.loading: loading 226 modules...
+2026-11-20 20:48:59,030 55151 WARNING crm_phase2 odoo.addons.mail.controllers.attachment: markdown2 is not installed, markdown will not be rendered
+2026-11-20 20:49:01,917 55151 INFO crm_phase2 odoo.modules.loading: 226 modules loaded in 3.25s, 0 queries (+0 extra)
+2026-11-20 20:49:02,714 55151 INFO crm_phase2 odoo.modules.loading: Modules loaded.
+2026-11-20 20:49:03,025 55151 INFO crm_phase2 odoo.registry: Registry loaded in 4.567s
+2026-11-20 20:49:03,026 55151 INFO crm_phase2 odoo.service.server: Starting post tests
+2026-11-20 20:49:03,225 55151 INFO crm_phase2 odoo.addons.base.models.ir_qweb: Pregenerating assets bundles
+2026-11-20 20:49:08,971 55151 INFO crm_phase2 odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/d856cae/web.assets_unit_tests.min.js (id:2345)
+2026-11-20 20:49:08,973 55151 INFO crm_phase2 odoo.addons.base.models.assetsbundle: Deleting attachments [2342] (matching /web/assets/_______/web.assets_unit_tests.min.js) because it was replaced with /web/assets/d856cae/web.assets_unit_tests.min.js
+2026-11-20 20:49:09,349 55151 INFO crm_phase2 odoo.addons.base.models.ir_qweb: JS Assets bundles generated in 5.628880262374878 seconds
+2026-11-20 20:49:09,351 55151 INFO crm_phase2 odoo.addons.base.models.ir_qweb: Binary Assets bundles generated in 0.0018036365509033203 seconds
+2026-11-20 20:49:09,778 55151 INFO crm_phase2 odoo.addons.base.models.ir_qweb: CSS Assets bundles generated in 0.4265627861022949 seconds
+2026-11-20 20:49:09,788 55151 INFO crm_phase2 odoo.addons.crm.tests.test_crm_offline: Starting TestOfflineSession.test_enrollment_survives_soft_rotation_and_ends_after_access_change ...
+2026-11-20 20:49:09,798 55151 INFO crm_phase2 odoo.addons.base.models.res_users: Login successful for login:demo from n/a
+2026-11-20 20:49:09,981 55151 INFO crm_phase2 odoo.addons.base.models.ir_http: Generating routing map for key 1
+2026-11-20 20:49:10,642 55151 INFO crm_phase2 odoo.http.server: 127.0.0.1 rbBhisEq - [20/Nov/2026 20:49:10] "GET /odoo/crm HTTP/1.1" 200 8145 134 0.162 0.504 rw
+2026-11-20 20:49:10,716 55151 INFO crm_phase2 odoo.http.server: 127.0.0.1 rbBhisEq - [20/Nov/2026 20:49:10] "GET /odoo/crm HTTP/1.1" 200 8033 31 0.023 0.044 rw
+2026-11-20 20:49:10,778 55151 INFO crm_phase2 odoo.addons.base.models.res_users: Group change: user 1 with IP n/a changed groups of user 5 who belonged to [27, 51, 80, 77, 43, 47, 71, 105, 10, 9, 58, 92, 6, 1, 96] with changes [(<Command.LINK: 4>, 111, 0)]
+2026-11-20 20:49:10,936 55151 INFO crm_phase2 odoo.http.server: 127.0.0.1 rbBhisEq - [20/Nov/2026 20:49:10] "GET /odoo/crm HTTP/1.1" 200 8033 44 0.018 0.046 rw
+2026-11-20 20:49:10,962 55151 INFO crm_phase2 odoo.addons.base.models.ir_attachment: filestore gc 2 checked, 1 removed
+2026-11-20 20:49:10,971 55151 INFO crm_phase2 odoo.tests.suite: Auto retry disabled for test_unit_desktop (odoo.addons.web.tests.test_js.WebSuite.test_unit_desktop)
+2026-11-20 20:49:10,971 55151 INFO crm_phase2 odoo.addons.web.tests.test_js: Starting WebSuite.test_unit_desktop ...
+2026-11-20 20:49:11,427 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.WebSuite.test_unit_desktop: Chrome pid: 55162
+2026-11-20 20:49:11,428 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.WebSuite.test_unit_desktop: Chrome headless temporary user profile dir: /tmp/tmp6zelnuuc_chrome_odoo
+2026-11-20 20:49:11,428 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.WebSuite.test_unit_desktop: Issuing json command http://127.0.0.1:34953/json/version
+2026-11-20 20:49:11,429 55151 INFO crm_phase2 odoo.tests.common.requests: request SplitResult(scheme='http', netloc='127.0.0.1:34953', path='/json/version', query='', fragment='') with timeout 3 increased to 10s during tests
+2026-11-20 20:49:11,559 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.WebSuite.test_unit_desktop: Browser version: Chrome/156.0.8078.79
+2026-11-20 20:49:11,559 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.WebSuite.test_unit_desktop: Issuing json command http://127.0.0.1:34953/json
+2026-11-20 20:49:11,560 55151 INFO crm_phase2 odoo.tests.common.requests: request SplitResult(scheme='http', netloc='127.0.0.1:34953', path='/json', query='', fragment='') with timeout 3 increased to 10s during tests
+2026-11-20 20:49:11,569 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.WebSuite.test_unit_desktop: Websocket url found: ws://127.0.0.1:34953/devtools/page/3A9A433720E53953F6FD2A0E6088CE84
+2026-11-20 20:49:11,598 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.WebSuite.test_unit_desktop: Enable chrome headless console log notification
+2026-11-20 20:49:11,600 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.WebSuite.test_unit_desktop: Chrome headless enable page notifications
+2026-11-20 20:49:11,911 55151 INFO crm_phase2 odoo.addons.base.models.res_users: Login successful for login:admin from n/a
+2026-11-20 20:49:11,941 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.WebSuite.test_unit_desktop: Setting session cookie in browser
+2026-11-20 20:49:11,944 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.WebSuite.test_unit_desktop: Open "http://127.0.0.1:8078/web/tests?&headless&loglevel=2&preset=desktop&timeout=15000&id=ec9a0bd2" in browser
+2026-11-20 20:49:11,944 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.WebSuite.test_unit_desktop: Navigating to: "http://127.0.0.1:8078/web/tests?&headless&loglevel=2&preset=desktop&timeout=15000&id=ec9a0bd2"
+2026-11-20 20:49:11,971 55151 INFO crm_phase2 odoo.addons.base.models.ir_http: Generating routing map for key 1
+2026-11-20 20:49:12,265 55151 INFO crm_phase2 odoo.http.server: 127.0.0.1 9QeAynGS - [20/Nov/2026 20:49:12] "GET /web/tests?&headless&loglevel=2&preset=desktop&timeout=15000&id=ec9a0bd2 HTTP/1.1" 200 2146 15 0.018 0.297 ro
+2026-11-20 20:49:12,274 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.WebSuite.test_unit_desktop: Navigation result: {'frameId': '3A9A433720E53953F6FD2A0E6088CE84', 'loaderId': 'EE689DD65D4333B0C34F71FDA2F22F23', 'isDownload': False}
+2026-11-20 20:49:12,274 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.WebSuite.test_unit_desktop: Waiting for frame '3A9A433720E53953F6FD2A0E6088CE84' to stop loading
+2026-11-20 20:49:12,336 55151 INFO crm_phase2 odoo.http.server: 127.0.0.1 9QeAynGS - [20/Nov/2026 20:49:12] "GET /web/assets/329bbc5/web.assets_unit_tests.min.css HTTP/1.1" 200 255046 2 0.001 0.014 ro
+2026-11-20 20:49:12,355 55151 INFO crm_phase2 odoo.http.server: 127.0.0.1 9QeAynGS - [20/Nov/2026 20:49:12] "GET /web/assets/d11ae21/web.assets_unit_tests_setup.min.css HTTP/1.1" 200 1425435 2 0.001 0.387 ro
+2026-11-20 20:49:12,752 55151 INFO crm_phase2 odoo.http.server: 127.0.0.1 9QeAynGS - [20/Nov/2026 20:49:12] "GET /web/assets/8468b41/web.assets_unit_tests_setup.min.js HTTP/1.1" 200 10667733 2 0.006 0.425 ro
+2026-11-20 20:49:12,807 55151 INFO crm_phase2 odoo.http.server: 127.0.0.1 9QeAynGS - [20/Nov/2026 20:49:12] "GET /web/assets/d856cae/web.assets_unit_tests.min.js HTTP/1.1" 200 20810453 2 0.005 0.408 ro
+2026-11-20 20:49:13,357 55151 INFO crm_phase2 odoo.tests.common: External chrome request during tests: Return empty file for https://fonts.googleapis.com/css?family=Roboto:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap&subset=latin,latin-ext,vietnamese
+2026-11-20 20:49:13,357 55151 INFO crm_phase2 odoo.tests.common: External chrome request during tests: Return empty file for https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i&display=swap&subset=latin,latin-ext,vietnamese
+2026-11-20 20:49:13,358 55151 INFO crm_phase2 odoo.tests.common: External chrome request during tests: Return empty file for https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap&subset=latin,latin-ext,vietnamese
+2026-11-20 20:49:13,358 55151 INFO crm_phase2 odoo.tests.common: External chrome request during tests: Return empty file for https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap&subset=latin,latin-ext,vietnamese
+2026-11-20 20:49:13,359 55151 INFO crm_phase2 odoo.tests.common: External chrome request during tests: Return empty file for https://fonts.googleapis.com/css?family=Noto+Serif:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap&subset=latin,latin-ext,vietnamese
+2026-11-20 20:49:13,359 55151 INFO crm_phase2 odoo.tests.common: External chrome request during tests: Return empty file for https://fonts.googleapis.com/css?family=Arvo:400,400i,700,700i&display=swap&subset=latin,latin-ext,vietnamese
+2026-11-20 20:49:13,359 55151 INFO crm_phase2 odoo.tests.common: External chrome request during tests: Return empty file for https://fonts.googleapis.com/css?family=Inter+Tight:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap&subset=latin,latin-ext,vietnamese
+2026-11-20 20:49:13,366 55151 INFO crm_phase2 odoo.tests.common: External chrome request during tests: Return empty file for https://fonts.googleapis.com/css?family=Inter:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap&subset=latin,latin-ext,vietnamese
+2026-11-20 20:49:15,554 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.WebSuite.test_unit_desktop: Evaluate ready code "document.readyState === 'complete'"
+2026-11-20 20:49:15,734 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.WebSuite.test_unit_desktop: Evaluate test code ""
+2026-11-20 20:49:15,751 55151 INFO crm_phase2 odoo.http.server: 127.0.0.1 9QeAynGS - [20/Nov/2026 20:49:15] "GET /web/static/img/favicon.ico HTTP/1.1" 200 1150 0 0 0.003 -
+2026-11-20 20:49:15,833 55151 INFO crm_phase2 odoo.http.server: 127.0.0.1 9QeAynGS - [20/Nov/2026 20:49:15] "POST /web/dataset/call_kw/ir.module.module.dependency/all_dependencies#ir.module.module.dependency.all_dependencies HTTP/1.1" 200 1008 17 0.023 0.073 rw
+2026-11-20 20:49:15,940 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.WebSuite.test_unit_desktop.browser: [HOOT] Configuration (click to expand)
+2026-11-20 20:49:15,945 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.WebSuite.test_unit_desktop.browser: Object(bail=0, debug='', debugTest=false, events=3, fps=60, fun=false, headless=true, loglevel=2, manual=false, networkDelay='0', notrycatch=false, order='fifo', preset='desktop', random=0, showdetail='first-fail', timeout=15000, filter='', id='[ec9a0bd2]', tag='[]')
+2026-11-20 20:49:15,947 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.WebSuite.test_unit_desktop.browser: console.groupEnd
+2026-11-20 20:49:15,947 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.WebSuite.test_unit_desktop.browser: [HOOT] Starting test suites
+2026-11-20 20:49:15,948 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.WebSuite.test_unit_desktop.browser: [HOOT] Running test "@crm/crm_offline_access/offline enrollment explains a mismatched passphrase and leaves it editable"
+2026-11-20 20:49:17,066 55151 INFO crm_phase2 odoo.http.server: 127.0.0.1 9QeAynGS - [20/Nov/2026 20:49:17] "POST /web/model/get_definitions HTTP/1.1" 200 1437042 1003 0.19 0.908 rw
+2026-11-20 20:49:17,411 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.WebSuite.test_unit_desktop.browser: [HOOT] "@crm/crm_offline_access" ended (passed: 1 / time: 1453 ms)
+2026-11-20 20:49:17,563 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.WebSuite.test_unit_desktop.browser: [MEMINFO] @crm/crm_offline_access (after GC) - used: 72907467 - total: 159515675 - limit: 4395630592 - tests: 1
+2026-11-20 20:49:17,629 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.WebSuite.test_unit_desktop.browser: [MEMINFO] tests done (after GC) - used: 69605977 - total: 148243365 - limit: 4395630592
+2026-11-20 20:49:17,629 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.WebSuite.test_unit_desktop.browser: [HOOT] "@crm" ended (passed: 1 / time: 1453 ms)
+2026-11-20 20:49:17,629 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.WebSuite.test_unit_desktop.browser: [HOOT] Passed 1 tests (4 assertions, total time: 00:00:01)
+2026-11-20 20:49:17,633 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.WebSuite.test_unit_desktop.browser: [HOOT] Test suite succeeded
+2026-11-20 20:49:17,828 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.WebSuite.test_unit_desktop.browser: heap 36655536 (allocated 37838848)
+2026-11-20 20:49:17,829 55151 INFO crm_phase2 odoo.addons.bus.websocket: Disconnecting 0 websockets
+2026-11-20 20:49:17,939 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.WebSuite.test_unit_desktop: Closing chrome headless with pid 55162
+2026-11-20 20:49:17,939 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.WebSuite.test_unit_desktop: Closing websocket connection
+2026-11-20 20:49:17,942 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.WebSuite.test_unit_desktop: Terminating chrome headless with pid 55162
+2026-11-20 20:49:18,056 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.WebSuite.test_unit_desktop: Chrome Log in: /tmp/odoo_tests/crm_phase2/chrome_logs/chrome_log_20261120_204918_056195_test_unit_desktop.txt
+2026-11-20 20:49:18,056 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.WebSuite.test_unit_desktop: Removing chrome user profile "/tmp/tmp6zelnuuc_chrome_odoo"
+2026-11-20 20:49:18,090 55151 INFO crm_phase2 odoo.addons.base.models.ir_attachment: filestore gc 0 checked, 0 removed
+2026-11-20 20:49:18,131 55151 INFO crm_phase2 odoo.tests.suite: Auto retry disabled for test_unit_mobile (odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile)
+2026-11-20 20:49:18,131 55151 INFO crm_phase2 odoo.addons.web.tests.test_js: Starting MobileWebSuite.test_unit_mobile ...
+2026-11-20 20:49:18,570 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile: Chrome pid: 55332
+2026-11-20 20:49:18,571 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile: Chrome headless temporary user profile dir: /tmp/tmpbc5a7gy0_chrome_odoo
+2026-11-20 20:49:18,571 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile: Issuing json command http://127.0.0.1:35741/json/version
+2026-11-20 20:49:18,573 55151 INFO crm_phase2 odoo.tests.common.requests: request SplitResult(scheme='http', netloc='127.0.0.1:35741', path='/json/version', query='', fragment='') with timeout 3 increased to 10s during tests
+2026-11-20 20:49:18,768 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile: Browser version: Chrome/156.0.8078.79
+2026-11-20 20:49:18,768 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile: Issuing json command http://127.0.0.1:35741/json
+2026-11-20 20:49:18,769 55151 INFO crm_phase2 odoo.tests.common.requests: request SplitResult(scheme='http', netloc='127.0.0.1:35741', path='/json', query='', fragment='') with timeout 3 increased to 10s during tests
+2026-11-20 20:49:18,817 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile: Websocket url found: ws://127.0.0.1:35741/devtools/page/6F9A1E2B0027A31ACF09974A7B283607
+2026-11-20 20:49:18,843 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile: Enable chrome headless console log notification
+2026-11-20 20:49:18,854 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile: Chrome headless enable page notifications
+2026-11-20 20:49:18,950 55151 INFO crm_phase2 odoo.addons.base.models.res_users: Login successful for login:admin from n/a
+2026-11-20 20:49:18,979 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile: Setting session cookie in browser
+2026-11-20 20:49:18,980 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile: Open "http://127.0.0.1:8078/web/tests?&headless&loglevel=2&preset=mobile&tag=-headless&timeout=15000&id=ec9a0bd2" in browser
+2026-11-20 20:49:18,981 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile: Navigating to: "http://127.0.0.1:8078/web/tests?&headless&loglevel=2&preset=mobile&tag=-headless&timeout=15000&id=ec9a0bd2"
+2026-11-20 20:49:19,019 55151 INFO crm_phase2 odoo.addons.base.models.ir_http: Generating routing map for key 1
+2026-11-20 20:49:19,356 55151 INFO crm_phase2 odoo.http.server: 127.0.0.1 xdQBbauP - [20/Nov/2026 20:49:19] "GET /web/tests?&headless&loglevel=2&preset=mobile&tag=-headless&timeout=15000&id=ec9a0bd2 HTTP/1.1" 200 2146 15 0.026 0.345 ro
+2026-11-20 20:49:19,363 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile: Navigation result: {'frameId': '6F9A1E2B0027A31ACF09974A7B283607', 'loaderId': 'BF1FA63978EEEE929AD5C066D84A5374', 'isDownload': False}
+2026-11-20 20:49:19,363 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile: Waiting for frame '6F9A1E2B0027A31ACF09974A7B283607' to stop loading
+2026-11-20 20:49:19,510 55151 INFO crm_phase2 odoo.http.server: 127.0.0.1 xdQBbauP - [20/Nov/2026 20:49:19] "GET /web/assets/d11ae21/web.assets_unit_tests_setup.min.css HTTP/1.1" 200 1425435 2 0.019 0.482 ro
+2026-11-20 20:49:19,525 55151 INFO crm_phase2 odoo.http.server: 127.0.0.1 xdQBbauP - [20/Nov/2026 20:49:19] "GET /web/assets/329bbc5/web.assets_unit_tests.min.css HTTP/1.1" 200 255046 2 0.004 0.048 ro
+2026-11-20 20:49:19,856 55151 INFO crm_phase2 odoo.http.server: 127.0.0.1 xdQBbauP - [20/Nov/2026 20:49:19] "GET /web/assets/8468b41/web.assets_unit_tests_setup.min.js HTTP/1.1" 200 10667733 2 0.002 0.381 ro
+2026-11-20 20:49:20,415 55151 INFO crm_phase2 odoo.http.server: 127.0.0.1 xdQBbauP - [20/Nov/2026 20:49:19] "GET /web/assets/d856cae/web.assets_unit_tests.min.js HTTP/1.1" 200 20810453 2 0.006 0.859 ro
+2026-11-20 20:49:20,523 55151 INFO crm_phase2 odoo.tests.common: External chrome request during tests: Return empty file for https://fonts.googleapis.com/css?family=Roboto:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap&subset=latin,latin-ext,vietnamese
+2026-11-20 20:49:20,524 55151 INFO crm_phase2 odoo.tests.common: External chrome request during tests: Return empty file for https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i&display=swap&subset=latin,latin-ext,vietnamese
+2026-11-20 20:49:20,524 55151 INFO crm_phase2 odoo.tests.common: External chrome request during tests: Return empty file for https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap&subset=latin,latin-ext,vietnamese
+2026-11-20 20:49:20,525 55151 INFO crm_phase2 odoo.tests.common: External chrome request during tests: Return empty file for https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap&subset=latin,latin-ext,vietnamese
+2026-11-20 20:49:20,525 55151 INFO crm_phase2 odoo.tests.common: External chrome request during tests: Return empty file for https://fonts.googleapis.com/css?family=Noto+Serif:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap&subset=latin,latin-ext,vietnamese
+2026-11-20 20:49:20,533 55151 INFO crm_phase2 odoo.tests.common: External chrome request during tests: Return empty file for https://fonts.googleapis.com/css?family=Arvo:400,400i,700,700i&display=swap&subset=latin,latin-ext,vietnamese
+2026-11-20 20:49:20,536 55151 INFO crm_phase2 odoo.tests.common: External chrome request during tests: Return empty file for https://fonts.googleapis.com/css?family=Inter+Tight:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap&subset=latin,latin-ext,vietnamese
+2026-11-20 20:49:20,537 55151 INFO crm_phase2 odoo.tests.common: External chrome request during tests: Return empty file for https://fonts.googleapis.com/css?family=Inter:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap&subset=latin,latin-ext,vietnamese
+2026-11-20 20:49:22,640 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile: Evaluate ready code "document.readyState === 'complete'"
+2026-11-20 20:49:22,829 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile: Evaluate test code ""
+2026-11-20 20:49:22,838 55151 INFO crm_phase2 odoo.http.server: 127.0.0.1 xdQBbauP - [20/Nov/2026 20:49:22] "GET /web/static/img/favicon.ico HTTP/1.1" 200 1150 0 0 0.008 -
+2026-11-20 20:49:22,973 55151 INFO crm_phase2 odoo.http.server: 127.0.0.1 xdQBbauP - [20/Nov/2026 20:49:22] "POST /web/dataset/call_kw/ir.module.module.dependency/all_dependencies#ir.module.module.dependency.all_dependencies HTTP/1.1" 200 1008 17 0.035 0.112 rw
+2026-11-20 20:49:23,101 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Configuration (click to expand)
+2026-11-20 20:49:23,103 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: Object(bail=0, debug='', debugTest=false, events=3, fps=60, fun=false, headless=true, loglevel=2, manual=false, networkDelay='0', notrycatch=false, order='fifo', preset='mobile', random=0, showdetail='first-fail', timeout=15000, filter='', id='[ec9a0bd2]', tag='[-headless]')
+2026-11-20 20:49:23,103 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: console.groupEnd
+2026-11-20 20:49:23,104 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Starting test suites
+2026-11-20 20:49:23,105 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@crm/crm_offline_access/offline enrollment explains a mismatched passphrase and leaves it editable"
+2026-11-20 20:49:24,262 55151 INFO crm_phase2 odoo.http.server: 127.0.0.1 xdQBbauP - [20/Nov/2026 20:49:24] "POST /web/model/get_definitions HTTP/1.1" 200 1437042 346 0.291 0.845 rw
+2026-11-20 20:49:24,627 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] "@crm/crm_offline_access" ended (passed: 1 / time: 1511 ms)
+2026-11-20 20:49:24,759 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [MEMINFO] @crm/crm_offline_access (after GC) - used: 72915002 - total: 159777798 - limit: 4395630592 - tests: 1
+2026-11-20 20:49:24,815 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [MEMINFO] tests done (after GC) - used: 69615080 - total: 146408336 - limit: 4395630592
+2026-11-20 20:49:24,816 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] "@crm" ended (passed: 1 / time: 1511 ms)
+2026-11-20 20:49:24,817 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Passed 1 tests (4 assertions, total time: 00:00:01)
+2026-11-20 20:49:24,817 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Test suite succeeded
+2026-11-20 20:49:25,098 55151 INFO crm_phase2 odoo.addons.bus.websocket: Disconnecting 0 websockets
+2026-11-20 20:49:25,099 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: heap 36668984 (allocated 37838848)
+2026-11-20 20:49:25,216 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile: Closing chrome headless with pid 55332
+2026-11-20 20:49:25,217 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile: Closing websocket connection
+2026-11-20 20:49:25,218 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile: Terminating chrome headless with pid 55332
+2026-11-20 20:49:25,333 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile: Chrome Log in: /tmp/odoo_tests/crm_phase2/chrome_logs/chrome_log_20261120_204925_333171_test_unit_mobile.txt
+2026-11-20 20:49:25,333 55151 INFO crm_phase2 odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile: Removing chrome user profile "/tmp/tmpbc5a7gy0_chrome_odoo"
+2026-11-20 20:49:25,380 55151 INFO crm_phase2 odoo.addons.base.models.ir_attachment: filestore gc 0 checked, 0 removed
+2026-11-20 20:49:25,392 55151 INFO crm_phase2 odoo.service.server: 3 post-tests in 22.37s, 2352 queries
+2026-11-20 20:49:25,392 55151 INFO crm_phase2 odoo.tests.stats: crm: 3 tests 1.19s 324 queries
+2026-11-20 20:49:25,392 55151 INFO crm_phase2 odoo.tests.stats: web: 6 tests 14.42s 1465 queries
+2026-11-20 20:49:25,392 55151 INFO crm_phase2 odoo.tests.result: 0 failed, 0 error(s) of 3 tests when loading database 'crm_phase2'
+2026-11-20 20:49:25,392 55151 INFO crm_phase2 odoo.service.server.ThreadedServer: Initiating shutdown
+2026-11-20 20:49:25,392 55151 INFO crm_phase2 odoo.service.server.ThreadedServer: Hit CTRL-C again or send a second signal to force the shutdown.
+2026-11-20 20:49:25,392 55151 INFO crm_phase2 odoo.addons.bus.websocket: Disconnecting 0 websockets
+2026-11-20 20:49:25,502 55151 INFO crm_phase2 odoo.sql_db: ConnectionPool(read/write;used=0/count=0/max=64): Closed 1 connections 

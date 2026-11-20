@@ -1,0 +1,54 @@
+test_large_team (__main__.OfflinePipeline.test_large_team) ... 2026-11-20 22:13:31,558 101227 INFO ? scale: Chrome pid: 101245
+2026-11-20 22:13:31,559 101227 INFO ? scale: Chrome headless temporary user profile dir: /tmp/tmp923ihgsh_chrome_odoo
+2026-11-20 22:13:31,559 101227 INFO ? scale: Issuing json command http://127.0.0.1:42041/json/version
+2026-11-20 22:13:31,628 101227 INFO ? scale: Browser version: Chrome/156.0.8078.79
+2026-11-20 22:13:31,628 101227 INFO ? scale: Issuing json command http://127.0.0.1:42041/json
+2026-11-20 22:13:31,657 101227 INFO ? scale: Websocket url found: ws://127.0.0.1:42041/devtools/page/99D226FD071E65264FA81B8F840B359A
+2026-11-20 22:13:31,674 101227 INFO ? scale: Enable chrome headless console log notification
+2026-11-20 22:13:31,689 101227 INFO ? scale: Chrome headless enable page notifications
+2026-11-20 22:13:31,703 101227 INFO ? scale: Navigating to: "http://127.0.0.1:17862/web/health"
+2026-11-20 22:13:31,741 101227 INFO ? scale: Navigation result: {'frameId': '99D226FD071E65264FA81B8F840B359A', 'loaderId': '7D9BBC36A46893EAAA2E4072AFBB9AE3', 'isDownload': False}
+2026-11-20 22:13:31,741 101227 INFO ? scale: Waiting for frame '99D226FD071E65264FA81B8F840B359A' to stop loading
+2026-11-20 22:13:31,775 101227 INFO ? scale: Navigating to: "http://127.0.0.1:17862/odoo/crm"
+2026-11-20 22:13:32,294 101227 INFO ? scale: Navigation result: {'frameId': '99D226FD071E65264FA81B8F840B359A', 'loaderId': '52CA027396DA4FFA03EDC46FB62090E7', 'isDownload': False}
+2026-11-20 22:13:45,325 101227 INFO ? scale: Navigating to: "http://127.0.0.1:17862/odoo/crm"
+2026-11-20 22:13:45,443 101227 INFO ? scale: Navigation result: {'frameId': '99D226FD071E65264FA81B8F840B359A', 'loaderId': 'D110AED3CCC3B913D02B80D95C5AE477', 'isDownload': False}
+2026-11-20 22:13:52,821 101227 INFO ? scale: Navigating to: "http://127.0.0.1:17862/odoo/crm"
+2026-11-20 22:13:52,864 101227 INFO ? scale: Navigation result: {'frameId': '99D226FD071E65264FA81B8F840B359A', 'loaderId': '851A6C5D7AA77BF5265DDFE65A09AE5C', 'isDownload': False}
+2026-11-20 22:13:53,050 101227 ERROR crm_quiet_scale_base scale.browser: TypeError: Failed to fetch
+    at LocalizationPlugin.fetchTranslations (http://127.0.0.1:17862/web/assets/f188e1e/web.assets_web.min.js:2986:187)
+    at LocalizationPlugin.load (http://127.0.0.1:17862/web/assets/f188e1e/web.assets_web.min.js:2983:151)
+    at async Promise.all (index 0)
+    at async mountComponent (http://127.0.0.1:17862/web/assets/f188e1e/web.assets_web.min.js:1557:513)
+    at async startWebClient (http://127.0.0.1:17862/web/assets/f188e1e/web.assets_web.min.js:31929:19)
+2026-11-20 22:13:53,050 101227 INFO crm_quiet_scale_base scale: Asking for screenshot
+2026-11-20 22:13:53,051 101227 WARNING crm_quiet_scale_base scale.browser: Error received after termination: Error while loading SharedWorker, fallback on Worker:  Event(isTrusted=true, type='error', target=SharedWorker, currentTarget=SharedWorker, eventPhase=2)
+2026-11-20 22:13:53,166 101227 WARNING crm_quiet_scale_base scale.browser: Error received after termination: Worker service failed to initialize:  Event(isTrusted=true, type='error', target=Worker, currentTarget=Worker, eventPhase=2)
+2026-11-20 22:13:53,167 101227 WARNING crm_quiet_scale_base scale.browser: Error received after termination: BusService: Real-time notifications disabled (WorkerService failed to start).
+2026-11-20 22:13:53,168 101227 WARNING crm_quiet_scale_base scale.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 22:13:53,168 101227 WARNING crm_quiet_scale_base scale.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 22:13:53,168 101227 WARNING crm_quiet_scale_base scale.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 22:13:53,168 101227 WARNING crm_quiet_scale_base scale.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 22:13:53,168 101227 WARNING crm_quiet_scale_base scale.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 22:13:53,168 101227 WARNING crm_quiet_scale_base scale.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 22:13:53,168 101227 WARNING crm_quiet_scale_base scale.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 22:13:53,168 101227 WARNING crm_quiet_scale_base scale.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 22:13:53,168 101227 WARNING crm_quiet_scale_base scale.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 22:13:53,168 101227 WARNING crm_quiet_scale_base scale.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 22:13:53,169 101227 INFO crm_quiet_scale_base scale.browser: Error received after termination: TypeError: Failed to fetch
+    at odoo.reloadMenus (http://127.0.0.1:17862/odoo/crm:31:43)
+    at http://127.0.0.1:17862/odoo/crm:39:50
+2026-11-20 22:13:53,246 101227 INFO crm_quiet_scale_base scale: Screenshot in: /tmp/odoo_tests/crm_quiet_scale_base/screenshots/sc_20261120_221353_244197_runTest.png
+OFFLINE_10000_RENDER_MS 2287
+VISIBLE_CARD_COUNT 320
+2026-11-20 22:13:57,657 101227 INFO ? scale: Closing chrome headless with pid 101245
+2026-11-20 22:13:57,659 101227 INFO ? scale: Closing websocket connection
+2026-11-20 22:13:57,662 101227 INFO ? scale: Terminating chrome headless with pid 101245
+2026-11-20 22:13:57,789 101227 INFO ? scale: Chrome Log in: /tmp/odoo_tests/crm_quiet_scale_base/chrome_logs/chrome_log_20261120_221357_788634_runTest.txt
+2026-11-20 22:13:57,789 101227 INFO ? scale: Removing chrome user profile "/tmp/tmp923ihgsh_chrome_odoo"
+ok
+
+----------------------------------------------------------------------
+Ran 1 test in 30.546s
+
+OK

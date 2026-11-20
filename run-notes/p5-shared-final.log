@@ -1,0 +1,285 @@
+2026-11-20 21:24:14,168 78778 INFO ? odoo: Odoo version 20.0
+2026-11-20 21:24:14,169 78778 INFO ? odoo: Using configuration file at /workspace/odoo-env/odoo.conf
+2026-11-20 21:24:14,169 78778 INFO ? odoo: addons paths: _NamespacePath(['/workspace/odoo/odoo/addons', '/workspace/odoo-env/data/addons/20.0', '/workspace/odoo/addons'])
+2026-11-20 21:24:14,169 78778 INFO ? odoo: database: odoo@/workspace/odoo-env/run:5432
+2026-11-20 21:24:15,610 78778 INFO ? odoo.service.server: HTTP service running on 127.0.0.1:17859
+2026-11-20 21:24:15,629 78778 INFO crm_p5_check odoo.tests.common: Importing test framework
+2026-11-20 21:24:15,732 78778 INFO crm_p5_check odoo.modules.loading: loading 1 modules...
+2026-11-20 21:24:15,837 78778 INFO crm_p5_check odoo.modules.loading: 1 modules loaded in 0.10s, 0 queries (+0 extra)
+2026-11-20 21:24:16,018 78778 INFO crm_p5_check odoo.modules.loading: loading 226 modules...
+2026-11-20 21:24:16,397 78778 WARNING crm_p5_check odoo.addons.mail.controllers.attachment: markdown2 is not installed, markdown will not be rendered
+2026-11-20 21:24:20,262 78778 INFO crm_p5_check odoo.modules.loading: 226 modules loaded in 4.24s, 0 queries (+0 extra)
+2026-11-20 21:24:22,556 78778 INFO crm_p5_check odoo.modules.loading: Modules loaded.
+2026-11-20 21:24:23,244 78778 INFO crm_p5_check odoo.registry: Registry loaded in 7.630s
+2026-11-20 21:24:23,245 78778 INFO crm_p5_check odoo.service.server: Starting post tests
+2026-11-20 21:24:23,560 78778 INFO crm_p5_check odoo.addons.base.models.ir_qweb: Pregenerating assets bundles
+2026-11-20 21:24:28,543 78778 INFO crm_p5_check odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/50be1d8/api_doc.assets.min.js (id:2260)
+2026-11-20 21:24:28,763 78778 INFO crm_p5_check odoo.addons.base.models.assetsbundle: Deleting attachments [2248] (matching /web/assets/_______/api_doc.assets.min.js) because it was replaced with /web/assets/50be1d8/api_doc.assets.min.js
+2026-11-20 21:24:29,517 78778 INFO crm_p5_check odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/a36101e/hr_attendance.assets_public_attendance.min.js (id:2261)
+2026-11-20 21:24:29,520 78778 INFO crm_p5_check odoo.addons.base.models.assetsbundle: Deleting attachments [2249] (matching /web/assets/_______/hr_attendance.assets_public_attendance.min.js) because it was replaced with /web/assets/a36101e/hr_attendance.assets_public_attendance.min.js
+2026-11-20 21:24:32,253 78778 INFO crm_p5_check odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/e244cc1/im_livechat.assets_embed_external.min.js (id:2262)
+2026-11-20 21:24:32,267 78778 INFO crm_p5_check odoo.addons.base.models.assetsbundle: Deleting attachments [2250] (matching /web/assets/_______/im_livechat.assets_embed_external.min.js) because it was replaced with /web/assets/e244cc1/im_livechat.assets_embed_external.min.js
+2026-11-20 21:24:41,025 78778 INFO crm_p5_check odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/8c64f10/im_livechat.embed_assets_unit_tests_setup.min.js (id:2263)
+2026-11-20 21:24:41,034 78778 INFO crm_p5_check odoo.addons.base.models.assetsbundle: Deleting attachments [2251] (matching /web/assets/_______/im_livechat.embed_assets_unit_tests_setup.min.js) because it was replaced with /web/assets/8c64f10/im_livechat.embed_assets_unit_tests_setup.min.js
+2026-11-20 21:24:41,518 78778 INFO crm_p5_check odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/399e880/mail.assets_public.min.js (id:2264)
+2026-11-20 21:24:41,520 78778 INFO crm_p5_check odoo.addons.base.models.assetsbundle: Deleting attachments [2252] (matching /web/assets/_______/mail.assets_public.min.js) because it was replaced with /web/assets/399e880/mail.assets_public.min.js
+2026-11-20 21:24:42,324 78778 INFO crm_p5_check odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/7590b0e/project.webclient.min.js (id:2265)
+2026-11-20 21:24:42,325 78778 INFO crm_p5_check odoo.addons.base.models.assetsbundle: Deleting attachments [2253] (matching /web/assets/_______/project.webclient.min.js) because it was replaced with /web/assets/7590b0e/project.webclient.min.js
+2026-11-20 21:24:43,948 78778 INFO crm_p5_check odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/94983cd/spreadsheet.public_spreadsheet.min.js (id:2266)
+2026-11-20 21:24:43,951 78778 INFO crm_p5_check odoo.addons.base.models.assetsbundle: Deleting attachments [2254] (matching /web/assets/_______/spreadsheet.public_spreadsheet.min.js) because it was replaced with /web/assets/94983cd/spreadsheet.public_spreadsheet.min.js
+2026-11-20 21:24:45,056 78778 INFO crm_p5_check odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/14eb585/web.assets_frontend_lazy.min.js (id:2267)
+2026-11-20 21:24:45,062 78778 INFO crm_p5_check odoo.addons.base.models.assetsbundle: Deleting attachments [2255] (matching /web/assets/_______/web.assets_frontend_lazy.min.js) because it was replaced with /web/assets/14eb585/web.assets_frontend_lazy.min.js
+2026-11-20 21:24:52,630 78778 INFO crm_p5_check odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/927e3f1/web.assets_unit_tests.min.js (id:2268)
+2026-11-20 21:24:52,638 78778 INFO crm_p5_check odoo.addons.base.models.assetsbundle: Deleting attachments [2165] (matching /web/assets/_______/web.assets_unit_tests.min.js) because it was replaced with /web/assets/927e3f1/web.assets_unit_tests.min.js
+2026-11-20 21:24:53,858 78778 INFO crm_p5_check odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/0e21533/web.assets_unit_tests_setup.min.js (id:2269)
+2026-11-20 21:24:53,860 78778 INFO crm_p5_check odoo.addons.base.models.assetsbundle: Deleting attachments [2256] (matching /web/assets/_______/web.assets_unit_tests_setup.min.js) because it was replaced with /web/assets/0e21533/web.assets_unit_tests_setup.min.js
+2026-11-20 21:24:54,398 78778 INFO crm_p5_check odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/ec60ef2/web.assets_web.min.js (id:2270)
+2026-11-20 21:24:54,399 78778 INFO crm_p5_check odoo.addons.base.models.assetsbundle: Deleting attachments [2257] (matching /web/assets/_______/web.assets_web.min.js) because it was replaced with /web/assets/ec60ef2/web.assets_web.min.js
+2026-11-20 21:24:54,546 78778 INFO crm_p5_check odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/5863bf9/website_slides.slide_embed_assets.min.js (id:2271)
+2026-11-20 21:24:54,547 78778 INFO crm_p5_check odoo.addons.base.models.assetsbundle: Deleting attachments [2258] (matching /web/assets/_______/website_slides.slide_embed_assets.min.js) because it was replaced with /web/assets/5863bf9/website_slides.slide_embed_assets.min.js
+2026-11-20 21:24:54,548 78778 INFO crm_p5_check odoo.addons.base.models.ir_qweb: JS Assets bundles generated in 29.20694923400879 seconds
+2026-11-20 21:24:54,550 78778 INFO crm_p5_check odoo.addons.base.models.ir_qweb: Binary Assets bundles generated in 0.0013926029205322266 seconds
+2026-11-20 21:24:55,705 78778 INFO crm_p5_check odoo.addons.base.models.ir_qweb: CSS Assets bundles generated in 1.1553339958190918 seconds
+2026-11-20 21:24:55,755 78778 INFO crm_p5_check odoo.addons.crm.tests.test_crm_offline: Starting TestCrmOfflineRead.test_pending_note_on_a_shared_device ...
+2026-11-20 21:24:56,400 78778 INFO crm_p5_check odoo.addons.crm.tests.test_crm_offline.TestCrmOfflineRead.test_pending_note_on_a_shared_device: Chrome pid: 79444
+2026-11-20 21:24:56,401 78778 INFO crm_p5_check odoo.addons.crm.tests.test_crm_offline.TestCrmOfflineRead.test_pending_note_on_a_shared_device: Chrome headless temporary user profile dir: /tmp/tmpx0avt11n_chrome_odoo
+2026-11-20 21:24:56,401 78778 INFO crm_p5_check odoo.addons.crm.tests.test_crm_offline.TestCrmOfflineRead.test_pending_note_on_a_shared_device: Issuing json command http://127.0.0.1:46059/json/version
+2026-11-20 21:24:56,407 78778 INFO crm_p5_check odoo.tests.common.requests: request SplitResult(scheme='http', netloc='127.0.0.1:46059', path='/json/version', query='', fragment='') with timeout 3 increased to 10s during tests
+2026-11-20 21:24:56,753 78778 INFO crm_p5_check odoo.addons.crm.tests.test_crm_offline.TestCrmOfflineRead.test_pending_note_on_a_shared_device: Browser version: Chrome/156.0.8078.79
+2026-11-20 21:24:56,753 78778 INFO crm_p5_check odoo.addons.crm.tests.test_crm_offline.TestCrmOfflineRead.test_pending_note_on_a_shared_device: Issuing json command http://127.0.0.1:46059/json
+2026-11-20 21:24:56,753 78778 INFO crm_p5_check odoo.tests.common.requests: request SplitResult(scheme='http', netloc='127.0.0.1:46059', path='/json', query='', fragment='') with timeout 3 increased to 10s during tests
+2026-11-20 21:24:56,875 78778 INFO crm_p5_check odoo.addons.crm.tests.test_crm_offline.TestCrmOfflineRead.test_pending_note_on_a_shared_device: Websocket url found: ws://127.0.0.1:46059/devtools/page/6436C8E27B485E86FAD4BCE6B14D90F8
+2026-11-20 21:24:56,916 78778 INFO crm_p5_check odoo.addons.crm.tests.test_crm_offline.TestCrmOfflineRead.test_pending_note_on_a_shared_device: Enable chrome headless console log notification
+2026-11-20 21:24:56,949 78778 INFO crm_p5_check odoo.addons.crm.tests.test_crm_offline.TestCrmOfflineRead.test_pending_note_on_a_shared_device: Chrome headless enable page notifications
+2026-11-20 21:24:57,138 78778 INFO crm_p5_check odoo.addons.base.models.res_users: Login successful for login:admin from n/a
+2026-11-20 21:24:57,166 78778 INFO crm_p5_check odoo.addons.crm.tests.test_crm_offline.TestCrmOfflineRead.test_pending_note_on_a_shared_device: Setting session cookie in browser
+2026-11-20 21:24:57,608 78778 INFO crm_p5_check odoo.addons.crm.tests.test_crm_offline.TestCrmOfflineRead.test_pending_note_on_a_shared_device: Navigating to: "http://127.0.0.1:41971/odoo/crm/60"
+2026-11-20 21:24:57,631 78778 INFO crm_p5_check odoo.addons.base.models.ir_http: Generating routing map for key 1
+2026-11-20 21:24:58,864 78778 INFO crm_p5_check odoo.http.server: 127.0.0.1 8D57XIqS - [20/Nov/2026 21:24:58] "GET /odoo/crm/60 HTTP/1.1" 200 8254 128 0.439 0.809 rw
+2026-11-20 21:24:58,901 78778 INFO crm_p5_check odoo.addons.crm.tests.test_crm_offline.TestCrmOfflineRead.test_pending_note_on_a_shared_device: Navigation result: {'frameId': '6436C8E27B485E86FAD4BCE6B14D90F8', 'loaderId': '5820C1349D8D58DC03F807FC06FA23AB', 'isDownload': False}
+2026-11-20 21:24:58,901 78778 INFO crm_p5_check odoo.addons.crm.tests.test_crm_offline.TestCrmOfflineRead.test_pending_note_on_a_shared_device: Waiting for frame '6436C8E27B485E86FAD4BCE6B14D90F8' to stop loading
+2026-11-20 21:24:59,073 78778 INFO crm_p5_check odoo.http.server: 127.0.0.1 8D57XIqS - [20/Nov/2026 21:24:59] "GET /web/assets/865280f/web.assets_web.min.css HTTP/1.1" 200 1404132 2 0.005 0.099 ro
+2026-11-20 21:24:59,502 78778 INFO crm_p5_check odoo.http.server: 127.0.0.1 8D57XIqS - [20/Nov/2026 21:24:59] "GET /web/assets/ec60ef2/web.assets_web.min.js HTTP/1.1" 200 9273721 2 0.026 1.851 ro
+2026-11-20 21:24:59,668 78778 INFO crm_p5_check odoo.http.server: 127.0.0.1 8D57XIqS - [20/Nov/2026 21:24:59] "GET /web/webclient/load_menus HTTP/1.1" 200 187971 25 0.228 0.47 ro
+2026-11-20 21:24:59,713 78778 INFO crm_p5_check odoo.http.server: 127.0.0.1 8D57XIqS - [20/Nov/2026 21:24:59] "GET /web/manifest.webmanifest HTTP/1.1" 200 1469 6 0.036 0.68 ro
+2026-11-20 21:24:59,800 78778 INFO crm_p5_check odoo.http.server: 127.0.0.1 8D57XIqS - [20/Nov/2026 21:24:59] "GET /web/assets/f0674d8/web.assets_tests.min.js HTTP/1.1" 200 1149374 2 0.008 0.05 ro
+2026-11-20 21:25:00,038 78778 INFO crm_p5_check odoo.http.server: 127.0.0.1 8D57XIqS - [20/Nov/2026 21:25:00] "GET /web/assets/59d1963/web.assets_web_print.min.css HTTP/1.1" 200 1410853 2 0.001 0.069 ro
+2026-11-20 21:25:01,286 78778 INFO crm_p5_check odoo.addons.crm.tests.test_crm_offline.TestCrmOfflineRead.test_pending_note_on_a_shared_device.browser: Owl is running in 'dev' mode.
+2026-11-20 21:25:01,299 78778 INFO crm_p5_check odoo.addons.crm.tests.test_crm_offline.TestCrmOfflineRead.test_pending_note_on_a_shared_device: Evaluate ready code "!!document.querySelector('.o-mail-Chatter-logNote:not(:disabled)')"
+2026-11-20 21:25:01,321 78778 INFO ? odoo.http.server: 127.0.0.1 8D57XIqS - [20/Nov/2026 21:25:01] "GET /web/static/img/favicon.ico HTTP/1.1" 200 1150 0 0 0.006 -
+2026-11-20 21:25:01,466 78778 INFO crm_p5_check odoo.http.server: 127.0.0.1 8D57XIqS - [20/Nov/2026 21:25:01] "GET /web/webclient/translations?hash=&lang=en_US HTTP/1.1" 200 8614 1 0.001 0.122 ro
+2026-11-20 21:25:01,612 78778 INFO crm_p5_check odoo.http.server: 127.0.0.1 8D57XIqS - [20/Nov/2026 21:25:01] "GET /bus/websocket_worker_bundle?v=saas-19.5-1 HTTP/1.1" 200 23775 2 0.005 0.078 rw
+2026-11-20 21:25:01,619 78778 INFO crm_p5_check odoo.addons.partner_autocomplete.models.res_company: Starting enrich of company My Company (San Francisco) (1)
+2026-11-20 21:25:01,737 78778 INFO crm_p5_check odoo.http.server: 127.0.0.1 8D57XIqS - [20/Nov/2026 21:25:01] "POST /web/dataset/call_kw/res.company/iap_enrich_auto#res.company.iap_enrich_auto HTTP/1.1" 200 43 12 0.054 0.119 rw
+2026-11-20 21:25:01,747 78778 INFO crm_p5_check odoo.http.server: 127.0.0.1 8D57XIqS - [20/Nov/2026 21:25:01] "GET /web/service-worker.js HTTP/1.1" 200 25223 0 0 0.009 ro
+2026-11-20 21:25:01,804 78778 INFO ? odoo.http.server: 127.0.0.1 8D57XIqS - [20/Nov/2026 21:25:01] "GET /mail/static/lib/idb-keyval/idb-keyval.js HTTP/1.1" 200 2848 0 0 0.006 -
+2026-11-20 21:25:01,995 78778 INFO crm_p5_check odoo.http.server: 127.0.0.1 8D57XIqS - [20/Nov/2026 21:25:01] "GET /odoo HTTP/1.1" 200 8143 31 0.087 0.09 rw
+2026-11-20 21:25:02,103 78778 INFO crm_p5_check odoo.http.server: 127.0.0.1 8D57XIqS - [20/Nov/2026 21:25:02] "GET /odoo/offline HTTP/1.1" 200 16927 5 0.021 0.243 ro
+2026-11-20 21:25:02,171 78778 INFO crm_p5_check odoo.http.server: 127.0.0.1 8D57XIqS - [20/Nov/2026 21:25:02] "GET /web/image/res.partner/3/avatar_128?unique=1795200247000 HTTP/1.1" 200 2836 3 0.021 0.19 ro
+2026-11-20 21:25:02,260 78778 INFO crm_p5_check odoo.http.server: 127.0.0.1 8D57XIqS - [20/Nov/2026 21:25:02] "POST /web/action/load HTTP/1.1" 200 1219 15 0.058 0.193 ro
+2026-11-20 21:25:02,270 78778 INFO crm_p5_check odoo.http.server: 127.0.0.1 8D57XIqS - [20/Nov/2026 21:25:02] "GET /web/assets/357f262/web.material_symbols_outlined.min.woff2 HTTP/1.1" 200 38596 2 0.001 0.16 ro
+2026-11-20 21:25:02,718 78778 INFO crm_p5_check odoo.http.server: 127.0.0.1 8D57XIqS - [20/Nov/2026 21:25:02] "POST /mail/store HTTP/1.1" 200 6149 71 0.264 0.331 ro
+2026-11-20 21:25:02,802 78778 INFO crm_p5_check odoo.http.server: 127.0.0.1 8D57XIqS - [20/Nov/2026 21:25:02] "GET /websocket?version=saas-19.5-1 HTTP/1.1" 503 141 0 0 0.649 rw
+2026-11-20 21:25:03,128 78778 INFO crm_p5_check odoo.http.server: 127.0.0.1 8D57XIqS - [20/Nov/2026 21:25:03] "POST /web/dataset/call_kw/ir.http/lazy_session_info#ir.http.lazy_session_info HTTP/1.1" 200 270 6 0.041 1.082 rw
+2026-11-20 21:25:03,667 78778 INFO crm_p5_check odoo.http.server: 127.0.0.1 8D57XIqS - [20/Nov/2026 21:25:03] "POST /web/dataset/call_kw/crm.lead/get_views#crm.lead.get_views HTTP/1.1" 200 122103 53 0.153 1.208 ro
+2026-11-20 21:25:04,039 78778 INFO crm_p5_check odoo.addons.phone_validation.tools.phone_validation: The `phonenumbers` Python module is not installed, contact numbers will not be verified. Please install the `phonenumbers` Python module.
+2026-11-20 21:25:04,103 78778 INFO crm_p5_check odoo.http.server: 127.0.0.1 8D57XIqS - [20/Nov/2026 21:25:04] "POST /web/dataset/call_kw/crm.lead/web_read#crm.lead.web_read HTTP/1.1" 200 2048 20 0.207 0.06 ro
+2026-11-20 21:25:04,595 78778 INFO crm_p5_check odoo.http.server: 127.0.0.1 8D57XIqS - [20/Nov/2026 21:25:04] "POST /web/dataset/call_kw/crm.stage/search_read#crm.stage.search_read HTTP/1.1" 200 249 1 0.0 0.016 ro
+2026-11-20 21:25:05,241 78778 INFO crm_p5_check odoo.http.server: 127.0.0.1 8D57XIqS - [20/Nov/2026 21:25:05] "GET /web/bundle/web.assets_emoji?lang=en_US HTTP/1.1" 200 74 0 0 0.02 ro
+2026-11-20 21:25:05,606 78778 INFO ? odoo.http.server: 127.0.0.1 8D57XIqS - [20/Nov/2026 21:25:05] "GET /crm/static/src/img/pls-tooltip-ai-icon.png HTTP/1.1" 200 2226 0 0 0.011 -
+2026-11-20 21:25:05,620 78778 INFO crm_p5_check odoo.http.server: 127.0.0.1 8D57XIqS - [20/Nov/2026 21:25:05] "POST /html_editor/get_ice_servers HTTP/1.1" 200 41 2 0.012 0.05 rw
+2026-11-20 21:25:05,707 78778 INFO crm_p5_check odoo.http.server: 127.0.0.1 8D57XIqS - [20/Nov/2026 21:25:05] "GET /web/image/res.users/1/avatar_128?unique=1795200064000 HTTP/1.1" 200 4660 5 0.015 0.077 ro
+2026-11-20 21:25:05,773 78778 INFO crm_p5_check odoo.http.server: 127.0.0.1 8D57XIqS - [20/Nov/2026 21:25:05] "GET /websocket?version=saas-19.5-1 HTTP/1.1" 503 141 0 0 0.069 rw
+2026-11-20 21:25:06,064 78778 INFO crm_p5_check odoo.http.server: 127.0.0.1 8D57XIqS - [20/Nov/2026 21:25:06] "POST /mail/store HTTP/1.1" 200 2496 45 0.139 0.068 rw
+2026-11-20 21:25:06,102 78778 INFO crm_p5_check odoo.http.server: 127.0.0.1 8D57XIqS - [20/Nov/2026 21:25:06] "GET /web/assets/44b0db3/web.assets_emoji.min.js HTTP/1.1" 200 458331 2 0.005 0.178 ro
+2026-11-20 21:25:06,222 78778 INFO crm_p5_check odoo.addons.crm.tests.test_crm_offline.TestCrmOfflineRead.test_pending_note_on_a_shared_device: The ready code tooks too much time : 4.9223792552948
+2026-11-20 21:25:06,366 78778 INFO crm_p5_check odoo.addons.crm.tests.test_crm_offline.TestCrmOfflineRead.test_pending_note_on_a_shared_device: Evaluate ready code "!!([...document.querySelectorAll('button')].find(b => b.innerText === 'Log an offline note'))"
+2026-11-20 21:25:06,540 78778 INFO crm_p5_check odoo.addons.crm.tests.test_crm_offline.TestCrmOfflineRead.test_pending_note_on_a_shared_device: Evaluate ready code "!!document.querySelector('.o-mail-Chatter textarea.form-control')"
+2026-11-20 21:25:06,570 78778 INFO crm_p5_check odoo.addons.crm.tests.test_crm_offline.TestCrmOfflineRead.test_pending_note_on_a_shared_device: Evaluate ready code "!!([...document.querySelectorAll('button')].find(b => b.innerText === 'Save on this device') && ![...document.querySelectorAll('button')].find(b => b.innerText === 'Save on this device').disabled)"
+2026-11-20 21:25:06,606 78778 INFO crm_p5_check odoo.addons.crm.tests.test_crm_offline.TestCrmOfflineRead.test_pending_note_on_a_shared_device: Evaluate ready code "document.body.innerText.includes('Your note is waiting to be sent')"
+2026-11-20 21:25:06,708 78778 INFO crm_p5_check odoo.addons.crm.tests.test_crm_offline.TestCrmOfflineRead.test_pending_note_on_a_shared_device: Navigating to: "about:blank"
+2026-11-20 21:25:06,837 78778 INFO crm_p5_check odoo.addons.crm.tests.test_crm_offline.TestCrmOfflineRead.test_pending_note_on_a_shared_device: Navigation result: {'frameId': '6436C8E27B485E86FAD4BCE6B14D90F8', 'loaderId': '0E33290E32738E3A6032564B1C96B33D', 'isDownload': False}
+2026-11-20 21:25:06,838 78778 INFO crm_p5_check odoo.addons.crm.tests.test_crm_offline.TestCrmOfflineRead.test_pending_note_on_a_shared_device: Waiting for frame '6436C8E27B485E86FAD4BCE6B14D90F8' to stop loading
+2026-11-20 21:25:06,997 78778 INFO crm_p5_check odoo.addons.base.models.res_users: Login successful for login:demo from n/a
+2026-11-20 21:25:07,015 78778 INFO crm_p5_check odoo.addons.crm.tests.test_crm_offline.TestCrmOfflineRead.test_pending_note_on_a_shared_device: Setting session cookie in browser
+2026-11-20 21:25:07,017 78778 INFO crm_p5_check odoo.addons.crm.tests.test_crm_offline.TestCrmOfflineRead.test_pending_note_on_a_shared_device: Navigating to: "http://127.0.0.1:41971/odoo/crm"
+2026-11-20 21:25:07,720 78778 INFO crm_p5_check odoo.http.server: 127.0.0.1 yayyaV7T - [20/Nov/2026 21:25:07] "GET /odoo/crm HTTP/1.1" 200 8175 74 0.219 0.48 rw
+2026-11-20 21:25:07,842 78778 INFO crm_p5_check odoo.addons.crm.tests.test_crm_offline.TestCrmOfflineRead.test_pending_note_on_a_shared_device: Navigation result: {'frameId': '6436C8E27B485E86FAD4BCE6B14D90F8', 'loaderId': '494556C1F4EC371D93F31266E65B07A1', 'isDownload': False}
+2026-11-20 21:25:07,849 78778 INFO crm_p5_check odoo.addons.crm.tests.test_crm_offline.TestCrmOfflineRead.test_pending_note_on_a_shared_device: Waiting for frame '6436C8E27B485E86FAD4BCE6B14D90F8' to stop loading
+2026-11-20 21:25:08,459 78778 INFO crm_p5_check odoo.http.server: 127.0.0.1 yayyaV7T - [20/Nov/2026 21:25:08] "GET /web/manifest.webmanifest HTTP/1.1" 200 1469 15 0.072 0.252 ro
+2026-11-20 21:25:08,552 78778 INFO crm_p5_check odoo.http.server: 127.0.0.1 yayyaV7T - [20/Nov/2026 21:25:08] "GET /web/webclient/load_menus HTTP/1.1" 200 99549 15 0.036 1.475 ro
+2026-11-20 21:25:11,263 78778 INFO crm_p5_check odoo.addons.crm.tests.test_crm_offline.TestCrmOfflineRead.test_pending_note_on_a_shared_device.browser: Owl is running in 'dev' mode.
+2026-11-20 21:25:11,272 78778 INFO crm_p5_check odoo.addons.crm.tests.test_crm_offline.TestCrmOfflineRead.test_pending_note_on_a_shared_device: Evaluate ready code "!!document.querySelector('.o_kanban_view')"
+2026-11-20 21:25:11,321 78778 INFO crm_p5_check odoo.http.server: 127.0.0.1 yayyaV7T - [20/Nov/2026 21:25:11] "GET /web/webclient/translations?hash=03cf325d925f0476815dd1bb06ee2ef24d536f71&lang=en_US HTTP/1.1" 200 69 0 0 0.012 ro
+2026-11-20 21:25:11,351 78778 INFO crm_p5_check odoo.http.server: 127.0.0.1 yayyaV7T - [20/Nov/2026 21:25:11] "GET /bus/websocket_worker_bundle?v=saas-19.5-1 HTTP/1.1" 304 0 2 0.003 0.02 rw
+2026-11-20 21:25:11,745 78778 INFO crm_p5_check odoo.http.server: 127.0.0.1 yayyaV7T - [20/Nov/2026 21:25:11] "POST /web/dataset/call_kw/ir.http/lazy_session_info#ir.http.lazy_session_info HTTP/1.1" 200 270 5 0.071 0.051 rw
+2026-11-20 21:25:11,794 78778 INFO crm_p5_check odoo.http.server: 127.0.0.1 yayyaV7T - [20/Nov/2026 21:25:11] "GET /web/image/res.partner/6/avatar_128?unique=1795200247000 HTTP/1.1" 200 2202 3 0.003 0.169 ro
+2026-11-20 21:25:12,000 78778 INFO crm_p5_check odoo.http.server: 127.0.0.1 yayyaV7T - [20/Nov/2026 21:25:11] "POST /web/dataset/call_kw/crm.lead/get_views#crm.lead.get_views HTTP/1.1" 200 122250 6 0.042 0.313 ro
+2026-11-20 21:25:12,773 78778 INFO crm_p5_check odoo.http.server: 127.0.0.1 yayyaV7T - [20/Nov/2026 21:25:12] "POST /mail/store HTTP/1.1" 200 6149 59 0.303 0.761 ro
+2026-11-20 21:25:12,796 78778 INFO crm_p5_check odoo.http.server: 127.0.0.1 yayyaV7T - [20/Nov/2026 21:25:12] "GET /websocket?version=saas-19.5-1 HTTP/1.1" 503 141 0 0 1.056 rw
+2026-11-20 21:25:12,855 78778 INFO crm_p5_check odoo.http.server: 127.0.0.1 yayyaV7T - [20/Nov/2026 21:25:12] "POST /web/dataset/call_kw/crm.team/get_team_switcher_data#crm.team.get_team_switcher_data HTTP/1.1" 200 212 5 0.024 0.785 rw
+2026-11-20 21:25:13,209 78778 INFO crm_p5_check odoo.http.server: 127.0.0.1 yayyaV7T - [20/Nov/2026 21:25:13] "POST /web/dataset/call_kw/crm.lead/read_progress_bar#crm.lead.read_progress_bar HTTP/1.1" 200 227 2 0.05 0.032 ro
+2026-11-20 21:25:13,528 78778 INFO crm_p5_check odoo.http.server: 127.0.0.1 yayyaV7T - [20/Nov/2026 21:25:13] "POST /web/dataset/call_kw/crm.lead/web_read_group#crm.lead.web_read_group HTTP/1.1" 200 8404 24 0.192 0.19 ro
+2026-11-20 21:25:13,532 78778 INFO crm_p5_check odoo.http.server: 127.0.0.1 yayyaV7T - [20/Nov/2026 21:25:13] "POST /web/dataset/call_kw/res.users/has_group#res.users.has_group HTTP/1.1" 200 44 0 0 0.264 ro
+2026-11-20 21:25:13,725 78778 INFO crm_p5_check odoo.http.server: 127.0.0.1 yayyaV7T - [20/Nov/2026 21:25:13] "POST /web/dataset/call_kw/res.users/has_group#res.users.has_group HTTP/1.1" 200 44 0 0 0.03 ro
+2026-11-20 21:25:14,257 78778 INFO crm_p5_check odoo.http.server: 127.0.0.1 yayyaV7T - [20/Nov/2026 21:25:14] "GET /web/assets/ed7f96a/web.odoo_ui_icons.min.woff2 HTTP/1.1" 200 39616 2 0.005 0.017 ro
+2026-11-20 21:25:14,339 78778 INFO crm_p5_check odoo.addons.crm.tests.test_crm_offline.TestCrmOfflineRead.test_pending_note_on_a_shared_device: The ready code tooks too much time : 3.0658891201019287
+2026-11-20 21:25:14,368 78778 INFO crm_p5_check odoo.http.server: 127.0.0.1 yayyaV7T - [20/Nov/2026 21:25:14] "GET /web/image/res.partner/12/avatar_128?unique=1795200263000 HTTP/1.1" 200 15232 3 0.012 0.032 ro
+2026-11-20 21:25:14,412 78778 INFO crm_p5_check odoo.http.server: 127.0.0.1 yayyaV7T - [20/Nov/2026 21:25:14] "GET /web/image/res.users/5/avatar_128?unique=1795209907000 HTTP/1.1" 200 2202 4 0.011 0.083 ro
+2026-11-20 21:25:14,446 78778 INFO crm_p5_check odoo.http.server: 127.0.0.1 yayyaV7T - [20/Nov/2026 21:25:14] "GET /web/image/res.partner/16/avatar_128?unique=1795200247000 HTTP/1.1" 200 1464 3 0.002 0.112 ro
+2026-11-20 21:25:14,529 78778 ERROR crm_p5_check odoo.sql_db: bad query: b'INSERT INTO "res_users_log" ("create_date", "create_uid", "write_date", "write_uid") VALUES (\'2026-11-20T21:24:55.748509\'::timestamp, 2, \'2026-11-20T21:24:55.748509\'::timestamp, 2) RETURNING "id"'
+ERROR: cannot execute INSERT in a read-only transaction
+
+2026-11-20 21:25:14,530 78778 ERROR crm_p5_check odoo.sql_db: bad query: b'SELECT "ir_attachment"."id", "ir_attachment"."name", "ir_attachment"."description", "ir_attachment"."res_model", "ir_attachment"."res_field", "ir_attachment"."res_id", "ir_attachment"."company_id", "ir_attachment"."type", "ir_attachment"."url", "ir_attachment"."public", "ir_attachment"."access_token", "ir_attachment"."store_fname", "ir_attachment"."file_size", "ir_attachment"."checksum", "ir_attachment"."mimetype", "ir_attachment"."create_uid", "ir_attachment"."create_date", "ir_attachment"."write_uid", "ir_attachment"."write_date", "ir_attachment"."original_id", "ir_attachment"."key", "ir_attachment"."website_id", "ir_attachment"."theme_template_id" FROM "ir_attachment" WHERE ("ir_attachment"."res_field" IN (\'image_128\') AND "ir_attachment"."res_id" IN (10) AND "ir_attachment"."res_model" IN (\'res.partner\')) ORDER BY "ir_attachment"."id" DESC '
+ERROR: current transaction is aborted, commands ignored until end of transaction block
+
+2026-11-20 21:25:14,534 78778 ERROR crm_p5_check odoo.http: Exception during request handling.
+Traceback (most recent call last):
+  File "/workspace/odoo/odoo/http/router.py", line 279, in __call__
+    response = serve_db(request)
+               ^^^^^^^^^^^^^^^^^
+  File "/workspace/odoo/odoo/http/router.py", line 428, in serve_db
+    raise _update_served_exception(request, exc)
+  File "/workspace/odoo/odoo/http/router.py", line 420, in serve_db
+    return retrying(serve_func, env=request.env)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/odoo/odoo/http/retrying.py", line 56, in retrying
+    result = func()
+             ^^^^^^
+  File "/workspace/odoo/odoo/http/router.py", line 593, in serve_ir_http
+    response = request.dispatcher.dispatch(rule.endpoint, args)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/odoo/odoo/http/dispatcher.py", line 264, in dispatch
+    response = self.request.registry['ir.http']._dispatch(endpoint)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/odoo/odoo/addons/base/models/ir_http.py", line 473, in _dispatch
+    result = endpoint(**request.params)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/odoo/odoo/http/routing_map.py", line 218, in route_wrapper
+    result = endpoint(self, *args, **params_ok)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/odoo/addons/web/controllers/binary.py", line 193, in content_image
+    stream = request.env['ir.binary']._get_image_stream_from(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/odoo/odoo/addons/base/models/ir_binary.py", line 228, in _get_image_stream_from
+    stream = self._get_stream_from(
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/odoo/odoo/addons/base/models/ir_binary.py", line 146, in _get_stream_from
+    stream = self._record_to_stream(record, field_name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/odoo/odoo/addons/base/models/ir_binary.py", line 79, in _record_to_stream
+    value = record[field_name]
+            ~~~~~~^^^^^^^^^^^^
+  File "/workspace/odoo/odoo/orm/models.py", line 6194, in __getitem__
+    return self._fields[key].__get__(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/odoo/odoo/orm/fields.py", line 1920, in __get__
+    self.compute_value(recs)
+  File "/workspace/odoo/odoo/orm/fields.py", line 2091, in compute_value
+    records._compute_field_value(self)
+  File "/workspace/odoo/addons/mail/models/mail_thread.py", line 507, in _compute_field_value
+    return super()._compute_field_value(field)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/odoo/odoo/orm/models.py", line 4453, in _compute_field_value
+    determine(field.compute, self)
+  File "/workspace/odoo/odoo/orm/fields.py", line 82, in determine
+    return needle(*args)
+           ^^^^^^^^^^^^^
+  File "/workspace/odoo/odoo/addons/base/models/res_partner.py", line 443, in _compute_avatar_128
+    super()._compute_avatar_128()
+  File "/workspace/odoo/odoo/addons/base/models/avatar_mixin.py", line 77, in _compute_avatar_128
+    self._compute_avatar('avatar_128', 'image_128')
+  File "/workspace/odoo/odoo/addons/base/models/res_partner.py", line 448, in _compute_avatar
+    super(ResPartner, partners_with_internal_user)._compute_avatar(avatar_field, image_field)
+  File "/workspace/odoo/odoo/addons/base/models/avatar_mixin.py", line 51, in _compute_avatar
+    avatar = record[image_field]
+             ~~~~~~^^^^^^^^^^^^^
+  File "/workspace/odoo/odoo/orm/models.py", line 6194, in __getitem__
+    return self._fields[key].__get__(self)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/odoo/odoo/orm/fields.py", line 1876, in __get__
+    recs._fetch_field(self)
+  File "/workspace/odoo/odoo/orm/models.py", line 3095, in _fetch_field
+    self.fetch(fnames)
+  File "/workspace/odoo/odoo/orm/models.py", line 3140, in fetch
+    fetched = self.browse().union(
+              ^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/odoo/odoo/orm/models.py", line 6097, in union
+    for arg in (self, *it, *args):
+               ^^^^^^^^^^^^^^^^^^
+  File "/workspace/odoo/odoo/orm/models.py", line 3141, in <genexpr>
+    self._fetch_query(query, fields_to_fetch)
+  File "/workspace/odoo/odoo/orm/models.py", line 3282, in _fetch_query
+    field.read(fetched)
+  File "/workspace/odoo/odoo/orm/fields_binary.py", line 158, in read
+    for att in records.env['ir.attachment'].sudo().search_fetch(domain)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/odoo/odoo/orm/models.py", line 1487, in search_fetch
+    fetched = self._fetch_query(query, fields_to_fetch)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/odoo/odoo/orm/models.py", line 3259, in _fetch_query
+    rows = self.env.execute_query(query.select(*sql_terms))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/odoo/odoo/orm/environments.py", line 561, in execute_query
+    self.cr.execute(query)
+  File "/workspace/odoo/odoo/tests/test_cursor.py", line 84, in execute
+    return super().execute(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/odoo/odoo/sql_db.py", line 418, in execute
+    self._obj.execute(query, params)
+psycopg2.errors.InFailedSqlTransaction: current transaction is aborted, commands ignored until end of transaction block
+
+2026-11-20 21:25:14,601 78778 INFO crm_p5_check odoo.http.server: 127.0.0.1 yayyaV7T - [20/Nov/2026 21:25:14] "GET /web/image/res.partner/10/avatar_128?unique=1795200263000 HTTP/1.1" 500 265 2 0.006 0.278 ro
+2026-11-20 21:25:14,570 78778 INFO crm_p5_check odoo.http.server: 127.0.0.1 yayyaV7T - [20/Nov/2026 21:25:14] "GET /web/image/res.partner/17/avatar_128?unique=1795200247000 HTTP/1.1" 200 1277 3 0.004 0.23 ro
+2026-11-20 21:25:14,859 78778 INFO crm_p5_check odoo.addons.crm.tests.test_crm_offline: ======================================================================
+2026-11-20 21:25:14,860 78778 ERROR crm_p5_check odoo.addons.crm.tests.test_crm_offline: ERROR: TestCrmOfflineRead.test_pending_note_on_a_shared_device
+Traceback (most recent call last):
+  File "/workspace/odoo/addons/crm/tests/test_crm_offline.py", line 286, in test_pending_note_on_a_shared_device
+    self.authenticate('admin', 'admin', browser=browser)
+  File "/workspace/odoo/odoo/tests/common.py", line 2825, in authenticate
+    auth_info = self.env(context=self.session.context)['res.users'].authenticate(credential, {'interactive': False})
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/odoo/addons/website/models/res_users.py", line 82, in authenticate
+    auth_info = super().authenticate(credential, user_agent_env)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/odoo/addons/auth_totp_mail/models/res_users.py", line 46, in authenticate
+    auth_info = super().authenticate(credential, user_agent_env)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/odoo/odoo/addons/base/models/res_users.py", line 914, in authenticate
+    auth_info = self._login(credential, user_agent_env=user_agent_env)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/odoo/addons/auth_passkey/models/res_users.py", line 50, in _login
+    return super()._login(credential, user_agent_env=user_agent_env)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/odoo/odoo/addons/base/models/res_users.py", line 877, in _login
+    user._update_last_login()
+  File "/workspace/odoo/odoo/addons/base/models/res_users.py", line 843, in _update_last_login
+    self.env['res.users.log'].sudo().create({}) # populated by defaults
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/odoo/odoo/orm/decorators.py", line 330, in create
+    return method(self, vals_list)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/odoo/odoo/orm/models.py", line 4192, in create
+    records = self._create(data_list)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/odoo/odoo/orm/models.py", line 4387, in _create
+    cr.execute(SQL(
+  File "/workspace/odoo/odoo/sql_db.py", line 418, in execute
+    self._obj.execute(query, params)
+psycopg2.errors.ReadOnlySqlTransaction: cannot execute INSERT in a read-only transaction
+
+
+2026-11-20 21:25:16,969 78778 INFO crm_p5_check odoo.addons.crm.tests.test_crm_offline.TestCrmOfflineRead.test_pending_note_on_a_shared_device: Closing chrome headless with pid 79444
+2026-11-20 21:25:17,141 78778 INFO crm_p5_check odoo.addons.crm.tests.test_crm_offline.TestCrmOfflineRead.test_pending_note_on_a_shared_device: Closing websocket connection
+2026-11-20 21:25:17,146 78778 INFO crm_p5_check odoo.addons.crm.tests.test_crm_offline.TestCrmOfflineRead.test_pending_note_on_a_shared_device: Terminating chrome headless with pid 79444
+2026-11-20 21:25:17,632 78778 INFO crm_p5_check odoo.addons.crm.tests.test_crm_offline.TestCrmOfflineRead.test_pending_note_on_a_shared_device: Chrome Log in: /tmp/odoo_tests/crm_p5_check/chrome_logs/chrome_log_20261120_212517_631360_test_pending_note_on_a_shared_device.txt
+2026-11-20 21:25:17,632 78778 INFO crm_p5_check odoo.addons.crm.tests.test_crm_offline.TestCrmOfflineRead.test_pending_note_on_a_shared_device: Removing chrome user profile "/tmp/tmpx0avt11n_chrome_odoo"
+2026-11-20 21:25:17,944 78778 INFO crm_p5_check odoo.addons.base.models.ir_attachment: filestore gc 24 checked, 12 removed
+2026-11-20 21:25:17,995 78778 INFO crm_p5_check odoo.service.server: 1 post-tests in 54.75s, 1369 queries
+2026-11-20 21:25:17,995 78778 INFO crm_p5_check odoo.tests.stats: crm: 3 tests 22.25s 748 queries
+2026-11-20 21:25:17,995 78778 ERROR crm_p5_check odoo.tests.result: 0 failed, 1 error(s) of 1 tests when loading database 'crm_p5_check'
+2026-11-20 21:25:17,996 78778 INFO crm_p5_check odoo.service.server.ThreadedServer: Error: odoo.addons.crm.tests.test_crm_offline.TestCrmOfflineRead.test_pending_note_on_a_shared_device - cannot execute INSERT in a read-only transaction
+2026-11-20 21:25:17,996 78778 INFO crm_p5_check odoo.service.server.ThreadedServer: Initiating shutdown
+2026-11-20 21:25:17,996 78778 INFO crm_p5_check odoo.service.server.ThreadedServer: Hit CTRL-C again or send a second signal to force the shutdown.
+2026-11-20 21:25:17,996 78778 INFO crm_p5_check odoo.addons.bus.websocket: Disconnecting 0 websockets
+2026-11-20 21:25:18,121 78778 INFO crm_p5_check odoo.sql_db: ConnectionPool(read/write;used=0/count=0/max=64): Closed 1 connections 

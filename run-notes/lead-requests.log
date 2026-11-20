@@ -1,0 +1,27 @@
+test_visited_lead (__main__.OfflineLead.test_visited_lead) ... 2026-11-20 19:51:41,026 32057 INFO ? lead: Chrome pid: 32076
+2026-11-20 19:51:41,027 32057 INFO ? lead: Chrome headless temporary user profile dir: /tmp/tmp_sfvncd3_chrome_odoo
+2026-11-20 19:51:41,027 32057 INFO ? lead: Issuing json command http://127.0.0.1:40401/json/version
+2026-11-20 19:51:41,143 32057 INFO ? lead: Browser version: Chrome/156.0.8078.79
+2026-11-20 19:51:41,143 32057 INFO ? lead: Issuing json command http://127.0.0.1:40401/json
+2026-11-20 19:51:41,166 32057 INFO ? lead: Websocket url found: ws://127.0.0.1:40401/devtools/page/CEB62747A54D9CDA4F858E76F9288450
+2026-11-20 19:51:41,183 32057 INFO ? lead: Enable chrome headless console log notification
+2026-11-20 19:51:41,200 32057 INFO ? lead: Chrome headless enable page notifications
+2026-11-20 19:51:41,236 32057 INFO ? lead: Navigating to: "http://127.0.0.1:8074/odoo/crm/46"
+2026-11-20 19:51:41,671 32057 INFO ? lead: Navigation result: {'frameId': 'CEB62747A54D9CDA4F858E76F9288450', 'loaderId': '05827E11B215D363E39661D40481423E', 'isDownload': False}
+STORE ['init_messaging', 'failures', 'systray_get_activities', ['/mail/messaging_menu/initialize_counters', {'filter_id_by_tab_id_by_record_type': {'mail.message': {'bookmark': None}, 'discuss.channel': {'chat': None, 'channel': None, 'meeting': 'meeting_today', 'livechat': None}}}]]
+STORE [['/mail/thread/messages', {'thread_id': 46, 'thread_model': 'crm.lead', 'fetch_params': {'limit': 30}}, 5], ['mail.thread', {'access_params': {}, 'request_list': ['activities', 'attachments', 'contact_fields', 'defaultSubject', 'followers', 'has_pinned_messages', 'scheduledMessages', 'showSubjectInSmallComposer', 'suggestedRecipients', 'suggestedSubject'], 'thread_id': 46, 'thread_model': 'crm.lead'}]]
+2026-11-20 19:51:44,205 32057 INFO ? lead: Navigating to: "http://127.0.0.1:8074/odoo/crm/46"
+2026-11-20 19:51:44,279 32057 INFO ? lead: Navigation result: {'frameId': 'CEB62747A54D9CDA4F858E76F9288450', 'loaderId': 'FB23F8722A5A59DB27D9CCC6689504E4', 'isDownload': False}
+STORE ['init_messaging', 'failures', 'systray_get_activities', ['/mail/messaging_menu/initialize_counters', {'filter_id_by_tab_id_by_record_type': {'mail.message': {'bookmark': None}, 'discuss.channel': {'chat': None, 'channel': None, 'meeting': 'meeting_today', 'livechat': None}}}]]
+STORE [['/mail/thread/messages', {'thread_id': 46, 'thread_model': 'crm.lead', 'fetch_params': {'limit': 30}}, 5], ['mail.thread', {'access_params': {}, 'request_list': ['activities', 'attachments', 'contact_fields', 'defaultSubject', 'followers', 'has_pinned_messages', 'scheduledMessages', 'showSubjectInSmallComposer', 'suggestedRecipients', 'suggestedSubject'], 'thread_id': 46, 'thread_model': 'crm.lead'}]]
+2026-11-20 19:51:45,970 32057 INFO ? lead: Closing chrome headless with pid 32076
+2026-11-20 19:51:45,972 32057 INFO ? lead: Closing websocket connection
+2026-11-20 19:51:45,972 32057 INFO ? lead: Terminating chrome headless with pid 32076
+2026-11-20 19:51:46,051 32057 INFO ? lead: Chrome Log in: /tmp/odoo_tests/crm_flow/chrome_logs/chrome_log_20261120_195146_051452_runTest.txt
+2026-11-20 19:51:46,051 32057 INFO ? lead: Removing chrome user profile "/tmp/tmp_sfvncd3_chrome_odoo"
+ok
+
+----------------------------------------------------------------------
+Ran 1 test in 10.767s
+
+OK

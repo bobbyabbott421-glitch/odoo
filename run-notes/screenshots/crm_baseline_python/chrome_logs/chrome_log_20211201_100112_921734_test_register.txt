@@ -1,0 +1,148 @@
+[20042:20071:1120/191819.870356:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[20042:20071:1120/191819.870440:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[20042:20071:1120/191819.883310:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[20042:20071:1120/191819.883830:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[20042:20071:1120/191819.884106:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[20042:20071:1120/191819.885075:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[20042:20071:1120/191819.885095:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[20042:20071:1120/191819.894740:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[20042:20071:1120/191819.934651:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[20042:20081:1120/191819.938658:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 20085: Read-only file system (30)
+[20042:20042:1120/191819.970628:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[20042:20042:1120/191819.970831:WARNING:device/bluetooth/dbus/bluez_dbus_manager.cc:209] Floss manager service not available, cannot set Floss enable/disable.
+[20042:20042:1120/191819.970851:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[20042:20042:1120/191819.971103:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[20042:20071:1120/191819.974385:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[20042:20071:1120/191819.974407:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[20042:20042:1120/191819.986277:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[20042:20071:1120/191819.987645:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[20042:20071:1120/191819.998014:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[20042:20071:1120/191819.998058:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[20083:20083:1120/191820.034353:WARNING:media/gpu/vaapi/vaapi_wrapper.cc:1655] drmGetDevices2() has not found any devices
+[20083:20083:1120/191820.044242:WARNING:sandbox/policy/linux/sandbox_linux.cc:405] InitializeSandbox() called with multiple threads in process gpu-process.
+[20042:20081:1120/191820.075448:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 20139: Read-only file system (30)
+[20042:20081:1120/191820.106978:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 20150: Read-only file system (30)
+[20042:20081:1120/191820.109813:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 20151: Read-only file system (30)
+[20042:20042:1120/191820.121049:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[20042:20042:1120/191820.123608:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[20042:20071:1120/191820.123723:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[20042:20042:1120/191820.124264:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[20042:20042:1120/191820.124804:WARNING:dbus/property.cc:94] Failed to connect to PropertiesChangedsignal.
+[20042:20042:1120/191820.124823:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.Properties.GetAll: object_path= /org/freedesktop/UPower/devices/DisplayDevice: unknown error type: 
+[20042:20042:1120/191820.124827:WARNING:dbus/property.cc:174] GetAll request failed for: org.freedesktop.UPower.Device
+[20042:20042:1120/191820.148315:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[20042:20071:1120/191820.148532:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[20042:20042:1120/191820.164991:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[20042:20071:1120/191820.166120:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[20042:20042:1120/191820.183891:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[20042:20042:1120/191820.183911:WARNING:ui/base/idle/idle_linux.cc:111] None of the known D-Bus ScreenSaver services could be used.
+[20042:20042:1120/191822.119565:INFO:CONSOLE:1227] "Owl is running in 'dev' mode.", source: http://127.0.0.1:8071/web/assets/1/69cc310/web.assets_frontend_lazy.min.js (1227)
+[20042:20042:1120/191822.321284:INFO:CONSOLE:675] "Hoot DOM helpers available from `window.hoot`", source: http://127.0.0.1:8071/web/assets/1/6e80696/web.__assets_tests_call__.min.js (675)
+[20042:20042:1120/191822.321672:INFO:CONSOLE:686] "[1/39] Tour wevent_register → Step Go on "Online Reveal" page (trigger: a[href*="/event"]:contains("Online Reveal"):first)", source: http://127.0.0.1:8071/web/assets/1/6e80696/web.__assets_tests_call__.min.js (686)
+[20042:20042:1120/191822.403498:INFO:CONSOLE:175] "ignoring cache for http://127.0.0.1:8071/event/online-reveal-testevent-33 => opaqueredirect, mode: navigate, cache: default", source: http://127.0.0.1:8071/event/service-worker.js (175)
+[20042:20042:1120/191822.559942:INFO:CONSOLE:187] "grant cache for http://127.0.0.1:8071/event/online-reveal-testevent-33/ => basic, mode: cors, cache: default,
+                    isGet: true, isCachable: false", source: http://127.0.0.1:8071/event/service-worker.js (187)
+[20042:20042:1120/191822.631980:INFO:CONSOLE:187] "grant cache for http://127.0.0.1:8071/event/online-reveal-testevent-33/page/home-online-reveal-testevent => basic, mode: navigate, cache: default,
+                    isGet: true, isCachable: false", source: http://127.0.0.1:8071/event/service-worker.js (187)
+[20042:20042:1120/191822.901714:INFO:CONSOLE:187] "grant cache for http://127.0.0.1:8071/event/business-workshops-5/register => basic, mode: cors, cache: default,
+                    isGet: true, isCachable: false", source: http://127.0.0.1:8071/event/service-worker.js (187)
+[20042:20042:1120/191822.910515:INFO:CONSOLE:187] "grant cache for http://127.0.0.1:8071/web/assets/1/933733c/web.assets_frontend.min.css => basic, mode: no-cors, cache: default,
+                    isGet: true, isCachable: false", source: http://127.0.0.1:8071/event/service-worker.js (187)
+[20042:20042:1120/191822.920252:INFO:CONSOLE:187] "grant cache for http://127.0.0.1:8071/web/assets/1/ed7f96a/web.odoo_ui_icons.min.woff2 => basic, mode: cors, cache: default,
+                    isGet: true, isCachable: false", source: http://127.0.0.1:8071/event/service-worker.js (187)
+[20042:20042:1120/191822.927836:INFO:CONSOLE:187] "grant cache for http://127.0.0.1:8071/web/assets/1/357f262/web.material_symbols_outlined.min.woff2 => basic, mode: cors, cache: default,
+                    isGet: true, isCachable: false", source: http://127.0.0.1:8071/event/service-worker.js (187)
+[20042:20042:1120/191823.152862:INFO:CONSOLE:187] "grant cache for http://127.0.0.1:8071/event/do-not-click-on-me-8/ => basic, mode: cors, cache: default,
+                    isGet: true, isCachable: false", source: http://127.0.0.1:8071/event/service-worker.js (187)
+[20042:20042:1120/191823.408903:INFO:CONSOLE:187] "grant cache for http://127.0.0.1:8071/event/conference-for-architects-3/ => basic, mode: cors, cache: default,
+                    isGet: true, isCachable: false", source: http://127.0.0.1:8071/event/service-worker.js (187)
+[20042:20042:1120/191823.632297:INFO:CONSOLE:187] "grant cache for http://127.0.0.1:8071/event/design-fair-los-angeles-1/ => basic, mode: cors, cache: default,
+                    isGet: true, isCachable: false", source: http://127.0.0.1:8071/event/service-worker.js (187)
+[20042:20042:1120/191823.889308:INFO:CONSOLE:187] "grant cache for http://127.0.0.1:8071/event/great-reno-ballon-race-2/ => basic, mode: cors, cache: default,
+                    isGet: true, isCachable: false", source: http://127.0.0.1:8071/event/service-worker.js (187)
+[20042:20042:1120/191824.027957:INFO:CONSOLE:187] "grant cache for http://127.0.0.1:8071/event/live-music-festival-4/register => basic, mode: cors, cache: default,
+                    isGet: true, isCachable: false", source: http://127.0.0.1:8071/event/service-worker.js (187)
+[20042:20042:1120/191824.107546:INFO:CONSOLE:187] "grant cache for http://127.0.0.1:8071/event/hockey-tournament-6/register => basic, mode: cors, cache: default,
+                    isGet: true, isCachable: false", source: http://127.0.0.1:8071/event/service-worker.js (187)
+[20042:20042:1120/191824.351708:INFO:CONSOLE:187] "grant cache for http://127.0.0.1:8071/event => basic, mode: cors, cache: default,
+                    isGet: true, isCachable: false", source: http://127.0.0.1:8071/event/service-worker.js (187)
+[20042:20042:1120/191824.491556:INFO:CONSOLE:187] "grant cache for http://127.0.0.1:8071/event/online-reveal-testevent-33 => basic, mode: cors, cache: default,
+                    isGet: true, isCachable: false", source: http://127.0.0.1:8071/event/service-worker.js (187)
+[20042:20042:1120/191824.659114:INFO:CONSOLE:187] "grant cache for http://127.0.0.1:8071/event/do-not-click-on-me-8 => basic, mode: cors, cache: default,
+                    isGet: true, isCachable: false", source: http://127.0.0.1:8071/event/service-worker.js (187)
+[20042:20042:1120/191824.769074:INFO:CONSOLE:187] "grant cache for http://127.0.0.1:8071/event/conference-for-architects-3 => basic, mode: cors, cache: default,
+                    isGet: true, isCachable: false", source: http://127.0.0.1:8071/event/service-worker.js (187)
+[20042:20042:1120/191824.934494:INFO:CONSOLE:187] "grant cache for http://127.0.0.1:8071/event/design-fair-los-angeles-1 => basic, mode: cors, cache: default,
+                    isGet: true, isCachable: false", source: http://127.0.0.1:8071/event/service-worker.js (187)
+[20042:20042:1120/191825.006233:INFO:CONSOLE:187] "grant cache for http://127.0.0.1:8071/event/great-reno-ballon-race-2 => basic, mode: cors, cache: default,
+                    isGet: true, isCachable: false", source: http://127.0.0.1:8071/event/service-worker.js (187)
+[20042:20042:1120/191837.395897:INFO:CONSOLE:0] "The FetchEvent for "https://fonts.googleapis.com/css?family=Inter+Tight:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap&subset=latin,latin-ext,vietnamese" resulted in a network error response: the promise was rejected.", source:  (0)
+[20042:20042:1120/191837.396012:INFO:CONSOLE:319] "fail to prefetch https://fonts.googleapis.com/css?family=Inter:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap&subset=latin,latin-ext,vietnamese : TypeError: Cannot read properties of null (reading 'includes')", source: http://127.0.0.1:8071/event/service-worker.js (319)
+[20042:20042:1120/191837.396026:INFO:CONSOLE:252] "Uncaught (in promise) TypeError: Failed to fetch", source: http://127.0.0.1:8071/event/service-worker.js (252)
+[20042:20042:1120/191837.411052:INFO:CONSOLE:187] "grant cache for http://127.0.0.1:8071/web/assets/1/70740cd/web.assets_frontend_minimal.min.js => basic, mode: no-cors, cache: default,
+                    isGet: true, isCachable: false", source: http://127.0.0.1:8071/event/service-worker.js (187)
+[20042:20042:1120/191837.427792:INFO:CONSOLE:187] "grant cache for http://127.0.0.1:8071/web/assets/1/6e80696/web.__assets_tests_call__.min.js => basic, mode: no-cors, cache: default,
+                    isGet: true, isCachable: false", source: http://127.0.0.1:8071/event/service-worker.js (187)
+[20042:20042:1120/191853.474799:INFO:CONSOLE:0] "The FetchEvent for "https://fonts.googleapis.com/css?family=Inter:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap&subset=latin,latin-ext,vietnamese" resulted in a network error response: the promise was rejected.", source:  (0)
+[20042:20042:1120/191853.475052:INFO:CONSOLE:319] "fail to prefetch https://fonts.googleapis.com/css?family=Inter+Tight:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap&subset=latin,latin-ext,vietnamese : TypeError: Cannot read properties of null (reading 'includes')", source: http://127.0.0.1:8071/event/service-worker.js (319)
+[20042:20042:1120/191853.475310:INFO:CONSOLE:252] "Uncaught (in promise) TypeError: Failed to fetch", source: http://127.0.0.1:8071/event/service-worker.js (252)
+[20042:20042:1120/191853.501151:INFO:CONSOLE:187] "grant cache for http://127.0.0.1:8071/web/assets/1/69cc310/web.assets_frontend_lazy.min.js => basic, mode: cors, cache: default,
+                    isGet: true, isCachable: false", source: http://127.0.0.1:8071/event/service-worker.js (187)
+[20042:20042:1120/191853.532479:INFO:CONSOLE:187] "grant cache for http://127.0.0.1:8071/web/assets/357f262/web.material_symbols_outlined.min.woff2 => basic, mode: cors, cache: default,
+                    isGet: true, isCachable: false", source: http://127.0.0.1:8071/event/service-worker.js (187)
+[20042:20042:1120/191853.546842:INFO:CONSOLE:187] "grant cache for http://127.0.0.1:8071/web/assets/ed7f96a/web.odoo_ui_icons.min.woff2 => basic, mode: cors, cache: default,
+                    isGet: true, isCachable: false", source: http://127.0.0.1:8071/event/service-worker.js (187)
+[20042:20042:1120/191853.565250:INFO:CONSOLE:187] "grant cache for http://127.0.0.1:8071/event/manifest.webmanifest => basic, mode: cors, cache: default,
+                    isGet: true, isCachable: false", source: http://127.0.0.1:8071/event/service-worker.js (187)
+[20042:20042:1120/191853.569919:INFO:CONSOLE:187] "grant cache for http://127.0.0.1:8071/web/image/website/1/logo/My%20Website?unique=f04f02f => basic, mode: no-cors, cache: default,
+                    isGet: true, isCachable: false", source: http://127.0.0.1:8071/event/service-worker.js (187)
+[20042:20042:1120/191853.579116:INFO:CONSOLE:187] "grant cache for http://127.0.0.1:8071/web/assets/1/69cc310/web.assets_frontend_lazy.min.js => basic, mode: no-cors, cache: default,
+                    isGet: true, isCachable: false", source: http://127.0.0.1:8071/event/service-worker.js (187)
+[20042:20042:1120/191853.896118:INFO:CONSOLE:1227] "Owl is running in 'dev' mode.", source: http://127.0.0.1:8071/web/assets/1/69cc310/web.assets_frontend_lazy.min.js (1227)
+[20042:20042:1120/191853.922465:INFO:CONSOLE:675] "Hoot DOM helpers available from `window.hoot`", source: http://127.0.0.1:8071/web/assets/1/6e80696/web.__assets_tests_call__.min.js (675)
+[20042:20042:1120/191853.923122:INFO:CONSOLE:686] "[2/39] Tour wevent_register → Step Browse Talks Menu (trigger: a[href*="#"]:contains("Talks"))", source: http://127.0.0.1:8071/web/assets/1/6e80696/web.__assets_tests_call__.min.js (686)
+[20042:20042:1120/191853.929727:INFO:CONSOLE:187] "grant cache for http://127.0.0.1:8071/website/translations?hash=24c63201a155cbb2da8f476c30d395328c16ba05&lang=en_US => basic, mode: cors, cache: no-store,
+                    isGet: true, isCachable: false", source: http://127.0.0.1:8071/event/service-worker.js (187)
+[20042:20042:1120/191853.984943:INFO:CONSOLE:187] "grant cache for http://127.0.0.1:8071/im_livechat/assets_embed.css => basic, mode: no-cors, cache: default,
+                    isGet: true, isCachable: false", source: http://127.0.0.1:8071/event/service-worker.js (187)
+[20042:20042:1120/191854.000075:INFO:CONSOLE:187] "grant cache for http://127.0.0.1:8071/website/odoo_track => basic, mode: cors, cache: default,
+                    isGet: false, isCachable: false", source: http://127.0.0.1:8071/event/service-worker.js (187)
+[20042:20042:1120/191854.056886:INFO:CONSOLE:686] "[3/39] Tour wevent_register → Step Browse Talks Submenu (trigger: a.dropdown-item span:contains("Talks"))", source: http://127.0.0.1:8071/web/assets/1/6e80696/web.__assets_tests_call__.min.js (686)
+[20042:20042:1120/191854.072477:INFO:CONSOLE:187] "grant cache for http://127.0.0.1:8071/mail/store => basic, mode: cors, cache: default,
+                    isGet: false, isCachable: false", source: http://127.0.0.1:8071/event/service-worker.js (187)
+[20042:20042:1120/191854.171543:INFO:CONSOLE:187] "grant cache for http://127.0.0.1:8071/event/online-reveal-testevent-33/register => basic, mode: cors, cache: default,
+                    isGet: true, isCachable: false", source: http://127.0.0.1:8071/event/service-worker.js (187)
+[20042:20042:1120/191854.310687:INFO:CONSOLE:187] "grant cache for http://127.0.0.1:8071/event/online-reveal-testevent-33/track => basic, mode: navigate, cache: default,
+                    isGet: true, isCachable: false", source: http://127.0.0.1:8071/event/service-worker.js (187)
+[20042:20042:1120/191854.447548:INFO:CONSOLE:187] "grant cache for http://127.0.0.1:8071/event/online-reveal-testevent-33/track => basic, mode: cors, cache: default,
+                    isGet: true, isCachable: false", source: http://127.0.0.1:8071/event/service-worker.js (187)
+[20042:20042:1120/191854.447848:INFO:CONSOLE:187] "grant cache for http://127.0.0.1:8071/web/assets/1/357f262/web.material_symbols_outlined.min.woff2 => basic, mode: cors, cache: default,
+                    isGet: true, isCachable: false", source: http://127.0.0.1:8071/event/service-worker.js (187)
+[20042:20042:1120/191854.448809:INFO:CONSOLE:187] "grant cache for http://127.0.0.1:8071/web/assets/1/ed7f96a/web.odoo_ui_icons.min.woff2 => basic, mode: cors, cache: default,
+                    isGet: true, isCachable: false", source: http://127.0.0.1:8071/event/service-worker.js (187)
+[20042:20042:1120/191854.463029:INFO:CONSOLE:187] "grant cache for http://127.0.0.1:8071/web/assets/1/933733c/web.assets_frontend.min.css => basic, mode: no-cors, cache: default,
+                    isGet: true, isCachable: false", source: http://127.0.0.1:8071/event/service-worker.js (187)
+[20042:20042:1120/191854.623637:INFO:CONSOLE:187] "grant cache for http://127.0.0.1:8071/event/online-reveal-testevent-33/agenda => basic, mode: cors, cache: default,
+                    isGet: true, isCachable: false", source: http://127.0.0.1:8071/event/service-worker.js (187)
+[20042:20042:1120/191854.766348:INFO:CONSOLE:187] "grant cache for http://127.0.0.1:8071/event/online-reveal-testevent-33/track_proposal => basic, mode: cors, cache: default,
+                    isGet: true, isCachable: false", source: http://127.0.0.1:8071/event/service-worker.js (187)
+[20042:20042:1120/191854.936950:INFO:CONSOLE:187] "grant cache for http://127.0.0.1:8071/event/online-reveal-testevent-33/exhibitors => basic, mode: cors, cache: default,
+                    isGet: true, isCachable: false", source: http://127.0.0.1:8071/event/service-worker.js (187)
+[20042:20042:1120/191855.107116:INFO:CONSOLE:187] "grant cache for http://127.0.0.1:8071/event/online-reveal-testevent-33/community => basic, mode: cors, cache: default,
+                    isGet: true, isCachable: false", source: http://127.0.0.1:8071/event/service-worker.js (187)
+[20042:20042:1120/191855.348630:INFO:CONSOLE:187] "grant cache for http://127.0.0.1:8071/event/online-reveal-testevent-33/booth => basic, mode: cors, cache: default,
+                    isGet: true, isCachable: false", source: http://127.0.0.1:8071/event/service-worker.js (187)
+[20042:20042:1120/191855.453293:INFO:CONSOLE:187] "grant cache for http://127.0.0.1:8071/event/online-reveal-testevent-33/track?search_wishlist=1 => basic, mode: cors, cache: default,
+                    isGet: true, isCachable: false", source: http://127.0.0.1:8071/event/service-worker.js (187)
+[20042:20042:1120/191903.084632:INFO:CONSOLE:0] "The FetchEvent for "https://fonts.googleapis.com/css?family=Inter+Tight:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap&subset=latin,latin-ext,vietnamese" resulted in a network error response: the promise was rejected.", source:  (0)
+[20042:20042:1120/191903.084915:INFO:CONSOLE:319] "fail to prefetch https://fonts.googleapis.com/css?family=Inter:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap&subset=latin,latin-ext,vietnamese : TypeError: Cannot read properties of null (reading 'includes')", source: http://127.0.0.1:8071/event/service-worker.js (319)
+[20042:20042:1120/191903.085091:INFO:CONSOLE:252] "Uncaught (in promise) TypeError: Failed to fetch", source: http://127.0.0.1:8071/event/service-worker.js (252)
+[20042:20042:1120/191903.096219:INFO:CONSOLE:187] "grant cache for http://127.0.0.1:8071/web/assets/1/70740cd/web.assets_frontend_minimal.min.js => basic, mode: no-cors, cache: default,
+                    isGet: true, isCachable: false", source: http://127.0.0.1:8071/event/service-worker.js (187)
+[20042:20042:1120/191903.109981:INFO:CONSOLE:187] "grant cache for http://127.0.0.1:8071/web/assets/1/6e80696/web.__assets_tests_call__.min.js => basic, mode: no-cors, cache: default,
+                    isGet: true, isCachable: false", source: http://127.0.0.1:8071/event/service-worker.js (187)
+[20042:20042:1120/191923.156365:INFO:CONSOLE:0] "The FetchEvent for "https://fonts.googleapis.com/css?family=Inter:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap&subset=latin,latin-ext,vietnamese" resulted in a network error response: the promise was rejected.", source:  (0)
+[20042:20042:1120/191923.156525:INFO:CONSOLE:319] "fail to prefetch https://fonts.googleapis.com/css?family=Inter+Tight:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap&subset=latin,latin-ext,vietnamese : TypeError: Cannot read properties of null (reading 'includes')", source: http://127.0.0.1:8071/event/service-worker.js (319)
+[20042:20042:1120/191923.156625:INFO:CONSOLE:252] "Uncaught (in promise) TypeError: Failed to fetch", source: http://127.0.0.1:8071/event/service-worker.js (252)
+[20042:20042:1120/191925.531771:INFO:CONSOLE:0] "The resource http://127.0.0.1:8071/web/assets/1/357f262/web.material_symbols_outlined.min.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.", source: http://127.0.0.1:8071/event/online-reveal-testevent-33/track (0)
+[20042:20042:1120/191925.532292:INFO:CONSOLE:0] "The resource http://127.0.0.1:8071/web/assets/1/ed7f96a/web.odoo_ui_icons.min.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.", source: http://127.0.0.1:8071/event/online-reveal-testevent-33/track (0)

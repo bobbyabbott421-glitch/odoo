@@ -1,0 +1,88 @@
+[94350:94381:1120/215922.708870:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[94350:94381:1120/215922.708963:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[94350:94381:1120/215922.709001:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[94350:94381:1120/215922.709021:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[94350:94381:1120/215922.709039:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[94350:94381:1120/215922.709046:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[94350:94381:1120/215922.709053:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[94350:94381:1120/215922.730340:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[94350:94381:1120/215922.793991:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[94350:94391:1120/215922.795037:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 94395: Read-only file system (30)
+[94350:94350:1120/215922.874834:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[94350:94381:1120/215922.874927:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[94350:94350:1120/215922.874946:WARNING:device/bluetooth/dbus/bluez_dbus_manager.cc:209] Floss manager service not available, cannot set Floss enable/disable.
+[94350:94350:1120/215922.874967:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[94350:94381:1120/215922.874995:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[94350:94350:1120/215922.897185:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[94350:94350:1120/215922.897362:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[94350:94381:1120/215922.903315:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[94350:94381:1120/215922.911458:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[94350:94381:1120/215922.911529:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[94350:94350:1120/215922.911624:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[94350:94350:1120/215922.912261:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[94350:94381:1120/215922.912339:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[94350:94391:1120/215923.009336:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 94431: Read-only file system (30)
+[94350:94391:1120/215923.075221:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 94444: Read-only file system (30)
+[94350:94391:1120/215923.086979:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 94445: Read-only file system (30)
+[94392:94392:1120/215923.105234:WARNING:media/gpu/vaapi/vaapi_wrapper.cc:1655] drmGetDevices2() has not found any devices
+[94392:94392:1120/215923.119674:WARNING:sandbox/policy/linux/sandbox_linux.cc:405] InitializeSandbox() called with multiple threads in process gpu-process.
+[94350:94350:1120/215923.139210:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[94350:94350:1120/215923.139675:WARNING:dbus/property.cc:94] Failed to connect to PropertiesChangedsignal.
+[94350:94350:1120/215923.139695:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.Properties.GetAll: object_path= /org/freedesktop/UPower/devices/DisplayDevice: unknown error type: 
+[94350:94350:1120/215923.139700:WARNING:dbus/property.cc:174] GetAll request failed for: org.freedesktop.UPower.Device
+[94350:94350:1120/215923.140497:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[94350:94381:1120/215923.146431:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[94350:94350:1120/215923.189504:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[94350:94381:1120/215923.193996:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[94350:94350:1120/215923.229445:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[94350:94350:1120/215923.229466:WARNING:ui/base/idle/idle_linux.cc:111] None of the known D-Bus ScreenSaver services could be used.
+[94350:94350:1120/215926.597539:INFO:CONSOLE:1148] "Owl is running in 'dev' mode.", source: http://127.0.0.1:8071/web/assets/56c5002/web.assets_web.min.js (1148)
+[94350:94350:1120/215926.720668:INFO:CONSOLE:672] "Hoot DOM helpers available from `window.hoot`", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (672)
+[94350:94350:1120/215926.721738:INFO:CONSOLE:683] "[1/35] Tour test_user_switch → Step .o_web_client .o_navbar", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[94350:94350:1120/215927.314247:INFO:CONSOLE:683] "[2/35] Tour test_user_switch → Step check we're logged in (trigger: .o_user_menu)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[94350:94350:1120/215927.348920:INFO:CONSOLE:683] "[3/35] Tour test_user_switch → Step click the Log out button (trigger: .dropdown-item[data-menu=logout])", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[94350:94350:1120/215933.504931:INFO:CONSOLE:1227] "Owl is running in 'dev' mode.", source: http://127.0.0.1:8071/web/assets/1/14eb585/web.assets_frontend_lazy.min.js (1227)
+[94350:94350:1120/215933.540046:INFO:CONSOLE:675] "Hoot DOM helpers available from `window.hoot`", source: http://127.0.0.1:8071/web/assets/1/6e80696/web.__assets_tests_call__.min.js (675)
+[94350:94350:1120/215933.540476:INFO:CONSOLE:686] "[4/35] Tour test_user_switch → Step .oe_website_login_container, .o_database_list", source: http://127.0.0.1:8071/web/assets/1/6e80696/web.__assets_tests_call__.min.js (686)
+[94350:94350:1120/215933.725295:INFO:CONSOLE:686] "[5/35] Tour test_user_switch → Step check if the login input is empty (trigger: input#login:empty)", source: http://127.0.0.1:8071/web/assets/1/6e80696/web.__assets_tests_call__.min.js (686)
+[94350:94350:1120/215933.726425:INFO:CONSOLE:686] "[6/35] Tour test_user_switch → Step check if the password input is empty (trigger: input#password:empty)", source: http://127.0.0.1:8071/web/assets/1/6e80696/web.__assets_tests_call__.min.js (686)
+[94350:94350:1120/215933.726810:INFO:CONSOLE:686] "[7/35] Tour test_user_switch → Step Should contains the user switch button (trigger: .oe_login_form .o_user_switch_btn)", source: http://127.0.0.1:8071/web/assets/1/6e80696/web.__assets_tests_call__.min.js (686)
+[94350:94350:1120/215933.738631:INFO:CONSOLE:686] "[8/35] Tour test_user_switch → Step Click on Marc Demo on the quick login page (trigger: .o_user_switch:not(:has(.list-group-item:nth-child(2))) .list-group-item:contains('Marc Demo'))", source: http://127.0.0.1:8071/web/assets/1/6e80696/web.__assets_tests_call__.min.js (686)
+[94350:94350:1120/215933.774867:INFO:CONSOLE:686] "[9/35] Tour test_user_switch → Step Check user choice button to back on the quick login page (trigger: .oe_login_form .o_user_switch_btn)", source: http://127.0.0.1:8071/web/assets/1/6e80696/web.__assets_tests_call__.min.js (686)
+[94350:94350:1120/215933.793938:INFO:CONSOLE:686] "[10/35] Tour test_user_switch → Step Display the login form (trigger: .o_user_switch [data-icon='account_circle'])", source: http://127.0.0.1:8071/web/assets/1/6e80696/web.__assets_tests_call__.min.js (686)
+[94350:94350:1120/215933.811596:INFO:CONSOLE:686] "[11/35] Tour test_user_switch → Step fill the login (trigger: input#login)", source: http://127.0.0.1:8071/web/assets/1/6e80696/web.__assets_tests_call__.min.js (686)
+[94350:94350:1120/215933.823002:INFO:CONSOLE:686] "[12/35] Tour test_user_switch → Step fill the password (trigger: input#password)", source: http://127.0.0.1:8071/web/assets/1/6e80696/web.__assets_tests_call__.min.js (686)
+[94350:94350:1120/215934.137691:INFO:CONSOLE:686] "[13/35] Tour test_user_switch → Step click on login button (trigger: button:contains("Log in"))", source: http://127.0.0.1:8071/web/assets/1/6e80696/web.__assets_tests_call__.min.js (686)
+[94350:94350:1120/215936.655958:INFO:CONSOLE:1148] "Owl is running in 'dev' mode.", source: http://127.0.0.1:8071/web/assets/56c5002/web.assets_web.min.js (1148)
+[94350:94350:1120/215936.710141:INFO:CONSOLE:672] "Hoot DOM helpers available from `window.hoot`", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (672)
+[94350:94350:1120/215936.710373:INFO:CONSOLE:683] "[14/35] Tour test_user_switch → Step .o_web_client .o_navbar", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[94350:94350:1120/215937.281082:INFO:CONSOLE:683] "[15/35] Tour test_user_switch → Step check we're logged in (trigger: .o_user_menu)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[94350:94350:1120/215937.288703:INFO:CONSOLE:683] "[16/35] Tour test_user_switch → Step click the Log out button (trigger: .dropdown-item[data-menu=logout])", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[94350:94350:1120/215938.148263:INFO:CONSOLE:1227] "Owl is running in 'dev' mode.", source: http://127.0.0.1:8071/web/assets/1/14eb585/web.assets_frontend_lazy.min.js (1227)
+[94350:94350:1120/215938.164565:INFO:CONSOLE:675] "Hoot DOM helpers available from `window.hoot`", source: http://127.0.0.1:8071/web/assets/1/6e80696/web.__assets_tests_call__.min.js (675)
+[94350:94350:1120/215938.165468:INFO:CONSOLE:686] "[17/35] Tour test_user_switch → Step .oe_website_login_container, .o_database_list", source: http://127.0.0.1:8071/web/assets/1/6e80696/web.__assets_tests_call__.min.js (686)
+[94350:94350:1120/215938.235781:INFO:CONSOLE:686] "[18/35] Tour test_user_switch → Step Check if there is Mitchell Admin in user list selection (trigger: .o_user_switch .list-group-item:nth-child(1):contains('Mitchell Admin'))", source: http://127.0.0.1:8071/web/assets/1/6e80696/web.__assets_tests_call__.min.js (686)
+[94350:94350:1120/215938.236134:INFO:CONSOLE:686] "[19/35] Tour test_user_switch → Step Check if there is Marc Demo in user list selection (trigger: .o_user_switch .list-group-item:nth-child(2):contains('Marc Demo'))", source: http://127.0.0.1:8071/web/assets/1/6e80696/web.__assets_tests_call__.min.js (686)
+[94350:94350:1120/215938.236967:INFO:CONSOLE:686] "[20/35] Tour test_user_switch → Step Choice demo (trigger: .o_user_switch .list-group-item:contains('Marc Demo'))", source: http://127.0.0.1:8071/web/assets/1/6e80696/web.__assets_tests_call__.min.js (686)
+[94350:94350:1120/215938.247556:INFO:CONSOLE:686] "[21/35] Tour test_user_switch → Step check the login for demo (trigger: input#login:value('demo'))", source: http://127.0.0.1:8071/web/assets/1/6e80696/web.__assets_tests_call__.min.js (686)
+[94350:94350:1120/215938.248149:INFO:CONSOLE:686] "[22/35] Tour test_user_switch → Step fill the password (trigger: input#password)", source: http://127.0.0.1:8071/web/assets/1/6e80696/web.__assets_tests_call__.min.js (686)
+[94350:94350:1120/215938.255310:INFO:CONSOLE:686] "[23/35] Tour test_user_switch → Step Check back button to back on the quick login page (trigger: .oe_login_form .o_user_switch_btn)", source: http://127.0.0.1:8071/web/assets/1/6e80696/web.__assets_tests_call__.min.js (686)
+[94350:94350:1120/215938.265743:INFO:CONSOLE:686] "[24/35] Tour test_user_switch → Step Check have 2 users (trigger: .o_user_switch .list-group-item:nth-child(2))", source: http://127.0.0.1:8071/web/assets/1/6e80696/web.__assets_tests_call__.min.js (686)
+[94350:94350:1120/215938.272279:INFO:CONSOLE:686] "[25/35] Tour test_user_switch → Step Click on Mitchell Admin (trigger: .o_user_switch .list-group-item:nth-child(1):contains('Mitchell Admin'))", source: http://127.0.0.1:8071/web/assets/1/6e80696/web.__assets_tests_call__.min.js (686)
+[94350:94350:1120/215938.276684:INFO:CONSOLE:686] "[26/35] Tour test_user_switch → Step check the login for admin (trigger: input#login:value('admin'))", source: http://127.0.0.1:8071/web/assets/1/6e80696/web.__assets_tests_call__.min.js (686)
+[94350:94350:1120/215938.277024:INFO:CONSOLE:686] "[27/35] Tour test_user_switch → Step fill the password (trigger: input#password)", source: http://127.0.0.1:8071/web/assets/1/6e80696/web.__assets_tests_call__.min.js (686)
+[94350:94350:1120/215938.284985:INFO:CONSOLE:686] "[28/35] Tour test_user_switch → Step Check back button to back on the quick login page (trigger: .oe_login_form .o_user_switch_btn)", source: http://127.0.0.1:8071/web/assets/1/6e80696/web.__assets_tests_call__.min.js (686)
+[94350:94350:1120/215938.291150:INFO:CONSOLE:686] "[29/35] Tour test_user_switch → Step Display the login form (trigger: .o_user_switch [data-icon='account_circle'])", source: http://127.0.0.1:8071/web/assets/1/6e80696/web.__assets_tests_call__.min.js (686)
+[94350:94350:1120/215938.308315:INFO:CONSOLE:686] "[30/35] Tour test_user_switch → Step the login form is display (trigger: form.oe_login_form:not(.d-none))", source: http://127.0.0.1:8071/web/assets/1/6e80696/web.__assets_tests_call__.min.js (686)
+[94350:94350:1120/215938.309059:INFO:CONSOLE:686] "[31/35] Tour test_user_switch → Step check if the login input is empty (trigger: input#login:empty)", source: http://127.0.0.1:8071/web/assets/1/6e80696/web.__assets_tests_call__.min.js (686)
+[94350:94350:1120/215938.309927:INFO:CONSOLE:686] "[32/35] Tour test_user_switch → Step check if the password input is empty (trigger: input#password:empty)", source: http://127.0.0.1:8071/web/assets/1/6e80696/web.__assets_tests_call__.min.js (686)
+[94350:94350:1120/215938.310300:INFO:CONSOLE:686] "[33/35] Tour test_user_switch → Step Back to user switch (trigger: .oe_login_form .o_user_switch_btn)", source: http://127.0.0.1:8071/web/assets/1/6e80696/web.__assets_tests_call__.min.js (686)
+[94350:94350:1120/215938.322078:INFO:CONSOLE:686] "[34/35] Tour test_user_switch → Step Remove the admin user from page (trigger: .o_user_switch .d-flex:first-child [data-icon='close'])", source: http://127.0.0.1:8071/web/assets/1/6e80696/web.__assets_tests_call__.min.js (686)
+[94350:94350:1120/215938.346136:INFO:CONSOLE:686] "[35/35] Tour test_user_switch → Step only one user is left on quick login (trigger: .o_user_switch:not(:has(.list-group-item:nth-child(2))) .list-group-item:contains('Marc Demo'))", source: http://127.0.0.1:8071/web/assets/1/6e80696/web.__assets_tests_call__.min.js (686)
+[94350:94350:1120/215938.352308:INFO:CONSOLE:669] "tour succeeded", source: http://127.0.0.1:8071/web/assets/1/6e80696/web.__assets_tests_call__.min.js (669)
+[94350:94350:1120/215938.352476:INFO:CONSOLE:669] "
+
+╔═════════════════════════════════╗
+║ TOUR test_user_switch SUCCEEDED ║
+╚═════════════════════════════════╝
+", source: http://127.0.0.1:8071/web/assets/1/6e80696/web.__assets_tests_call__.min.js (669)

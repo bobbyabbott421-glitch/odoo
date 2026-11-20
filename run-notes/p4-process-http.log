@@ -1,0 +1,196 @@
+2026-11-20 20:51:21,422 56594 INFO ? odoo: Odoo version 20.0
+2026-11-20 20:51:21,423 56594 INFO ? odoo: Using configuration file at /workspace/odoo-env/odoo.conf
+2026-11-20 20:51:21,423 56594 INFO ? odoo: addons paths: _NamespacePath(['/workspace/odoo/odoo/addons', '/workspace/odoo-env/data/addons/20.0', '/workspace/odoo/addons'])
+2026-11-20 20:51:21,423 56594 INFO ? odoo: database: odoo@/workspace/odoo-env/run:5432
+2026-11-20 20:51:22,150 56594 INFO ? odoo.service.server: HTTP service running on 127.0.0.1:8074
+2026-11-20 20:51:22,165 56594 INFO crm_phase2 odoo.modules.loading: loading 1 modules...
+2026-11-20 20:51:22,171 56594 INFO crm_phase2 odoo.modules.loading: 1 modules loaded in 0.01s, 0 queries (+0 extra)
+2026-11-20 20:51:22,331 56594 INFO crm_phase2 odoo.modules.loading: loading 226 modules...
+2026-11-20 20:51:22,642 56594 WARNING crm_phase2 odoo.addons.mail.controllers.attachment: markdown2 is not installed, markdown will not be rendered
+2026-11-20 20:51:24,041 56594 INFO crm_phase2 odoo.modules.loading: 226 modules loaded in 1.71s, 0 queries (+2 extra)
+2026-11-20 20:51:24,935 56594 INFO crm_phase2 odoo.modules.loading: Modules loaded.
+2026-11-20 20:51:25,157 56594 INFO crm_phase2 odoo.registry: Registry loaded in 3.006s
+2026-11-20 20:51:25,168 56594 INFO crm_phase2 odoo.addons.base.models.ir_http: Generating routing map for key 1
+2026-11-20 20:51:25,222 56594 INFO crm_phase2 odoo.addons.base.models.ir_http: Generating routing map for key 1
+2026-11-20 20:51:25,243 56594 INFO crm_phase2 odoo.addons.base.models.ir_http: Generating routing map for key 1
+2026-11-20 20:51:25,973 56594 INFO crm_phase2 odoo.http.server: 127.0.0.1 92NA7YqM - [20/Nov/2026 20:51:25] "GET /web/health HTTP/1.1" 200 0 8 0.105 3.534 rw
+2026-11-20 20:51:25,999 56594 INFO crm_phase2 odoo.http.server: 127.0.0.1 C78EWMTf - [20/Nov/2026 20:51:25] "GET /web/health HTTP/1.1" 200 0 5 0.135 2.326 rw
+2026-11-20 20:51:26,002 56594 INFO crm_phase2 odoo.http.server: 127.0.0.1 dBz1xr40 - [20/Nov/2026 20:51:26] "GET /web/health HTTP/1.1" 200 0 8 0.107 1.149 rw
+2026-11-20 20:51:26,010 56594 INFO crm_phase2 odoo.http.server: 127.0.0.1 H-ufe4ct - [20/Nov/2026 20:51:26] "GET /web/health HTTP/1.1" 200 18 3 0.009 0.033 rw
+2026-11-20 20:51:26,845 56594 INFO crm_phase2 odoo.addons.base.models.res_users: Login successful for login:admin from 127.0.0.1
+2026-11-20 20:51:27,006 56594 INFO crm_phase2 odoo.addons.base.models.res_users: web.base.url set to http://127.0.0.1:8074
+2026-11-20 20:51:27,021 56594 INFO crm_phase2 odoo.http: Session rotated: Sy-xBtPs -> x0BkCPDM
+2026-11-20 20:51:27,237 56594 INFO crm_phase2 odoo.registry: Caches invalidated, signaling through the database: ['default', 'stable']
+2026-11-20 20:51:27,241 56594 INFO crm_phase2 odoo.http.server: 127.0.0.1 x0BkCPDM - [20/Nov/2026 20:51:27] "POST /web/session/authenticate HTTP/1.1" 200 5173 95 0.158 1.07 rw
+2026-11-20 20:51:27,310 56594 INFO crm_phase2 odoo.addons.base.models.res_device: User 2 inserts device log: x0BkCPDMgq_xX6vNbHTJSEI9SNDuG8QE2AvGRtnZv2 - 127.0.0.1 - Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36
+2026-11-20 20:51:28,175 56594 INFO crm_phase2 odoo.http.server: 127.0.0.1 x0BkCPDM - [20/Nov/2026 20:51:28] "GET /odoo/crm HTTP/1.1" 200 8093 178 0.33 0.594 rw
+2026-11-20 20:51:28,320 56594 INFO crm_phase2 odoo.http.server: 127.0.0.1 x0BkCPDM - [20/Nov/2026 20:51:28] "GET /web/assets/865280f/web.assets_web.min.css HTTP/1.1" 200 1404132 4 0.02 0.032 rw
+2026-11-20 20:51:28,795 56594 INFO crm_phase2 odoo.http.server: 127.0.0.1 x0BkCPDM - [20/Nov/2026 20:51:28] "GET /web/assets/56c5002/web.assets_web.min.js HTTP/1.1" 200 9270445 4 0.011 1.511 rw
+2026-11-20 20:51:28,804 56594 INFO crm_phase2 odoo.http.server: 127.0.0.1 x0BkCPDM - [20/Nov/2026 20:51:28] "GET /web/manifest.webmanifest HTTP/1.1" 200 1469 21 0.231 0.301 rw
+2026-11-20 20:51:28,851 56594 INFO crm_phase2 odoo.http.server: 127.0.0.1 x0BkCPDM - [20/Nov/2026 20:51:28] "GET /web/webclient/load_menus HTTP/1.1" 200 187971 28 0.192 0.388 rw
+2026-11-20 20:51:28,923 56594 INFO crm_phase2 odoo.http.server: 127.0.0.1 x0BkCPDM - [20/Nov/2026 20:51:28] "GET /web/assets/59d1963/web.assets_web_print.min.css HTTP/1.1" 200 1410853 4 0.003 0.016 rw
+2026-11-20 20:51:30,508 56594 INFO crm_phase2 odoo.http.server: 127.0.0.1 x0BkCPDM - [20/Nov/2026 20:51:30] "GET /web/static/img/favicon.ico HTTP/1.1" 200 1150 0 0 0.003 -
+2026-11-20 20:51:30,547 56594 INFO crm_phase2 odoo.http.server: 127.0.0.1 x0BkCPDM - [20/Nov/2026 20:51:30] "GET /web/webclient/translations?hash=&lang=en_US HTTP/1.1" 200 8614 3 0.003 0.033 rw
+2026-11-20 20:51:30,604 56594 INFO crm_phase2 odoo.http.server: 127.0.0.1 x0BkCPDM - [20/Nov/2026 20:51:30] "GET /bus/websocket_worker_bundle?v=saas-19.5-1 HTTP/1.1" 200 23775 5 0.005 0.024 rw
+2026-11-20 20:51:30,631 56594 INFO crm_phase2 odoo.addons.partner_autocomplete.models.res_company: Starting enrich of company My Company (San Francisco) (1)
+2026-11-20 20:51:30,807 56594 INFO crm_phase2 odoo.addons.iap.tools.iap_tools: iap jsonrpc https://partner-autocomplete.odoo.com/api/dnb/1/enrich_by_domain
+2026-11-20 20:51:30,822 56594 WARNING crm_phase2 odoo.addons.iap.tools.iap_tools: iap jsonrpc https://partner-autocomplete.odoo.com/api/dnb/1/enrich_by_domain failed, ProxyError: HTTPSConnectionPool(host='partner-autocomplete.odoo.com', port=443): Max retries exceeded with url: /api/dnb/1/enrich_by_domain (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-11-20 20:51:30,823 56594 WARNING crm_phase2 odoo.addons.partner_autocomplete.models.iap_autocomplete_api: Autocomplete API error: HTTPSConnectionPool(host='partner-autocomplete.odoo.com', port=443): Max retries exceeded with url: /api/dnb/1/enrich_by_domain (Caused by ProxyError('Unable to connect to proxy', OSError('Tunnel connection failed: 403 Forbidden')))
+2026-11-20 20:51:30,869 56594 INFO crm_phase2 odoo.http.server: 127.0.0.1 x0BkCPDM - [20/Nov/2026 20:51:30] "GET /web/service-worker.js HTTP/1.1" 200 25157 2 0.007 0.012 rw
+2026-11-20 20:51:30,920 56594 INFO crm_phase2 odoo.http.server: 127.0.0.1 x0BkCPDM - [20/Nov/2026 20:51:30] "POST /web/dataset/call_kw/res.company/iap_enrich_auto#res.company.iap_enrich_auto HTTP/1.1" 200 43 38 0.143 0.166 rw
+2026-11-20 20:51:30,975 56594 INFO crm_phase2 odoo.http.server: 127.0.0.1 x0BkCPDM - [20/Nov/2026 20:51:30] "GET /mail/static/lib/idb-keyval/idb-keyval.js HTTP/1.1" 200 2848 0 0 0.007 -
+2026-11-20 20:51:31,123 56594 INFO crm_phase2 odoo.http.server: 127.0.0.1 x0BkCPDM - [20/Nov/2026 20:51:31] "GET /odoo/offline HTTP/1.1" 200 16674 7 0.031 0.079 rw
+2026-11-20 20:51:31,179 56594 INFO crm_phase2 odoo.http.server: 127.0.0.1 x0BkCPDM - [20/Nov/2026 20:51:31] "GET /web/image/res.partner/3/avatar_128?unique=1795200247000 HTTP/1.1" 200 2836 5 0.026 0.027 rw
+2026-11-20 20:51:31,197 56594 INFO crm_phase2 odoo.http.server: 127.0.0.1 x0BkCPDM - [20/Nov/2026 20:51:31] "POST /web/dataset/call_kw/ir.http/lazy_session_info#ir.http.lazy_session_info HTTP/1.1" 200 270 8 0.054 0.017 rw
+2026-11-20 20:51:31,226 56594 INFO crm_phase2 odoo.http.server: 127.0.0.1 x0BkCPDM - [20/Nov/2026 20:51:31] "GET /odoo HTTP/1.1" 200 7961 33 0.11 0.113 rw
+2026-11-20 20:51:31,250 56594 INFO crm_phase2 odoo.http.server: 127.0.0.1 x0BkCPDM - [20/Nov/2026 20:51:31] "GET /web/assets/357f262/web.material_symbols_outlined.min.woff2 HTTP/1.1" 200 38596 4 0.016 0.015 rw
+2026-11-20 20:51:31,275 56594 INFO crm_phase2 odoo.http.server: 127.0.0.1 x0BkCPDM - [20/Nov/2026 20:51:31] "POST /web/action/load HTTP/1.1" 200 1219 17 0.084 0.059 rw
+2026-11-20 20:51:31,603 56594 INFO crm_phase2 odoo.http.server: 127.0.0.1 x0BkCPDM - [20/Nov/2026 20:51:31] "POST /mail/store HTTP/1.1" 200 6119 73 0.229 0.139 rw
+2026-11-20 20:51:31,731 56594 INFO crm_phase2 odoo.http.server: 127.0.0.1 x0BkCPDM - [20/Nov/2026 20:51:31] "POST /web/dataset/call_kw/crm.lead/get_views#crm.lead.get_views HTTP/1.1" 200 122103 55 0.154 0.238 rw
+2026-11-20 20:51:31,798 56594 INFO crm_phase2 odoo.http.server: 127.0.0.1 x0BkCPDM - [20/Nov/2026 20:51:31] "POST /web/dataset/call_kw/crm.team/get_team_switcher_data#crm.team.get_team_switcher_data HTTP/1.1" 200 351 5 0.007 0.033 rw
+2026-11-20 20:51:31,825 56594 INFO ? odoo.addons.bus.bus_dispatcher: Bus._listener_loop listen imbus on db postgres
+2026-11-20 20:51:31,827 56594 INFO crm_phase2 odoo.addons.bus.bus_dispatcher: Bus: starting 1 dispatch workers
+2026-11-20 20:51:31,896 56594 INFO crm_phase2 odoo.http.server: 127.0.0.1 x0BkCPDM - [20/Nov/2026 20:51:31] "POST /web/dataset/call_kw/crm.lead/read_progress_bar#crm.lead.read_progress_bar HTTP/1.1" 200 227 4 0.034 0.011 rw
+2026-11-20 20:51:31,939 56594 INFO crm_phase2 odoo.http.server: 127.0.0.1 x0BkCPDM - [20/Nov/2026 20:51:31] "POST /web/dataset/call_kw/res.users/has_group#res.users.has_group HTTP/1.1" 200 43 2 0.003 0.01 rw
+2026-11-20 20:51:31,946 56594 INFO crm_phase2 odoo.http.server: 127.0.0.1 x0BkCPDM - [20/Nov/2026 20:51:31] "POST /web/dataset/call_kw/crm.lead/web_read_group#crm.lead.web_read_group HTTP/1.1" 200 11158 26 0.047 0.043 rw
+2026-11-20 20:51:32,223 56594 INFO crm_phase2 odoo.http.server: 127.0.0.1 x0BkCPDM - [20/Nov/2026 20:51:32] "POST /web/dataset/call_kw/res.users/has_group#res.users.has_group HTTP/1.1" 200 44 2 0.003 0.013 rw
+2026-11-20 20:51:32,604 56594 INFO crm_phase2 odoo.http.server: 127.0.0.1 x0BkCPDM - [20/Nov/2026 20:51:32] "GET /web/assets/ed7f96a/web.odoo_ui_icons.min.woff2 HTTP/1.1" 200 39616 4 0.013 0.04 rw
+2026-11-20 20:51:32,607 56594 INFO crm_phase2 odoo.http.server: 127.0.0.1 x0BkCPDM - [20/Nov/2026 20:51:32] "GET /web/image/res.users/2/avatar_128?unique=1795207887000 HTTP/1.1" 200 2836 6 0.035 0.025 rw
+2026-11-20 20:51:32,608 56594 INFO crm_phase2 odoo.http.server: 127.0.0.1 x0BkCPDM - [20/Nov/2026 20:51:32] "GET /web/image/res.partner/10/avatar_128?unique=1795200263000 HTTP/1.1" 200 10692 5 0.027 0.029 rw
+2026-11-20 20:51:32,609 56594 INFO crm_phase2 odoo.http.server: 127.0.0.1 x0BkCPDM - [20/Nov/2026 20:51:32] "GET /web/image/res.partner/13/avatar_128?unique=1795200247000 HTTP/1.1" 200 5510 5 0.041 0.022 rw
+2026-11-20 20:51:32,670 56594 INFO crm_phase2 odoo.http.server: 127.0.0.1 x0BkCPDM - [20/Nov/2026 20:51:32] "GET /web/image/res.partner/16/avatar_128?unique=1795200247000 HTTP/1.1" 200 1464 5 0.07 0.045 rw
+2026-11-20 20:51:32,670 56594 INFO crm_phase2 odoo.http.server: 127.0.0.1 x0BkCPDM - [20/Nov/2026 20:51:32] "GET /web/image/res.partner/11/avatar_128?unique=1795200263000 HTTP/1.1" 200 8472 5 0.02 0.028 rw
+2026-11-20 20:51:32,676 56594 INFO crm_phase2 odoo.http.server: 127.0.0.1 x0BkCPDM - [20/Nov/2026 20:51:32] "GET /web/image/res.partner/12/avatar_128?unique=1795200263000 HTTP/1.1" 200 15232 5 0.073 0.056 rw
+2026-11-20 20:51:32,750 56594 INFO crm_phase2 odoo.http.server: 127.0.0.1 x0BkCPDM - [20/Nov/2026 20:51:32] "GET /odoo/crm HTTP/1.1" 200 7969 34 0.077 0.059 rw
+2026-11-20 20:51:32,826 56594 INFO crm_phase2 odoo.http.server: 127.0.0.1 x0BkCPDM - [20/Nov/2026 20:51:31] "GET /websocket?version=saas-19.5-1 HTTP/1.1" 101 0 32 0.057 1.521 rw
+2026-11-20 20:51:32,869 56594 INFO crm_phase2 odoo.http.server: 127.0.0.1 x0BkCPDM - [20/Nov/2026 20:51:32] "GET /web/webclient/load_menus HTTP/1.1" 200 187971 2 0.004 0.014 rw
+2026-11-20 20:51:32,916 56594 INFO crm_phase2 odoo.http.server: 127.0.0.1 x0BkCPDM - [20/Nov/2026 20:51:32] "GET /web/manifest.webmanifest HTTP/1.1" 200 1469 7 0.026 0.037 rw
+2026-11-20 20:51:34,029 56594 INFO crm_phase2 odoo.http.server: 127.0.0.1 x0BkCPDM - [20/Nov/2026 20:51:34] "GET /web/webclient/translations?hash=03cf325d925f0476815dd1bb06ee2ef24d536f71&lang=en_US HTTP/1.1" 200 69 2 0.009 0.012 rw
+2026-11-20 20:51:34,031 56594 INFO crm_phase2 odoo.http.server: 127.0.0.1 x0BkCPDM - [20/Nov/2026 20:51:34] "GET /bus/websocket_worker_bundle?v=saas-19.5-1 HTTP/1.1" 304 0 4 0.007 0.007 rw
+2026-11-20 20:51:34,320 56594 INFO crm_phase2 odoo.http.server: 127.0.0.1 x0BkCPDM - [20/Nov/2026 20:51:34] "POST /web/dataset/call_kw/ir.http/lazy_session_info#ir.http.lazy_session_info HTTP/1.1" 200 270 7 0.055 0.027 rw
+2026-11-20 20:51:34,429 56594 INFO crm_phase2 odoo.http.server: 127.0.0.1 x0BkCPDM - [20/Nov/2026 20:51:34] "POST /web/dataset/call_kw/crm.team/get_team_switcher_data#crm.team.get_team_switcher_data HTTP/1.1" 200 351 5 0.019 0.074 rw
+2026-11-20 20:51:34,435 56594 INFO crm_phase2 odoo.http.server: 127.0.0.1 x0BkCPDM - [20/Nov/2026 20:51:34] "POST /web/dataset/call_kw/crm.lead/read_progress_bar#crm.lead.read_progress_bar HTTP/1.1" 200 227 4 0.028 0.049 rw
+2026-11-20 20:51:34,451 56594 INFO crm_phase2 odoo.http.server: 127.0.0.1 x0BkCPDM - [20/Nov/2026 20:51:34] "POST /web/dataset/call_kw/res.users/has_group#res.users.has_group HTTP/1.1" 200 43 2 0.01 0.017 rw
+2026-11-20 20:51:34,465 56594 INFO crm_phase2 odoo.http.server: 127.0.0.1 x0BkCPDM - [20/Nov/2026 20:51:34] "POST /web/dataset/call_kw/crm.lead/get_views#crm.lead.get_views HTTP/1.1" 200 122103 6 0.052 0.159 rw
+2026-11-20 20:51:34,629 56594 INFO crm_phase2 odoo.http.server: 127.0.0.1 x0BkCPDM - [20/Nov/2026 20:51:34] "POST /web/dataset/call_kw/crm.lead/web_read_group#crm.lead.web_read_group HTTP/1.1" 200 11158 26 0.178 0.086 rw
+2026-11-20 20:51:34,642 56594 INFO crm_phase2 odoo.http.server: 127.0.0.1 x0BkCPDM - [20/Nov/2026 20:51:34] "POST /web/dataset/call_kw/res.users/has_group#res.users.has_group HTTP/1.1" 200 44 2 0.002 0.008 rw
+2026-11-20 20:51:34,942 56594 INFO crm_phase2 odoo.http.server: 127.0.0.1 x0BkCPDM - [20/Nov/2026 20:51:34] "POST /mail/store HTTP/1.1" 200 6119 63 0.483 0.148 rw
+2026-11-20 20:51:35,206 56594 INFO crm_phase2 odoo.http.server: 127.0.0.1 x0BkCPDM - [20/Nov/2026 20:51:35] "GET /web/image?model=res.users&field=avatar_128&id=2 HTTP/1.1" 200 2836 6 0.032 0.02 rw
+2026-11-20 20:51:35,455 56594 INFO crm_phase2 odoo.http.server: 127.0.0.1 x0BkCPDM - [20/Nov/2026 20:51:35] "GET /scoped_app?app_id=crm&path=odoo%2Fcrm HTTP/1.1" 200 1381 35 0.053 0.165 rw
+2026-11-20 20:51:35,477 56594 INFO crm_phase2 odoo.http.server: 127.0.0.1 x0BkCPDM - [20/Nov/2026 20:51:35] "GET /web/manifest.scoped_app_manifest?app_id=crm&path=%2Fodoo%2Fcrm&app_name=CRM HTTP/1.1" 200 297 2 0.005 0.007 rw
+2026-11-20 20:51:35,644 56594 INFO crm_phase2 odoo.http.server: 127.0.0.1 x0BkCPDM - [20/Nov/2026 20:51:35] "GET /odoo/crm HTTP/1.1" 200 7952 34 0.084 0.058 rw
+2026-11-20 20:51:35,828 56594 INFO crm_phase2 odoo.service.server.ThreadedServer: Initiating shutdown
+2026-11-20 20:51:35,829 56594 INFO crm_phase2 odoo.service.server.ThreadedServer: Hit CTRL-C again or send a second signal to force the shutdown.
+2026-11-20 20:51:35,829 56594 INFO crm_phase2 odoo.addons.bus.websocket: Disconnecting 1 websockets
+2026-11-20 20:51:35,854 56594 INFO crm_phase2 odoo.http.server: 127.0.0.1 x0BkCPDM - [20/Nov/2026 20:51:34] "GET /websocket?version=saas-19.5-1 HTTP/1.1" 101 0 33 0.078 1.449 rw
+2026-11-20 20:51:35,942 56594 INFO crm_phase2 odoo.sql_db: ConnectionPool(read/write;used=0/count=0/max=64): Closed 6 connections 
+2026-11-20 20:53:26,514 57431 INFO ? odoo: Odoo version 20.0
+2026-11-20 20:53:26,514 57431 INFO ? odoo: Using configuration file at /workspace/odoo-env/odoo.conf
+2026-11-20 20:53:26,514 57431 INFO ? odoo: addons paths: _NamespacePath(['/workspace/odoo/odoo/addons', '/workspace/odoo-env/data/addons/20.0', '/workspace/odoo/addons'])
+2026-11-20 20:53:26,514 57431 INFO ? odoo: database: odoo@/workspace/odoo-env/run:5432
+2026-11-20 20:53:27,970 57431 INFO ? odoo.service.server: HTTP service running on 127.0.0.1:8074
+2026-11-20 20:53:28,015 57431 INFO crm_phase2 odoo.modules.loading: loading 1 modules...
+2026-11-20 20:53:28,031 57431 INFO crm_phase2 odoo.modules.loading: 1 modules loaded in 0.01s, 0 queries (+0 extra)
+2026-11-20 20:53:28,251 57431 INFO crm_phase2 odoo.modules.loading: loading 226 modules...
+2026-11-20 20:53:28,699 57431 WARNING crm_phase2 odoo.addons.mail.controllers.attachment: markdown2 is not installed, markdown will not be rendered
+2026-11-20 20:53:30,428 57431 INFO crm_phase2 odoo.modules.loading: 226 modules loaded in 2.18s, 0 queries (+1 extra)
+2026-11-20 20:53:32,194 57431 INFO crm_phase2 odoo.modules.loading: Modules loaded.
+2026-11-20 20:53:32,734 57431 INFO crm_phase2 odoo.registry: Registry loaded in 4.762s
+2026-11-20 20:53:32,741 57431 INFO crm_phase2 odoo.addons.base.models.ir_http: Generating routing map for key 1
+2026-11-20 20:53:32,796 57431 INFO crm_phase2 odoo.addons.base.models.ir_http: Generating routing map for key 1
+2026-11-20 20:53:32,809 57431 INFO crm_phase2 odoo.addons.base.models.ir_http: Generating routing map for key 1
+2026-11-20 20:53:32,939 57431 INFO crm_phase2 odoo.addons.base.models.ir_http: Generating routing map for key 1
+2026-11-20 20:53:34,328 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 gUOPeqzz - [20/Nov/2026 20:53:34] "GET /web/health HTTP/1.1" 200 0 8 0.14 6.079 rw
+2026-11-20 20:53:34,329 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 lW1hPvEh - [20/Nov/2026 20:53:34] "GET /web/health HTTP/1.1" 200 0 6 0.323 0.972 rw
+2026-11-20 20:53:34,354 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 aU2Kiu2y - [20/Nov/2026 20:53:34] "GET /web/health HTTP/1.1" 200 0 5 0.182 2.418 rw
+2026-11-20 20:53:34,356 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 UtC3XknV - [20/Nov/2026 20:53:34] "GET /web/health HTTP/1.1" 200 0 5 0.1 3.715 rw
+2026-11-20 20:53:34,361 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 v9xX7bqb - [20/Nov/2026 20:53:34] "GET /web/health HTTP/1.1" 200 0 5 0.065 4.972 rw
+2026-11-20 20:53:34,400 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 rX91haW_ - [20/Nov/2026 20:53:34] "GET /web/health HTTP/1.1" 200 18 3 0.056 0.102 rw
+2026-11-20 20:53:35,120 57431 INFO crm_phase2 odoo.addons.base.models.res_users: Login successful for login:admin from 127.0.0.1
+2026-11-20 20:53:35,209 57431 INFO crm_phase2 odoo.addons.base.models.res_users: web.base.url set to http://127.0.0.1:8074
+2026-11-20 20:53:35,230 57431 INFO crm_phase2 odoo.http: Session rotated: nAnVEAQT -> ZTQ8XT8l
+2026-11-20 20:53:35,477 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:35] "POST /web/session/authenticate HTTP/1.1" 200 5117 87 0.169 0.904 rw
+2026-11-20 20:53:35,575 57431 INFO crm_phase2 odoo.addons.base.models.res_device: User 2 inserts device log: ZTQ8XT8lXXcFwP_ByIn5YhBgSRDmvnWzVy2V0Qok4Q - 127.0.0.1 - Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36
+2026-11-20 20:53:38,461 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:38] "GET /odoo/crm HTTP/1.1" 200 7964 91 0.229 2.719 rw
+2026-11-20 20:53:38,852 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:38] "GET /web/assets/865280f/web.assets_web.min.css HTTP/1.1" 200 1404132 4 0.113 0.1 rw
+2026-11-20 20:53:39,162 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:38] "GET /web/assets/56c5002/web.assets_web.min.js HTTP/1.1" 200 9270445 4 0.06 3.54 rw
+2026-11-20 20:53:39,414 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:39] "GET /web/manifest.webmanifest HTTP/1.1" 200 1469 21 0.239 0.528 rw
+2026-11-20 20:53:39,435 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:39] "GET /web/webclient/load_menus HTTP/1.1" 200 187971 28 0.299 0.491 rw
+2026-11-20 20:53:39,502 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:39] "GET /web/assets/59d1963/web.assets_web_print.min.css HTTP/1.1" 200 1410853 4 0.008 0.036 rw
+2026-11-20 20:53:40,246 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:40] "GET /web/static/img/favicon.ico HTTP/1.1" 200 1150 0 0 0.007 -
+2026-11-20 20:53:40,297 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:40] "GET /web/webclient/translations?hash=&lang=en_US HTTP/1.1" 200 8614 3 0.009 0.034 rw
+2026-11-20 20:53:40,433 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:40] "GET /bus/websocket_worker_bundle?v=saas-19.5-1 HTTP/1.1" 200 23775 5 0.014 0.048 rw
+2026-11-20 20:53:40,563 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:40] "GET /web/service-worker.js HTTP/1.1" 200 25223 2 0.01 0.045 rw
+2026-11-20 20:53:40,958 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:40] "GET /mail/static/lib/idb-keyval/idb-keyval.js HTTP/1.1" 200 2848 0 0 0.102 -
+2026-11-20 20:53:41,025 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:40] "GET /web/image/res.partner/3/avatar_128?unique=1795200247000 HTTP/1.1" 200 2836 5 0.101 0.096 rw
+2026-11-20 20:53:41,028 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:41] "POST /web/dataset/call_kw/ir.http/lazy_session_info#ir.http.lazy_session_info HTTP/1.1" 200 270 8 0.133 0.08 rw
+2026-11-20 20:53:41,163 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:41] "GET /web/assets/357f262/web.material_symbols_outlined.min.woff2 HTTP/1.1" 200 38596 4 0.019 0.121 rw
+2026-11-20 20:53:41,312 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:41] "GET /odoo HTTP/1.1" 200 7961 34 0.142 0.063 rw
+2026-11-20 20:53:41,331 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:41] "GET /odoo/offline HTTP/1.1" 200 16927 7 0.181 0.025 rw
+2026-11-20 20:53:41,403 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:41] "POST /web/action/load HTTP/1.1" 200 1219 17 0.289 0.155 rw
+2026-11-20 20:53:41,824 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:41] "POST /mail/store HTTP/1.1" 200 6119 74 0.631 0.169 rw
+2026-11-20 20:53:41,826 57431 INFO ? odoo.addons.bus.bus_dispatcher: Bus._listener_loop listen imbus on db postgres
+2026-11-20 20:53:41,910 57431 INFO crm_phase2 odoo.addons.bus.bus_dispatcher: Bus: starting 1 dispatch workers
+2026-11-20 20:53:42,072 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:42] "POST /web/dataset/call_kw/crm.lead/get_views#crm.lead.get_views HTTP/1.1" 200 122103 56 0.207 0.119 rw
+2026-11-20 20:53:42,225 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:42] "POST /web/dataset/call_kw/crm.team/get_team_switcher_data#crm.team.get_team_switcher_data HTTP/1.1" 200 351 5 0.035 0.018 rw
+2026-11-20 20:53:42,407 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:42] "POST /web/dataset/call_kw/crm.lead/read_progress_bar#crm.lead.read_progress_bar HTTP/1.1" 200 227 4 0.134 0.009 rw
+2026-11-20 20:53:42,429 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:42] "POST /web/dataset/call_kw/res.users/has_group#res.users.has_group HTTP/1.1" 200 43 2 0.003 0.008 rw
+2026-11-20 20:53:42,491 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:42] "POST /web/dataset/call_kw/crm.lead/web_read_group#crm.lead.web_read_group HTTP/1.1" 200 11158 26 0.089 0.045 rw
+2026-11-20 20:53:42,779 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:42] "POST /web/dataset/call_kw/res.users/has_group#res.users.has_group HTTP/1.1" 200 44 2 0.006 0.009 rw
+2026-11-20 20:53:43,652 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:43] "GET /web/image/res.partner/16/avatar_128?unique=1795200247000 HTTP/1.1" 200 1464 5 0.019 0.086 rw
+2026-11-20 20:53:43,654 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:43] "GET /web/image/res.partner/12/avatar_128?unique=1795200263000 HTTP/1.1" 200 15232 5 0.021 0.087 rw
+2026-11-20 20:53:43,701 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:43] "GET /web/image/res.partner/13/avatar_128?unique=1795200247000 HTTP/1.1" 200 5510 5 0.037 0.122 rw
+2026-11-20 20:53:43,707 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:43] "GET /web/image/res.partner/11/avatar_128?unique=1795200263000 HTTP/1.1" 200 8472 5 0.102 0.054 rw
+2026-11-20 20:53:43,711 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:43] "GET /web/image/res.users/2/avatar_128?unique=1795207887000 HTTP/1.1" 200 2836 6 0.024 0.143 rw
+2026-11-20 20:53:43,827 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:43] "GET /web/assets/ed7f96a/web.odoo_ui_icons.min.woff2 HTTP/1.1" 200 39616 4 0.005 0.115 rw
+2026-11-20 20:53:43,964 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:43] "GET /web/image/res.partner/10/avatar_128?unique=1795200263000 HTTP/1.1" 200 10692 5 0.235 0.183 rw
+2026-11-20 20:53:44,217 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:44] "GET /odoo/crm HTTP/1.1" 200 7960 34 0.239 0.216 rw
+2026-11-20 20:53:44,376 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:44] "GET /web/webclient/load_menus HTTP/1.1" 200 187971 2 0.002 0.005 rw
+2026-11-20 20:53:44,407 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:44] "GET /web/manifest.webmanifest HTTP/1.1" 200 1469 7 0.022 0.015 rw
+2026-11-20 20:53:44,527 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:41] "GET /websocket?version=saas-19.5-1 HTTP/1.1" 101 0 34 0.395 3.169 rw
+2026-11-20 20:53:47,031 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:47] "GET /bus/websocket_worker_bundle?v=saas-19.5-1 HTTP/1.1" 304 0 4 0.007 0.009 rw
+2026-11-20 20:53:47,055 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:47] "GET /web/webclient/translations?hash=03cf325d925f0476815dd1bb06ee2ef24d536f71&lang=en_US HTTP/1.1" 200 69 2 0.003 0.046 rw
+2026-11-20 20:53:47,535 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:47] "POST /web/dataset/call_kw/ir.http/lazy_session_info#ir.http.lazy_session_info HTTP/1.1" 200 270 7 0.06 0.032 rw
+2026-11-20 20:53:47,553 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:47] "POST /web/dataset/call_kw/crm.lead/get_views#crm.lead.get_views HTTP/1.1" 200 122103 6 0.038 0.072 rw
+2026-11-20 20:53:47,563 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:47] "POST /web/dataset/call_kw/crm.team/get_team_switcher_data#crm.team.get_team_switcher_data HTTP/1.1" 200 351 5 0.008 0.006 rw
+2026-11-20 20:53:47,704 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:47] "POST /web/dataset/call_kw/crm.lead/read_progress_bar#crm.lead.read_progress_bar HTTP/1.1" 200 227 4 0.05 0.006 rw
+2026-11-20 20:53:47,710 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:47] "POST /web/dataset/call_kw/res.users/has_group#res.users.has_group HTTP/1.1" 200 43 2 0.037 0.013 rw
+2026-11-20 20:53:47,929 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:47] "POST /web/dataset/call_kw/crm.lead/web_read_group#crm.lead.web_read_group HTTP/1.1" 200 11158 26 0.199 0.076 rw
+2026-11-20 20:53:47,954 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:47] "POST /mail/store HTTP/1.1" 200 6137 63 0.302 0.11 rw
+2026-11-20 20:53:48,111 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:48] "POST /web/dataset/call_kw/res.users/has_group#res.users.has_group HTTP/1.1" 200 44 2 0.004 0.008 rw
+2026-11-20 20:53:48,950 57431 INFO crm_phase2 odoo.addons.phone_validation.tools.phone_validation: The `phonenumbers` Python module is not installed, contact numbers will not be verified. Please install the `phonenumbers` Python module.
+2026-11-20 20:53:49,023 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:49] "POST /web/dataset/call_kw/crm.lead/web_read#crm.lead.web_read HTTP/1.1" 200 2428 30 0.155 0.071 rw
+2026-11-20 20:53:49,398 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:49] "POST /web/dataset/call_kw/crm.stage/search_read#crm.stage.search_read HTTP/1.1" 200 249 3 0.007 0.03 rw
+2026-11-20 20:53:49,660 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:49] "GET /web/bundle/web.assets_emoji?lang=en_US HTTP/1.1" 200 74 3 0.002 0.004 rw
+2026-11-20 20:53:49,733 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:49] "POST /html_editor/get_ice_servers HTTP/1.1" 200 42 4 0.015 0.004 rw
+2026-11-20 20:53:49,862 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:49] "GET /crm/static/src/img/pls-tooltip-ai-icon.png HTTP/1.1" 200 2226 0 0 0.002 -
+2026-11-20 20:53:50,097 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:50] "GET /web/assets/44b0db3/web.assets_emoji.min.js HTTP/1.1" 200 458331 4 0.012 0.045 rw
+2026-11-20 20:53:50,243 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:50] "POST /mail/store HTTP/1.1" 200 7023 59 0.165 0.116 rw
+2026-11-20 20:53:50,730 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:50] "GET /web/bundle/mail.assets_message_email?lang=en_US HTTP/1.1" 200 82 3 0.003 0.029 rw
+2026-11-20 20:53:50,743 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:50] "GET /mail/static/src/img/email_icon.png HTTP/1.1" 200 924 0 0 0.001 -
+2026-11-20 20:53:50,763 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:50] "GET /web/image/res.partner/2/avatar_128?unique=1795207361000 HTTP/1.1" 200 4660 5 0.007 0.013 rw
+2026-11-20 20:53:50,947 57431 INFO crm_phase2 odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/e421ac0/mail.assets_message_email.min.css (id:2347)
+2026-11-20 20:53:50,958 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:50] "GET /web/assets/e421ac0/mail.assets_message_email.min.css HTTP/1.1" 200 329 12 0.06 0.054 rw
+2026-11-20 20:53:51,111 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:51] "GET /odoo/crm HTTP/1.1" 200 7969 34 0.075 0.138 rw
+2026-11-20 20:53:51,409 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:47] "GET /websocket?version=saas-19.5-1 HTTP/1.1" 101 0 51 0.193 4.09 rw
+2026-11-20 20:53:51,414 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:51] "GET /web/webclient/load_menus HTTP/1.1" 200 187971 2 0.003 0.013 rw
+2026-11-20 20:53:51,708 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:51] "GET /web/webclient/translations?hash=03cf325d925f0476815dd1bb06ee2ef24d536f71&lang=en_US HTTP/1.1" 200 69 2 0.004 0.01 rw
+2026-11-20 20:53:51,724 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:51] "GET /bus/websocket_worker_bundle?v=saas-19.5-1 HTTP/1.1" 304 0 4 0.013 0.012 rw
+2026-11-20 20:53:51,726 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:51] "GET /web/manifest.webmanifest HTTP/1.1" 200 1469 7 0.041 0.016 rw
+2026-11-20 20:53:52,131 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:52] "POST /web/dataset/call_kw/ir.http/lazy_session_info#ir.http.lazy_session_info HTTP/1.1" 200 270 7 0.041 0.042 rw
+2026-11-20 20:53:52,298 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:52] "POST /web/dataset/call_kw/crm.team/get_team_switcher_data#crm.team.get_team_switcher_data HTTP/1.1" 200 351 5 0.044 0.047 rw
+2026-11-20 20:53:52,312 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:52] "POST /web/dataset/call_kw/crm.lead/get_views#crm.lead.get_views HTTP/1.1" 200 122103 6 0.089 0.157 rw
+2026-11-20 20:53:52,356 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:52] "POST /web/dataset/call_kw/crm.lead/read_progress_bar#crm.lead.read_progress_bar HTTP/1.1" 200 227 4 0.021 0.072 rw
+2026-11-20 20:53:52,394 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:52] "POST /web/dataset/call_kw/res.users/has_group#res.users.has_group HTTP/1.1" 200 43 2 0.004 0.03 rw
+2026-11-20 20:53:52,523 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:52] "POST /web/dataset/call_kw/crm.lead/web_read_group#crm.lead.web_read_group HTTP/1.1" 200 11158 26 0.225 0.032 rw
+2026-11-20 20:53:52,625 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:52] "POST /web/dataset/call_kw/res.users/has_group#res.users.has_group HTTP/1.1" 200 44 2 0.005 0.013 rw
+2026-11-20 20:53:52,654 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:52] "POST /mail/store HTTP/1.1" 200 6128 63 0.446 0.075 rw
+2026-11-20 20:53:53,350 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:53] "GET /web/image?model=res.users&field=avatar_128&id=2 HTTP/1.1" 200 2836 6 0.021 0.032 rw
+2026-11-20 20:53:54,295 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:54] "GET /scoped_app?app_id=crm&path=odoo%2Fcrm HTTP/1.1" 200 1381 35 0.265 0.512 rw
+2026-11-20 20:53:54,322 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:54] "GET /web/manifest.scoped_app_manifest?app_id=crm&path=%2Fodoo%2Fcrm&app_name=CRM HTTP/1.1" 200 297 2 0.003 0.009 rw
+2026-11-20 20:53:54,470 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:54] "GET /odoo/crm HTTP/1.1" 200 7969 34 0.035 0.096 rw
+2026-11-20 20:53:54,761 57431 INFO crm_phase2 odoo.service.server.ThreadedServer: Initiating shutdown
+2026-11-20 20:53:54,761 57431 INFO crm_phase2 odoo.service.server.ThreadedServer: Hit CTRL-C again or send a second signal to force the shutdown.
+2026-11-20 20:53:54,761 57431 INFO crm_phase2 odoo.addons.bus.websocket: Disconnecting 1 websockets
+2026-11-20 20:53:54,806 57431 INFO crm_phase2 odoo.http.server: 127.0.0.1 ZTQ8XT8l - [20/Nov/2026 20:53:52] "GET /websocket?version=saas-19.5-1 HTTP/1.1" 101 0 38 0.238 2.361 rw
+2026-11-20 20:53:54,879 57431 INFO crm_phase2 odoo.sql_db: ConnectionPool(read/write;used=0/count=0/max=64): Closed 6 connections 

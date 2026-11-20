@@ -1,0 +1,143 @@
+{
+  "desktop": {
+    "started": 7947,
+    "passed": 8108,
+    "failed": 6,
+    "missing_with_multiplicities": {},
+    "added_with_multiplicities": {
+      "@crm/crm_offline/offline storage follows the database, rep and active companies": 1,
+      "@crm/crm_offline/a denied read clears stored history and ongoing snapshot writes": 1,
+      "@crm/crm_offline/the saved order survives enrichment and an unreadable pending row": 1,
+      "@crm/crm_offline/an online save can finish when this device is full": 1,
+      "@crm/crm_offline/a busy sender leaves a new save queued without waiting for the network": 1,
+      "@crm/crm_offline_access/offline enrollment explains a mismatched passphrase and leaves it editable": 1,
+      "@web/core/l10n/translation/a lost refresh can use an already saved language": 1,
+      "@web/core/network/rpc/a live HTTP 401 remains an access failure when the response is HTML": 1,
+      "@web/core/network/rpc/a live HTTP 403 remains an access failure when the response is HTML": 1
+    },
+    "failed_ids": [
+      "@mail/discuss/call/call_integration/Can join a call in p2p",
+      "@mail/discuss/call/peer_to_peer/basic peer to peer connection",
+      "@mail/discuss/call/peer_to_peer/can broadcast a stream and control download",
+      "@mail/discuss/call/peer_to_peer/can broadcast arbitrary messages (dataChannel)",
+      "@mail/discuss/call/peer_to_peer/connection recovery",
+      "@web/core/utils/timing/throttleForAnimationScrollEvent/scroll loses target"
+    ],
+    "new_failed_ids": []
+  },
+  "mobile": {
+    "started": 3991,
+    "passed": 4065,
+    "failed": 1,
+    "missing_with_multiplicities": {},
+    "added_with_multiplicities": {
+      "@web/core/l10n/translation/a lost refresh can use an already saved language": 1,
+      "@crm/crm_offline/offline storage follows the database, rep and active companies": 1,
+      "@crm/crm_offline/a denied read clears stored history and ongoing snapshot writes": 1,
+      "@crm/crm_offline/the saved order survives enrichment and an unreadable pending row": 1,
+      "@crm/crm_offline/an online save can finish when this device is full": 1,
+      "@crm/crm_offline/a busy sender leaves a new save queued without waiting for the network": 1,
+      "@crm/crm_offline_access/offline enrollment explains a mismatched passphrase and leaves it editable": 1
+    },
+    "failed_ids": [
+      "@mail/discuss/call/call_integration/Can join a call in p2p"
+    ],
+    "new_failed_ids": []
+  },
+  "embed": {
+    "started": 44,
+    "passed": 44,
+    "failed": 0,
+    "missing_with_multiplicities": {},
+    "added_with_multiplicities": {},
+    "failed_ids": [],
+    "new_failed_ids": []
+  },
+  "python": {
+    "totals": {
+      "pass": 834,
+      "fail": 22,
+      "error": 2,
+      "skip": 3
+    },
+    "total_collected": 861,
+    "missing": [],
+    "new_failures_or_skips": [],
+    "new_subfailures": [],
+    "tours": {
+      "tour_success": 81,
+      "tour_failure": 11
+    }
+  },
+  "extra": {
+    "totals": {
+      "fail": 17,
+      "pass": 15,
+      "error": 3
+    },
+    "total_collected": 35,
+    "missing": [],
+    "new_failures_or_skips": [],
+    "new_subfailures": [],
+    "tours": {
+      "tour_failure": 1
+    }
+  },
+  "tours": {
+    "actual": {
+      "tour_success": 81,
+      "tour_failure": 12
+    },
+    "failures": [
+      [
+        "odoo.addons.crm.tests.test_sales_team_ui.TestUi.test_crm_team_members_mono_company",
+        "create_crm_team_tour"
+      ],
+      [
+        "odoo.addons.mail.tests.discuss.test_discuss_channel_as_guest.TestMailPublicPage.test_discuss_channel_public_page_call_public",
+        "discuss_channel_call_public_tour.js"
+      ],
+      [
+        "odoo.addons.mail.tests.test_mail_template.TestMailTemplateUI.test_mail_template_dynamic_field_tour",
+        "mail_template_dynamic_field_tour"
+      ],
+      [
+        "odoo.addons.mail.tests.discuss.test_rtc.TestChannelRTC.test_70_call_invitation_ui",
+        "discuss_call_invitation.js"
+      ],
+      [
+        "odoo.addons.mail.tests.discuss.test_ui.TestUi.test_04_meeting_view_tour",
+        "discuss.meeting_view_public_tour"
+      ],
+      [
+        "odoo.addons.test_event_full.tests.test_wevent_register.TestWEventRegister.test_internal_user_register",
+        "wevent_register"
+      ],
+      [
+        "odoo.addons.test_event_full.tests.test_wevent_register.TestWEventRegister.test_register",
+        "wevent_register"
+      ],
+      [
+        "odoo.addons.test_main_flows.tests.test_flow.TestUiMobile.test_01_main_flow_tour_mobile",
+        "main_flow_tour"
+      ],
+      [
+        "odoo.addons.website_crm_partner_assign.tests.test_partner_assign.TestPublish.test_01_admin",
+        "test_can_publish_partner"
+      ],
+      [
+        "odoo.addons.website_crm_partner_assign.tests.test_partner_assign.TestPublish.test_02_reditor_salesman",
+        "test_can_publish_partner"
+      ],
+      [
+        "odoo.addons.website_crm_partner_assign.tests.test_partner_assign.TestPublish.test_04_not_reditor_salesman",
+        "test_can_publish_partner"
+      ],
+      [
+        "odoo.addons.test_event_full.tests.test_performance.TestOnlineEventPerformance.test_register_public",
+        "wevent_performance_register"
+      ]
+    ],
+    "new_failure_methods": []
+  }
+}

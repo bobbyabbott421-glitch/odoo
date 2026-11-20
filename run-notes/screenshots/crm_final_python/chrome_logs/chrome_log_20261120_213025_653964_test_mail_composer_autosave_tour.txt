@@ -1,0 +1,57 @@
+[82384:82416:1120/213009.162356:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[82384:82416:1120/213009.236312:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[82384:82416:1120/213009.236846:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[82384:82416:1120/213009.236881:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[82384:82416:1120/213009.236899:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[82384:82416:1120/213009.237501:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[82384:82416:1120/213009.237528:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[82384:82416:1120/213009.276723:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[82384:82426:1120/213009.434927:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 82430: Read-only file system (30)
+[82384:82416:1120/213009.451998:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[82384:82384:1120/213009.608835:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[82384:82384:1120/213009.620910:WARNING:device/bluetooth/dbus/bluez_dbus_manager.cc:209] Floss manager service not available, cannot set Floss enable/disable.
+[82384:82384:1120/213009.620970:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[82384:82384:1120/213009.621291:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[82384:82416:1120/213009.622320:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[82384:82416:1120/213009.622348:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[82384:82384:1120/213009.646342:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[82384:82416:1120/213009.647455:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[82384:82416:1120/213009.694734:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[82384:82416:1120/213009.694888:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[82428:82428:1120/213009.848565:WARNING:media/gpu/vaapi/vaapi_wrapper.cc:1655] drmGetDevices2() has not found any devices
+[82428:82428:1120/213009.909093:WARNING:sandbox/policy/linux/sandbox_linux.cc:405] InitializeSandbox() called with multiple threads in process gpu-process.
+[82384:82426:1120/213009.916061:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 82468: Read-only file system (30)
+[82384:82426:1120/213010.267989:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 82486: Read-only file system (30)
+[82384:82426:1120/213010.302889:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 82487: Read-only file system (30)
+[82384:82384:1120/213010.846983:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[82384:82384:1120/213010.848123:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[82384:82416:1120/213010.848266:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[82384:82384:1120/213010.849897:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[82384:82384:1120/213010.850716:WARNING:dbus/property.cc:94] Failed to connect to PropertiesChangedsignal.
+[82384:82384:1120/213010.850760:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.Properties.GetAll: object_path= /org/freedesktop/UPower/devices/DisplayDevice: unknown error type: 
+[82384:82384:1120/213010.850768:WARNING:dbus/property.cc:174] GetAll request failed for: org.freedesktop.UPower.Device
+[82384:82384:1120/213010.896437:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[82384:82416:1120/213010.897933:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[82384:82384:1120/213011.045967:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[82384:82416:1120/213011.047634:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[82384:82384:1120/213011.139354:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[82384:82384:1120/213011.139611:WARNING:ui/base/idle/idle_linux.cc:111] None of the known D-Bus ScreenSaver services could be used.
+[82384:82384:1120/213016.240228:INFO:CONSOLE:1148] "Owl is running in 'dev' mode.", source: http://127.0.0.1:8071/web/assets/56c5002/web.assets_web.min.js (1148)
+[82384:82384:1120/213016.817750:INFO:CONSOLE:672] "Hoot DOM helpers available from `window.hoot`", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (672)
+[82384:82384:1120/213016.821067:INFO:CONSOLE:683] "[1/10] Tour mail/static/tests/tours/mail_composer_autosave_tour.js → Step Edit the function field (trigger: .o_field_widget[name='function'] .o_input)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[82384:82384:1120/213020.678066:INFO:CONSOLE:683] "[2/10] Tour mail/static/tests/tours/mail_composer_autosave_tour.js → Step .o_form_sheet_bg", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[82384:82384:1120/213020.704949:INFO:CONSOLE:683] "[3/10] Tour mail/static/tests/tours/mail_composer_autosave_tour.js → Step Click on Send Message (trigger: .o-mail-Chatter-sendMessage)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[82384:82384:1120/213021.158733:INFO:CONSOLE:683] "[4/10] Tour mail/static/tests/tours/mail_composer_autosave_tour.js → Step Open the full composer (trigger: [name='open-full-composer'])", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[82384:82384:1120/213021.268079:INFO:CONSOLE:683] "[5/10] Tour mail/static/tests/tours/mail_composer_autosave_tour.js → Step Edit the body (trigger: .o-wysiwyg div[contenteditable='true'])", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[82384:82384:1120/213021.976428:INFO:CONSOLE:683] "[6/10] Tour mail/static/tests/tours/mail_composer_autosave_tour.js → Step Click on Send Message (trigger: .o_mail_send[name='action_send_mail'])", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[82384:82384:1120/213022.423371:INFO:CONSOLE:683] "[7/10] Tour mail/static/tests/tours/mail_composer_autosave_tour.js → Step Check message is shown (trigger: .o-mail-Message-body:contains("Hello"))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[82384:82384:1120/213024.435224:INFO:CONSOLE:683] "[8/10] Tour mail/static/tests/tours/mail_composer_autosave_tour.js → Step .o_form_saved", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[82384:82384:1120/213024.436747:INFO:CONSOLE:683] "[9/10] Tour mail/static/tests/tours/mail_composer_autosave_tour.js → Step Click the top left corner to navigate across apps. (trigger: .o_main_navbar .o_menu_toggle)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[82384:82384:1120/213024.436875:INFO:CONSOLE:683] "[10/10] Tour mail/static/tests/tours/mail_composer_autosave_tour.js → Step .o_sidebar_topbar a.btn-primary", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[82384:82384:1120/213024.437100:INFO:CONSOLE:666] "tour succeeded", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (666)
+[82384:82384:1120/213024.437155:INFO:CONSOLE:666] "
+
+╔═══════════════════════════════════════════════════════════════════════╗
+║ TOUR mail/static/tests/tours/mail_composer_autosave_tour.js SUCCEEDED ║
+╚═══════════════════════════════════════════════════════════════════════╝
+", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (666)

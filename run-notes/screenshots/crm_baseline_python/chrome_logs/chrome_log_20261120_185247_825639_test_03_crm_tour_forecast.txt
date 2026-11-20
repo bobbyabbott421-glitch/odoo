@@ -1,0 +1,69 @@
+[4685:4714:1120/185228.915948:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[4685:4714:1120/185228.916035:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[4685:4714:1120/185228.939523:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[4685:4714:1120/185228.939635:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[4685:4714:1120/185228.939665:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[4685:4714:1120/185228.939675:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[4685:4714:1120/185228.939683:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[4685:4714:1120/185228.951448:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[4685:4714:1120/185229.034143:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[4685:4725:1120/185229.057003:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 4731: Read-only file system (30)
+[4685:4685:1120/185229.078427:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[4685:4685:1120/185229.078635:WARNING:device/bluetooth/dbus/bluez_dbus_manager.cc:209] Floss manager service not available, cannot set Floss enable/disable.
+[4685:4685:1120/185229.078664:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[4685:4714:1120/185229.078665:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[4685:4714:1120/185229.078694:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[4685:4685:1120/185229.096174:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[4685:4685:1120/185229.105732:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[4685:4714:1120/185229.105936:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[4727:4727:1120/185229.200775:WARNING:media/gpu/vaapi/vaapi_wrapper.cc:1655] drmGetDevices2() has not found any devices
+[4685:4725:1120/185229.207016:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 4769: Read-only file system (30)
+[4685:4725:1120/185229.259668:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 4778: Read-only file system (30)
+[4685:4685:1120/185229.262541:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[4685:4685:1120/185229.268407:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[4685:4685:1120/185229.272494:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[4685:4714:1120/185229.294399:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[4685:4714:1120/185229.294444:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[4685:4714:1120/185229.294456:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[4727:4727:1120/185229.302416:WARNING:sandbox/policy/linux/sandbox_linux.cc:405] InitializeSandbox() called with multiple threads in process gpu-process.
+[4685:4725:1120/185229.308912:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 4780: Read-only file system (30)
+[4685:4685:1120/185229.331243:WARNING:dbus/property.cc:94] Failed to connect to PropertiesChangedsignal.
+[4685:4685:1120/185229.331274:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.Properties.GetAll: object_path= /org/freedesktop/UPower/devices/DisplayDevice: unknown error type: 
+[4685:4685:1120/185229.331282:WARNING:dbus/property.cc:174] GetAll request failed for: org.freedesktop.UPower.Device
+[4685:4685:1120/185229.331294:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[4685:4714:1120/185229.331672:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[4685:4685:1120/185229.374202:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[4685:4714:1120/185229.398628:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[4685:4685:1120/185229.408256:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[4685:4685:1120/185229.408283:WARNING:ui/base/idle/idle_linux.cc:111] None of the known D-Bus ScreenSaver services could be used.
+[4685:4685:1120/185232.609893:INFO:CONSOLE:1148] "Owl is running in 'dev' mode.", source: http://127.0.0.1:8071/web/assets/5c8437c/web.assets_web.min.js (1148)
+[4685:4685:1120/185232.816542:INFO:CONSOLE:672] "Hoot DOM helpers available from `window.hoot`", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (672)
+[4685:4685:1120/185232.817189:INFO:CONSOLE:683] "[1/22] Tour crm_forecast → Step .o_navbar_apps_menu button:enabled", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[4685:4685:1120/185233.303439:INFO:CONSOLE:683] "[2/22] Tour crm_forecast → Step open crm app (trigger: .o_app[data-menu-xmlid='crm.crm_menu_root'])", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[4685:4685:1120/185233.363088:INFO:CONSOLE:683] "[3/22] Tour crm_forecast → Step Open Reporting menu (trigger: .dropdown-toggle[data-menu-xmlid="crm.crm_menu_report"])", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[4685:4685:1120/185234.049454:INFO:CONSOLE:683] "[4/22] Tour crm_forecast → Step Open Forecast menu (trigger: .dropdown-item[data-menu-xmlid="crm.crm_menu_forecast"])", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[4685:4685:1120/185234.073180:INFO:CONSOLE:683] "[5/22] Tour crm_forecast → Step Wait page loading (trigger: .o_column_quick_create)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[4685:4685:1120/185235.575824:INFO:CONSOLE:683] "[6/22] Tour crm_forecast → Step click create (trigger: .o-kanban-button-new)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[4685:4685:1120/185235.609007:INFO:CONSOLE:683] "[7/22] Tour crm_forecast → Step complete name (trigger: .o_field_widget[name=name] input)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[4685:4685:1120/185236.266916:INFO:CONSOLE:683] "[8/22] Tour crm_forecast → Step complete expected revenue (trigger: .o_field_widget[name=expected_revenue] input)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[4685:4685:1120/185236.289080:INFO:CONSOLE:683] "[9/22] Tour crm_forecast → Step edit lead (trigger: button.o_kanban_edit)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[4685:4685:1120/185236.307376:INFO:CONSOLE:683] "[10/22] Tour crm_forecast → Step open date picker (trigger: div[name=date_deadline] button)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[4685:4685:1120/185237.571817:INFO:CONSOLE:683] "[11/22] Tour crm_forecast → Step complete expected closing (trigger: div[name=date_deadline] input)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[4685:4685:1120/185237.742753:INFO:CONSOLE:683] "[12/22] Tour crm_forecast → Step click to make the datepicker disappear (trigger: div[name=date_deadline] input)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[4685:4685:1120/185237.743096:INFO:CONSOLE:683] "[13/22] Tour crm_forecast → Step navigate back to the kanban view (trigger: .o_back_button)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[4685:4685:1120/185237.899269:INFO:CONSOLE:683] "[14/22] Tour crm_forecast → Step move to the next month (trigger: .o_kanban_record:contains('Test Opportunity 1'))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[4685:4685:1120/185239.160081:INFO:CONSOLE:683] "[15/22] Tour crm_forecast → Step edit lead (trigger: .o_kanban_record:contains('Test Opportunity 1'))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[4685:4685:1120/185239.196003:INFO:CONSOLE:683] "[16/22] Tour crm_forecast → Step open date picker (trigger: div[name=date_deadline] button)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[4685:4685:1120/185239.454521:INFO:CONSOLE:683] "[17/22] Tour crm_forecast → Step complete expected closing (trigger: .o_field_widget[name=date_deadline] input)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[4685:4685:1120/185239.563252:INFO:CONSOLE:683] "[18/22] Tour crm_forecast → Step win the lead (trigger: button[name=action_set_won_rainbowman])", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[4685:4685:1120/185239.600076:INFO:CONSOLE:683] "[19/22] Tour crm_forecast → Step wait for the lead to be won (trigger: .o_form_view .ribbon:contains('Won'))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[4685:4685:1120/185240.102675:INFO:CONSOLE:683] "[20/22] Tour crm_forecast → Step navigate back to the kanban view (trigger: .o_back_button)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[4685:4685:1120/185240.126369:INFO:CONSOLE:683] "[21/22] Tour crm_forecast → Step add next month (trigger: .o_column_quick_create.o_quick_create_folded div)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[4685:4685:1120/185240.539360:INFO:CONSOLE:683] "[22/22] Tour crm_forecast → Step assert that the opportunity has the Won banner (trigger: .o_kanban_record:contains('Test Opportunity 1'):contains('Won'))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[4685:4685:1120/185241.056846:INFO:CONSOLE:666] "tour succeeded", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (666)
+[4685:4685:1120/185241.057023:INFO:CONSOLE:666] "
+
+╔═════════════════════════════╗
+║ TOUR crm_forecast SUCCEEDED ║
+╚═════════════════════════════╝
+", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (666)

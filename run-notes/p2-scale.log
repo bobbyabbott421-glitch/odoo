@@ -1,0 +1,63 @@
+test_large_team (__main__.OfflinePipeline.test_large_team) ... 2026-11-20 20:04:19,618 35911 INFO ? scale: Chrome pid: 35957
+2026-11-20 20:04:19,619 35911 INFO ? scale: Chrome headless temporary user profile dir: /tmp/tmp26e5ofj__chrome_odoo
+2026-11-20 20:04:19,619 35911 INFO ? scale: Issuing json command http://127.0.0.1:39919/json/version
+2026-11-20 20:04:19,659 35911 INFO ? scale: Browser version: Chrome/156.0.8078.79
+2026-11-20 20:04:19,659 35911 INFO ? scale: Issuing json command http://127.0.0.1:39919/json
+2026-11-20 20:04:19,684 35911 INFO ? scale: Websocket url found: ws://127.0.0.1:39919/devtools/page/D93340FA188E1D5EE7B8B855569F02FC
+2026-11-20 20:04:19,707 35911 INFO ? scale: Enable chrome headless console log notification
+2026-11-20 20:04:19,716 35911 INFO ? scale: Chrome headless enable page notifications
+2026-11-20 20:04:19,785 35911 INFO ? scale: Navigating to: "http://127.0.0.1:8074/odoo/crm"
+2026-11-20 20:04:20,710 35911 INFO ? scale: Navigation result: {'frameId': 'D93340FA188E1D5EE7B8B855569F02FC', 'loaderId': '6C057DA63A95F985C029626F41DD9D5B', 'isDownload': False}
+FAIL
+2026-11-20 20:05:50,758 35911 INFO ? scale: Closing chrome headless with pid 35957
+2026-11-20 20:05:50,759 35911 INFO ? scale: Closing websocket connection
+2026-11-20 20:05:50,760 35911 INFO ? scale: Terminating chrome headless with pid 35957
+2026-11-20 20:05:50,943 35911 INFO ? scale: Chrome Log in: /tmp/odoo_tests/crm_scale/chrome_logs/chrome_log_20261120_200550_939466_runTest.txt
+2026-11-20 20:05:50,943 35911 INFO ? scale: Removing chrome user profile "/tmp/tmp26e5ofj__chrome_odoo"
+
+======================================================================
+FAIL: test_large_team (__main__.OfflinePipeline.test_large_team)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/run-notes/scale_offline_phase2.py", line 35, in test_large_team
+    wait_until("document.querySelector('.o_cp_team_switcher')")
+  File "/workspace/run-notes/scale_offline_phase2.py", line 33, in wait_until
+    self.fail('Timed out waiting for '+expression+'; screen: '+str(js('document.body?.innerText.slice(0,400)')))
+AssertionError: Timed out waiting for document.querySelector('.o_cp_team_switcher'); screen: CRM
+Sales
+Reporting
+Configuration
+11
+18
+My Company (San Francisco)
+New
+Generate
+All Teams
+My Opportunities
+New
+$ 8,825k
+Devis pour 150 tapis
+$ 40,000.00
+OpenWood
+Product
+Sales
+Quote for 12 Tables
+$ 40,000.00
+Will McEncroe
+Product
+Sales
+Offline volume opportunity 09996
+$ 2,096.00
+Sales
+Offline volume opportunity 09992
+$ 2,092.00
+Sales
+Offline volume opportunity 09988
+$ 2,088.00
+Sales
+Offline volume
+
+----------------------------------------------------------------------
+Ran 1 test in 97.206s
+
+FAILED (failures=1)

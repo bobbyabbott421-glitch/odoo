@@ -1,0 +1,73 @@
+[4302:4333:1120/185152.907131:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[4302:4333:1120/185152.907256:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[4302:4333:1120/185152.907290:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[4302:4333:1120/185152.907310:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[4302:4333:1120/185152.907332:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[4302:4333:1120/185152.907343:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[4302:4333:1120/185152.907351:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[4302:4333:1120/185152.926160:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[4302:4333:1120/185153.052542:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[4345:4345:1120/185153.122366:WARNING:media/gpu/vaapi/vaapi_wrapper.cc:1655] drmGetDevices2() has not found any devices
+[4302:4302:1120/185153.133679:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[4302:4302:1120/185153.133745:WARNING:device/bluetooth/dbus/bluez_dbus_manager.cc:209] Floss manager service not available, cannot set Floss enable/disable.
+[4302:4333:1120/185153.133789:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[4302:4302:1120/185153.134197:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[4302:4333:1120/185153.134323:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[4302:4302:1120/185153.134815:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[4302:4302:1120/185153.144790:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[4302:4333:1120/185153.144891:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[4345:4345:1120/185153.202809:WARNING:sandbox/policy/linux/sandbox_linux.cc:405] InitializeSandbox() called with multiple threads in process gpu-process.
+[4302:4343:1120/185153.211906:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 4376: Read-only file system (30)
+[4302:4343:1120/185153.302399:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 4387: Read-only file system (30)
+[4302:4343:1120/185153.357832:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 4411: Read-only file system (30)
+[4302:4343:1120/185153.369442:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 4412: Read-only file system (30)
+[4302:4302:1120/185153.411902:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[4302:4333:1120/185153.412014:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[4302:4333:1120/185153.412065:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[4302:4302:1120/185153.412875:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[4302:4333:1120/185153.413231:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[4302:4302:1120/185153.413440:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[4302:4302:1120/185153.440511:WARNING:dbus/property.cc:94] Failed to connect to PropertiesChangedsignal.
+[4302:4302:1120/185153.440534:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.Properties.GetAll: object_path= /org/freedesktop/UPower/devices/DisplayDevice: unknown error type: 
+[4302:4302:1120/185153.440538:WARNING:dbus/property.cc:174] GetAll request failed for: org.freedesktop.UPower.Device
+[4302:4302:1120/185153.441191:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[4302:4333:1120/185153.441328:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[4302:4302:1120/185153.469902:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[4302:4333:1120/185153.470512:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[4302:4302:1120/185153.497865:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[4302:4302:1120/185153.497886:WARNING:ui/base/idle/idle_linux.cc:111] None of the known D-Bus ScreenSaver services could be used.
+[4302:4302:1120/185156.949758:INFO:CONSOLE:1148] "Owl is running in 'dev' mode.", source: http://127.0.0.1:8071/web/assets/5c8437c/web.assets_web.min.js (1148)
+[4302:4302:1120/185157.149510:INFO:CONSOLE:672] "Hoot DOM helpers available from `window.hoot`", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (672)
+[4302:4302:1120/185157.153038:INFO:CONSOLE:683] "[1/26] Tour crm_tour → Step .o_navbar_apps_menu button:enabled", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[4302:4302:1120/185157.694045:INFO:CONSOLE:683] "[2/26] Tour crm_tour → Step Ready to boost your sales? Let's have a look at your <b>Pipeline</b>. (trigger: .o_app[data-menu-xmlid="crm.crm_menu_root"])", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[4302:4302:1120/185157.769853:INFO:CONSOLE:683] "[3/26] Tour crm_tour → Step Ready to boost your sales? Let's have a look at your <b>Pipeline</b>. (trigger: .o_app[data-menu-xmlid="crm.crm_menu_root"])", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[4302:4302:1120/185157.796341:INFO:CONSOLE:683] "[4/26] Tour crm_tour → Step .o_opportunity_kanban .o_kanban_renderer", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[4302:4302:1120/185159.594248:INFO:CONSOLE:683] "[5/26] Tour crm_tour → Step <b>Create your first opportunity.</b> (trigger: .o_opportunity_kanban .o-kanban-button-new)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[4302:4302:1120/185159.617509:INFO:CONSOLE:683] "[6/26] Tour crm_tour → Step <b>Write a few letters</b> to look for a company, or create a new one. (trigger: .o_kanban_quick_create .o_field_widget[name='partner_id'] input)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[4302:4302:1120/185200.135140:INFO:CONSOLE:683] "[7/26] Tour crm_tour → Step .ui-menu-item > a:contains('Brandon Freeman')", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[4302:4302:1120/185200.488485:INFO:CONSOLE:683] "[8/26] Tour crm_tour → Step Create your new contact. (trigger: .o_kanban_quick_create .o_m2o_dropdown_option_create)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[4302:4302:1120/185200.488877:INFO:CONSOLE:683] "[9/26] Tour crm_tour → Step .o_kanban_quick_create .o_field_widget[name='name'] input:value('Brandon Freeman')", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[4302:4302:1120/185200.550562:INFO:CONSOLE:683] "[10/26] Tour crm_tour → Step Now, <b>add your Opportunity</b> to your Pipeline. (trigger: .o_kanban_quick_create .o_kanban_add)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[4302:4302:1120/185200.563115:INFO:CONSOLE:683] "[11/26] Tour crm_tour → Step .o_opportunity_kanban .o_kanban_renderer", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[4302:4302:1120/185200.563504:INFO:CONSOLE:683] "[12/26] Tour crm_tour → Step <b>Drag &amp; drop opportunities</b> between columns as you progress in your sales cycle. (trigger: .o_opportunity_kanban:not(:has(.o_view_sample_data)) .o_kanban_group .o_kanban_record:last-of-type)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[4302:4302:1120/185200.828845:INFO:CONSOLE:683] "[13/26] Tour crm_tour → Step .o_opportunity_kanban .o_kanban_renderer", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[4302:4302:1120/185200.828983:INFO:CONSOLE:683] "[14/26] Tour crm_tour → Step Looks like nothing is planned. :(<br><br><i>Tip: Schedule activities to keep track of everything you have to do!</i> (trigger: .o_opportunity_kanban .o_kanban_group .o_kanban_record .o-mail-ActivityButton)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[4302:4302:1120/185200.845805:INFO:CONSOLE:683] "[15/26] Tour crm_tour → Step .o_opportunity_kanban .o_kanban_renderer", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[4302:4302:1120/185200.846808:INFO:CONSOLE:683] "[16/26] Tour crm_tour → Step Let's <b>Schedule an Activity.</b> (trigger: .o-mail-ActivityListPopover button:contains(Schedule an activity))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[4302:4302:1120/185201.008825:INFO:CONSOLE:683] "[17/26] Tour crm_tour → Step All set. Let’s <b>Schedule</b> it. (trigger: .modal-footer button[name="action_schedule_activities"])", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[4302:4302:1120/185201.497148:INFO:CONSOLE:683] "[18/26] Tour crm_tour → Step Let’s have a look at an Opportunity. (trigger: .o_kanban_record)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[4302:4302:1120/185201.756280:INFO:CONSOLE:683] "[19/26] Tour crm_tour → Step You can make your opportunity advance through your pipeline by clicking on stages here. Try sending it to the next stage! (trigger: .o_lead_opportunity_form .o_statusbar_status)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[4302:4302:1120/185202.261343:INFO:CONSOLE:683] "[20/26] Tour crm_tour → Step Click on the breadcrumbs to go back to your Pipeline. Odoo will save all your changes as you navigate. (trigger: .breadcrumb-item:not(.active):first)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[4302:4302:1120/185202.265719:INFO:CONSOLE:683] "[21/26] Tour crm_tour → Step Drag your opportunity to <b>Won</b> when you get the deal. Congrats! (trigger: .o_opportunity_kanban .o_kanban_record:last-of-type)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[4302:4302:1120/185203.102699:INFO:CONSOLE:683] "[22/26] Tour crm_tour → Step Looking for more opportunities?<br>Try the <b>Lead Generation</b> tool. (trigger: .o_control_panel_main_buttons .o-dropdown)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[4302:4302:1120/185203.118830:INFO:CONSOLE:683] "[23/26] Tour crm_tour → Step Click here to generate some leads. (trigger: .o_lead_mining_element[data-module-xml-id="base.module_crm_iap_mine"])", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[4302:4302:1120/185203.340055:INFO:CONSOLE:683] "[24/26] Tour crm_tour → Step Which Industry do you want to target? (trigger: .modal-body .o_industry)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[4302:4302:1120/185203.851992:INFO:CONSOLE:683] "[25/26] Tour crm_tour → Step Now, just let the magic happen! (trigger: .modal-footer button[name=action_submit])", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[4302:4302:1120/185203.853374:INFO:CONSOLE:683] "[26/26] Tour crm_tour → Step Now, just let the magic happen! (trigger: .modal-footer button[special=cancel])", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[4302:4302:1120/185203.929141:INFO:CONSOLE:666] "tour succeeded", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (666)
+[4302:4302:1120/185203.929286:INFO:CONSOLE:666] "
+
+╔═════════════════════════╗
+║ TOUR crm_tour SUCCEEDED ║
+╚═════════════════════════╝
+", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (666)

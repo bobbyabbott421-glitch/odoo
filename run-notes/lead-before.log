@@ -1,0 +1,103 @@
+test_visited_lead (__main__.OfflineLead.test_visited_lead) ... 2026-11-20 19:07:23,450 14187 INFO ? lead: Chrome pid: 14310
+2026-11-20 19:07:23,451 14187 INFO ? lead: Chrome headless temporary user profile dir: /tmp/tmplmrbo1x2_chrome_odoo
+2026-11-20 19:07:23,451 14187 INFO ? lead: Issuing json command http://127.0.0.1:43399/json/version
+2026-11-20 19:07:23,545 14187 INFO ? lead: Browser version: Chrome/156.0.8078.79
+2026-11-20 19:07:23,545 14187 INFO ? lead: Issuing json command http://127.0.0.1:43399/json
+2026-11-20 19:07:23,579 14187 INFO ? lead: Websocket url found: ws://127.0.0.1:43399/devtools/page/26412CDE7B396AF6A8F776CCB9ADD746
+2026-11-20 19:07:23,595 14187 INFO ? lead: Enable chrome headless console log notification
+2026-11-20 19:07:23,612 14187 INFO ? lead: Chrome headless enable page notifications
+2026-11-20 19:07:23,654 14187 INFO ? lead: Navigating to: "http://127.0.0.1:8074/odoo/crm/46"
+2026-11-20 19:07:24,567 14187 INFO ? lead: Navigation result: {'frameId': '26412CDE7B396AF6A8F776CCB9ADD746', 'loaderId': '0F9C68C419D238FE3BEC01382FD7EC4F', 'isDownload': False}
+2026-11-20 19:07:35,218 14187 INFO ? lead: Navigating to: "http://127.0.0.1:8074/odoo/crm/46"
+2026-11-20 19:07:35,326 14187 INFO ? lead: Navigation result: {'frameId': '26412CDE7B396AF6A8F776CCB9ADD746', 'loaderId': 'F8093B7B75401F7EA18C90F1960511D3', 'isDownload': False}
+2026-11-20 19:07:39,037 14187 INFO ? lead: Navigating to: "http://127.0.0.1:8074/odoo/crm/46"
+2026-11-20 19:07:39,067 14187 INFO ? lead: Navigation result: {'frameId': '26412CDE7B396AF6A8F776CCB9ADD746', 'loaderId': '1A4F082EDB575D8B79DE9599B9AA5D4D', 'isDownload': False}
+2026-11-20 19:07:39,289 14187 INFO crm_flow lead: Asking for screenshot
+2026-11-20 19:07:39,306 14187 INFO crm_flow lead.browser: Error received after termination: TypeError: Failed to fetch
+    at LocalizationPlugin.fetchTranslations (http://127.0.0.1:8074/web/assets/5c8437c/web.assets_web.min.js:2986:187)
+    at LocalizationPlugin.load (http://127.0.0.1:8074/web/assets/5c8437c/web.assets_web.min.js:2983:151)
+    at async Promise.all (index 0)
+    at async mountComponent (http://127.0.0.1:8074/web/assets/5c8437c/web.assets_web.min.js:1557:513)
+    at async startWebClient (http://127.0.0.1:8074/web/assets/5c8437c/web.assets_web.min.js:31929:19)
+2026-11-20 19:07:39,310 14187 WARNING crm_flow lead.browser: Error received after termination: Error while loading SharedWorker, fallback on Worker:  Event(isTrusted=true, type='error', target=SharedWorker, currentTarget=SharedWorker, eventPhase=2)
+2026-11-20 19:07:39,507 14187 INFO crm_flow lead: Screenshot in: /tmp/odoo_tests/crm_flow/screenshots/sc_20261120_190739_505639_runTest.png
+2026-11-20 19:07:39,517 14187 WARNING crm_flow lead.browser: Error received after termination: Worker service failed to initialize:  Event(isTrusted=true, type='error', target=Worker, currentTarget=Worker, eventPhase=2)
+2026-11-20 19:07:39,517 14187 WARNING crm_flow lead.browser: Error received after termination: BusService: Real-time notifications disabled (WorkerService failed to start).
+2026-11-20 19:07:39,518 14187 WARNING crm_flow lead.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 19:07:39,518 14187 WARNING crm_flow lead.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 19:07:39,518 14187 WARNING crm_flow lead.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 19:07:39,519 14187 WARNING crm_flow lead.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 19:07:39,519 14187 WARNING crm_flow lead.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 19:07:39,520 14187 WARNING crm_flow lead.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 19:07:39,520 14187 WARNING crm_flow lead.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 19:07:39,520 14187 WARNING crm_flow lead.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 19:07:39,520 14187 WARNING crm_flow lead.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 19:07:39,520 14187 WARNING crm_flow lead.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 19:07:39,521 14187 INFO crm_flow lead.browser: Error received after termination: TypeError: Failed to fetch
+    at odoo.reloadMenus (http://127.0.0.1:8074/odoo/crm/46:30:46)
+    at http://127.0.0.1:8074/odoo/crm/46:31:50
+2026-11-20 19:07:39,828 14187 WARNING crm_flow lead.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 19:07:39,828 14187 WARNING crm_flow lead.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+FAIL
+2026-11-20 19:08:24,119 14187 INFO ? lead: Closing chrome headless with pid 14310
+2026-11-20 19:08:24,120 14187 INFO ? lead: Closing websocket connection
+2026-11-20 19:08:24,122 14187 INFO ? lead: Terminating chrome headless with pid 14310
+2026-11-20 19:08:24,233 14187 INFO ? lead: Chrome Log in: /tmp/odoo_tests/crm_flow/chrome_logs/chrome_log_20261120_190824_232667_runTest.txt
+2026-11-20 19:08:24,233 14187 INFO ? lead: Removing chrome user profile "/tmp/tmplmrbo1x2_chrome_odoo"
+
+======================================================================
+FAIL: test_visited_lead (__main__.OfflineLead.test_visited_lead)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/run-notes/lead_offline.py", line 48, in test_visited_lead
+    wait_until('!window.__oldScaleDocument && ' + shown, 45)
+  File "/workspace/run-notes/lead_offline.py", line 33, in wait_until
+    self.fail('Timed out waiting for '+expression+'; screen: '+str(js('document.body?.innerText.slice(0,400)')))
+AssertionError: Timed out waiting for !window.__oldScaleDocument && document.body && ["Client prefers an afternoon visit.", "Confirm site visit"].every(s => document.body.innerText.includes(s)); screen: CRM
+Sales
+Reporting
+Configuration
+Working offline
+My Company (San Francisco)
+New
+Pipeline
+Client site follow-up
+No Meeting
+0
+Quotations
+1 / 1
+New Quotation
+Won
+Lost
+Won
+Proposition
+Qualified
+New
+1m
+Expected Revenue
+$ 
+4,200.00
+$ 
+at
+Probability
+%
+Contact?
+Email
+Phone
+Salesperson
+Expected Closing?
+Tags?
+Notes
+Extra Info
+Assigned Partner
+
+Meet the purchasing team on Friday.
+
+Send message
+Log note
+Ac
+
+----------------------------------------------------------------------
+Ran 1 test in 67.286s
+
+FAILED (failures=1)

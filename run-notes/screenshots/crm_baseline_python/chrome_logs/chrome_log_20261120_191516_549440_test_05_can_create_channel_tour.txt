@@ -1,0 +1,60 @@
+[18408:18437:1120/191511.718884:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[18408:18437:1120/191511.718996:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[18408:18437:1120/191511.831030:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[18408:18437:1120/191511.831122:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[18408:18437:1120/191511.831143:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[18408:18437:1120/191511.831159:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[18408:18437:1120/191511.831184:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[18408:18437:1120/191511.847431:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[18408:18448:1120/191511.894035:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 18452: Read-only file system (30)
+[18408:18437:1120/191511.894425:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[18408:18408:1120/191511.908193:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[18408:18408:1120/191511.908396:WARNING:device/bluetooth/dbus/bluez_dbus_manager.cc:209] Floss manager service not available, cannot set Floss enable/disable.
+[18408:18408:1120/191511.908522:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[18408:18408:1120/191511.908757:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[18408:18437:1120/191511.908642:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[18408:18437:1120/191511.912476:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[18408:18408:1120/191511.914876:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[18408:18437:1120/191511.915656:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[18408:18437:1120/191511.916433:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[18408:18437:1120/191511.917472:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[18450:18450:1120/191511.971926:WARNING:media/gpu/vaapi/vaapi_wrapper.cc:1655] drmGetDevices2() has not found any devices
+[18408:18448:1120/191511.977018:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 18498: Read-only file system (30)
+[18450:18450:1120/191512.001159:WARNING:sandbox/policy/linux/sandbox_linux.cc:405] InitializeSandbox() called with multiple threads in process gpu-process.
+[18408:18448:1120/191512.020642:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 18514: Read-only file system (30)
+[18408:18448:1120/191512.026921:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 18516: Read-only file system (30)
+[18408:18408:1120/191512.043033:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[18408:18408:1120/191512.044208:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[18408:18437:1120/191512.044289:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[18408:18408:1120/191512.044883:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[18408:18408:1120/191512.044974:WARNING:dbus/property.cc:94] Failed to connect to PropertiesChangedsignal.
+[18408:18408:1120/191512.045092:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.Properties.GetAll: object_path= /org/freedesktop/UPower/devices/DisplayDevice: unknown error type: 
+[18408:18408:1120/191512.045096:WARNING:dbus/property.cc:174] GetAll request failed for: org.freedesktop.UPower.Device
+[18408:18408:1120/191512.065862:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[18408:18437:1120/191512.066016:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[18408:18408:1120/191512.078629:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[18408:18437:1120/191512.082927:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[18408:18408:1120/191512.095002:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[18408:18408:1120/191512.095020:WARNING:ui/base/idle/idle_linux.cc:111] None of the known D-Bus ScreenSaver services could be used.
+[18408:18408:1120/191514.009540:INFO:CONSOLE:1148] "Owl is running in 'dev' mode.", source: http://127.0.0.1:8071/web/assets/5c8437c/web.assets_web.min.js (1148)
+[18408:18408:1120/191514.071169:INFO:CONSOLE:672] "Hoot DOM helpers available from `window.hoot`", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (672)
+[18408:18408:1120/191514.071240:INFO:CONSOLE:683] "[1/13] Tour can_create_channel_from_form_view → Step .o-mail-NotificationItem:has(:text('OdooBot'))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[18408:18408:1120/191514.738960:INFO:CONSOLE:683] "[2/13] Tour can_create_channel_from_form_view → Step .o-mail-DiscussContent-threadName[title='OdooBot']", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[18408:18408:1120/191514.739176:INFO:CONSOLE:683] "[3/13] Tour can_create_channel_from_form_view → Step .o-mail-MessagingMenu-tab:has(:text('Channels'))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[18408:18408:1120/191514.745685:INFO:CONSOLE:683] "[4/13] Tour can_create_channel_from_form_view → Step button[title='New channel']", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[18408:18408:1120/191514.787291:INFO:CONSOLE:683] "[5/13] Tour can_create_channel_from_form_view → Step .o_control_panel_main_buttons button:contains('New')", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[18408:18408:1120/191515.320212:INFO:CONSOLE:683] "[6/13] Tour can_create_channel_from_form_view → Step div[name='name'] input", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[18408:18408:1120/191515.530443:INFO:CONSOLE:683] "[7/13] Tour can_create_channel_from_form_view → Step Open the breadcrumb dropdown (trigger: .breadcrumb .dropdown-toggle)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[18408:18408:1120/191515.556730:INFO:CONSOLE:683] "[8/13] Tour can_create_channel_from_form_view → Step .o-overlay-container .dropdown-menu a:contains("OdooBot")", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[18408:18408:1120/191515.613027:INFO:CONSOLE:683] "[9/13] Tour can_create_channel_from_form_view → Step .o-mail-MessagingMenu-tab:has(:text('Channels'))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[18408:18408:1120/191515.784780:INFO:CONSOLE:683] "[10/13] Tour can_create_channel_from_form_view → Step .o-mail-MessagingMenuItem:has(:text('Test channel'))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[18408:18408:1120/191515.785006:INFO:CONSOLE:683] "[11/13] Tour can_create_channel_from_form_view → Step button[title='New channel']", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[18408:18408:1120/191515.792529:INFO:CONSOLE:683] "[12/13] Tour can_create_channel_from_form_view → Step span:text('Sports')", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[18408:18408:1120/191515.938831:INFO:CONSOLE:683] "[13/13] Tour can_create_channel_from_form_view → Step .o-mail-ChatWindow", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[18408:18408:1120/191516.156086:INFO:CONSOLE:666] "tour succeeded", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (666)
+[18408:18408:1120/191516.156482:INFO:CONSOLE:666] "
+
+╔══════════════════════════════════════════════════╗
+║ TOUR can_create_channel_from_form_view SUCCEEDED ║
+╚══════════════════════════════════════════════════╝
+", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (666)

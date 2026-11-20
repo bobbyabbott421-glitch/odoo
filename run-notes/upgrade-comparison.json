@@ -1,0 +1,27 @@
+{
+  "before_tables": 434,
+  "after_tables": 435,
+  "new_tables": [
+    "crm_offline_receipt"
+  ],
+  "changed_ids_or_values": {
+    "ir_model_data": [
+      100705,
+      100706,
+      100707,
+      100708,
+      100709,
+      109415,
+      109416
+    ],
+    "mailing_subscription": [
+      11,
+      12,
+      13,
+      14,
+      15
+    ]
+  },
+  "crm_leads_identical": true,
+  "crm_external_ids_preserved": true
+}

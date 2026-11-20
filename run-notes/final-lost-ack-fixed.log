@@ -1,0 +1,45 @@
+test_visited_lead (__main__.OfflineLead.test_visited_lead) ... 2026-11-20 21:03:09,304 61950 INFO ? lead: Chrome pid: 62336
+2026-11-20 21:03:09,305 61950 INFO ? lead: Chrome headless temporary user profile dir: /tmp/tmph548nmig_chrome_odoo
+2026-11-20 21:03:09,305 61950 INFO ? lead: Issuing json command http://127.0.0.1:36443/json/version
+2026-11-20 21:03:09,655 61950 INFO ? lead: Browser version: Chrome/156.0.8078.79
+2026-11-20 21:03:09,655 61950 INFO ? lead: Issuing json command http://127.0.0.1:36443/json
+2026-11-20 21:03:09,716 61950 INFO ? lead: Websocket url found: ws://127.0.0.1:36443/devtools/page/E568150E3A76BFC3B71112EC823D067A
+2026-11-20 21:03:09,744 61950 INFO ? lead: Enable chrome headless console log notification
+2026-11-20 21:03:09,763 61950 INFO ? lead: Chrome headless enable page notifications
+2026-11-20 21:03:09,931 61950 INFO ? lead: Navigating to: "http://127.0.0.1:8074/odoo/crm/new"
+2026-11-20 21:03:12,099 61950 INFO ? lead: Navigation result: {'frameId': 'E568150E3A76BFC3B71112EC823D067A', 'loaderId': '2414BB6429135AB27296E341806806A6', 'isDownload': False}
+2026-11-20 21:03:21,401 61950 ERROR crm_flow lead.browser: OwlError: No active scope
+    Error: No active scope
+        at useScope (http://127.0.0.1:8074/web/assets/b19db0f/web.assets_web.min.js:546:79)
+        at onWillDestroy (http://127.0.0.1:8074/web/assets/b19db0f/web.assets_web.min.js:752:40)
+        at useListener (http://127.0.0.1:8074/web/assets/b19db0f/web.assets_web.min.js:773:110)
+        at Object.start (http://127.0.0.1:8074/web/assets/b19db0f/web.assets_web.min.js:12060:281)
+        at async Promise.all (index 1)
+        at async start (http://127.0.0.1:8074/web/assets/b19db0f/web.assets_web.min.js:3084:81)
+        at async _startServices (http://127.0.0.1:8074/web/assets/b19db0f/web.assets_web.min.js:3085:72)
+        at async startServices (http://127.0.0.1:8074/web/assets/b19db0f/web.assets_web.min.js:3079:182)
+        at async Promise.all (index 0)
+        at async mountComponent (http://127.0.0.1:8074/web/assets/b19db0f/web.assets_web.min.js:1557:513)
+2026-11-20 21:03:21,402 61950 INFO crm_flow lead: Asking for screenshot
+2026-11-20 21:03:21,524 61950 INFO crm_flow lead: Screenshot in: /tmp/odoo_tests/crm_flow/screenshots/sc_20261120_210321_523720_runTest.png
+FAIL
+2026-11-20 21:04:42,219 61950 INFO ? lead: Closing chrome headless with pid 62336
+2026-11-20 21:04:42,233 61950 INFO ? lead: Closing websocket connection
+2026-11-20 21:04:42,235 61950 INFO ? lead: Terminating chrome headless with pid 62336
+2026-11-20 21:04:42,721 61950 INFO ? lead: Chrome Log in: /tmp/odoo_tests/crm_flow/chrome_logs/chrome_log_20261120_210442_717891_runTest.txt
+2026-11-20 21:04:42,721 61950 INFO ? lead: Removing chrome user profile "/tmp/tmph548nmig_chrome_odoo"
+
+======================================================================
+FAIL: test_visited_lead (__main__.OfflineLead.test_visited_lead)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/run-notes/lost_ack.py", line 41, in test_visited_lead
+    wait_until("!!document.querySelector('[name=name] textarea')")
+  File "/workspace/run-notes/lost_ack.py", line 34, in wait_until
+    self.fail('Timed out waiting for '+expression+'; screen: '+str(js('document.body?.innerText.slice(0,400)')))
+AssertionError: Timed out waiting for !!document.querySelector('[name=name] textarea'); screen: 
+
+----------------------------------------------------------------------
+Ran 1 test in 116.438s
+
+FAILED (failures=1)

@@ -1,0 +1,71 @@
+[85648:85679:1120/213817.910945:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[85648:85679:1120/213817.911044:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[85648:85679:1120/213818.004608:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[85648:85679:1120/213818.004908:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[85648:85679:1120/213818.005410:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[85648:85679:1120/213818.005435:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[85648:85679:1120/213818.006116:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[85648:85679:1120/213818.019622:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[85648:85679:1120/213818.260298:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[85648:85648:1120/213818.371330:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[85648:85679:1120/213818.371500:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[85648:85648:1120/213818.371749:WARNING:device/bluetooth/dbus/bluez_dbus_manager.cc:209] Floss manager service not available, cannot set Floss enable/disable.
+[85648:85648:1120/213818.371785:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[85691:85691:1120/213818.367745:WARNING:media/gpu/vaapi/vaapi_wrapper.cc:1655] drmGetDevices2() has not found any devices
+[85648:85679:1120/213818.372928:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[85648:85648:1120/213818.435028:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[85648:85648:1120/213818.465619:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[85648:85679:1120/213818.502178:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[85648:85689:1120/213818.750353:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 85724: Read-only file system (30)
+[85691:85691:1120/213818.762322:WARNING:sandbox/policy/linux/sandbox_linux.cc:405] InitializeSandbox() called with multiple threads in process gpu-process.
+[85648:85689:1120/213818.850361:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 85746: Read-only file system (30)
+[85648:85689:1120/213819.006754:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 85755: Read-only file system (30)
+[85648:85689:1120/213819.020945:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 85759: Read-only file system (30)
+[85648:85648:1120/213819.026960:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[85648:85679:1120/213819.026984:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[85648:85679:1120/213819.027069:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[85648:85648:1120/213819.030895:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[85648:85679:1120/213819.031006:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[85648:85648:1120/213819.031800:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[85648:85648:1120/213819.095744:WARNING:dbus/property.cc:94] Failed to connect to PropertiesChangedsignal.
+[85648:85648:1120/213819.095784:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.Properties.GetAll: object_path= /org/freedesktop/UPower/devices/DisplayDevice: unknown error type: 
+[85648:85648:1120/213819.095792:WARNING:dbus/property.cc:174] GetAll request failed for: org.freedesktop.UPower.Device
+[85648:85648:1120/213819.098223:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[85648:85679:1120/213819.098401:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[85648:85648:1120/213819.124301:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[85648:85679:1120/213819.124740:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[85648:85648:1120/213819.133413:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[85648:85648:1120/213819.133494:WARNING:ui/base/idle/idle_linux.cc:111] None of the known D-Bus ScreenSaver services could be used.
+[85648:85648:1120/213823.957842:INFO:CONSOLE:1148] "Owl is running in 'dev' mode.", source: http://127.0.0.1:8071/web/assets/56c5002/web.assets_web.min.js (1148)
+[85648:85648:1120/213824.324483:INFO:CONSOLE:672] "Hoot DOM helpers available from `window.hoot`", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (672)
+[85648:85648:1120/213824.324625:INFO:CONSOLE:683] "[1/21] Tour discuss.meeting_view_tour → Step .o-mail-Meeting", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[85648:85648:1120/213827.498707:INFO:CONSOLE:683] "[2/21] Tour discuss.meeting_view_tour → Step .o-mail-Meeting [title='Members']", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[85648:85648:1120/213827.698166:INFO:CONSOLE:683] "[3/21] Tour discuss.meeting_view_tour → Step .o-mail-Meeting .o-mail-ActionPanel:contains('Members')", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[85648:85648:1120/213827.807193:INFO:CONSOLE:683] "[4/21] Tour discuss.meeting_view_tour → Step .o-mail-Meeting [title='Members']", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[85648:85648:1120/213827.845337:INFO:CONSOLE:683] "[5/21] Tour discuss.meeting_view_tour → Step .o-mail-Meeting:not(:has(.o-mail-ActionPanel))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[85648:85648:1120/213827.912299:INFO:CONSOLE:683] "[6/21] Tour discuss.meeting_view_tour → Step .o-mail-Meeting [title='Members']", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[85648:85648:1120/213827.957647:INFO:CONSOLE:683] "[7/21] Tour discuss.meeting_view_tour → Step .o-mail-Meeting .o-mail-ActionPanel:contains('Members')", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[85648:85648:1120/213828.023672:INFO:CONSOLE:683] "[8/21] Tour discuss.meeting_view_tour → Step .o-mail-Meeting [title='Chat']", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[85648:85648:1120/213828.098668:INFO:CONSOLE:683] "[9/21] Tour discuss.meeting_view_tour → Step .o-mail-Meeting .o-mail-ActionPanel .o-mail-Thread:contains('Meeting, Jan 1')", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[85983:85983:1120/213828.339798:WARNING:media/audio/linux/audio_manager_linux.cc:53] Falling back to ALSA for audio output. PulseAudio is not available or could not be initialized.
+[85983:85983:1120/213828.366782:ERROR:media/audio/alsa/alsa_util.cc:204] PcmOpen: default,No such file or directory
+[85983:85983:1120/213828.366929:ERROR:media/audio/alsa/alsa_util.cc:204] PcmOpen: plug:default,No such file or directory
+[85648:85648:1120/213828.803443:INFO:CONSOLE:683] "[10/21] Tour discuss.meeting_view_tour → Step .o-mail-Meeting .o-mail-ActionPanel .o-mail-Composer-input", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[85648:85648:1120/213828.809433:INFO:CONSOLE:683] "[11/21] Tour discuss.meeting_view_tour → Step .o-mail-Meeting [title='Chat']:not(:has(.badge))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[85648:85648:1120/213828.895035:INFO:CONSOLE:683] "[12/21] Tour discuss.meeting_view_tour → Step .o-mail-Message[data-persistent]:contains('Hello everyone!')", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[85648:85648:1120/213828.940635:INFO:CONSOLE:683] "[13/21] Tour discuss.meeting_view_tour → Step .o-dropdown-item:contains('Mark as Unread')", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[85648:85648:1120/213829.012180:INFO:CONSOLE:683] "[14/21] Tour discuss.meeting_view_tour → Step .o-mail-Meeting [title='Chat']:has(.badge:contains(1))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[85648:85648:1120/213829.218004:INFO:CONSOLE:683] "[15/21] Tour discuss.meeting_view_tour → Step .o-mail-Thread-banner span:contains('Mark as Read')", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[85648:85648:1120/213829.227199:INFO:CONSOLE:683] "[16/21] Tour discuss.meeting_view_tour → Step .o-mail-Meeting [title='Chat']:not(:has(.badge))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[85648:85648:1120/213829.426032:INFO:CONSOLE:683] "[17/21] Tour discuss.meeting_view_tour → Step .o-mail-Meeting .o-mail-ActionPanel", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[85648:85648:1120/213829.461129:INFO:CONSOLE:683] "[18/21] Tour discuss.meeting_view_tour → Step .o-mail-Meeting [title='Close panel']", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[85648:85648:1120/213829.502844:INFO:CONSOLE:683] "[19/21] Tour discuss.meeting_view_tour → Step .o-mail-Meeting:not(:has(.o-mail-ActionPanel))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[85648:85648:1120/213829.515387:INFO:CONSOLE:683] "[20/21] Tour discuss.meeting_view_tour → Step .o-mail-Meeting", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[85648:85648:1120/213829.539277:INFO:CONSOLE:683] "[21/21] Tour discuss.meeting_view_tour → Step body:not(:has(.o-mail-Meeting))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[85648:85648:1120/213829.642024:INFO:CONSOLE:666] "tour succeeded", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (666)
+[85648:85648:1120/213829.642175:INFO:CONSOLE:666] "
+
+╔══════════════════════════════════════════╗
+║ TOUR discuss.meeting_view_tour SUCCEEDED ║
+╚══════════════════════════════════════════╝
+", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (666)

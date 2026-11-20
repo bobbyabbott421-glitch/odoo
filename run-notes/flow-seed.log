@@ -1,0 +1,13 @@
+2026-11-20 19:07:04,657 14106 INFO ? odoo: Odoo version 20.0
+2026-11-20 19:07:04,657 14106 INFO ? odoo: Using configuration file at /workspace/odoo-env/odoo.conf
+2026-11-20 19:07:04,657 14106 INFO ? odoo: addons paths: _NamespacePath(['/workspace/odoo/odoo/addons', '/workspace/odoo-env/data/addons/20.0', '/workspace/odoo/addons'])
+2026-11-20 19:07:04,657 14106 INFO ? odoo: database: odoo@/workspace/odoo-env/run:5432
+2026-11-20 19:07:05,340 14106 INFO ? odoo.service.server.ThreadedServer: Initiating shutdown
+2026-11-20 19:07:05,340 14106 INFO ? odoo.service.server.ThreadedServer: Hit CTRL-C again or send a second signal to force the shutdown.
+2026-11-20 19:07:05,376 14106 INFO crm_flow odoo.modules.loading: loading 1 modules...
+2026-11-20 19:07:05,380 14106 INFO crm_flow odoo.modules.loading: 1 modules loaded in 0.00s, 0 queries (+0 extra)
+2026-11-20 19:07:05,445 14106 INFO crm_flow odoo.modules.loading: loading 226 modules...
+2026-11-20 19:07:05,644 14106 WARNING crm_flow odoo.addons.mail.controllers.attachment: markdown2 is not installed, markdown will not be rendered
+2026-11-20 19:07:06,597 14106 INFO crm_flow odoo.modules.loading: 226 modules loaded in 1.15s, 0 queries (+0 extra)
+2026-11-20 19:07:07,014 14106 INFO crm_flow odoo.modules.loading: Modules loaded.
+2026-11-20 19:07:07,137 14106 INFO crm_flow odoo.registry: Registry loaded in 1.790s

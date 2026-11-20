@@ -1,0 +1,77 @@
+[21065:21094:1120/192134.571396:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[21065:21094:1120/192134.572487:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[21065:21094:1120/192134.630677:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[21065:21094:1120/192134.631267:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[21065:21094:1120/192134.631297:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[21065:21094:1120/192134.631309:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[21065:21094:1120/192134.631338:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[21065:21094:1120/192134.663056:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[21106:21106:1120/192134.741148:WARNING:media/gpu/vaapi/vaapi_wrapper.cc:1655] drmGetDevices2() has not found any devices
+[21106:21106:1120/192134.750359:WARNING:sandbox/policy/linux/sandbox_linux.cc:405] InitializeSandbox() called with multiple threads in process gpu-process.
+[21065:21094:1120/192134.778738:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[21065:21104:1120/192134.780213:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 21135: Read-only file system (30)
+[21065:21065:1120/192134.819348:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[21065:21065:1120/192134.819511:WARNING:device/bluetooth/dbus/bluez_dbus_manager.cc:209] Floss manager service not available, cannot set Floss enable/disable.
+[21065:21065:1120/192134.819537:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[21065:21094:1120/192134.820066:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[21065:21094:1120/192134.820559:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[21065:21065:1120/192134.821490:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[21065:21065:1120/192134.835012:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[21065:21094:1120/192134.838145:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[21065:21104:1120/192135.187387:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 21162: Read-only file system (30)
+[21065:21104:1120/192135.325394:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 21173: Read-only file system (30)
+[21065:21104:1120/192135.336441:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 21174: Read-only file system (30)
+[21065:21094:1120/192135.380344:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[21065:21094:1120/192135.380427:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[21065:21065:1120/192135.380430:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[21065:21065:1120/192135.381349:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[21065:21094:1120/192135.381553:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[21065:21065:1120/192135.385432:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[21065:21065:1120/192135.446922:WARNING:dbus/property.cc:94] Failed to connect to PropertiesChangedsignal.
+[21065:21065:1120/192135.446962:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.Properties.GetAll: object_path= /org/freedesktop/UPower/devices/DisplayDevice: unknown error type: 
+[21065:21065:1120/192135.446967:WARNING:dbus/property.cc:174] GetAll request failed for: org.freedesktop.UPower.Device
+[21065:21065:1120/192135.452845:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[21065:21094:1120/192135.453569:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[21065:21065:1120/192135.504820:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[21065:21094:1120/192135.505111:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[21065:21065:1120/192135.533200:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[21065:21065:1120/192135.533237:WARNING:ui/base/idle/idle_linux.cc:111] None of the known D-Bus ScreenSaver services could be used.
+[21065:21065:1120/192140.463063:INFO:CONSOLE:1148] "Owl is running in 'dev' mode.", source: http://127.0.0.1:8071/web/assets/1/5c8437c/web.assets_web.min.js (1148)
+[21065:21065:1120/192140.619268:INFO:CONSOLE:672] "Hoot DOM helpers available from `window.hoot`", source: http://127.0.0.1:8071/web/assets/1/f0674d8/web.assets_tests.min.js (672)
+[21065:21065:1120/192140.619962:INFO:CONSOLE:683] "[1/26] Tour configurator_flow → Step click on create new website (trigger: button[name="action_website_create_new"])", source: http://127.0.0.1:8071/web/assets/1/f0674d8/web.assets_tests.min.js (683)
+[21065:21065:1120/192143.962942:INFO:CONSOLE:683] "[2/26] Tour configurator_flow → Step insert website name (trigger: [name="name"] input)", source: http://127.0.0.1:8071/web/assets/1/f0674d8/web.assets_tests.min.js (683)
+[21065:21065:1120/192145.561636:INFO:CONSOLE:683] "[3/26] Tour configurator_flow → Step validate the website creation modal (trigger: button.btn-primary:contains("Create"))", source: http://127.0.0.1:8071/web/assets/1/f0674d8/web.assets_tests.min.js (683)
+[21065:21065:1120/192150.768229:INFO:CONSOLE:1148] "Owl is running in 'dev' mode.", source: http://127.0.0.1:8071/web/assets/3/5c8437c/web.assets_web.min.js (1148)
+[21065:21065:1120/192150.788259:INFO:CONSOLE:672] "Hoot DOM helpers available from `window.hoot`", source: http://127.0.0.1:8071/web/assets/3/f0674d8/web.assets_tests.min.js (672)
+[21065:21065:1120/192150.788436:INFO:CONSOLE:683] "[4/26] Tour configurator_flow → Step select a website type (trigger: button.o_change_website_type)", source: http://127.0.0.1:8071/web/assets/3/f0674d8/web.assets_tests.min.js (683)
+[21065:21065:1120/192152.535517:INFO:CONSOLE:683] "[5/26] Tour configurator_flow → Step insert a website industry (trigger: .o_configurator_industry input)", source: http://127.0.0.1:8071/web/assets/3/f0674d8/web.assets_tests.min.js (683)
+[21065:21065:1120/192152.595471:INFO:CONSOLE:683] "[6/26] Tour configurator_flow → Step select a website industry from the autocomplete (trigger: .o_configurator_industry ul li a)", source: http://127.0.0.1:8071/web/assets/3/f0674d8/web.assets_tests.min.js (683)
+[21065:21065:1120/192152.777119:INFO:CONSOLE:683] "[7/26] Tour configurator_flow → Step choose from the positioning list (trigger: button.o_change_website_purpose)", source: http://127.0.0.1:8071/web/assets/3/f0674d8/web.assets_tests.min.js (683)
+[21065:21065:1120/192152.907122:INFO:CONSOLE:683] "[8/26] Tour configurator_flow → Step chose a palette card (trigger: .palette_card)", source: http://127.0.0.1:8071/web/assets/3/f0674d8/web.assets_tests.min.js (683)
+[21065:21065:1120/192153.039176:INFO:CONSOLE:683] "[9/26] Tour configurator_flow → Step Wait for theme selection or shop page style (trigger: .o_configurator_screen:contains(online catalog) .button_area, .o_theme_selection_screen:not(.o_wsale_configurator_screen) .theme_preview .button_area)", source: http://127.0.0.1:8071/web/assets/3/f0674d8/web.assets_tests.min.js (683)
+[21065:21065:1120/192153.148213:INFO:CONSOLE:683] "[10/26] Tour configurator_flow → Step Choose a theme (trigger: .o_theme_selection_screen:not(.o_wsale_configurator_screen) .theme_preview .button_area)", source: http://127.0.0.1:8071/web/assets/3/f0674d8/web.assets_tests.min.js (683)
+[21065:21065:1120/192153.148502:INFO:CONSOLE:683] "[11/26] Tour configurator_flow → Step Choose a shop page style (trigger: .o_configurator_screen:contains(online catalog) .button_area)", source: http://127.0.0.1:8071/web/assets/3/f0674d8/web.assets_tests.min.js (683)
+[21065:21065:1120/192153.174560:INFO:CONSOLE:683] "[12/26] Tour configurator_flow → Step Choose a product page style (trigger: .o_configurator_screen:contains(product page) .button_area)", source: http://127.0.0.1:8071/web/assets/3/f0674d8/web.assets_tests.min.js (683)
+[21065:21065:1120/192153.923695:INFO:CONSOLE:683] "[13/26] Tour configurator_flow → Step Loader should be shown (trigger: .o_website_loader_container)", source: http://127.0.0.1:8071/web/assets/3/f0674d8/web.assets_tests.min.js (683)
+[21065:21065:1120/192210.385969:INFO:CONSOLE:1148] "Owl is running in 'dev' mode.", source: http://127.0.0.1:8071/web/assets/3/050d7e5/web.assets_web.min.js (1148)
+[21065:21065:1120/192210.435194:INFO:CONSOLE:672] "Hoot DOM helpers available from `window.hoot`", source: http://127.0.0.1:8071/web/assets/3/f0674d8/web.assets_tests.min.js (672)
+[21065:21065:1120/192210.435797:INFO:CONSOLE:683] "[14/26] Tour configurator_flow → Step Wait for the editor to load after redirect (trigger: :iframe [data-view-xmlid='website.homepage'])", source: http://127.0.0.1:8071/web/assets/3/f0674d8/web.assets_tests.min.js (683)
+[21065:21065:1120/192218.560013:INFO:CONSOLE:683] "[15/26] Tour configurator_flow → Step check menu and footer links are correct (trigger: body:not(.editor_enable))", source: http://127.0.0.1:8071/web/assets/3/f0674d8/web.assets_tests.min.js (683)
+[21065:21065:1120/192218.560947:INFO:CONSOLE:683] "[16/26] Tour configurator_flow → Step Check footer menu Contact us is there (trigger: :iframe footer a:contains(Contact us))", source: http://127.0.0.1:8071/web/assets/3/f0674d8/web.assets_tests.min.js (683)
+[21065:21065:1120/192218.562186:INFO:CONSOLE:683] "[17/26] Tour configurator_flow → Step Check footer menu Privacy Policy is there (trigger: :iframe footer a:contains(Privacy Policy))", source: http://127.0.0.1:8071/web/assets/3/f0674d8/web.assets_tests.min.js (683)
+[21065:21065:1120/192218.563323:INFO:CONSOLE:683] "[18/26] Tour configurator_flow → Step Check menu Home is there (trigger: :iframe .top_menu a:contains(Home):not(:visible))", source: http://127.0.0.1:8071/web/assets/3/f0674d8/web.assets_tests.min.js (683)
+[21065:21065:1120/192218.564093:INFO:CONSOLE:683] "[19/26] Tour configurator_flow → Step Check menu Events is there (trigger: :iframe .top_menu a:contains(Events):not(:visible))", source: http://127.0.0.1:8071/web/assets/3/f0674d8/web.assets_tests.min.js (683)
+[21065:21065:1120/192218.564729:INFO:CONSOLE:683] "[20/26] Tour configurator_flow → Step Check menu Courses is there (trigger: :iframe .top_menu a:contains(Courses):not(:visible))", source: http://127.0.0.1:8071/web/assets/3/f0674d8/web.assets_tests.min.js (683)
+[21065:21065:1120/192218.565549:INFO:CONSOLE:683] "[21/26] Tour configurator_flow → Step Check menu Blog is there (trigger: :iframe .top_menu a:contains(Blog):not(:visible))", source: http://127.0.0.1:8071/web/assets/3/f0674d8/web.assets_tests.min.js (683)
+[21065:21065:1120/192218.566485:INFO:CONSOLE:683] "[22/26] Tour configurator_flow → Step Check url / is there (trigger: :iframe .top_menu a[href^='/']:not(:visible))", source: http://127.0.0.1:8071/web/assets/3/f0674d8/web.assets_tests.min.js (683)
+[21065:21065:1120/192218.567099:INFO:CONSOLE:683] "[23/26] Tour configurator_flow → Step Check url /event is there (trigger: :iframe .top_menu a[href^='/event']:not(:visible))", source: http://127.0.0.1:8071/web/assets/3/f0674d8/web.assets_tests.min.js (683)
+[21065:21065:1120/192218.567237:INFO:CONSOLE:683] "[24/26] Tour configurator_flow → Step Check url /slides is there (trigger: :iframe .top_menu a[href^='/slides']:not(:visible))", source: http://127.0.0.1:8071/web/assets/3/f0674d8/web.assets_tests.min.js (683)
+[21065:21065:1120/192218.567290:INFO:CONSOLE:683] "[25/26] Tour configurator_flow → Step Check url /blog is there (trigger: :iframe .top_menu a[href^='/blog']:not(:visible))", source: http://127.0.0.1:8071/web/assets/3/f0674d8/web.assets_tests.min.js (683)
+[21065:21065:1120/192218.567334:INFO:CONSOLE:683] "[26/26] Tour configurator_flow → Step :iframe .oe_structure > [data-snippet]", source: http://127.0.0.1:8071/web/assets/3/f0674d8/web.assets_tests.min.js (683)
+[21065:21065:1120/192218.568756:INFO:CONSOLE:666] "tour succeeded", source: http://127.0.0.1:8071/web/assets/3/f0674d8/web.assets_tests.min.js (666)
+[21065:21065:1120/192218.568797:INFO:CONSOLE:666] "
+
+╔══════════════════════════════════╗
+║ TOUR configurator_flow SUCCEEDED ║
+╚══════════════════════════════════╝
+", source: http://127.0.0.1:8071/web/assets/3/f0674d8/web.assets_tests.min.js (666)

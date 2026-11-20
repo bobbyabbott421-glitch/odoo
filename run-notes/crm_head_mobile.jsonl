@@ -1,0 +1,3 @@
+["collected", "odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile"]
+["startTest", "odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile"]
+["addFailure", "odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile"]

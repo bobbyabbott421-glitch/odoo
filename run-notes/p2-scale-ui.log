@@ -1,0 +1,48 @@
+test_large_team (__main__.OfflinePipeline.test_large_team) ... 2026-11-20 20:06:34,279 37032 INFO ? scale: Chrome pid: 37049
+2026-11-20 20:06:34,280 37032 INFO ? scale: Chrome headless temporary user profile dir: /tmp/tmpx7w47g1x_chrome_odoo
+2026-11-20 20:06:34,281 37032 INFO ? scale: Issuing json command http://127.0.0.1:40335/json/version
+2026-11-20 20:06:34,405 37032 INFO ? scale: Browser version: Chrome/156.0.8078.79
+2026-11-20 20:06:34,406 37032 INFO ? scale: Issuing json command http://127.0.0.1:40335/json
+2026-11-20 20:06:34,437 37032 INFO ? scale: Websocket url found: ws://127.0.0.1:40335/devtools/page/4C485E9E7BF3D7DC587D81EF1F90965C
+2026-11-20 20:06:34,454 37032 INFO ? scale: Enable chrome headless console log notification
+2026-11-20 20:06:34,473 37032 INFO ? scale: Chrome headless enable page notifications
+2026-11-20 20:06:34,503 37032 INFO ? scale: Navigating to: "http://127.0.0.1:8074/odoo/crm"
+2026-11-20 20:06:35,197 37032 INFO ? scale: Navigation result: {'frameId': '4C485E9E7BF3D7DC587D81EF1F90965C', 'loaderId': 'E87DAEAEBEB6F00305243E23B2132732', 'isDownload': False}
+2026-11-20 20:06:43,048 37032 INFO ? scale: Navigating to: "http://127.0.0.1:8074/odoo/crm"
+2026-11-20 20:06:43,222 37032 INFO ? scale: Navigation result: {'frameId': '4C485E9E7BF3D7DC587D81EF1F90965C', 'loaderId': '343DA849FFA0ADE702172325019BFF58', 'isDownload': False}
+2026-11-20 20:06:51,100 37032 INFO ? scale: Navigating to: "http://127.0.0.1:8074/odoo/crm"
+2026-11-20 20:06:51,145 37032 INFO ? scale: Navigation result: {'frameId': '4C485E9E7BF3D7DC587D81EF1F90965C', 'loaderId': 'B540AADA6D78E22D4D176F246D080710', 'isDownload': False}
+2026-11-20 20:06:51,304 37032 INFO crm_scale scale: Asking for screenshot
+2026-11-20 20:06:51,318 37032 INFO crm_scale scale.browser: Error received after termination: TypeError: Failed to fetch
+    at LocalizationPlugin.fetchTranslations (http://127.0.0.1:8074/web/assets/268405d/web.assets_web.min.js:2986:187)
+    at LocalizationPlugin.load (http://127.0.0.1:8074/web/assets/268405d/web.assets_web.min.js:2983:151)
+    at async Promise.all (index 0)
+    at async mountComponent (http://127.0.0.1:8074/web/assets/268405d/web.assets_web.min.js:1557:513)
+    at async startWebClient (http://127.0.0.1:8074/web/assets/268405d/web.assets_web.min.js:31958:19)
+2026-11-20 20:06:51,319 37032 WARNING crm_scale scale.browser: Error received after termination: Error while loading SharedWorker, fallback on Worker:  Event(isTrusted=true, type='error', target=SharedWorker, currentTarget=SharedWorker, eventPhase=2)
+2026-11-20 20:06:51,322 37032 WARNING crm_scale scale.browser: Error received after termination: Worker service failed to initialize:  Event(isTrusted=true, type='error', target=Worker, currentTarget=Worker, eventPhase=2)
+2026-11-20 20:06:51,322 37032 WARNING crm_scale scale.browser: Error received after termination: BusService: Real-time notifications disabled (WorkerService failed to start).
+2026-11-20 20:06:51,323 37032 WARNING crm_scale scale.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 20:06:51,324 37032 WARNING crm_scale scale.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 20:06:51,324 37032 WARNING crm_scale scale.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 20:06:51,340 37032 WARNING crm_scale scale.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 20:06:51,340 37032 WARNING crm_scale scale.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 20:06:51,348 37032 WARNING crm_scale scale.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 20:06:51,348 37032 WARNING crm_scale scale.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 20:06:51,348 37032 WARNING crm_scale scale.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 20:06:51,348 37032 WARNING crm_scale scale.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 20:06:51,348 37032 WARNING crm_scale scale.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 20:06:51,449 37032 INFO crm_scale scale: Screenshot in: /tmp/odoo_tests/crm_scale/screenshots/sc_20261120_200651_446657_runTest.png
+OFFLINE_10000_RENDER_MS 3726
+VISIBLE_CARD_COUNT 320
+2026-11-20 20:06:57,572 37032 INFO ? scale: Closing chrome headless with pid 37049
+2026-11-20 20:06:57,574 37032 INFO ? scale: Closing websocket connection
+2026-11-20 20:06:57,574 37032 INFO ? scale: Terminating chrome headless with pid 37049
+2026-11-20 20:06:57,813 37032 INFO ? scale: Chrome Log in: /tmp/odoo_tests/crm_scale/chrome_logs/chrome_log_20261120_200657_812942_runTest.txt
+2026-11-20 20:06:57,813 37032 INFO ? scale: Removing chrome user profile "/tmp/tmpx7w47g1x_chrome_odoo"
+ok
+
+----------------------------------------------------------------------
+Ran 1 test in 27.207s
+
+OK

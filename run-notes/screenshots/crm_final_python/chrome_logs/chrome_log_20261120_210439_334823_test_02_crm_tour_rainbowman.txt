@@ -1,0 +1,73 @@
+[62992:63022:1120/210417.241469:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[62992:63022:1120/210417.249220:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[62992:63022:1120/210417.249291:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[62992:63022:1120/210417.249311:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[62992:63022:1120/210417.249327:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[62992:63022:1120/210417.249338:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[62992:63022:1120/210417.249345:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[62992:63022:1120/210417.268782:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[62992:63022:1120/210417.438381:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[62992:62992:1120/210417.462445:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[62992:62992:1120/210417.465232:WARNING:device/bluetooth/dbus/bluez_dbus_manager.cc:209] Floss manager service not available, cannot set Floss enable/disable.
+[62992:62992:1120/210417.465465:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[62992:63022:1120/210417.465811:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[62992:63022:1120/210417.465894:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[62992:62992:1120/210417.466376:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[62992:62992:1120/210417.495349:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[62992:63022:1120/210417.495479:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[62992:63022:1120/210417.498753:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[62992:63022:1120/210417.498798:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[62992:63031:1120/210417.526756:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 63051: Read-only file system (30)
+[62992:63031:1120/210417.562907:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 63062: Read-only file system (30)
+[62992:63031:1120/210417.626437:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 63072: Read-only file system (30)
+[62992:63031:1120/210417.641033:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 63074: Read-only file system (30)
+[62992:62992:1120/210417.646945:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[62992:62992:1120/210417.647148:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[62992:63022:1120/210417.647265:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[62992:62992:1120/210417.647636:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[62992:62992:1120/210417.647808:WARNING:dbus/property.cc:94] Failed to connect to PropertiesChangedsignal.
+[62992:62992:1120/210417.647820:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.Properties.GetAll: object_path= /org/freedesktop/UPower/devices/DisplayDevice: unknown error type: 
+[62992:62992:1120/210417.647826:WARNING:dbus/property.cc:174] GetAll request failed for: org.freedesktop.UPower.Device
+[62992:62992:1120/210417.695666:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[62992:63022:1120/210417.695790:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[62992:62992:1120/210417.718745:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[62992:63022:1120/210417.720046:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[62992:62992:1120/210417.731782:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[62992:62992:1120/210417.731806:WARNING:ui/base/idle/idle_linux.cc:111] None of the known D-Bus ScreenSaver services could be used.
+[63035:63035:1120/210417.753327:WARNING:media/gpu/vaapi/vaapi_wrapper.cc:1655] drmGetDevices2() has not found any devices
+[63035:63035:1120/210417.824361:WARNING:sandbox/policy/linux/sandbox_linux.cc:405] InitializeSandbox() called with multiple threads in process gpu-process.
+[62992:62992:1120/210424.023174:INFO:CONSOLE:1148] "Owl is running in 'dev' mode.", source: http://127.0.0.1:8071/web/assets/56c5002/web.assets_web.min.js (1148)
+[62992:62992:1120/210424.227167:INFO:CONSOLE:672] "Hoot DOM helpers available from `window.hoot`", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (672)
+[62992:62992:1120/210424.229555:INFO:CONSOLE:683] "[1/26] Tour crm_rainbowman → Step .o_navbar_apps_menu button:enabled", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[62992:62992:1120/210426.012701:INFO:CONSOLE:683] "[2/26] Tour crm_rainbowman → Step open crm app (trigger: .o_app[data-menu-xmlid='crm.crm_menu_root'])", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[62992:62992:1120/210426.501518:INFO:CONSOLE:683] "[3/26] Tour crm_rainbowman → Step click create (trigger: body:has(.o_kanban_renderer) .o-kanban-button-new)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[62992:62992:1120/210429.464013:INFO:CONSOLE:683] "[4/26] Tour crm_rainbowman → Step complete name (trigger: .o_field_widget[name=name] input)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[62992:62992:1120/210430.978358:INFO:CONSOLE:683] "[5/26] Tour crm_rainbowman → Step complete expected revenue (trigger: .o_field_widget[name=expected_revenue] input)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[62992:62992:1120/210431.046363:INFO:CONSOLE:683] "[6/26] Tour crm_rainbowman → Step create lead (trigger: button.o_kanban_add)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[62992:62992:1120/210431.068978:INFO:CONSOLE:683] "[7/26] Tour crm_rainbowman → Step move to won stage (trigger: .o_kanban_record:contains('Test Lead 1'))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[62992:62992:1120/210432.439703:INFO:CONSOLE:683] "[8/26] Tour crm_rainbowman → Step .o_reward_rainbow", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[62992:62992:1120/210432.849663:INFO:CONSOLE:683] "[9/26] Tour crm_rainbowman → Step .o_kanban_renderer", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[62992:62992:1120/210432.860703:INFO:CONSOLE:683] "[10/26] Tour crm_rainbowman → Step .o_kanban_renderer:not(:has(.o_kanban_quick_create))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[62992:62992:1120/210432.861781:INFO:CONSOLE:683] "[11/26] Tour crm_rainbowman → Step create second lead (trigger: .o-kanban-button-new)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[62992:62992:1120/210432.869649:INFO:CONSOLE:683] "[12/26] Tour crm_rainbowman → Step complete name (trigger: .o_field_widget[name=name] input)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[62992:62992:1120/210432.997956:INFO:CONSOLE:683] "[13/26] Tour crm_rainbowman → Step complete expected revenue (trigger: .o_field_widget[name=expected_revenue] input)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[62992:62992:1120/210433.043358:INFO:CONSOLE:683] "[14/26] Tour crm_rainbowman → Step create lead (trigger: button.o_kanban_add)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[62992:62992:1120/210433.100734:INFO:CONSOLE:683] "[15/26] Tour crm_rainbowman → Step .o_kanban_record:contains('Test Lead 2')", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[62992:62992:1120/210433.699762:INFO:CONSOLE:683] "[16/26] Tour crm_rainbowman → Step move back to new stage (trigger: .o_kanban_record:contains('Test Lead 1'))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[62992:62992:1120/210434.138010:INFO:CONSOLE:683] "[17/26] Tour crm_rainbowman → Step click on second lead (trigger: .o_kanban_record:contains('Test Lead 2'))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[62992:62992:1120/210434.147974:INFO:CONSOLE:683] "[18/26] Tour crm_rainbowman → Step move lead to won stage (trigger: .o_statusbar_status button[data-value='4'])", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[62992:62992:1120/210435.118617:INFO:CONSOLE:683] "[19/26] Tour crm_rainbowman → Step button.o_form_button_save", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[62992:62992:1120/210435.218677:INFO:CONSOLE:683] "[20/26] Tour crm_rainbowman → Step wait for save completion (trigger: .o_form_readonly, .o_form_saved)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[62992:62992:1120/210436.207662:INFO:CONSOLE:683] "[21/26] Tour crm_rainbowman → Step .o_reward_rainbow", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[62992:62992:1120/210436.259493:INFO:CONSOLE:683] "[22/26] Tour crm_rainbowman → Step move lead to previous stage & rainbowman appears (trigger: .o_statusbar_status button[data-value='1'])", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[62992:62992:1120/210436.335704:INFO:CONSOLE:683] "[23/26] Tour crm_rainbowman → Step click button mark won (trigger: button[name=action_set_won_rainbowman])", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[62992:62992:1120/210436.716837:INFO:CONSOLE:683] "[24/26] Tour crm_rainbowman → Step wait for save completion (trigger: .o_form_readonly, .o_form_saved)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[62992:62992:1120/210437.003781:INFO:CONSOLE:683] "[25/26] Tour crm_rainbowman → Step .o_reward_rainbow", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[62992:62992:1120/210437.743342:INFO:CONSOLE:683] "[26/26] Tour crm_rainbowman → Step last rainbowman appears (trigger: .o_menu_brand)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[62992:62992:1120/210437.744123:INFO:CONSOLE:666] "tour succeeded", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (666)
+[62992:62992:1120/210437.751548:INFO:CONSOLE:666] "
+
+╔═══════════════════════════════╗
+║ TOUR crm_rainbowman SUCCEEDED ║
+╚═══════════════════════════════╝
+", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (666)

@@ -1,0 +1,268 @@
+{
+  "form": {
+    "buttons": [
+      {
+        "string": "New Quotation",
+        "name": "action_sale_quotations_new",
+        "type": "object",
+        "class": "oe_highlight",
+        "data-hotkey": "q",
+        "invisible": "type == 'lead' or probability == 0 and not active"
+      },
+      {
+        "name": "action_set_won_rainbowman",
+        "string": "Won",
+        "type": "object",
+        "data-hotkey": "w",
+        "invisible": "won_status == 'won' or type == 'lead' or not active"
+      },
+      {
+        "name": "action_convert_to_opportunity",
+        "string": "Convert to Opportunity",
+        "type": "object",
+        "class": "oe_highlight",
+        "invisible": "type == 'opportunity' or not active",
+        "data-hotkey": "v"
+      },
+      {
+        "string": "Enrich",
+        "name": "iap_enrich",
+        "type": "object",
+        "class": "btn btn-secondary",
+        "data-hotkey": "g",
+        "title": "Enrich lead with company data",
+        "invisible": "not show_enrich_button or type == 'opportunity'"
+      },
+      {
+        "string": "Enrich",
+        "name": "iap_enrich",
+        "type": "object",
+        "class": "btn btn-secondary",
+        "data-hotkey": "g",
+        "title": "Enrich opportunity with company data",
+        "invisible": "not show_enrich_button or type == 'lead'"
+      },
+      {
+        "name": "action_restore",
+        "string": "Restore",
+        "type": "object",
+        "data-hotkey": "x",
+        "invisible": "won_status != 'lost'"
+      },
+      {
+        "name": "371",
+        "string": "Lost",
+        "type": "action",
+        "data-hotkey": "l",
+        "invisible": "won_status != 'pending' or not active"
+      },
+      {
+        "name": "action_schedule_meeting",
+        "type": "object",
+        "class": "oe_stat_button",
+        "icon": "calendar_today",
+        "icon_class": "oi-filled",
+        "context": "{'partner_id': partner_id}",
+        "invisible": "not id or type == 'lead'"
+      },
+      {
+        "name": "action_view_project_ids",
+        "type": "object",
+        "class": "oe_stat_button",
+        "icon": "check",
+        "invisible": "not project_count"
+      },
+      {
+        "class": "oe_stat_button",
+        "type": "object",
+        "name": "action_view_sale_quotation",
+        "icon": "edit_square",
+        "invisible": "type == 'lead'"
+      },
+      {
+        "class": "oe_stat_button",
+        "type": "object",
+        "invisible": "sale_order_count == 0 or type == 'lead'",
+        "name": "action_view_sale_order",
+        "icon": "show_chart"
+      },
+      {
+        "name": "action_redirect_to_page_views",
+        "type": "object",
+        "class": "oe_stat_button",
+        "icon": "visibility",
+        "invisible": "visitor_page_count == 0"
+      },
+      {
+        "name": "action_redirect_to_livechat_sessions",
+        "type": "object",
+        "class": "oe_stat_button",
+        "icon": "chat_bubble",
+        "icon_class": "oi-filled",
+        "invisible": "visitor_sessions_count == 0"
+      },
+      {
+        "name": "695",
+        "type": "action",
+        "class": "oe_stat_button",
+        "icon": "confirmation_number",
+        "invisible": "registration_count == 0"
+      },
+      {
+        "name": "action_open_livechat",
+        "type": "object",
+        "class": "oe_stat_button",
+        "icon": "forum",
+        "invisible": "not origin_channel_id"
+      },
+      {
+        "name": "action_show_potential_duplicates",
+        "type": "object",
+        "class": "oe_stat_button",
+        "icon": "star",
+        "icon_class": "oi-filled",
+        "invisible": "duplicate_lead_count < 1"
+      },
+      {
+        "name": "mail_action_blacklist_remove",
+        "class": "oi text-danger",
+        "data-icon": "block",
+        "title": "This email is blacklisted for mass mailings. Click to unblacklist.",
+        "type": "object",
+        "context": "{'default_email': email_from}",
+        "invisible": "not is_blacklisted"
+      },
+      {
+        "name": "phone_action_blacklist_remove",
+        "class": "oi text-danger",
+        "data-icon": "block",
+        "title": "This phone number is blacklisted for SMS Marketing. Click to unblacklist.",
+        "type": "object",
+        "context": "{'default_phone': phone}",
+        "invisible": "not phone_blacklisted"
+      },
+      {
+        "string": "Automatic Assignment",
+        "name": "action_assign_partner",
+        "type": "object",
+        "class": "btn btn-secondary w-100"
+      },
+      {
+        "string": "Send Email",
+        "type": "action",
+        "class": "btn btn-secondary w-100",
+        "invisible": "not partner_assigned_id",
+        "name": "1050",
+        "context": "{'default_composition_mode': 'forward','hide_forward_type': 1 , 'default_partner_ids': [partner_assigned_id]}"
+      }
+    ],
+    "fields": [
+      "active",
+      "automated_probability",
+      "campaign_id",
+      "city",
+      "company_currency",
+      "company_id",
+      "contact_name",
+      "country_id",
+      "date_conversion",
+      "date_deadline",
+      "description",
+      "duplicate_lead_count",
+      "email_from",
+      "email_state",
+      "expected_revenue",
+      "function",
+      "is_automated_probability",
+      "is_blacklisted",
+      "is_rotting",
+      "lang_active_count",
+      "lang_code",
+      "lang_id",
+      "lead_properties",
+      "lost_reason_id",
+      "medium_id",
+      "meeting_display_date",
+      "meeting_display_label",
+      "name",
+      "origin_channel_id",
+      "partner_assigned_id",
+      "partner_email_update",
+      "partner_id",
+      "partner_is_blacklisted",
+      "partner_latitude",
+      "partner_longitude",
+      "partner_name",
+      "partner_phone_update",
+      "phone",
+      "phone_blacklisted",
+      "phone_formatted",
+      "phone_sanitized",
+      "phone_state",
+      "priority",
+      "probability",
+      "project_count",
+      "quotation_count",
+      "referred",
+      "registration_count",
+      "registration_ids",
+      "reveal_iap_credits",
+      "reveal_ip",
+      "reveal_rule_id",
+      "rotting_days",
+      "sale_amount_total",
+      "sale_order_count",
+      "show_enrich_button",
+      "source_id",
+      "stage_id",
+      "state_id",
+      "street",
+      "street2",
+      "tag_ids",
+      "task_count",
+      "team_id",
+      "type",
+      "user_company_ids",
+      "user_id",
+      "utm_reference",
+      "visitor_page_count",
+      "visitor_sessions_count",
+      "website",
+      "won_status",
+      "zip"
+    ],
+    "widgets": [
+      "pls_tooltip_button",
+      "web_ribbon"
+    ]
+  },
+  "kanban": {
+    "buttons": [],
+    "fields": [
+      "active",
+      "activity_ids",
+      "color",
+      "company_currency",
+      "contact_name",
+      "expected_revenue",
+      "is_rotting",
+      "lead_properties",
+      "name",
+      "partner_assigned_id",
+      "partner_id",
+      "partner_name",
+      "priority",
+      "probability",
+      "recurring_revenue_monthly",
+      "rotting_days",
+      "stage_id",
+      "tag_ids",
+      "team_id",
+      "user_id",
+      "won_status"
+    ],
+    "widgets": [
+      "web_ribbon"
+    ]
+  }
+}

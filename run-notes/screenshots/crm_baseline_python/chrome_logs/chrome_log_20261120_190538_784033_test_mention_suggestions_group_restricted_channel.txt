@@ -1,0 +1,58 @@
+[13493:13522:1120/190524.660369:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[13493:13522:1120/190524.660894:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[13493:13522:1120/190524.697454:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[13493:13522:1120/190524.697629:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[13493:13522:1120/190524.702062:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[13493:13522:1120/190524.702095:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[13493:13522:1120/190524.702104:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[13493:13522:1120/190524.715300:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[13493:13522:1120/190524.965753:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[13493:13534:1120/190524.973430:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 13539: Read-only file system (30)
+[13493:13493:1120/190525.064778:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[13493:13522:1120/190525.064895:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[13493:13493:1120/190525.064936:WARNING:device/bluetooth/dbus/bluez_dbus_manager.cc:209] Floss manager service not available, cannot set Floss enable/disable.
+[13493:13493:1120/190525.064972:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[13493:13522:1120/190525.065019:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[13493:13493:1120/190525.065195:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[13536:13536:1120/190525.095719:WARNING:media/gpu/vaapi/vaapi_wrapper.cc:1655] drmGetDevices2() has not found any devices
+[13493:13493:1120/190525.102617:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[13493:13522:1120/190525.102733:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[13536:13536:1120/190525.109521:WARNING:sandbox/policy/linux/sandbox_linux.cc:405] InitializeSandbox() called with multiple threads in process gpu-process.
+[13493:13534:1120/190525.219088:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 13585: Read-only file system (30)
+[13493:13534:1120/190525.288647:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 13596: Read-only file system (30)
+[13493:13534:1120/190525.298832:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 13597: Read-only file system (30)
+[13493:13522:1120/190525.315085:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[13493:13493:1120/190525.315085:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[13493:13522:1120/190525.315155:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[13493:13493:1120/190525.316531:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[13493:13522:1120/190525.317062:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[13493:13493:1120/190525.320916:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[13493:13493:1120/190525.356732:WARNING:dbus/property.cc:94] Failed to connect to PropertiesChangedsignal.
+[13493:13493:1120/190525.356763:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.Properties.GetAll: object_path= /org/freedesktop/UPower/devices/DisplayDevice: unknown error type: 
+[13493:13493:1120/190525.356771:WARNING:dbus/property.cc:174] GetAll request failed for: org.freedesktop.UPower.Device
+[13493:13493:1120/190525.358525:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[13493:13522:1120/190525.360082:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[13493:13493:1120/190525.405227:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[13493:13522:1120/190525.405321:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[13493:13493:1120/190525.416065:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[13493:13493:1120/190525.416091:WARNING:ui/base/idle/idle_linux.cc:111] None of the known D-Bus ScreenSaver services could be used.
+[13493:13493:1120/190528.754692:INFO:CONSOLE:1148] "Owl is running in 'dev' mode.", source: http://127.0.0.1:8071/web/assets/5c8437c/web.assets_web.min.js (1148)
+[13493:13493:1120/190528.846520:INFO:CONSOLE:672] "Hoot DOM helpers available from `window.hoot`", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (672)
+[13493:13493:1120/190528.847835:INFO:CONSOLE:683] "[1/11] Tour discuss_mention_suggestions_group_restricted_channel.js → Step .o-mail-DiscussContent-threadName[title='R&D Channel']", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[13493:13493:1120/190530.199177:INFO:CONSOLE:683] "[2/11] Tour discuss_mention_suggestions_group_restricted_channel.js → Step .o-mail-Composer-input", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[13493:13493:1120/190530.299364:INFO:CONSOLE:683] "[3/11] Tour discuss_mention_suggestions_group_restricted_channel.js → Step Suggest channel member not in R&D group (trigger: .o-mail-Composer-suggestion strong:text(Consultant User))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[13493:13493:1120/190531.576501:INFO:CONSOLE:683] "[4/11] Tour discuss_mention_suggestions_group_restricted_channel.js → Step .o-mail-Composer-input", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[13493:13493:1120/190531.648721:INFO:CONSOLE:683] "[5/11] Tour discuss_mention_suggestions_group_restricted_channel.js → Step Suggest non-channel member in R&D group (trigger: .o-mail-Composer-suggestion strong:text(Dev User))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[13493:13493:1120/190531.719071:INFO:CONSOLE:683] "[6/11] Tour discuss_mention_suggestions_group_restricted_channel.js → Step .o-mail-Composer-input", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[13493:13493:1120/190531.768887:INFO:CONSOLE:683] "[7/11] Tour discuss_mention_suggestions_group_restricted_channel.js → Step Do not suggest Sales User, neither a member nor in R&D group (trigger: body:not(:has(.o-mail-Composer-suggestion)))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[13493:13493:1120/190531.804306:INFO:CONSOLE:683] "[8/11] Tour discuss_mention_suggestions_group_restricted_channel.js → Step .o-mail-NotificationItem:has(:text('Sales Channel'))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[13493:13493:1120/190531.867141:INFO:CONSOLE:683] "[9/11] Tour discuss_mention_suggestions_group_restricted_channel.js → Step .o-mail-DiscussContent-threadName[title='Sales Channel']", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[13493:13493:1120/190531.922735:INFO:CONSOLE:683] "[10/11] Tour discuss_mention_suggestions_group_restricted_channel.js → Step .o-mail-Composer-input", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[13493:13493:1120/190531.976346:INFO:CONSOLE:683] "[11/11] Tour discuss_mention_suggestions_group_restricted_channel.js → Step Suggest Sales User where no group restricts the channel (trigger: .o-mail-Composer-suggestion strong:text(Sales User))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[13493:13493:1120/190532.296536:INFO:CONSOLE:666] "tour succeeded", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (666)
+[13493:13493:1120/190532.297051:INFO:CONSOLE:666] "
+
+╔════════════════════════════════════════════════════════════════════════╗
+║ TOUR discuss_mention_suggestions_group_restricted_channel.js SUCCEEDED ║
+╚════════════════════════════════════════════════════════════════════════╝
+", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (666)

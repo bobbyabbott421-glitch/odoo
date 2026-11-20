@@ -1,0 +1,29 @@
+test_visited_lead (__main__.OfflineLead.test_visited_lead) ... 2026-11-20 21:05:23,311 63562 INFO ? lead: Chrome pid: 63761
+2026-11-20 21:05:23,311 63562 INFO ? lead: Chrome headless temporary user profile dir: /tmp/tmpydy3l8x__chrome_odoo
+2026-11-20 21:05:23,312 63562 INFO ? lead: Issuing json command http://127.0.0.1:39059/json/version
+2026-11-20 21:05:23,852 63562 INFO ? lead: Browser version: Chrome/156.0.8078.79
+2026-11-20 21:05:23,852 63562 INFO ? lead: Issuing json command http://127.0.0.1:39059/json
+2026-11-20 21:05:23,937 63562 INFO ? lead: Websocket url found: ws://127.0.0.1:39059/devtools/page/3CC5E7810E0B66BDE40C778868BCEA03
+2026-11-20 21:05:24,037 63562 INFO ? lead: Enable chrome headless console log notification
+2026-11-20 21:05:24,122 63562 INFO ? lead: Chrome headless enable page notifications
+2026-11-20 21:05:24,369 63562 INFO ? lead: Navigating to: "http://127.0.0.1:8074/odoo/crm/new"
+2026-11-20 21:05:26,415 63562 INFO ? lead: Navigation result: {'frameId': '3CC5E7810E0B66BDE40C778868BCEA03', 'loaderId': 'F862762E27403EE0968F451547B811A5', 'isDownload': False}
+FAIL
+2026-11-20 21:06:18,227 63562 INFO ? lead: Closing chrome headless with pid 63761
+2026-11-20 21:06:18,229 63562 INFO ? lead: Closing websocket connection
+2026-11-20 21:06:18,242 63562 INFO ? lead: Terminating chrome headless with pid 63761
+2026-11-20 21:06:18,459 63562 INFO ? lead: Chrome Log in: /tmp/odoo_tests/crm_flow/chrome_logs/chrome_log_20261120_210618_457420_runTest.txt
+2026-11-20 21:06:18,471 63562 INFO ? lead: Removing chrome user profile "/tmp/tmpydy3l8x__chrome_odoo"
+
+======================================================================
+FAIL: test_visited_lead (__main__.OfflineLead.test_visited_lead)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/run-notes/lost_ack.py", line 68, in test_visited_lead
+    self.assertEqual(count(),1)
+AssertionError: 2 != 1
+
+----------------------------------------------------------------------
+Ran 1 test in 71.016s
+
+FAILED (failures=1)

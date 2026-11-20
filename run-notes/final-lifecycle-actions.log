@@ -1,0 +1,28 @@
+test_visited_lead (__main__.OfflineLead.test_visited_lead) ... 2026-11-20 21:38:36,006 85794 INFO ? lead: Chrome pid: 86156
+2026-11-20 21:38:36,008 85794 INFO ? lead: Chrome headless temporary user profile dir: /tmp/tmpous000vr_chrome_odoo
+2026-11-20 21:38:36,009 85794 INFO ? lead: Issuing json command http://127.0.0.1:38389/json/version
+2026-11-20 21:38:36,941 85794 INFO ? lead: Browser version: Chrome/156.0.8078.79
+2026-11-20 21:38:36,941 85794 INFO ? lead: Issuing json command http://127.0.0.1:38389/json
+2026-11-20 21:38:37,150 85794 INFO ? lead: Websocket url found: ws://127.0.0.1:38389/devtools/page/ACA11F8DE72A70691CD368DE5C71405F
+2026-11-20 21:38:37,441 85794 INFO ? lead: Enable chrome headless console log notification
+2026-11-20 21:38:37,706 85794 INFO ? lead: Chrome headless enable page notifications
+2026-11-20 21:38:44,258 85794 INFO ? lead: Navigating to: "http://127.0.0.1:17855/odoo/crm/57"
+2026-11-20 21:38:47,434 85794 INFO ? lead: Navigation result: {'frameId': 'ACA11F8DE72A70691CD368DE5C71405F', 'loaderId': 'BB8A443FAA2766698E46F7F65F38DC4A', 'isDownload': False}
+Archive replayed and verified on the server
+2026-11-20 21:39:25,541 85794 INFO ? lead: Navigating to: "http://127.0.0.1:17855/odoo/crm/58"
+2026-11-20 21:39:27,112 85794 INFO ? lead: Navigation result: {'frameId': 'ACA11F8DE72A70691CD368DE5C71405F', 'loaderId': 'B4A254969EAE57C973AC9B17B5D66278', 'isDownload': False}
+Unarchive replayed and verified on the server
+2026-11-20 21:40:02,951 85794 INFO ? lead: Navigating to: "http://127.0.0.1:17855/odoo/crm/59"
+2026-11-20 21:40:05,070 85794 INFO ? lead: Navigation result: {'frameId': 'ACA11F8DE72A70691CD368DE5C71405F', 'loaderId': '0FC642C69B7F979000C0D2445627A8F5', 'isDownload': False}
+Delete replayed and verified on the server
+2026-11-20 21:40:30,205 85794 INFO ? lead: Closing chrome headless with pid 86156
+2026-11-20 21:40:30,206 85794 INFO ? lead: Closing websocket connection
+2026-11-20 21:40:30,207 85794 INFO ? lead: Terminating chrome headless with pid 86156
+2026-11-20 21:40:31,119 85794 INFO ? lead: Chrome Log in: /tmp/odoo_tests/crm_flow/chrome_logs/chrome_log_20261120_214031_113330_runTest.txt
+2026-11-20 21:40:31,120 85794 INFO ? lead: Removing chrome user profile "/tmp/tmpous000vr_chrome_odoo"
+ok
+
+----------------------------------------------------------------------
+Ran 1 test in 127.008s
+
+OK

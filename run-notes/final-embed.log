@@ -1,0 +1,398 @@
+2026-11-20 21:10:35,511 67532 INFO ? odoo: Odoo version 20.0
+2026-11-20 21:10:35,511 67532 INFO ? odoo: Using configuration file at /workspace/odoo-env/odoo.conf
+2026-11-20 21:10:35,511 67532 INFO ? odoo: addons paths: _NamespacePath(['/workspace/odoo/odoo/addons', '/workspace/odoo-env/data/addons/20.0', '/workspace/odoo/addons'])
+2026-11-20 21:10:35,511 67532 INFO ? odoo: database: odoo@/workspace/odoo-env/run:5432
+2026-11-20 21:10:35,655 67532 INFO ? odoo.service.server: HTTP service running on 127.0.0.1:8084
+2026-11-20 21:10:36,304 67532 INFO crm_final_measure odoo.modules.loading: loading 1 modules...
+2026-11-20 21:10:36,579 67532 INFO crm_final_measure odoo.modules.loading: 1 modules loaded in 0.27s, 0 queries (+0 extra)
+2026-11-20 21:10:36,771 67532 INFO crm_final_measure odoo.modules.loading: updating modules list
+2026-11-20 21:10:36,836 67532 INFO crm_final_measure odoo.addons.base.models.ir_module: ALLOW access to module.update_list on [] to user __system__ #1 via n/a
+2026-11-20 21:10:39,810 67532 INFO crm_final_measure odoo.addons.base.models.ir_module: ALLOW access to module.button_upgrade on ['Live Chat'] to user __system__ #1 via n/a
+2026-11-20 21:10:39,810 67532 INFO crm_final_measure odoo.addons.base.models.ir_module: ALLOW access to module.update_list on ['Live Chat'] to user __system__ #1 via n/a
+2026-11-20 21:10:40,259 67532 INFO crm_final_measure odoo.addons.base.models.ir_module: ALLOW access to module.button_install on [] to user __system__ #1 via n/a
+2026-11-20 21:10:40,777 67532 INFO crm_final_measure odoo.modules.loading: loading 226 modules...
+2026-11-20 21:10:41,317 67532 WARNING crm_final_measure odoo.addons.mail.controllers.attachment: markdown2 is not installed, markdown will not be rendered
+2026-11-20 21:10:42,200 67532 INFO crm_final_measure odoo.modules.loading: Loading module im_livechat (69/226)
+2026-11-20 21:10:42,999 67532 INFO crm_final_measure odoo.registry: module im_livechat: creating or updating database tables
+2026-11-20 21:10:43,954 67532 INFO crm_final_measure odoo.modules.loading: loading im_livechat/security/im_livechat_channel_security.xml
+2026-11-20 21:10:44,543 67532 INFO crm_final_measure odoo.modules.loading: loading im_livechat/data/mail_templates.xml
+2026-11-20 21:10:44,551 67532 INFO crm_final_measure odoo.modules.loading: loading im_livechat/data/im_livechat_channel_data.xml
+2026-11-20 21:10:44,556 67532 INFO crm_final_measure odoo.modules.loading: loading im_livechat/data/im_livechat_chatbot_data.xml
+2026-11-20 21:10:44,577 67532 INFO crm_final_measure odoo.modules.loading: loading im_livechat/data/digest_data.xml
+2026-11-20 21:10:44,629 67532 INFO crm_final_measure odoo.modules.loading: loading im_livechat/data/utm_data.xml
+2026-11-20 21:10:44,654 67532 INFO crm_final_measure odoo.modules.loading: loading im_livechat/views/chatbot_script_answer_views.xml
+2026-11-20 21:10:44,854 67532 INFO crm_final_measure odoo.modules.loading: loading im_livechat/views/chatbot_script_step_views.xml
+2026-11-20 21:10:44,935 67532 INFO crm_final_measure odoo.modules.loading: loading im_livechat/views/chatbot_script_views.xml
+2026-11-20 21:10:45,011 67532 INFO crm_final_measure odoo.modules.loading: loading im_livechat/views/discuss_channel_views.xml
+2026-11-20 21:10:45,247 67532 INFO crm_final_measure odoo.modules.loading: loading im_livechat/views/res_partner_views.xml
+2026-11-20 21:10:45,533 67532 INFO crm_final_measure odoo.modules.loading: loading im_livechat/views/im_livechat_channel_views.xml
+2026-11-20 21:10:45,836 67532 INFO crm_final_measure odoo.modules.loading: loading im_livechat/views/im_livechat_channel_templates.xml
+2026-11-20 21:10:45,877 67532 INFO crm_final_measure odoo.modules.loading: loading im_livechat/views/im_livechat_chatbot_templates.xml
+2026-11-20 21:10:45,898 67532 INFO crm_final_measure odoo.modules.loading: loading im_livechat/views/im_livechat_channel_config_views.xml
+2026-11-20 21:10:45,966 67532 INFO crm_final_measure odoo.modules.loading: loading im_livechat/views/im_livechat_expertise_views.xml
+2026-11-20 21:10:46,035 67532 INFO crm_final_measure odoo.modules.loading: loading im_livechat/views/im_livechat_channel_member_history_views.xml
+2026-11-20 21:10:46,214 67532 INFO crm_final_measure odoo.modules.loading: loading im_livechat/views/res_users_views.xml
+2026-11-20 21:10:46,502 67532 INFO crm_final_measure odoo.modules.loading: loading im_livechat/views/digest_views.xml
+2026-11-20 21:10:46,546 67532 INFO crm_final_measure odoo.modules.loading: loading im_livechat/views/webclient_templates.xml
+2026-11-20 21:10:46,558 67532 INFO crm_final_measure odoo.modules.loading: loading im_livechat/report/im_livechat_report_channel_views.xml
+2026-11-20 21:10:46,629 67532 INFO crm_final_measure odoo.modules.loading: loading im_livechat/report/im_livechat_conversation_report.xml
+2026-11-20 21:10:46,644 67532 INFO crm_final_measure odoo.modules.loading: loading im_livechat/security/ir.access.csv
+2026-11-20 21:10:46,857 67532 INFO crm_final_measure odoo.modules.loading: Module im_livechat: loading demo
+2026-11-20 21:10:46,857 67532 INFO crm_final_measure odoo.modules.loading: loading im_livechat/demo/im_livechat_channel/im_livechat_channel.xml
+2026-11-20 21:10:46,867 67532 INFO crm_final_measure odoo.modules.loading: loading im_livechat/demo/im_livechat_channel/im_livechat_chatbot.xml
+2026-11-20 21:10:46,910 67532 INFO crm_final_measure odoo.modules.loading: loading im_livechat/demo/im_livechat_channel/im_livechat_chatbot_session_1.xml
+2026-11-20 21:10:46,934 67532 INFO crm_final_measure odoo.modules.loading: loading im_livechat/demo/im_livechat_channel/im_livechat_chatbot_session_2.xml
+2026-11-20 21:10:46,947 67532 INFO crm_final_measure odoo.modules.loading: loading im_livechat/demo/im_livechat_channel/im_livechat_chatbot_session_3.xml
+2026-11-20 21:10:46,960 67532 INFO crm_final_measure odoo.modules.loading: loading im_livechat/demo/im_livechat_channel/im_livechat_session_1.xml
+2026-11-20 21:10:46,995 67532 INFO crm_final_measure odoo.modules.loading: loading im_livechat/demo/im_livechat_channel/im_livechat_session_2.xml
+2026-11-20 21:10:47,015 67532 INFO crm_final_measure odoo.modules.loading: loading im_livechat/demo/im_livechat_channel/im_livechat_session_3.xml
+2026-11-20 21:10:47,033 67532 INFO crm_final_measure odoo.modules.loading: loading im_livechat/demo/im_livechat_channel/im_livechat_session_4.xml
+2026-11-20 21:10:47,051 67532 INFO crm_final_measure odoo.modules.loading: loading im_livechat/demo/im_livechat_channel/im_livechat_session_5.xml
+2026-11-20 21:10:47,066 67532 INFO crm_final_measure odoo.modules.loading: loading im_livechat/demo/im_livechat_channel/im_livechat_session_6.xml
+2026-11-20 21:10:47,095 67532 INFO crm_final_measure odoo.modules.loading: loading im_livechat/demo/im_livechat_channel/im_livechat_session_7.xml
+2026-11-20 21:10:47,107 67532 INFO crm_final_measure odoo.modules.loading: loading im_livechat/demo/im_livechat_channel/im_livechat_session_8.xml
+2026-11-20 21:10:47,123 67532 INFO crm_final_measure odoo.modules.loading: loading im_livechat/demo/im_livechat_channel/im_livechat_session_9.xml
+2026-11-20 21:10:47,143 67532 INFO crm_final_measure odoo.modules.loading: loading im_livechat/demo/im_livechat_channel/im_livechat_session_10.xml
+2026-11-20 21:10:47,203 67532 INFO crm_final_measure odoo.modules.loading: loading im_livechat/demo/im_livechat_channel/im_livechat_session_11.xml
+2026-11-20 21:10:47,238 67532 INFO crm_final_measure odoo.modules.loading: loading im_livechat/demo/im_livechat_channel/im_livechat_session_12.xml
+2026-11-20 21:10:47,254 67532 INFO crm_final_measure odoo.modules.loading: loading im_livechat/demo/im_livechat_channel/im_livechat_session_13.xml
+2026-11-20 21:10:47,274 67532 INFO crm_final_measure odoo.modules.loading: loading im_livechat/demo/im_livechat_channel/im_livechat_session_14.xml
+2026-11-20 21:10:47,295 67532 INFO crm_final_measure odoo.modules.loading: loading im_livechat/demo/im_livechat_channel/im_livechat_session_15.xml
+2026-11-20 21:10:47,305 67532 INFO crm_final_measure odoo.modules.loading: loading im_livechat/demo/im_livechat_channel/im_livechat_support_bot.xml
+2026-11-20 21:10:47,335 67532 INFO crm_final_measure odoo.modules.loading: loading im_livechat/demo/im_livechat_channel/im_livechat_support_bot_session_1.xml
+2026-11-20 21:10:47,363 67532 INFO crm_final_measure odoo.modules.loading: loading im_livechat/demo/im_livechat_channel/im_livechat_support_bot_session_2.xml
+2026-11-20 21:10:47,398 67532 INFO crm_final_measure odoo.modules.loading: loading im_livechat/demo/im_livechat_channel/im_livechat_support_bot_session_3.xml
+2026-11-20 21:10:47,423 67532 INFO crm_final_measure odoo.modules.loading: loading im_livechat/demo/im_livechat_channel/im_livechat_support_bot_session_4.xml
+2026-11-20 21:10:47,454 67532 INFO crm_final_measure odoo.modules.loading: loading im_livechat/demo/im_livechat_channel/im_livechat_support_bot_session_5.xml
+2026-11-20 21:10:47,469 67532 INFO crm_final_measure odoo.modules.loading: loading im_livechat/demo/im_livechat_channel/im_livechat_support_bot_session_6.xml
+2026-11-20 21:10:47,499 67532 INFO crm_final_measure odoo.modules.loading: loading im_livechat/demo/im_livechat_channel/im_livechat_support_bot_session_7.xml
+2026-11-20 21:10:47,656 67532 INFO crm_final_measure odoo.registry: Registry changed, signaling through the database
+2026-11-20 21:10:47,807 67532 INFO crm_final_measure odoo.modules.loading: Module im_livechat loaded in 5.61s, 1980 queries (+1980 other)
+2026-11-20 21:10:48,304 67532 INFO crm_final_measure odoo.modules.loading: Loading module crm_livechat (83/226)
+2026-11-20 21:10:49,338 67532 INFO crm_final_measure odoo.registry: module crm_livechat: creating or updating database tables
+2026-11-20 21:10:49,846 67532 INFO crm_final_measure odoo.modules.loading: loading crm_livechat/data/crm_livechat_chatbot_data.xml
+2026-11-20 21:10:49,854 67532 INFO crm_final_measure odoo.modules.loading: loading crm_livechat/views/chatbot_script_views.xml
+2026-11-20 21:10:50,261 67532 INFO crm_final_measure odoo.modules.loading: loading crm_livechat/views/chatbot_script_step_views.xml
+2026-11-20 21:10:50,403 67532 INFO crm_final_measure odoo.modules.loading: loading crm_livechat/views/crm_lead_views.xml
+2026-11-20 21:10:50,459 67532 INFO crm_final_measure odoo.modules.loading: loading crm_livechat/views/discuss_channel_views.xml
+2026-11-20 21:10:50,558 67532 INFO crm_final_measure odoo.modules.loading: loading crm_livechat/security/ir.access.csv
+2026-11-20 21:10:51,298 67532 INFO crm_final_measure odoo.registry: Registry changed, signaling through the database
+2026-11-20 21:10:51,623 67532 INFO crm_final_measure odoo.modules.loading: Module crm_livechat loaded in 3.32s, 337 queries (+337 other)
+2026-11-20 21:10:52,219 67532 INFO crm_final_measure odoo.modules.loading: Loading module hr_livechat (93/226)
+2026-11-20 21:10:53,632 67532 INFO crm_final_measure odoo.modules.loading: loading hr_livechat/views/discuss_channel_views.xml
+2026-11-20 21:10:53,819 67532 INFO crm_final_measure odoo.modules.loading: loading hr_livechat/views/im_livechat_channel_member_history_views.xml
+2026-11-20 21:10:53,855 67532 INFO crm_final_measure odoo.modules.loading: loading hr_livechat/views/im_livechat_report_channel_views.xml
+2026-11-20 21:10:53,931 67532 INFO crm_final_measure odoo.registry: Caches invalidated, signaling through the database: ['default', 'stable', 'templates']
+2026-11-20 21:10:53,942 67532 INFO crm_final_measure odoo.modules.loading: Module hr_livechat loaded in 1.72s, 77 queries (+77 other)
+2026-11-20 21:10:54,247 67532 INFO crm_final_measure odoo.modules.loading: Loading module spreadsheet_dashboard_im_livechat (112/226)
+2026-11-20 21:10:55,046 67532 INFO crm_final_measure odoo.modules.loading: loading spreadsheet_dashboard_im_livechat/data/livechat_ongoing_sessions_actions.xml
+2026-11-20 21:10:55,103 67532 INFO crm_final_measure odoo.models.unlink: User #1 deleted ir.actions.act_window.view records with IDs: [468, 469]
+2026-11-20 21:10:55,157 67532 INFO crm_final_measure odoo.models.unlink: User #1 deleted ir.actions.act_window.view records with IDs: [470, 471]
+2026-11-20 21:10:55,210 67532 INFO crm_final_measure odoo.models.unlink: User #1 deleted ir.actions.act_window.view records with IDs: [472, 473]
+2026-11-20 21:10:55,242 67532 INFO crm_final_measure odoo.models.unlink: User #1 deleted ir.actions.act_window.view records with IDs: [474, 475]
+2026-11-20 21:10:55,275 67532 INFO crm_final_measure odoo.models.unlink: User #1 deleted ir.actions.act_window.view records with IDs: [476, 477]
+2026-11-20 21:10:55,307 67532 INFO crm_final_measure odoo.modules.loading: loading spreadsheet_dashboard_im_livechat/data/dashboards.xml
+2026-11-20 21:10:55,537 67532 INFO crm_final_measure odoo.registry: Caches invalidated, signaling through the database: ['default', 'stable']
+2026-11-20 21:10:55,550 67532 INFO crm_final_measure odoo.modules.loading: Module spreadsheet_dashboard_im_livechat loaded in 1.30s, 168 queries (+168 other)
+2026-11-20 21:10:55,636 67532 INFO crm_final_measure odoo.modules.loading: Loading module website_livechat (119/226)
+2026-11-20 21:10:56,104 67532 INFO crm_final_measure odoo.registry: module website_livechat: creating or updating database tables
+2026-11-20 21:10:56,530 67532 INFO crm_final_measure odoo.modules.loading: loading website_livechat/views/website_livechat.xml
+2026-11-20 21:10:56,757 67532 INFO crm_final_measure odoo.modules.loading: loading website_livechat/views/res_config_settings_views.xml
+2026-11-20 21:10:57,249 67532 INFO crm_final_measure odoo.modules.loading: loading website_livechat/views/im_livechat_chatbot_script_view.xml
+2026-11-20 21:10:57,304 67532 INFO crm_final_measure odoo.modules.loading: loading website_livechat/views/website_visitor_views.xml
+2026-11-20 21:10:57,673 67532 INFO crm_final_measure odoo.modules.loading: loading website_livechat/views/im_livechat_channel_add.xml
+2026-11-20 21:10:57,712 67532 INFO crm_final_measure odoo.modules.loading: loading website_livechat/data/website_livechat_data.xml
+2026-11-20 21:10:57,716 67532 INFO crm_final_measure odoo.modules.loading: loading website_livechat/security/ir.access.csv
+2026-11-20 21:10:57,757 67532 INFO crm_final_measure odoo.modules.loading: Module website_livechat: loading demo
+2026-11-20 21:10:57,760 67532 INFO crm_final_measure odoo.modules.loading: loading website_livechat/data/website_livechat_chatbot_demo.xml
+2026-11-20 21:10:57,762 67532 INFO crm_final_measure odoo.modules.loading: loading website_livechat/demo/im_livechat_session_11.xml
+2026-11-20 21:10:57,846 67532 INFO crm_final_measure odoo.registry: Registry changed, signaling through the database
+2026-11-20 21:10:57,910 67532 INFO crm_final_measure odoo.modules.loading: Module website_livechat loaded in 2.27s, 547 queries (+547 other)
+2026-11-20 21:10:58,026 67532 INFO crm_final_measure odoo.modules.loading: Loading module website_crm_livechat (146/226)
+2026-11-20 21:10:58,644 67532 INFO crm_final_measure odoo.registry: module website_crm_livechat: creating or updating database tables
+2026-11-20 21:10:58,959 67532 INFO crm_final_measure odoo.modules.loading: loading website_crm_livechat/views/website_crm_lead_views.xml
+2026-11-20 21:10:59,339 67532 INFO crm_final_measure odoo.registry: Registry changed, signaling through the database
+2026-11-20 21:10:59,343 67532 INFO crm_final_measure odoo.modules.loading: Module website_crm_livechat loaded in 1.32s, 168 queries (+168 other)
+2026-11-20 21:10:59,649 67532 INFO crm_final_measure odoo.modules.loading: Loading module test_discuss_full (195/226)
+2026-11-20 21:11:00,197 67532 INFO crm_final_measure odoo.registry: Caches invalidated, signaling through the database: ['default', 'stable']
+2026-11-20 21:11:00,204 67532 INFO crm_final_measure odoo.modules.loading: Module test_discuss_full loaded in 0.56s, 15 queries (+15 other)
+2026-11-20 21:11:00,223 67532 INFO crm_final_measure odoo.modules.loading: Loading module test_crm_full (205/226)
+2026-11-20 21:11:00,645 67532 INFO crm_final_measure odoo.registry: Caches invalidated, signaling through the database: ['default', 'stable']
+2026-11-20 21:11:00,654 67532 INFO crm_final_measure odoo.modules.loading: Module test_crm_full loaded in 0.43s, 15 queries (+15 other)
+2026-11-20 21:11:00,658 67532 INFO crm_final_measure odoo.modules.loading: Loading module test_website_modules (207/226)
+2026-11-20 21:11:01,118 67532 INFO crm_final_measure odoo.registry: Caches invalidated, signaling through the database: ['default', 'stable']
+2026-11-20 21:11:01,318 67532 INFO crm_final_measure odoo.modules.loading: Module test_website_modules loaded in 0.66s, 14 queries (+14 other)
+2026-11-20 21:11:01,369 67532 INFO crm_final_measure odoo.modules.loading: 226 modules loaded in 20.59s, 3321 queries (+3321 extra)
+2026-11-20 21:11:03,653 67532 INFO crm_final_measure odoo.models.unlink: User #1 deleted ir.model.data records with IDs: [113722, 113623]
+2026-11-20 21:11:03,746 67532 INFO crm_final_measure odoo.registry: verifying fields for every extended model
+2026-11-20 21:11:03,934 67532 INFO crm_final_measure odoo.fields: Prepare computation of website.show_line_subtotals_tax_selection in 0 records
+2026-11-20 21:11:09,245 67532 INFO crm_final_measure odoo.modules.loading: Modules loaded.
+2026-11-20 21:11:09,361 67532 INFO crm_final_measure odoo.registry: Registry changed, signaling through the database
+2026-11-20 21:11:09,368 67532 INFO crm_final_measure odoo.registry: Registry loaded in 33.715s
+2026-11-20 21:11:09,368 67532 INFO crm_final_measure odoo.service.server: Starting post tests
+2026-11-20 21:11:09,401 67532 INFO crm_final_measure odoo.registry: Reloading the model registry after database signaling.
+2026-11-20 21:11:09,437 67532 INFO crm_final_measure odoo.modules.loading: loading 1 modules...
+2026-11-20 21:11:09,455 67532 INFO crm_final_measure odoo.modules.loading: 1 modules loaded in 0.02s, 0 queries (+0 extra)
+2026-11-20 21:11:09,467 67532 INFO crm_final_measure odoo.modules.loading: loading 226 modules...
+2026-11-20 21:11:09,860 67532 INFO crm_final_measure odoo.modules.loading: 226 modules loaded in 0.39s, 0 queries (+0 extra)
+2026-11-20 21:11:11,721 67532 INFO crm_final_measure odoo.modules.loading: Modules loaded.
+2026-11-20 21:11:11,796 67532 INFO crm_final_measure odoo.registry: Registry loaded in 2.394s
+2026-11-20 21:11:11,796 67532 INFO crm_final_measure odoo.addons.base.models.ir_qweb: Pregenerating assets bundles
+2026-11-20 21:11:14,972 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/bd5d160/api_doc.assets.min.js (id:2145)
+2026-11-20 21:11:15,268 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/72c9d32/hr_attendance.assets_public_attendance.min.js (id:2146)
+2026-11-20 21:11:15,311 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/152ef7f/html_editor.assets_history_diff.min.js (id:2147)
+2026-11-20 21:11:15,334 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/3c8c0ed/html_editor.assets_image_cropper.min.js (id:2148)
+2026-11-20 21:11:18,362 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/afcc2b3/im_livechat.assets_embed_external.min.js (id:2149)
+2026-11-20 21:11:18,438 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/dfc6f81/im_livechat.assets_livechat_support_tours.min.js (id:2150)
+2026-11-20 21:11:18,660 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/bb618fd/im_livechat.embed_assets_unit_tests.min.js (id:2151)
+2026-11-20 21:11:25,261 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/b45ce3d/im_livechat.embed_assets_unit_tests_setup.min.js (id:2152)
+2026-11-20 21:11:25,303 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/a9c0a78/mail.assets_discuss_public_test_tours.min.js (id:2153)
+2026-11-20 21:11:25,320 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/a047297/mail.assets_lamejs.min.js (id:2154)
+2026-11-20 21:11:25,729 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/cdc66c8/mail.assets_odoo_sfu.min.js (id:2155)
+2026-11-20 21:11:26,405 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/aa88790/mail.assets_public.min.js (id:2156)
+2026-11-20 21:11:27,443 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/f416338/mass_mailing.assets_builder.min.js (id:2157)
+2026-11-20 21:11:27,464 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/7757c27/mass_mailing.mailing_assets.min.js (id:2158)
+2026-11-20 21:11:27,913 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/4c062cb/portal.assets_chatter.min.js (id:2159)
+2026-11-20 21:11:28,768 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/94eeee5/project.webclient.min.js (id:2160)
+2026-11-20 21:11:29,650 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/f226d87/spreadsheet.o_spreadsheet.min.js (id:2161)
+2026-11-20 21:11:30,794 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/d9c411e/spreadsheet.public_spreadsheet.min.js (id:2162)
+2026-11-20 21:11:30,908 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/ad7da91/survey.survey_assets.min.js (id:2163)
+2026-11-20 21:11:30,915 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/865dc27/survey.survey_user_input_session_assets.min.js (id:2164)
+2026-11-20 21:11:31,540 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/6e80696/web.__assets_tests_call__.min.js (id:2165)
+2026-11-20 21:11:31,566 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/15e3f21/web.ace_lib.min.js (id:2166)
+2026-11-20 21:11:31,582 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/237c1ef/web.assets_clickbot.min.js (id:2167)
+2026-11-20 21:11:31,972 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/8292c6c/web.assets_frontend_lazy.min.js (id:2168)
+2026-11-20 21:11:32,003 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/70740cd/web.assets_frontend_minimal.min.js (id:2169)
+2026-11-20 21:11:32,043 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/f0674d8/web.assets_tests.min.js (id:2170)
+2026-11-20 21:11:47,373 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/a7bf3e0/web.assets_unit_tests.min.js (id:2171)
+2026-11-20 21:11:49,971 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/9add349/web.assets_unit_tests_setup.min.js (id:2172)
+2026-11-20 21:11:54,270 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/a27b0d5/web.assets_web.min.js (id:2173)
+2026-11-20 21:11:54,294 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Deleting attachments [2139] (matching /web/assets/_______/web.assets_web.min.js) because it was replaced with /web/assets/a27b0d5/web.assets_web.min.js
+2026-11-20 21:11:54,516 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/69d06a7/web.chartjs_lib.min.js (id:2174)
+2026-11-20 21:11:54,605 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/debd450/web.fullcalendar_lib.min.js (id:2175)
+2026-11-20 21:11:54,625 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/cf83e13/web.material_symbols_outlined.min.js (id:2176)
+2026-11-20 21:11:54,641 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/cf83e13/web.material_symbols_rounded.min.js (id:2177)
+2026-11-20 21:11:54,653 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/cf83e13/web.material_symbols_sharp.min.js (id:2178)
+2026-11-20 21:11:54,664 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/cf83e13/web.odoo_ui_icons.min.js (id:2179)
+2026-11-20 21:11:54,871 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/338dba2/web.report_assets_common.min.js (id:2180)
+2026-11-20 21:11:54,899 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/cf83e13/web.report_assets_pdf.min.js (id:2181)
+2026-11-20 21:11:54,920 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/3f332c7/web_tour.interactive.min.js (id:2182)
+2026-11-20 21:11:54,946 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/76863d0/web_tour.recorder.min.js (id:2183)
+2026-11-20 21:11:54,976 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/cf83e13/website.assets_theme_colors_preview.min.js (id:2184)
+2026-11-20 21:11:55,548 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/78849de/website.website_builder_assets.min.js (id:2185)
+2026-11-20 21:11:55,830 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/0c683ce/website_slides.slide_embed_assets.min.js (id:2186)
+2026-11-20 21:11:55,833 67532 INFO crm_final_measure odoo.addons.base.models.ir_qweb: JS Assets bundles generated in 42.32210397720337 seconds
+2026-11-20 21:11:55,839 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/7cb13a2/web.material_symbols_rounded.min.woff2 (id:2187)
+2026-11-20 21:11:55,846 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/6d57fd5/web.material_symbols_sharp.min.woff2 (id:2188)
+2026-11-20 21:11:55,848 67532 INFO crm_final_measure odoo.addons.base.models.ir_qweb: Binary Assets bundles generated in 0.014962196350097656 seconds
+2026-11-20 21:11:57,958 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/329949d/api_doc.assets.min.css (id:2189)
+2026-11-20 21:11:57,964 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/cf83e13/bus.websocket_worker_assets.min.css (id:2190)
+2026-11-20 21:12:01,719 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/ca4bccf/hr_attendance.assets_public_attendance.min.css (id:2191)
+2026-11-20 21:12:01,751 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/9971b8f/html_editor.assets_history_diff.min.css (id:2192)
+2026-11-20 21:12:01,803 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/936f4ea/html_editor.assets_image_cropper.min.css (id:2193)
+2026-11-20 21:12:07,430 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/8cb7280/im_livechat.assets_embed_external.min.css (id:2194)
+2026-11-20 21:12:07,440 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/cf83e13/im_livechat.assets_livechat_support_tours.min.css (id:2195)
+2026-11-20 21:12:07,448 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/cf83e13/im_livechat.embed_assets_unit_tests.min.css (id:2196)
+2026-11-20 21:12:14,761 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/f0b734a/im_livechat.embed_assets_unit_tests_setup.min.css (id:2197)
+2026-11-20 21:12:14,769 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/cf83e13/mail.assets_discuss_public_test_tours.min.css (id:2198)
+2026-11-20 21:12:14,772 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/cf83e13/mail.assets_lamejs.min.css (id:2199)
+2026-11-20 21:12:14,803 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/8c8786a/mail.assets_markdown.min.css (id:2200)
+2026-11-20 21:12:14,808 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/cf83e13/mail.assets_odoo_sfu.min.css (id:2201)
+2026-11-20 21:12:16,611 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/a6404e9/mail.assets_public.min.css (id:2202)
+2026-11-20 21:12:17,161 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/f97d95a/mass_mailing.assets_builder.min.css (id:2203)
+2026-11-20 21:12:19,321 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/2a5a827/mass_mailing.assets_iframe_style.min.css (id:2204)
+2026-11-20 21:12:19,326 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/35c4100/mass_mailing.mailing_assets.min.css (id:2205)
+2026-11-20 21:12:19,636 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/6a5cab0/portal.assets_chatter.min.css (id:2206)
+2026-11-20 21:12:21,775 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/4341136/project.webclient.min.css (id:2207)
+2026-11-20 21:12:21,800 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/cf83e13/spreadsheet.o_spreadsheet.min.css (id:2208)
+2026-11-20 21:12:24,720 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/cb15617/spreadsheet.public_spreadsheet.min.css (id:2209)
+2026-11-20 21:12:24,726 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/cf83e13/stock.assets_stock_print_report.min.css (id:2210)
+2026-11-20 21:12:24,906 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/aecebe7/survey.survey_assets.min.css (id:2211)
+2026-11-20 21:12:24,909 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/cf83e13/survey.survey_user_input_session_assets.min.css (id:2212)
+2026-11-20 21:12:24,915 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/cf83e13/web.__assets_tests_call__.min.css (id:2213)
+2026-11-20 21:12:24,923 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/cf83e13/web.ace_lib.min.css (id:2214)
+2026-11-20 21:12:24,925 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/cf83e13/web.assets_clickbot.min.css (id:2215)
+2026-11-20 21:12:24,927 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/cf83e13/web.assets_emoji.min.css (id:2216)
+2026-11-20 21:12:28,440 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/933733c/web.assets_frontend.min.css (id:2217)
+2026-11-20 21:12:32,872 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/933733c/web.assets_frontend_lazy.min.css (id:2218)
+2026-11-20 21:12:32,900 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/cf83e13/web.assets_frontend_minimal.min.css (id:2219)
+2026-11-20 21:12:32,915 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/cf83e13/web.assets_tests.min.css (id:2220)
+2026-11-20 21:12:34,098 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/329bbc5/web.assets_unit_tests.min.css (id:2221)
+2026-11-20 21:12:40,060 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/d11ae21/web.assets_unit_tests_setup.min.css (id:2222)
+2026-11-20 21:12:46,405 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/d52c488/web.assets_web_dark.min.css (id:2223)
+2026-11-20 21:12:46,923 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/cf83e13/web.chartjs_lib.min.css (id:2224)
+2026-11-20 21:12:46,943 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/cf83e13/web.fullcalendar_lib.min.css (id:2225)
+2026-11-20 21:12:46,957 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/9860b06/web.material_symbols_outlined.min.css (id:2226)
+2026-11-20 21:12:46,965 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/2ec3b72/web.material_symbols_rounded.min.css (id:2227)
+2026-11-20 21:12:46,979 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/f41b260/web.material_symbols_sharp.min.css (id:2228)
+2026-11-20 21:12:47,012 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/da4c679/web.odoo_ui_icons.min.css (id:2229)
+2026-11-20 21:12:49,926 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/867bd5e/web.report_assets_common.min.css (id:2230)
+2026-11-20 21:12:49,947 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/5e248b1/web.report_assets_pdf.min.css (id:2231)
+2026-11-20 21:12:49,951 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/cf83e13/web_tour.interactive.min.css (id:2232)
+2026-11-20 21:12:49,956 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/cf83e13/web_tour.recorder.min.css (id:2233)
+2026-11-20 21:12:50,226 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/f08322d/website.assets_theme_colors_preview.min.css (id:2234)
+2026-11-20 21:12:50,658 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/b19d945/website.assets_wysiwyg.min.css (id:2235)
+2026-11-20 21:12:52,211 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/82ea717/website.website_builder_assets.min.css (id:2236)
+2026-11-20 21:12:54,677 67532 INFO crm_final_measure odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/c9c30b3/website_slides.slide_embed_assets.min.css (id:2237)
+2026-11-20 21:12:54,679 67532 INFO crm_final_measure odoo.addons.base.models.ir_qweb: CSS Assets bundles generated in 58.83107256889343 seconds
+2026-11-20 21:12:54,862 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js: Starting ExternalTestSuite.test_external_livechat ...
+2026-11-20 21:12:56,248 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Chrome pid: 68624
+2026-11-20 21:12:56,249 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Chrome headless temporary user profile dir: /tmp/tmp2j0gj7im_chrome_odoo
+2026-11-20 21:12:56,249 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Issuing json command http://127.0.0.1:36265/json/version
+2026-11-20 21:12:56,371 67532 INFO crm_final_measure odoo.tests.common.requests: request SplitResult(scheme='http', netloc='127.0.0.1:36265', path='/json/version', query='', fragment='') with timeout 3 increased to 10s during tests
+2026-11-20 21:12:56,864 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Browser version: Chrome/156.0.8078.79
+2026-11-20 21:12:56,894 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Issuing json command http://127.0.0.1:36265/json
+2026-11-20 21:12:56,895 67532 INFO crm_final_measure odoo.tests.common.requests: request SplitResult(scheme='http', netloc='127.0.0.1:36265', path='/json', query='', fragment='') with timeout 3 increased to 10s during tests
+2026-11-20 21:12:57,051 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Websocket url found: ws://127.0.0.1:36265/devtools/page/19A740B15EF43002545AE3571CA2248B
+2026-11-20 21:12:57,196 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Enable chrome headless console log notification
+2026-11-20 21:12:57,294 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Chrome headless enable page notifications
+2026-11-20 21:12:58,368 67532 INFO crm_final_measure odoo.addons.base.models.res_users: Login successful for login:admin from n/a
+2026-11-20 21:12:58,432 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Setting session cookie in browser
+2026-11-20 21:12:58,435 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Open "http://127.0.0.1:8084/web/tests/livechat?headless&loglevel=2&preset=desktop" in browser
+2026-11-20 21:12:58,435 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Navigating to: "http://127.0.0.1:8084/web/tests/livechat?headless&loglevel=2&preset=desktop"
+2026-11-20 21:12:58,559 67532 INFO crm_final_measure odoo.addons.base.models.ir_http: Generating routing map for key 1
+2026-11-20 21:12:59,271 67532 INFO crm_final_measure odoo.http.server: 127.0.0.1 _Z2LFwwH - [20/Nov/2026 21:12:59] "GET /web/tests/livechat?headless&loglevel=2&preset=desktop HTTP/1.1" 200 2014 16 0.068 0.764 rw
+2026-11-20 21:12:59,299 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Navigation result: {'frameId': '19A740B15EF43002545AE3571CA2248B', 'loaderId': 'DB060E3B76F3FA41FB0FB643F126B82C', 'isDownload': False}
+2026-11-20 21:12:59,300 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Waiting for frame '19A740B15EF43002545AE3571CA2248B' to stop loading
+2026-11-20 21:12:59,500 67532 INFO crm_final_measure odoo.http.server: 127.0.0.1 _Z2LFwwH - [20/Nov/2026 21:12:59] "GET /web/assets/f0b734a/im_livechat.embed_assets_unit_tests_setup.min.css HTTP/1.1" 200 1429597 2 0.002 1.026 ro
+2026-11-20 21:12:59,658 67532 INFO crm_final_measure odoo.http.server: 127.0.0.1 _Z2LFwwH - [20/Nov/2026 21:12:59] "GET /web/assets/bb618fd/im_livechat.embed_assets_unit_tests.min.js HTTP/1.1" 200 243035 2 0.012 0.046 ro
+2026-11-20 21:13:00,321 67532 INFO crm_final_measure odoo.http.server: 127.0.0.1 _Z2LFwwH - [20/Nov/2026 21:12:59] "GET /web/assets/b45ce3d/im_livechat.embed_assets_unit_tests_setup.min.js HTTP/1.1" 200 10987043 2 0.003 0.87 ro
+2026-11-20 21:13:02,343 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Evaluate ready code "document.readyState === 'complete'"
+2026-11-20 21:13:03,541 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Evaluate test code ""
+2026-11-20 21:13:03,802 67532 INFO crm_final_measure odoo.http.server: 127.0.0.1 _Z2LFwwH - [20/Nov/2026 21:13:03] "GET /web/static/img/favicon.ico HTTP/1.1" 200 1150 0 0 0.174 -
+2026-11-20 21:13:04,237 67532 INFO crm_final_measure odoo.http.server: 127.0.0.1 _Z2LFwwH - [20/Nov/2026 21:13:04] "POST /web/dataset/call_kw/ir.module.module.dependency/all_dependencies#ir.module.module.dependency.all_dependencies HTTP/1.1" 200 715 17 0.212 0.431 rw
+2026-11-20 21:13:05,656 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Configuration (click to expand)
+2026-11-20 21:13:05,695 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: Object(bail=0, debug='', debugTest=false, events=3, fps=60, fun=false, headless=true, loglevel=2, manual=false, networkDelay='0', notrycatch=false, order='fifo', preset='desktop', random=0, showdetail='first-fail', timeout=5000, filter='', id='[]', tag='[]')
+2026-11-20 21:13:05,695 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: console.groupEnd
+2026-11-20 21:13:05,696 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Starting test suites
+2026-11-20 21:13:05,696 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/autopopup/persisted session"
+2026-11-20 21:13:08,860 67532 INFO crm_final_measure odoo.http.server: 127.0.0.1 _Z2LFwwH - [20/Nov/2026 21:13:08] "POST /web/model/get_definitions HTTP/1.1" 200 783486 859 1.08 2.076 rw
+2026-11-20 21:13:10,570 67532 INFO crm_final_measure odoo.http.server: 127.0.0.1 _Z2LFwwH - [20/Nov/2026 21:13:10] "GET /web/assets/357f262/web.material_symbols_outlined.min.woff2 HTTP/1.1" 200 38596 2 0.009 0.049 ro
+2026-11-20 21:13:12,833 67532 INFO crm_final_measure odoo.http.server: 127.0.0.1 _Z2LFwwH - [20/Nov/2026 21:13:12] "GET /im_livechat/emoji_bundle HTTP/1.1" 200 458331 2 0.002 0.016 rw
+2026-11-20 21:13:13,817 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [ERROR] HootError: test "persisted session" timed out after 5000 milliseconds
+    at http://127.0.0.1:8084/web/assets/b45ce3d/im_livechat.embed_assets_unit_tests_setup.min.js:1486:76
+	at error (http://127.0.0.1:8084/web/assets/b45ce3d/im_livechat.embed_assets_unit_tests_setup.min.js:1351:25)
+	at _handleError (http://127.0.0.1:8084/web/assets/b45ce3d/im_livechat.embed_assets_unit_tests_setup.min.js:1587:176)
+
+2026-11-20 21:13:14,159 67532 ERROR crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Test "@im_livechat/embed/autopopup/persisted session" failed:
+
+Failed assertions:
+
+1. [assertions] expected at least 1 assertion or query event, but none were run
+
+2. [errors] 1 unverified error(s)
+
+Error during test:
+
+test "persisted session" timed out after 5000 milliseconds
+2026-11-20 21:13:14,214 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/autopopup/rule received in init"
+2026-11-20 21:13:16,005 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] "@im_livechat/embed/autopopup" ended (passed: 1 / failed: 1 / time: 10072 ms)
+2026-11-20 21:13:16,254 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [MEMINFO] @im_livechat/embed/autopopup (after GC) - used: 42950961 - total: 72825313 - limit: 4395630592 - tests: 2
+2026-11-20 21:13:16,357 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/chat_bubble/Do not show bot IM status"
+2026-11-20 21:13:17,064 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] "@im_livechat/embed/chat_bubble" ended (passed: 1 / time: 680 ms)
+2026-11-20 21:13:17,231 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [MEMINFO] @im_livechat/embed/chat_bubble (after GC) - used: 39238714 - total: 83317194 - limit: 4395630592 - tests: 1
+2026-11-20 21:13:17,471 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/chat_window/internal users can upload file to temporary thread"
+2026-11-20 21:13:19,014 67532 INFO crm_final_measure odoo.http.server: 127.0.0.1 _Z2LFwwH - [20/Nov/2026 21:13:19] "GET /web/static/img/mimetypes/text.svg HTTP/1.1" 200 691 0 0 0.004 -
+2026-11-20 21:13:20,509 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/chat_window/The name of the conversation changes based on the agents' names"
+2026-11-20 21:13:23,735 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/chat_window/Portal users should not be able to start a call"
+2026-11-20 21:13:27,449 67532 INFO crm_final_measure odoo.tests.common: External chrome request during tests: returning 404 for https://www.hoot.test/web/image/res.partner/420/avatar_128?access_token=420&unique=1552296600000
+2026-11-20 21:13:27,536 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/chat_window/avatar url contains access token for non-internal users"
+2026-11-20 21:13:29,709 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/chat_window/can close confirm livechat with keyboard"
+2026-11-20 21:13:30,829 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/chat_window/Should not show IM status of agents"
+2026-11-20 21:13:31,804 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/chat_window/Displays the name of agent in welcome message"
+2026-11-20 21:13:32,231 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/chat_window/should not make XMLHttpRequest to server file content when embedded externally"
+2026-11-20 21:13:34,296 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/chat_window/should not allow preview of PDF attachments when embedded externally"
+2026-11-20 21:13:35,432 67532 INFO crm_final_measure odoo.http.server: 127.0.0.1 _Z2LFwwH - [20/Nov/2026 21:13:35] "GET /web/static/lib/pdfjs/build/pdf.js HTTP/1.1" 200 797534 0 0 0.002 -
+2026-11-20 21:13:35,512 67532 INFO crm_final_measure odoo.http.server: 127.0.0.1 _Z2LFwwH - [20/Nov/2026 21:13:35] "GET /web/static/lib/pdfjs/build/pdf.worker.js HTTP/1.1" 200 1916063 0 0 0.079 -
+2026-11-20 21:13:36,531 67532 INFO crm_final_measure odoo.http.server: 127.0.0.1 _Z2LFwwH - [20/Nov/2026 21:13:36] "GET /web/static/img/mimetypes/pdf.svg HTTP/1.1" 200 2113 0 0 0.018 -
+2026-11-20 21:13:37,260 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] "@im_livechat/embed/chat_window" ended (passed: 9 / time: 19740 ms)
+2026-11-20 21:13:37,811 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: Warning: Setting up fake worker.
+2026-11-20 21:13:38,313 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [MEMINFO] @im_livechat/embed/chat_window (after GC) - used: 71572098 - total: 190416830 - limit: 4395630592 - tests: 9
+2026-11-20 21:13:38,402 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/expirable_storage/value is removed from expirable storage after expiration"
+2026-11-20 21:13:38,403 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/expirable_storage/subscribe/unsubscribe to storage changes"
+2026-11-20 21:13:38,443 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] "@im_livechat/embed/expirable_storage" ended (passed: 2 / time: 40 ms)
+2026-11-20 21:13:38,854 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [MEMINFO] @im_livechat/embed/expirable_storage (after GC) - used: 66897698 - total: 174425854 - limit: 4395630592 - tests: 2
+2026-11-20 21:13:39,340 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/feedback_panel/Do not ask feedback if empty"
+2026-11-20 21:13:40,219 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/feedback_panel/Close without feedback"
+2026-11-20 21:13:41,494 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/feedback_panel/Last operator leaving ends the livechat"
+2026-11-20 21:13:42,758 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/feedback_panel/Feedback with rating and comment"
+2026-11-20 21:13:43,769 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/feedback_panel/Closing folded chat window should open it with feedback"
+2026-11-20 21:13:44,671 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/feedback_panel/Start new session from feedback panel"
+2026-11-20 21:13:45,756 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/feedback_panel/open review link on good rating"
+2026-11-20 21:13:46,485 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] "@im_livechat/embed/feedback_panel" ended (passed: 7 / time: 7113 ms)
+2026-11-20 21:13:48,324 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [MEMINFO] @im_livechat/embed/feedback_panel (after GC) - used: 80431016 - total: 198281152 - limit: 4395630592 - tests: 7
+2026-11-20 21:13:48,620 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/history_command/Handle livechat history command"
+2026-11-20 21:13:53,214 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] "@im_livechat/embed/history_command" ended (passed: 1 / time: 4475 ms)
+2026-11-20 21:13:53,495 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [MEMINFO] @im_livechat/embed/history_command (after GC) - used: 72200805 - total: 190416909 - limit: 4395630592 - tests: 1
+2026-11-20 21:13:53,645 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/livechat_button/open/close temporary channel"
+2026-11-20 21:13:55,797 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/livechat_button/open/close persisted channel"
+2026-11-20 21:13:57,569 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/livechat_button/livechat not available"
+2026-11-20 21:13:57,815 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/livechat_button/clicking on notification opens the chat"
+2026-11-20 21:13:58,216 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/livechat_button/can start a new live chat when acting as an agent in active live chats"
+2026-11-20 21:13:59,221 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] "@im_livechat/embed/livechat_button" ended (passed: 5 / time: 5473 ms)
+2026-11-20 21:14:00,125 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [MEMINFO] @im_livechat/embed/livechat_button (after GC) - used: 65883065 - total: 185960517 - limit: 4395630592 - tests: 5
+2026-11-20 21:14:00,294 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/livechat_service/persisted session history"
+2026-11-20 21:14:01,194 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/livechat_service/previous operator prioritized"
+2026-11-20 21:14:01,669 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/livechat_service/Only necessary requests are made when creating a new chat"
+2026-11-20 21:14:03,911 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/livechat_service/do not create new thread when operator answers to visitor"
+2026-11-20 21:14:05,237 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/livechat_service/Only create one channel when posting multiple messages"
+2026-11-20 21:14:08,828 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/livechat_service/guest token channel is subscribed at start and unsubscribed at destroy"
+2026-11-20 21:14:09,336 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] "@im_livechat/embed/livechat_service" ended (passed: 6 / time: 9029 ms)
+2026-11-20 21:14:09,957 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [MEMINFO] @im_livechat/embed/livechat_service (after GC) - used: 76076438 - total: 185698630 - limit: 4395630592 - tests: 6
+2026-11-20 21:14:10,156 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/livechat_session/Session is reset after failing to persist the channel"
+2026-11-20 21:14:11,517 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/livechat_session/Fold state is saved"
+2026-11-20 21:14:13,503 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/livechat_session/Seen message is saved on the server"
+2026-11-20 21:14:16,110 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] "@im_livechat/embed/livechat_session" ended (passed: 3 / time: 5836 ms)
+2026-11-20 21:14:16,568 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [MEMINFO] @im_livechat/embed/livechat_session (after GC) - used: 72844457 - total: 183342693 - limit: 4395630592 - tests: 3
+2026-11-20 21:14:17,269 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/message_reactions/user custom live chat user name for message reactions"
+2026-11-20 21:14:18,468 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] "@im_livechat/embed/message_reactions" ended (passed: 1 / time: 1158 ms)
+2026-11-20 21:14:18,801 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [MEMINFO] @im_livechat/embed/message_reactions (after GC) - used: 57135080 - total: 168937964 - limit: 4395630592 - tests: 1
+2026-11-20 21:14:18,874 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/suggestion/Visitor cannot use @ mentions in livechat"
+2026-11-20 21:14:19,549 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] "@im_livechat/embed/suggestion" ended (passed: 1 / time: 659 ms)
+2026-11-20 21:14:19,818 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [MEMINFO] @im_livechat/embed/suggestion (after GC) - used: 60139533 - total: 142723581 - limit: 4395630592 - tests: 1
+2026-11-20 21:14:19,960 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/transcript_sender/send"
+2026-11-20 21:14:21,751 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/transcript_sender/send failed"
+2026-11-20 21:14:23,095 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] "@im_livechat/embed/transcript_sender" ended (passed: 2 / time: 3110 ms)
+2026-11-20 21:14:23,398 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [MEMINFO] @im_livechat/embed/transcript_sender (after GC) - used: 69738565 - total: 153735913 - limit: 4395630592 - tests: 2
+2026-11-20 21:14:23,454 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/unread_messages/new message from operator displays unread counter"
+2026-11-20 21:14:24,167 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/unread_messages/focus on unread livechat marks it as read"
+2026-11-20 21:14:26,428 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/unread_messages/new message from operator is automatically translated"
+2026-11-20 21:14:26,816 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] "@im_livechat/embed/unread_messages" ended (passed: 3 / time: 3347 ms)
+2026-11-20 21:14:27,144 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [MEMINFO] @im_livechat/embed/unread_messages (after GC) - used: 68891975 - total: 158192447 - limit: 4395630592 - tests: 3
+2026-11-20 21:14:27,258 67532 INFO crm_final_measure odoo.http.server: 127.0.0.1 _Z2LFwwH - [20/Nov/2026 21:14:27] "POST /web/dataset/call_kw/ir.module.module.dependency/all_dependencies#ir.module.module.dependency.all_dependencies HTTP/1.1" 200 3406 13 0.038 0.061 rw
+2026-11-20 21:14:27,560 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@test_discuss_full/embed/livechat_button/open/close persisted channel"
+2026-11-20 21:14:28,905 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] "@test_discuss_full/embed/livechat_button" ended (passed: 1 / time: 1283 ms)
+2026-11-20 21:14:29,459 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [MEMINFO] @test_discuss_full/embed/livechat_button (after GC) - used: 72605630 - total: 159000170 - limit: 4395630592 - tests: 1
+2026-11-20 21:14:30,082 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [MEMINFO] tests done (after GC) - used: 61131358 - total: 158189350 - limit: 4395630592
+2026-11-20 21:14:30,082 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] "@im_livechat" ended (passed: 42 / failed: 1 / time: 70732 ms)
+2026-11-20 21:14:30,083 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] "@test_discuss_full" ended (passed: 1 / time: 1283 ms)
+2026-11-20 21:14:30,083 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Failed 1 tests (43 passed, total time: 00:01:23)
+2026-11-20 21:14:30,083 67532 ERROR crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: Some tests failed: see above for details
+Failed tests link: http://127.0.0.1:8084/web/tests/livechat?preset=desktop&id=13fc4a31&debugTest=true&debug=assets
+2026-11-20 21:14:30,083 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Asking for screenshot
+2026-11-20 21:14:30,126 67532 INFO crm_final_measure odoo.addons.bus.websocket: Disconnecting 0 websockets
+2026-11-20 21:14:30,762 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Closing chrome headless with pid 68624
+2026-11-20 21:14:30,807 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Screenshot in: /tmp/odoo_tests/crm_final_measure/screenshots/sc_20261120_211430_796634_test_external_livechat.png
+2026-11-20 21:14:30,808 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Closing websocket connection
+2026-11-20 21:14:30,817 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Terminating chrome headless with pid 68624
+2026-11-20 21:14:32,479 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Chrome Log in: /tmp/odoo_tests/crm_final_measure/chrome_logs/chrome_log_20261120_211432_466092_test_external_livechat.txt
+2026-11-20 21:14:32,480 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Removing chrome user profile "/tmp/tmp2j0gj7im_chrome_odoo"
+2026-11-20 21:14:32,648 67532 INFO crm_final_measure odoo.addons.im_livechat.tests.test_js: ======================================================================
+2026-11-20 21:14:32,649 67532 ERROR crm_final_measure odoo.addons.im_livechat.tests.test_js: FAIL: ExternalTestSuite.test_external_livechat
+Traceback (most recent call last):
+  File "/workspace/odoo/addons/im_livechat/tests/test_js.py", line 10, in test_external_livechat
+    self.browser_js(
+  File "/workspace/odoo/odoo/tests/common.py", line 2990, in browser_js
+    self.fail(str(error))
+AssertionError: Some tests failed: see above for details
+Failed tests link: http://127.0.0.1:8084/web/tests/livechat?preset=desktop&id=13fc4a31&debugTest=true&debug=assets
+
+2026-11-20 21:14:33,199 67532 INFO crm_final_measure odoo.addons.base.models.ir_attachment: filestore gc 800 checked, 2 removed
+2026-11-20 21:14:33,237 67532 INFO crm_final_measure odoo.service.server: 1 post-tests in 203.87s, 1796 queries
+2026-11-20 21:14:33,237 67532 INFO crm_final_measure odoo.tests.stats: im_livechat: 3 tests 98.41s 934 queries
+2026-11-20 21:14:33,242 67532 ERROR crm_final_measure odoo.tests.result: 1 failed, 0 error(s) of 1 tests when loading database 'crm_final_measure'
+2026-11-20 21:14:33,246 67532 INFO crm_final_measure odoo.service.server.ThreadedServer: Failed: odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat - Some tests failed: see above for details [...]
+2026-11-20 21:14:33,246 67532 INFO crm_final_measure odoo.service.server.ThreadedServer: Initiating shutdown
+2026-11-20 21:14:33,246 67532 INFO crm_final_measure odoo.service.server.ThreadedServer: Hit CTRL-C again or send a second signal to force the shutdown.
+2026-11-20 21:14:33,246 67532 INFO crm_final_measure odoo.addons.bus.websocket: Disconnecting 0 websockets
+2026-11-20 21:14:33,403 67532 INFO crm_final_measure odoo.sql_db: ConnectionPool(read/write;used=0/count=0/max=64): Closed 2 connections 

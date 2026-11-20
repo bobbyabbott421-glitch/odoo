@@ -1,0 +1,59 @@
+[76356:76385:1120/212118.447678:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[76356:76385:1120/212118.447847:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[76356:76385:1120/212118.447895:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[76356:76385:1120/212118.447912:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[76356:76385:1120/212118.447928:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[76356:76385:1120/212118.447937:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[76356:76385:1120/212118.447945:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[76356:76385:1120/212118.473116:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[76356:76385:1120/212118.638708:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[76356:76396:1120/212118.664898:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 76411: Read-only file system (30)
+[76398:76398:1120/212118.668248:WARNING:media/gpu/vaapi/vaapi_wrapper.cc:1655] drmGetDevices2() has not found any devices
+[76398:76398:1120/212118.711792:WARNING:sandbox/policy/linux/sandbox_linux.cc:405] InitializeSandbox() called with multiple threads in process gpu-process.
+[76356:76356:1120/212118.744929:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[76356:76356:1120/212118.745017:WARNING:device/bluetooth/dbus/bluez_dbus_manager.cc:209] Floss manager service not available, cannot set Floss enable/disable.
+[76356:76356:1120/212118.745077:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[76356:76385:1120/212118.745146:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[76356:76385:1120/212118.745261:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[76356:76356:1120/212118.745652:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[76356:76356:1120/212118.768721:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[76356:76385:1120/212118.769007:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[76356:76385:1120/212118.773459:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[76356:76356:1120/212118.773472:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[76356:76385:1120/212118.773507:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[76356:76356:1120/212118.794163:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[76356:76385:1120/212118.794327:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[76356:76396:1120/212119.024671:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 76454: Read-only file system (30)
+[76356:76396:1120/212119.162745:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 76468: Read-only file system (30)
+[76356:76356:1120/212119.196923:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[76356:76356:1120/212119.197491:WARNING:dbus/property.cc:94] Failed to connect to PropertiesChangedsignal.
+[76356:76356:1120/212119.197514:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.Properties.GetAll: object_path= /org/freedesktop/UPower/devices/DisplayDevice: unknown error type: 
+[76356:76356:1120/212119.197520:WARNING:dbus/property.cc:174] GetAll request failed for: org.freedesktop.UPower.Device
+[76356:76356:1120/212119.198556:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[76356:76385:1120/212119.198839:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[76356:76396:1120/212119.218768:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 76469: Read-only file system (30)
+[76356:76356:1120/212119.229090:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[76356:76385:1120/212119.231687:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[76356:76356:1120/212119.370558:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[76356:76356:1120/212119.371239:WARNING:ui/base/idle/idle_linux.cc:111] None of the known D-Bus ScreenSaver services could be used.
+[76356:76356:1120/212126.604867:INFO:CONSOLE:1148] "Owl is running in 'dev' mode.", source: http://127.0.0.1:8071/web/assets/56c5002/web.assets_web.min.js (1148)
+[76356:76356:1120/212126.951521:INFO:CONSOLE:672] "Hoot DOM helpers available from `window.hoot`", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (672)
+[76356:76356:1120/212126.952986:INFO:CONSOLE:683] "[1/12] Tour discuss.invite_by_email → Step .o-discuss-ChannelMemberList", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[76356:76356:1120/212130.226858:INFO:CONSOLE:683] "[2/12] Tour discuss.invite_by_email → Step button[title='Add People']", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[76356:76356:1120/212130.313758:INFO:CONSOLE:683] "[3/12] Tour discuss.invite_by_email → Step .modal:has(.o-discuss-ChannelInvitation)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[76356:76356:1120/212130.443851:INFO:CONSOLE:683] "[4/12] Tour discuss.invite_by_email → Step .o-discuss-ChannelInvitation-search[placeholder='Enter name or email']", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[76356:76356:1120/212130.522727:INFO:CONSOLE:683] "[5/12] Tour discuss.invite_by_email → Step .o-discuss-ChannelInvitation-selectable:contains('john (base.group_user)')", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[76356:76356:1120/212132.203089:INFO:CONSOLE:683] "[6/12] Tour discuss.invite_by_email → Step .o-discuss-ChannelInvitation-selectedList :contains('john (base.group_user)')", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[76356:76356:1120/212132.319007:INFO:CONSOLE:683] "[7/12] Tour discuss.invite_by_email → Step .o-discuss-ChannelInvitation-search", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[76356:76356:1120/212132.419881:INFO:CONSOLE:683] "[8/12] Tour discuss.invite_by_email → Step .o-discuss-ChannelInvitation-selectable:contains('unknown_email@test.com')", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[76356:76356:1120/212133.226439:INFO:CONSOLE:683] "[9/12] Tour discuss.invite_by_email → Step .o-discuss-ChannelInvitation-selectedList :contains('unknown_email@test.com')", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[76356:76356:1120/212133.255533:INFO:CONSOLE:683] "[10/12] Tour discuss.invite_by_email → Step button:contains(Invite to Group Chat)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[76356:76356:1120/212133.267199:INFO:CONSOLE:683] "[11/12] Tour discuss.invite_by_email → Step .o-discuss-ChannelMember:has(:text('john (base.group_user)'))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[76356:76356:1120/212134.763215:INFO:CONSOLE:683] "[12/12] Tour discuss.invite_by_email → Step body:not(:has(.modal))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[76356:76356:1120/212134.763896:INFO:CONSOLE:666] "tour succeeded", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (666)
+[76356:76356:1120/212134.764986:INFO:CONSOLE:666] "
+
+╔════════════════════════════════════════╗
+║ TOUR discuss.invite_by_email SUCCEEDED ║
+╚════════════════════════════════════════╝
+", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (666)

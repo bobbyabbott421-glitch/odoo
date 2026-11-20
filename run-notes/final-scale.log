@@ -1,0 +1,40 @@
+test_large_team (__main__.OfflinePipeline.test_large_team) ... 2026-11-20 21:40:02,835 86580 INFO ? scale: Chrome pid: 86689
+2026-11-20 21:40:02,853 86580 INFO ? scale: Chrome headless temporary user profile dir: /tmp/tmp8wzzo65g_chrome_odoo
+2026-11-20 21:40:02,853 86580 INFO ? scale: Issuing json command http://127.0.0.1:44687/json/version
+2026-11-20 21:40:03,471 86580 INFO ? scale: Browser version: Chrome/156.0.8078.79
+2026-11-20 21:40:03,471 86580 INFO ? scale: Issuing json command http://127.0.0.1:44687/json
+2026-11-20 21:40:03,743 86580 INFO ? scale: Websocket url found: ws://127.0.0.1:44687/devtools/page/5870BC48DF3AB6930B51AB755059F63C
+2026-11-20 21:40:03,812 86580 INFO ? scale: Enable chrome headless console log notification
+2026-11-20 21:40:03,838 86580 INFO ? scale: Chrome headless enable page notifications
+2026-11-20 21:40:03,864 86580 INFO ? scale: Navigating to: "http://127.0.0.1:17862/odoo/crm"
+2026-11-20 21:40:05,670 86580 INFO ? scale: Navigation result: {'frameId': '5870BC48DF3AB6930B51AB755059F63C', 'loaderId': 'B5E5EBB9DAABFB3157F8EA4F9063CD1C', 'isDownload': False}
+2026-11-20 21:40:48,112 86580 INFO ? scale: Navigating to: "http://127.0.0.1:17862/odoo/crm"
+2026-11-20 21:40:49,033 86580 INFO ? scale: Navigation result: {'frameId': '5870BC48DF3AB6930B51AB755059F63C', 'loaderId': '1D43CB008AF5982801BC4EED86736794', 'isDownload': False}
+2026-11-20 21:41:07,764 86580 INFO ? scale: Navigating to: "http://127.0.0.1:17862/odoo/crm"
+2026-11-20 21:41:08,206 86580 INFO ? scale: Navigation result: {'frameId': '5870BC48DF3AB6930B51AB755059F63C', 'loaderId': 'EBB6F04EE01101A382FC32417AB9BC71', 'isDownload': False}
+2026-11-20 21:41:09,025 86580 WARNING crm_scale scale.browser: Error while loading SharedWorker, fallback on Worker:  Event(isTrusted=true, type='error', target=SharedWorker, currentTarget=SharedWorker, eventPhase=2)
+2026-11-20 21:41:09,045 86580 WARNING crm_scale scale.browser: Worker service failed to initialize:  Event(isTrusted=true, type='error', target=Worker, currentTarget=Worker, eventPhase=2)
+2026-11-20 21:41:09,047 86580 WARNING crm_scale scale.browser: BusService: Real-time notifications disabled (WorkerService failed to start).
+2026-11-20 21:41:09,048 86580 WARNING crm_scale scale.browser: Worker service failed to initialize, cannot send message.
+2026-11-20 21:41:09,048 86580 WARNING crm_scale scale.browser: Worker service failed to initialize, cannot send message.
+2026-11-20 21:41:09,049 86580 WARNING crm_scale scale.browser: Worker service failed to initialize, cannot send message.
+2026-11-20 21:41:09,174 86580 WARNING crm_scale scale.browser: Worker service failed to initialize, cannot send message.
+2026-11-20 21:41:09,200 86580 WARNING crm_scale scale.browser: Worker service failed to initialize, cannot send message.
+2026-11-20 21:41:09,250 86580 WARNING crm_scale scale.browser: Worker service failed to initialize, cannot send message.
+2026-11-20 21:41:09,250 86580 WARNING crm_scale scale.browser: Worker service failed to initialize, cannot send message.
+2026-11-20 21:41:09,251 86580 WARNING crm_scale scale.browser: Worker service failed to initialize, cannot send message.
+2026-11-20 21:41:09,251 86580 WARNING crm_scale scale.browser: Worker service failed to initialize, cannot send message.
+2026-11-20 21:41:09,251 86580 WARNING crm_scale scale.browser: Worker service failed to initialize, cannot send message.
+OFFLINE_10000_RENDER_MS 18815
+VISIBLE_CARD_COUNT 320
+2026-11-20 21:41:27,199 86580 INFO ? scale: Closing chrome headless with pid 86689
+2026-11-20 21:41:27,231 86580 INFO ? scale: Closing websocket connection
+2026-11-20 21:41:27,297 86580 INFO ? scale: Terminating chrome headless with pid 86689
+2026-11-20 21:41:28,423 86580 INFO ? scale: Chrome Log in: /tmp/odoo_tests/crm_scale/chrome_logs/chrome_log_20261120_214128_421436_runTest.txt
+2026-11-20 21:41:28,426 86580 INFO ? scale: Removing chrome user profile "/tmp/tmp8wzzo65g_chrome_odoo"
+ok
+
+----------------------------------------------------------------------
+Ran 1 test in 101.297s
+
+OK

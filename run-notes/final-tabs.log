@@ -1,0 +1,78 @@
+test_visited_lead (__main__.OfflineLead.test_visited_lead) ... 2026-11-20 21:09:58,597 66685 INFO ? lead: Chrome pid: 66946
+2026-11-20 21:09:58,598 66685 INFO ? lead: Chrome headless temporary user profile dir: /tmp/tmpdschplhq_chrome_odoo
+2026-11-20 21:09:58,600 66685 INFO ? lead: Issuing json command http://127.0.0.1:35031/json/version
+2026-11-20 21:09:59,154 66685 INFO ? lead: Browser version: Chrome/156.0.8078.79
+2026-11-20 21:09:59,159 66685 INFO ? lead: Issuing json command http://127.0.0.1:35031/json
+2026-11-20 21:09:59,251 66685 INFO ? lead: Websocket url found: ws://127.0.0.1:35031/devtools/page/24505973F04584FF3ADB9C8D2B6C8AA0
+2026-11-20 21:09:59,297 66685 INFO ? lead: Enable chrome headless console log notification
+2026-11-20 21:09:59,338 66685 INFO ? lead: Chrome headless enable page notifications
+2026-11-20 21:09:59,416 66685 INFO ? lead: Navigating to: "http://127.0.0.1:8083/odoo/crm/46"
+2026-11-20 21:10:00,710 66685 INFO ? lead: Navigation result: {'frameId': '24505973F04584FF3ADB9C8D2B6C8AA0', 'loaderId': 'DDB31D0AA43A2F06F5298F3F8579CD70', 'isDownload': False}
+2026-11-20 21:10:06,904 66685 INFO ? lead: Navigating to: "http://127.0.0.1:8083/odoo/crm/46"
+2026-11-20 21:10:07,065 66685 INFO ? lead: Navigation result: {'frameId': '24505973F04584FF3ADB9C8D2B6C8AA0', 'loaderId': 'D679A639B964E0CC5C3E90DAB4DB4D52', 'isDownload': False}
+FAIL
+2026-11-20 21:11:42,739 66685 INFO ? lead: Closing chrome headless with pid 66946
+2026-11-20 21:11:42,748 66685 INFO ? lead: Closing websocket connection
+2026-11-20 21:11:42,755 66685 INFO ? lead: Terminating chrome headless with pid 66946
+2026-11-20 21:11:43,097 66685 INFO ? lead: Chrome Log in: /tmp/odoo_tests/crm_flow/chrome_logs/chrome_log_20261120_211143_096336_runTest.txt
+2026-11-20 21:11:43,097 66685 INFO ? lead: Removing chrome user profile "/tmp/tmpdschplhq_chrome_odoo"
+
+======================================================================
+FAIL: test_visited_lead (__main__.OfflineLead.test_visited_lead)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/run-notes/tab_backlog.py", line 45, in test_visited_lead
+    wait_until("!!window.secondCRM?.document.querySelector('.o-mail-Chatter-logNote:not(:disabled)')")
+  File "/workspace/run-notes/tab_backlog.py", line 34, in wait_until
+    self.fail('Timed out waiting for '+expression+'; screen: '+str(js('document.body?.innerText.slice(0,400)')))
+AssertionError: Timed out waiting for !!window.secondCRM?.document.querySelector('.o-mail-Chatter-logNote:not(:disabled)'); screen: CRM
+Sales
+Reporting
+Configuration
+11
+19
+My Company (San Francisco)
+New
+Pipeline
+Client site follow-up
+No Meeting
+0
+Quotations
+1 / 1
+New Quotation
+Won
+Lost
+Won
+Proposition
+Qualified
+New
+2h
+Expected Revenue
+$ 
+4,200.00
+$ 
+at
+Probability
+%
+Contact?
+Email
+Phone
+Salesperson
+Expected Closing?
+Tags?
+Notes
+Extra Info
+Assigned Partner
+
+Meet the purchasing team on Friday.
+
+Send message
+Log note
+Activity
+1
+P
+
+----------------------------------------------------------------------
+Ran 1 test in 124.251s
+
+FAILED (failures=1)

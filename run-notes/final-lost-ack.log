@@ -1,0 +1,35 @@
+test_visited_lead (__main__.OfflineLead.test_visited_lead) ... 2026-11-20 21:00:57,706 60025 INFO ? lead: Chrome pid: 60259
+2026-11-20 21:00:57,707 60025 INFO ? lead: Chrome headless temporary user profile dir: /tmp/tmp6ggvba39_chrome_odoo
+2026-11-20 21:00:57,707 60025 INFO ? lead: Issuing json command http://127.0.0.1:46835/json/version
+2026-11-20 21:00:58,537 60025 INFO ? lead: Browser version: Chrome/156.0.8078.79
+2026-11-20 21:00:58,538 60025 INFO ? lead: Issuing json command http://127.0.0.1:46835/json
+2026-11-20 21:00:58,660 60025 INFO ? lead: Websocket url found: ws://127.0.0.1:46835/devtools/page/28763AAB20DD31AE1E44A1A3C7E9B579
+2026-11-20 21:00:58,738 60025 INFO ? lead: Enable chrome headless console log notification
+2026-11-20 21:00:58,800 60025 INFO ? lead: Chrome headless enable page notifications
+2026-11-20 21:00:58,845 60025 INFO ? lead: Navigating to: "http://127.0.0.1:8074/odoo/crm/new"
+2026-11-20 21:01:00,935 60025 INFO ? lead: Navigation result: {'frameId': '28763AAB20DD31AE1E44A1A3C7E9B579', 'loaderId': '112F52D502D86C792966C6A457542938', 'isDownload': False}
+2026-11-20 21:01:13,150 60025 ERROR crm_flow lead.browser: The following modules could not be loaded because they form a dependency cycle: "@web/core/l10n/translation" => "@web/core/l10n/utils" => "@web/core/l10n/utils/collation" => "@web/core/user" => "@web/core/network/rpc" => "@web/core/l10n/translation"
+2026-11-20 21:01:13,151 60025 INFO crm_flow lead: Asking for screenshot
+2026-11-20 21:01:13,165 60025 ERROR crm_flow lead.browser: Error received after termination: The following modules could not be loaded because they have unmet dependencies, this is a secondary error which is likely caused by one of the above problems: ['@web/env', '@web/core/action_swiper/action_swiper', '@web/core/autocomplete/autocomplete', '@web/core/barcode/barcode_dialog', '@web/core/barcode/barcode_video_scanner', '@web/core/barcode/crop_overlay', '@web/core/bottom_sheet/bottom_sheet', '@web/core/bottom_sheet/bottom_sheet_plugin', '@web/core/code_editor/code_editor', '@web/core/colorlist/colorlist', '@web/core/colors/colors', '@web/core/commands/command_palette', '@web/core/commands/command_service', '@web/core/commands/default_providers', '@web/core/confirmation_dialog/confirmation_dialog', '@web/core/currency', '@web/core/datetime/datetime_input', '@web/core/datetime/datetime_picker', '@web/core/datetime/datetime_picker_popover', '@web/core/datetime/datetimepicker_service', '@web/core/debug/debug_context', '@web/core/debug/debug_menu', '@web/core/debug/debug_menu_basic', '@web/core/debug/debug_menu_items', '@web/core/debug/debug_providers', '@web/core/dialog/dialog', '@web/core/domain_selector/domain_selector', '@web/core/domain_selector/utils', '@web/core/domain_selector_dialog/domain_selector_dialog', '@web/core/dropdown/dropdown', '@web/core/effects/effect_plugin', '@web/core/emoji_picker/emoji_picker', '@web/core/errors/error_dialogs', '@web/core/errors/error_handlers', '@web/core/errors/scss_error_dialog', '@web/core/expression_editor/expression_editor', '@web/core/expression_editor_dialog/expression_editor_dialog', '@web/core/file_input/file_input', '@web/core/file_upload/file_upload_progress_bar', '@web/core/file_upload/file_upload_progress_record', '@web/core/file_upload/file_upload_service', '@web/core/file_viewer/file_viewer', '@web/core/file_viewer/file_viewer_hook', '@web/core/hotkeys/hotkey_plugin', '@web/core/hotkeys/hotkey_utils', '@web/core/install_scoped_app/install_scoped_app', '@web/core/ir_ui_view_code_editor/code_editor', '@web/core/l10n/dates', '@web/core/l10n/localization_plugin', '@web/core/l10n/translation', '@web/core/l10n/utils', '@web/core/l10n/utils/collation', '@web/core/l10n/utils/format_list', '@web/core/model_field_selector/model_field_selector', '@web/core/model_field_selector/model_field_selector_popover', '@web/core/model_selector/model_selector', '@web/core/navigation/navigation', '@web/core/network/download', '@web/core/network/rpc', '@web/core/notification_alert_dialog/notification_alert_dialog', '@web/core/notifications/notification', '@web/core/notifications/notification_container', '@web/core/offline/offline_error', '@web/core/offline/offline_plugin', '@web/core/offline/offline_scope', '@web/core/orm_plugin', '@web/core/pager/pager', '@web/core/pager/pager_indicator', '@web/core/permission_prompt_dialog/permission_prompt_dialog', '@web/core/popover/popover', '@web/core/popover/popover_plugin', '@web/core/position/position_hook', '@web/core/pwa/install_prompt', '@web/core/pwa/pwa_service', '@web/core/record_selectors/multi_record_selector', '@web/core/record_selectors/record_autocomplete', '@web/core/record_selectors/record_selector', '@web/core/record_selectors/tag_navigation_hook', '@web/core/select_menu/select_menu', '@web/core/session/check_identity', '@web/core/signature/name_and_signature', '@web/core/signature/signature_dialog', '@web/core/signature/signature_viewer', '@web/core/tags_list/badge_tag', '@web/core/tags_list/badge_tag_dot', '@web/core/tags_list/tags_list', '@web/core/time_picker/time_picker', '@web/core/time_picker/time_picker_popover', '@web/core/tree_editor/tree_editor', '@web/core/tree_editor/tree_editor_autocomplete', '@web/core/tree_editor/tree_editor_components', '@web/core/tree_editor/tree_editor_operator_editor', '@web/core/tree_editor/tree_editor_value_editors', '@web/core/tree_editor/tree_processor', '@web/core/ui/block_ui', '@web/core/ui/ui_plugin', '@web/core/user', '@web/core/user_switch/user_switch', '@web/core/utils/binary', '@web/core/utils/draggable']
+2026-11-20 21:01:13,611 60025 INFO crm_flow lead: Screenshot in: /tmp/odoo_tests/crm_flow/screenshots/sc_20261120_210113_608764_runTest.png
+FAIL
+2026-11-20 21:02:31,247 60025 INFO ? lead: Closing chrome headless with pid 60259
+2026-11-20 21:02:31,253 60025 INFO ? lead: Closing websocket connection
+2026-11-20 21:02:31,261 60025 INFO ? lead: Terminating chrome headless with pid 60259
+2026-11-20 21:02:31,960 60025 INFO ? lead: Chrome Log in: /tmp/odoo_tests/crm_flow/chrome_logs/chrome_log_20261120_210231_959232_runTest.txt
+2026-11-20 21:02:31,961 60025 INFO ? lead: Removing chrome user profile "/tmp/tmp6ggvba39_chrome_odoo"
+
+======================================================================
+FAIL: test_visited_lead (__main__.OfflineLead.test_visited_lead)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/run-notes/lost_ack.py", line 41, in test_visited_lead
+    wait_until("!!document.querySelector('[name=name] textarea')")
+  File "/workspace/run-notes/lost_ack.py", line 34, in wait_until
+    self.fail('Timed out waiting for '+expression+'; screen: '+str(js('document.body?.innerText.slice(0,400)')))
+AssertionError: Timed out waiting for !!document.querySelector('[name=name] textarea'); screen: 
+
+----------------------------------------------------------------------
+Ran 1 test in 122.554s
+
+FAILED (failures=1)

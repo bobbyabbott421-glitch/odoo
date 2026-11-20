@@ -1,0 +1,79 @@
+2026-11-20 20:51:02,972 56196 WARNING ? odoo.addons.mail.controllers.attachment: markdown2 is not installed, markdown will not be rendered
+test_disconnect_and_reconnect (connection_cut.ConnectionCut.test_disconnect_and_reconnect) ... 2026-11-20 20:51:09,651 56196 INFO ? cut: Chrome pid: 56234
+2026-11-20 20:51:09,652 56196 INFO ? cut: Chrome headless temporary user profile dir: /tmp/tmp6djo8gkv_chrome_odoo
+2026-11-20 20:51:09,652 56196 INFO ? cut: Issuing json command http://127.0.0.1:37921/json/version
+2026-11-20 20:51:09,799 56196 INFO ? cut: Browser version: Chrome/156.0.8078.79
+2026-11-20 20:51:09,799 56196 INFO ? cut: Issuing json command http://127.0.0.1:37921/json
+2026-11-20 20:51:09,845 56196 INFO ? cut: Websocket url found: ws://127.0.0.1:37921/devtools/page/FCBEFD9C87CC5B2D6C22EF20A22D9DBA
+2026-11-20 20:51:09,922 56196 INFO ? cut: Enable chrome headless console log notification
+2026-11-20 20:51:09,973 56196 INFO ? cut: Chrome headless enable page notifications
+2026-11-20 20:51:10,033 56196 INFO ? cut: Navigating to: "http://127.0.0.1:8074/web/health"
+2026-11-20 20:51:10,165 56196 INFO ? cut: Navigation result: {'frameId': 'FCBEFD9C87CC5B2D6C22EF20A22D9DBA', 'loaderId': '7EECC495B315CD8A041504C5A05D26E9', 'isDownload': False}
+2026-11-20 20:51:10,165 56196 INFO ? cut: Waiting for frame 'FCBEFD9C87CC5B2D6C22EF20A22D9DBA' to stop loading
+2026-11-20 20:51:19,861 56196 INFO ? cut: Closing chrome headless with pid 56234
+2026-11-20 20:51:19,862 56196 INFO ? cut: Closing websocket connection
+2026-11-20 20:51:19,864 56196 INFO ? cut: Terminating chrome headless with pid 56234
+2026-11-20 20:51:20,000 56196 INFO ? cut: Chrome Log in: /tmp/odoo_tests/crm_phase2/chrome_logs/chrome_log_20261120_205120_000144_runTest.txt
+2026-11-20 20:51:20,000 56196 INFO ? cut: Removing chrome user profile "/tmp/tmp6djo8gkv_chrome_odoo"
+ok
+test_phone (__main__.PhoneProcess.test_phone) ... 2026-11-20 20:51:20,424 56196 INFO ? phone: Chrome pid: 56459
+2026-11-20 20:51:20,424 56196 INFO ? phone: Chrome headless temporary user profile dir: /tmp/tmp8d22xmql_chrome_odoo
+2026-11-20 20:51:20,424 56196 INFO ? phone: Issuing json command http://127.0.0.1:46067/json/version
+2026-11-20 20:51:20,529 56196 INFO ? phone: Browser version: Chrome/156.0.8078.79
+2026-11-20 20:51:20,529 56196 INFO ? phone: Issuing json command http://127.0.0.1:46067/json
+2026-11-20 20:51:20,551 56196 INFO ? phone: Websocket url found: ws://127.0.0.1:46067/devtools/page/69EC4B3A00D8CBD88C858CC0AA868584
+2026-11-20 20:51:20,556 56196 INFO ? phone: Enable chrome headless console log notification
+2026-11-20 20:51:20,563 56196 INFO ? phone: Chrome headless enable page notifications
+2026-11-20 20:51:27,245 56196 INFO ? phone: Navigating to: "http://127.0.0.1:8074/odoo/crm"
+2026-11-20 20:51:28,179 56196 INFO ? phone: Navigation result: {'frameId': '69EC4B3A00D8CBD88C858CC0AA868584', 'loaderId': '22B812F93587BDBC599EAA11C8BDA84E', 'isDownload': False}
+2026-11-20 20:51:28,180 56196 INFO ? phone: Waiting for frame '69EC4B3A00D8CBD88C858CC0AA868584' to stop loading
+2026-11-20 20:51:30,463 56196 INFO ? phone: Evaluate ready code "!!document.querySelector('.o_kanban_record')"
+2026-11-20 20:51:32,550 56196 INFO ? phone: Navigating to: "http://127.0.0.1:8074/odoo/crm"
+2026-11-20 20:51:32,755 56196 INFO ? phone: Navigation result: {'frameId': '69EC4B3A00D8CBD88C858CC0AA868584', 'loaderId': 'A06BE18C02840CF01001B0EE287D559A', 'isDownload': False}
+2026-11-20 20:51:32,756 56196 INFO ? phone: Waiting for frame '69EC4B3A00D8CBD88C858CC0AA868584' to stop loading
+2026-11-20 20:51:34,002 56196 INFO ? phone: Evaluate ready code "!!document.querySelector('.o_kanban_record') && !!navigator.serviceWorker.controller"
+2026-11-20 20:51:35,136 56196 INFO ? phone: Evaluate ready code "!!([...document.querySelectorAll('button,a,span')].find(e => e.textContent.trim() === 'CRM offline access'))"
+2026-11-20 20:51:35,195 56196 INFO ? phone: Evaluate ready code "!!document.querySelector('input[name=confirmation]')"
+2026-11-20 20:51:35,498 56196 INFO ? phone: Evaluate ready code "document.body.innerText.includes('Offline access is ready')"
+2026-11-20 20:51:36,861 56196 INFO ? phone: Navigating to: "http://127.0.0.1:8074/odoo/crm"
+2026-11-20 20:51:41,958 56196 INFO ? phone: Navigation result: {'frameId': '69EC4B3A00D8CBD88C858CC0AA868584', 'loaderId': '1285006C1D7F51D93E720C5749B025B8', 'isDownload': False}
+2026-11-20 20:51:41,958 56196 INFO ? phone: Waiting for frame '69EC4B3A00D8CBD88C858CC0AA868584' to stop loading
+2026-11-20 20:51:42,104 56196 INFO ? phone: Evaluate ready code "!!document.querySelector('#offline_unlock:not([hidden])')"
+2026-11-20 20:51:42,137 56196 INFO ? phone: Navigating to: "http://127.0.0.1:8074/odoo/crm"
+2026-11-20 20:51:42,181 56196 INFO ? phone: Navigation result: {'frameId': '69EC4B3A00D8CBD88C858CC0AA868584', 'loaderId': 'F4413A906A202D0F523F60997A55C32B', 'isDownload': False}
+2026-11-20 20:51:42,181 56196 INFO ? phone: Waiting for frame '69EC4B3A00D8CBD88C858CC0AA868584' to stop loading
+2026-11-20 20:51:42,306 56196 INFO ? phone: Evaluate ready code "!!document.querySelector('#offline_unlock:not([hidden])')"
+2026-11-20 20:51:42,394 56196 INFO ? phone: Evaluate ready code "!document.getElementById('offline_unlock_error').hidden"
+2026-11-20 20:51:42,574 56196 INFO ? phone: Evaluate ready code "!!document.querySelector('.o_kanban_record')"
+2026-11-20 20:51:43,300 56196 ERROR crm_phase2 phone.browser: TypeError: Failed to fetch
+    at LocalizationPlugin.fetchTranslations (http://127.0.0.1:8074/web/assets/56c5002/web.assets_web.min.js:2986:187)
+    at LocalizationPlugin.load (http://127.0.0.1:8074/web/assets/56c5002/web.assets_web.min.js:2983:151)
+    at async Promise.all (index 0)
+    at async mountComponent (http://127.0.0.1:8074/web/assets/56c5002/web.assets_web.min.js:1557:513)
+    at async startWebClient (http://127.0.0.1:8074/web/assets/56c5002/web.assets_web.min.js:32011:19)
+2026-11-20 20:51:43,301 56196 INFO crm_phase2 phone: Asking for screenshot
+2026-11-20 20:51:43,304 56196 WARNING crm_phase2 phone.browser: Error received after termination: Error while loading SharedWorker, fallback on Worker:  Event(isTrusted=true, type='error', target=SharedWorker, currentTarget=SharedWorker, eventPhase=2)
+2026-11-20 20:51:43,312 56196 WARNING crm_phase2 phone.browser: Error received after termination: Worker service failed to initialize:  Event(isTrusted=true, type='error', target=Worker, currentTarget=Worker, eventPhase=2)
+2026-11-20 20:51:43,312 56196 WARNING crm_phase2 phone.browser: Error received after termination: BusService: Real-time notifications disabled (WorkerService failed to start).
+2026-11-20 20:51:43,313 56196 WARNING crm_phase2 phone.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 20:51:43,313 56196 WARNING crm_phase2 phone.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 20:51:43,314 56196 WARNING crm_phase2 phone.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 20:51:43,353 56196 WARNING crm_phase2 phone.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 20:51:43,354 56196 WARNING crm_phase2 phone.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 20:51:43,372 56196 WARNING crm_phase2 phone.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 20:51:43,372 56196 WARNING crm_phase2 phone.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 20:51:43,372 56196 WARNING crm_phase2 phone.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 20:51:43,374 56196 WARNING crm_phase2 phone.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 20:51:43,374 56196 WARNING crm_phase2 phone.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 20:51:43,679 56196 INFO crm_phase2 phone: Screenshot in: /tmp/odoo_tests/crm_phase2/screenshots/sc_20261120_205143_679094_runTest.png
+2026-11-20 20:51:44,043 56196 INFO ? phone: Closing chrome headless with pid 56459
+2026-11-20 20:51:44,043 56196 INFO ? phone: Closing websocket connection
+2026-11-20 20:51:44,047 56196 INFO ? phone: Terminating chrome headless with pid 56459
+2026-11-20 20:51:44,202 56196 INFO ? phone: Chrome Log in: /tmp/odoo_tests/crm_phase2/chrome_logs/chrome_log_20261120_205144_201071_runTest.txt
+2026-11-20 20:51:44,202 56196 INFO ? phone: Removing chrome user profile "/tmp/tmp8d22xmql_chrome_odoo"
+ok
+
+----------------------------------------------------------------------
+Ran 2 tests in 41.018s
+
+OK

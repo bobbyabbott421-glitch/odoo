@@ -1,0 +1,6 @@
+#!/bin/sh
+case "$1" in
+--includedir) echo /workspace/odoo-env/system/usr/include/postgresql ;;
+--libdir) echo /workspace/odoo-env/system/usr/lib/x86_64-linux-gnu ;;
+*) /workspace/odoo-env/system/usr/bin/pg_config "$@" ;;
+esac

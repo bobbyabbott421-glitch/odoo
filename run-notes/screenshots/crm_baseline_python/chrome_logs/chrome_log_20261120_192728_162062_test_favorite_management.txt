@@ -1,0 +1,79 @@
+[23242:23313:1120/192719.273288:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[23242:23313:1120/192719.273368:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[23242:23313:1120/192719.274539:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[23242:23313:1120/192719.274605:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[23242:23313:1120/192719.274624:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[23242:23313:1120/192719.274633:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[23242:23313:1120/192719.274641:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[23242:23313:1120/192719.300681:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[23323:23323:1120/192719.434417:WARNING:media/gpu/vaapi/vaapi_wrapper.cc:1655] drmGetDevices2() has not found any devices
+[23323:23323:1120/192719.448347:WARNING:sandbox/policy/linux/sandbox_linux.cc:405] InitializeSandbox() called with multiple threads in process gpu-process.
+[23242:23313:1120/192719.462060:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[23242:23322:1120/192719.464201:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 23354: Read-only file system (30)
+[23242:23242:1120/192719.515478:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[23242:23313:1120/192719.515551:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[23242:23242:1120/192719.515673:WARNING:device/bluetooth/dbus/bluez_dbus_manager.cc:209] Floss manager service not available, cannot set Floss enable/disable.
+[23242:23242:1120/192719.515694:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[23242:23313:1120/192719.515759:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[23242:23242:1120/192719.516416:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[23242:23242:1120/192719.536711:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[23242:23313:1120/192719.537549:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[23242:23313:1120/192719.546037:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[23242:23313:1120/192719.546076:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[23242:23322:1120/192719.694671:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 23382: Read-only file system (30)
+[23242:23322:1120/192719.806641:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 23393: Read-only file system (30)
+[23242:23322:1120/192719.815020:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 23394: Read-only file system (30)
+[23242:23242:1120/192719.859020:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[23242:23242:1120/192719.863483:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[23242:23313:1120/192719.863743:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[23242:23242:1120/192719.875960:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[23242:23242:1120/192719.881641:WARNING:dbus/property.cc:94] Failed to connect to PropertiesChangedsignal.
+[23242:23242:1120/192719.881671:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.Properties.GetAll: object_path= /org/freedesktop/UPower/devices/DisplayDevice: unknown error type: 
+[23242:23242:1120/192719.881678:WARNING:dbus/property.cc:174] GetAll request failed for: org.freedesktop.UPower.Device
+[23242:23242:1120/192720.132327:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[23242:23313:1120/192720.132659:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[23242:23242:1120/192720.325465:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[23242:23313:1120/192720.327610:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[23242:23242:1120/192720.381638:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[23242:23242:1120/192720.381674:WARNING:ui/base/idle/idle_linux.cc:111] None of the known D-Bus ScreenSaver services could be used.
+[23242:23242:1120/192722.447532:INFO:CONSOLE:1148] "Owl is running in 'dev' mode.", source: http://127.0.0.1:8071/web/assets/5c8437c/web.assets_web.min.js (1148)
+[23242:23242:1120/192722.811752:INFO:CONSOLE:672] "Hoot DOM helpers available from `window.hoot`", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (672)
+[23242:23242:1120/192722.812306:INFO:CONSOLE:683] "[1/32] Tour test_favorite_management → Step .o_kanban_renderer:not(:has(.o_kanban_record:contains(France - Localizations)))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[23242:23242:1120/192724.083250:INFO:CONSOLE:683] "[2/32] Tour test_favorite_management → Step .o_facet_remove", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[23242:23242:1120/192724.148782:INFO:CONSOLE:683] "[3/32] Tour test_favorite_management → Step .o_kanban_renderer:has(.o_kanban_record:contains(France - Localizations))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[23242:23242:1120/192725.348737:INFO:CONSOLE:683] "[4/32] Tour test_favorite_management → Step .o_searchview_dropdown_toggler", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[23242:23242:1120/192725.379476:INFO:CONSOLE:683] "[5/32] Tour test_favorite_management → Step .o_favorite_menu .o_accordion > .o_menu_item", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[23242:23242:1120/192725.490543:INFO:CONSOLE:683] "[6/32] Tour test_favorite_management → Step .o_favorite_menu .o_accordion_values .o_input", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[23242:23242:1120/192725.529779:INFO:CONSOLE:683] "[7/32] Tour test_favorite_management → Step .o_save_favorite", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[23242:23242:1120/192725.538378:INFO:CONSOLE:683] "[8/32] Tour test_favorite_management → Step .o_searchview_facet .o_facet_value:contains(Apps1)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[23242:23242:1120/192725.599502:INFO:CONSOLE:683] "[9/32] Tour test_favorite_management → Step .o_group_by_menu > .o-dropdown-item:contains(Category)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[23242:23242:1120/192725.616117:INFO:CONSOLE:683] "[10/32] Tour test_favorite_management → Step .o_kanban_header:contains(Account Charts)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[23242:23242:1120/192725.954059:INFO:CONSOLE:683] "[11/32] Tour test_favorite_management → Step .o_favorite_menu .o_accordion_values .o_input", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[23242:23242:1120/192725.965167:INFO:CONSOLE:683] "[12/32] Tour test_favorite_management → Step .o_save_favorite", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[23242:23242:1120/192725.970435:INFO:CONSOLE:683] "[13/32] Tour test_favorite_management → Step .o_favorite_menu .o-dropdown-item:contains(Apps2)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[23242:23242:1120/192726.032799:INFO:CONSOLE:683] "[14/32] Tour test_favorite_management → Step .o_favorite_menu .o-dropdown-item:contains(Apps1) i:not(:visible)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[23242:23242:1120/192726.048542:INFO:CONSOLE:683] "[15/32] Tour test_favorite_management → Step .o_field_domain > div > div", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[23242:23242:1120/192726.275936:INFO:CONSOLE:683] "[16/32] Tour test_favorite_management → Step .o_model_field_selector", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[23242:23242:1120/192726.315509:INFO:CONSOLE:683] "[17/32] Tour test_favorite_management → Step .o_model_field_selector_popover_item[data-name="id"] .o_model_field_selector_popover_item_name", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[23242:23242:1120/192726.356020:INFO:CONSOLE:683] "[18/32] Tour test_favorite_management → Step .o_form_button_save", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[23242:23242:1120/192726.388163:INFO:CONSOLE:683] "[19/32] Tour test_favorite_management → Step .o_back_button > a", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[23242:23242:1120/192726.396453:INFO:CONSOLE:683] "[20/32] Tour test_favorite_management → Step .o_facet_values:contains('Apps2')", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[23242:23242:1120/192726.781819:INFO:CONSOLE:683] "[21/32] Tour test_favorite_management → Step .o_kanban_header:contains(Account Charts)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[23242:23242:1120/192726.782244:INFO:CONSOLE:683] "[22/32] Tour test_favorite_management → Step .o_searchview_dropdown_toggler", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[23242:23242:1120/192726.783127:INFO:CONSOLE:683] "[23/32] Tour test_favorite_management → Step .o_favorite_menu .o-dropdown-item:contains(Apps1)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[23242:23242:1120/192726.808830:INFO:CONSOLE:683] "[24/32] Tour test_favorite_management → Step .o_kanban_record:not(.o_kanban_ghost):only", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[23242:23242:1120/192726.924783:INFO:CONSOLE:683] "[25/32] Tour test_favorite_management → Step .o_favorite_menu .o-dropdown-item:contains(Apps1) i:not(:visible)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[23242:23242:1120/192726.940250:INFO:CONSOLE:683] "[26/32] Tour test_favorite_management → Step .o_form_view .o_cp_action_menus .o-dropdown", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[23242:23242:1120/192727.175666:INFO:CONSOLE:683] "[27/32] Tour test_favorite_management → Step .o_popover > .o-dropdown-item:contains(Delete)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[23242:23242:1120/192727.205032:INFO:CONSOLE:683] "[28/32] Tour test_favorite_management → Step .o_technical_modal button:contains(Delete)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[23242:23242:1120/192727.224457:INFO:CONSOLE:683] "[29/32] Tour test_favorite_management → Step .o_searchview_dropdown_toggler", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[23242:23242:1120/192727.647925:INFO:CONSOLE:683] "[30/32] Tour test_favorite_management → Step .o_favorite_menu .o-dropdown-item:contains(Apps2)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[23242:23242:1120/192727.666461:INFO:CONSOLE:683] "[31/32] Tour test_favorite_management → Step There should not be any facet inside the search bar (trigger: body:not(:has(.o_searchview_facet)))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[23242:23242:1120/192727.666755:INFO:CONSOLE:683] "[32/32] Tour test_favorite_management → Step The Apps1 filter should be deleted (trigger: body:not(:has(.o_favorite_menu .o-dropdown-item:contains(Apps1))))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[23242:23242:1120/192727.666831:INFO:CONSOLE:666] "tour succeeded", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (666)
+[23242:23242:1120/192727.666872:INFO:CONSOLE:666] "
+
+╔═════════════════════════════════════════╗
+║ TOUR test_favorite_management SUCCEEDED ║
+╚═════════════════════════════════════════╝
+", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (666)

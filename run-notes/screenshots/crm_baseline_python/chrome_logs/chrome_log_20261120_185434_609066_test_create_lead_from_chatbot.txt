@@ -1,0 +1,58 @@
+[5620:5649:1120/185422.247117:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[5620:5649:1120/185422.250321:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[5620:5649:1120/185422.278289:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[5620:5649:1120/185422.278527:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[5620:5649:1120/185422.278555:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[5620:5649:1120/185422.278598:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[5620:5649:1120/185422.278607:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[5620:5649:1120/185422.308754:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[5620:5649:1120/185422.428397:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[5620:5661:1120/185422.431272:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 5684: Read-only file system (30)
+[5662:5662:1120/185422.452350:WARNING:media/gpu/vaapi/vaapi_wrapper.cc:1655] drmGetDevices2() has not found any devices
+[5662:5662:1120/185422.483640:WARNING:sandbox/policy/linux/sandbox_linux.cc:405] InitializeSandbox() called with multiple threads in process gpu-process.
+[5620:5620:1120/185422.516817:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[5620:5649:1120/185422.516967:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[5620:5620:1120/185422.517245:WARNING:device/bluetooth/dbus/bluez_dbus_manager.cc:209] Floss manager service not available, cannot set Floss enable/disable.
+[5620:5620:1120/185422.517295:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[5620:5649:1120/185422.517374:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[5620:5620:1120/185422.518283:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[5620:5620:1120/185422.532242:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[5620:5649:1120/185422.532390:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[5620:5661:1120/185422.695993:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 5708: Read-only file system (30)
+[5620:5661:1120/185422.764663:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 5719: Read-only file system (30)
+[5620:5661:1120/185422.770424:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 5720: Read-only file system (30)
+[5620:5620:1120/185422.811053:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[5620:5620:1120/185422.812260:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[5620:5649:1120/185422.812627:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[5620:5649:1120/185422.812660:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[5620:5649:1120/185422.812673:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[5620:5620:1120/185422.813930:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[5620:5620:1120/185422.863121:WARNING:dbus/property.cc:94] Failed to connect to PropertiesChangedsignal.
+[5620:5620:1120/185422.863186:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.Properties.GetAll: object_path= /org/freedesktop/UPower/devices/DisplayDevice: unknown error type: 
+[5620:5620:1120/185422.863198:WARNING:dbus/property.cc:174] GetAll request failed for: org.freedesktop.UPower.Device
+[5620:5620:1120/185422.863231:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[5620:5649:1120/185422.863313:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[5620:5620:1120/185422.920093:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[5620:5649:1120/185422.920254:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[5620:5620:1120/185422.945045:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[5620:5620:1120/185422.945098:WARNING:ui/base/idle/idle_linux.cc:111] None of the known D-Bus ScreenSaver services could be used.
+[5620:5620:1120/185424.450032:INFO:CONSOLE:1148] "Owl is running in 'dev' mode.", source: http://127.0.0.1:8071/im_livechat/assets_embed.js (1148)
+[5620:5620:1120/185424.785115:INFO:CONSOLE:647] "Hoot DOM helpers available from `window.hoot`", source: http://127.0.0.1:8071/web/assets/4b2dfe1/web_tour.automatic.min.js (647)
+[5620:5620:1120/185424.786503:INFO:CONSOLE:658] "[1/8] Tour crm_livechat.create_lead_from_chatbot → Step .o-livechat-root:shadow .o-livechat-LivechatButton", source: http://127.0.0.1:8071/web/assets/4b2dfe1/web_tour.automatic.min.js (658)
+[5620:5620:1120/185424.798893:INFO:CONSOLE:658] "[2/8] Tour crm_livechat.create_lead_from_chatbot → Step .o-livechat-root:shadow .o-mail-Message:has(.o-mail-Message-body:text("Hello, how can I help you?"))", source: http://127.0.0.1:8071/web/assets/4b2dfe1/web_tour.automatic.min.js (658)
+[5620:5620:1120/185425.573743:INFO:CONSOLE:658] "[3/8] Tour crm_livechat.create_lead_from_chatbot → Step .o-livechat-root:shadow .o-mail-Composer-input:enabled", source: http://127.0.0.1:8071/web/assets/4b2dfe1/web_tour.automatic.min.js (658)
+[5620:5620:1120/185425.934359:INFO:CONSOLE:658] "[4/8] Tour crm_livechat.create_lead_from_chatbot → Step .o-livechat-root:shadow .o-mail-Composer button[aria-label='Send']:enabled", source: http://127.0.0.1:8071/web/assets/4b2dfe1/web_tour.automatic.min.js (658)
+[5620:5620:1120/185426.094705:INFO:CONSOLE:658] "[5/8] Tour crm_livechat.create_lead_from_chatbot → Step .o-livechat-root:shadow .o-mail-Message:has(.o-mail-Message-body:text("Would you mind leaving your email address so that we can reach you back?"))", source: http://127.0.0.1:8071/web/assets/4b2dfe1/web_tour.automatic.min.js (658)
+[5759:5759:1120/185427.121120:WARNING:media/audio/linux/audio_manager_linux.cc:53] Falling back to ALSA for audio output. PulseAudio is not available or could not be initialized.
+[5759:5759:1120/185427.135452:ERROR:media/audio/alsa/alsa_util.cc:204] PcmOpen: default,No such file or directory
+[5759:5759:1120/185427.135657:ERROR:media/audio/alsa/alsa_util.cc:204] PcmOpen: plug:default,No such file or directory
+[5620:5620:1120/185427.281618:INFO:CONSOLE:658] "[6/8] Tour crm_livechat.create_lead_from_chatbot → Step .o-livechat-root:shadow .o-mail-Composer-input:enabled", source: http://127.0.0.1:8071/web/assets/4b2dfe1/web_tour.automatic.min.js (658)
+[5620:5620:1120/185427.335385:INFO:CONSOLE:658] "[7/8] Tour crm_livechat.create_lead_from_chatbot → Step .o-livechat-root:shadow .o-mail-Composer button[aria-label='Send']:enabled", source: http://127.0.0.1:8071/web/assets/4b2dfe1/web_tour.automatic.min.js (658)
+[5620:5620:1120/185427.394133:INFO:CONSOLE:658] "[8/8] Tour crm_livechat.create_lead_from_chatbot → Step .o-livechat-root:shadow .o-mail-Message:has(.o-mail-Message-body:text("Thank you, you should hear back from us very soon!"))", source: http://127.0.0.1:8071/web/assets/4b2dfe1/web_tour.automatic.min.js (658)
+[5620:5620:1120/185428.322998:INFO:CONSOLE:641] "tour succeeded", source: http://127.0.0.1:8071/web/assets/4b2dfe1/web_tour.automatic.min.js (641)
+[5620:5620:1120/185428.323120:INFO:CONSOLE:641] "
+
+╔══════════════════════════════════════════════════════╗
+║ TOUR crm_livechat.create_lead_from_chatbot SUCCEEDED ║
+╚══════════════════════════════════════════════════════╝
+", source: http://127.0.0.1:8071/web/assets/4b2dfe1/web_tour.automatic.min.js (641)

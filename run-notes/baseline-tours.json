@@ -1,0 +1,860 @@
+[
+  {
+    "method": "odoo.addons.crm.tests.test_crm_ui.TestUi.test_01_crm_tour",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "crm_tour"
+    ]
+  },
+  {
+    "method": "odoo.addons.crm.tests.test_crm_ui.TestUi.test_02_crm_tour_rainbowman",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "crm_rainbowman"
+    ]
+  },
+  {
+    "method": "odoo.addons.crm.tests.test_crm_ui.TestUi.test_03_crm_tour_forecast",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "crm_forecast"
+    ]
+  },
+  {
+    "method": "odoo.addons.crm.tests.test_crm_ui.TestUi.test_email_and_phone_propagation_edit_save",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "crm_email_and_phone_propagation_edit_save"
+    ]
+  },
+  {
+    "method": "odoo.addons.crm.tests.test_sales_team_ui.TestUi.test_crm_team_members_mono_company",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 0,
+    "failed": 1,
+    "tour_names": [
+      "create_crm_team_tour"
+    ]
+  },
+  {
+    "method": "odoo.addons.crm_livechat.tests.test_chatbot_lead.CrmChatbotCase.test_create_lead_from_chatbot",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "crm_livechat.create_lead_from_chatbot"
+    ]
+  },
+  {
+    "method": "odoo.addons.event_crm.tests.test_event_crm_http.TestEventCrmHttp.test_event_question_answers_lead_creation",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "event_question_answers_rule_creation_tour"
+    ]
+  },
+  {
+    "method": "odoo.addons.mail.tests.discuss.test_discuss_action.TestDiscussAction.test_go_back_to_thread_from_breadcrumbs",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "discuss_go_back_to_thread_from_breadcrumbs.js"
+    ]
+  },
+  {
+    "method": "odoo.addons.mail.tests.discuss.test_discuss_action.TestDiscussAction.test_join_call_with_client_action",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "discuss_channel_call_action.js"
+    ]
+  },
+  {
+    "method": "odoo.addons.mail.tests.discuss.test_discuss_channel_as_guest.TestMailPublicPage.test_discuss_channel_public_page_as_admin",
+    "suite": "python",
+    "invoked": 2,
+    "passed": 2,
+    "failed": 0,
+    "tour_names": [
+      "discuss_channel_public_tour.js",
+      "discuss_channel_public_tour.js"
+    ]
+  },
+  {
+    "method": "odoo.addons.mail.tests.discuss.test_discuss_channel_as_guest.TestMailPublicPage.test_discuss_channel_public_page_as_guest",
+    "suite": "python",
+    "invoked": 2,
+    "passed": 2,
+    "failed": 0,
+    "tour_names": [
+      "discuss_channel_as_guest_tour.js",
+      "discuss_channel_public_tour.js"
+    ]
+  },
+  {
+    "method": "odoo.addons.mail.tests.discuss.test_discuss_channel_as_guest.TestMailPublicPage.test_discuss_channel_public_page_as_internal",
+    "suite": "python",
+    "invoked": 2,
+    "passed": 2,
+    "failed": 0,
+    "tour_names": [
+      "discuss_channel_public_tour.js",
+      "discuss_channel_public_tour.js"
+    ]
+  },
+  {
+    "method": "odoo.addons.mail.tests.discuss.test_discuss_channel_as_guest.TestMailPublicPage.test_discuss_channel_public_page_as_portal",
+    "suite": "python",
+    "invoked": 2,
+    "passed": 2,
+    "failed": 0,
+    "tour_names": [
+      "discuss_channel_public_tour.js",
+      "discuss_channel_public_tour.js"
+    ]
+  },
+  {
+    "method": "odoo.addons.mail.tests.discuss.test_discuss_channel_as_guest.TestMailPublicPage.test_discuss_channel_public_page_call_public",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 0,
+    "failed": 1,
+    "tour_names": [
+      "discuss_channel_call_public_tour.js"
+    ]
+  },
+  {
+    "method": "odoo.addons.mail.tests.discuss.test_discuss_channel_as_guest.TestMailPublicPage.test_mail_group_public_page_as_admin",
+    "suite": "python",
+    "invoked": 2,
+    "passed": 2,
+    "failed": 0,
+    "tour_names": [
+      "discuss_channel_public_tour.js",
+      "discuss_channel_public_tour.js"
+    ]
+  },
+  {
+    "method": "odoo.addons.mail.tests.discuss.test_discuss_channel_as_guest.TestMailPublicPage.test_mail_group_public_page_as_guest",
+    "suite": "python",
+    "invoked": 2,
+    "passed": 2,
+    "failed": 0,
+    "tour_names": [
+      "discuss_channel_as_guest_tour.js",
+      "discuss_channel_public_tour.js"
+    ]
+  },
+  {
+    "method": "odoo.addons.mail.tests.discuss.test_discuss_channel_as_guest.TestMailPublicPage.test_mail_group_public_page_as_internal",
+    "suite": "python",
+    "invoked": 2,
+    "passed": 2,
+    "failed": 0,
+    "tour_names": [
+      "discuss_channel_public_tour.js",
+      "discuss_channel_public_tour.js"
+    ]
+  },
+  {
+    "method": "odoo.addons.mail.tests.discuss.test_discuss_channel_as_guest.TestMailPublicPage.test_mail_group_public_page_as_portal",
+    "suite": "python",
+    "invoked": 2,
+    "passed": 2,
+    "failed": 0,
+    "tour_names": [
+      "discuss_channel_public_tour.js",
+      "discuss_channel_public_tour.js"
+    ]
+  },
+  {
+    "method": "odoo.addons.mail.tests.discuss.test_discuss_channel_as_guest.TestMailPublicPage.test_public_page_as_anonymous",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "public_page_as_anonymous_tour"
+    ]
+  },
+  {
+    "method": "odoo.addons.mail.tests.discuss.test_discuss_channel_as_guest.TestMailPublicPage.test_public_page_as_non_member",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "public_page_as_non_member_tour"
+    ]
+  },
+  {
+    "method": "odoo.addons.mail.tests.discuss.test_discuss_channel_as_guest.TestMailPublicPage.test_sidebar_in_public_page",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "sidebar_in_public_page_tour"
+    ]
+  },
+  {
+    "method": "odoo.addons.mail.tests.discuss.test_discuss_channel_invite.TestDiscussChannelInvite.test_01_invite_by_email_flow",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "discuss.invite_by_email"
+    ]
+  },
+  {
+    "method": "odoo.addons.mail.tests.discuss.test_discuss_mention_suggestions.TestDiscussMentionSuggestions.test_mention_suggestions_group_restricted_channel",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "discuss_mention_suggestions_group_restricted_channel.js"
+    ]
+  },
+  {
+    "method": "odoo.addons.mail.tests.discuss.test_discuss_sub_channels.TestDiscussSubChannels.test_04_sub_channel_panel_search",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "test_discuss_sub_channel_search"
+    ]
+  },
+  {
+    "method": "odoo.addons.mail.tests.discuss.test_load_messages.TestLoadMessages.test_01_mail_message_load_order_tour",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "mail_message_load_order_tour"
+    ]
+  },
+  {
+    "method": "odoo.addons.mail.tests.test_mail_activity.TestMailActivityChatter.test_mail_activity_date_format",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "mail_activity_date_format"
+    ]
+  },
+  {
+    "method": "odoo.addons.mail.tests.test_mail_activity.TestMailActivityChatter.test_mail_activity_schedule_from_chatter",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "mail_activity_schedule_from_chatter"
+    ]
+  },
+  {
+    "method": "odoo.addons.mail.tests.test_mail_composer.TestMailComposerUI.test_mail_composer_autosave_tour",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "mail/static/tests/tours/mail_composer_autosave_tour.js"
+    ]
+  },
+  {
+    "method": "odoo.addons.mail.tests.test_mail_composer.TestMailComposerUI.test_mail_composer_test_tour",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "mail/static/tests/tours/mail_composer_test_tour.js"
+    ]
+  },
+  {
+    "method": "odoo.addons.mail.tests.test_mail_composer.TestMailComposerUI.test_mail_html_composer_test_tour",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "mail/static/tests/tours/mail_html_composer_test_tour.js"
+    ]
+  },
+  {
+    "method": "odoo.addons.mail.tests.test_mail_composer.TestMailComposerUI.test_send_attachment_without_body",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "create_thread_for_attachment_without_body"
+    ]
+  },
+  {
+    "method": "odoo.addons.mail.tests.test_mail_poll.TestMailPoll.test_poll_ui",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "mail_poll_tour.js"
+    ]
+  },
+  {
+    "method": "odoo.addons.mail.tests.test_mail_template.TestMailTemplateUI.test_mail_template_dynamic_field_tour",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 0,
+    "failed": 1,
+    "tour_names": [
+      "mail_template_dynamic_field_tour"
+    ]
+  },
+  {
+    "method": "odoo.addons.mail.tests.test_res_users.TestUserTours.test_user_modify_own_profile",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "mail/static/tests/tours/user_modify_own_profile_tour.js"
+    ]
+  },
+  {
+    "method": "odoo.addons.mail.tests.discuss.test_rtc.TestChannelRTC.test_70_call_invitation_ui",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 0,
+    "failed": 1,
+    "tour_names": [
+      "discuss_call_invitation.js"
+    ]
+  },
+  {
+    "method": "odoo.addons.mail.tests.discuss.test_ui.TestUi.test_01_mail_tour",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "discuss_channel_tour"
+    ]
+  },
+  {
+    "method": "odoo.addons.mail.tests.discuss.test_ui.TestUi.test_02_mail_create_channel_no_mail_tour",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "discuss_channel_tour"
+    ]
+  },
+  {
+    "method": "odoo.addons.mail.tests.discuss.test_ui.TestUi.test_03_mail_discuss_configuration_tour",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "discuss_configuration_tour"
+    ]
+  },
+  {
+    "method": "odoo.addons.mail.tests.discuss.test_ui.TestUi.test_04_meeting_view_tour",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "discuss.meeting_view_tour"
+    ]
+  },
+  {
+    "method": "odoo.addons.mail.tests.discuss.test_ui.TestUi.test_04_meeting_view_tour",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 0,
+    "failed": 1,
+    "tour_names": [
+      "discuss.meeting_view_public_tour"
+    ]
+  },
+  {
+    "method": "odoo.addons.mail.tests.discuss.test_ui.TestUi.test_05_can_create_channel_tour",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "can_create_channel_from_form_view"
+    ]
+  },
+  {
+    "method": "odoo.addons.test_discuss_full.tests.test_avatar_card_tour.TestAvatarCardTour.test_avatar_card_tour_multi_company",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "avatar_card_tour"
+    ]
+  },
+  {
+    "method": "odoo.addons.test_discuss_full.tests.test_avatar_card_tour.TestAvatarCardTour.test_avatar_card_tour_multi_company",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "avatar_card_tour"
+    ]
+  },
+  {
+    "method": "odoo.addons.test_discuss_full.tests.test_avatar_card_tour.TestAvatarCardTour.test_avatar_card_tour_multi_company_no_hr_access",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "avatar_card_tour_no_hr_access"
+    ]
+  },
+  {
+    "method": "odoo.addons.test_discuss_full.tests.test_im_livechat_portal.TestImLivechatPortal.test_chatbot_redirect_to_portal",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "chatbot_redirect_to_portal"
+    ]
+  },
+  {
+    "method": "odoo.addons.test_discuss_full.tests.test_livechat_session_open.TestImLivechatSessions.test_livechat_session_open",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "im_livechat_session_open"
+    ]
+  },
+  {
+    "method": "odoo.addons.test_event_full.tests.test_event_portal.TestEventPortal.test_portal_access",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "event_portal"
+    ]
+  },
+  {
+    "method": "odoo.addons.test_event_full.tests.test_wevent_register.TestWEventRegister.test_internal_user_register",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 0,
+    "failed": 1,
+    "tour_names": [
+      "wevent_register"
+    ]
+  },
+  {
+    "method": "odoo.addons.test_event_full.tests.test_wevent_register.TestWEventRegister.test_register",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 0,
+    "failed": 1,
+    "tour_names": [
+      "wevent_register"
+    ]
+  },
+  {
+    "method": "odoo.addons.test_main_flows.tests.test_flow.TestUi.test_01_main_flow_tour",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "main_flow_tour"
+    ]
+  },
+  {
+    "method": "odoo.addons.test_main_flows.tests.test_flow.TestUi.test_company_access_error_redirect",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "test_company_access_error_redirect"
+    ]
+  },
+  {
+    "method": "odoo.addons.test_main_flows.tests.test_flow.TestUi.test_company_switch_access_error",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "test_company_switch_access_error"
+    ]
+  },
+  {
+    "method": "odoo.addons.test_main_flows.tests.test_flow.TestUi.test_company_switch_access_error_debug",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "test_company_switch_access_error"
+    ]
+  },
+  {
+    "method": "odoo.addons.test_main_flows.tests.test_flow.TestUiMobile.test_01_main_flow_tour_mobile",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 0,
+    "failed": 1,
+    "tour_names": [
+      "main_flow_tour"
+    ]
+  },
+  {
+    "method": "odoo.addons.test_website_modules.tests.test_configurator.TestConfigurator.test_01_configurator_flow",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "configurator_flow"
+    ]
+  },
+  {
+    "method": "odoo.addons.web.tests.test_favorite.TestFavorite.test_favorite_management",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "test_favorite_management"
+    ]
+  },
+  {
+    "method": "odoo.addons.web.tests.test_health.TestCloc.test_cloc_user_space",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "test_cloc_user_space"
+    ]
+  },
+  {
+    "method": "odoo.addons.web.tests.test_login.TestUserSwitch.test_user_switch",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "test_user_switch"
+    ]
+  },
+  {
+    "method": "odoo.addons.web.tests.test_res_users.TestUserSettings.test_user_group_settings",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "test_user_group_settings"
+    ]
+  },
+  {
+    "method": "odoo.addons.web.tests.test_res_users.TestUserRoleGroupSync.test_extra_group_checkbox_drives_role_via_compute",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "role_sync_check_extra_group_and_save"
+    ]
+  },
+  {
+    "method": "odoo.addons.web.tests.test_res_users.TestUserRoleGroupSync.test_extra_group_checkbox_drives_role_via_compute",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "role_sync_reload_only"
+    ]
+  },
+  {
+    "method": "odoo.addons.web.tests.test_res_users.TestUserRoleGroupSync.test_extra_group_checkbox_drives_role_via_compute",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "role_sync_uncheck_extra_group_and_save"
+    ]
+  },
+  {
+    "method": "odoo.addons.web.tests.test_res_users.TestUserRoleGroupSync.test_extra_group_checkbox_drives_role_via_compute",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "role_sync_reload_only"
+    ]
+  },
+  {
+    "method": "odoo.addons.web.tests.test_res_users.TestUserRoleGroupSync.test_role_toggle_reload_relies_on_autosave",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "role_sync_set_light_no_save_then_reload"
+    ]
+  },
+  {
+    "method": "odoo.addons.web.tests.test_res_users.TestUserRoleGroupSync.test_role_toggle_reload_relies_on_autosave",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "role_sync_set_regular_no_save_then_reload"
+    ]
+  },
+  {
+    "method": "odoo.addons.web.tests.test_res_users.TestUserRoleGroupSync.test_role_toggle_with_intermediate_reload",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "role_sync_set_regular_and_save"
+    ]
+  },
+  {
+    "method": "odoo.addons.web.tests.test_res_users.TestUserRoleGroupSync.test_role_toggle_with_intermediate_reload",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "role_sync_reload_only"
+    ]
+  },
+  {
+    "method": "odoo.addons.web.tests.test_res_users.TestUserRoleGroupSync.test_role_toggle_with_intermediate_reload",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "role_sync_set_light_and_save"
+    ]
+  },
+  {
+    "method": "odoo.addons.web.tests.test_res_users.TestUserRoleGroupSync.test_role_toggle_with_intermediate_reload",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "role_sync_reload_only"
+    ]
+  },
+  {
+    "method": "odoo.addons.web.tests.test_res_users.TestUserRoleGroupSync.test_role_toggle_with_intermediate_reload",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "role_sync_set_regular_and_save"
+    ]
+  },
+  {
+    "method": "odoo.addons.web.tests.test_res_users.TestUserRoleGroupSync.test_role_toggle_with_intermediate_reload",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "role_sync_reload_only"
+    ]
+  },
+  {
+    "method": "odoo.addons.web.tests.test_res_users.TestUserRoleGroupSync.test_role_toggle_without_intermediate_reload",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "role_sync_regular_save_light_save_regular_save_no_reload"
+    ]
+  },
+  {
+    "method": "odoo.addons.web.tests.test_res_users.TestUserRoleGroupSync.test_role_toggle_without_intermediate_reload",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "role_sync_reload_only"
+    ]
+  },
+  {
+    "method": "odoo.addons.website_crm.tests.test_website_crm.TestWebsiteCrm.test_catch_logged_partner_info_tour",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "website_crm_pre_tour"
+    ]
+  },
+  {
+    "method": "odoo.addons.website_crm.tests.test_website_crm.TestWebsiteCrm.test_catch_logged_partner_info_tour",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "website_crm_catch_logged_partner_info_tour"
+    ]
+  },
+  {
+    "method": "odoo.addons.website_crm.tests.test_website_crm.TestWebsiteCrm.test_catch_logged_partner_info_tour",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "website_crm_tour"
+    ]
+  },
+  {
+    "method": "odoo.addons.website_crm.tests.test_website_crm.TestWebsiteCrm.test_form_properties",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "website_crm_form_properties"
+    ]
+  },
+  {
+    "method": "odoo.addons.website_crm.tests.test_website_crm.TestWebsiteCrm.test_tour",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "website_crm_pre_tour"
+    ]
+  },
+  {
+    "method": "odoo.addons.website_crm.tests.test_website_crm.TestWebsiteCrm.test_tour",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "website_crm_tour"
+    ]
+  },
+  {
+    "method": "odoo.addons.website_crm_partner_assign.tests.test_partner_assign.TestPublish.test_01_admin",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 0,
+    "failed": 1,
+    "tour_names": [
+      "test_can_publish_partner"
+    ]
+  },
+  {
+    "method": "odoo.addons.website_crm_partner_assign.tests.test_partner_assign.TestPublish.test_02_reditor_salesman",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 0,
+    "failed": 1,
+    "tour_names": [
+      "test_can_publish_partner"
+    ]
+  },
+  {
+    "method": "odoo.addons.website_crm_partner_assign.tests.test_partner_assign.TestPublish.test_03_reditor_not_salesman",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "test_cannot_publish_partner"
+    ]
+  },
+  {
+    "method": "odoo.addons.website_crm_partner_assign.tests.test_partner_assign.TestPublish.test_04_not_reditor_salesman",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 0,
+    "failed": 1,
+    "tour_names": [
+      "test_can_publish_partner"
+    ]
+  },
+  {
+    "method": "odoo.addons.website_crm_partner_assign.tests.test_partner_assign.TestPublish.test_05_not_reditor_not_salesman",
+    "suite": "python",
+    "invoked": 1,
+    "passed": 1,
+    "failed": 0,
+    "tour_names": [
+      "test_cannot_publish_partner"
+    ]
+  },
+  {
+    "method": "odoo.addons.test_event_full.tests.test_performance.TestOnlineEventPerformance.test_register_public",
+    "suite": "extra",
+    "invoked": 1,
+    "passed": 0,
+    "failed": 1,
+    "tour_names": [
+      "wevent_performance_register"
+    ]
+  }
+]

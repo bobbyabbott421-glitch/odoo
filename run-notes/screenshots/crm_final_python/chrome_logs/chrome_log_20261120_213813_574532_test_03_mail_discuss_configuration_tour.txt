@@ -1,0 +1,83 @@
+[85428:85458:1120/213742.146466:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[85428:85458:1120/213742.147287:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[85428:85458:1120/213742.147393:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[85428:85458:1120/213742.147417:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[85428:85458:1120/213742.147435:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[85428:85458:1120/213742.147445:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[85428:85458:1120/213742.147455:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[85428:85458:1120/213742.226527:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[85428:85458:1120/213742.402561:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[85428:85469:1120/213742.417315:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 85484: Read-only file system (30)
+[85428:85428:1120/213742.497344:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[85428:85428:1120/213742.497446:WARNING:device/bluetooth/dbus/bluez_dbus_manager.cc:209] Floss manager service not available, cannot set Floss enable/disable.
+[85428:85428:1120/213742.497494:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[85428:85458:1120/213742.497507:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[85428:85458:1120/213742.497536:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[85428:85428:1120/213742.510697:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[85428:85428:1120/213742.510988:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[85428:85458:1120/213742.511691:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[85428:85428:1120/213742.515606:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[85428:85428:1120/213742.515944:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[85428:85458:1120/213742.516210:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[85428:85458:1120/213742.516239:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[85428:85458:1120/213742.516248:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[85471:85471:1120/213742.766609:WARNING:media/gpu/vaapi/vaapi_wrapper.cc:1655] drmGetDevices2() has not found any devices
+[85471:85471:1120/213743.125871:WARNING:sandbox/policy/linux/sandbox_linux.cc:405] InitializeSandbox() called with multiple threads in process gpu-process.
+[85428:85428:1120/213743.129096:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[85428:85428:1120/213743.132549:WARNING:dbus/property.cc:94] Failed to connect to PropertiesChangedsignal.
+[85428:85428:1120/213743.132620:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.Properties.GetAll: object_path= /org/freedesktop/UPower/devices/DisplayDevice: unknown error type: 
+[85428:85428:1120/213743.132627:WARNING:dbus/property.cc:174] GetAll request failed for: org.freedesktop.UPower.Device
+[85428:85428:1120/213743.132638:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[85428:85458:1120/213743.135245:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[85428:85469:1120/213743.137375:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 85520: Read-only file system (30)
+[85428:85428:1120/213743.146882:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[85428:85458:1120/213743.147220:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[85428:85428:1120/213743.154494:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[85428:85428:1120/213743.154511:WARNING:ui/base/idle/idle_linux.cc:111] None of the known D-Bus ScreenSaver services could be used.
+[85428:85469:1120/213743.224280:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 85537: Read-only file system (30)
+[85428:85469:1120/213743.239984:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 85538: Read-only file system (30)
+[85428:85428:1120/213757.164299:INFO:CONSOLE:1148] "Owl is running in 'dev' mode.", source: http://127.0.0.1:8071/web/assets/56c5002/web.assets_web.min.js (1148)
+[85428:85428:1120/213757.555259:INFO:CONSOLE:672] "Hoot DOM helpers available from `window.hoot`", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (672)
+[85428:85428:1120/213757.559152:INFO:CONSOLE:683] "[1/25] Tour discuss_configuration_tour → Step .o_navbar_apps_menu button:enabled", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[85428:85428:1120/213759.220602:INFO:CONSOLE:683] "[2/25] Tour discuss_configuration_tour → Step .o_app[data-menu-xmlid="mail.menu_root_discuss"]", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[85428:85428:1120/213759.742792:INFO:CONSOLE:683] "[3/25] Tour discuss_configuration_tour → Step .o_main_navbar button:text('Configuration')", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[85428:85428:1120/213800.269066:INFO:CONSOLE:683] "[4/25] Tour discuss_configuration_tour → Step .dropdown-menu .dropdown-header:text('User Settings')", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[85428:85428:1120/213800.336936:INFO:CONSOLE:683] "[5/25] Tour discuss_configuration_tour → Step .dropdown-menu .dropdown-item:text('Notifications')", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[85428:85428:1120/213800.399886:INFO:CONSOLE:683] "[6/25] Tour discuss_configuration_tour → Step button:text('All Messages')", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[85428:85428:1120/213801.804701:INFO:CONSOLE:683] "[7/25] Tour discuss_configuration_tour → Step button:text('Mentions Only')", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[85428:85428:1120/213801.821027:INFO:CONSOLE:683] "[8/25] Tour discuss_configuration_tour → Step button:text('Nothing')", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[85428:85428:1120/213801.833142:INFO:CONSOLE:683] "[9/25] Tour discuss_configuration_tour → Step .modal-header button[aria-label='Close']", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[85428:85428:1120/213801.846204:INFO:CONSOLE:683] "[10/25] Tour discuss_configuration_tour → Step .o_main_navbar button:text('Configuration')", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[85428:85428:1120/213802.208772:INFO:CONSOLE:683] "[11/25] Tour discuss_configuration_tour → Step .dropdown-menu .dropdown-header:text('User Settings')", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[85428:85428:1120/213802.214831:INFO:CONSOLE:683] "[12/25] Tour discuss_configuration_tour → Step .dropdown-menu .dropdown-item:text('Voice & Video')", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[85428:85428:1120/213802.226540:INFO:CONSOLE:683] "[13/25] Tour discuss_configuration_tour → Step .o-mail-DeviceSelect-button[data-kind='audioinput']", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[85428:85428:1120/213802.897485:INFO:CONSOLE:683] "[14/25] Tour discuss_configuration_tour → Step input[title='Voice detection sensitivity']", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[85428:85428:1120/213802.899102:INFO:CONSOLE:683] "[15/25] Tour discuss_configuration_tour → Step label[aria-label='Enable Push-to-talk']", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[85428:85428:1120/213802.928017:INFO:CONSOLE:683] "[16/25] Tour discuss_configuration_tour → Step span:text('Click the button below to register a new shortcut.')", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[85428:85428:1120/213803.108552:INFO:CONSOLE:683] "[17/25] Tour discuss_configuration_tour → Step input[title='Delay after releasing push-to-talk']", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[85428:85428:1120/213803.109093:INFO:CONSOLE:683] "[18/25] Tour discuss_configuration_tour → Step button[title='Video']", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[85428:85428:1120/213803.218868:INFO:CONSOLE:683] "[19/25] Tour discuss_configuration_tour → Step input[aria-label='Blur video background']", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[85428:85428:1120/213803.219808:INFO:CONSOLE:683] "[20/25] Tour discuss_configuration_tour → Step div[title='Background blur intensity'] span:has(:text('Intensity'))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[85428:85428:1120/213803.228741:INFO:CONSOLE:683] "[21/25] Tour discuss_configuration_tour → Step div[title='Edge blur intensity'] span:has(:text('Edge Softness'))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[85428:85428:1120/213803.228863:INFO:CONSOLE:683] "[22/25] Tour discuss_configuration_tour → Step .modal-header button[aria-label='Close']", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[85428:85428:1120/213803.231037:INFO:CONSOLE:683] "[23/25] Tour discuss_configuration_tour → Step .o_main_navbar button:text('Configuration')", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[85428:85428:1120/213803.327793:INFO:CONSOLE:683] "[24/25] Tour discuss_configuration_tour → Step .dropdown-menu a:text('Settings')", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[85616:85616:1120/213803.576615:WARNING:media/audio/linux/audio_manager_linux.cc:53] Falling back to ALSA for audio output. PulseAudio is not available or could not be initialized.
+[85428:85428:1120/213803.609933:WARNING:chrome/browser/media/prefs/capture_device_ranking.h:256] Can't initialize the value of media.audio_input.user_preference_ranking because media.default_audio_capture_device isn't registered or is empty
+[85428:85428:1120/213803.609978:WARNING:chrome/browser/media/prefs/capture_device_ranking.h:256] Can't initialize the value of media.video_input.user_preference_ranking because media.default_video_capture_Device isn't registered or is empty
+[85428:85428:1120/213803.610031:WARNING:chrome/browser/media/prefs/capture_device_ranking.h:256] Can't initialize the value of media.audio_input.user_preference_ranking because media.default_audio_capture_device isn't registered or is empty
+[85428:85428:1120/213803.610041:WARNING:chrome/browser/media/prefs/capture_device_ranking.h:256] Can't initialize the value of media.video_input.user_preference_ranking because media.default_video_capture_Device isn't registered or is empty
+[85428:85428:1120/213803.610052:WARNING:chrome/browser/media/prefs/capture_device_ranking.h:256] Can't initialize the value of media.audio_input.user_preference_ranking because media.default_audio_capture_device isn't registered or is empty
+[85428:85428:1120/213803.610058:WARNING:chrome/browser/media/prefs/capture_device_ranking.h:256] Can't initialize the value of media.video_input.user_preference_ranking because media.default_video_capture_Device isn't registered or is empty
+[85428:85428:1120/213803.610090:WARNING:chrome/browser/media/prefs/capture_device_ranking.h:256] Can't initialize the value of media.audio_input.user_preference_ranking because media.default_audio_capture_device isn't registered or is empty
+[85428:85428:1120/213803.610095:WARNING:chrome/browser/media/prefs/capture_device_ranking.h:256] Can't initialize the value of media.video_input.user_preference_ranking because media.default_video_capture_Device isn't registered or is empty
+[85428:85428:1120/213807.339919:INFO:CONSOLE:1148] "Owl is running in 'dev' mode.", source: http://127.0.0.1:8071/web/assets/56c5002/web.assets_web.min.js (1148)
+[85428:85428:1120/213807.538718:INFO:CONSOLE:672] "Hoot DOM helpers available from `window.hoot`", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (672)
+[85428:85428:1120/213807.538905:INFO:CONSOLE:683] "[25/25] Tour discuss_configuration_tour → Step #discuss_setting", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[85428:85428:1120/213812.068843:INFO:CONSOLE:666] "tour succeeded", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (666)
+[85428:85428:1120/213812.069192:INFO:CONSOLE:666] "
+
+╔═══════════════════════════════════════════╗
+║ TOUR discuss_configuration_tour SUCCEEDED ║
+╚═══════════════════════════════════════════╝
+", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (666)

@@ -1,0 +1,196 @@
+2026-11-20 22:09:41,685 100425 INFO ? odoo: Odoo version 20.0
+2026-11-20 22:09:41,685 100425 INFO ? odoo: Using configuration file at /workspace/odoo-env/odoo.conf
+2026-11-20 22:09:41,685 100425 INFO ? odoo: addons paths: _NamespacePath(['/workspace/odoo/odoo/addons', '/workspace/odoo-env/data/addons/20.0', '/workspace/odoo/addons'])
+2026-11-20 22:09:41,685 100425 INFO ? odoo: database: odoo@/workspace/odoo-env/run:5432
+2026-11-20 22:09:42,490 100425 INFO ? odoo.service.server: HTTP service running on 127.0.0.1:17868
+2026-11-20 22:09:42,499 100425 INFO crm_flow odoo.tests.common: Importing test framework
+2026-11-20 22:09:42,544 100425 INFO crm_flow odoo.modules.loading: loading 1 modules...
+2026-11-20 22:09:42,584 100425 INFO crm_flow odoo.modules.loading: 1 modules loaded in 0.04s, 0 queries (+0 extra)
+2026-11-20 22:09:42,655 100425 INFO crm_flow odoo.modules.loading: loading 226 modules...
+2026-11-20 22:09:42,811 100425 WARNING crm_flow odoo.addons.mail.controllers.attachment: markdown2 is not installed, markdown will not be rendered
+2026-11-20 22:09:44,555 100425 INFO crm_flow odoo.modules.loading: 226 modules loaded in 1.90s, 0 queries (+0 extra)
+2026-11-20 22:09:45,001 100425 INFO crm_flow odoo.modules.loading: Modules loaded.
+2026-11-20 22:09:45,252 100425 INFO crm_flow odoo.registry: Registry loaded in 2.762s
+2026-11-20 22:09:45,253 100425 INFO crm_flow odoo.service.server: Starting post tests
+2026-11-20 22:09:45,372 100425 INFO crm_flow odoo.addons.base.models.ir_qweb: Pregenerating assets bundles
+2026-11-20 22:09:47,790 100425 INFO crm_flow odoo.addons.base.models.ir_qweb: JS Assets bundles generated in 1.8465549945831299 seconds
+2026-11-20 22:09:47,795 100425 INFO crm_flow odoo.addons.base.models.ir_qweb: Binary Assets bundles generated in 0.003946542739868164 seconds
+2026-11-20 22:09:48,398 100425 INFO crm_flow odoo.addons.base.models.ir_qweb: CSS Assets bundles generated in 0.6025271415710449 seconds
+2026-11-20 22:09:48,473 100425 INFO crm_flow odoo.tests.suite: Auto retry disabled for test_unit_mobile (odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile)
+2026-11-20 22:09:48,474 100425 INFO crm_flow odoo.addons.web.tests.test_js: Starting MobileWebSuite.test_unit_mobile ...
+2026-11-20 22:09:49,148 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile: Chrome pid: 100437
+2026-11-20 22:09:49,155 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile: Chrome headless temporary user profile dir: /tmp/tmpu3tolmqt_chrome_odoo
+2026-11-20 22:09:49,156 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile: Issuing json command http://127.0.0.1:40261/json/version
+2026-11-20 22:09:49,173 100425 INFO crm_flow odoo.tests.common.requests: request SplitResult(scheme='http', netloc='127.0.0.1:40261', path='/json/version', query='', fragment='') with timeout 3 increased to 10s during tests
+2026-11-20 22:09:49,333 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile: Browser version: Chrome/156.0.8078.79
+2026-11-20 22:09:49,339 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile: Issuing json command http://127.0.0.1:40261/json
+2026-11-20 22:09:49,340 100425 INFO crm_flow odoo.tests.common.requests: request SplitResult(scheme='http', netloc='127.0.0.1:40261', path='/json', query='', fragment='') with timeout 3 increased to 10s during tests
+2026-11-20 22:09:49,395 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile: Websocket url found: ws://127.0.0.1:40261/devtools/page/81BE5DC661C2DA5A750A103C560C276A
+2026-11-20 22:09:49,414 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile: Enable chrome headless console log notification
+2026-11-20 22:09:49,462 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile: Chrome headless enable page notifications
+2026-11-20 22:09:49,568 100425 INFO crm_flow odoo.addons.base.models.res_users: Login successful for login:admin from n/a
+2026-11-20 22:09:49,594 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile: Setting session cookie in browser
+2026-11-20 22:09:49,600 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile: Open "http://127.0.0.1:17868/web/tests?&headless&loglevel=2&preset=mobile&tag=-headless&timeout=15000&id=697d4fd1" in browser
+2026-11-20 22:09:49,600 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile: Navigating to: "http://127.0.0.1:17868/web/tests?&headless&loglevel=2&preset=mobile&tag=-headless&timeout=15000&id=697d4fd1"
+2026-11-20 22:09:49,631 100425 INFO crm_flow odoo.addons.base.models.ir_http: Generating routing map for key 1
+2026-11-20 22:09:49,928 100425 INFO crm_flow odoo.http.server: 127.0.0.1 4uPs7np8 - [20/Nov/2026 22:09:49] "GET /web/tests?&headless&loglevel=2&preset=mobile&tag=-headless&timeout=15000&id=697d4fd1 HTTP/1.1" 200 2146 15 0.032 0.289 ro
+2026-11-20 22:09:49,932 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile: Navigation result: {'frameId': '81BE5DC661C2DA5A750A103C560C276A', 'loaderId': '21E49209E66CFC00DDD6A1569822C3AD', 'isDownload': False}
+2026-11-20 22:09:49,932 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile: Waiting for frame '81BE5DC661C2DA5A750A103C560C276A' to stop loading
+2026-11-20 22:09:50,010 100425 INFO crm_flow odoo.http.server: 127.0.0.1 4uPs7np8 - [20/Nov/2026 22:09:49] "GET /web/assets/329bbc5/web.assets_unit_tests.min.css HTTP/1.1" 200 255046 2 0.003 0.032 ro
+2026-11-20 22:09:50,041 100425 INFO crm_flow odoo.http.server: 127.0.0.1 4uPs7np8 - [20/Nov/2026 22:09:50] "GET /web/assets/d11ae21/web.assets_unit_tests_setup.min.css HTTP/1.1" 200 1425435 2 0.002 0.417 ro
+2026-11-20 22:09:50,335 100425 INFO crm_flow odoo.http.server: 127.0.0.1 4uPs7np8 - [20/Nov/2026 22:09:49] "GET /web/assets/0e21533/web.assets_unit_tests_setup.min.js HTTP/1.1" 200 10670948 2 0.001 0.359 ro
+2026-11-20 22:09:50,780 100425 INFO crm_flow odoo.http.server: 127.0.0.1 4uPs7np8 - [20/Nov/2026 22:09:50] "GET /web/assets/927e3f1/web.assets_unit_tests.min.js HTTP/1.1" 200 20812429 2 0.002 0.708 ro
+2026-11-20 22:09:51,139 100425 INFO crm_flow odoo.tests.common: External chrome request during tests: Return empty file for https://fonts.googleapis.com/css?family=Roboto:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap&subset=latin,latin-ext,vietnamese
+2026-11-20 22:09:51,147 100425 INFO crm_flow odoo.tests.common: External chrome request during tests: Return empty file for https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i&display=swap&subset=latin,latin-ext,vietnamese
+2026-11-20 22:09:51,147 100425 INFO crm_flow odoo.tests.common: External chrome request during tests: Return empty file for https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap&subset=latin,latin-ext,vietnamese
+2026-11-20 22:09:51,148 100425 INFO crm_flow odoo.tests.common: External chrome request during tests: Return empty file for https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap&subset=latin,latin-ext,vietnamese
+2026-11-20 22:09:51,148 100425 INFO crm_flow odoo.tests.common: External chrome request during tests: Return empty file for https://fonts.googleapis.com/css?family=Noto+Serif:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap&subset=latin,latin-ext,vietnamese
+2026-11-20 22:09:51,149 100425 INFO crm_flow odoo.tests.common: External chrome request during tests: Return empty file for https://fonts.googleapis.com/css?family=Arvo:400,400i,700,700i&display=swap&subset=latin,latin-ext,vietnamese
+2026-11-20 22:09:51,149 100425 INFO crm_flow odoo.tests.common: External chrome request during tests: Return empty file for https://fonts.googleapis.com/css?family=Inter+Tight:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap&subset=latin,latin-ext,vietnamese
+2026-11-20 22:09:51,149 100425 INFO crm_flow odoo.tests.common: External chrome request during tests: Return empty file for https://fonts.googleapis.com/css?family=Inter:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap&subset=latin,latin-ext,vietnamese
+2026-11-20 22:09:52,569 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile: Evaluate ready code "document.readyState === 'complete'"
+2026-11-20 22:09:52,775 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Configuration (click to expand)
+2026-11-20 22:09:52,776 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: Object(bail=0, debug='', debugTest=false, events=3, fps=60, fun=false, headless=true, loglevel=2, manual=false, networkDelay='0', notrycatch=false, order='fifo', preset='mobile', random=0, showdetail='first-fail', timeout=15000, filter='', id='[697d4fd1]', tag='[-headless]')
+2026-11-20 22:09:52,776 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: console.groupEnd
+2026-11-20 22:09:52,777 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Starting test suites
+2026-11-20 22:09:52,784 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile: Evaluate test code ""
+2026-11-20 22:09:52,790 100425 INFO crm_flow odoo.http.server: 127.0.0.1 4uPs7np8 - [20/Nov/2026 22:09:52] "GET /web/bundle/web.fullcalendar_lib HTTP/1.1" 200 78 0 0 0.005 ro
+2026-11-20 22:09:52,797 100425 INFO crm_flow odoo.http.server: 127.0.0.1 4uPs7np8 - [20/Nov/2026 22:09:52] "GET /web/static/img/favicon.ico HTTP/1.1" 200 1150 0 0 0.004 -
+2026-11-20 22:09:52,810 100425 INFO crm_flow odoo.http.server: 127.0.0.1 4uPs7np8 - [20/Nov/2026 22:09:52] "GET /web/assets/debd450/web.fullcalendar_lib.min.js HTTP/1.1" 200 451450 2 0.001 0.01 ro
+2026-11-20 22:09:52,831 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/simple calendar rendering on mobile"
+2026-11-20 22:09:53,508 100425 INFO crm_flow odoo.http.server: 127.0.0.1 4uPs7np8 - [20/Nov/2026 22:09:53] "GET /web/assets/357f262/web.material_symbols_outlined.min.woff2 HTTP/1.1" 200 38596 2 0.007 0.108 ro
+2026-11-20 22:09:57,200 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/filter panel autocomplete: updates when typing"
+2026-11-20 22:09:57,482 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/check the avatar of the attendee in the calendar filter panel"
+2026-11-20 22:09:57,747 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/add a filter with the search more dialog on mobile"
+2026-11-20 22:09:58,285 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/delete attribute on calendar doesn't show delete button in popover"
+2026-11-20 22:09:58,673 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/create and change events on mobile"
+2026-11-20 22:10:01,731 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/quickcreate with custom create_name_field"
+2026-11-20 22:10:02,181 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/quickcreate switching to actual create for required fields"
+2026-11-20 22:10:02,479 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/open multiple event form at the same time"
+2026-11-20 22:10:03,056 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/create event with timezone in week mode European locale"
+2026-11-20 22:10:03,482 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/create multi day event in week mode"
+2026-11-20 22:10:03,735 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/default week start (US)"
+2026-11-20 22:10:03,932 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/European week start"
+2026-11-20 22:10:04,137 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/attributes hide_date and hide_time"
+2026-11-20 22:10:04,445 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/create event with timezone in week mode with formViewDialog"
+2026-11-20 22:10:05,530 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/create event with timezone in week mode American locale"
+2026-11-20 22:10:06,018 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/fetch event when being in timezone"
+2026-11-20 22:10:06,243 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/check calendar week column time format"
+2026-11-20 22:10:06,506 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/create all day event in week mode"
+2026-11-20 22:10:06,864 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/create all day event in month mode: utc-11"
+2026-11-20 22:10:07,344 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/create event with default context (no quickCreate)"
+2026-11-20 22:10:07,642 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/create event with default title in context (with quickCreate)"
+2026-11-20 22:10:07,933 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/create all day event in week mode (no quickCreate)"
+2026-11-20 22:10:08,210 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/create event in month mode"
+2026-11-20 22:10:08,756 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/rendering, with many2many on mobile"
+2026-11-20 22:10:09,483 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/set filter with many2many field on mobile"
+2026-11-20 22:10:10,292 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/many2many filter handles archived records without crashing on mobile"
+2026-11-20 22:10:10,467 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/set filter with one2many field on mobile"
+2026-11-20 22:10:11,317 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/open form view"
+2026-11-20 22:10:11,766 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/create and edit event in month mode (all_day: false)"
+2026-11-20 22:10:12,095 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/show start time of single day event"
+2026-11-20 22:10:12,542 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/start time should not shown for date type field"
+2026-11-20 22:10:13,184 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/start time should not shown if hide_time is true"
+2026-11-20 22:10:14,015 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/readonly date_start field"
+2026-11-20 22:10:14,482 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/readonly calendar view"
+2026-11-20 22:10:14,868 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/check filters with filter_field specified on mobile"
+2026-11-20 22:10:15,823 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/dynamic filters with selection fields"
+2026-11-20 22:10:16,049 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/Colors: cycling through available colors"
+2026-11-20 22:10:16,299 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/Colors: use available colors when attr is not number on mobile"
+2026-11-20 22:10:16,516 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/Add filters and specific color"
+2026-11-20 22:10:17,185 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/Colors: dynamic filters without any color attr"
+2026-11-20 22:10:17,382 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/Colors: dynamic filters without color attr (related)"
+2026-11-20 22:10:17,787 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/Colors: dynamic filters without color attr (direct)"
+2026-11-20 22:10:18,035 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/makeFilterUser: color for current user"
+2026-11-20 22:10:18,253 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/Colors: dynamic filters with same color as events"
+2026-11-20 22:10:18,685 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/Colors: dynamic filters with another color source"
+2026-11-20 22:10:19,111 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/Colors: dynamic filters with no color source"
+2026-11-20 22:10:19,693 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/create event with filters"
+2026-11-20 22:10:22,062 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/create event with filters (no quickCreate)"
+2026-11-20 22:10:23,515 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/Toggle multiple values at once in a filter with filter_field"
+2026-11-20 22:10:23,945 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/Update event with filters on mobile"
+2026-11-20 22:10:27,555 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/events starting at midnight on mobile"
+2026-11-20 22:10:28,327 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/single day event from midnight to midnight"
+2026-11-20 22:10:34,166 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/event over two days but lasting less than 24h"
+2026-11-20 22:10:39,837 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/event over two days lasting longer than 24h"
+2026-11-20 22:10:45,675 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/all day event lasting 2 days"
+2026-11-20 22:10:51,159 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/set event as all day when field is date"
+2026-11-20 22:10:51,624 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/set event as all day when field is date (without all_day mapping)"
+2026-11-20 22:10:51,802 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/set event as all day when field is datetime (without all_day mapping)"
+2026-11-20 22:10:51,992 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/quickcreate avoid double event creation"
+2026-11-20 22:10:52,492 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/calendar is configured to have no groupBy menu"
+2026-11-20 22:10:52,769 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/timezone does not affect drag and drop on mobile"
+2026-11-20 22:10:53,836 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/timezone does not affect calendar with date field on mobile"
+2026-11-20 22:10:54,621 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/drag and drop on month mode"
+2026-11-20 22:10:55,928 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/drag and drop on month mode with all_day mapping"
+2026-11-20 22:10:56,965 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/form_view_id attribute works (for creating events)"
+2026-11-20 22:10:57,421 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/form_view_id attribute works with popup (for creating events)"
+2026-11-20 22:10:57,770 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/calendar fallback to form view id in action if necessary"
+2026-11-20 22:10:58,111 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/fullcalendar initializes with right locale"
+2026-11-20 22:10:58,350 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/initial_date given in the context"
+2026-11-20 22:10:58,611 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/default week start (US) month mode on mobile"
+2026-11-20 22:10:58,825 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/European week start month mode on mobile"
+2026-11-20 22:10:59,013 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/Monday week start week mode on mobile"
+2026-11-20 22:10:59,276 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/Saturday week start week mode on mobile"
+2026-11-20 22:10:59,433 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/Monday week start year mode"
+2026-11-20 22:11:03,658 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/Sunday week start year mode"
+2026-11-20 22:11:07,758 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test '@web/views/calendar/calendar_view/edit record and attempt to create a record with "create" attribute set to false'
+2026-11-20 22:11:08,249 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test '@web/views/calendar/calendar_view/attempt to create record with "create" and "quick_add" attributes set to false'
+2026-11-20 22:11:08,474 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/attempt to create multiples events and the same day and check the ordering on month view"
+2026-11-20 22:11:08,653 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/toggle filters in year view"
+2026-11-20 22:11:13,562 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/allowed scales"
+2026-11-20 22:11:13,785 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/fields are added in the right order in popover"
+2026-11-20 22:11:14,189 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/select events and discard create"
+2026-11-20 22:11:20,219 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/popover ignores readonly field modifier"
+2026-11-20 22:11:20,478 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/calendar with option month_overflow not set (default)"
+2026-11-20 22:11:20,721 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/calendar with option month_overflow set to false"
+2026-11-20 22:11:20,912 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/calendar with custom quick create view"
+2026-11-20 22:11:21,177 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/check apply default record label"
+2026-11-20 22:11:21,488 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/calendar render properties in popover"
+2026-11-20 22:11:21,721 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/calendar create record with default properties"
+2026-11-20 22:11:21,973 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/calendar show past events with background blur"
+2026-11-20 22:11:22,110 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/calendar should show date information on header"
+2026-11-20 22:11:32,396 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/calendar sidebar filters are ASC sorted (not valued @end)"
+2026-11-20 22:11:33,121 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/sample data are not removed when switching back from calendar view"
+2026-11-20 22:11:33,738 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/Scale: scale default is fetched from localStorage"
+2026-11-20 22:11:39,006 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/save selected date during view switching"
+2026-11-20 22:11:39,773 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/check if active fields are fetched in addition to field names in record data(search_read rpc)"
+2026-11-20 22:11:39,998 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/update time while drag and drop on month mode"
+2026-11-20 22:11:41,335 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/html and boolean fields on calendar shouldn't have a tooltip"
+2026-11-20 22:11:41,659 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/simple calendar rendering in mobile"
+2026-11-20 22:11:46,908 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/calendar: popover rendering in mobile"
+2026-11-20 22:11:47,229 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/calendar: today button"
+2026-11-20 22:11:47,756 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/calendar: show and change other calendar"
+2026-11-20 22:11:48,597 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test '@web/views/calendar/calendar_view/calendar: tap on "Free Zone" opens quick create'
+2026-11-20 22:11:48,777 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test '@web/views/calendar/calendar_view/calendar: select range on "Free Zone" opens quick create'
+2026-11-20 22:11:49,006 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/calendar (year): select date range opens quick create"
+2026-11-20 22:11:53,933 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/calendar (year): tap on date switch to day scale"
+2026-11-20 22:11:59,545 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/calendar: check context is correclty sent to fetch data"
+2026-11-20 22:11:59,788 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/disable editing without write access rights"
+2026-11-20 22:12:00,007 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/calendar view with show_unusual_days"
+2026-11-20 22:12:01,315 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/calendar renderer is rendered once after search refresh"
+2026-11-20 22:12:01,625 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/calendar renderer is rendered once after event drag and drop"
+2026-11-20 22:12:02,079 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/three calendars are rendered in the ActionSwiper on touch devices"
+2026-11-20 22:12:02,299 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/Revert to the previous state if updateRecord fails (onEventResize)"
+2026-11-20 22:12:02,757 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Running test "@web/views/calendar/calendar_view/Revert to the previous state if updateRecord fails (onEventDrop)"
+2026-11-20 22:12:03,084 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] "@web/views/calendar/calendar_view" ended (passed: 115 / time: 130211 ms)
+2026-11-20 22:12:03,762 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [MEMINFO] @web/views/calendar/calendar_view (after GC) - used: 87750146 - total: 209566426 - limit: 4395630592 - tests: 115
+2026-11-20 22:12:04,212 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [MEMINFO] tests done (after GC) - used: 86500631 - total: 169166471 - limit: 4395630592
+2026-11-20 22:12:04,212 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] "@web" ended (passed: 115 / time: 130211 ms)
+2026-11-20 22:12:04,213 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Passed 115 tests (624 assertions, total time: 00:02:10)
+2026-11-20 22:12:04,213 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: [HOOT] Test suite succeeded
+2026-11-20 22:12:04,608 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile.browser: heap 51479880 (allocated 53305344)
+2026-11-20 22:12:04,610 100425 INFO crm_flow odoo.addons.bus.websocket: Disconnecting 0 websockets
+2026-11-20 22:12:04,714 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile: Closing chrome headless with pid 100437
+2026-11-20 22:12:04,715 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile: Closing websocket connection
+2026-11-20 22:12:04,715 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile: Terminating chrome headless with pid 100437
+2026-11-20 22:12:05,042 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile: Chrome Log in: /tmp/odoo_tests/crm_flow/chrome_logs/chrome_log_20261120_221205_030634_test_unit_mobile.txt
+2026-11-20 22:12:05,050 100425 INFO crm_flow odoo.addons.web.tests.test_js.MobileWebSuite.test_unit_mobile: Removing chrome user profile "/tmp/tmpu3tolmqt_chrome_odoo"
+2026-11-20 22:12:05,232 100425 INFO crm_flow odoo.addons.base.models.ir_attachment: filestore gc 0 checked, 0 removed
+2026-11-20 22:12:05,249 100425 INFO crm_flow odoo.service.server: 1 post-tests in 140.00s, 600 queries
+2026-11-20 22:12:05,250 100425 INFO crm_flow odoo.tests.stats: web: 3 tests 136.85s 45 queries
+2026-11-20 22:12:05,252 100425 INFO crm_flow odoo.tests.result: 0 failed, 0 error(s) of 1 tests when loading database 'crm_flow'
+2026-11-20 22:12:05,252 100425 INFO crm_flow odoo.service.server.ThreadedServer: Initiating shutdown
+2026-11-20 22:12:05,252 100425 INFO crm_flow odoo.service.server.ThreadedServer: Hit CTRL-C again or send a second signal to force the shutdown.
+2026-11-20 22:12:05,253 100425 INFO crm_flow odoo.addons.bus.websocket: Disconnecting 0 websockets
+2026-11-20 22:12:05,363 100425 INFO crm_flow odoo.sql_db: ConnectionPool(read/write;used=0/count=0/max=64): Closed 1 connections 

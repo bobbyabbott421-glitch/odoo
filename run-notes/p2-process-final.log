@@ -1,0 +1,48 @@
+test_visited_lead (__main__.OfflineLead.test_visited_lead) ... 2026-11-20 20:15:34,043 40300 INFO ? lead: Chrome pid: 40365
+2026-11-20 20:15:34,044 40300 INFO ? lead: Chrome headless temporary user profile dir: /tmp/tmp56td50qb_chrome_odoo
+2026-11-20 20:15:34,046 40300 INFO ? lead: Issuing json command http://127.0.0.1:33583/json/version
+2026-11-20 20:15:34,218 40300 INFO ? lead: Browser version: Chrome/156.0.8078.79
+2026-11-20 20:15:34,219 40300 INFO ? lead: Issuing json command http://127.0.0.1:33583/json
+2026-11-20 20:15:34,242 40300 INFO ? lead: Websocket url found: ws://127.0.0.1:33583/devtools/page/40AD0642E4092AFBEC423E548318586C
+2026-11-20 20:15:34,258 40300 INFO ? lead: Enable chrome headless console log notification
+2026-11-20 20:15:34,277 40300 INFO ? lead: Chrome headless enable page notifications
+2026-11-20 20:15:34,303 40300 INFO ? lead: Navigating to: "http://127.0.0.1:8074/odoo/crm/46"
+2026-11-20 20:15:35,103 40300 INFO ? lead: Navigation result: {'frameId': '40AD0642E4092AFBEC423E548318586C', 'loaderId': 'CF18E055C134DBC73B1416D26EDAD00A', 'isDownload': False}
+2026-11-20 20:15:40,720 40300 INFO ? lead: Navigating to: "http://127.0.0.1:8074/odoo/crm/46"
+2026-11-20 20:15:40,794 40300 INFO ? lead: Navigation result: {'frameId': '40AD0642E4092AFBEC423E548318586C', 'loaderId': '5CF96177537A8E32A6710A65E51C36F8', 'isDownload': False}
+2026-11-20 20:15:43,294 40300 INFO ? lead: Navigating to: "http://127.0.0.1:8074/odoo/crm/46"
+2026-11-20 20:15:43,318 40300 INFO ? lead: Navigation result: {'frameId': '40AD0642E4092AFBEC423E548318586C', 'loaderId': '926DDADB3BC00745A17D89D356E2223E', 'isDownload': False}
+2026-11-20 20:15:43,456 40300 INFO crm_flow lead: Asking for screenshot
+2026-11-20 20:15:43,467 40300 INFO crm_flow lead.browser: Error received after termination: TypeError: Failed to fetch
+    at LocalizationPlugin.fetchTranslations (http://127.0.0.1:8074/web/assets/42f1134/web.assets_web.min.js:2986:187)
+    at LocalizationPlugin.load (http://127.0.0.1:8074/web/assets/42f1134/web.assets_web.min.js:2983:151)
+    at async Promise.all (index 0)
+    at async mountComponent (http://127.0.0.1:8074/web/assets/42f1134/web.assets_web.min.js:1557:513)
+    at async startWebClient (http://127.0.0.1:8074/web/assets/42f1134/web.assets_web.min.js:31968:19)
+2026-11-20 20:15:43,468 40300 WARNING crm_flow lead.browser: Error received after termination: Error while loading SharedWorker, fallback on Worker:  Event(isTrusted=true, type='error', target=SharedWorker, currentTarget=SharedWorker, eventPhase=2)
+2026-11-20 20:15:43,473 40300 WARNING crm_flow lead.browser: Error received after termination: Worker service failed to initialize:  Event(isTrusted=true, type='error', target=Worker, currentTarget=Worker, eventPhase=2)
+2026-11-20 20:15:43,473 40300 WARNING crm_flow lead.browser: Error received after termination: BusService: Real-time notifications disabled (WorkerService failed to start).
+2026-11-20 20:15:43,473 40300 WARNING crm_flow lead.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 20:15:43,473 40300 WARNING crm_flow lead.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 20:15:43,474 40300 WARNING crm_flow lead.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 20:15:43,494 40300 WARNING crm_flow lead.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 20:15:43,495 40300 WARNING crm_flow lead.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 20:15:43,502 40300 WARNING crm_flow lead.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 20:15:43,503 40300 WARNING crm_flow lead.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 20:15:43,503 40300 WARNING crm_flow lead.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 20:15:43,503 40300 WARNING crm_flow lead.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 20:15:43,503 40300 WARNING crm_flow lead.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 20:15:43,656 40300 INFO crm_flow lead: Screenshot in: /tmp/odoo_tests/crm_flow/screenshots/sc_20261120_201543_654541_runTest.png
+2026-11-20 20:15:43,861 40300 WARNING crm_flow lead.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 20:15:43,861 40300 WARNING crm_flow lead.browser: Error received after termination: Worker service failed to initialize, cannot send message.
+2026-11-20 20:15:46,286 40300 INFO ? lead: Closing chrome headless with pid 40365
+2026-11-20 20:15:46,287 40300 INFO ? lead: Closing websocket connection
+2026-11-20 20:15:46,290 40300 INFO ? lead: Terminating chrome headless with pid 40365
+2026-11-20 20:15:46,435 40300 INFO ? lead: Chrome Log in: /tmp/odoo_tests/crm_flow/chrome_logs/chrome_log_20261120_201546_435279_runTest.txt
+2026-11-20 20:15:46,435 40300 INFO ? lead: Removing chrome user profile "/tmp/tmp56td50qb_chrome_odoo"
+ok
+
+----------------------------------------------------------------------
+Ran 1 test in 16.284s
+
+OK

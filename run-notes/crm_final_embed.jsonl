@@ -1,0 +1,3 @@
+["collected", "odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat"]
+["startTest", "odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat"]
+["addFailure", "odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat"]

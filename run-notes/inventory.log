@@ -1,0 +1,15 @@
+2026-11-20 19:15:47,543 19143 INFO ? odoo: Odoo version 20.0
+2026-11-20 19:15:47,543 19143 INFO ? odoo: Using configuration file at /workspace/odoo-env/odoo.conf
+2026-11-20 19:15:47,543 19143 INFO ? odoo: addons paths: _NamespacePath(['/workspace/odoo/odoo/addons', '/workspace/odoo-env/data/addons/20.0', '/workspace/odoo/addons'])
+2026-11-20 19:15:47,543 19143 INFO ? odoo: database: odoo@/workspace/odoo-env/run:5432
+2026-11-20 19:15:48,425 19143 INFO ? odoo.service.server.ThreadedServer: Initiating shutdown
+2026-11-20 19:15:48,425 19143 INFO ? odoo.service.server.ThreadedServer: Hit CTRL-C again or send a second signal to force the shutdown.
+2026-11-20 19:15:48,475 19143 INFO crm_measure odoo.modules.loading: loading 1 modules...
+2026-11-20 19:15:48,481 19143 INFO crm_measure odoo.modules.loading: 1 modules loaded in 0.01s, 0 queries (+0 extra)
+2026-11-20 19:15:48,612 19143 INFO crm_measure odoo.modules.loading: loading 226 modules...
+2026-11-20 19:15:49,019 19143 WARNING crm_measure odoo.addons.mail.controllers.attachment: markdown2 is not installed, markdown will not be rendered
+2026-11-20 19:15:50,503 19143 INFO crm_measure odoo.modules.loading: 226 modules loaded in 1.89s, 0 queries (+0 extra)
+2026-11-20 19:15:51,077 19143 INFO crm_measure odoo.modules.loading: Modules loaded.
+2026-11-20 19:15:51,290 19143 INFO crm_measure odoo.registry: Registry loaded in 2.854s
+form [('1050', 'Send Email'), ('371', 'Lost'), ('695', ''), ('action_assign_partner', 'Automatic Assignment'), ('action_convert_to_opportunity', 'Convert to Opportunity'), ('action_open_livechat', ''), ('action_redirect_to_livechat_sessions', ''), ('action_redirect_to_page_views', ''), ('action_restore', 'Restore'), ('action_sale_quotations_new', 'New Quotation'), ('action_schedule_meeting', ''), ('action_set_won_rainbowman', 'Won'), ('action_show_potential_duplicates', ''), ('action_view_project_ids', ''), ('action_view_sale_order', ''), ('action_view_sale_quotation', ''), ('iap_enrich', 'Enrich'), ('mail_action_blacklist_remove', 'This email is blacklisted for mass mailings. Click to unblacklist.'), ('phone_action_blacklist_remove', 'This phone number is blacklisted for SMS Marketing. Click to unblacklist.')]
+kanban []

@@ -1,0 +1,14 @@
+2026-11-20 18:49:26,576 3870 INFO ? odoo: Odoo version 20.0
+2026-11-20 18:49:26,576 3870 INFO ? odoo: Using configuration file at /workspace/odoo-env/odoo.conf
+2026-11-20 18:49:26,576 3870 INFO ? odoo: addons paths: _NamespacePath(['/workspace/odoo/odoo/addons', '/workspace/odoo-env/data/addons/20.0', '/workspace/odoo/addons'])
+2026-11-20 18:49:26,577 3870 INFO ? odoo: database: odoo@/workspace/odoo-env/run:5432
+2026-11-20 18:49:27,723 3870 INFO ? odoo.service.server.ThreadedServer: Initiating shutdown
+2026-11-20 18:49:27,723 3870 INFO ? odoo.service.server.ThreadedServer: Hit CTRL-C again or send a second signal to force the shutdown.
+2026-11-20 18:49:27,761 3870 INFO crm_scale odoo.modules.loading: loading 1 modules...
+2026-11-20 18:49:27,766 3870 INFO crm_scale odoo.modules.loading: 1 modules loaded in 0.00s, 0 queries (+0 extra)
+2026-11-20 18:49:27,906 3870 INFO crm_scale odoo.modules.loading: loading 226 modules...
+2026-11-20 18:49:28,149 3870 WARNING crm_scale odoo.addons.mail.controllers.attachment: markdown2 is not installed, markdown will not be rendered
+2026-11-20 18:49:29,418 3870 INFO crm_scale odoo.modules.loading: 226 modules loaded in 1.51s, 0 queries (+0 extra)
+2026-11-20 18:49:30,097 3870 INFO crm_scale odoo.modules.loading: Modules loaded.
+2026-11-20 18:49:30,352 3870 INFO crm_scale odoo.registry: Registry loaded in 2.624s
+SCALE_FIXTURE_READY 1 2 10000

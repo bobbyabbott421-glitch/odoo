@@ -1,0 +1,53 @@
+[17254:17289:1120/191343.270537:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[17254:17289:1120/191343.270836:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[17254:17289:1120/191343.332743:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[17254:17289:1120/191343.332953:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[17254:17289:1120/191343.332994:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[17254:17289:1120/191343.333010:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[17254:17289:1120/191343.333045:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[17254:17289:1120/191343.339664:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[17254:17289:1120/191343.436747:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[17254:17300:1120/191343.443736:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 17305: Read-only file system (30)
+[17254:17254:1120/191343.545310:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[17254:17289:1120/191343.545467:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[17254:17254:1120/191343.545482:WARNING:device/bluetooth/dbus/bluez_dbus_manager.cc:209] Floss manager service not available, cannot set Floss enable/disable.
+[17254:17254:1120/191343.545505:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[17254:17289:1120/191343.545642:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[17254:17254:1120/191343.545734:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[17254:17254:1120/191343.559558:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[17254:17289:1120/191343.559697:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[17302:17302:1120/191343.909289:WARNING:media/gpu/vaapi/vaapi_wrapper.cc:1655] drmGetDevices2() has not found any devices
+[17254:17300:1120/191343.926186:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 17345: Read-only file system (30)
+[17254:17300:1120/191343.994620:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 17356: Read-only file system (30)
+[17254:17300:1120/191344.006908:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 17357: Read-only file system (30)
+[17302:17302:1120/191344.019049:WARNING:sandbox/policy/linux/sandbox_linux.cc:405] InitializeSandbox() called with multiple threads in process gpu-process.
+[17254:17254:1120/191344.035126:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[17254:17289:1120/191344.035202:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[17254:17289:1120/191344.035238:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[17254:17254:1120/191344.036977:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[17254:17289:1120/191344.037211:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[17254:17254:1120/191344.040130:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[17254:17254:1120/191344.108078:WARNING:dbus/property.cc:94] Failed to connect to PropertiesChangedsignal.
+[17254:17254:1120/191344.108119:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.Properties.GetAll: object_path= /org/freedesktop/UPower/devices/DisplayDevice: unknown error type: 
+[17254:17254:1120/191344.108158:WARNING:dbus/property.cc:174] GetAll request failed for: org.freedesktop.UPower.Device
+[17254:17254:1120/191344.109530:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[17254:17289:1120/191344.110052:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[17254:17254:1120/191344.142170:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[17254:17289:1120/191344.142318:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[17254:17254:1120/191344.160006:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[17254:17254:1120/191344.160033:WARNING:ui/base/idle/idle_linux.cc:111] None of the known D-Bus ScreenSaver services could be used.
+[17254:17254:1120/191347.349922:INFO:CONSOLE:1148] "Owl is running in 'dev' mode.", source: http://127.0.0.1:8071/web/assets/5c8437c/web.assets_web.min.js (1148)
+[17254:17254:1120/191347.462169:INFO:CONSOLE:672] "Hoot DOM helpers available from `window.hoot`", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (672)
+[17254:17254:1120/191347.462338:INFO:CONSOLE:683] "[1/6] Tour mail/static/tests/tours/user_modify_own_profile_tour.js → Step Open user account menu (trigger: .o_user_menu)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[17254:17254:1120/191348.009443:INFO:CONSOLE:683] "[2/6] Tour mail/static/tests/tours/user_modify_own_profile_tour.js → Step Open preferences / profile screen (trigger: [data-menu=preferences])", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[17254:17254:1120/191348.072363:INFO:CONSOLE:683] "[3/6] Tour mail/static/tests/tours/user_modify_own_profile_tour.js → Step Update the notification type (trigger: .modal div[name="notification_type"] input[data-value="inbox"])", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[17254:17254:1120/191349.735930:INFO:CONSOLE:683] "[4/6] Tour mail/static/tests/tours/user_modify_own_profile_tour.js → Step body .o_form_dirty:count(1)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[17254:17254:1120/191349.792624:INFO:CONSOLE:683] "[5/6] Tour mail/static/tests/tours/user_modify_own_profile_tour.js → Step Save the form (trigger: button[name="preference_save"])", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[17254:17254:1120/191349.812150:INFO:CONSOLE:683] "[6/6] Tour mail/static/tests/tours/user_modify_own_profile_tour.js → Step Wait until the modal is closed (trigger: body:not(.modal-open):not(:has(.o_form_dirty)))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[17254:17254:1120/191350.174775:INFO:CONSOLE:666] "tour succeeded", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (666)
+[17254:17254:1120/191350.174894:INFO:CONSOLE:666] "
+
+╔════════════════════════════════════════════════════════════════════════╗
+║ TOUR mail/static/tests/tours/user_modify_own_profile_tour.js SUCCEEDED ║
+╚════════════════════════════════════════════════════════════════════════╝
+", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (666)

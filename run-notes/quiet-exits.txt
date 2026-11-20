@@ -1,0 +1,7 @@
+embed 0
+calendar 0
+timing 0
+scale-base 0
+scale-head 0
+mobile 1
+reverse 0

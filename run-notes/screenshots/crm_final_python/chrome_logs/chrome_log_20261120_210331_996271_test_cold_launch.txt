@@ -1,0 +1,61 @@
+[62491:62520:1120/210314.906423:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[62491:62520:1120/210314.906546:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[62491:62520:1120/210314.906617:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[62491:62520:1120/210314.906638:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[62491:62520:1120/210314.906654:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[62491:62520:1120/210314.906666:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[62491:62520:1120/210314.906673:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[62491:62520:1120/210314.927968:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[62491:62520:1120/210315.017609:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[62491:62532:1120/210315.018216:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 62536: Read-only file system (30)
+[62491:62491:1120/210315.072750:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[62491:62491:1120/210315.072816:WARNING:device/bluetooth/dbus/bluez_dbus_manager.cc:209] Floss manager service not available, cannot set Floss enable/disable.
+[62491:62491:1120/210315.072832:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[62491:62520:1120/210315.072878:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[62491:62520:1120/210315.072907:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[62491:62491:1120/210315.073105:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[62491:62491:1120/210315.105716:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[62491:62520:1120/210315.110461:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[62491:62532:1120/210315.241297:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 62582: Read-only file system (30)
+[62534:62534:1120/210315.251755:WARNING:media/gpu/vaapi/vaapi_wrapper.cc:1655] drmGetDevices2() has not found any devices
+[62534:62534:1120/210315.305168:WARNING:sandbox/policy/linux/sandbox_linux.cc:405] InitializeSandbox() called with multiple threads in process gpu-process.
+[62491:62532:1120/210315.356901:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 62602: Read-only file system (30)
+[62491:62532:1120/210315.363928:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 62603: Read-only file system (30)
+[62491:62491:1120/210315.411863:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[62491:62520:1120/210315.411886:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[62491:62520:1120/210315.411929:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[62491:62491:1120/210315.412349:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[62491:62520:1120/210315.413142:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[62491:62491:1120/210315.413279:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[62491:62491:1120/210315.442036:WARNING:dbus/property.cc:94] Failed to connect to PropertiesChangedsignal.
+[62491:62491:1120/210315.442061:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.Properties.GetAll: object_path= /org/freedesktop/UPower/devices/DisplayDevice: unknown error type: 
+[62491:62491:1120/210315.442067:WARNING:dbus/property.cc:174] GetAll request failed for: org.freedesktop.UPower.Device
+[62491:62491:1120/210315.445950:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[62491:62520:1120/210315.446061:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[62491:62491:1120/210315.462699:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[62491:62520:1120/210315.463428:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[62491:62491:1120/210315.468839:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[62491:62491:1120/210315.468863:WARNING:ui/base/idle/idle_linux.cc:111] None of the known D-Bus ScreenSaver services could be used.
+[62491:62491:1120/210320.903612:INFO:CONSOLE:1148] "Owl is running in 'dev' mode.", source: http://127.0.0.1:34429/web/assets/56c5002/web.assets_web.min.js (1148)
+[62491:62491:1120/210326.054477:INFO:CONSOLE:1148] "Owl is running in 'dev' mode.", source: http://127.0.0.1:34429/web/assets/56c5002/web.assets_web.min.js (1148)
+[62491:62491:1120/210327.610880:INFO:CONSOLE:0] "[DOM] Password forms should have (optionally hidden) username fields for accessibility: (More info: https://goo.gl/9p2vKq) %o", source: http://127.0.0.1:34429/odoo/crm (0)
+[62491:62491:1120/210330.194020:INFO:CONSOLE:1148] "Owl is running in 'dev' mode.", source: http://127.0.0.1:34429/web/assets/56c5002/web.assets_web.min.js (1148)
+[62491:62491:1120/210330.246311:INFO:CONSOLE:12611] "Error while loading SharedWorker, fallback on Worker:  [object Event]", source: http://127.0.0.1:34429/web/assets/56c5002/web.assets_web.min.js (12611)
+[62491:62491:1120/210330.247835:INFO:CONSOLE:2598] "TypeError: Failed to fetch
+    at LocalizationPlugin.fetchTranslations (http://127.0.0.1:34429/web/assets/56c5002/web.assets_web.min.js:2986:187)
+    at LocalizationPlugin.load (http://127.0.0.1:34429/web/assets/56c5002/web.assets_web.min.js:2983:151)
+    at async Promise.all (index 0)
+    at async mountComponent (http://127.0.0.1:34429/web/assets/56c5002/web.assets_web.min.js:1557:513)
+    at async startWebClient (http://127.0.0.1:34429/web/assets/56c5002/web.assets_web.min.js:32011:19)", source: http://127.0.0.1:34429/web/assets/56c5002/web.assets_web.min.js (2598)
+[62491:62491:1120/210330.258332:INFO:CONSOLE:12611] "Worker service failed to initialize:  [object Event]", source: http://127.0.0.1:34429/web/assets/56c5002/web.assets_web.min.js (12611)
+[62491:62491:1120/210330.258425:INFO:CONSOLE:12572] "BusService: Real-time notifications disabled (WorkerService failed to start).", source: http://127.0.0.1:34429/web/assets/56c5002/web.assets_web.min.js (12572)
+[62491:62491:1120/210330.258450:INFO:CONSOLE:12615] "Worker service failed to initialize, cannot send message.", source: http://127.0.0.1:34429/web/assets/56c5002/web.assets_web.min.js (12615)
+[62491:62491:1120/210330.258469:INFO:CONSOLE:12615] "Worker service failed to initialize, cannot send message.", source: http://127.0.0.1:34429/web/assets/56c5002/web.assets_web.min.js (12615)
+[62491:62491:1120/210330.258787:INFO:CONSOLE:12615] "Worker service failed to initialize, cannot send message.", source: http://127.0.0.1:34429/web/assets/56c5002/web.assets_web.min.js (12615)
+[62491:62491:1120/210330.338940:INFO:CONSOLE:12615] "Worker service failed to initialize, cannot send message.", source: http://127.0.0.1:34429/web/assets/56c5002/web.assets_web.min.js (12615)
+[62491:62491:1120/210330.339230:INFO:CONSOLE:12615] "Worker service failed to initialize, cannot send message.", source: http://127.0.0.1:34429/web/assets/56c5002/web.assets_web.min.js (12615)
+[62491:62491:1120/210330.360194:INFO:CONSOLE:12615] "Worker service failed to initialize, cannot send message.", source: http://127.0.0.1:34429/web/assets/56c5002/web.assets_web.min.js (12615)
+[62491:62491:1120/210330.360506:INFO:CONSOLE:12615] "Worker service failed to initialize, cannot send message.", source: http://127.0.0.1:34429/web/assets/56c5002/web.assets_web.min.js (12615)
+[62491:62491:1120/210330.360951:INFO:CONSOLE:12615] "Worker service failed to initialize, cannot send message.", source: http://127.0.0.1:34429/web/assets/56c5002/web.assets_web.min.js (12615)
+[62491:62491:1120/210330.361337:INFO:CONSOLE:12615] "Worker service failed to initialize, cannot send message.", source: http://127.0.0.1:34429/web/assets/56c5002/web.assets_web.min.js (12615)
+[62491:62491:1120/210330.363939:INFO:CONSOLE:12615] "Worker service failed to initialize, cannot send message.", source: http://127.0.0.1:34429/web/assets/56c5002/web.assets_web.min.js (12615)

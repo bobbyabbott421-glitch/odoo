@@ -1,0 +1,105 @@
+[6481:6511:1120/185647.910465:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[6481:6511:1120/185647.910733:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[6481:6511:1120/185647.910769:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[6481:6511:1120/185647.910789:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[6481:6511:1120/185647.910807:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[6481:6511:1120/185647.910818:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[6481:6511:1120/185647.910826:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[6481:6511:1120/185647.949016:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[6481:6511:1120/185648.102326:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[6481:6523:1120/185648.111146:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 6542: Read-only file system (30)
+[6525:6525:1120/185648.120476:WARNING:media/gpu/vaapi/vaapi_wrapper.cc:1655] drmGetDevices2() has not found any devices
+[6525:6525:1120/185648.137700:WARNING:sandbox/policy/linux/sandbox_linux.cc:405] InitializeSandbox() called with multiple threads in process gpu-process.
+[6481:6481:1120/185648.150645:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[6481:6511:1120/185648.150724:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[6481:6481:1120/185648.150743:WARNING:device/bluetooth/dbus/bluez_dbus_manager.cc:209] Floss manager service not available, cannot set Floss enable/disable.
+[6481:6481:1120/185648.150759:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[6481:6511:1120/185648.150778:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[6481:6481:1120/185648.151108:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[6481:6481:1120/185648.155342:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[6481:6511:1120/185648.155417:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[6481:6511:1120/185648.158345:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[6481:6511:1120/185648.158489:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[6481:6481:1120/185648.158607:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[6481:6523:1120/185648.330406:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 6579: Read-only file system (30)
+[6481:6523:1120/185648.411767:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 6591: Read-only file system (30)
+[6481:6523:1120/185648.422996:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 6592: Read-only file system (30)
+[6481:6481:1120/185648.432651:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[6481:6511:1120/185648.432751:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[6481:6481:1120/185648.434628:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[6481:6481:1120/185648.434912:WARNING:dbus/property.cc:94] Failed to connect to PropertiesChangedsignal.
+[6481:6481:1120/185648.434932:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.Properties.GetAll: object_path= /org/freedesktop/UPower/devices/DisplayDevice: unknown error type: 
+[6481:6481:1120/185648.434939:WARNING:dbus/property.cc:174] GetAll request failed for: org.freedesktop.UPower.Device
+[6481:6481:1120/185648.474073:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[6481:6511:1120/185648.494650:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[6481:6481:1120/185648.537726:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[6481:6511:1120/185648.541939:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[6481:6481:1120/185648.559482:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[6481:6481:1120/185648.559508:WARNING:ui/base/idle/idle_linux.cc:111] None of the known D-Bus ScreenSaver services could be used.
+[6481:6481:1120/185653.454154:INFO:CONSOLE:1227] "Owl is running in 'dev' mode.", source: http://127.0.0.1:8075/web/assets/1/69cc310/web.assets_frontend_lazy.min.js (1227)
+[6481:6481:1120/185653.806110:INFO:CONSOLE:675] "Hoot DOM helpers available from `window.hoot`", source: http://127.0.0.1:8075/web/assets/1/6e80696/web.__assets_tests_call__.min.js (675)
+[6481:6481:1120/185653.806239:INFO:CONSOLE:686] "[1/23] Tour wevent_performance_register → Step Open ticket modal (trigger: button.btn-primary:contains("Register"))", source: http://127.0.0.1:8075/web/assets/1/6e80696/web.__assets_tests_call__.min.js (686)
+[6481:6481:1120/185653.918296:INFO:CONSOLE:686] "[2/23] Tour wevent_performance_register → Step Add 2 units of 'Ticket1' ticket type by clicking the '+' button (trigger: button[data-increment-type*="plus"])", source: http://127.0.0.1:8075/web/assets/1/6e80696/web.__assets_tests_call__.min.js (686)
+[6481:6481:1120/185654.156339:INFO:CONSOLE:686] "[3/23] Tour wevent_performance_register → Step Edit 1 unit of 'Ticket2' ticket type (trigger: .modal input:eq(2))", source: http://127.0.0.1:8075/web/assets/1/6e80696/web.__assets_tests_call__.min.js (686)
+[6481:6481:1120/185654.174843:INFO:CONSOLE:686] "[4/23] Tour wevent_performance_register → Step Click on 'Register' button (trigger: #o_wevent_tickets .btn-primary:contains("Register"):not(:disabled))", source: http://127.0.0.1:8075/web/assets/1/6e80696/web.__assets_tests_call__.min.js (686)
+[6481:6481:1120/185654.204846:INFO:CONSOLE:686] "[5/23] Tour wevent_performance_register → Step Choose the 'Q1-Answer2' answer of the 'Question1' for the first ticket (trigger: select[name*="1-simple_choice"])", source: http://127.0.0.1:8075/web/assets/1/6e80696/web.__assets_tests_call__.min.js (686)
+[6481:6481:1120/185654.623339:INFO:CONSOLE:187] "grant cache for http://127.0.0.1:8075/event/test-event-236/page/home-test-event => basic, mode: cors, cache: default,
+                    isGet: true, isCachable: false", source: http://127.0.0.1:8075/event/service-worker.js (187)
+[6481:6481:1120/185654.996380:INFO:CONSOLE:686] "[6/23] Tour wevent_performance_register → Step Choose the 'Q2-Answer1' answer of the 'Question2' for the first ticket (trigger: select[name*="1-simple_choice"]:last)", source: http://127.0.0.1:8075/web/assets/1/6e80696/web.__assets_tests_call__.min.js (686)
+[6481:6481:1120/185655.024186:INFO:CONSOLE:686] "[7/23] Tour wevent_performance_register → Step Choose the 'Q1-Answer1' answer of the 'Question1' for the second ticket (trigger: select[name*="2-simple_choice"])", source: http://127.0.0.1:8075/web/assets/1/6e80696/web.__assets_tests_call__.min.js (686)
+[6481:6481:1120/185655.042354:INFO:CONSOLE:686] "[8/23] Tour wevent_performance_register → Step Choose the 'Q2-Answer2' answer of the 'Question2' for the second ticket (trigger: select[name*="2-simple_choice"]:last)", source: http://127.0.0.1:8075/web/assets/1/6e80696/web.__assets_tests_call__.min.js (686)
+[6481:6481:1120/185655.063636:INFO:CONSOLE:686] "[9/23] Tour wevent_performance_register → Step Choose the 'Q1-Answer2' answer of the 'Question1' for the third ticket (trigger: select[name*="3-simple_choice"])", source: http://127.0.0.1:8075/web/assets/1/6e80696/web.__assets_tests_call__.min.js (686)
+[6481:6481:1120/185655.079224:INFO:CONSOLE:686] "[10/23] Tour wevent_performance_register → Step Choose the 'Q2-Answer2' answer of the 'Question2' for the third ticket (trigger: select[name*="3-simple_choice"]:last)", source: http://127.0.0.1:8075/web/assets/1/6e80696/web.__assets_tests_call__.min.js (686)
+[6481:6481:1120/185655.109399:INFO:CONSOLE:686] "[11/23] Tour wevent_performance_register → Step Fill the text content of the 'Question3' for the third ticket (trigger: textarea[name*="text_box"])", source: http://127.0.0.1:8075/web/assets/1/6e80696/web.__assets_tests_call__.min.js (686)
+[6481:6481:1120/185655.118072:INFO:CONSOLE:679] "console.groupEnd", source: http://127.0.0.1:8075/web/assets/1/6e80696/web.__assets_tests_call__.min.js (679)
+[6481:6481:1120/185655.118152:INFO:CONSOLE:679] "{
+  "content": "Choose the 'Q2-Answer2' answer of the 'Question2' for the second ticket",
+  "trigger": "select[name*=\"2-simple_choice\"]:last",
+  "run": "selectByIndex 2"
+},
+{
+  "content": "Choose the 'Q1-Answer2' answer of the 'Question1' for the third ticket",
+  "trigger": "select[name*=\"3-simple_choice\"]",
+  "run": "selectByIndex 2"
+},
+{
+  "content": "Choose the 'Q2-Answer2' answer of the 'Question2' for the third ticket",
+  "trigger": "select[name*=\"3-simple_choice\"]:last",
+  "run": "selectByIndex 2"
+},
+---------- FAILED: [11/23] Tour wevent_performance_register → Step Fill the text content of the 'Question3' for the third ticket (trigger: textarea[name*="text_box"]) ----------
+{
+  "content": "Fill the text content of the 'Question3' for the third ticket",
+  "trigger": "textarea[name*=\"text_box\"]",
+  "run": "edit Random answer from random guy"
+},
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+{
+  "content": "Validate attendees details",
+  "trigger": "button[type=submit]:last",
+  "run": "click",
+  "expectUnloadPage": true
+},
+{
+  "trigger": "#o_country_id",
+  "run": "selectByLabel Belgium"
+},
+{
+  "content": "Address filling name",
+  "trigger": "form.address_autoformat input[name=name]",
+  "run": "edit Raoulette Poiluchette"
+},", source: http://127.0.0.1:8075/web/assets/1/6e80696/web.__assets_tests_call__.min.js (679)
+[6481:6481:1120/185655.118281:INFO:CONSOLE:679] "FAILED: [11/23] Tour wevent_performance_register → Step Fill the text content of the 'Question3' for the third ticket (trigger: textarea[name*="text_box"]).
+HootInteractionError: cannot call `edit()`: target should be editable
+    at edit (http://127.0.0.1:8075/web/assets/1/6e80696/web.__assets_tests_call__.min.js:457:181)
+    at Object.edit (http://127.0.0.1:8075/web/assets/1/6e80696/web.__assets_tests_call__.min.js:574:395)
+    at TourHelpers.edit (http://127.0.0.1:8075/web/assets/1/6e80696/web.__assets_tests_call__.min.js:653:569)
+    at async TourStepAutomatic.doAction (http://127.0.0.1:8075/web/assets/1/6e80696/web.__assets_tests_call__.min.js:639:325)
+    at async action (http://127.0.0.1:8075/web/assets/1/6e80696/web.__assets_tests_call__.min.js:690:1)
+    at async performAction (http://127.0.0.1:8075/web/assets/1/69cc310/web.assets_frontend_lazy.min.js:3889:12)
+    at async executeStep (http://127.0.0.1:8075/web/assets/1/69cc310/web.assets_frontend_lazy.min.js:3899:189)
+    at async Macro.advance (http://127.0.0.1:8075/web/assets/1/69cc310/web.assets_frontend_lazy.min.js:3899:472)
+    at async Macro.advance (http://127.0.0.1:8075/web/assets/1/69cc310/web.assets_frontend_lazy.min.js:3900:21)
+    at async Macro.advance (http://127.0.0.1:8075/web/assets/1/69cc310/web.assets_frontend_lazy.min.js:3900:21)", source: http://127.0.0.1:8075/web/assets/1/6e80696/web.__assets_tests_call__.min.js (679)
+[6481:6481:1120/185655.214589:INFO:CONSOLE:187] "grant cache for http://127.0.0.1:8075/event/test-event-236/track => basic, mode: cors, cache: default,
+                    isGet: true, isCachable: false", source: http://127.0.0.1:8075/event/service-worker.js (187)

@@ -1,0 +1,66 @@
+[97895:97924:1120/220250.093676:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[97895:97924:1120/220250.093770:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[97895:97924:1120/220250.128248:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[97895:97924:1120/220250.128329:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[97895:97924:1120/220250.128403:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[97895:97924:1120/220250.128416:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[97895:97924:1120/220250.128426:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[97895:97924:1120/220250.153126:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[97895:97924:1120/220250.346110:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[97895:97936:1120/220250.349190:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 97940: Read-only file system (30)
+[97895:97895:1120/220250.423381:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[97895:97924:1120/220250.423540:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[97895:97895:1120/220250.428420:WARNING:device/bluetooth/dbus/bluez_dbus_manager.cc:209] Floss manager service not available, cannot set Floss enable/disable.
+[97895:97895:1120/220250.428456:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[97895:97924:1120/220250.428523:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[97895:97895:1120/220250.441907:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[97895:97895:1120/220250.442510:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[97895:97924:1120/220250.442622:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[97938:97938:1120/220250.512819:WARNING:media/gpu/vaapi/vaapi_wrapper.cc:1655] drmGetDevices2() has not found any devices
+[97938:97938:1120/220250.597371:WARNING:sandbox/policy/linux/sandbox_linux.cc:405] InitializeSandbox() called with multiple threads in process gpu-process.
+[97895:97936:1120/220250.607104:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 97990: Read-only file system (30)
+[97895:97936:1120/220250.728123:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 98002: Read-only file system (30)
+[97895:97936:1120/220250.740282:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 98003: Read-only file system (30)
+[97895:97895:1120/220250.765966:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[97895:97895:1120/220250.770819:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[97895:97924:1120/220250.772014:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[97895:97924:1120/220250.772056:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[97895:97924:1120/220250.772099:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[97895:97895:1120/220250.775606:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[97895:97895:1120/220250.818743:WARNING:dbus/property.cc:94] Failed to connect to PropertiesChangedsignal.
+[97895:97895:1120/220250.818779:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.Properties.GetAll: object_path= /org/freedesktop/UPower/devices/DisplayDevice: unknown error type: 
+[97895:97895:1120/220250.818787:WARNING:dbus/property.cc:174] GetAll request failed for: org.freedesktop.UPower.Device
+[97895:97895:1120/220250.818800:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[97895:97924:1120/220250.818882:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[97895:97895:1120/220250.874890:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[97895:97924:1120/220250.874984:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[97895:97895:1120/220250.880971:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[97895:97895:1120/220250.880997:WARNING:ui/base/idle/idle_linux.cc:111] None of the known D-Bus ScreenSaver services could be used.
+[97895:97895:1120/220256.846183:INFO:CONSOLE:1148] "Owl is running in 'dev' mode.", source: http://127.0.0.1:8071/web/assets/1/ec60ef2/web.assets_web.min.js (1148)
+[97895:97895:1120/220257.276299:INFO:CONSOLE:672] "Hoot DOM helpers available from `window.hoot`", source: http://127.0.0.1:8071/web/assets/1/f0674d8/web.assets_tests.min.js (672)
+[97895:97895:1120/220257.281430:INFO:CONSOLE:683] "[1/11] Tour website_crm_pre_tour → Step Wait for the edit mode to be started (trigger: .o_builder_sidebar_open)", source: http://127.0.0.1:8071/web/assets/1/f0674d8/web.assets_tests.min.js (683)
+[97895:97936:1120/220300.522473:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 98186: Read-only file system (30)
+[97895:97895:1120/220304.918890:INFO:CONSOLE:0] "The resource http://127.0.0.1:8071/web/assets/1/357f262/web.material_symbols_outlined.min.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.", source: http://127.0.0.1:8071/contactus (0)
+[97895:97895:1120/220304.918956:INFO:CONSOLE:0] "The resource http://127.0.0.1:8071/web/assets/1/ed7f96a/web.odoo_ui_icons.min.woff2 was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.", source: http://127.0.0.1:8071/contactus (0)
+[97895:97895:1120/220306.926157:INFO:CONSOLE:1227] "Owl is running in 'dev' mode.", source: http://127.0.0.1:8071/web/assets/1/14eb585/web.assets_frontend_lazy.min.js (1227)
+[97895:97895:1120/220309.369104:INFO:CONSOLE:166] "No mixin defined for: BaseAnimation", source: http://127.0.0.1:8071/web/assets/1/0467ff6/website.assets_inside_builder_iframe.min.js (166)
+[97895:97895:1120/220309.369270:INFO:CONSOLE:166] "No mixin defined for: BaseAnimation", source: http://127.0.0.1:8071/web/assets/1/0467ff6/website.assets_inside_builder_iframe.min.js (166)
+[97895:97895:1120/220309.652287:INFO:CONSOLE:683] "[2/11] Tour website_crm_pre_tour → Step Select contact form (trigger: :iframe #wrap.o_savable section.s_website_form)", source: http://127.0.0.1:8071/web/assets/1/f0674d8/web.assets_tests.min.js (683)
+[97895:97895:1120/220309.793473:INFO:CONSOLE:683] "[3/11] Tour website_crm_pre_tour → Step .o-snippets-menu .o-snippets-tabs [data-name='customize'].active", source: http://127.0.0.1:8071/web/assets/1/f0674d8/web.assets_tests.min.js (683)
+[97895:97895:1120/220310.662353:INFO:CONSOLE:683] "[4/11] Tour website_crm_pre_tour → Step Open action select (trigger: .o-snippets-menu [data-container-title='Form'] [data-label='Action'] .dropdown-toggle)", source: http://127.0.0.1:8071/web/assets/1/f0674d8/web.assets_tests.min.js (683)
+[97895:97895:1120/220310.693953:INFO:CONSOLE:683] "[5/11] Tour website_crm_pre_tour → Step Select 'Create an Opportunity' as form action (trigger: .o_popover [data-action-id='selectAction']:contains('Create an Opportunity'))", source: http://127.0.0.1:8071/web/assets/1/f0674d8/web.assets_tests.min.js (683)
+[97895:97895:1120/220310.957086:INFO:CONSOLE:683] "[6/11] Tour website_crm_pre_tour → Step .o-snippets-menu:not(:has(.o_we_ongoing_insertion))", source: http://127.0.0.1:8071/web/assets/1/f0674d8/web.assets_tests.min.js (683)
+[97895:97895:1120/220310.957472:INFO:CONSOLE:683] "[7/11] Tour website_crm_pre_tour → Step body:not(:has(.o_dialog))", source: http://127.0.0.1:8071/web/assets/1/f0674d8/web.assets_tests.min.js (683)
+[97895:97895:1120/220310.958739:INFO:CONSOLE:683] "[8/11] Tour website_crm_pre_tour → Step Good job! It's time to save your work. (trigger: button[data-action=save]:enabled:contains(save))", source: http://127.0.0.1:8071/web/assets/1/f0674d8/web.assets_tests.min.js (683)
+[97895:97895:1120/220310.975218:INFO:CONSOLE:683] "[9/11] Tour website_crm_pre_tour → Step body:not(.o_builder_open)", source: http://127.0.0.1:8071/web/assets/1/f0674d8/web.assets_tests.min.js (683)
+[97895:97936:1120/220312.405796:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 98213: Read-only file system (30)
+[97895:97895:1120/220312.525270:INFO:CONSOLE:683] "[10/11] Tour website_crm_pre_tour → Step Wait until the iframe is ready (trigger: :iframe body[is-ready=true])", source: http://127.0.0.1:8071/web/assets/1/f0674d8/web.assets_tests.min.js (683)
+[97895:97895:1120/220312.936026:INFO:CONSOLE:1227] "Owl is running in 'dev' mode.", source: http://127.0.0.1:8071/web/assets/1/14eb585/web.assets_frontend_lazy.min.js (1227)
+[97895:97895:1120/220313.058439:INFO:CONSOLE:683] "[11/11] Tour website_crm_pre_tour → Step Ensure form model has changed and page reload is done after save (trigger: :iframe section.s_website_form form[data-model_name='crm.lead'])", source: http://127.0.0.1:8071/web/assets/1/f0674d8/web.assets_tests.min.js (683)
+[97895:97895:1120/220313.059499:INFO:CONSOLE:666] "tour succeeded", source: http://127.0.0.1:8071/web/assets/1/f0674d8/web.assets_tests.min.js (666)
+[97895:97895:1120/220313.059691:INFO:CONSOLE:666] "
+
+╔═════════════════════════════════════╗
+║ TOUR website_crm_pre_tour SUCCEEDED ║
+╚═════════════════════════════════════╝
+", source: http://127.0.0.1:8071/web/assets/1/f0674d8/web.assets_tests.min.js (666)

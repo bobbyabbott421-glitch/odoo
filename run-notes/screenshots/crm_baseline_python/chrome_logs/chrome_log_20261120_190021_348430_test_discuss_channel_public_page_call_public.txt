@@ -1,0 +1,76 @@
+[9376:9407:1120/190001.831068:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[9376:9407:1120/190001.844109:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[9376:9407:1120/190001.844261:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[9376:9407:1120/190001.844290:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[9376:9407:1120/190001.844490:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[9376:9407:1120/190001.844536:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[9376:9407:1120/190001.844546:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[9376:9407:1120/190001.861259:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[9376:9407:1120/190001.932550:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[9376:9376:1120/190001.962248:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[9376:9376:1120/190001.962452:WARNING:device/bluetooth/dbus/bluez_dbus_manager.cc:209] Floss manager service not available, cannot set Floss enable/disable.
+[9376:9376:1120/190001.962471:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[9376:9407:1120/190001.962521:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[9376:9407:1120/190001.962603:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[9376:9376:1120/190001.962766:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[9376:9376:1120/190001.967442:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[9376:9407:1120/190001.967642:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[9376:9414:1120/190001.978508:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 9431: Read-only file system (30)
+[9417:9417:1120/190002.041711:WARNING:media/gpu/vaapi/vaapi_wrapper.cc:1655] drmGetDevices2() has not found any devices
+[9417:9417:1120/190002.054387:WARNING:sandbox/policy/linux/sandbox_linux.cc:405] InitializeSandbox() called with multiple threads in process gpu-process.
+[9376:9414:1120/190002.065432:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 9474: Read-only file system (30)
+[9376:9414:1120/190002.136621:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 9486: Read-only file system (30)
+[9376:9414:1120/190002.142410:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 9488: Read-only file system (30)
+[9376:9376:1120/190002.159635:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[9376:9407:1120/190002.159635:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[9376:9407:1120/190002.159708:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[9376:9376:1120/190002.159960:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[9376:9407:1120/190002.160127:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[9376:9376:1120/190002.161426:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[9376:9376:1120/190002.194725:WARNING:dbus/property.cc:94] Failed to connect to PropertiesChangedsignal.
+[9376:9376:1120/190002.194778:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.Properties.GetAll: object_path= /org/freedesktop/UPower/devices/DisplayDevice: unknown error type: 
+[9376:9376:1120/190002.194786:WARNING:dbus/property.cc:174] GetAll request failed for: org.freedesktop.UPower.Device
+[9376:9376:1120/190002.196173:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[9376:9407:1120/190002.196454:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[9376:9376:1120/190002.221247:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[9376:9407:1120/190002.221343:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[9376:9376:1120/190002.245828:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[9376:9376:1120/190002.245856:WARNING:ui/base/idle/idle_linux.cc:111] None of the known D-Bus ScreenSaver services could be used.
+[9376:9376:1120/190003.968615:INFO:CONSOLE:1148] "Owl is running in 'dev' mode.", source: http://127.0.0.1:8071/web/assets/3043928/mail.assets_public.min.js (1148)
+[9544:9544:1120/190004.680359:WARNING:media/audio/linux/audio_manager_linux.cc:53] Falling back to ALSA for audio output. PulseAudio is not available or could not be initialized.
+[9376:9376:1120/190004.703940:WARNING:chrome/browser/media/prefs/capture_device_ranking.h:256] Can't initialize the value of media.audio_input.user_preference_ranking because media.default_audio_capture_device isn't registered or is empty
+[9376:9376:1120/190004.703988:WARNING:chrome/browser/media/prefs/capture_device_ranking.h:256] Can't initialize the value of media.video_input.user_preference_ranking because media.default_video_capture_Device isn't registered or is empty
+[9376:9376:1120/190004.704028:WARNING:chrome/browser/media/prefs/capture_device_ranking.h:256] Can't initialize the value of media.audio_input.user_preference_ranking because media.default_audio_capture_device isn't registered or is empty
+[9376:9376:1120/190004.704034:WARNING:chrome/browser/media/prefs/capture_device_ranking.h:256] Can't initialize the value of media.video_input.user_preference_ranking because media.default_video_capture_Device isn't registered or is empty
+[9376:9376:1120/190004.704051:WARNING:chrome/browser/media/prefs/capture_device_ranking.h:256] Can't initialize the value of media.audio_input.user_preference_ranking because media.default_audio_capture_device isn't registered or is empty
+[9376:9376:1120/190004.704056:WARNING:chrome/browser/media/prefs/capture_device_ranking.h:256] Can't initialize the value of media.video_input.user_preference_ranking because media.default_video_capture_Device isn't registered or is empty
+[9376:9376:1120/190004.704074:WARNING:chrome/browser/media/prefs/capture_device_ranking.h:256] Can't initialize the value of media.audio_input.user_preference_ranking because media.default_audio_capture_device isn't registered or is empty
+[9376:9376:1120/190004.704078:WARNING:chrome/browser/media/prefs/capture_device_ranking.h:256] Can't initialize the value of media.video_input.user_preference_ranking because media.default_video_capture_Device isn't registered or is empty
+[9376:9376:1120/190005.153459:INFO:CONSOLE:647] "Hoot DOM helpers available from `window.hoot`", source: http://127.0.0.1:8071/web/assets/4b2dfe1/web_tour.automatic.min.js (647)
+[9376:9376:1120/190005.153625:INFO:CONSOLE:658] "[1/8] Tour discuss_channel_call_public_tour.js → Step Close the microphone permission dialog (trigger: .o_dialog .modal-header .btn-close)", source: http://127.0.0.1:8071/web/assets/4b2dfe1/web_tour.automatic.min.js (658)
+[9376:9376:1120/190015.143830:INFO:CONSOLE:651] "console.groupEnd", source: http://127.0.0.1:8071/web/assets/4b2dfe1/web_tour.automatic.min.js (651)
+[9376:9376:1120/190015.144068:INFO:CONSOLE:651] "---------- FAILED: [1/8] Tour discuss_channel_call_public_tour.js → Step Close the microphone permission dialog (trigger: .o_dialog .modal-header .btn-close) ----------
+{
+  "content": "Close the microphone permission dialog",
+  "trigger": ".o_dialog .modal-header .btn-close",
+  "run": "click"
+},
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+{
+  "content": "The call does not start on the welcome page",
+  "trigger": ".o-mail-WelcomePage",
+  "run": "[function]"
+},
+{
+  "content": "Fill in guest name",
+  "trigger": "input[name='guest_name']",
+  "run": "edit Jordan Lee"
+},
+{
+  "content": "Click join",
+  "trigger": "button[title='Join Channel']",
+  "run": "click"
+},", source: http://127.0.0.1:8071/web/assets/4b2dfe1/web_tour.automatic.min.js (651)
+[9376:9376:1120/190015.144187:INFO:CONSOLE:651] "FAILED: [1/8] Tour discuss_channel_call_public_tour.js → Step Close the microphone permission dialog (trigger: .o_dialog .modal-header .btn-close).
+Element (.o_dialog .modal-header .btn-close) has not been found.
+TIMEOUT step failed to complete within 10000 ms.", source: http://127.0.0.1:8071/web/assets/4b2dfe1/web_tour.automatic.min.js (651)

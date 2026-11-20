@@ -1,0 +1,70 @@
+[27773:27804:1120/193135.466157:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[27773:27804:1120/193135.466299:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[27773:27804:1120/193135.552741:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[27773:27804:1120/193135.600526:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[27773:27804:1120/193135.629864:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[27773:27804:1120/193135.629921:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[27773:27804:1120/193135.629937:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[27773:27804:1120/193135.630394:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[27773:27804:1120/193135.823415:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[27773:27813:1120/193135.834330:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 27823: Read-only file system (30)
+[27773:27773:1120/193135.853528:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[27773:27773:1120/193135.853744:WARNING:device/bluetooth/dbus/bluez_dbus_manager.cc:209] Floss manager service not available, cannot set Floss enable/disable.
+[27773:27773:1120/193135.853948:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[27773:27773:1120/193135.853975:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[27773:27804:1120/193135.860647:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[27773:27804:1120/193135.860805:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[27773:27773:1120/193135.861293:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[27773:27773:1120/193135.862650:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[27773:27773:1120/193135.862904:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[27773:27804:1120/193135.863274:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[27773:27804:1120/193135.863333:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[27773:27804:1120/193135.863356:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[27773:27804:1120/193135.863364:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[27773:27773:1120/193135.863772:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[27773:27773:1120/193135.863840:WARNING:dbus/property.cc:94] Failed to connect to PropertiesChangedsignal.
+[27773:27773:1120/193135.864134:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.Properties.GetAll: object_path= /org/freedesktop/UPower/devices/DisplayDevice: unknown error type: 
+[27773:27773:1120/193135.864140:WARNING:dbus/property.cc:174] GetAll request failed for: org.freedesktop.UPower.Device
+[27773:27773:1120/193135.864164:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[27773:27804:1120/193135.865052:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[27773:27773:1120/193135.865266:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[27773:27804:1120/193135.865334:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[27773:27773:1120/193135.865347:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[27773:27773:1120/193135.865353:WARNING:ui/base/idle/idle_linux.cc:111] None of the known D-Bus ScreenSaver services could be used.
+[27815:27815:1120/193135.881480:WARNING:media/gpu/vaapi/vaapi_wrapper.cc:1655] drmGetDevices2() has not found any devices
+[27815:27815:1120/193135.931726:WARNING:sandbox/policy/linux/sandbox_linux.cc:405] InitializeSandbox() called with multiple threads in process gpu-process.
+[27773:27813:1120/193135.969356:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 27869: Read-only file system (30)
+[27773:27813:1120/193136.201923:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 27872: Read-only file system (30)
+[27773:27813:1120/193136.206612:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 27873: Read-only file system (30)
+[27773:27773:1120/193139.917407:INFO:CONSOLE:1148] "Owl is running in 'dev' mode.", source: http://127.0.0.1:8071/web/assets/1/5c8437c/web.assets_web.min.js (1148)
+[27773:27773:1120/193140.552384:INFO:CONSOLE:672] "Hoot DOM helpers available from `window.hoot`", source: http://127.0.0.1:8071/web/assets/1/f0674d8/web.assets_tests.min.js (672)
+[27773:27773:1120/193140.553906:INFO:CONSOLE:683] "[1/17] Tour website_crm_form_properties → Step Wait for the edit mode to be started (trigger: .o_builder_sidebar_open)", source: http://127.0.0.1:8071/web/assets/1/f0674d8/web.assets_tests.min.js (683)
+[27773:27813:1120/193142.923539:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 27951: Read-only file system (30)
+[27773:27773:1120/193144.437120:INFO:CONSOLE:1227] "Owl is running in 'dev' mode.", source: http://127.0.0.1:8071/web/assets/1/69cc310/web.assets_frontend_lazy.min.js (1227)
+[27773:27773:1120/193145.547544:INFO:CONSOLE:166] "No mixin defined for: BaseAnimation", source: http://127.0.0.1:8071/web/assets/1/0467ff6/website.assets_inside_builder_iframe.min.js (166)
+[27773:27773:1120/193145.550096:INFO:CONSOLE:166] "No mixin defined for: BaseAnimation", source: http://127.0.0.1:8071/web/assets/1/0467ff6/website.assets_inside_builder_iframe.min.js (166)
+[27773:27773:1120/193145.814393:INFO:CONSOLE:683] "[2/17] Tour website_crm_form_properties → Step Select contact form (trigger: :iframe #wrap.o_savable section.s_website_form)", source: http://127.0.0.1:8071/web/assets/1/f0674d8/web.assets_tests.min.js (683)
+[27773:27773:1120/193146.207723:INFO:CONSOLE:683] "[3/17] Tour website_crm_form_properties → Step .o-snippets-menu .o-snippets-tabs [data-name='customize'].active", source: http://127.0.0.1:8071/web/assets/1/f0674d8/web.assets_tests.min.js (683)
+[27773:27773:1120/193147.215744:INFO:CONSOLE:683] "[4/17] Tour website_crm_form_properties → Step Open action select (trigger: .o-snippets-menu [data-container-title='Form'] [data-label='Action'] .dropdown-toggle)", source: http://127.0.0.1:8071/web/assets/1/f0674d8/web.assets_tests.min.js (683)
+[27773:27773:1120/193147.242097:INFO:CONSOLE:683] "[5/17] Tour website_crm_form_properties → Step Select 'Create an Opportunity' as form action (trigger: .o_popover [data-action-id='selectAction']:contains('Create an Opportunity'))", source: http://127.0.0.1:8071/web/assets/1/f0674d8/web.assets_tests.min.js (683)
+[27773:27773:1120/193147.641722:INFO:CONSOLE:683] "[6/17] Tour website_crm_form_properties → Step Open Sales Team select (trigger: .o-snippets-menu [data-container-title='Form'] [data-label='Sales Team'] .dropdown-toggle)", source: http://127.0.0.1:8071/web/assets/1/f0674d8/web.assets_tests.min.js (683)
+[27773:27773:1120/193148.493442:INFO:CONSOLE:683] "[7/17] Tour website_crm_form_properties → Step Select 'Sales' as Sales Team (trigger: .o_popover [data-action-id='addActionField']:contains(Test Sales Team))", source: http://127.0.0.1:8071/web/assets/1/f0674d8/web.assets_tests.min.js (683)
+[27773:27773:1120/193148.606207:INFO:CONSOLE:683] "[8/17] Tour website_crm_form_properties → Step Wait the form is patched with values before continue to edit it (trigger: :iframe form#contactus_form input[name=team_id]:not(:visible))", source: http://127.0.0.1:8071/web/assets/1/f0674d8/web.assets_tests.min.js (683)
+[27773:27773:1120/193148.707484:INFO:CONSOLE:683] "[9/17] Tour website_crm_form_properties → Step Add a new field to the form (trigger: button:contains(+ Field))", source: http://127.0.0.1:8071/web/assets/1/f0674d8/web.assets_tests.min.js (683)
+[27773:27773:1120/193148.857754:INFO:CONSOLE:683] "[10/17] Tour website_crm_form_properties → Step Open field Type selector (trigger: [data-container-title=Field] [data-label=Type] button)", source: http://127.0.0.1:8071/web/assets/1/f0674d8/web.assets_tests.min.js (683)
+[27773:27773:1120/193149.152823:INFO:CONSOLE:683] "[11/17] Tour website_crm_form_properties → Step Select a property field (trigger: .o_popover [data-action-id=existingField]:contains(test property))", source: http://127.0.0.1:8071/web/assets/1/f0674d8/web.assets_tests.min.js (683)
+[27773:27773:1120/193149.272630:INFO:CONSOLE:683] "[12/17] Tour website_crm_form_properties → Step .o-snippets-menu:not(:has(.o_we_ongoing_insertion))", source: http://127.0.0.1:8071/web/assets/1/f0674d8/web.assets_tests.min.js (683)
+[27773:27773:1120/193149.308823:INFO:CONSOLE:683] "[13/17] Tour website_crm_form_properties → Step body:not(:has(.o_dialog))", source: http://127.0.0.1:8071/web/assets/1/f0674d8/web.assets_tests.min.js (683)
+[27773:27773:1120/193149.320835:INFO:CONSOLE:683] "[14/17] Tour website_crm_form_properties → Step Good job! It's time to save your work. (trigger: button[data-action=save]:enabled:contains(save))", source: http://127.0.0.1:8071/web/assets/1/f0674d8/web.assets_tests.min.js (683)
+[27773:27773:1120/193149.338203:INFO:CONSOLE:683] "[15/17] Tour website_crm_form_properties → Step body:not(.o_builder_open)", source: http://127.0.0.1:8071/web/assets/1/f0674d8/web.assets_tests.min.js (683)
+[27773:27813:1120/193149.878103:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 27963: Read-only file system (30)
+[27773:27773:1120/193150.005122:INFO:CONSOLE:683] "[16/17] Tour website_crm_form_properties → Step Wait until the iframe is ready (trigger: :iframe body[is-ready=true])", source: http://127.0.0.1:8071/web/assets/1/f0674d8/web.assets_tests.min.js (683)
+[27773:27773:1120/193150.350717:INFO:CONSOLE:1227] "Owl is running in 'dev' mode.", source: http://127.0.0.1:8071/web/assets/1/69cc310/web.assets_frontend_lazy.min.js (1227)
+[27773:27773:1120/193150.450491:INFO:CONSOLE:683] "[17/17] Tour website_crm_form_properties → Step Check that there is no traceback (trigger: body:not(:has(.o_error_dialog)))", source: http://127.0.0.1:8071/web/assets/1/f0674d8/web.assets_tests.min.js (683)
+[27773:27773:1120/193150.453613:INFO:CONSOLE:666] "tour succeeded", source: http://127.0.0.1:8071/web/assets/1/f0674d8/web.assets_tests.min.js (666)
+[27773:27773:1120/193150.453739:INFO:CONSOLE:666] "
+
+╔════════════════════════════════════════════╗
+║ TOUR website_crm_form_properties SUCCEEDED ║
+╚════════════════════════════════════════════╝
+", source: http://127.0.0.1:8071/web/assets/1/f0674d8/web.assets_tests.min.js (666)

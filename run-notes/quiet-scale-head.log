@@ -1,0 +1,40 @@
+test_large_team (__main__.OfflinePipeline.test_large_team) ... 2026-11-20 22:14:03,867 101472 INFO ? scale: Chrome pid: 101502
+2026-11-20 22:14:03,870 101472 INFO ? scale: Chrome headless temporary user profile dir: /tmp/tmpvas3_vc__chrome_odoo
+2026-11-20 22:14:03,870 101472 INFO ? scale: Issuing json command http://127.0.0.1:38439/json/version
+2026-11-20 22:14:03,964 101472 INFO ? scale: Browser version: Chrome/156.0.8078.79
+2026-11-20 22:14:03,964 101472 INFO ? scale: Issuing json command http://127.0.0.1:38439/json
+2026-11-20 22:14:03,979 101472 INFO ? scale: Websocket url found: ws://127.0.0.1:38439/devtools/page/DC8FB3736D38E7B8528372D97E978DC8
+2026-11-20 22:14:03,993 101472 INFO ? scale: Enable chrome headless console log notification
+2026-11-20 22:14:04,008 101472 INFO ? scale: Chrome headless enable page notifications
+2026-11-20 22:14:04,063 101472 INFO ? scale: Navigating to: "http://127.0.0.1:17862/odoo/crm"
+2026-11-20 22:14:04,539 101472 INFO ? scale: Navigation result: {'frameId': 'DC8FB3736D38E7B8528372D97E978DC8', 'loaderId': '8EC6C6CDC4450887389963A40C2DD050', 'isDownload': False}
+2026-11-20 22:14:09,384 101472 INFO ? scale: Navigating to: "http://127.0.0.1:17862/odoo/crm"
+2026-11-20 22:14:09,545 101472 INFO ? scale: Navigation result: {'frameId': 'DC8FB3736D38E7B8528372D97E978DC8', 'loaderId': '67D81514C672A6FFAB5533A2972A5D72', 'isDownload': False}
+2026-11-20 22:14:16,496 101472 INFO ? scale: Navigating to: "http://127.0.0.1:17862/odoo/crm"
+2026-11-20 22:14:16,531 101472 INFO ? scale: Navigation result: {'frameId': 'DC8FB3736D38E7B8528372D97E978DC8', 'loaderId': 'E25EA3B266ACB5F6E9CC47649D00788B', 'isDownload': False}
+2026-11-20 22:14:16,713 101472 WARNING crm_scale scale.browser: Error while loading SharedWorker, fallback on Worker:  Event(isTrusted=true, type='error', target=SharedWorker, currentTarget=SharedWorker, eventPhase=2)
+2026-11-20 22:14:16,843 101472 WARNING crm_scale scale.browser: Worker service failed to initialize:  Event(isTrusted=true, type='error', target=Worker, currentTarget=Worker, eventPhase=2)
+2026-11-20 22:14:16,843 101472 WARNING crm_scale scale.browser: BusService: Real-time notifications disabled (WorkerService failed to start).
+2026-11-20 22:14:16,848 101472 WARNING crm_scale scale.browser: Worker service failed to initialize, cannot send message.
+2026-11-20 22:14:16,849 101472 WARNING crm_scale scale.browser: Worker service failed to initialize, cannot send message.
+2026-11-20 22:14:16,849 101472 WARNING crm_scale scale.browser: Worker service failed to initialize, cannot send message.
+2026-11-20 22:14:16,849 101472 WARNING crm_scale scale.browser: Worker service failed to initialize, cannot send message.
+2026-11-20 22:14:16,849 101472 WARNING crm_scale scale.browser: Worker service failed to initialize, cannot send message.
+2026-11-20 22:14:16,849 101472 WARNING crm_scale scale.browser: Worker service failed to initialize, cannot send message.
+2026-11-20 22:14:16,849 101472 WARNING crm_scale scale.browser: Worker service failed to initialize, cannot send message.
+2026-11-20 22:14:16,849 101472 WARNING crm_scale scale.browser: Worker service failed to initialize, cannot send message.
+2026-11-20 22:14:16,849 101472 WARNING crm_scale scale.browser: Worker service failed to initialize, cannot send message.
+2026-11-20 22:14:16,850 101472 WARNING crm_scale scale.browser: Worker service failed to initialize, cannot send message.
+OFFLINE_10000_RENDER_MS 2357
+VISIBLE_CARD_COUNT 320
+2026-11-20 22:14:21,000 101472 INFO ? scale: Closing chrome headless with pid 101502
+2026-11-20 22:14:21,002 101472 INFO ? scale: Closing websocket connection
+2026-11-20 22:14:21,005 101472 INFO ? scale: Terminating chrome headless with pid 101502
+2026-11-20 22:14:21,148 101472 INFO ? scale: Chrome Log in: /tmp/odoo_tests/crm_scale/chrome_logs/chrome_log_20261120_221421_148145_runTest.txt
+2026-11-20 22:14:21,148 101472 INFO ? scale: Removing chrome user profile "/tmp/tmpvas3_vc__chrome_odoo"
+ok
+
+----------------------------------------------------------------------
+Ran 1 test in 21.795s
+
+OK

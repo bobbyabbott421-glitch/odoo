@@ -1,0 +1,296 @@
+2026-11-20 20:30:29,064 45304 INFO ? odoo: Odoo version 20.0
+2026-11-20 20:30:29,064 45304 INFO ? odoo: Using configuration file at /workspace/odoo-env/odoo.conf
+2026-11-20 20:30:29,064 45304 INFO ? odoo: addons paths: _NamespacePath(['/workspace/odoo/odoo/addons', '/workspace/odoo-env/data/addons/20.0', '/workspace/odoo/addons'])
+2026-11-20 20:30:29,064 45304 INFO ? odoo: database: odoo@/workspace/odoo-env/run:5432
+2026-11-20 20:30:30,088 45304 INFO crm_flow odoo.modules.loading: loading 1 modules...
+2026-11-20 20:30:30,093 45304 INFO crm_flow odoo.modules.loading: 1 modules loaded in 0.00s, 0 queries (+0 extra)
+2026-11-20 20:30:30,163 45304 INFO crm_flow odoo.modules.loading: updating modules list
+2026-11-20 20:30:30,188 45304 INFO crm_flow odoo.addons.base.models.ir_module: ALLOW access to module.update_list on [] to user __system__ #1 via n/a
+2026-11-20 20:30:31,814 45304 INFO crm_flow odoo.addons.base.models.ir_module: ALLOW access to module.button_upgrade on ['CRM'] to user __system__ #1 via n/a
+2026-11-20 20:30:31,814 45304 INFO crm_flow odoo.addons.base.models.ir_module: ALLOW access to module.update_list on ['CRM'] to user __system__ #1 via n/a
+2026-11-20 20:30:32,211 45304 INFO crm_flow odoo.addons.base.models.ir_module: ALLOW access to module.button_install on [] to user __system__ #1 via n/a
+2026-11-20 20:30:32,370 45304 INFO crm_flow odoo.modules.loading: loading 226 modules...
+2026-11-20 20:30:32,599 45304 WARNING crm_flow odoo.addons.mail.controllers.attachment: markdown2 is not installed, markdown will not be rendered
+2026-11-20 20:30:32,811 45304 INFO crm_flow odoo.modules.loading: Loading module crm (66/226)
+2026-11-20 20:30:33,044 45304 INFO crm_flow odoo.registry: module crm: creating or updating database tables
+2026-11-20 20:30:33,436 45304 INFO crm_flow odoo.modules.loading: loading crm/security/crm_security.xml
+2026-11-20 20:30:33,746 45304 INFO crm_flow odoo.modules.loading: loading crm/data/crm_lead_merge_template.xml
+2026-11-20 20:30:33,771 45304 INFO crm_flow odoo.modules.loading: loading crm/data/crm_lead_prediction_data.xml
+2026-11-20 20:30:33,831 45304 INFO crm_flow odoo.modules.loading: loading crm/data/crm_lost_reason_data.xml
+2026-11-20 20:30:33,837 45304 INFO crm_flow odoo.modules.loading: loading crm/data/crm_stage_data.xml
+2026-11-20 20:30:33,840 45304 INFO crm_flow odoo.modules.loading: loading crm/data/crm_team_data.xml
+2026-11-20 20:30:33,846 45304 INFO crm_flow odoo.modules.loading: loading crm/data/digest_data.xml
+2026-11-20 20:30:33,871 45304 INFO crm_flow odoo.modules.loading: loading crm/data/ir_cron_data.xml
+2026-11-20 20:30:33,873 45304 INFO crm_flow odoo.modules.loading: loading crm/data/mail_message_subtype_data.xml
+2026-11-20 20:30:33,882 45304 INFO crm_flow odoo.modules.loading: loading crm/data/crm_recurring_plan_data.xml
+2026-11-20 20:30:33,886 45304 INFO crm_flow odoo.modules.loading: loading crm/data/mail_templates.xml
+2026-11-20 20:30:33,903 45304 INFO crm_flow odoo.modules.loading: loading crm/data/crm_tour.xml
+2026-11-20 20:30:33,910 45304 INFO crm_flow odoo.modules.loading: loading crm/wizard/crm_lead_lost_views.xml
+2026-11-20 20:30:33,957 45304 INFO crm_flow odoo.modules.loading: loading crm/wizard/crm_lead_to_opportunity_mass_views.xml
+2026-11-20 20:30:33,971 45304 INFO crm_flow odoo.modules.loading: loading crm/wizard/crm_merge_opportunities_views.xml
+2026-11-20 20:30:33,985 45304 INFO crm_flow odoo.modules.loading: loading crm/wizard/crm_lead_pls_update_views.xml
+2026-11-20 20:30:33,997 45304 INFO crm_flow odoo.modules.loading: loading crm/views/calendar_views.xml
+2026-11-20 20:30:34,018 45304 INFO crm_flow odoo.modules.loading: loading crm/views/crm_recurring_plan_views.xml
+2026-11-20 20:30:34,043 45304 INFO crm_flow odoo.modules.loading: loading crm/views/crm_lost_reason_views.xml
+2026-11-20 20:30:34,067 45304 INFO crm_flow odoo.modules.loading: loading crm/views/crm_stage_views.xml
+2026-11-20 20:30:34,099 45304 INFO crm_flow odoo.modules.loading: loading crm/views/crm_lead_views.xml
+2026-11-20 20:30:34,424 45304 INFO crm_flow odoo.modules.loading: loading crm/views/crm_team_member_views.xml
+2026-11-20 20:30:34,504 45304 INFO crm_flow odoo.modules.loading: loading crm/views/digest_views.xml
+2026-11-20 20:30:34,529 45304 INFO crm_flow odoo.modules.loading: loading crm/views/mail_activity_plan_views.xml
+2026-11-20 20:30:34,535 45304 INFO crm_flow odoo.modules.loading: loading crm/views/mail_activity_views.xml
+2026-11-20 20:30:34,539 45304 INFO crm_flow odoo.modules.loading: loading crm/views/res_config_settings_views.xml
+2026-11-20 20:30:34,634 45304 INFO crm_flow odoo.modules.loading: loading crm/views/res_partner_views.xml
+2026-11-20 20:30:34,685 45304 INFO crm_flow odoo.modules.loading: loading crm/views/utm_campaign_views.xml
+2026-11-20 20:30:34,728 45304 INFO crm_flow odoo.modules.loading: loading crm/report/crm_activity_report_views.xml
+2026-11-20 20:30:34,763 45304 INFO crm_flow odoo.modules.loading: loading crm/report/crm_opportunity_report_views.xml
+2026-11-20 20:30:34,886 45304 INFO crm_flow odoo.models.unlink: User #1 deleted ir.actions.act_window.view records with IDs: [75, 76, 77]
+2026-11-20 20:30:34,900 45304 INFO crm_flow odoo.models.unlink: User #1 deleted ir.actions.act_window.view records with IDs: [78, 79, 80, 81]
+2026-11-20 20:30:34,904 45304 INFO crm_flow odoo.modules.loading: loading crm/views/crm_team_views.xml
+2026-11-20 20:30:34,914 45304 INFO crm_flow odoo.models.unlink: User #1 deleted ir.actions.act_window.view records with IDs: [82, 83]
+2026-11-20 20:30:35,023 45304 INFO crm_flow odoo.modules.loading: loading crm/views/crm_menu_views.xml
+2026-11-20 20:30:35,142 45304 INFO crm_flow odoo.modules.loading: loading crm/views/crm_helper_templates.xml
+2026-11-20 20:30:35,152 45304 INFO crm_flow odoo.modules.loading: loading crm/views/crm_lead_templates.xml
+2026-11-20 20:30:35,160 45304 INFO crm_flow odoo.modules.loading: loading crm/security/ir.access.csv
+2026-11-20 20:30:35,367 45304 INFO crm_flow odoo.modules.loading: Module crm: loading demo
+2026-11-20 20:30:35,368 45304 INFO crm_flow odoo.modules.loading: loading crm/data/crm_team_demo.xml
+2026-11-20 20:30:35,372 45304 INFO crm_flow odoo.modules.loading: loading crm/data/crm_stage_demo.xml
+2026-11-20 20:30:35,374 45304 INFO crm_flow odoo.modules.loading: loading crm/data/mail_template_demo.xml
+2026-11-20 20:30:35,379 45304 INFO crm_flow odoo.modules.loading: loading crm/data/crm_team_member_demo.xml
+2026-11-20 20:30:35,384 45304 INFO crm_flow odoo.modules.loading: loading crm/data/crm_lead_demo.xml
+2026-11-20 20:30:35,505 45304 INFO crm_flow odoo.registry: Registry changed, signaling through the database
+2026-11-20 20:30:35,509 45304 INFO crm_flow odoo.modules.loading: Module crm loaded in 2.70s, 2167 queries (+2167 other)
+2026-11-20 20:30:35,845 45304 INFO crm_flow odoo.modules.loading: Loading module crm_livechat (83/226)
+2026-11-20 20:30:36,248 45304 INFO crm_flow odoo.registry: module crm_livechat: creating or updating database tables
+2026-11-20 20:30:36,410 45304 INFO crm_flow odoo.modules.loading: loading crm_livechat/data/crm_livechat_chatbot_data.xml
+2026-11-20 20:30:36,419 45304 INFO crm_flow odoo.modules.loading: loading crm_livechat/views/chatbot_script_views.xml
+2026-11-20 20:30:36,536 45304 INFO crm_flow odoo.modules.loading: loading crm_livechat/views/chatbot_script_step_views.xml
+2026-11-20 20:30:36,551 45304 INFO crm_flow odoo.modules.loading: loading crm_livechat/views/crm_lead_views.xml
+2026-11-20 20:30:36,579 45304 INFO crm_flow odoo.modules.loading: loading crm_livechat/views/discuss_channel_views.xml
+2026-11-20 20:30:36,610 45304 INFO crm_flow odoo.modules.loading: loading crm_livechat/security/ir.access.csv
+2026-11-20 20:30:36,667 45304 INFO crm_flow odoo.registry: Registry changed, signaling through the database
+2026-11-20 20:30:36,670 45304 INFO crm_flow odoo.modules.loading: Module crm_livechat loaded in 0.83s, 337 queries (+337 other)
+2026-11-20 20:30:36,670 45304 INFO crm_flow odoo.modules.loading: Loading module crm_mail_plugin (84/226)
+2026-11-20 20:30:36,757 45304 INFO crm_flow odoo.registry: Caches invalidated, signaling through the database: ['default', 'stable']
+2026-11-20 20:30:36,759 45304 INFO crm_flow odoo.modules.loading: Module crm_mail_plugin loaded in 0.09s, 13 queries (+13 other)
+2026-11-20 20:30:36,759 45304 INFO crm_flow odoo.modules.loading: Loading module crm_sms (85/226)
+2026-11-20 20:30:36,832 45304 INFO crm_flow odoo.modules.loading: loading crm_sms/views/crm_lead_views.xml
+2026-11-20 20:30:36,950 45304 INFO crm_flow odoo.modules.loading: loading crm_sms/security/ir.access.csv
+2026-11-20 20:30:36,988 45304 INFO crm_flow odoo.registry: Caches invalidated, signaling through the database: ['default', 'stable', 'templates']
+2026-11-20 20:30:36,993 45304 INFO crm_flow odoo.modules.loading: Module crm_sms loaded in 0.23s, 143 queries (+143 other)
+2026-11-20 20:30:36,998 45304 INFO crm_flow odoo.modules.loading: Loading module event_crm (87/226)
+2026-11-20 20:30:37,053 45304 INFO crm_flow odoo.registry: module event_crm: creating or updating database tables
+2026-11-20 20:30:37,174 45304 INFO crm_flow odoo.modules.loading: loading event_crm/data/crm_lead_merge_template.xml
+2026-11-20 20:30:37,200 45304 INFO crm_flow odoo.modules.loading: loading event_crm/data/ir_action_data.xml
+2026-11-20 20:30:37,230 45304 INFO crm_flow odoo.modules.loading: loading event_crm/data/ir_cron_data.xml
+2026-11-20 20:30:37,259 45304 INFO crm_flow odoo.modules.loading: loading event_crm/views/crm_lead_views.xml
+2026-11-20 20:30:37,335 45304 INFO crm_flow odoo.modules.loading: loading event_crm/views/event_registration_views.xml
+2026-11-20 20:30:37,367 45304 INFO crm_flow odoo.modules.loading: loading event_crm/views/event_lead_rule_views.xml
+2026-11-20 20:30:37,407 45304 INFO crm_flow odoo.modules.loading: loading event_crm/views/event_event_views.xml
+2026-11-20 20:30:37,472 45304 INFO crm_flow odoo.modules.loading: loading event_crm/views/event_question_views.xml
+2026-11-20 20:30:37,507 45304 INFO crm_flow odoo.modules.loading: loading event_crm/security/ir.access.csv
+2026-11-20 20:30:37,548 45304 INFO crm_flow odoo.modules.loading: Module event_crm: loading demo
+2026-11-20 20:30:37,548 45304 INFO crm_flow odoo.modules.loading: loading event_crm/data/event_crm_demo.xml
+2026-11-20 20:30:37,574 45304 INFO crm_flow odoo.registry: Registry changed, signaling through the database
+2026-11-20 20:30:37,576 45304 INFO crm_flow odoo.modules.loading: Module event_crm loaded in 0.58s, 453 queries (+453 other)
+2026-11-20 20:30:37,606 45304 INFO crm_flow odoo.modules.loading: Loading module iap_crm (97/226)
+2026-11-20 20:30:37,727 45304 INFO crm_flow odoo.registry: module iap_crm: creating or updating database tables
+2026-11-20 20:30:37,946 45304 INFO crm_flow odoo.registry: Registry changed, signaling through the database
+2026-11-20 20:30:37,948 45304 INFO crm_flow odoo.modules.loading: Module iap_crm loaded in 0.34s, 67 queries (+67 other)
+2026-11-20 20:30:37,952 45304 INFO crm_flow odoo.modules.loading: Loading module mass_mailing_crm (100/226)
+2026-11-20 20:30:38,010 45304 INFO crm_flow odoo.registry: module mass_mailing_crm: creating or updating database tables
+2026-11-20 20:30:38,120 45304 INFO crm_flow odoo.modules.loading: loading mass_mailing_crm/views/mailing_mailing_views.xml
+2026-11-20 20:30:38,220 45304 INFO crm_flow odoo.registry: Registry changed, signaling through the database
+2026-11-20 20:30:38,221 45304 INFO crm_flow odoo.modules.loading: Module mass_mailing_crm loaded in 0.27s, 130 queries (+130 other)
+2026-11-20 20:30:38,282 45304 INFO crm_flow odoo.modules.loading: Loading module survey_crm (115/226)
+2026-11-20 20:30:38,441 45304 INFO crm_flow odoo.registry: module survey_crm: creating or updating database tables
+2026-11-20 20:30:38,568 45304 INFO crm_flow odoo.modules.loading: loading survey_crm/views/survey_question_views.xml
+2026-11-20 20:30:38,650 45304 INFO crm_flow odoo.modules.loading: loading survey_crm/views/survey_survey_views.xml
+2026-11-20 20:30:38,704 45304 INFO crm_flow odoo.modules.loading: loading survey_crm/views/survey_user_views.xml
+2026-11-20 20:30:38,725 45304 INFO crm_flow odoo.modules.loading: Module survey_crm: loading demo
+2026-11-20 20:30:38,726 45304 INFO crm_flow odoo.modules.loading: loading survey_crm/demo/lead_qualification_survey_demo.xml
+2026-11-20 20:30:38,747 45304 INFO crm_flow odoo.modules.loading: loading survey_crm/demo/lead_qualification_answer_demo.xml
+2026-11-20 20:30:38,770 45304 INFO crm_flow odoo.registry: Registry changed, signaling through the database
+2026-11-20 20:30:38,772 45304 INFO crm_flow odoo.modules.loading: Module survey_crm loaded in 0.49s, 265 queries (+265 other)
+2026-11-20 20:30:38,773 45304 INFO crm_flow odoo.modules.loading: Loading module website_crm (117/226)
+2026-11-20 20:30:38,818 45304 INFO crm_flow odoo.registry: module website_crm: creating or updating database tables
+2026-11-20 20:30:38,950 45304 INFO crm_flow odoo.modules.loading: loading website_crm/data/crm_lead_merge_template.xml
+2026-11-20 20:30:38,970 45304 INFO crm_flow odoo.modules.loading: loading website_crm/data/ir_actions_data.xml
+2026-11-20 20:30:38,976 45304 INFO crm_flow odoo.modules.loading: loading website_crm/data/ir_model_data.xml
+2026-11-20 20:30:39,010 45304 INFO crm_flow odoo.modules.loading: loading website_crm/views/crm_lead_views.xml
+2026-11-20 20:30:39,082 45304 INFO crm_flow odoo.modules.loading: loading website_crm/views/website_visitor_views.xml
+2026-11-20 20:30:39,169 45304 INFO crm_flow odoo.modules.loading: loading website_crm/views/website_templates_contactus.xml
+2026-11-20 20:30:39,187 45304 INFO crm_flow odoo.modules.loading: loading website_crm/security/ir.access.csv
+2026-11-20 20:30:39,240 45304 INFO crm_flow odoo.registry: Registry changed, signaling through the database
+2026-11-20 20:30:39,242 45304 INFO crm_flow odoo.modules.loading: Module website_crm loaded in 0.47s, 332 queries (+332 other)
+2026-11-20 20:30:39,257 45304 INFO crm_flow odoo.modules.loading: Loading module crm_iap_enrich (126/226)
+2026-11-20 20:30:39,366 45304 INFO crm_flow odoo.registry: module crm_iap_enrich: creating or updating database tables
+2026-11-20 20:30:39,485 45304 INFO crm_flow odoo.modules.loading: loading crm_iap_enrich/data/ir_cron.xml
+2026-11-20 20:30:39,534 45304 INFO crm_flow odoo.modules.loading: loading crm_iap_enrich/data/ir_action.xml
+2026-11-20 20:30:39,546 45304 INFO crm_flow odoo.modules.loading: loading crm_iap_enrich/data/mail_templates.xml
+2026-11-20 20:30:39,551 45304 INFO crm_flow odoo.modules.loading: loading crm_iap_enrich/views/crm_lead_views.xml
+2026-11-20 20:30:39,637 45304 INFO crm_flow odoo.modules.loading: loading crm_iap_enrich/views/res_config_settings_view.xml
+2026-11-20 20:30:39,769 45304 INFO crm_flow odoo.registry: Registry changed, signaling through the database
+2026-11-20 20:30:39,771 45304 INFO crm_flow odoo.modules.loading: Module crm_iap_enrich loaded in 0.51s, 244 queries (+244 other)
+2026-11-20 20:30:39,771 45304 INFO crm_flow odoo.modules.loading: Loading module crm_iap_mine (127/226)
+2026-11-20 20:30:39,820 45304 INFO crm_flow odoo.registry: module crm_iap_mine: creating or updating database tables
+2026-11-20 20:30:40,104 45304 INFO crm_flow odoo.modules.loading: loading crm_iap_mine/data/crm.iap.lead.industry.division.csv
+2026-11-20 20:30:40,114 45304 INFO crm_flow odoo.modules.loading: loading crm_iap_mine/data/crm.iap.lead.industry.csv
+2026-11-20 20:30:40,140 45304 INFO crm_flow odoo.modules.loading: loading crm_iap_mine/data/crm.iap.lead.role.csv
+2026-11-20 20:30:40,149 45304 INFO crm_flow odoo.modules.loading: loading crm_iap_mine/data/crm.iap.lead.seniority.csv
+2026-11-20 20:30:40,154 45304 INFO crm_flow odoo.modules.loading: loading crm_iap_mine/data/mail_template_data.xml
+2026-11-20 20:30:40,157 45304 INFO crm_flow odoo.modules.loading: loading crm_iap_mine/data/ir_sequence_data.xml
+2026-11-20 20:30:40,160 45304 INFO crm_flow odoo.modules.loading: loading crm_iap_mine/views/crm_iap_lead_industry_views.xml
+2026-11-20 20:30:40,230 45304 INFO crm_flow odoo.modules.loading: loading crm_iap_mine/views/crm_iap_lead_mining_request_views.xml
+2026-11-20 20:30:40,273 45304 INFO crm_flow odoo.modules.loading: loading crm_iap_mine/views/res_config_settings_views.xml
+2026-11-20 20:30:40,394 45304 INFO crm_flow odoo.modules.loading: loading crm_iap_mine/views/mail_templates.xml
+2026-11-20 20:30:40,418 45304 INFO crm_flow odoo.modules.loading: loading crm_iap_mine/views/crm_menus.xml
+2026-11-20 20:30:40,425 45304 INFO crm_flow odoo.modules.loading: loading crm_iap_mine/security/ir.access.csv
+2026-11-20 20:30:40,492 45304 INFO crm_flow odoo.registry: Registry changed, signaling through the database
+2026-11-20 20:30:40,494 45304 INFO crm_flow odoo.modules.loading: Module crm_iap_mine loaded in 0.72s, 409 queries (+409 other)
+2026-11-20 20:30:40,538 45304 INFO crm_flow odoo.modules.loading: Loading module mass_mailing_crm_sms (132/226)
+2026-11-20 20:30:40,672 45304 INFO crm_flow odoo.registry: module mass_mailing_crm_sms: creating or updating database tables
+2026-11-20 20:30:40,825 45304 INFO crm_flow odoo.registry: Registry changed, signaling through the database
+2026-11-20 20:30:40,827 45304 INFO crm_flow odoo.modules.loading: Module mass_mailing_crm_sms loaded in 0.29s, 43 queries (+43 other)
+2026-11-20 20:30:40,872 45304 INFO crm_flow odoo.modules.loading: Loading module website_crm_livechat (146/226)
+2026-11-20 20:30:41,091 45304 INFO crm_flow odoo.registry: module website_crm_livechat: creating or updating database tables
+2026-11-20 20:30:41,212 45304 INFO crm_flow odoo.modules.loading: loading website_crm_livechat/views/website_crm_lead_views.xml
+2026-11-20 20:30:41,310 45304 INFO crm_flow odoo.registry: Registry changed, signaling through the database
+2026-11-20 20:30:41,312 45304 INFO crm_flow odoo.modules.loading: Module website_crm_livechat loaded in 0.44s, 168 queries (+168 other)
+2026-11-20 20:30:41,312 45304 INFO crm_flow odoo.modules.loading: Loading module website_crm_sms (147/226)
+2026-11-20 20:30:41,356 45304 INFO crm_flow odoo.registry: module website_crm_sms: creating or updating database tables
+2026-11-20 20:30:41,441 45304 INFO crm_flow odoo.registry: Registry changed, signaling through the database
+2026-11-20 20:30:41,442 45304 INFO crm_flow odoo.modules.loading: Module website_crm_sms loaded in 0.13s, 39 queries (+39 other)
+2026-11-20 20:30:41,467 45304 INFO crm_flow odoo.modules.loading: Loading module partnership (158/226)
+2026-11-20 20:30:41,679 45304 INFO crm_flow odoo.registry: module partnership: creating or updating database tables
+2026-11-20 20:30:41,903 45304 INFO crm_flow odoo.schema: Keep unexpected index product_template__description_index on table product_template
+2026-11-20 20:30:41,903 45304 INFO crm_flow odoo.schema: Keep unexpected index product_template__description_sale_index on table product_template
+2026-11-20 20:30:41,937 45304 INFO crm_flow odoo.modules.loading: loading partnership/data/res_partner_grade_data.xml
+2026-11-20 20:30:41,948 45304 INFO crm_flow odoo.modules.loading: loading partnership/views/res_config_settings_views.xml
+2026-11-20 20:30:42,231 45304 INFO crm_flow odoo.modules.loading: loading partnership/views/res_partner_views.xml
+2026-11-20 20:30:42,365 45304 INFO crm_flow odoo.modules.loading: loading partnership/views/res_partner_grade_views.xml
+2026-11-20 20:30:42,399 45304 INFO crm_flow odoo.modules.loading: loading partnership/views/product_template_views.xml
+2026-11-20 20:30:42,477 45304 INFO crm_flow odoo.modules.loading: loading partnership/views/product_pricelist_views.xml
+2026-11-20 20:30:42,502 45304 INFO crm_flow odoo.modules.loading: loading partnership/views/partnership_menu.xml
+2026-11-20 20:30:42,518 45304 INFO crm_flow odoo.modules.loading: loading partnership/security/ir.access.csv
+2026-11-20 20:30:42,587 45304 INFO crm_flow odoo.registry: Registry changed, signaling through the database
+2026-11-20 20:30:42,589 45304 INFO crm_flow odoo.modules.loading: Module partnership loaded in 1.12s, 604 queries (+604 other)
+2026-11-20 20:30:42,598 45304 INFO crm_flow odoo.modules.loading: Loading module sale_crm (163/226)
+2026-11-20 20:30:42,714 45304 INFO crm_flow odoo.registry: module sale_crm: creating or updating database tables
+2026-11-20 20:30:42,857 45304 INFO crm_flow odoo.modules.loading: loading sale_crm/data/crm_lead_merge_template.xml
+2026-11-20 20:30:42,879 45304 INFO crm_flow odoo.modules.loading: loading sale_crm/views/sale_order_views.xml
+2026-11-20 20:30:43,038 45304 INFO crm_flow odoo.modules.loading: loading sale_crm/views/crm_lead_views.xml
+2026-11-20 20:30:43,134 45304 INFO crm_flow odoo.modules.loading: loading sale_crm/views/crm_team_views.xml
+2026-11-20 20:30:43,173 45304 INFO crm_flow odoo.modules.loading: loading sale_crm/wizard/crm_opportunity_to_quotation_views.xml
+2026-11-20 20:30:43,185 45304 INFO crm_flow odoo.modules.loading: loading sale_crm/security/ir.access.csv
+2026-11-20 20:30:43,229 45304 INFO crm_flow odoo.registry: Registry changed, signaling through the database
+2026-11-20 20:30:43,231 45304 INFO crm_flow odoo.modules.loading: Module sale_crm loaded in 0.63s, 293 queries (+293 other)
+2026-11-20 20:30:43,248 45304 INFO crm_flow odoo.modules.loading: Loading module website_crm_iap_reveal (170/226)
+2026-11-20 20:30:43,407 45304 INFO crm_flow odoo.registry: module website_crm_iap_reveal: creating or updating database tables
+2026-11-20 20:30:43,640 45304 INFO crm_flow odoo.modules.loading: loading website_crm_iap_reveal/data/ir_cron_data.xml
+2026-11-20 20:30:43,648 45304 INFO crm_flow odoo.modules.loading: loading website_crm_iap_reveal/data/ir_model_data.xml
+2026-11-20 20:30:43,680 45304 INFO crm_flow odoo.modules.loading: loading website_crm_iap_reveal/data/mail_templates.xml
+2026-11-20 20:30:43,708 45304 INFO crm_flow odoo.modules.loading: loading website_crm_iap_reveal/views/crm_lead_views.xml
+2026-11-20 20:30:43,993 45304 INFO crm_flow odoo.modules.loading: loading website_crm_iap_reveal/views/crm_reveal_views.xml
+2026-11-20 20:30:44,081 45304 INFO crm_flow odoo.modules.loading: loading website_crm_iap_reveal/views/res_config_settings_views.xml
+2026-11-20 20:30:44,338 45304 INFO crm_flow odoo.modules.loading: loading website_crm_iap_reveal/views/crm_menus.xml
+2026-11-20 20:30:44,351 45304 INFO crm_flow odoo.modules.loading: loading website_crm_iap_reveal/security/ir.access.csv
+2026-11-20 20:30:44,432 45304 INFO crm_flow odoo.registry: Registry changed, signaling through the database
+2026-11-20 20:30:44,433 45304 INFO crm_flow odoo.modules.loading: Module website_crm_iap_reveal loaded in 1.19s, 536 queries (+536 other)
+2026-11-20 20:30:44,436 45304 INFO crm_flow odoo.modules.loading: Loading module website_event_crm (172/226)
+2026-11-20 20:30:44,492 45304 INFO crm_flow odoo.registry: module website_event_crm: creating or updating database tables
+2026-11-20 20:30:44,586 45304 INFO crm_flow odoo.modules.loading: loading website_event_crm/views/event_lead_rule_views.xml
+2026-11-20 20:30:44,667 45304 INFO crm_flow odoo.modules.loading: Module website_event_crm: loading demo
+2026-11-20 20:30:44,668 45304 INFO crm_flow odoo.modules.loading: loading website_event_crm/data/event_crm_demo.xml
+2026-11-20 20:30:44,681 45304 INFO crm_flow odoo.registry: Registry changed, signaling through the database
+2026-11-20 20:30:44,683 45304 INFO crm_flow odoo.modules.loading: Module website_event_crm loaded in 0.25s, 100 queries (+100 other)
+2026-11-20 20:30:44,707 45304 INFO crm_flow odoo.modules.loading: Loading module gamification_sale_crm (178/226)
+2026-11-20 20:30:44,960 45304 INFO crm_flow odoo.modules.loading: loading gamification_sale_crm/data/gamification_sale_crm_data.xml
+2026-11-20 20:30:44,985 45304 INFO crm_flow odoo.modules.loading: Module gamification_sale_crm: loading demo
+2026-11-20 20:30:44,986 45304 INFO crm_flow odoo.modules.loading: loading gamification_sale_crm/data/gamification_sale_crm_demo.xml
+2026-11-20 20:30:44,996 45304 INFO crm_flow odoo.registry: Caches invalidated, signaling through the database: ['default', 'stable']
+2026-11-20 20:30:44,997 45304 INFO crm_flow odoo.modules.loading: Module gamification_sale_crm loaded in 0.29s, 52 queries (+52 other)
+2026-11-20 20:30:45,022 45304 INFO crm_flow odoo.modules.loading: Loading module website_partnership (193/226)
+2026-11-20 20:30:45,175 45304 INFO crm_flow odoo.registry: module website_partnership: creating or updating database tables
+2026-11-20 20:30:45,285 45304 INFO crm_flow odoo.modules.loading: loading website_partnership/views/res_partner_grade_views.xml
+2026-11-20 20:30:45,374 45304 INFO crm_flow odoo.modules.loading: loading website_partnership/views/website_partnership_templates.xml
+2026-11-20 20:30:45,592 45304 INFO crm_flow odoo.modules.loading: loading website_partnership/views/res_config_settings_views.xml
+2026-11-20 20:30:45,729 45304 INFO crm_flow odoo.modules.loading: loading website_partnership/security/ir.access.csv
+2026-11-20 20:30:45,764 45304 INFO crm_flow odoo.modules.loading: Module website_partnership: loading demo
+2026-11-20 20:30:45,765 45304 INFO crm_flow odoo.modules.loading: loading website_partnership/demo/res_partner_grade_demo.xml
+2026-11-20 20:30:45,771 45304 INFO crm_flow odoo.modules.loading: loading website_partnership/demo/res_partner_demo.xml
+2026-11-20 20:30:45,796 45304 INFO crm_flow odoo.registry: Registry changed, signaling through the database
+2026-11-20 20:30:45,798 45304 INFO crm_flow odoo.modules.loading: Module website_partnership loaded in 0.78s, 447 queries (+447 other)
+2026-11-20 20:30:45,829 45304 INFO crm_flow odoo.modules.loading: Loading module test_discuss_full (195/226)
+2026-11-20 20:30:46,086 45304 INFO crm_flow odoo.registry: Caches invalidated, signaling through the database: ['default', 'stable']
+2026-11-20 20:30:46,087 45304 INFO crm_flow odoo.modules.loading: Module test_discuss_full loaded in 0.26s, 15 queries (+15 other)
+2026-11-20 20:30:46,094 45304 INFO crm_flow odoo.modules.loading: Loading module event_crm_sale (198/226)
+2026-11-20 20:30:46,195 45304 INFO crm_flow odoo.registry: module event_crm_sale: creating or updating database tables
+2026-11-20 20:30:46,297 45304 INFO crm_flow odoo.modules.loading: loading event_crm_sale/views/event_lead_rule_views.xml
+2026-11-20 20:30:46,520 45304 INFO crm_flow odoo.registry: Registry changed, signaling through the database
+2026-11-20 20:30:46,522 45304 INFO crm_flow odoo.modules.loading: Module event_crm_sale loaded in 0.43s, 98 queries (+98 other)
+2026-11-20 20:30:46,532 45304 INFO crm_flow odoo.modules.loading: Loading module website_crm_partner_assign (204/226)
+2026-11-20 20:30:46,670 45304 INFO crm_flow odoo.registry: module website_crm_partner_assign: creating or updating database tables
+2026-11-20 20:30:46,695 45304 INFO crm_flow odoo.fields: Prepare computation of website.show_line_subtotals_tax_selection in 0 records
+2026-11-20 20:30:46,856 45304 INFO crm_flow odoo.modules.loading: loading website_crm_partner_assign/data/crm_lead_merge_template.xml
+2026-11-20 20:30:46,875 45304 INFO crm_flow odoo.modules.loading: loading website_crm_partner_assign/data/crm_tag_data.xml
+2026-11-20 20:30:46,884 45304 INFO crm_flow odoo.modules.loading: loading website_crm_partner_assign/data/mail_template_data.xml
+2026-11-20 20:30:46,897 45304 INFO crm_flow odoo.modules.loading: loading website_crm_partner_assign/data/res_partner_activation_data.xml
+2026-11-20 20:30:46,904 45304 INFO crm_flow odoo.modules.loading: loading website_crm_partner_assign/data/portal_entry_data.xml
+2026-11-20 20:30:46,908 45304 INFO crm_flow odoo.modules.loading: loading website_crm_partner_assign/wizard/crm_forward_to_partner_view.xml
+2026-11-20 20:30:46,979 45304 INFO crm_flow odoo.modules.loading: loading website_crm_partner_assign/views/res_partner_views.xml
+2026-11-20 20:30:47,069 45304 INFO crm_flow odoo.modules.loading: loading website_crm_partner_assign/views/website_page_views.xml
+2026-11-20 20:30:47,135 45304 INFO crm_flow odoo.models.unlink: User #1 deleted ir.actions.act_window.view records with IDs: [375, 376]
+2026-11-20 20:30:47,145 45304 INFO crm_flow odoo.modules.loading: loading website_crm_partner_assign/views/res_partner_activation_views.xml
+2026-11-20 20:30:47,177 45304 INFO crm_flow odoo.modules.loading: loading website_crm_partner_assign/views/res_partner_grade_views.xml
+2026-11-20 20:30:47,194 45304 INFO crm_flow odoo.modules.loading: loading website_crm_partner_assign/views/crm_lead_views.xml
+2026-11-20 20:30:47,466 45304 INFO crm_flow odoo.modules.loading: loading website_crm_partner_assign/views/website_crm_partner_assign_templates.xml
+2026-11-20 20:30:47,707 45304 INFO crm_flow odoo.modules.loading: loading website_crm_partner_assign/views/partner_assign_menus.xml
+2026-11-20 20:30:47,712 45304 INFO crm_flow odoo.modules.loading: loading website_crm_partner_assign/report/crm_partner_report_view.xml
+2026-11-20 20:30:47,736 45304 INFO crm_flow odoo.modules.loading: loading website_crm_partner_assign/security/ir.access.csv
+2026-11-20 20:30:47,810 45304 INFO crm_flow odoo.modules.loading: Module website_crm_partner_assign: loading demo
+2026-11-20 20:30:47,810 45304 INFO crm_flow odoo.modules.loading: loading website_crm_partner_assign/data/res_partner_demo.xml
+2026-11-20 20:30:47,816 45304 INFO crm_flow odoo.modules.loading: loading website_crm_partner_assign/data/crm_lead_demo.xml
+2026-11-20 20:30:47,847 45304 INFO crm_flow odoo.registry: Registry changed, signaling through the database
+2026-11-20 20:30:47,848 45304 INFO crm_flow odoo.modules.loading: Module website_crm_partner_assign loaded in 1.32s, 1221 queries (+1221 other)
+2026-11-20 20:30:47,849 45304 INFO crm_flow odoo.modules.loading: Loading module test_crm_full (205/226)
+2026-11-20 20:30:47,960 45304 INFO crm_flow odoo.registry: Caches invalidated, signaling through the database: ['default', 'stable']
+2026-11-20 20:30:47,961 45304 INFO crm_flow odoo.modules.loading: Module test_crm_full loaded in 0.11s, 13 queries (+13 other)
+2026-11-20 20:30:47,964 45304 INFO crm_flow odoo.modules.loading: Loading module test_website_modules (207/226)
+2026-11-20 20:30:48,118 45304 INFO crm_flow odoo.registry: Caches invalidated, signaling through the database: ['default', 'stable']
+2026-11-20 20:30:48,119 45304 INFO crm_flow odoo.modules.loading: Module test_website_modules loaded in 0.16s, 14 queries (+14 other)
+2026-11-20 20:30:48,125 45304 INFO crm_flow odoo.modules.loading: Loading module crm_sale_project (212/226)
+2026-11-20 20:30:48,249 45304 INFO crm_flow odoo.registry: module crm_sale_project: creating or updating database tables
+2026-11-20 20:30:48,385 45304 INFO crm_flow odoo.modules.loading: loading crm_sale_project/data/ir_actions_server_data.xml
+2026-11-20 20:30:48,412 45304 INFO crm_flow odoo.modules.loading: loading crm_sale_project/views/crm_lead_views.xml
+2026-11-20 20:30:48,679 45304 INFO crm_flow odoo.modules.loading: loading crm_sale_project/views/project_project_views.xml
+2026-11-20 20:30:48,775 45304 INFO crm_flow odoo.modules.loading: loading crm_sale_project/wizard/project_template_create_wizard.xml
+2026-11-20 20:30:48,821 45304 INFO crm_flow odoo.registry: Registry changed, signaling through the database
+2026-11-20 20:30:48,824 45304 INFO crm_flow odoo.modules.loading: Module crm_sale_project loaded in 0.70s, 252 queries (+252 other)
+2026-11-20 20:30:48,840 45304 INFO crm_flow odoo.modules.loading: Loading module test_main_flows (219/226)
+2026-11-20 20:30:49,004 45304 INFO crm_flow odoo.registry: module test_main_flows: creating or updating database tables
+2026-11-20 20:30:49,126 45304 INFO crm_flow odoo.modules.loading: loading test_main_flows/ir.access.csv
+2026-11-20 20:30:49,172 45304 INFO crm_flow odoo.registry: Registry changed, signaling through the database
+2026-11-20 20:30:49,175 45304 INFO crm_flow odoo.modules.loading: Module test_main_flows loaded in 0.33s, 79 queries (+79 other)
+2026-11-20 20:30:49,175 45304 INFO crm_flow odoo.modules.loading: Loading module website_customer (220/226)
+2026-11-20 20:30:49,300 45304 INFO crm_flow odoo.registry: module website_customer: creating or updating database tables
+2026-11-20 20:30:49,485 45304 INFO crm_flow odoo.modules.loading: loading website_customer/views/website_customer_templates.xml
+2026-11-20 20:30:49,639 45304 INFO crm_flow odoo.modules.loading: loading website_customer/views/res_partner_views.xml
+2026-11-20 20:30:49,814 45304 INFO crm_flow odoo.modules.loading: loading website_customer/security/ir.access.csv
+2026-11-20 20:30:49,865 45304 INFO crm_flow odoo.modules.loading: Module website_customer: loading demo
+2026-11-20 20:30:49,865 45304 INFO crm_flow odoo.modules.loading: loading website_customer/data/res_partner_demo.xml
+2026-11-20 20:30:49,896 45304 INFO crm_flow odoo.registry: Registry changed, signaling through the database
+2026-11-20 20:30:49,898 45304 INFO crm_flow odoo.modules.loading: Module website_customer loaded in 0.72s, 468 queries (+468 other)
+2026-11-20 20:30:49,903 45304 INFO crm_flow odoo.modules.loading: Loading module test_event_full (226/226)
+2026-11-20 20:30:50,074 45304 INFO crm_flow odoo.modules.loading: loading test_event_full/data/ir_actions_report_data.xml
+2026-11-20 20:30:50,085 45304 INFO crm_flow odoo.modules.loading: loading test_event_full/views/event_registration_templates_reports.xml
+2026-11-20 20:30:50,101 45304 INFO crm_flow odoo.registry: Caches invalidated, signaling through the database: ['default', 'stable', 'templates']
+2026-11-20 20:30:50,102 45304 INFO crm_flow odoo.modules.loading: Module test_event_full loaded in 0.20s, 35 queries (+35 other)
+2026-11-20 20:30:50,103 45304 INFO crm_flow odoo.modules.loading: 226 modules loaded in 17.73s, 9037 queries (+9037 extra)
+2026-11-20 20:30:50,967 45304 INFO crm_flow odoo.registry: verifying fields for every extended model
+2026-11-20 20:30:52,285 45304 INFO crm_flow odoo.modules.loading: Modules loaded.
+2026-11-20 20:30:52,313 45304 INFO crm_flow odoo.registry: Registry changed, signaling through the database
+2026-11-20 20:30:52,316 45304 INFO crm_flow odoo.registry: Registry loaded in 22.304s
+2026-11-20 20:30:52,316 45304 INFO crm_flow odoo.service.server.ThreadedServer: Initiating shutdown
+2026-11-20 20:30:52,316 45304 INFO crm_flow odoo.service.server.ThreadedServer: Hit CTRL-C again or send a second signal to force the shutdown.
+2026-11-20 20:30:52,316 45304 INFO crm_flow odoo.addons.bus.websocket: Disconnecting 0 websockets
+2026-11-20 20:30:52,423 45304 INFO crm_flow odoo.sql_db: ConnectionPool(read/write;used=0/count=0/max=64): Closed 1 connections 

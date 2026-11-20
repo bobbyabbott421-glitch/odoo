@@ -1,0 +1,59 @@
+test_render (__main__.Measure.test_render) ... 2026-11-20 18:45:25,061 2761 INFO ? measure: Chrome pid: 2801
+2026-11-20 18:45:25,061 2761 INFO ? measure: Chrome headless temporary user profile dir: /tmp/tmpkcortbj0_chrome_odoo
+2026-11-20 18:45:25,061 2761 INFO ? measure: Issuing json command http://127.0.0.1:38957/json/version
+2026-11-20 18:45:25,267 2761 INFO ? measure: Browser version: Chrome/156.0.8078.79
+2026-11-20 18:45:25,267 2761 INFO ? measure: Issuing json command http://127.0.0.1:38957/json
+2026-11-20 18:45:25,331 2761 INFO ? measure: Websocket url found: ws://127.0.0.1:38957/devtools/page/4462F72CC1074705CC29A43DFE222976
+2026-11-20 18:45:25,421 2761 INFO ? measure: Enable chrome headless console log notification
+2026-11-20 18:45:25,457 2761 INFO ? measure: Chrome headless enable page notifications
+2026-11-20 18:45:25,518 2761 INFO ? measure: Navigating to: "http://127.0.0.1:8074/odoo/crm"
+2026-11-20 18:45:27,039 2761 INFO ? measure: Navigation result: {'frameId': '4462F72CC1074705CC29A43DFE222976', 'loaderId': 'CEE35561937D1B84EEF6BA5D03E901B2', 'isDownload': False}
+2026-11-20 18:45:49,414 2761 INFO ? measure: Navigating to: "http://127.0.0.1:8074/odoo/crm"
+2026-11-20 18:45:49,927 2761 INFO ? measure: Navigation result: {'frameId': '4462F72CC1074705CC29A43DFE222976', 'loaderId': 'FACE2F55C8B54445D97D39E0978E558C', 'isDownload': False}
+pipeline 4486 26 16
+2026-11-20 18:45:55,452 2761 INFO ? measure: Navigating to: "http://127.0.0.1:8074/odoo/crm/31"
+2026-11-20 18:45:55,613 2761 INFO ? measure: Navigation result: {'frameId': '4462F72CC1074705CC29A43DFE222976', 'loaderId': '76DBDED25DCBB44B85F2A121BEEE545C', 'isDownload': False}
+lead 1815 27 18
+2026-11-20 18:45:59,275 2761 INFO ? measure: Navigating to: "http://127.0.0.1:8074/odoo/crm"
+2026-11-20 18:45:59,425 2761 INFO ? measure: Navigation result: {'frameId': '4462F72CC1074705CC29A43DFE222976', 'loaderId': 'FDDAEF083E792A9D668EF81B74DB2714', 'isDownload': False}
+pipeline 1377 25 14
+2026-11-20 18:46:02,158 2761 INFO ? measure: Navigating to: "http://127.0.0.1:8074/odoo/crm/31"
+2026-11-20 18:46:02,279 2761 INFO ? measure: Navigation result: {'frameId': '4462F72CC1074705CC29A43DFE222976', 'loaderId': '6D6B4788E0380794F6AB0EE16CCC3D0E', 'isDownload': False}
+lead 1384 27 15
+2026-11-20 18:46:05,545 2761 INFO ? measure: Navigating to: "http://127.0.0.1:8074/odoo/crm"
+2026-11-20 18:46:05,735 2761 INFO ? measure: Navigation result: {'frameId': '4462F72CC1074705CC29A43DFE222976', 'loaderId': 'CB31A9633BEEA07E2F0DEF299447D1FA', 'isDownload': False}
+pipeline 3350 25 14
+2026-11-20 18:46:10,442 2761 INFO ? measure: Navigating to: "http://127.0.0.1:8074/odoo/crm/31"
+2026-11-20 18:46:10,664 2761 INFO ? measure: Navigation result: {'frameId': '4462F72CC1074705CC29A43DFE222976', 'loaderId': '95802216100384E49D85DC0C7A931CD7', 'isDownload': False}
+lead 3555 22 14
+2026-11-20 18:46:16,196 2761 INFO ? measure: Navigating to: "http://127.0.0.1:8074/odoo/crm"
+2026-11-20 18:46:16,952 2761 INFO ? measure: Navigation result: {'frameId': '4462F72CC1074705CC29A43DFE222976', 'loaderId': '02D5B7E230A41AB60278705277CC8429', 'isDownload': False}
+pipeline 4380 30 15
+2026-11-20 18:46:22,099 2761 INFO ? measure: Navigating to: "http://127.0.0.1:8074/odoo/crm/31"
+2026-11-20 18:46:22,187 2761 INFO ? measure: Navigation result: {'frameId': '4462F72CC1074705CC29A43DFE222976', 'loaderId': '09BA2DCC06AC8F25C397C2A805DA3869', 'isDownload': False}
+lead 888 27 15
+2026-11-20 18:46:24,906 2761 INFO ? measure: Navigating to: "http://127.0.0.1:8074/odoo/crm"
+2026-11-20 18:46:25,033 2761 INFO ? measure: Navigation result: {'frameId': '4462F72CC1074705CC29A43DFE222976', 'loaderId': '39DD25EA650498A2998371F4FF9F6641', 'isDownload': False}
+pipeline 1533 25 14
+2026-11-20 18:46:27,947 2761 INFO ? measure: Navigating to: "http://127.0.0.1:8074/odoo/crm/31"
+2026-11-20 18:46:28,105 2761 INFO ? measure: Navigation result: {'frameId': '4462F72CC1074705CC29A43DFE222976', 'loaderId': 'D7C03A9AA3B33CF6D2D587E84EADBBCD', 'isDownload': False}
+lead 1523 27 15
+2026-11-20 18:46:32,607 2761 INFO ? measure: Closing chrome headless with pid 2801
+2026-11-20 18:46:32,610 2761 INFO ? measure: Closing websocket connection
+2026-11-20 18:46:32,611 2761 INFO ? measure: Terminating chrome headless with pid 2801
+2026-11-20 18:46:37,640 2761 WARNING ? measure: Killing chrome descendants-or-self of 2801: 7 remaining
+- chromium (zombie)
+- chromium (zombie)
+- chromium (zombie)
+- chromium (zombie)
+- chromium (zombie)
+- chromium (zombie)
+- chromium (zombie)
+2026-11-20 18:46:38,645 2761 INFO ? measure: Chrome Log in: /tmp/odoo_tests/crm_measure/chrome_logs/chrome_log_20261120_184638_644539_runTest.txt
+2026-11-20 18:46:38,646 2761 INFO ? measure: Removing chrome user profile "/tmp/tmpkcortbj0_chrome_odoo"
+ok
+
+----------------------------------------------------------------------
+Ran 1 test in 80.939s
+
+OK

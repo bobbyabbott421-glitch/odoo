@@ -1,0 +1,378 @@
+[19333:19364:1120/191605.805214:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[19333:19364:1120/191605.805328:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[19333:19364:1120/191605.815500:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[19333:19364:1120/191605.815566:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[19333:19364:1120/191605.815621:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[19333:19364:1120/191605.815639:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[19333:19364:1120/191605.815649:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[19333:19364:1120/191605.827461:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[19333:19364:1120/191605.891969:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[19333:19372:1120/191605.892411:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 19385: Read-only file system (30)
+[19374:19374:1120/191605.893416:WARNING:media/gpu/vaapi/vaapi_wrapper.cc:1655] drmGetDevices2() has not found any devices
+[19374:19374:1120/191605.905188:WARNING:sandbox/policy/linux/sandbox_linux.cc:405] InitializeSandbox() called with multiple threads in process gpu-process.
+[19333:19333:1120/191605.916904:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[19333:19364:1120/191605.917086:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[19333:19333:1120/191605.917340:WARNING:device/bluetooth/dbus/bluez_dbus_manager.cc:209] Floss manager service not available, cannot set Floss enable/disable.
+[19333:19333:1120/191605.917374:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[19333:19364:1120/191605.917442:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[19333:19333:1120/191605.917930:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[19333:19333:1120/191605.925634:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[19333:19364:1120/191605.925779:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[19333:19372:1120/191605.994983:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 19430: Read-only file system (30)
+[19333:19372:1120/191606.031625:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 19441: Read-only file system (30)
+[19333:19372:1120/191606.034145:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 19443: Read-only file system (30)
+[19333:19333:1120/191606.044384:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[19333:19333:1120/191606.045000:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[19333:19364:1120/191606.045005:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[19333:19364:1120/191606.045057:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[19333:19364:1120/191606.045067:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[19333:19333:1120/191606.045734:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[19333:19333:1120/191606.058942:WARNING:dbus/property.cc:94] Failed to connect to PropertiesChangedsignal.
+[19333:19333:1120/191606.058970:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.Properties.GetAll: object_path= /org/freedesktop/UPower/devices/DisplayDevice: unknown error type: 
+[19333:19333:1120/191606.058977:WARNING:dbus/property.cc:174] GetAll request failed for: org.freedesktop.UPower.Device
+[19333:19333:1120/191606.058988:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[19333:19364:1120/191606.059075:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[19333:19333:1120/191606.075888:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[19333:19364:1120/191606.075991:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[19333:19333:1120/191606.086037:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[19333:19333:1120/191606.086059:WARNING:ui/base/idle/idle_linux.cc:111] None of the known D-Bus ScreenSaver services could be used.
+[19333:19333:1120/191607.471719:INFO:CONSOLE:1148] "Owl is running in 'dev' mode.", source: http://127.0.0.1:8075/web/assets/5c8437c/web.assets_web.min.js (1148)
+[19333:19333:1120/191608.496049:INFO:CONSOLE:7] "Starting ClickEverywhere test", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (7)
+[19333:19333:1120/191608.496180:INFO:CONSOLE:99] "Testing app: Employees (hr.menu_hr_root)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (99)
+[19333:19333:1120/191608.496280:INFO:CONSOLE:94] "Testing menu Management (hr.menu_hr_employee_payroll)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (94)
+[19333:19333:1120/191609.301941:INFO:CONSOLE:51] "Clicking on: kanban view's new button", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191609.949313:INFO:CONSOLE:51] "Clicking on: go back to kanban view (from new record form view)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191610.669132:INFO:CONSOLE:51] "Clicking on: open form view from kanban", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191611.220015:INFO:CONSOLE:51] "Clicking on: go back to kanban view (from record view)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191611.489192:INFO:CONSOLE:58] "Testing 8 filters", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (58)
+[19333:19333:1120/191611.489771:INFO:CONSOLE:51] "Clicking on: filter "Present"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191611.934523:INFO:CONSOLE:51] "Clicking on: filter "Permanent Contract"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191612.700994:INFO:CONSOLE:51] "Clicking on: filter "Fixed-term Contract"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191613.349849:INFO:CONSOLE:51] "Clicking on: filter "Notice Period"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191613.685055:INFO:CONSOLE:51] "Clicking on: filter "Out of Contract"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191614.135393:INFO:CONSOLE:51] "Clicking on: filter "Contract Start"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191614.164922:INFO:CONSOLE:51] "Clicking on: filter "Contract Start (Today)"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191614.336316:INFO:CONSOLE:51] "Clicking on: filter "Contract End"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191614.344341:INFO:CONSOLE:51] "Clicking on: filter "Contract End (Today)"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191614.605443:INFO:CONSOLE:51] "Clicking on: filter "Archived"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191614.752244:INFO:CONSOLE:86] "Testing view switch: list", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (86)
+[19333:19333:1120/191614.752343:INFO:CONSOLE:51] "Clicking on: list view switcher", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191614.910295:INFO:CONSOLE:51] "Clicking on: list view's new button", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191615.106472:INFO:CONSOLE:51] "Clicking on: go back to list view (from new record form view)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191615.277698:INFO:CONSOLE:58] "Testing 8 filters", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (58)
+[19333:19333:1120/191615.277847:INFO:CONSOLE:51] "Clicking on: filter "Present"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191615.438893:INFO:CONSOLE:51] "Clicking on: filter "Permanent Contract"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191615.538505:INFO:CONSOLE:51] "Clicking on: filter "Fixed-term Contract"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191615.662595:INFO:CONSOLE:51] "Clicking on: filter "Notice Period"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191615.753703:INFO:CONSOLE:51] "Clicking on: filter "Out of Contract"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191615.824423:INFO:CONSOLE:51] "Clicking on: filter "Contract Start (Today)"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191615.898698:INFO:CONSOLE:51] "Clicking on: filter "Contract End (Today)"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191615.971118:INFO:CONSOLE:51] "Clicking on: filter "Archived"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191616.176389:INFO:CONSOLE:86] "Testing view switch: hierarchy", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (86)
+[19333:19333:1120/191616.176508:INFO:CONSOLE:51] "Clicking on: hierarchy view switcher", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191616.921200:INFO:CONSOLE:58] "Testing 8 filters", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (58)
+[19333:19333:1120/191616.922314:INFO:CONSOLE:51] "Clicking on: filter "Present"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191617.179333:INFO:CONSOLE:51] "Clicking on: filter "Permanent Contract"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191617.486084:INFO:CONSOLE:51] "Clicking on: filter "Fixed-term Contract"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191617.727663:INFO:CONSOLE:51] "Clicking on: filter "Notice Period"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191617.916823:INFO:CONSOLE:51] "Clicking on: filter "Out of Contract"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191618.183217:INFO:CONSOLE:51] "Clicking on: filter "Contract Start"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191618.193329:INFO:CONSOLE:51] "Clicking on: filter "Contract Start (Today)"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191618.286436:INFO:CONSOLE:51] "Clicking on: filter "Contract End"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191618.307886:INFO:CONSOLE:51] "Clicking on: filter "Contract End (Today)"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191618.459900:INFO:CONSOLE:51] "Clicking on: filter "Archived"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191618.556651:INFO:CONSOLE:86] "Testing view switch: activity", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (86)
+[19333:19333:1120/191618.556763:INFO:CONSOLE:51] "Clicking on: activity view switcher", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191618.746893:INFO:CONSOLE:58] "Testing 8 filters", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (58)
+[19333:19333:1120/191618.747432:INFO:CONSOLE:51] "Clicking on: filter "Present"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191618.821268:INFO:CONSOLE:51] "Clicking on: filter "Permanent Contract"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191619.019227:INFO:CONSOLE:51] "Clicking on: filter "Fixed-term Contract"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191619.082021:INFO:CONSOLE:51] "Clicking on: filter "Notice Period"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191619.151172:INFO:CONSOLE:51] "Clicking on: filter "Out of Contract"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191619.218936:INFO:CONSOLE:51] "Clicking on: filter "Contract Start (Today)"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191619.322408:INFO:CONSOLE:51] "Clicking on: filter "Contract End (Today)"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191619.354563:INFO:CONSOLE:51] "Clicking on: filter "Archived"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191619.389151:INFO:CONSOLE:86] "Testing view switch: graph", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (86)
+[19333:19333:1120/191619.389440:INFO:CONSOLE:51] "Clicking on: graph view switcher", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191619.590176:INFO:CONSOLE:58] "Testing 8 filters", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (58)
+[19333:19333:1120/191619.591823:INFO:CONSOLE:51] "Clicking on: filter "Present"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191619.781522:INFO:CONSOLE:51] "Clicking on: filter "Permanent Contract"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191619.904840:INFO:CONSOLE:51] "Clicking on: filter "Fixed-term Contract"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191620.075226:INFO:CONSOLE:51] "Clicking on: filter "Notice Period"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191620.215448:INFO:CONSOLE:51] "Clicking on: filter "Out of Contract"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191620.333105:INFO:CONSOLE:51] "Clicking on: filter "Contract Start"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191620.345098:INFO:CONSOLE:51] "Clicking on: filter "Contract Start (Today)"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191620.451476:INFO:CONSOLE:51] "Clicking on: filter "Contract End"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191620.463602:INFO:CONSOLE:51] "Clicking on: filter "Contract End (Today)"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191620.561077:INFO:CONSOLE:51] "Clicking on: filter "Archived"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191620.673798:INFO:CONSOLE:86] "Testing view switch: pivot", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (86)
+[19333:19333:1120/191620.674669:INFO:CONSOLE:51] "Clicking on: pivot view switcher", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191620.811517:INFO:CONSOLE:58] "Testing 8 filters", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (58)
+[19333:19333:1120/191620.812441:INFO:CONSOLE:51] "Clicking on: filter "Present"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191620.932136:INFO:CONSOLE:51] "Clicking on: filter "Permanent Contract"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191621.067774:INFO:CONSOLE:51] "Clicking on: filter "Fixed-term Contract"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191621.260918:INFO:CONSOLE:51] "Clicking on: filter "Notice Period"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191621.361737:INFO:CONSOLE:51] "Clicking on: filter "Out of Contract"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191621.465152:INFO:CONSOLE:51] "Clicking on: filter "Contract Start (Today)"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191621.551246:INFO:CONSOLE:51] "Clicking on: filter "Contract End (Today)"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191621.602508:INFO:CONSOLE:51] "Clicking on: filter "Archived"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191621.703769:INFO:CONSOLE:94] "Testing menu Directory (hr.menu_hr_employee)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (94)
+[19333:19333:1120/191622.018381:INFO:CONSOLE:51] "Clicking on: open form view from kanban", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191622.451559:INFO:CONSOLE:51] "Clicking on: go back to kanban view (from record view)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191622.655451:INFO:CONSOLE:58] "Testing 1 filters", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (58)
+[19333:19333:1120/191622.655745:INFO:CONSOLE:51] "Clicking on: filter "Archived"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191622.726137:INFO:CONSOLE:86] "Testing view switch: list", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (86)
+[19333:19333:1120/191622.726348:INFO:CONSOLE:51] "Clicking on: list view switcher", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191622.821669:INFO:CONSOLE:58] "Testing 1 filters", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (58)
+[19333:19333:1120/191622.822023:INFO:CONSOLE:51] "Clicking on: filter "Archived"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191622.961991:INFO:CONSOLE:86] "Testing view switch: hierarchy", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (86)
+[19333:19333:1120/191622.962141:INFO:CONSOLE:51] "Clicking on: hierarchy view switcher", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191623.130762:INFO:CONSOLE:58] "Testing 1 filters", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (58)
+[19333:19333:1120/191623.130979:INFO:CONSOLE:51] "Clicking on: filter "Archived"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191623.410050:INFO:CONSOLE:94] "Testing menu Departments (hr.menu_hr_department_kanban)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (94)
+[19333:19333:1120/191623.570658:INFO:CONSOLE:51] "Clicking on: kanban view's new button", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191623.727086:INFO:CONSOLE:51] "Clicking on: go back to kanban view (from new record form view)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191623.837561:INFO:CONSOLE:58] "Testing 1 filters", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (58)
+[19333:19333:1120/191623.837747:INFO:CONSOLE:51] "Clicking on: filter "Archived"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191623.870838:INFO:CONSOLE:86] "Testing view switch: list", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (86)
+[19333:19333:1120/191623.870955:INFO:CONSOLE:51] "Clicking on: list view switcher", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191623.944363:INFO:CONSOLE:51] "Clicking on: list view's new button", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191624.019972:INFO:CONSOLE:51] "Clicking on: go back to list view (from new record form view)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191624.104616:INFO:CONSOLE:58] "Testing 1 filters", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (58)
+[19333:19333:1120/191624.104765:INFO:CONSOLE:51] "Clicking on: filter "Archived"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191624.166549:INFO:CONSOLE:51] "Clicking on: open form view from list", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191624.380221:INFO:CONSOLE:51] "Clicking on: go back to list view (from record view)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191624.449719:INFO:CONSOLE:86] "Testing view switch: hierarchy", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (86)
+[19333:19333:1120/191624.450088:INFO:CONSOLE:51] "Clicking on: hierarchy view switcher", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191624.586189:INFO:CONSOLE:58] "Testing 1 filters", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (58)
+[19333:19333:1120/191624.586358:INFO:CONSOLE:51] "Clicking on: filter "Archived"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191624.617682:INFO:CONSOLE:94] "Testing menu Certifications (hr_skills.hr_certification_menu)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (94)
+[19333:19333:1120/191624.820856:INFO:CONSOLE:51] "Clicking on: open form view from list", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191624.976409:INFO:CONSOLE:98] "Error found:
+ - Current testing app is Employees (hr.menu_hr_root)
+ - Current testing menu is Certifications (hr_skills.hr_certification_menu)
+ - Current testing view is list
+The error is :
+No element "go back to list view (from record view)" found.", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (98)
+[19333:19333:1120/191624.976500:INFO:CONSOLE:94] "Testing menu Training Attendances (hr_skills.menu_learnings_training_attendances)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (94)
+[19333:19333:1120/191625.020097:INFO:CONSOLE:21] "Error detected:
+ - Current testing app is Employees (hr.menu_hr_root)
+ - Current testing menu is Training Attendances (hr_skills.menu_learnings_training_attendances)
+ - Current testing view is list
+The error is :
+Error: Component is destroyed
+    at useService.handleCallWhenDestroyed (http://127.0.0.1:8075/web/assets/5c8437c/web.assets_web.min.js:5093:93)
+    at Object.protectedMethod (http://127.0.0.1:8075/web/assets/5c8437c/web.assets_web.min.js:5086:113)
+    at Proxy._loadUngroupedList (http://127.0.0.1:8075/web/assets/5c8437c/web.assets_web.min.js:6957:433)
+    at Proxy._loadData (http://127.0.0.1:8075/web/assets/5c8437c/web.assets_web.min.js:6937:34)
+    at Proxy._updateConfig (http://127.0.0.1:8075/web/assets/5c8437c/web.assets_web.min.js:6969:17)
+    at Proxy._load (http://127.0.0.1:8075/web/assets/5c8437c/web.assets_web.min.js:6645:59)
+    at http://127.0.0.1:8075/web/assets/5c8437c/web.assets_web.min.js:6577:315
+    at always (http://127.0.0.1:8075/web/assets/5c8437c/web.assets_web.min.js:4957:34)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (21)
+[19333:19333:1120/191625.183222:INFO:CONSOLE:98] "Error found:
+ - Current testing app is Employees (hr.menu_hr_root)
+ - Current testing menu is Training Attendances (hr_skills.menu_learnings_training_attendances)
+ - Current testing view is list
+The error is :
+Error dialog detected when waiting for selecting menu Training Attendances (hr_skills.menu_learnings_training_attendances) : <header class="modal-header"><h4 class="modal-title text-wrap text-break fs-3 flex-grow-1">Oops!</h4><button type="button" class="btn-close position-sm-absolute top-0 end-0" title="Close" aria-label="Close" tabindex="-1" data-available-offline=""></button></header><main class="modal-body"><div role="alert"><p> Something went wrong... If you really are stuck, share the report with your friendly support service </p><details><summary class="mb-1 link-info"><span>See technical details</span><span class="ms-1 text-400 small">(20/Nov/2026 19:16:25)</span></summary><div class="text-bg-100 clearfix mt-2 position-relative o_error_detail pb-2"><button class="btn position-absolute top-0 end-0 pt-2 btn-link link-body-emphasis" data-available-offline=""><span class="oi" data-icon="assignment"></span></button><div class="ps-1 pt-1 ps-md-3 pt-md-3"><p class="m-0"><b>Odoo Client Error</b></p><p class="d-block small text-info">Occurred on 127.0.0.1:8075 on 20/Nov/2026 19:16:25</p><code>UncaughtPromiseError</code><code class="d-block">Uncaught Promise &gt; Component is destroyed</code><pre class="border-0 m-0 p-0 mt-3 smaller">Error: Component is destroyed
+    at useService.handleCallWhenDestroyed (http://127.0.0.1:8075/web/assets/5c8437c/web.assets_web.min.js:5093:93)
+    at Object.protectedMethod (http://127.0.0.1:8075/web/assets/5c8437c/web.assets_web.min.js:5086:113)
+    at Proxy._loadUngroupedList (http://127.0.0.1:8075/web/assets/5c8437c/web.assets_web.min.js:6957:433)
+    at Proxy._loadData (http://127.0.0.1:8075/web/assets/5c8437c/web.assets_web.min.js:6937:34)
+    at Proxy._updateConfig (http://127.0.0.1:8075/web/assets/5c8437c/web.assets_web.min.js:6969:17)
+    at Proxy._load (http://127.0.0.1:8075/web/assets/5c8437c/web.assets_web.min.js:6645:59)
+    at http://127.0.0.1:8075/web/assets/5c8437c/web.assets_web.min.js:6577:315
+    at always (http://127.0.0.1:8075/web/assets/5c8437c/web.assets_web.min.js:4957:34)</pre></div></div></details></div></main><footer class="modal-footer d-empty-none justify-content-around justify-content-md-start flex-wrap gap-2 w-100"><button class="btn btn-primary o-default-button" data-available-offline="">Close</button></footer>", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (98)
+[19333:19333:1120/191625.184425:INFO:CONSOLE:94] "Testing menu eLearning (hr_skills_slides.menu_learnings_training_attendances_elearning)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (94)
+[19333:19333:1120/191625.515908:INFO:CONSOLE:51] "Clicking on: list view's new button", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191656.444675:INFO:CONSOLE:98] "Error found:
+ - Current testing app is Employees (hr.menu_hr_root)
+ - Current testing menu is eLearning (hr_skills_slides.menu_learnings_training_attendances_elearning)
+ - Current testing view is list
+The error is :
+Timeout when: clicking on list view's new button, it took more than 30 seconds to load
+Waiting for:
+ * stopCondition: ()=>document.querySelector(".o_form_view")!==null||document.querySelector(".o_data_row.o_selected_row")!==null||document.querySelector(".o_dialog:not(.o_error_dialog)")!==null
+", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (98)
+[19333:19333:1120/191656.446339:INFO:CONSOLE:94] "Testing menu Onsite (hr_skills_event.menu_learnings_training_attendances_onsite)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (94)
+[19333:19333:1120/191656.763862:INFO:CONSOLE:51] "Clicking on: kanban view's new button", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191727.375565:INFO:CONSOLE:98] "Error found:
+ - Current testing app is Employees (hr.menu_hr_root)
+ - Current testing menu is Onsite (hr_skills_event.menu_learnings_training_attendances_onsite)
+ - Current testing view is kanban
+The error is :
+Timeout when: clicking on kanban view's new button, it took more than 30 seconds to load
+Waiting for:
+ * stopCondition: ()=>document.querySelector(".o_form_view")!==null||document.querySelector(".o_kanban_quick_create")!==null||document.querySelector(".o_dialog:not(.o_error_dialog)")!==null
+", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (98)
+[19333:19333:1120/191727.378122:INFO:CONSOLE:94] "Testing menu Skills Inventory (hr_skills.hr_employee_skill_inventory_report_menu)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (94)
+[19333:19333:1120/191727.558572:INFO:CONSOLE:58] "Testing 1 filters", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (58)
+[19333:19333:1120/191727.558716:INFO:CONSOLE:51] "Clicking on: filter "Archived"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191727.602668:INFO:CONSOLE:86] "Testing view switch: pivot", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (86)
+[19333:19333:1120/191727.602755:INFO:CONSOLE:51] "Clicking on: pivot view switcher", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191758.053475:INFO:CONSOLE:98] "Error found:
+ - Current testing app is Employees (hr.menu_hr_root)
+ - Current testing menu is Skills Inventory (hr_skills.hr_employee_skill_inventory_report_menu)
+The error is :
+Timeout when: clicking on pivot view switcher, it took more than 30 seconds to load
+Waiting for:
+ * stopCondition: ()=>document.querySelector(`.o_switch_view.o_${viewType}.active`)!==null
+", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (98)
+[19333:19333:1120/191758.054311:INFO:CONSOLE:94] "Testing menu Settings (hr.hr_menu_configuration)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (94)
+[19333:19333:1120/191758.809251:INFO:CONSOLE:94] "Testing menu Onboarding / Offboarding (hr.menu_config_plan_plan)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (94)
+[19333:19333:1120/191758.962389:INFO:CONSOLE:51] "Clicking on: list view's new button", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191829.608545:INFO:CONSOLE:98] "Error found:
+ - Current testing app is Employees (hr.menu_hr_root)
+ - Current testing menu is Onboarding / Offboarding (hr.menu_config_plan_plan)
+ - Current testing view is list
+The error is :
+Timeout when: clicking on list view's new button, it took more than 30 seconds to load
+Waiting for:
+ * stopCondition: ()=>document.querySelector(".o_form_view")!==null||document.querySelector(".o_data_row.o_selected_row")!==null||document.querySelector(".o_dialog:not(.o_error_dialog)")!==null
+", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (98)
+[19333:19333:1120/191829.608774:INFO:CONSOLE:94] "Testing menu Employee Types (hr.menu_view_hr_contract_type)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (94)
+[19333:19333:1120/191829.766521:INFO:CONSOLE:51] "Clicking on: list view's new button", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191900.504305:INFO:CONSOLE:98] "Error found:
+ - Current testing app is Employees (hr.menu_hr_root)
+ - Current testing menu is Employee Types (hr.menu_view_hr_contract_type)
+ - Current testing view is list
+The error is :
+Timeout when: clicking on list view's new button, it took more than 30 seconds to load
+Waiting for:
+ * stopCondition: ()=>document.querySelector(".o_form_view")!==null||document.querySelector(".o_data_row.o_selected_row")!==null||document.querySelector(".o_dialog:not(.o_error_dialog)")!==null
+", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (98)
+[19333:19333:1120/191900.504739:INFO:CONSOLE:94] "Testing menu Work Locations (hr.menu_hr_work_location_tree)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (94)
+[19333:19333:1120/191900.618048:INFO:CONSOLE:51] "Clicking on: list view's new button", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19372:1120/191905.838336:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 20206: Read-only file system (30)
+[19333:19333:1120/191931.125602:INFO:CONSOLE:98] "Error found:
+ - Current testing app is Employees (hr.menu_hr_root)
+ - Current testing menu is Work Locations (hr.menu_hr_work_location_tree)
+ - Current testing view is list
+The error is :
+Timeout when: clicking on list view's new button, it took more than 30 seconds to load
+Waiting for:
+ * stopCondition: ()=>document.querySelector(".o_form_view")!==null||document.querySelector(".o_data_row.o_selected_row")!==null||document.querySelector(".o_dialog:not(.o_error_dialog)")!==null
+", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (98)
+[19333:19333:1120/191931.126601:INFO:CONSOLE:94] "Testing menu Departure Reasons (hr.menu_hr_departure_reason_tree)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (94)
+[19333:19333:1120/191931.391807:INFO:CONSOLE:51] "Clicking on: list view's new button", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191931.427781:INFO:CONSOLE:51] "Clicking on: discard the editable list (from new record, editable list)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191931.437176:INFO:CONSOLE:51] "Clicking on: open form view from list", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191931.453473:INFO:CONSOLE:51] "Clicking on: discard the editable list", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/191931.515291:INFO:CONSOLE:58] "Testing 0 filters", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (58)
+[19333:19333:1120/191931.515525:INFO:CONSOLE:94] "Testing menu Skill Types (hr_skills.hr_skill_type_menu)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (94)
+[19333:19333:1120/191931.763564:INFO:CONSOLE:51] "Clicking on: list view's new button", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/192002.607450:INFO:CONSOLE:98] "Error found:
+ - Current testing app is Employees (hr.menu_hr_root)
+ - Current testing menu is Skill Types (hr_skills.hr_skill_type_menu)
+ - Current testing view is list
+The error is :
+Timeout when: clicking on list view's new button, it took more than 30 seconds to load
+Waiting for:
+ * stopCondition: ()=>document.querySelector(".o_form_view")!==null||document.querySelector(".o_data_row.o_selected_row")!==null||document.querySelector(".o_dialog:not(.o_error_dialog)")!==null
+", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (98)
+[19333:19333:1120/192002.607706:INFO:CONSOLE:94] "Testing menu Working Schedules (hr.menu_resource_calendar_view)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (94)
+[19333:19333:1120/192002.768632:INFO:CONSOLE:21] "Warning detected:
+ - Current testing app is Employees (hr.menu_hr_root)
+ - Current testing menu is Working Schedules (hr.menu_resource_calendar_view)
+ - Current testing view is list
+The warning is :
+t-esc has been deprecated in favor of t-out. If the value to render is not wrapped by the "markup" function, it will be escaped", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (21)
+[19333:19333:1120/192002.771028:INFO:CONSOLE:21] "Warning detected:
+ - Current testing app is Employees (hr.menu_hr_root)
+ - Current testing menu is Working Schedules (hr.menu_resource_calendar_view)
+ - Current testing view is list
+The warning is :
+t-esc has been deprecated in favor of t-out. If the value to render is not wrapped by the "markup" function, it will be escaped", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (21)
+[19333:19333:1120/192002.789362:INFO:CONSOLE:51] "Clicking on: list view's new button", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/192035.167599:INFO:CONSOLE:98] "Error found:
+ - Current testing app is Employees (hr.menu_hr_root)
+ - Current testing menu is Working Schedules (hr.menu_resource_calendar_view)
+ - Current testing view is list
+The error is :
+Timeout when: clicking on list view's new button, it took more than 30 seconds to load
+Waiting for:
+ * stopCondition: ()=>document.querySelector(".o_form_view")!==null||document.querySelector(".o_data_row.o_selected_row")!==null||document.querySelector(".o_dialog:not(.o_error_dialog)")!==null
+", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (98)
+[19333:19333:1120/192035.168663:INFO:CONSOLE:94] "Testing menu Time Types (hr_work_entry.menu_hr_work_entry_type_view_employee)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (94)
+[19333:19333:1120/192035.465845:INFO:CONSOLE:51] "Clicking on: list view's new button", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/192105.905807:WARNING:chrome/browser/extensions/forced_extensions/force_installed_metrics.cc:571] Failed to install 1 forced extensions.
+[19333:19333:1120/192105.905959:WARNING:chrome/browser/extensions/forced_extensions/force_installed_metrics.cc:608] Forced extension kcdongibgcplmaagnmgpjhpjgmmaaaaa failed to install with data=failure_reason: 24; install_stage: 0
+[19333:19333:1120/192107.010288:INFO:CONSOLE:98] "Error found:
+ - Current testing app is Employees (hr.menu_hr_root)
+ - Current testing menu is Time Types (hr_work_entry.menu_hr_work_entry_type_view_employee)
+ - Current testing view is list
+The error is :
+Timeout when: clicking on list view's new button, it took more than 30 seconds to load
+Waiting for:
+ * stopCondition: ()=>document.querySelector(".o_form_view")!==null||document.querySelector(".o_data_row.o_selected_row")!==null||document.querySelector(".o_dialog:not(.o_error_dialog)")!==null
+", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (98)
+[19333:19333:1120/192107.011704:INFO:CONSOLE:94] "Testing menu Job Positions (hr.menu_view_hr_job)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (94)
+[19333:19333:1120/192107.416920:INFO:CONSOLE:51] "Clicking on: list view's new button", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/192138.571292:INFO:CONSOLE:98] "Error found:
+ - Current testing app is Employees (hr.menu_hr_root)
+ - Current testing menu is Job Positions (hr.menu_view_hr_job)
+ - Current testing view is list
+The error is :
+Timeout when: clicking on list view's new button, it took more than 30 seconds to load
+Waiting for:
+ * stopCondition: ()=>document.querySelector(".o_form_view")!==null||document.querySelector(".o_data_row.o_selected_row")!==null||document.querySelector(".o_dialog:not(.o_error_dialog)")!==null
+", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (98)
+[19333:19333:1120/192138.571541:INFO:CONSOLE:94] "Testing menu Contract Templates (hr.menu_hr_employee_contract_templates)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (94)
+[19333:19333:1120/192140.124957:INFO:CONSOLE:51] "Clicking on: list view's new button", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/192216.729775:INFO:CONSOLE:98] "Error found:
+ - Current testing app is Employees (hr.menu_hr_root)
+ - Current testing menu is Contract Templates (hr.menu_hr_employee_contract_templates)
+ - Current testing view is list
+The error is :
+Timeout when: clicking on list view's new button, it took more than 30 seconds to load
+Waiting for:
+ * stopCondition: ()=>document.querySelector(".o_form_view")!==null||document.querySelector(".o_data_row.o_selected_row")!==null||document.querySelector(".o_dialog:not(.o_error_dialog)")!==null
+", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (98)
+[19333:19333:1120/192216.732366:INFO:CONSOLE:94] "Testing menu Badges (hr_gamification.gamification_badge_menu_hr)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (94)
+[19333:19333:1120/192217.151714:INFO:CONSOLE:51] "Clicking on: kanban view's new button", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/192248.196207:INFO:CONSOLE:98] "Error found:
+ - Current testing app is Employees (hr.menu_hr_root)
+ - Current testing menu is Badges (hr_gamification.gamification_badge_menu_hr)
+ - Current testing view is kanban
+The error is :
+Timeout when: clicking on kanban view's new button, it took more than 30 seconds to load
+Waiting for:
+ * stopCondition: ()=>document.querySelector(".o_form_view")!==null||document.querySelector(".o_kanban_quick_create")!==null||document.querySelector(".o_dialog:not(.o_error_dialog)")!==null
+", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (98)
+[19333:19333:1120/192248.197162:INFO:CONSOLE:94] "Testing menu Challenges (hr_gamification.gamification_challenge_menu_hr)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (94)
+[19333:19333:1120/192248.495844:INFO:CONSOLE:51] "Clicking on: kanban view's new button", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/192319.932146:INFO:CONSOLE:98] "Error found:
+ - Current testing app is Employees (hr.menu_hr_root)
+ - Current testing menu is Challenges (hr_gamification.gamification_challenge_menu_hr)
+ - Current testing view is kanban
+The error is :
+Timeout when: clicking on kanban view's new button, it took more than 30 seconds to load
+Waiting for:
+ * stopCondition: ()=>document.querySelector(".o_form_view")!==null||document.querySelector(".o_kanban_quick_create")!==null||document.querySelector(".o_dialog:not(.o_error_dialog)")!==null
+", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (98)
+[19333:19333:1120/192319.934157:INFO:CONSOLE:94] "Testing menu Goals History (hr_gamification.gamification_goal_menu_hr)", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (94)
+[19333:19333:1120/192320.465008:INFO:CONSOLE:58] "Testing 4 filters", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (58)
+[19333:19333:1120/192320.465262:INFO:CONSOLE:51] "Clicking on: filter "My Goals"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/192320.532079:INFO:CONSOLE:51] "Clicking on: filter "Draft"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/192320.572818:INFO:CONSOLE:51] "Clicking on: filter "Running"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/192320.612846:INFO:CONSOLE:51] "Clicking on: filter "Done"", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/192320.655696:INFO:CONSOLE:86] "Testing view switch: kanban", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (86)
+[19333:19333:1120/192320.655895:INFO:CONSOLE:51] "Clicking on: kanban view switcher", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (51)
+[19333:19333:1120/192352.415874:INFO:CONSOLE:98] "Error found:
+ - Current testing app is Employees (hr.menu_hr_root)
+ - Current testing menu is Goals History (hr_gamification.gamification_goal_menu_hr)
+The error is :
+Timeout when: clicking on kanban view switcher, it took more than 30 seconds to load
+Waiting for:
+ * stopCondition: ()=>document.querySelector(`.o_switch_view.o_${viewType}.active`)!==null
+", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (98)
+[19333:19333:1120/192352.416022:INFO:CONSOLE:25] "Test took 463.9157999999998 seconds", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (25)
+[19333:19333:1120/192352.416053:INFO:CONSOLE:26] "Tested 1 apps", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (26)
+[19333:19333:1120/192352.416085:INFO:CONSOLE:26] "Tested 21 menus", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (26)
+[19333:19333:1120/192352.416110:INFO:CONSOLE:26] "Error found while testing 16 menus", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (26)
+[19333:19333:1120/192352.416134:INFO:CONSOLE:27] "Tested 16 views", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (27)
+[19333:19333:1120/192352.416155:INFO:CONSOLE:27] "Tested 4 form views", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (27)
+[19333:19333:1120/192352.416178:INFO:CONSOLE:27] "Tested 5 new record views", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (27)
+[19333:19333:1120/192352.416400:INFO:CONSOLE:27] "Tested 0 modals", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (27)
+[19333:19333:1120/192352.416439:INFO:CONSOLE:27] "Tested 59 filters", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (27)
+[19333:19333:1120/192352.416519:INFO:CONSOLE:12] "clickbot test failed", source: http://127.0.0.1:8075/web/assets/237c1ef/web.assets_clickbot.min.js (12)

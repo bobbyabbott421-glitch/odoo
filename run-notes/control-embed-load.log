@@ -1,0 +1,315 @@
+2026-11-20 21:35:52,710 84574 INFO ? odoo: Odoo version 20.0
+2026-11-20 21:35:52,711 84574 INFO ? odoo: Using configuration file at /workspace/run-notes/control.conf
+2026-11-20 21:35:52,711 84574 INFO ? odoo: addons paths: _NamespacePath(['/workspace/run-notes/base-control/odoo/addons', '/workspace/odoo-env/data/addons/20.0', '/workspace/run-notes/base-control/addons'])
+2026-11-20 21:35:52,711 84574 INFO ? odoo: database: odoo@/workspace/odoo-env/run:5432
+2026-11-20 21:35:54,406 84574 INFO ? odoo.service.server: HTTP service running on 127.0.0.1:17869
+2026-11-20 21:35:54,702 84574 INFO crm_upgrade_control odoo.tests.common: Importing test framework
+2026-11-20 21:35:54,865 84574 INFO crm_upgrade_control odoo.modules.loading: loading 1 modules...
+2026-11-20 21:35:55,605 84574 INFO crm_upgrade_control odoo.modules.loading: 1 modules loaded in 0.74s, 0 queries (+0 extra)
+2026-11-20 21:35:55,846 84574 INFO crm_upgrade_control odoo.modules.loading: loading 226 modules...
+2026-11-20 21:35:57,101 84574 WARNING crm_upgrade_control odoo.addons.mail.controllers.attachment: markdown2 is not installed, markdown will not be rendered
+2026-11-20 21:36:13,171 84574 INFO crm_upgrade_control odoo.modules.loading: 226 modules loaded in 17.33s, 0 queries (+0 extra)
+2026-11-20 21:36:14,420 84574 INFO crm_upgrade_control odoo.modules.loading: Modules loaded.
+2026-11-20 21:36:16,323 84574 INFO crm_upgrade_control odoo.registry: Registry loaded in 21.912s
+2026-11-20 21:36:16,324 84574 INFO crm_upgrade_control odoo.service.server: Starting post tests
+2026-11-20 21:36:16,802 84574 INFO crm_upgrade_control odoo.addons.base.models.ir_qweb: Pregenerating assets bundles
+2026-11-20 21:36:30,752 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/1c8f984/api_doc.assets.min.js (id:2145)
+2026-11-20 21:36:33,442 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/3483ee6/hr_attendance.assets_public_attendance.min.js (id:2146)
+2026-11-20 21:36:33,479 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/9a36104/html_editor.assets_history_diff.min.js (id:2147)
+2026-11-20 21:36:33,527 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/6a733d1/html_editor.assets_image_cropper.min.js (id:2148)
+2026-11-20 21:36:38,136 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/a9c47d7/im_livechat.assets_embed_external.min.js (id:2149)
+2026-11-20 21:36:38,203 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/2a2049e/im_livechat.assets_livechat_support_tours.min.js (id:2150)
+2026-11-20 21:36:39,034 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/b73cbb2/im_livechat.embed_assets_unit_tests.min.js (id:2151)
+2026-11-20 21:36:46,701 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/e356b98/im_livechat.embed_assets_unit_tests_setup.min.js (id:2152)
+2026-11-20 21:36:46,761 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/c8f210a/mail.assets_discuss_public_test_tours.min.js (id:2153)
+2026-11-20 21:36:46,805 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/d1198ea/mail.assets_lamejs.min.js (id:2154)
+2026-11-20 21:36:47,032 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/60d8fca/mail.assets_odoo_sfu.min.js (id:2155)
+2026-11-20 21:36:47,412 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/109f26b/mail.assets_public.min.js (id:2156)
+2026-11-20 21:36:48,045 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/4469f1b/mass_mailing.assets_builder.min.js (id:2157)
+2026-11-20 21:36:48,056 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/3dd9c42/mass_mailing.mailing_assets.min.js (id:2158)
+2026-11-20 21:36:48,272 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/193ba4d/portal.assets_chatter.min.js (id:2159)
+2026-11-20 21:36:48,725 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/2440c44/project.webclient.min.js (id:2160)
+2026-11-20 21:36:49,765 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/885b908/spreadsheet.o_spreadsheet.min.js (id:2161)
+2026-11-20 21:36:51,163 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/c13b5f7/spreadsheet.public_spreadsheet.min.js (id:2162)
+2026-11-20 21:36:51,262 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/4448053/survey.survey_assets.min.js (id:2163)
+2026-11-20 21:36:51,267 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/5e043ce/survey.survey_user_input_session_assets.min.js (id:2164)
+2026-11-20 21:36:51,895 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/4698378/web.__assets_tests_call__.min.js (id:2165)
+2026-11-20 21:36:51,917 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/d2ad04d/web.ace_lib.min.js (id:2166)
+2026-11-20 21:36:51,924 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/67775ce/web.assets_clickbot.min.js (id:2167)
+2026-11-20 21:36:52,243 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/9655f95/web.assets_frontend_lazy.min.js (id:2168)
+2026-11-20 21:36:52,273 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/618e213/web.assets_frontend_minimal.min.js (id:2169)
+2026-11-20 21:36:52,410 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/268372d/web.assets_tests.min.js (id:2170)
+2026-11-20 21:37:04,213 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/3a21938/web.assets_unit_tests.min.js (id:2171)
+2026-11-20 21:37:06,798 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/a00f578/web.assets_unit_tests_setup.min.js (id:2172)
+2026-11-20 21:37:07,606 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/bd665f9/web.chartjs_lib.min.js (id:2173)
+2026-11-20 21:37:07,652 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/ec277a3/web.fullcalendar_lib.min.js (id:2174)
+2026-11-20 21:37:07,666 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/cf83e13/web.material_symbols_outlined.min.js (id:2175)
+2026-11-20 21:37:07,676 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/cf83e13/web.material_symbols_rounded.min.js (id:2176)
+2026-11-20 21:37:07,698 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/cf83e13/web.material_symbols_sharp.min.js (id:2177)
+2026-11-20 21:37:07,703 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/cf83e13/web.odoo_ui_icons.min.js (id:2178)
+2026-11-20 21:37:07,808 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/a4b0cd1/web.report_assets_common.min.js (id:2179)
+2026-11-20 21:37:07,813 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/cf83e13/web.report_assets_pdf.min.js (id:2180)
+2026-11-20 21:37:07,830 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/a6c76ad/web_tour.interactive.min.js (id:2181)
+2026-11-20 21:37:07,853 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/fe07db7/web_tour.recorder.min.js (id:2182)
+2026-11-20 21:37:07,911 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/cf83e13/website.assets_theme_colors_preview.min.js (id:2183)
+2026-11-20 21:37:09,194 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/d98f3fc/website.website_builder_assets.min.js (id:2184)
+2026-11-20 21:37:09,601 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/1e5f8d9/website_slides.slide_embed_assets.min.js (id:2185)
+2026-11-20 21:37:09,602 84574 INFO crm_upgrade_control odoo.addons.base.models.ir_qweb: JS Assets bundles generated in 45.296125173568726 seconds
+2026-11-20 21:37:09,608 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/c661ff3/web.material_symbols_rounded.min.woff2 (id:2186)
+2026-11-20 21:37:09,613 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/b7b75d5/web.material_symbols_sharp.min.woff2 (id:2187)
+2026-11-20 21:37:09,614 84574 INFO crm_upgrade_control odoo.addons.base.models.ir_qweb: Binary Assets bundles generated in 0.011731147766113281 seconds
+2026-11-20 21:37:12,512 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/52bc796/api_doc.assets.min.css (id:2188)
+2026-11-20 21:37:12,521 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/cf83e13/bus.websocket_worker_assets.min.css (id:2189)
+2026-11-20 21:37:17,937 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/7bce62b/hr_attendance.assets_public_attendance.min.css (id:2190)
+2026-11-20 21:37:18,016 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/a201ec6/html_editor.assets_history_diff.min.css (id:2191)
+2026-11-20 21:37:18,203 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/a0e4d4d/html_editor.assets_image_cropper.min.css (id:2192)
+2026-11-20 21:37:25,098 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/d6218c5/im_livechat.assets_embed_external.min.css (id:2193)
+2026-11-20 21:37:25,102 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/cf83e13/im_livechat.assets_livechat_support_tours.min.css (id:2194)
+2026-11-20 21:37:25,106 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/cf83e13/im_livechat.embed_assets_unit_tests.min.css (id:2195)
+2026-11-20 21:37:28,340 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/15972f0/im_livechat.embed_assets_unit_tests_setup.min.css (id:2196)
+2026-11-20 21:37:28,343 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/cf83e13/mail.assets_discuss_public_test_tours.min.css (id:2197)
+2026-11-20 21:37:28,345 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/cf83e13/mail.assets_lamejs.min.css (id:2198)
+2026-11-20 21:37:28,353 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/b0c7e56/mail.assets_markdown.min.css (id:2199)
+2026-11-20 21:37:28,355 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/cf83e13/mail.assets_odoo_sfu.min.css (id:2200)
+2026-11-20 21:37:29,768 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/4e39351/mail.assets_public.min.css (id:2201)
+2026-11-20 21:37:30,805 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/c83cb64/mass_mailing.assets_builder.min.css (id:2202)
+2026-11-20 21:37:35,753 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/f1acfa4/mass_mailing.assets_iframe_style.min.css (id:2203)
+2026-11-20 21:37:35,829 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/c43bb6b/mass_mailing.mailing_assets.min.css (id:2204)
+2026-11-20 21:37:36,270 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/fd41547/portal.assets_chatter.min.css (id:2205)
+2026-11-20 21:37:40,350 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/f043f0e/project.webclient.min.css (id:2206)
+2026-11-20 21:37:40,377 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/cf83e13/spreadsheet.o_spreadsheet.min.css (id:2207)
+2026-11-20 21:37:46,043 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/433c882/spreadsheet.public_spreadsheet.min.css (id:2208)
+2026-11-20 21:37:46,049 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/cf83e13/stock.assets_stock_print_report.min.css (id:2209)
+2026-11-20 21:37:46,298 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/cff7680/survey.survey_assets.min.css (id:2210)
+2026-11-20 21:37:46,301 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/cf83e13/survey.survey_user_input_session_assets.min.css (id:2211)
+2026-11-20 21:37:46,304 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/cf83e13/web.__assets_tests_call__.min.css (id:2212)
+2026-11-20 21:37:46,306 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/cf83e13/web.ace_lib.min.css (id:2213)
+2026-11-20 21:37:46,308 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/cf83e13/web.assets_clickbot.min.css (id:2214)
+2026-11-20 21:37:46,311 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/cf83e13/web.assets_emoji.min.css (id:2215)
+2026-11-20 21:37:48,832 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/8359828/web.assets_frontend.min.css (id:2216)
+2026-11-20 21:37:51,173 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/8359828/web.assets_frontend_lazy.min.css (id:2217)
+2026-11-20 21:37:51,180 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/cf83e13/web.assets_frontend_minimal.min.css (id:2218)
+2026-11-20 21:37:51,184 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/cf83e13/web.assets_tests.min.css (id:2219)
+2026-11-20 21:37:52,271 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/9310f22/web.assets_unit_tests.min.css (id:2220)
+2026-11-20 21:38:00,204 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/43102ca/web.assets_unit_tests_setup.min.css (id:2221)
+2026-11-20 21:38:12,428 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/228a554/web.assets_web_dark.min.css (id:2222)
+2026-11-20 21:38:12,934 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/cf83e13/web.chartjs_lib.min.css (id:2223)
+2026-11-20 21:38:12,937 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/cf83e13/web.fullcalendar_lib.min.css (id:2224)
+2026-11-20 21:38:12,950 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/b3deed5/web.material_symbols_outlined.min.css (id:2225)
+2026-11-20 21:38:12,960 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/234eeba/web.material_symbols_rounded.min.css (id:2226)
+2026-11-20 21:38:12,965 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/3f103d5/web.material_symbols_sharp.min.css (id:2227)
+2026-11-20 21:38:12,981 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/ca17206/web.odoo_ui_icons.min.css (id:2228)
+2026-11-20 21:38:15,337 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/ba1f081/web.report_assets_common.min.css (id:2229)
+2026-11-20 21:38:15,358 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/6964993/web.report_assets_pdf.min.css (id:2230)
+2026-11-20 21:38:15,363 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/cf83e13/web_tour.interactive.min.css (id:2231)
+2026-11-20 21:38:15,366 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/cf83e13/web_tour.recorder.min.css (id:2232)
+2026-11-20 21:38:15,681 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/d190ab5/website.assets_theme_colors_preview.min.css (id:2233)
+2026-11-20 21:38:16,329 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/3e0416e/website.assets_wysiwyg.min.css (id:2234)
+2026-11-20 21:38:17,321 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/2b0255d/website.website_builder_assets.min.css (id:2235)
+2026-11-20 21:38:20,294 84574 INFO crm_upgrade_control odoo.addons.base.models.assetsbundle: Generating a new asset bundle attachment /web/assets/58f0ed2/website_slides.slide_embed_assets.min.css (id:2236)
+2026-11-20 21:38:20,296 84574 INFO crm_upgrade_control odoo.addons.base.models.ir_qweb: CSS Assets bundles generated in 70.68140816688538 seconds
+2026-11-20 21:38:20,549 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js: Starting ExternalTestSuite.test_external_livechat ...
+2026-11-20 21:38:23,005 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Chrome pid: 85799
+2026-11-20 21:38:23,006 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Chrome headless temporary user profile dir: /tmp/tmp4aolf5_l_chrome_odoo
+2026-11-20 21:38:23,006 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Issuing json command http://127.0.0.1:44045/json/version
+2026-11-20 21:38:23,028 84574 INFO crm_upgrade_control odoo.tests.common.requests: request SplitResult(scheme='http', netloc='127.0.0.1:44045', path='/json/version', query='', fragment='') with timeout 3 increased to 10s during tests
+2026-11-20 21:38:23,244 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Browser version: Chrome/156.0.8078.79
+2026-11-20 21:38:23,245 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Issuing json command http://127.0.0.1:44045/json
+2026-11-20 21:38:23,260 84574 INFO crm_upgrade_control odoo.tests.common.requests: request SplitResult(scheme='http', netloc='127.0.0.1:44045', path='/json', query='', fragment='') with timeout 3 increased to 10s during tests
+2026-11-20 21:38:23,634 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Websocket url found: ws://127.0.0.1:44045/devtools/page/83E782A241FEF7172D166B23B6F8D7D5
+2026-11-20 21:38:23,703 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Enable chrome headless console log notification
+2026-11-20 21:38:23,741 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Chrome headless enable page notifications
+2026-11-20 21:38:23,897 84574 INFO crm_upgrade_control odoo.addons.base.models.res_users: Login successful for login:admin from n/a
+2026-11-20 21:38:23,938 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Setting session cookie in browser
+2026-11-20 21:38:23,945 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Open "http://127.0.0.1:17869/web/tests/livechat?headless&loglevel=2&preset=desktop" in browser
+2026-11-20 21:38:23,946 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Navigating to: "http://127.0.0.1:17869/web/tests/livechat?headless&loglevel=2&preset=desktop"
+2026-11-20 21:38:24,062 84574 INFO crm_upgrade_control odoo.addons.base.models.ir_http: Generating routing map for key 1
+2026-11-20 21:38:25,335 84574 INFO crm_upgrade_control odoo.http.server: 127.0.0.1 boAx-qd6 - [20/Nov/2026 21:38:25] "GET /web/tests/livechat?headless&loglevel=2&preset=desktop HTTP/1.1" 200 2014 16 0.112 1.27 rw
+2026-11-20 21:38:25,342 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Navigation result: {'frameId': '83E782A241FEF7172D166B23B6F8D7D5', 'loaderId': '6A1FD8E75A57A97CB07603E15B80C321', 'isDownload': False}
+2026-11-20 21:38:25,342 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Waiting for frame '83E782A241FEF7172D166B23B6F8D7D5' to stop loading
+2026-11-20 21:38:25,517 84574 INFO crm_upgrade_control odoo.http.server: 127.0.0.1 boAx-qd6 - [20/Nov/2026 21:38:25] "GET /web/assets/15972f0/im_livechat.embed_assets_unit_tests_setup.min.css HTTP/1.1" 200 1429597 2 0.001 1.55 ro
+2026-11-20 21:38:25,679 84574 INFO crm_upgrade_control odoo.http.server: 127.0.0.1 boAx-qd6 - [20/Nov/2026 21:38:25] "GET /web/assets/b73cbb2/im_livechat.embed_assets_unit_tests.min.js HTTP/1.1" 200 243035 2 0.011 0.099 ro
+2026-11-20 21:38:26,169 84574 INFO crm_upgrade_control odoo.http.server: 127.0.0.1 boAx-qd6 - [20/Nov/2026 21:38:25] "GET /web/assets/e356b98/im_livechat.embed_assets_unit_tests_setup.min.js HTTP/1.1" 200 10956304 2 0.001 0.71 ro
+2026-11-20 21:38:26,957 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Evaluate ready code "document.readyState === 'complete'"
+2026-11-20 21:38:27,908 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Evaluate test code ""
+2026-11-20 21:38:28,023 84574 INFO crm_upgrade_control odoo.http.server: 127.0.0.1 boAx-qd6 - [20/Nov/2026 21:38:28] "GET /web/static/img/favicon.ico HTTP/1.1" 200 1150 0 0 0.008 -
+2026-11-20 21:38:28,459 84574 INFO crm_upgrade_control odoo.http.server: 127.0.0.1 boAx-qd6 - [20/Nov/2026 21:38:28] "POST /web/dataset/call_kw/ir.module.module.dependency/all_dependencies#ir.module.module.dependency.all_dependencies HTTP/1.1" 200 715 17 0.197 0.259 rw
+2026-11-20 21:38:28,669 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Configuration (click to expand)
+2026-11-20 21:38:28,670 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: Object(bail=0, debug='', debugTest=false, events=3, fps=60, fun=false, headless=true, loglevel=2, manual=false, networkDelay='0', notrycatch=false, order='fifo', preset='desktop', random=0, showdetail='first-fail', timeout=5000, filter='', id='[]', tag='[]')
+2026-11-20 21:38:28,674 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: console.groupEnd
+2026-11-20 21:38:28,675 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Starting test suites
+2026-11-20 21:38:28,675 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/autopopup/persisted session"
+2026-11-20 21:38:33,840 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [ERROR] HootError: test "persisted session" timed out after 5000 milliseconds
+    at http://127.0.0.1:17869/web/assets/e356b98/im_livechat.embed_assets_unit_tests_setup.min.js:1486:76
+	at error (http://127.0.0.1:17869/web/assets/e356b98/im_livechat.embed_assets_unit_tests_setup.min.js:1351:25)
+	at _handleError (http://127.0.0.1:17869/web/assets/e356b98/im_livechat.embed_assets_unit_tests_setup.min.js:1587:176)
+
+2026-11-20 21:38:34,112 84574 ERROR crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Test "@im_livechat/embed/autopopup/persisted session" failed:
+
+Failed assertions:
+
+1. [assertions] expected at least 1 assertion or query event, but none were run
+
+2. [errors] 1 unverified error(s)
+
+Error during test:
+
+test "persisted session" timed out after 5000 milliseconds
+2026-11-20 21:38:34,144 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/autopopup/rule received in init"
+2026-11-20 21:38:35,771 84574 INFO crm_upgrade_control odoo.http.server: 127.0.0.1 boAx-qd6 - [20/Nov/2026 21:38:35] "POST /web/model/get_definitions HTTP/1.1" 200 783486 859 1.863 5.169 rw
+2026-11-20 21:38:36,738 84574 INFO crm_upgrade_control odoo.http.server: 127.0.0.1 boAx-qd6 - [20/Nov/2026 21:38:36] "POST /web/model/get_definitions HTTP/1.1" 200 783486 9 0.102 2.365 rw
+2026-11-20 21:38:42,805 84574 INFO crm_upgrade_control odoo.http.server: 127.0.0.1 boAx-qd6 - [20/Nov/2026 21:38:42] "GET /im_livechat/emoji_bundle HTTP/1.1" 200 458331 2 0.049 1.054 rw
+2026-11-20 21:38:43,007 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [ERROR] HootError: test "rule received in init" timed out after 5000 milliseconds
+    at http://127.0.0.1:17869/web/assets/e356b98/im_livechat.embed_assets_unit_tests_setup.min.js:1486:76
+	at error (http://127.0.0.1:17869/web/assets/e356b98/im_livechat.embed_assets_unit_tests_setup.min.js:1351:25)
+	at _handleError (http://127.0.0.1:17869/web/assets/e356b98/im_livechat.embed_assets_unit_tests_setup.min.js:1587:176)
+
+2026-11-20 21:38:43,262 84574 INFO crm_upgrade_control odoo.http.server: 127.0.0.1 boAx-qd6 - [20/Nov/2026 21:38:43] "GET /web/assets/5a7a008/web.material_symbols_outlined.min.woff2 HTTP/1.1" 200 38596 2 0.012 0.356 ro
+2026-11-20 21:38:43,422 84574 ERROR crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Test "@im_livechat/embed/autopopup/rule received in init" failed:
+
+Failed assertions:
+
+1. [assertions] expected at least 1 assertion or query event, but none were run
+
+2. [errors] 1 unverified error(s)
+
+Error during test:
+
+test "rule received in init" timed out after 5000 milliseconds
+2026-11-20 21:38:44,410 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] "@im_livechat/embed/autopopup" ended (failed: 2 / time: 14475 ms)
+2026-11-20 21:38:46,714 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [MEMINFO] @im_livechat/embed/autopopup (after GC) - used: 35300729 - total: 60111733 - limit: 4395630592 - tests: 2
+2026-11-20 21:38:48,394 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/chat_bubble/Do not show bot IM status"
+2026-11-20 21:38:49,615 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] "@im_livechat/embed/chat_bubble" ended (passed: 1 / time: 1252 ms)
+2026-11-20 21:38:49,772 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [MEMINFO] @im_livechat/embed/chat_bubble (after GC) - used: 37884738 - total: 78474166 - limit: 4395630592 - tests: 1
+2026-11-20 21:38:49,862 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/chat_window/internal users can upload file to temporary thread"
+2026-11-20 21:38:50,966 84574 INFO crm_upgrade_control odoo.http.server: 127.0.0.1 boAx-qd6 - [20/Nov/2026 21:38:50] "GET /web/static/img/mimetypes/text.svg HTTP/1.1" 200 691 0 0 0.057 -
+2026-11-20 21:38:53,524 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/chat_window/The name of the conversation changes based on the agents' names"
+2026-11-20 21:38:58,709 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [ERROR] HootError: test "The name of the conversation changes based on the agents' names" timed out after 5000 milliseconds
+    at http://127.0.0.1:17869/web/assets/e356b98/im_livechat.embed_assets_unit_tests_setup.min.js:1486:76
+	at error (http://127.0.0.1:17869/web/assets/e356b98/im_livechat.embed_assets_unit_tests_setup.min.js:1351:25)
+	at _handleError (http://127.0.0.1:17869/web/assets/e356b98/im_livechat.embed_assets_unit_tests_setup.min.js:1587:176)
+
+2026-11-20 21:38:59,011 84574 ERROR crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Test "@im_livechat/embed/chat_window/The name of the conversation changes based on the agents' names" failed:
+
+Failed assertion:
+
+4. [errors] 1 unverified error(s)
+
+Error during test:
+
+test "The name of the conversation changes based on the agents' names" timed out after 5000 milliseconds
+2026-11-20 21:38:59,055 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/chat_window/Portal users should not be able to start a call"
+2026-11-20 21:39:06,449 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [ERROR] HootError: test "Portal users should not be able to start a call" timed out after 5000 milliseconds
+    at http://127.0.0.1:17869/web/assets/e356b98/im_livechat.embed_assets_unit_tests_setup.min.js:1486:76
+	at error (http://127.0.0.1:17869/web/assets/e356b98/im_livechat.embed_assets_unit_tests_setup.min.js:1351:25)
+	at _handleError (http://127.0.0.1:17869/web/assets/e356b98/im_livechat.embed_assets_unit_tests_setup.min.js:1587:176)
+
+2026-11-20 21:39:06,464 84574 ERROR crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Test "@im_livechat/embed/chat_window/Portal users should not be able to start a call" failed:
+
+Failed assertion:
+
+4. [errors] 1 unverified error(s)
+
+Error during test:
+
+test "Portal users should not be able to start a call" timed out after 5000 milliseconds
+2026-11-20 21:39:06,464 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/chat_window/avatar url contains access token for non-internal users"
+2026-11-20 21:39:07,515 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/chat_window/can close confirm livechat with keyboard"
+2026-11-20 21:39:09,025 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/chat_window/Should not show IM status of agents"
+2026-11-20 21:39:10,806 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/chat_window/Displays the name of agent in welcome message"
+2026-11-20 21:39:11,154 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/chat_window/should not make XMLHttpRequest to server file content when embedded externally"
+2026-11-20 21:39:13,034 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/chat_window/should not allow preview of PDF attachments when embedded externally"
+2026-11-20 21:39:14,214 84574 INFO crm_upgrade_control odoo.http.server: 127.0.0.1 boAx-qd6 - [20/Nov/2026 21:39:14] "GET /web/static/lib/pdfjs/build/pdf.worker.js HTTP/1.1" 200 1916063 0 0 0.048 -
+2026-11-20 21:39:14,237 84574 INFO crm_upgrade_control odoo.http.server: 127.0.0.1 boAx-qd6 - [20/Nov/2026 21:39:14] "GET /web/static/lib/pdfjs/build/pdf.js HTTP/1.1" 200 797534 0 0 0.073 -
+2026-11-20 21:39:14,408 84574 INFO crm_upgrade_control odoo.http.server: 127.0.0.1 boAx-qd6 - [20/Nov/2026 21:39:14] "GET /web/static/img/mimetypes/pdf.svg HTTP/1.1" 200 2113 0 0 0.002 -
+2026-11-20 21:39:14,729 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] "@im_livechat/embed/chat_window" ended (passed: 7 / failed: 2 / time: 24795 ms)
+2026-11-20 21:39:14,842 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: Warning: Setting up fake worker.
+2026-11-20 21:39:15,241 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [MEMINFO] @im_livechat/embed/chat_window (after GC) - used: 74565372 - total: 175283696 - limit: 4395630592 - tests: 9
+2026-11-20 21:39:15,433 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/expirable_storage/value is removed from expirable storage after expiration"
+2026-11-20 21:39:15,451 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/expirable_storage/subscribe/unsubscribe to storage changes"
+2026-11-20 21:39:15,498 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] "@im_livechat/embed/expirable_storage" ended (passed: 2 / time: 28 ms)
+2026-11-20 21:39:15,849 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [MEMINFO] @im_livechat/embed/expirable_storage (after GC) - used: 64167196 - total: 171613320 - limit: 4395630592 - tests: 2
+2026-11-20 21:39:16,212 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/feedback_panel/Do not ask feedback if empty"
+2026-11-20 21:39:16,653 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/feedback_panel/Close without feedback"
+2026-11-20 21:39:18,227 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/feedback_panel/Last operator leaving ends the livechat"
+2026-11-20 21:39:20,157 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/feedback_panel/Feedback with rating and comment"
+2026-11-20 21:39:21,177 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/feedback_panel/Closing folded chat window should open it with feedback"
+2026-11-20 21:39:22,635 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/feedback_panel/Start new session from feedback panel"
+2026-11-20 21:39:23,627 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/feedback_panel/open review link on good rating"
+2026-11-20 21:39:24,468 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] "@im_livechat/embed/feedback_panel" ended (passed: 7 / time: 8238 ms)
+2026-11-20 21:39:25,048 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [MEMINFO] @im_livechat/embed/feedback_panel (after GC) - used: 78658059 - total: 198745435 - limit: 4395630592 - tests: 7
+2026-11-20 21:39:25,254 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/history_command/Handle livechat history command"
+2026-11-20 21:39:26,359 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] "@im_livechat/embed/history_command" ended (passed: 1 / time: 1082 ms)
+2026-11-20 21:39:26,627 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [MEMINFO] @im_livechat/embed/history_command (after GC) - used: 70453532 - total: 197434792 - limit: 4395630592 - tests: 1
+2026-11-20 21:39:26,762 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/livechat_button/open/close temporary channel"
+2026-11-20 21:39:27,642 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/livechat_button/open/close persisted channel"
+2026-11-20 21:39:28,871 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/livechat_button/livechat not available"
+2026-11-20 21:39:29,922 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/livechat_button/clicking on notification opens the chat"
+2026-11-20 21:39:31,707 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/livechat_button/can start a new live chat when acting as an agent in active live chats"
+2026-11-20 21:39:32,264 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] "@im_livechat/embed/livechat_button" ended (passed: 5 / time: 5379 ms)
+2026-11-20 21:39:32,756 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [MEMINFO] @im_livechat/embed/livechat_button (after GC) - used: 68314377 - total: 187735581 - limit: 4395630592 - tests: 5
+2026-11-20 21:39:32,912 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/livechat_service/persisted session history"
+2026-11-20 21:39:34,202 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/livechat_service/previous operator prioritized"
+2026-11-20 21:39:34,720 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/livechat_service/Only necessary requests are made when creating a new chat"
+2026-11-20 21:39:35,696 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/livechat_service/do not create new thread when operator answers to visitor"
+2026-11-20 21:39:37,005 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/livechat_service/Only create one channel when posting multiple messages"
+2026-11-20 21:39:40,107 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/livechat_service/guest token channel is subscribed at start and unsubscribed at destroy"
+2026-11-20 21:39:41,013 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] "@im_livechat/embed/livechat_service" ended (passed: 6 / time: 8047 ms)
+2026-11-20 21:39:41,697 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [MEMINFO] @im_livechat/embed/livechat_service (after GC) - used: 82680924 - total: 184328052 - limit: 4395630592 - tests: 6
+2026-11-20 21:39:41,903 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/livechat_session/Session is reset after failing to persist the channel"
+2026-11-20 21:39:43,340 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/livechat_session/Fold state is saved"
+2026-11-20 21:39:44,934 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/livechat_session/Seen message is saved on the server"
+2026-11-20 21:39:47,871 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] "@im_livechat/embed/livechat_session" ended (passed: 3 / time: 5898 ms)
+2026-11-20 21:39:49,217 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [MEMINFO] @im_livechat/embed/livechat_session (after GC) - used: 81497457 - total: 184332293 - limit: 4395630592 - tests: 3
+2026-11-20 21:39:49,797 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/message_reactions/user custom live chat user name for message reactions"
+2026-11-20 21:39:51,767 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] "@im_livechat/embed/message_reactions" ended (passed: 1 / time: 1935 ms)
+2026-11-20 21:39:52,131 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [MEMINFO] @im_livechat/embed/message_reactions (after GC) - used: 64915319 - total: 184345635 - limit: 4395630592 - tests: 1
+2026-11-20 21:39:52,421 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/suggestion/Visitor cannot use @ mentions in livechat"
+2026-11-20 21:39:53,544 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] "@im_livechat/embed/suggestion" ended (passed: 1 / time: 1088 ms)
+2026-11-20 21:39:53,866 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [MEMINFO] @im_livechat/embed/suggestion (after GC) - used: 62545569 - total: 179102613 - limit: 4395630592 - tests: 1
+2026-11-20 21:39:54,022 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/transcript_sender/send"
+2026-11-20 21:39:56,399 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/transcript_sender/send failed"
+2026-11-20 21:39:57,610 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] "@im_livechat/embed/transcript_sender" ended (passed: 2 / time: 3561 ms)
+2026-11-20 21:39:57,796 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [MEMINFO] @im_livechat/embed/transcript_sender (after GC) - used: 71856661 - total: 168357013 - limit: 4395630592 - tests: 2
+2026-11-20 21:39:57,852 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/unread_messages/new message from operator displays unread counter"
+2026-11-20 21:39:58,152 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/unread_messages/focus on unread livechat marks it as read"
+2026-11-20 21:39:59,133 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@im_livechat/embed/unread_messages/new message from operator is automatically translated"
+2026-11-20 21:39:59,504 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] "@im_livechat/embed/unread_messages" ended (passed: 3 / time: 1643 ms)
+2026-11-20 21:39:59,854 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [MEMINFO] @im_livechat/embed/unread_messages (after GC) - used: 73060909 - total: 168881341 - limit: 4395630592 - tests: 3
+2026-11-20 21:40:00,265 84574 INFO crm_upgrade_control odoo.http.server: 127.0.0.1 boAx-qd6 - [20/Nov/2026 21:40:00] "POST /web/dataset/call_kw/ir.module.module.dependency/all_dependencies#ir.module.module.dependency.all_dependencies HTTP/1.1" 200 3406 13 0.075 0.274 rw
+2026-11-20 21:40:00,510 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Running test "@test_discuss_full/embed/livechat_button/open/close persisted channel"
+2026-11-20 21:40:01,839 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] "@test_discuss_full/embed/livechat_button" ended (passed: 1 / time: 1349 ms)
+2026-11-20 21:40:02,042 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [MEMINFO] @test_discuss_full/embed/livechat_button (after GC) - used: 72180202 - total: 167330446 - limit: 4395630592 - tests: 1
+2026-11-20 21:40:02,326 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [MEMINFO] tests done (after GC) - used: 64421850 - total: 151315294 - limit: 4395630592
+2026-11-20 21:40:02,327 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] "@im_livechat" ended (passed: 39 / failed: 4 / time: 77421 ms)
+2026-11-20 21:40:02,327 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] "@test_discuss_full" ended (passed: 1 / time: 1349 ms)
+2026-11-20 21:40:02,327 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: [HOOT] Failed 4 tests (40 passed, total time: 00:01:33)
+2026-11-20 21:40:02,327 84574 ERROR crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat.browser: Some tests failed: see above for details
+Failed tests link: http://127.0.0.1:17869/web/tests/livechat?preset=desktop&id=bc4fbce8&id=a04f4ccb&id=36cb3157&debugTest=true&debug=assets
+2026-11-20 21:40:02,327 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Asking for screenshot
+2026-11-20 21:40:02,330 84574 INFO crm_upgrade_control odoo.addons.bus.websocket: Disconnecting 0 websockets
+2026-11-20 21:40:02,845 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Closing chrome headless with pid 85799
+2026-11-20 21:40:02,848 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Screenshot in: /tmp/odoo_tests/crm_upgrade_control/screenshots/sc_20261120_214002_844839_test_external_livechat.png
+2026-11-20 21:40:02,849 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Closing websocket connection
+2026-11-20 21:40:02,851 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Terminating chrome headless with pid 85799
+2026-11-20 21:40:03,146 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Chrome Log in: /tmp/odoo_tests/crm_upgrade_control/chrome_logs/chrome_log_20261120_214003_141335_test_external_livechat.txt
+2026-11-20 21:40:03,146 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat: Removing chrome user profile "/tmp/tmp4aolf5_l_chrome_odoo"
+2026-11-20 21:40:03,168 84574 INFO crm_upgrade_control odoo.addons.im_livechat.tests.test_js: ======================================================================
+2026-11-20 21:40:03,168 84574 ERROR crm_upgrade_control odoo.addons.im_livechat.tests.test_js: FAIL: ExternalTestSuite.test_external_livechat
+Traceback (most recent call last):
+  File "/workspace/run-notes/base-control/addons/im_livechat/tests/test_js.py", line 10, in test_external_livechat
+    self.browser_js(
+  File "/workspace/run-notes/base-control/odoo/tests/common.py", line 2979, in browser_js
+    self.fail(str(error))
+AssertionError: Some tests failed: see above for details
+Failed tests link: http://127.0.0.1:17869/web/tests/livechat?preset=desktop&id=bc4fbce8&id=a04f4ccb&id=36cb3157&debugTest=true&debug=assets
+
+2026-11-20 21:40:03,875 84574 INFO crm_upgrade_control odoo.addons.base.models.ir_attachment: filestore gc 799 checked, 1 removed
+2026-11-20 21:40:03,915 84574 INFO crm_upgrade_control odoo.service.server: 1 post-tests in 227.59s, 1777 queries
+2026-11-20 21:40:03,916 84574 INFO crm_upgrade_control odoo.tests.stats: im_livechat: 3 tests 103.48s 943 queries
+2026-11-20 21:40:03,917 84574 ERROR crm_upgrade_control odoo.tests.result: 1 failed, 0 error(s) of 1 tests when loading database 'crm_upgrade_control'
+2026-11-20 21:40:03,917 84574 INFO crm_upgrade_control odoo.service.server.ThreadedServer: Failed: odoo.addons.im_livechat.tests.test_js.ExternalTestSuite.test_external_livechat - Some tests failed: see above for details [...]
+2026-11-20 21:40:03,917 84574 INFO crm_upgrade_control odoo.service.server.ThreadedServer: Initiating shutdown
+2026-11-20 21:40:03,917 84574 INFO crm_upgrade_control odoo.service.server.ThreadedServer: Hit CTRL-C again or send a second signal to force the shutdown.
+2026-11-20 21:40:03,917 84574 INFO crm_upgrade_control odoo.addons.bus.websocket: Disconnecting 0 websockets
+2026-11-20 21:40:04,047 84574 INFO crm_upgrade_control odoo.sql_db: ConnectionPool(read/write;used=0/count=0/max=64): Closed 1 connections 

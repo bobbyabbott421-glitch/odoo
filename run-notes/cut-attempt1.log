@@ -1,0 +1,40 @@
+2026-11-20 18:41:40,517 1504 WARNING ? py.warnings: /workspace/run-notes/connection_cut.py:19: DeprecationWarning: As of Odoo 20, it is strongly recommended to specify whether you want Odoo to setup its own logging (or want to handle it yourself)
+  File "/workspace/run-notes/connection_cut.py", line 19, in <module>
+    config.parse_config(['-c', '/workspace/odoo-env/odoo.conf', '-d', database])
+
+test_disconnect_and_reconnect (__main__.ConnectionCut.test_disconnect_and_reconnect) ... 2026-11-20 18:41:42,535 1504 INFO ? cut: Chrome pid: 1515
+2026-11-20 18:41:42,535 1504 INFO ? cut: Chrome headless temporary user profile dir: /tmp/tmpz5bjfwih_chrome_odoo
+2026-11-20 18:41:42,535 1504 INFO ? cut: Issuing json command http://127.0.0.1:36447/json/version
+2026-11-20 18:41:42,682 1504 INFO ? cut: Browser version: Chrome/156.0.8078.79
+2026-11-20 18:41:42,682 1504 INFO ? cut: Issuing json command http://127.0.0.1:36447/json
+2026-11-20 18:41:42,712 1504 INFO ? cut: Websocket url found: ws://127.0.0.1:36447/devtools/page/999FC385560BC5DB1FB0EA48251803C1
+2026-11-20 18:41:42,725 1504 INFO ? cut: Enable chrome headless console log notification
+2026-11-20 18:41:42,732 1504 INFO ? cut: Chrome headless enable page notifications
+2026-11-20 18:41:42,786 1504 INFO ? cut: Navigating to: "http://127.0.0.1:8074/web/health"
+2026-11-20 18:41:42,830 1504 INFO ? cut: Navigation result: {'frameId': '999FC385560BC5DB1FB0EA48251803C1', 'loaderId': '0E55D8CC526755973E736CCE31D1B74B', 'isDownload': False}
+2026-11-20 18:41:42,830 1504 INFO ? cut: Waiting for frame '999FC385560BC5DB1FB0EA48251803C1' to stop loading
+FAIL
+2026-11-20 18:41:42,983 1504 INFO ? cut: Closing chrome headless with pid 1515
+2026-11-20 18:41:42,985 1504 INFO ? cut: Closing websocket connection
+2026-11-20 18:41:42,986 1504 INFO ? cut: Terminating chrome headless with pid 1515
+2026-11-20 18:41:48,024 1504 WARNING ? cut: Killing chrome descendants-or-self of 1515: 5 remaining
+- chromium (zombie)
+- chromium (zombie)
+- chromium (zombie)
+- chromium (zombie)
+- chromium (zombie)
+2026-11-20 18:41:49,051 1504 INFO ? cut: Chrome Log in: /tmp/odoo_tests/odoo_dev/chrome_logs/chrome_log_20261120_184149_050980_runTest.txt
+2026-11-20 18:41:49,051 1504 INFO ? cut: Removing chrome user profile "/tmp/tmpz5bjfwih_chrome_odoo"
+
+======================================================================
+FAIL: test_disconnect_and_reconnect (__main__.ConnectionCut.test_disconnect_and_reconnect)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/workspace/run-notes/connection_cut.py", line 60, in test_disconnect_and_reconnect
+    self.assertIs(reachable(), False)
+AssertionError: True is not False
+
+----------------------------------------------------------------------
+Ran 1 test in 8.903s
+
+FAILED (failures=1)

@@ -1,0 +1,77 @@
+[24336:24368:1120/192820.383253:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[24336:24368:1120/192820.383315:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[24336:24368:1120/192820.403921:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[24336:24368:1120/192820.406432:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[24336:24368:1120/192820.406476:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[24336:24368:1120/192820.406484:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[24336:24368:1120/192820.406496:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[24336:24368:1120/192820.416767:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[24336:24368:1120/192820.520128:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[24336:24336:1120/192820.579521:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[24336:24368:1120/192820.579672:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[24336:24336:1120/192820.579750:WARNING:device/bluetooth/dbus/bluez_dbus_manager.cc:209] Floss manager service not available, cannot set Floss enable/disable.
+[24336:24336:1120/192820.579778:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[24336:24368:1120/192820.579826:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[24336:24336:1120/192820.580346:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[24336:24336:1120/192820.603445:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[24336:24368:1120/192820.603569:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[24336:24376:1120/192820.609809:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24391: Read-only file system (30)
+[24336:24336:1120/192820.620179:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[24336:24368:1120/192820.620528:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[24336:24368:1120/192820.620556:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[24336:24336:1120/192820.627762:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[24336:24368:1120/192820.627853:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[24377:24377:1120/192820.707313:WARNING:media/gpu/vaapi/vaapi_wrapper.cc:1655] drmGetDevices2() has not found any devices
+[24377:24377:1120/192820.721272:WARNING:sandbox/policy/linux/sandbox_linux.cc:405] InitializeSandbox() called with multiple threads in process gpu-process.
+[24336:24376:1120/192820.810611:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24421: Read-only file system (30)
+[24336:24376:1120/192820.834337:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24442: Read-only file system (30)
+[24336:24376:1120/192820.838011:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 24444: Read-only file system (30)
+[24336:24336:1120/192820.849324:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[24336:24336:1120/192820.850994:WARNING:dbus/property.cc:94] Failed to connect to PropertiesChangedsignal.
+[24336:24336:1120/192820.851021:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.Properties.GetAll: object_path= /org/freedesktop/UPower/devices/DisplayDevice: unknown error type: 
+[24336:24336:1120/192820.851028:WARNING:dbus/property.cc:174] GetAll request failed for: org.freedesktop.UPower.Device
+[24336:24336:1120/192820.851400:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[24336:24368:1120/192820.851958:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[24336:24336:1120/192820.871785:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[24336:24368:1120/192820.872086:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[24336:24336:1120/192820.898599:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[24336:24336:1120/192820.898624:WARNING:ui/base/idle/idle_linux.cc:111] None of the known D-Bus ScreenSaver services could be used.
+[24336:24336:1120/192840.449674:INFO:CONSOLE:13514] "Owl is running in 'dev' mode.", source: http://127.0.0.1:8071/web/assets/debug/web.assets_web.js (13514)
+[24336:24336:1120/192844.097549:INFO:CONSOLE:7945] "Hoot DOM helpers available from `window.hoot`", source: http://127.0.0.1:8071/web/assets/debug/web.assets_tests.js (7945)
+[24336:24336:1120/192844.098191:INFO:CONSOLE:8051] "[1/30] Tour test_user_group_settings → Step open technical menu (trigger: button[data-menu-xmlid="base.menu_custom"])", source: http://127.0.0.1:8071/web/assets/debug/web.assets_tests.js (8051)
+[24336:24336:1120/192844.687933:INFO:CONSOLE:8051] "[2/30] Tour test_user_group_settings → Step open scope menu (trigger: a[data-menu-xmlid="base.menu_action_res_groups_privilege"])", source: http://127.0.0.1:8071/web/assets/debug/web.assets_tests.js (8051)
+[24336:24336:1120/192844.752182:INFO:CONSOLE:8051] "[3/30] Tour test_user_group_settings → Step th.o_group_name:contains("Master Data")", source: http://127.0.0.1:8071/web/assets/debug/web.assets_tests.js (8051)
+[24336:24336:1120/192845.742492:INFO:CONSOLE:8051] "[4/30] Tour test_user_group_settings → Step click on new button (trigger: button.o_list_button_add)", source: http://127.0.0.1:8071/web/assets/debug/web.assets_tests.js (8051)
+[24336:24336:1120/192845.809867:INFO:CONSOLE:8051] "[5/30] Tour test_user_group_settings → Step insert a privilege name (trigger: .o_field_char[name="name"] input)", source: http://127.0.0.1:8071/web/assets/debug/web.assets_tests.js (8051)
+[24336:24336:1120/192845.976164:INFO:CONSOLE:8051] "[6/30] Tour test_user_group_settings → Step add groups (open modal) (trigger: .o_field_x2many_list_row_add button)", source: http://127.0.0.1:8071/web/assets/debug/web.assets_tests.js (8051)
+[24336:24336:1120/192846.012747:INFO:CONSOLE:8051] "[7/30] Tour test_user_group_settings → Step create the first group (trigger: .o_create_button)", source: http://127.0.0.1:8071/web/assets/debug/web.assets_tests.js (8051)
+[24336:24336:1120/192846.399881:INFO:CONSOLE:8051] "[8/30] Tour test_user_group_settings → Step insert the first group name (trigger: .o_field_char[name="name"] input[placeholder="Group Name"])", source: http://127.0.0.1:8071/web/assets/debug/web.assets_tests.js (8051)
+[24336:24336:1120/192846.654597:INFO:CONSOLE:8051] "[9/30] Tour test_user_group_settings → Step create the second group (trigger: footer .o_form_button_save_new)", source: http://127.0.0.1:8071/web/assets/debug/web.assets_tests.js (8051)
+[24336:24336:1120/192846.670025:INFO:CONSOLE:8051] "[10/30] Tour test_user_group_settings → Step body .o_notebook_content:contains(bar user)", source: http://127.0.0.1:8071/web/assets/debug/web.assets_tests.js (8051)
+[24336:24336:1120/192847.200911:INFO:CONSOLE:8051] "[11/30] Tour test_user_group_settings → Step insert the second group name (trigger: .o_field_char[name="name"] input[placeholder="Group Name"])", source: http://127.0.0.1:8071/web/assets/debug/web.assets_tests.js (8051)
+[24336:24336:1120/192847.320380:INFO:CONSOLE:8051] "[12/30] Tour test_user_group_settings → Step get implied groups (trigger: button[name="inherit_groups"])", source: http://127.0.0.1:8071/web/assets/debug/web.assets_tests.js (8051)
+[24336:24336:1120/192847.342220:INFO:CONSOLE:8051] "[13/30] Tour test_user_group_settings → Step switch to implied (trigger: div[name="implied_ids"] .o_field_many2many_selection .o_input)", source: http://127.0.0.1:8071/web/assets/debug/web.assets_tests.js (8051)
+[24336:24336:1120/192847.470811:INFO:CONSOLE:8051] "[14/30] Tour test_user_group_settings → Step .o_m2o_dropdown_option_search_more", source: http://127.0.0.1:8071/web/assets/debug/web.assets_tests.js (8051)
+[24336:24336:1120/192847.638605:INFO:CONSOLE:8051] "[15/30] Tour test_user_group_settings → Step search 'Bar' groups (trigger: .o_searchview_input)", source: http://127.0.0.1:8071/web/assets/debug/web.assets_tests.js (8051)
+[24336:24336:1120/192848.470547:INFO:CONSOLE:8051] "[16/30] Tour test_user_group_settings → Step Validate search (trigger: .o_searchview_autocomplete .o-dropdown-item.focus)", source: http://127.0.0.1:8071/web/assets/debug/web.assets_tests.js (8051)
+[24336:24336:1120/192848.725120:INFO:CONSOLE:8051] "[17/30] Tour test_user_group_settings → Step click to implied group 'Bar User' (trigger: .o_data_cell:contains("Bar User"):last)", source: http://127.0.0.1:8071/web/assets/debug/web.assets_tests.js (8051)
+[24336:24336:1120/192848.812792:INFO:CONSOLE:8051] "[18/30] Tour test_user_group_settings → Step save group and close modal (trigger: footer .o_form_button_save)", source: http://127.0.0.1:8071/web/assets/debug/web.assets_tests.js (8051)
+[24336:24336:1120/192849.353695:INFO:CONSOLE:8051] "[19/30] Tour test_user_group_settings → Step body:not(:has(.modal:visible)) .o_notebook_content:contains(bar user):contains(bar manager)", source: http://127.0.0.1:8071/web/assets/debug/web.assets_tests.js (8051)
+[24336:24336:1120/192850.069637:INFO:CONSOLE:8051] "[20/30] Tour test_user_group_settings → Step open user menu (trigger: button[data-menu-xmlid="base.menu_users"])", source: http://127.0.0.1:8071/web/assets/debug/web.assets_tests.js (8051)
+[24336:24336:1120/192850.079336:INFO:CONSOLE:8051] "[21/30] Tour test_user_group_settings → Step open users & companies menu (trigger: a[data-menu-xmlid="base.menu_action_res_users"])", source: http://127.0.0.1:8071/web/assets/debug/web.assets_tests.js (8051)
+[24336:24336:1120/192850.097774:INFO:CONSOLE:8051] "[22/30] Tour test_user_group_settings → Step .o_list_renderer:contains(marc demo):contains(mitchell admin)", source: http://127.0.0.1:8071/web/assets/debug/web.assets_tests.js (8051)
+[24336:24336:1120/192851.174016:INFO:CONSOLE:8051] "[23/30] Tour test_user_group_settings → Step open users menu (trigger: .o_data_row:contains(Marc Demo) .o_field_cell[name="name"])", source: http://127.0.0.1:8071/web/assets/debug/web.assets_tests.js (8051)
+[24336:24336:1120/192851.243905:INFO:CONSOLE:8051] "[24/30] Tour test_user_group_settings → Step check if is demo user (trigger: .o_last_breadcrumb_item:contains("Marc Demo"))", source: http://127.0.0.1:8071/web/assets/debug/web.assets_tests.js (8051)
+[24336:24336:1120/192852.009679:INFO:CONSOLE:8051] "[25/30] Tour test_user_group_settings → Step Add 'Bar Manager' access to demo user (trigger: .o_field_widget[name="group_ids"] .o_cell:has(label:contains("Privi Foo")) + .o_cell .o_select_menu input)", source: http://127.0.0.1:8071/web/assets/debug/web.assets_tests.js (8051)
+[24336:24336:1120/192852.033330:INFO:CONSOLE:8051] "[26/30] Tour test_user_group_settings → Step .o-dropdown--menu .o_select_menu_item:contains("Bar Manager")", source: http://127.0.0.1:8071/web/assets/debug/web.assets_tests.js (8051)
+[24336:24336:1120/192852.375809:INFO:CONSOLE:8051] "[27/30] Tour test_user_group_settings → Step open group information for the new group (trigger: .o_field_widget[name="group_ids"] .o_cell:has(label:contains("Privi Foo")) + .o_cell .o_group_info_button)", source: http://127.0.0.1:8071/web/assets/debug/web.assets_tests.js (8051)
+[24336:24336:1120/192852.942378:INFO:CONSOLE:8051] "[28/30] Tour test_user_group_settings → Step open the group from the info button (trigger: .o_popover:contains("Privi Foo") a:contains("Bar Manager"))", source: http://127.0.0.1:8071/web/assets/debug/web.assets_tests.js (8051)
+[24336:24336:1120/192853.181681:INFO:CONSOLE:8051] "[29/30] Tour test_user_group_settings → Step check if is Bar Manager group (trigger: .o_last_breadcrumb_item:contains("Bar Manager"))", source: http://127.0.0.1:8071/web/assets/debug/web.assets_tests.js (8051)
+[24336:24336:1120/192853.984442:INFO:CONSOLE:8051] "[30/30] Tour test_user_group_settings → Step check if demo user has this group (trigger: .o_field_many2many[name="user_ids"] .o_data_cell:contains("Marc Demo"))", source: http://127.0.0.1:8071/web/assets/debug/web.assets_tests.js (8051)
+[24336:24336:1120/192853.995468:INFO:CONSOLE:7914] "tour succeeded", source: http://127.0.0.1:8071/web/assets/debug/web.assets_tests.js (7914)
+[24336:24336:1120/192853.995770:INFO:CONSOLE:7920] "
+
+╔═════════════════════════════════════════╗
+║ TOUR test_user_group_settings SUCCEEDED ║
+╚═════════════════════════════════════════╝
+", source: http://127.0.0.1:8071/web/assets/debug/web.assets_tests.js (7920)

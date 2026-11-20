@@ -1,0 +1,66 @@
+[82785:82811:1120/213049.280234:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[82785:82811:1120/213049.296604:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[82785:82811:1120/213049.296672:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[82785:82811:1120/213049.296691:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[82785:82811:1120/213049.296709:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[82785:82811:1120/213049.296717:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[82785:82811:1120/213049.296724:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[82785:82811:1120/213049.362639:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[82785:82824:1120/213049.447790:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 82829: Read-only file system (30)
+[82785:82811:1120/213049.451766:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[82785:82785:1120/213049.502849:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[82785:82785:1120/213049.502907:WARNING:device/bluetooth/dbus/bluez_dbus_manager.cc:209] Floss manager service not available, cannot set Floss enable/disable.
+[82785:82785:1120/213049.502930:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[82785:82785:1120/213049.503078:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[82785:82811:1120/213049.512880:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[82785:82811:1120/213049.512913:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[82785:82785:1120/213049.563540:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[82785:82811:1120/213049.563680:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[82785:82785:1120/213049.568195:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[82785:82785:1120/213049.568410:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[82785:82811:1120/213049.570055:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[82785:82811:1120/213049.570095:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Failed to connect to socket /run/dbus/system_bus_socket: No such file or directory
+[82785:82811:1120/213049.570105:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[82785:82824:1120/213049.794465:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 82855: Read-only file system (30)
+[82785:82824:1120/213050.000667:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 82869: Read-only file system (30)
+[82785:82824:1120/213050.013126:ERROR:content/browser/zygote_host/zygote_host_impl_linux.cc:312] Failed to adjust OOM score of renderer with pid 82874: Read-only file system (30)
+[82785:82785:1120/213050.058938:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[82785:82785:1120/213050.067442:WARNING:dbus/property.cc:94] Failed to connect to PropertiesChangedsignal.
+[82785:82785:1120/213050.067470:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.Properties.GetAll: object_path= /org/freedesktop/UPower/devices/DisplayDevice: unknown error type: 
+[82785:82785:1120/213050.067475:WARNING:dbus/property.cc:174] GetAll request failed for: org.freedesktop.UPower.Device
+[82785:82785:1120/213050.067484:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[82785:82811:1120/213050.101329:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[82785:82785:1120/213050.129603:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[82785:82811:1120/213050.150143:ERROR:dbus/bus.cc:405] Failed to connect to the bus: Could not parse server address: Unknown address type (examples of valid types are "tcp" and on UNIX "unix")
+[82785:82785:1120/213050.200212:ERROR:dbus/object_proxy.cc:572] Failed to call method: org.freedesktop.DBus.NameHasOwner: object_path= /org/freedesktop/DBus: unknown error type: 
+[82785:82785:1120/213050.200247:WARNING:ui/base/idle/idle_linux.cc:111] None of the known D-Bus ScreenSaver services could be used.
+[82827:82827:1120/213051.008080:WARNING:media/gpu/vaapi/vaapi_wrapper.cc:1655] drmGetDevices2() has not found any devices
+[82827:82827:1120/213051.063476:WARNING:sandbox/policy/linux/sandbox_linux.cc:405] InitializeSandbox() called with multiple threads in process gpu-process.
+[82785:82785:1120/213056.357312:INFO:CONSOLE:1148] "Owl is running in 'dev' mode.", source: http://127.0.0.1:8071/web/assets/56c5002/web.assets_web.min.js (1148)
+[82785:82785:1120/213056.510241:INFO:CONSOLE:672] "Hoot DOM helpers available from `window.hoot`", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (672)
+[82785:82785:1120/213056.511331:INFO:CONSOLE:683] "[1/19] Tour mail/static/tests/tours/mail_html_composer_test_tour.js → Step Wait for the chatter to be fully loaded (trigger: .o-mail-Chatter)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[82785:82785:1120/213058.996245:INFO:CONSOLE:683] "[2/19] Tour mail/static/tests/tours/mail_html_composer_test_tour.js → Step .o-mail-Message:count(1)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[82785:82785:1120/213059.707834:INFO:CONSOLE:683] "[3/19] Tour mail/static/tests/tours/mail_html_composer_test_tour.js → Step Click on Send Message (trigger: button:contains(Send message))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[82785:82785:1120/213059.809605:INFO:CONSOLE:683] "[4/19] Tour mail/static/tests/tours/mail_html_composer_test_tour.js → Step Write something in composer (trigger: .o-mail-Composer-html.odoo-editor-editable)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[82785:82785:1120/213059.980264:INFO:CONSOLE:683] "[5/19] Tour mail/static/tests/tours/mail_html_composer_test_tour.js → Step Select the text (trigger: .o-mail-Composer-html.odoo-editor-editable)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[82785:82785:1120/213100.048213:INFO:CONSOLE:683] "[6/19] Tour mail/static/tests/tours/mail_html_composer_test_tour.js → Step .o-we-toolbar", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[82785:82785:1120/213100.745175:INFO:CONSOLE:683] "[7/19] Tour mail/static/tests/tours/mail_html_composer_test_tour.js → Step Bold the text (trigger: .o-we-toolbar button[title='Bold (Ctrl + B)'])", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[82785:82785:1120/213100.832642:INFO:CONSOLE:683] "[8/19] Tour mail/static/tests/tours/mail_html_composer_test_tour.js → Step The bolded text is in the composer (trigger: .o-mail-Composer-html.odoo-editor-editable strong:contains(Hello))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[82785:82785:1120/213100.840845:INFO:CONSOLE:683] "[9/19] Tour mail/static/tests/tours/mail_html_composer_test_tour.js → Step Open full composer (trigger: button[title='Open Full Composer'])", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[82785:82785:1120/213100.899427:INFO:CONSOLE:683] "[10/19] Tour mail/static/tests/tours/mail_html_composer_test_tour.js → Step Check composer keeps the formatted content (trigger: .o_mail_composer_message strong:contains(Hello))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[82785:82785:1120/213101.568986:INFO:CONSOLE:683] "[11/19] Tour mail/static/tests/tours/mail_html_composer_test_tour.js → Step Focus the text in full composer (trigger: .o_mail_composer_message .odoo-editor-editable)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[82785:82785:1120/213101.652941:INFO:CONSOLE:683] "[12/19] Tour mail/static/tests/tours/mail_html_composer_test_tour.js → Step Select the text in full composer (trigger: .o_mail_composer_message .odoo-editor-editable)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[82785:82785:1120/213101.671903:INFO:CONSOLE:683] "[13/19] Tour mail/static/tests/tours/mail_html_composer_test_tour.js → Step .o-we-toolbar", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[82785:82785:1120/213101.700952:INFO:CONSOLE:683] "[14/19] Tour mail/static/tests/tours/mail_html_composer_test_tour.js → Step Remove the Bold (trigger: .o-we-toolbar button[title='Bold (Ctrl + B)'])", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[82785:82785:1120/213102.001351:INFO:CONSOLE:683] "[15/19] Tour mail/static/tests/tours/mail_html_composer_test_tour.js → Step Italicize the text (trigger: .o-we-toolbar button[title='Italic (Ctrl + I)'])", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[82785:82785:1120/213103.362653:INFO:CONSOLE:683] "[16/19] Tour mail/static/tests/tours/mail_html_composer_test_tour.js → Step The italicized text is in the full composer (trigger: .o_mail_composer_message em:contains(Hello))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[82785:82785:1120/213103.362782:INFO:CONSOLE:683] "[17/19] Tour mail/static/tests/tours/mail_html_composer_test_tour.js → Step Close full composer (trigger: .btn-close)", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[82785:82785:1120/213103.434689:INFO:CONSOLE:683] "[18/19] Tour mail/static/tests/tours/mail_html_composer_test_tour.js → Step Click on Send Message (trigger: button:not(.active):contains(Send message))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[82785:82785:1120/213104.040793:INFO:CONSOLE:683] "[19/19] Tour mail/static/tests/tours/mail_html_composer_test_tour.js → Step The italicized text is in the composer (trigger: .o-mail-Composer-html.odoo-editor-editable em:contains(Hello))", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (683)
+[82785:82785:1120/213104.255498:INFO:CONSOLE:666] "tour succeeded", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (666)
+[82785:82785:1120/213104.265274:INFO:CONSOLE:666] "
+
+╔════════════════════════════════════════════════════════════════════════╗
+║ TOUR mail/static/tests/tours/mail_html_composer_test_tour.js SUCCEEDED ║
+╚════════════════════════════════════════════════════════════════════════╝
+", source: http://127.0.0.1:8071/web/assets/f0674d8/web.assets_tests.min.js (666)

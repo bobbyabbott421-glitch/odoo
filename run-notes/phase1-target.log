@@ -1,0 +1,52 @@
+2026-11-20 19:37:52,172 30678 INFO ? odoo: Odoo version 20.0
+2026-11-20 19:37:52,172 30678 INFO ? odoo: Using configuration file at /workspace/odoo-env/odoo.conf
+2026-11-20 19:37:52,172 30678 INFO ? odoo: addons paths: _NamespacePath(['/workspace/odoo/odoo/addons', '/workspace/odoo-env/data/addons/20.0', '/workspace/odoo/addons'])
+2026-11-20 19:37:52,172 30678 INFO ? odoo: database: odoo@/workspace/odoo-env/run:5432
+2026-11-20 19:37:52,804 30678 INFO ? odoo.service.server: HTTP service running on 127.0.0.1:8078
+2026-11-20 19:37:52,863 30678 INFO crm_baseline_desktop odoo.tests.common: Importing test framework
+2026-11-20 19:37:52,905 30678 INFO crm_baseline_desktop odoo.modules.loading: loading 1 modules...
+2026-11-20 19:37:52,947 30678 INFO crm_baseline_desktop odoo.modules.loading: 1 modules loaded in 0.04s, 0 queries (+0 extra)
+2026-11-20 19:37:53,012 30678 INFO crm_baseline_desktop odoo.modules.loading: loading 226 modules...
+2026-11-20 19:37:53,233 30678 WARNING crm_baseline_desktop odoo.addons.mail.controllers.attachment: markdown2 is not installed, markdown will not be rendered
+2026-11-20 19:37:55,588 30678 INFO crm_baseline_desktop odoo.modules.loading: 226 modules loaded in 2.58s, 0 queries (+0 extra)
+2026-11-20 19:37:56,098 30678 INFO crm_baseline_desktop odoo.modules.loading: Modules loaded.
+2026-11-20 19:37:56,384 30678 INFO crm_baseline_desktop odoo.registry: Registry loaded in 3.578s
+2026-11-20 19:37:56,384 30678 INFO crm_baseline_desktop odoo.service.server: Starting post tests
+2026-11-20 19:37:56,508 30678 INFO crm_baseline_desktop odoo.addons.base.models.ir_qweb: Pregenerating assets bundles
+2026-11-20 19:37:58,630 30678 INFO crm_baseline_desktop odoo.addons.base.models.ir_qweb: JS Assets bundles generated in 1.4804186820983887 seconds
+2026-11-20 19:37:58,633 30678 INFO crm_baseline_desktop odoo.addons.base.models.ir_qweb: Binary Assets bundles generated in 0.003184080123901367 seconds
+2026-11-20 19:37:59,162 30678 INFO crm_baseline_desktop odoo.addons.base.models.ir_qweb: CSS Assets bundles generated in 0.5287823677062988 seconds
+2026-11-20 19:37:59,229 30678 INFO crm_baseline_desktop odoo.addons.web.tests.test_offline: Starting TestOfflineConnection.test_disconnect_and_reconnect ...
+2026-11-20 19:37:59,675 30678 INFO crm_baseline_desktop odoo.addons.web.tests.test_offline.TestOfflineConnection.test_disconnect_and_reconnect: Chrome pid: 30687
+2026-11-20 19:37:59,675 30678 INFO crm_baseline_desktop odoo.addons.web.tests.test_offline.TestOfflineConnection.test_disconnect_and_reconnect: Chrome headless temporary user profile dir: /tmp/tmplxmgqdbd_chrome_odoo
+2026-11-20 19:37:59,675 30678 INFO crm_baseline_desktop odoo.addons.web.tests.test_offline.TestOfflineConnection.test_disconnect_and_reconnect: Issuing json command http://127.0.0.1:37705/json/version
+2026-11-20 19:37:59,679 30678 INFO crm_baseline_desktop odoo.tests.common.requests: request SplitResult(scheme='http', netloc='127.0.0.1:37705', path='/json/version', query='', fragment='') with timeout 3 increased to 10s during tests
+2026-11-20 19:37:59,790 30678 INFO crm_baseline_desktop odoo.addons.web.tests.test_offline.TestOfflineConnection.test_disconnect_and_reconnect: Browser version: Chrome/156.0.8078.79
+2026-11-20 19:37:59,790 30678 INFO crm_baseline_desktop odoo.addons.web.tests.test_offline.TestOfflineConnection.test_disconnect_and_reconnect: Issuing json command http://127.0.0.1:37705/json
+2026-11-20 19:37:59,792 30678 INFO crm_baseline_desktop odoo.tests.common.requests: request SplitResult(scheme='http', netloc='127.0.0.1:37705', path='/json', query='', fragment='') with timeout 3 increased to 10s during tests
+2026-11-20 19:37:59,810 30678 INFO crm_baseline_desktop odoo.addons.web.tests.test_offline.TestOfflineConnection.test_disconnect_and_reconnect: Websocket url found: ws://127.0.0.1:37705/devtools/page/C797659116880F93E6EC5AEEF69889D8
+2026-11-20 19:37:59,834 30678 INFO crm_baseline_desktop odoo.addons.web.tests.test_offline.TestOfflineConnection.test_disconnect_and_reconnect: Enable chrome headless console log notification
+2026-11-20 19:37:59,837 30678 INFO crm_baseline_desktop odoo.addons.web.tests.test_offline.TestOfflineConnection.test_disconnect_and_reconnect: Chrome headless enable page notifications
+2026-11-20 19:37:59,905 30678 INFO crm_baseline_desktop odoo.addons.web.tests.test_offline.TestOfflineConnection.test_disconnect_and_reconnect: Navigating to: "http://127.0.0.1:33477/web/health"
+2026-11-20 19:37:59,929 30678 INFO crm_baseline_desktop odoo.addons.base.models.ir_http: Generating routing map for key 1
+2026-11-20 19:38:00,074 30678 INFO crm_baseline_desktop odoo.http.server: 127.0.0.1 0AZgqHDJ - [20/Nov/2026 19:38:00] "GET /web/health HTTP/1.1" 200 18 5 0.012 0.155 ro
+2026-11-20 19:38:00,079 30678 INFO crm_baseline_desktop odoo.addons.web.tests.test_offline.TestOfflineConnection.test_disconnect_and_reconnect: Navigation result: {'frameId': 'C797659116880F93E6EC5AEEF69889D8', 'loaderId': 'BF79F8767013F6055C4A9A1D8786E5D0', 'isDownload': False}
+2026-11-20 19:38:00,079 30678 INFO crm_baseline_desktop odoo.addons.web.tests.test_offline.TestOfflineConnection.test_disconnect_and_reconnect: Waiting for frame 'C797659116880F93E6EC5AEEF69889D8' to stop loading
+2026-11-20 19:38:00,262 30678 INFO crm_baseline_desktop odoo.http.server: 127.0.0.1 OBdjxCb2 - [20/Nov/2026 19:38:00] "GET /favicon.ico HTTP/1.1" 301 273 13 0.044 0.305 ro
+2026-11-20 19:38:00,263 30678 INFO crm_baseline_desktop odoo.http.server: 127.0.0.1 O7Q28xMT - [20/Nov/2026 19:38:00] "GET /web/health HTTP/1.1" 200 18 0 0 0.113 ro
+2026-11-20 19:38:00,289 30678 INFO crm_baseline_desktop odoo.http.server: 127.0.0.1 OBdjxCb2 - [20/Nov/2026 19:38:00] "GET /web/image/website/1/favicon?unique=0556b5e HTTP/1.1" 200 1150 2 0.002 0.019 ro
+2026-11-20 19:38:00,295 30678 INFO crm_baseline_desktop odoo.http.server: 127.0.0.1 OBdjxCb2 - [20/Nov/2026 19:38:00] "GET /web/health HTTP/1.1" 200 18 0 0 0.002 ro
+2026-11-20 19:38:00,805 30678 INFO crm_baseline_desktop odoo.http.server: 127.0.0.1 OBdjxCb2 - [20/Nov/2026 19:38:00] "GET /web/health HTTP/1.1" 200 18 0 0 0.002 ro
+2026-11-20 19:38:01,311 30678 INFO crm_baseline_desktop odoo.addons.web.tests.test_offline.TestOfflineConnection.test_disconnect_and_reconnect: Closing chrome headless with pid 30687
+2026-11-20 19:38:01,312 30678 INFO crm_baseline_desktop odoo.addons.web.tests.test_offline.TestOfflineConnection.test_disconnect_and_reconnect: Closing websocket connection
+2026-11-20 19:38:01,313 30678 INFO crm_baseline_desktop odoo.addons.web.tests.test_offline.TestOfflineConnection.test_disconnect_and_reconnect: Terminating chrome headless with pid 30687
+2026-11-20 19:38:01,413 30678 INFO crm_baseline_desktop odoo.addons.web.tests.test_offline.TestOfflineConnection.test_disconnect_and_reconnect: Chrome Log in: /tmp/odoo_tests/crm_baseline_desktop/chrome_logs/chrome_log_20261120_193801_412961_test_disconnect_and_reconnect.txt
+2026-11-20 19:38:01,413 30678 INFO crm_baseline_desktop odoo.addons.web.tests.test_offline.TestOfflineConnection.test_disconnect_and_reconnect: Removing chrome user profile "/tmp/tmplxmgqdbd_chrome_odoo"
+2026-11-20 19:38:01,435 30678 INFO crm_baseline_desktop odoo.addons.base.models.ir_attachment: filestore gc 0 checked, 0 removed
+2026-11-20 19:38:01,442 30678 INFO crm_baseline_desktop odoo.service.server: 1 post-tests in 5.06s, 582 queries
+2026-11-20 19:38:01,442 30678 INFO crm_baseline_desktop odoo.tests.stats: web: 3 tests 2.28s 27 queries
+2026-11-20 19:38:01,442 30678 INFO crm_baseline_desktop odoo.tests.result: 0 failed, 0 error(s) of 1 tests when loading database 'crm_baseline_desktop'
+2026-11-20 19:38:01,442 30678 INFO crm_baseline_desktop odoo.service.server.ThreadedServer: Initiating shutdown
+2026-11-20 19:38:01,442 30678 INFO crm_baseline_desktop odoo.service.server.ThreadedServer: Hit CTRL-C again or send a second signal to force the shutdown.
+2026-11-20 19:38:01,442 30678 INFO crm_baseline_desktop odoo.addons.bus.websocket: Disconnecting 0 websockets
+2026-11-20 19:38:01,548 30678 INFO crm_baseline_desktop odoo.sql_db: ConnectionPool(read/write;used=0/count=0/max=64): Closed 1 connections 
